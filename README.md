@@ -106,7 +106,18 @@ npm run check
 
 It fails on duplicate ids, unknown sources, malformed dates and non-http URLs.
 
-## Deploy
+## Status: private
 
-GitHub Pages, from the `main` branch root. `.nojekyll` is present so paths starting with
-underscores are served as-is.
+This repo is private for now, and it's a content source as much as a site — the sections
+are the shelves you pull posts from.
+
+GitHub Pages does not serve private repos on a free plan, so
+`.github/workflows/pages.yml` is set to `workflow_dispatch` only. Read it locally with
+`npm start`.
+
+When you want it public: flip the repo to public, uncomment the `push` trigger in that
+workflow, and it deploys to Pages from the `main` branch root. `.nojekyll` is already
+there so underscore-prefixed paths are served as-is.
+
+`.github/workflows/refresh.yml` keeps working either way — a private repo can still
+fetch and commit updated numbers on its weekly schedule.
