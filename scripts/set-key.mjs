@@ -136,6 +136,18 @@ console.log(row(dim(`Masked input · written to .env (gitignored, chmod 600)`)))
 console.log(row(dim(`Nothing here is echoed, logged, or committed.`)));
 console.log(`  ╰${'─'.repeat(BOX)}╯\n`);
 
+/* Persist after every entry. A key you already pasted must survive a Ctrl+C
+   at the next prompt — losing it because the flow was abandoned is not on. */
+async function save() {
+  const body = [
+    '# Local secrets for use-case-archive. Gitignored — do not commit this file.',
+    `# Written by \`npm run key\` on ${new Date().toISOString().slice(0, 10)}.`,
+    ...[...existing].map(([k, v]) => `${k}=${v}`)
+  ].join('\n') + '\n';
+  await writeFile(ENV, body, { mode: 0o600 });
+  await chmod(ENV, 0o600);
+}
+
 let i = 0;
 for (const k of KEYS) {
   const has = existing.get(k.name);
@@ -154,15 +166,9 @@ for (const k of KEYS) {
   }
 }
 
-const body = [
-  '# Local secrets for use-case-archive. Gitignored — do not commit this file.',
-  `# Written by \`npm run key\` on ${new Date().toISOString().slice(0, 10)}.`,
-  ...[...existing].map(([k, v]) => `${k}=${v}`)
-].join('\n') + '\n';
+if (!existing.size) { console.log('  Nothing entered — no .env written.\n'); process.exit(0); }
 
-await writeFile(ENV, body, { mode: 0o600 });
-await chmod(ENV, 0o600);
-
+await save();
 const mode = (await stat(ENV)).mode & 0o777;
 console.log(`  Saved ${existing.size} key(s) to .env (mode ${mode.toString(8)}).`);
 console.log(`  Every script loads it automatically now:\n`);
