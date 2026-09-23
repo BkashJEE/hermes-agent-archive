@@ -160,7 +160,8 @@ for (const k of KEYS) {
   const value = await pasteArea(k.name);
   if (value) {
     existing.set(k.name, value);
-    console.log(`       ${accent('✓')} stored ${mask(value)}\n`);
+    await save();
+    console.log(`       ${accent('✓')} saved to .env · ${mask(value)}\n`);
   } else {
     console.log(`       ${dim(has ? '· kept the existing key' : '· skipped')}\n`);
   }
