@@ -82,6 +82,26 @@ loads it automatically; anything exported in your shell still wins over the file
 | `GITHUB_TOKEN` | 5000 API requests/hour instead of 60 | fine for one run, rate-limits on repeats |
 | `REDDIT_CLIENT_ID` / `_SECRET` | the Reddit section | stays empty — Reddit refuses anonymous reads |
 
+## Only popular things get sourced
+
+This is a "most viewed, most talked about" shelf, so nothing reaches it on topic alone —
+it has to have been noticed. Floors are enforced twice: at fetch time, so unpopular
+things are never collected, and again at routing, so anything fetched under looser
+settings is caught.
+
+| Source | Floor | Override |
+| --- | --- | --- |
+| GitHub | 25,000 stars | `MIN_STARS=50000` |
+| Hacker News | 300 points | `MIN_HN_POINTS=500` |
+| Reddit | 200 upvotes | `MIN_REDDIT_UPVOTES=400` |
+
+Each shelf also caps at 10 sourced items, keeping the most popular — one fetch should
+never bury what you wrote by hand. Override with `MAX_PER_SECTION`.
+
+```bash
+MIN_STARS=50000 npm run sync     # a harsher bar for one run
+```
+
 ## Sourcing feeds every section, not just builds
 
 `npm run sync` is the whole pipeline:

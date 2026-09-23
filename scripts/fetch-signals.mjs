@@ -33,9 +33,14 @@ const CONFIG = {
   subreddits: ['ClaudeAI', 'ClaudeCode'],
   redditWindow: 'month',   // hour | day | week | month | year | all
   perSource: 12,
-  minHnPoints: 25,
-  minRedditUpvotes: 50,
-  windowDays: 120
+  windowDays: 120,
+
+  // Popularity floors. This archive is a "most viewed, most talked about" shelf,
+  // so something nobody engaged with does not belong on it regardless of topic.
+  // Override per run: MIN_STARS=50000 node scripts/fetch-signals.mjs
+  minStars:         Number(process.env.MIN_STARS         ?? 25000),
+  minHnPoints:      Number(process.env.MIN_HN_POINTS     ?? 300),
+  minRedditUpvotes: Number(process.env.MIN_REDDIT_UPVOTES ?? 200)
 };
 
 const UA = 'use-case-archive/1.0 (+https://github.com/BkashJEE)';
@@ -126,6 +131,7 @@ async function discover(seeded) {
 
   const seen = new Set(seeded.map(r => r.toLowerCase()));
   const out = [];
+  let belowBar = 0;
   for (const r of data.items || []) {
     const name = r.full_name || '';
     const desc = r.description || '';
@@ -133,7 +139,7 @@ async function discover(seeded) {
 
     if (!SLUG.test(name) || seen.has(name.toLowerCase())) continue;
     if (r.private || r.fork || r.archived || r.disabled) continue;
-    if (!Number.isFinite(r.stargazers_count) || r.stargazers_count < 0) continue;
+    if (!Number.isFinite(r.stargazers_count) || r.stargazers_count < CONFIG.minStars) { belowBar++; continue; }
     // GitHub matches loosely; require the subject to actually be named.
     if (!/\bclaude\b/i.test(`${name} ${desc}`) && !topics.includes('claude-code')) continue;
 
@@ -151,7 +157,7 @@ async function discover(seeded) {
     });
     if (out.length >= CONFIG.discoverMax) break;
   }
-  process.stdout.write(`  ✓ discovery — ${out.length} new projects (${data.total_count ?? '?'} matched)\n`);
+  process.stdout.write(`  ✓ discovery — ${out.length} new projects kept, ${belowBar} below ${CONFIG.minStars.toLocaleString()} stars (${data.total_count ?? '?'} matched)\n`);
   return out;
 }
 
@@ -161,7 +167,7 @@ async function hackernews() {
   const seen = new Map();
   for (const q of CONFIG.hnQueries) {
     const url = `https://hn.algolia.com/api/v1/search?query=${encodeURIComponent(q)}`
-              + `&tags=story&numericFilters=created_at_i>${since},points>${CONFIG.minHnPoints}`
+              + `&tags=story&numericFilters=created_at_i>${since},points>=${CONFIG.minHnPoints}`
               + `&hitsPerPage=${CONFIG.perSource * 2}`;
     try {
       const { hits = [] } = await json(url);

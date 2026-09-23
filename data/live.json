@@ -808,6 +808,35 @@
     ],
     "prompts": [
       {
+        "id": "gh-asgeirtj-system_prompts_leaks",
+        "kind": "repo",
+        "source": "github",
+        "title": "asgeirtj/system_prompts_leaks",
+        "summary": "Documented system prompts from Anthropic - Claude Fable 5.1, Opus 5.5, Claude Design, Claude Code. OpenAI - ChatGPT GPT-6-Astra, Codex. Google - Gemini 3.8 Flash, 3.1 Pro, Antigravity. xAI - Grok, Grok Bot, Cursor, Kimi and more! Updated regularly.",
+        "url": "https://github.com/asgeirtj/system_prompts_leaks",
+        "date": "2026-09-22",
+        "lang": "JavaScript",
+        "topics": [
+          "ai",
+          "ai-agents",
+          "ai-prompts",
+          "anthropic",
+          "chatbot",
+          "chatgpt",
+          "claude",
+          "claude-code"
+        ],
+        "metric": {
+          "kind": "stars",
+          "value": 68102
+        },
+        "metric2": {
+          "kind": "forks",
+          "value": 11056
+        },
+        "routedBy": "keyword"
+      },
+      {
         "id": "hn-49760187",
         "kind": "post",
         "source": "hn",
@@ -844,57 +873,9 @@
           "value": 395
         },
         "routedBy": "keyword"
-      },
-      {
-        "id": "gh-asgeirtj-system_prompts_leaks",
-        "kind": "repo",
-        "source": "github",
-        "title": "asgeirtj/system_prompts_leaks",
-        "summary": "Documented system prompts from Anthropic - Claude Fable 5.1, Opus 5.5, Claude Design, Claude Code. OpenAI - ChatGPT GPT-6-Astra, Codex. Google - Gemini 3.8 Flash, 3.1 Pro, Antigravity. xAI - Grok, Grok Bot, Cursor, Kimi and more! Updated regularly.",
-        "url": "https://github.com/asgeirtj/system_prompts_leaks",
-        "date": "2026-09-22",
-        "lang": "JavaScript",
-        "topics": [
-          "ai",
-          "ai-agents",
-          "ai-prompts",
-          "anthropic",
-          "chatbot",
-          "chatgpt",
-          "claude",
-          "claude-code"
-        ],
-        "metric": {
-          "kind": "stars",
-          "value": 68102
-        },
-        "metric2": {
-          "kind": "forks",
-          "value": 11056
-        },
-        "routedBy": "keyword"
       }
     ],
     "skills": [
-      {
-        "id": "hn-48289950",
-        "kind": "post",
-        "source": "hn",
-        "title": "Claude Code as a Daily Driver: Claude.md, Skills, Subagents, Plugins, and MCPs",
-        "summary": "Discussed on Hacker News — arps18.github.io.",
-        "url": "https://arps18.github.io/posts/claude-code-mastery/",
-        "author": "@arps18",
-        "date": "2026-05-27",
-        "metric": {
-          "kind": "points",
-          "value": 451
-        },
-        "metric2": {
-          "kind": "comments",
-          "value": 254
-        },
-        "routedBy": "keyword"
-      },
       {
         "id": "gh-affaan-m-ecc",
         "kind": "repo",
@@ -1180,35 +1161,6 @@
         "metric2": {
           "kind": "forks",
           "value": 8755
-        },
-        "routedBy": "keyword"
-      },
-      {
-        "id": "gh-ruvnet-ruflo",
-        "kind": "repo",
-        "source": "github",
-        "title": "ruvnet/ruflo",
-        "summary": "🌊 The original agent harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build conversational AI systems. Features adaptive memory, self-learning intelligence, federation, vector RAG integration, and native Claude Code / Codex / Hermes and many more Integrated",
-        "url": "https://github.com/ruvnet/ruflo",
-        "date": "2026-09-22",
-        "lang": "TypeScript",
-        "topics": [
-          "agentic-ai",
-          "agentic-framework",
-          "agentic-workflow",
-          "agents",
-          "ai-agents",
-          "ai-assistant",
-          "ai-skills",
-          "autonomous-agents"
-        ],
-        "metric": {
-          "kind": "stars",
-          "value": 73094
-        },
-        "metric2": {
-          "kind": "forks",
-          "value": 8676
         },
         "routedBy": "keyword"
       }
@@ -1548,6 +1500,6 @@
       }
     ]
   },
-  "routedAt": "2026-09-23T06:20:54.272Z",
+  "routedAt": "2026-09-23T20:13:02.384Z",
   "routedBy": "keyword"
 }

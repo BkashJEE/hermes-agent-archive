@@ -26,6 +26,18 @@ import { dirname, join } from 'node:path';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const KEY = process.env.TYPESAFE_API_KEY;
 
+/* Nothing reaches a shelf on topic alone — it has to have been noticed.
+   These mirror the fetch-time floors and catch anything fetched earlier under
+   looser settings, so lowering the bar needs an explicit re-fetch. */
+const FLOOR = {
+  stars:   Number(process.env.MIN_STARS          ?? 25000),
+  points:  Number(process.env.MIN_HN_POINTS      ?? 300),
+  upvotes: Number(process.env.MIN_REDDIT_UPVOTES ?? 200)
+};
+
+/* No shelf should be swamped by one fetch. Keep the most popular, drop the tail. */
+const MAX_PER_SECTION = Number(process.env.MAX_PER_SECTION ?? 10);
+
 const SECTIONS = {
   'use-cases': 'A workflow somebody runs to get work done — onboarding onto a repo, test-first loops, refactors, debugging, CI automation. The subject is a way of working.',
   skills:      'A packaged, reusable capability: a SKILL.md, a plugin, a subagent definition, a marketplace of them. The subject is something you install.',
@@ -160,19 +172,28 @@ const candidates = [
   }))
 ].filter(c => !curatedUrls.has(c.url));
 
-console.log(`\nRouting ${candidates.length} fetched signals with ${KEY ? 'Jev' : 'keyword rules (no TYPESAFE_API_KEY)'}\n`);
+const beforeFloor = candidates.length;
+const popular = candidates.filter(c => {
+  const floor = FLOOR[c.metric?.kind];
+  return floor === undefined ? false : c.metric.value >= floor;
+});
+const dropped = beforeFloor - popular.length;
+
+console.log(`\nPopularity floor: ${FLOOR.stars.toLocaleString()}★ · ${FLOOR.points} HN points · ${FLOOR.upvotes} upvotes`);
+if (dropped) console.log(`${dropped} of ${beforeFloor} fetched signals fell below it and were dropped.`);
+console.log(`\nRouting ${popular.length} signals with ${KEY ? 'Jev' : 'keyword rules (no TYPESAFE_API_KEY)'}\n`);
 
 const routed = {};
 const add = (section, item) => { (routed[section] ||= []).push(item); };
 
 if (KEY) {
-  const decisions = await routeWithJev(candidates);
-  for (const c of candidates) {
+  const decisions = await routeWithJev(popular);
+  for (const c of popular) {
     const d = decisions.get(c.id);
     if (d) add(d.section, { ...c, routedBy: 'jev', routeConfidence: +d.confidence.toFixed(2) });
   }
 } else {
-  for (const c of candidates) {
+  for (const c of popular) {
     const section = routeByKeyword(c);
     if (!section) { process.stdout.write(`  – dropped  ${c.title.slice(0, 54)}\n`); continue; }
     add(section, { ...c, routedBy: 'keyword' });
@@ -180,11 +201,22 @@ if (KEY) {
   }
 }
 
+// Keep the most popular per shelf; a fetch should not bury what was written by hand.
+let capped = 0;
+for (const [section, items] of Object.entries(routed)) {
+  items.sort((a, b) => (b.metric?.value ?? 0) - (a.metric?.value ?? 0));
+  if (items.length > MAX_PER_SECTION) {
+    capped += items.length - MAX_PER_SECTION;
+    routed[section] = items.slice(0, MAX_PER_SECTION);
+  }
+}
+if (capped) console.log(`\nCapped ${capped} item(s) at ${MAX_PER_SECTION} per section.`);
+
 const total = Object.values(routed).reduce((n, a) => n + a.length, 0);
 
 // Never trade a good shelf layout for an empty one because a run failed.
-if (total === 0 && candidates.length > 0) {
-  console.error(`\nRouted nothing out of ${candidates.length} candidates — leaving data/live.json untouched.`);
+if (total === 0 && popular.length > 0) {
+  console.error(`\nRouted nothing out of ${popular.length} candidates — leaving data/live.json untouched.`);
   process.exit(1);
 }
 
@@ -193,6 +225,6 @@ live.routedAt = new Date().toISOString();
 live.routedBy = KEY ? 'jev' : 'keyword';
 await writeFile(join(ROOT, 'data/live.json'), JSON.stringify(live, null, 2) + '\n');
 
-console.log(`\nRouted ${total} of ${candidates.length} into ${Object.keys(routed).length} sections:`);
+console.log(`\nRouted ${total} of ${beforeFloor} fetched into ${Object.keys(routed).length} sections:`);
 for (const [s, a] of Object.entries(routed).sort((x, y) => y[1].length - x[1].length)) console.log(`  ${String(a.length).padStart(3)}  ${s}`);
 if (!KEY) console.log('\nKeyword rules can\'t tell a use case from ecosystem news. Set TYPESAFE_API_KEY for the Jev router.');
