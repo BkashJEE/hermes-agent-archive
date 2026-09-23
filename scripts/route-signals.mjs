@@ -99,6 +99,11 @@ async function routeWithJev(items) {
         body: JSON.stringify(body),
         signal: AbortSignal.timeout(30000)
       });
+      if (res.status === 401 || res.status === 403) {
+        const err = new Error(`${res.status} — the API rejected this key`);
+        err.fatal = true;
+        throw err;
+      }
       if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
       const { answers } = await res.json();
       const section = answers.section.choice;
@@ -111,6 +116,12 @@ async function routeWithJev(items) {
       out.set(item.id, { section, confidence: answers.section.confidence, keep });
       process.stdout.write(`  ✓ ${section.padEnd(10)} ${item.title.slice(0, 54)}\n`);
     } catch (err) {
+      // One bad key means every remaining call fails the same way. Stop, don't grind.
+      if (err.fatal) {
+        console.error(`\nAborted: ${err.message}.`);
+        console.error('Set TYPESAFE_API_KEY to a real key, or unset it to use the keyword router.');
+        process.exit(1);
+      }
       process.stdout.write(`  ✗ ${item.title.slice(0, 40)} — ${err.message}\n`);
     }
   }
@@ -168,12 +179,19 @@ if (KEY) {
   }
 }
 
+const total = Object.values(routed).reduce((n, a) => n + a.length, 0);
+
+// Never trade a good shelf layout for an empty one because a run failed.
+if (total === 0 && candidates.length > 0) {
+  console.error(`\nRouted nothing out of ${candidates.length} candidates — leaving data/live.json untouched.`);
+  process.exit(1);
+}
+
 live.routed = routed;
 live.routedAt = new Date().toISOString();
 live.routedBy = KEY ? 'jev' : 'keyword';
 await writeFile(join(ROOT, 'data/live.json'), JSON.stringify(live, null, 2) + '\n');
 
-const total = Object.values(routed).reduce((n, a) => n + a.length, 0);
 console.log(`\nRouted ${total} of ${candidates.length} into ${Object.keys(routed).length} sections:`);
 for (const [s, a] of Object.entries(routed).sort((x, y) => y[1].length - x[1].length)) console.log(`  ${String(a.length).padStart(3)}  ${s}`);
 if (!KEY) console.log('\nKeyword rules can\'t tell a use case from ecosystem news. Set TYPESAFE_API_KEY for the Jev router.');

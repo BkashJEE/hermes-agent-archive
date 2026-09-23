@@ -119,6 +119,11 @@ async function ask(candidate) {
     body: JSON.stringify(body),
     signal: AbortSignal.timeout(30000)
   });
+  if (res.status === 401 || res.status === 403) {
+    const err = new Error(`${res.status} — the API rejected this key`);
+    err.fatal = true;
+    throw err;
+  }
   if (!res.ok) throw new Error(`${res.status} ${res.statusText}: ${(await res.text()).slice(0, 200)}`);
   return res.json();
 }
@@ -152,8 +157,17 @@ for (const c of candidates) {
     usage.output_tokens += out.usage?.output_tokens || 0;
     process.stdout.write(`  ✓ ${c.title}\n`);
   } catch (err) {
+    if (err.fatal) {
+      console.error(`\nAborted: ${err.message}. Check TYPESAFE_API_KEY and re-run.`);
+      process.exit(1);
+    }
     process.stdout.write(`  ✗ ${c.title} — ${err.message}\n`);
   }
+}
+
+if (!results.length) {
+  console.error('\nNothing scored — not writing an empty ranking file.');
+  process.exit(1);
 }
 
 results.sort((a, b) => b.priority - a.priority);
