@@ -37,21 +37,80 @@ function parseEnv(text) {
   return out;
 }
 
-/* Hidden input that still accepts a paste. The prompt is written before the
-   interface is muted, so you can see what you're answering but not what you type.
-   An EOF (piped or closed stdin) resolves empty instead of hanging forever. */
-function askHidden(prompt) {
+/* A paste area: bordered, masked, and it shows you it is receiving.
+   One bullet per character and a live count, so a paste that silently failed
+   is obvious. The characters themselves are never rendered or logged. */
+
+const W = 54;                                   // inner width of the box
+const ESC = '\x1b';
+const up = n => `${ESC}[${n}A`;
+const down = n => `${ESC}[${n}B`;
+const clearLine = `\r${ESC}[2K`;
+const dim = t => `${ESC}[2m${t}${ESC}[0m`;
+const accent = t => `${ESC}[38;5;154m${t}${ESC}[0m`;
+
+/* Terminals wrap a paste in bracketed-paste markers and may include a trailing
+   newline; a key never contains whitespace or control characters. */
+function cleanPaste(chunk) {
+  return chunk
+    .replace(/\x1b\[20[01]~/g, '')
+    .replace(/[\x00-\x1f\x7f]/g, '')
+    .trim();
+}
+
+function pasteArea(label) {
   return new Promise(resolve => {
+    const stdin = process.stdin;
+    const out = process.stdout;
+    let buf = '';
     let done = false;
-    const finish = v => { if (!done) { done = true; resolve(v); } };
 
-    process.stdout.write(prompt);
-    const rl = readline.createInterface({ input: process.stdin, output: process.stdout, terminal: true });
-    rl.stdoutMuted = true;
-    rl._writeToOutput = str => { if (!rl.stdoutMuted) rl.output.write(str); };
+    const bar = '─'.repeat(W);
+    out.write(`       ┌${bar}┐\n`);
+    out.write(`       │${' '.repeat(W)}│\n`);
+    out.write(`       └${bar}┘\n`);
+    out.write(dim(`         Enter save · Esc skip · Ctrl+U clear · Ctrl+C quit\n`));
+    out.write(up(3));                             // sit on the input line
 
-    rl.question('', answer => { rl.close(); process.stdout.write('\n'); finish(answer.trim()); });
-    rl.on('close', () => finish(''));
+    const draw = () => {
+      const shown = Math.min(buf.length, 30);
+      const dots = '•'.repeat(shown) + (buf.length > shown ? `+${buf.length - shown}` : '');
+      const count = buf.length ? dim(`${buf.length} chars`) : dim('waiting for paste…');
+      const visible = `${buf.length ? accent('▸') : dim('▸')} ${dots}`;
+      const plainLen = 2 + dots.length + (buf.length ? `${buf.length} chars`.length : 'waiting for paste…'.length) + 2;
+      const pad = ' '.repeat(Math.max(1, W - plainLen));
+      out.write(`${clearLine}       │ ${visible}${pad}${count} │`);
+    };
+
+    const finish = value => {
+      if (done) return;
+      done = true;
+      stdin.setRawMode(false);
+      stdin.pause();
+      stdin.removeListener('data', onData);
+      out.write(`${down(3)}\r\n`);
+      resolve(value);
+    };
+
+    const onData = chunk => {
+      // A paste arrives as one chunk; a keystroke as one character.
+      if (chunk === '\x03') { out.write(`${down(3)}\r\n`); process.exit(130); }   // Ctrl+C
+      if (chunk === '\x15') { buf = ''; draw(); return; }                          // Ctrl+U
+      if (chunk === ESC)     { finish(''); return; }                               // Esc = skip
+      if (chunk === '\r' || chunk === '\n') { finish(buf); return; }
+      if (chunk === '\x7f' || chunk === '\b') { buf = buf.slice(0, -1); draw(); return; }
+
+      const cleaned = cleanPaste(chunk);
+      if (cleaned) { buf += cleaned; draw(); }
+      // A chunk ending in a newline is a paste that included one: treat it as Enter.
+      if (/[\r\n]$/.test(chunk)) finish(buf);
+    };
+
+    stdin.setRawMode(true);
+    stdin.resume();
+    stdin.setEncoding('utf8');
+    stdin.on('data', onData);
+    draw();
   });
 }
 
@@ -62,19 +121,34 @@ if (!process.stdin.isTTY) {
 
 const existing = parseEnv(await readFile(ENV, 'utf8').catch(() => ''));
 
-console.log(`\n  API keys for this repo\n  ──────────────────────`);
-console.log(`  Written to .env (gitignored, owner-only). Input is hidden as you paste.`);
-console.log(`  Press Enter to skip, or to keep what is already set.\n`);
+const BOX = 60;
+const row = text => {                       // pad by visible width, not by eye
+  const plain = text.replace(/\x1b\[[0-9;]*m/g, '');
+  return `  │ ${text}${' '.repeat(Math.max(0, BOX - plain.length - 2))} │`;
+};
 
+console.log(`\n  ╭${'─'.repeat(BOX)}╮`);
+console.log(row(`API KEYS · use-case-archive`));
+console.log(row(dim(`Masked input · written to .env (gitignored, chmod 600)`)));
+console.log(row(dim(`Nothing here is echoed, logged, or committed.`)));
+console.log(`  ╰${'─'.repeat(BOX)}╯\n`);
+
+let i = 0;
 for (const k of KEYS) {
   const has = existing.get(k.name);
-  console.log(`  ${k.label}`);
-  console.log(`    ${k.why}`);
-  console.log(`    ${has ? `currently ${mask(has)}` : `get one: ${k.get}`}`);
-  const value = await askHidden(`    ${k.name}: `);
-  if (value) existing.set(k.name, value);
-  else if (!has) console.log('    skipped');
+  i++;
+  console.log(`  ${dim(`${i}/${KEYS.length}`)}  ${k.name}   ${dim(k.label)}`);
+  console.log(`        ${dim(k.why)}`);
+  console.log(`        ${has ? dim(`currently ${mask(has)} — Enter keeps it`) : dim(`get one → ${k.get}`)}`);
   console.log('');
+
+  const value = await pasteArea(k.name);
+  if (value) {
+    existing.set(k.name, value);
+    console.log(`       ${accent('✓')} stored ${mask(value)}\n`);
+  } else {
+    console.log(`       ${dim(has ? '· kept the existing key' : '· skipped')}\n`);
+  }
 }
 
 const body = [
