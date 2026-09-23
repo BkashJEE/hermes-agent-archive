@@ -18,6 +18,7 @@
  *   TYPESAFE_API_KEY=... node scripts/route-signals.mjs
  */
 
+import './env.mjs';
 import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';

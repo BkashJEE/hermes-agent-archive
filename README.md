@@ -66,6 +66,22 @@ Discovered results are deduped against the seeds, and dropped if they're private
 archived, disabled, or don't actually name Claude in the slug/description or carry the
 `claude-code` topic — GitHub's matcher is looser than the query implies.
 
+## Keys
+
+```bash
+npm run key
+```
+
+A terminal prompt for the four optional keys. Input is hidden as you paste, values are
+written to `.env` with owner-only permissions, and `.env` is gitignored. Every script
+loads it automatically; anything exported in your shell still wins over the file.
+
+| Key | What it unlocks | Without it |
+| --- | --- | --- |
+| `TYPESAFE_API_KEY` | Jev routing and feature ranking | keyword rules route; ranking is unavailable |
+| `GITHUB_TOKEN` | 5000 API requests/hour instead of 60 | fine for one run, rate-limits on repeats |
+| `REDDIT_CLIENT_ID` / `_SECRET` | the Reddit section | stays empty — Reddit refuses anonymous reads |
+
 ## Sourcing feeds every section, not just builds
 
 `npm run sync` is the whole pipeline:

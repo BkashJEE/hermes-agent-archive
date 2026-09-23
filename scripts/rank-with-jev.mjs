@@ -13,6 +13,7 @@
  *   TYPESAFE_API_KEY=... node scripts/rank-with-jev.mjs --weights 0.5,0.3,0.2
  */
 
+import './env.mjs';
 import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
