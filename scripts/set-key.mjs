@@ -26,7 +26,9 @@ const KEYS = [
   { name: 'REDDIT_CLIENT_SECRET', label: 'Reddit secret',    why: 'the other half of the Reddit app credentials', get: 'same app as above' }
 ];
 
-const mask = v => v.length <= 8 ? '•'.repeat(v.length) : `${v.slice(0, 3)}${'•'.repeat(v.length - 6)}${v.slice(-3)}`;
+/* Never render any part of a secret — not the first characters, not the last.
+   Length alone is enough to confirm the right thing was pasted. */
+const mask = v => `${v.length} chars`;
 
 function parseEnv(text) {
   const out = new Map();
@@ -44,7 +46,6 @@ function parseEnv(text) {
 const W = 54;                                   // inner width of the box
 const ESC = '\x1b';
 const up = n => `${ESC}[${n}A`;
-const down = n => `${ESC}[${n}B`;
 const clearLine = `\r${ESC}[2K`;
 const dim = t => `${ESC}[2m${t}${ESC}[0m`;
 const accent = t => `${ESC}[38;5;154m${t}${ESC}[0m`;
@@ -66,20 +67,22 @@ function pasteArea(label) {
     let done = false;
 
     const bar = '─'.repeat(W);
-    out.write(`       ┌${bar}┐\n`);
-    out.write(`       │${' '.repeat(W)}│\n`);
-    out.write(`       └${bar}┘\n`);
-    out.write(dim(`         Enter save · Esc skip · Ctrl+U clear · Ctrl+C quit\n`));
-    out.write(up(3));                             // sit on the input line
+    let painted = false;
 
     const draw = () => {
       const shown = Math.min(buf.length, 30);
       const dots = '•'.repeat(shown) + (buf.length > shown ? `+${buf.length - shown}` : '');
-      const count = buf.length ? dim(`${buf.length} chars`) : dim('waiting for paste…');
-      const visible = `${buf.length ? accent('▸') : dim('▸')} ${dots}`;
-      const plainLen = 2 + dots.length + (buf.length ? `${buf.length} chars`.length : 'waiting for paste…'.length) + 2;
-      const pad = ' '.repeat(Math.max(1, W - plainLen));
-      out.write(`${clearLine}       │ ${visible}${pad}${count} │`);
+      const status = buf.length ? `${buf.length} chars` : 'waiting for paste…';
+      const marker = buf.length ? accent('▸') : dim('▸');
+      const pad = ' '.repeat(Math.max(1, W - (3 + dots.length + status.length + 1)));
+
+      // Repaint all four lines as one block; no stranded lines, no drift.
+      if (painted) out.write(`\r${up(3)}`);
+      out.write(`${clearLine}       ┌${bar}┐\n`);
+      out.write(`${clearLine}       │ ${marker} ${dots}${pad}${dim(status)} │\n`);
+      out.write(`${clearLine}       └${bar}┘\n`);
+      out.write(`${clearLine}${dim('         Enter save · Esc skip · Ctrl+U clear · Ctrl+C quit')}`);
+      painted = true;
     };
 
     const finish = value => {
@@ -88,13 +91,13 @@ function pasteArea(label) {
       stdin.setRawMode(false);
       stdin.pause();
       stdin.removeListener('data', onData);
-      out.write(`${down(3)}\r\n`);
+      out.write('\r\n');
       resolve(value);
     };
 
     const onData = chunk => {
       // A paste arrives as one chunk; a keystroke as one character.
-      if (chunk === '\x03') { out.write(`${down(3)}\r\n`); process.exit(130); }   // Ctrl+C
+      if (chunk === '\x03') { out.write('\r\n'); process.exit(130); }              // Ctrl+C
       if (chunk === '\x15') { buf = ''; draw(); return; }                          // Ctrl+U
       if (chunk === ESC)     { finish(''); return; }                               // Esc = skip
       if (chunk === '\r' || chunk === '\n') { finish(buf); return; }
@@ -139,7 +142,7 @@ for (const k of KEYS) {
   i++;
   console.log(`  ${dim(`${i}/${KEYS.length}`)}  ${k.name}   ${dim(k.label)}`);
   console.log(`        ${dim(k.why)}`);
-  console.log(`        ${has ? dim(`currently ${mask(has)} — Enter keeps it`) : dim(`get one → ${k.get}`)}`);
+  console.log(`        ${has ? dim(`already set · ${mask(has)} — Enter keeps it`) : dim(`get one → ${k.get}`)}`);
   console.log('');
 
   const value = await pasteArea(k.name);
