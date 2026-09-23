@@ -66,6 +66,24 @@ Discovered results are deduped against the seeds, and dropped if they're private
 archived, disabled, or don't actually name Claude in the slug/description or carry the
 `claude-code` topic — GitHub's matcher is looser than the query implies.
 
+## Ranking candidate features with Jev
+
+`scripts/rank-with-jev.mjs` scores candidate capabilities against what this site
+actually is and what it's bad at, using TypeSafe's Jev. Three Score questions (fit,
+visitor value, effort) plus one Noul (is this better as content than as a feature),
+asked together over the same state. Code owns the weighting, so you can re-order
+without re-running inference:
+
+```bash
+export TYPESAFE_API_KEY=...
+node scripts/rank-with-jev.mjs
+node scripts/rank-with-jev.mjs --weights 0.5,0.4,0.1   # re-weight fit,value,effort
+```
+
+Candidates live in `data/research/jev-use-cases.json` (top posts from the public Jev
+builder directory); results are written to `data/research/jev-ranking.json`. The key
+stays in your shell and is never written to the repo.
+
 ## The honesty rule
 
 **No number on this site is invented.**
