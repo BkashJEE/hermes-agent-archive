@@ -1,0 +1,13 @@
+{
+  "name": "use-case-archive",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The most viewed, talked about and actually-used Claude Code craft, curated in public.",
+  "type": "module",
+  "scripts": {
+    "start": "python3 -m http.server 4179",
+    "fetch": "node scripts/fetch-signals.mjs",
+    "check": "node scripts/check-data.mjs"
+  },
+  "engines": { "node": ">=20" }
+}

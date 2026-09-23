@@ -34,9 +34,23 @@ npm run fetch                          # 60 GitHub requests/hour
 GITHUB_TOKEN=ghp_xxx npm run fetch     # 5000/hour
 ```
 
-This writes `data/live.json` with real stars, forks, Hacker News points and Reddit
-upvotes. Re-run it whenever you want the rankings to move — a weekly cron or a GitHub
-Action is plenty.
+This writes `data/live.json` with real stars, forks and Hacker News points. Re-run it
+whenever you want the rankings to move — `.github/workflows/refresh.yml` already does it
+weekly and commits the result.
+
+**GitHub and Hacker News work with no credentials.** Reddit does not: its anonymous
+`.json` endpoints now redirect to a login page from most networks, so the script needs
+application-only OAuth.
+
+1. Create a free **script** app at <https://www.reddit.com/prefs/apps>
+2. Export the two values it gives you and re-run:
+
+```bash
+REDDIT_CLIENT_ID=xxx REDDIT_CLIENT_SECRET=yyy npm run fetch
+```
+
+Until then the Reddit section stays empty and the page says so in the footer — it will
+never show an invented number in its place.
 
 ## The honesty rule
 

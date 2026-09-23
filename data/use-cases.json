@@ -1,0 +1,63 @@
+{
+  "items": [
+    { "id": "onboard-repo", "title": "Onboard onto an unfamiliar repo", "summary": "Drop the agent in a codebase you've never seen and let it write the map before you read a line.",
+      "detail": "Run /init first so the agent writes a CLAUDE.md describing build commands, architecture and conventions. Then ask it questions in plain language: where auth lives, what the request lifecycle looks like, which module owns a bug. It greps and reads on demand instead of you keyword-hunting.\n\nWhy it wins: the expensive part of a new codebase is orientation, not typing. This converts a week of orientation into an afternoon of questions.",
+      "snippet": "/init\n\nWalk me through how a request flows from the router to the database. Name the files.",
+      "tags": ["onboarding", "exploration"], "source": "docs", "url": "https://docs.claude.com/en/docs/claude-code/common-workflows", "date": "2026-08-01" },
+
+    { "id": "tdd-loop", "title": "Test-first loop", "summary": "Write the failing test, hand over the file, let the agent iterate until green.",
+      "detail": "Ask for tests first and explicitly say the implementation does not exist yet, otherwise the agent will mock its way to a false pass. Commit the tests. Then ask for an implementation that satisfies them, with an instruction not to modify the tests.\n\nThe test suite becomes the spec, and 'run the tests' becomes a verifiable stopping condition rather than a vibe.",
+      "snippet": "Write tests for [behaviour] based on these input/output pairs. Do NOT write an implementation — it doesn't exist yet. Run them and confirm they fail.\n\nNow implement until all tests pass. Do not modify the test files.",
+      "tags": ["tdd", "verification"], "source": "docs", "url": "https://docs.claude.com/en/docs/claude-code/common-workflows", "date": "2026-08-05" },
+
+    { "id": "screenshot-loop", "title": "Screenshot-driven UI iteration", "summary": "Paste a mock, let it build, screenshot the result, repeat until the pixels agree.",
+      "detail": "Give the agent a target image (Ctrl+V a screenshot straight into the prompt, or drag the file in). Ask it to implement, then take its own screenshot of the running page and compare against the target. Two or three iterations usually beat one perfect prompt.\n\nThis works because a visual diff is a feedback signal the agent can actually act on.",
+      "snippet": "Here's the design target [paste image]. Build it, then screenshot the running page and iterate until it matches. Tell me what still differs.",
+      "tags": ["frontend", "visual"], "source": "docs", "url": "https://docs.claude.com/en/docs/claude-code/common-workflows", "date": "2026-07-20" },
+
+    { "id": "plan-mode-refactor", "title": "Large refactor behind plan mode", "summary": "Shift+Tab into plan mode so it researches and proposes before touching a single file.",
+      "detail": "Plan mode makes the agent read-only: it explores, reasons and hands you a plan you approve before any edit lands. For a multi-file refactor this is the difference between a reviewable change and a mess.\n\nApprove the plan, then let it execute; reject and refine while it is still cheap.",
+      "snippet": "[Shift+Tab to plan mode]\n\nPlan the migration from [old] to [new] across this repo. List every file that changes and the order to change them in. Don't edit anything yet.",
+      "tags": ["refactor", "plan-mode"], "source": "docs", "url": "https://docs.claude.com/en/docs/claude-code/interactive-mode", "date": "2026-08-12" },
+
+    { "id": "log-to-fix", "title": "Paste the stack trace, get the fix", "summary": "Pipe a failing log or paste an error and let it walk the trace to the actual cause.",
+      "detail": "The agent is good at the boring part of debugging: following a trace across files, checking recent commits on the implicated lines, and reproducing. Give it the raw error, not your summary of the error — your summary is where the bug hides.\n\nPiping works too: `cat build.log | claude -p \"why did this fail?\"`.",
+      "snippet": "cat build.log | claude -p \"Why did this fail? Give me the root cause and the one-line fix.\"",
+      "tags": ["debugging", "headless"], "source": "docs", "url": "https://docs.claude.com/en/docs/claude-code/cli-reference", "date": "2026-07-28" },
+
+    { "id": "pr-review", "title": "Review a PR before a human does", "summary": "Catch the boring class of bug so review conversation is about design, not typos.",
+      "detail": "Point the agent at the diff and ask for correctness issues only — unbounded 'review this' prompts return style noise. Ask it to state a concrete failure scenario for each finding; anything it can't fail-case is usually a false positive.",
+      "snippet": "Review the current diff for correctness bugs only. For each finding give: file:line, the defect in one sentence, and concrete inputs that break it. No style comments.",
+      "tags": ["review", "quality"], "source": "docs", "url": "https://docs.claude.com/en/docs/claude-code/common-workflows", "date": "2026-08-18" },
+
+    { "id": "worktree-parallel", "title": "Parallel agents in git worktrees", "summary": "Run several sessions at once, each in its own worktree, with zero file collisions.",
+      "detail": "`git worktree add ../feature-x feature-x` gives each session an isolated checkout sharing one object store. Open a session per worktree and you can have a refactor, a bugfix and a docs pass running simultaneously without them stepping on each other.\n\nThe constraint that matters is your review bandwidth, not the agent's.",
+      "snippet": "git worktree add ../proj-feature-x -b feature-x\ncd ../proj-feature-x && claude",
+      "tags": ["parallel", "git"], "source": "docs", "url": "https://docs.claude.com/en/docs/claude-code/common-workflows", "date": "2026-08-22" },
+
+    { "id": "headless-ci", "title": "Headless automation in CI", "summary": "`claude -p` in a pipeline: triage issues, label PRs, run a review on every push.",
+      "detail": "Print mode is non-interactive and scriptable, with `--output-format stream-json` for machine consumption and `--allowedTools` to bound what it may touch. Pair it with the GitHub Action to get reviews and @mentions on PRs.\n\nTreat it like any other CI job: pin the prompt in the repo, keep permissions tight.",
+      "snippet": "claude -p \"Triage this issue and suggest labels\" --output-format stream-json --allowedTools \"Read,Grep\"",
+      "tags": ["ci", "headless", "automation"], "source": "docs", "url": "https://docs.claude.com/en/docs/claude-code/github-actions", "date": "2026-08-09" },
+
+    { "id": "commit-hygiene", "title": "Commit and PR hygiene on autopilot", "summary": "Let it read the diff and write the message — it has actually read every line, you haven't.",
+      "detail": "Ask for a commit message derived from the staged diff, or a PR description that explains why rather than restating what. Add a rule in CLAUDE.md for your house style (conventional commits, no attribution trailers, ticket prefix) and it sticks across sessions.",
+      "snippet": "Read the staged diff and write a commit message in conventional-commit style. Explain the why in the body, one short paragraph.",
+      "tags": ["git", "writing"], "source": "docs", "url": "https://docs.claude.com/en/docs/claude-code/memory", "date": "2026-07-15" },
+
+    { "id": "codemod-migration", "title": "Framework migration as a codemod", "summary": "Do one file by hand, then have it apply the same transform across hundreds.",
+      "detail": "Migrations fail when the agent invents a new approach per file. Fix one file yourself, show it as the reference, and ask for the identical transform everywhere else — plus a list of files it deliberately skipped and why.\n\nRun the test suite between batches, not at the end.",
+      "snippet": "src/components/Button.tsx is migrated correctly. Apply the exact same transform to every other file in src/components. After each batch of 10, run the tests. List anything you skipped and why.",
+      "tags": ["migration", "refactor"], "source": "docs", "url": "https://docs.claude.com/en/docs/claude-code/common-workflows", "date": "2026-08-14" },
+
+    { "id": "docs-from-code", "title": "Docs that match the code", "summary": "Generate the README and API docs from the source, then keep them honest with a hook.",
+      "detail": "One-shot docs rot. The move is to generate from source, then add a hook or a scheduled session that re-checks docs against code after changes land. Ask explicitly for 'only document what exists' — otherwise you get aspirational APIs.",
+      "snippet": "Document every exported function in src/api. Only document what actually exists in the code — no aspirational endpoints. Flag anything already in the README that no longer matches.",
+      "tags": ["docs", "maintenance"], "source": "docs", "url": "https://docs.claude.com/en/docs/claude-code/hooks", "date": "2026-07-30" },
+
+    { "id": "incident-triage", "title": "Incident triage at 3am", "summary": "Hand it the alert, the logs and read-only access; get a timeline and a suspect list.",
+      "detail": "Ask for a timeline before a diagnosis — it forces ordering of evidence instead of pattern-matching to the first plausible cause. Keep it read-only during triage (plan mode or a tight allowlist) so nothing gets 'fixed' mid-incident.",
+      "snippet": "Here is the alert and the last 30 minutes of logs. Build a timeline of what happened, then list suspects ranked by evidence. Do not change any code yet.",
+      "tags": ["incident", "ops"], "source": "docs", "url": "https://docs.claude.com/en/docs/claude-code/interactive-mode", "date": "2026-08-25" }
+  ]
+}

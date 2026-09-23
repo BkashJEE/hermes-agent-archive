@@ -1,0 +1,16 @@
+{
+  "note": "Curated seeds only. Stars, forks and descriptions are filled in by scripts/fetch-signals.mjs from the public GitHub API; any repo that doesn't resolve is hidden rather than shown with guessed numbers. X and Facebook have no free public API — entries from those sources are added by hand with a real permalink.",
+  "items": [
+    { "id": "gh-claude-code",        "repo": "anthropics/claude-code",              "title": "anthropics/claude-code",              "summary": "The tool itself — issues, releases and the changelog everyone actually reads.", "source": "github", "date": "2026-09-01" },
+    { "id": "gh-awesome",           "repo": "hesreallyhim/awesome-claude-code",    "title": "hesreallyhim/awesome-claude-code",    "summary": "The community index: commands, hooks, workflows and tooling in one list.",        "source": "github", "date": "2026-09-01" },
+    { "id": "gh-ccusage",           "repo": "ryoppippi/ccusage",                   "title": "ryoppippi/ccusage",                   "summary": "CLI that reads local session data and shows what you actually spent.",          "source": "github", "date": "2026-09-01" },
+    { "id": "gh-router",            "repo": "musistudio/claude-code-router",       "title": "musistudio/claude-code-router",       "summary": "Route requests to different model backends from inside Claude Code.",          "source": "github", "date": "2026-09-01" },
+    { "id": "gh-superclaude",       "repo": "SuperClaude-Org/SuperClaude_Framework","title": "SuperClaude Framework",              "summary": "Opinionated bundle of commands, personas and workflows layered on top.",        "source": "github", "date": "2026-09-01" },
+    { "id": "gh-squad",             "repo": "smtg-ai/claude-squad",                "title": "smtg-ai/claude-squad",                "summary": "Manage several agent sessions in parallel worktrees from one terminal UI.",   "source": "github", "date": "2026-09-01" },
+    { "id": "gh-templates",         "repo": "davila7/claude-code-templates",       "title": "davila7/claude-code-templates",       "summary": "Ready-made project configs, agents and commands you can drop into a repo.",    "source": "github", "date": "2026-09-01" },
+    { "id": "gh-claudia",           "repo": "getAsterisk/claudia",                 "title": "getAsterisk/claudia",                 "summary": "Desktop GUI over Claude Code sessions, agents and usage.",                    "source": "github", "date": "2026-09-01" },
+    { "id": "gh-action",            "repo": "anthropics/claude-code-action",       "title": "anthropics/claude-code-action",       "summary": "Official GitHub Action — @mention the agent on issues and PRs.",           "source": "github", "date": "2026-09-01" },
+    { "id": "gh-agent-sdk",         "repo": "anthropics/claude-agent-sdk-python",  "title": "anthropics/claude-agent-sdk-python",  "summary": "Build your own agents on the same harness Claude Code runs on.",              "source": "github", "date": "2026-09-01" },
+    { "id": "gh-wshobson-agents",   "repo": "wshobson/agents",                     "title": "wshobson/agents",                     "summary": "Large collection of ready-to-install subagent definitions.",                  "source": "github", "date": "2026-09-01" }
+  ]
+}

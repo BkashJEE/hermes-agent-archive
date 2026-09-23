@@ -1,0 +1,224 @@
+#!/usr/bin/env node
+/**
+ * Pull real public engagement numbers into data/live.json.
+ *
+ *   GitHub  — stars / forks / description for every repo seeded in data/builds.json
+ *   HN      — top stories via the public Algolia search API
+ *   Reddit  — top posts from the configured subreddits via the public .json endpoints
+ *
+ * Nothing here invents a number. A source that fails is reported and left empty,
+ * and a repo that doesn't resolve is dropped rather than shown with a guess.
+ *
+ *   node scripts/fetch-signals.mjs
+ *   GITHUB_TOKEN=ghp_... node scripts/fetch-signals.mjs        # 60/hr -> 5000/hr
+ *   REDDIT_CLIENT_ID=... REDDIT_CLIENT_SECRET=... node ...     # Reddit needs app-only OAuth
+ *
+ * X and Facebook have no free public API. Entries from those sources stay
+ * hand-curated in the data/*.json files, with a real permalink.
+ */
+
+import { readFile, writeFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
+
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+
+const CONFIG = {
+  hnQueries:  ['claude code', 'claude agent skills'],
+  subreddits: ['ClaudeAI', 'ClaudeCode'],
+  redditWindow: 'month',   // hour | day | week | month | year | all
+  perSource: 12,
+  minHnPoints: 25,
+  minRedditUpvotes: 50,
+  windowDays: 120
+};
+
+const UA = 'use-case-archive/1.0 (+https://github.com/BkashJEE)';
+const since = Math.floor((Date.now() - CONFIG.windowDays * 86400000) / 1000);
+const warnings = [];
+
+const TIMEOUT_MS = 15000;
+const RETRY_STATUS = new Set([403, 429, 500, 502, 503]);
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+/* One retry on the statuses that mean "try again", not "this doesn't exist".
+   A rate-limited request must not be mistaken for a repo that isn't there. */
+async function json(url, headers = {}, attempt = 0) {
+  try {
+    const res = await fetch(url, {
+      headers: { 'user-agent': UA, accept: 'application/json', ...headers },
+      signal: AbortSignal.timeout(TIMEOUT_MS),
+      redirect: 'follow'
+    });
+    if (!res.ok) {
+      const err = new Error(`${res.status} ${res.statusText || ''}`.trim());
+      err.status = res.status;
+      throw err;
+    }
+    return res.json();
+  } catch (err) {
+    if (attempt < 1 && (RETRY_STATUS.has(err.status) || err.name === 'TimeoutError')) {
+      await sleep(2500);
+      return json(url, headers, attempt + 1);
+    }
+    throw err;
+  }
+}
+
+/* ------------------------------------------------------------------ GitHub */
+
+async function github(repos) {
+  const headers = { accept: 'application/vnd.github+json' };
+  if (process.env.GITHUB_TOKEN) headers.authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+
+  const out = [];
+  for (const repo of repos) {
+    try {
+      const r = await json(`https://api.github.com/repos/${repo}`, headers);
+      out.push({
+        repo: r.full_name,
+        description: r.description || '',
+        stars: r.stargazers_count,
+        forks: r.forks_count,
+        language: r.language || '',
+        url: r.html_url,
+        pushedAt: (r.pushed_at || '').slice(0, 10)
+      });
+      process.stdout.write(`  ✓ ${r.full_name} — ${r.stargazers_count.toLocaleString()} stars\n`);
+    } catch (err) {
+      warnings.push(`GitHub ${repo}: ${err.message}`);
+      process.stdout.write(`  ✗ ${repo} — ${err.message}\n`);
+    }
+  }
+  return out.sort((a, b) => b.stars - a.stars);
+}
+
+/* ---------------------------------------------------------------------- HN */
+
+async function hackernews() {
+  const seen = new Map();
+  for (const q of CONFIG.hnQueries) {
+    const url = `https://hn.algolia.com/api/v1/search?query=${encodeURIComponent(q)}`
+              + `&tags=story&numericFilters=created_at_i>${since},points>${CONFIG.minHnPoints}`
+              + `&hitsPerPage=${CONFIG.perSource * 2}`;
+    try {
+      const { hits = [] } = await json(url);
+      for (const h of hits) {
+        if (seen.has(h.objectID)) continue;
+        seen.set(h.objectID, {
+          id: h.objectID,
+          title: h.title,
+          summary: `Discussed on Hacker News${h.url ? ` — ${new URL(h.url).hostname.replace(/^www\./, '')}` : ''}.`,
+          url: h.url || `https://news.ycombinator.com/item?id=${h.objectID}`,
+          author: h.author ? `@${h.author}` : '',
+          points: h.points || 0,
+          comments: h.num_comments || 0,
+          date: (h.created_at || '').slice(0, 10)
+        });
+      }
+    } catch (err) {
+      warnings.push(`Hacker News "${q}": ${err.message}`);
+      process.stdout.write(`  ✗ hn "${q}" — ${err.message}\n`);
+    }
+  }
+  const list = [...seen.values()].sort((a, b) => b.points - a.points).slice(0, CONFIG.perSource);
+  process.stdout.write(`  ✓ hacker news — ${list.length} stories\n`);
+  return list;
+}
+
+/* ------------------------------------------------------------------ Reddit */
+
+/* Reddit's anonymous .json endpoints are blocked for many networks and redirect to a
+   login page. The supported way is application-only OAuth with a free "script" app:
+   https://www.reddit.com/prefs/apps  ->  set REDDIT_CLIENT_ID / REDDIT_CLIENT_SECRET.
+   Without credentials we try anonymously once and report honestly if it's refused. */
+async function redditToken() {
+  const id = process.env.REDDIT_CLIENT_ID, secret = process.env.REDDIT_CLIENT_SECRET;
+  if (!id || !secret) return null;
+  const res = await fetch('https://www.reddit.com/api/v1/access_token', {
+    method: 'POST',
+    headers: {
+      authorization: 'Basic ' + Buffer.from(`${id}:${secret}`).toString('base64'),
+      'content-type': 'application/x-www-form-urlencoded',
+      'user-agent': UA
+    },
+    body: 'grant_type=client_credentials',
+    signal: AbortSignal.timeout(TIMEOUT_MS)
+  });
+  if (!res.ok) throw new Error(`token ${res.status} ${res.statusText}`);
+  return (await res.json()).access_token;
+}
+
+async function reddit() {
+  let token = null;
+  try {
+    token = await redditToken();
+  } catch (err) {
+    warnings.push(`Reddit auth: ${err.message}`);
+    process.stdout.write(`  ✗ auth — ${err.message}\n`);
+  }
+  if (!token) process.stdout.write('  · no REDDIT_CLIENT_ID/SECRET — trying anonymously\n');
+
+  const host = token ? 'https://oauth.reddit.com' : 'https://www.reddit.com';
+  const auth = token ? { authorization: `Bearer ${token}` } : {};
+
+  const out = [];
+  for (const sub of CONFIG.subreddits) {
+    const url = `${host}/r/${sub}/top${token ? '' : '.json'}?t=${CONFIG.redditWindow}&limit=${CONFIG.perSource * 2}`;
+    try {
+      const data = await json(url, auth);
+      const children = data?.data?.children;
+      if (!Array.isArray(children)) throw new Error('not a listing (anonymous access refused)');
+      for (const { data: p } of children) {
+        if (p.stickied || p.over_18 || p.ups < CONFIG.minRedditUpvotes) continue;
+        out.push({
+          id: p.id,
+          title: p.title,
+          summary: (p.selftext || '').replace(/\s+/g, ' ').slice(0, 200).trim()
+                   || `Top post in r/${p.subreddit} this ${CONFIG.redditWindow}.`,
+          url: `https://www.reddit.com${p.permalink}`,
+          author: p.author ? `u/${p.author}` : '',
+          subreddit: p.subreddit,
+          upvotes: p.ups,
+          comments: p.num_comments,
+          date: new Date(p.created_utc * 1000).toISOString().slice(0, 10)
+        });
+      }
+      process.stdout.write(`  ✓ r/${sub}\n`);
+    } catch (err) {
+      warnings.push(`Reddit r/${sub}: ${err.message}${token ? '' : ' — set REDDIT_CLIENT_ID and REDDIT_CLIENT_SECRET (free script app at reddit.com/prefs/apps)'}`);
+      process.stdout.write(`  ✗ r/${sub} — ${err.message}\n`);
+    }
+  }
+  return out.sort((a, b) => b.upvotes - a.upvotes).slice(0, CONFIG.perSource);
+}
+
+/* -------------------------------------------------------------------- main */
+
+const builds = JSON.parse(await readFile(join(ROOT, 'data/builds.json'), 'utf8'));
+const repos = builds.items.filter(i => i.repo).map(i => i.repo);
+
+console.log(`\nGitHub (${repos.length} repos)`);
+const gh = await github(repos);
+console.log('\nHacker News');
+const hn = await hackernews();
+console.log('\nReddit');
+const rd = await reddit();
+
+const payload = {
+  generatedAt: new Date().toISOString(),
+  note: 'Generated by scripts/fetch-signals.mjs from public APIs. Do not hand-edit.',
+  warnings,
+  github: gh,
+  hn,
+  reddit: rd
+};
+
+await writeFile(join(ROOT, 'data/live.json'), JSON.stringify(payload, null, 2) + '\n');
+
+console.log(`\nWrote data/live.json — ${gh.length} repos, ${hn.length} HN stories, ${rd.length} Reddit posts.`);
+if (warnings.length) {
+  console.log(`\n${warnings.length} warning(s):`);
+  for (const w of warnings) console.log(`  · ${w}`);
+  console.log('\nThose sources were left empty rather than filled with estimates.');
+}
