@@ -82,6 +82,19 @@ function applyLive() {
   });
 
   const extra = [];
+
+  // Repos found by search that nobody seeded — surfaced as their own cards.
+  for (const g of (live.github || []).filter(g => g.discovered)) {
+    extra.push({
+      id: `gh-${g.repo.replace(/[^\w]+/g, '-').toLowerCase()}`,
+      title: g.repo,
+      summary: g.description || 'No project description supplied.',
+      source: 'github', url: g.url, date: g.pushedAt, lang: g.language,
+      metric: { kind: 'stars', value: g.stars }, metric2: { kind: 'forks', value: g.forks },
+      tags: ['discovered', ...(g.topics || []).slice(0, 3)]
+    });
+  }
+
   for (const h of live.hn || []) {
     extra.push({
       id: `hn-${h.id}`, title: h.title, summary: h.summary || 'Discussed on Hacker News.',

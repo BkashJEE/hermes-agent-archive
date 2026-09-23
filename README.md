@@ -52,6 +52,20 @@ REDDIT_CLIENT_ID=xxx REDDIT_CLIENT_SECRET=yyy npm run fetch
 Until then the Reddit section stays empty and the page says so in the footer — it will
 never show an invented number in its place.
 
+## How "People Build" fills itself
+
+Two passes, both against the public GitHub API:
+
+1. **Seeded** — the repos named in `data/builds.json`, resolved by full name so a renamed
+   or transferred project follows its new slug instead of 404ing.
+2. **Discovered** — a search for `claude-code in:name,description,topics` with
+   `fork:false archived:false is:public pushed:>=<today-30d>`, `sort=stars`, 60 candidates.
+   That's what surfaces projects nobody has curated yet.
+
+Discovered results are deduped against the seeds, and dropped if they're private, a fork,
+archived, disabled, or don't actually name Claude in the slug/description or carry the
+`claude-code` topic — GitHub's matcher is looser than the query implies.
+
 ## The honesty rule
 
 **No number on this site is invented.**

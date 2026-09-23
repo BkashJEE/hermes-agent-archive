@@ -24,6 +24,10 @@ import { dirname, join } from 'node:path';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 const CONFIG = {
+  // GitHub *discovery*: finds projects nobody has seeded yet, the way a search feed does.
+  discoverQuery: 'claude-code in:name,description,topics',
+  discoverWindowDays: 30,
+  discoverMax: 24,
   hnQueries:  ['claude code', 'claude agent skills'],
   subreddits: ['ClaudeAI', 'ClaudeCode'],
   redditWindow: 'month',   // hour | day | week | month | year | all
@@ -91,6 +95,63 @@ async function github(repos) {
     }
   }
   return out.sort((a, b) => b.stars - a.stars);
+}
+
+/* ------------------------------------------------------- GitHub discovery */
+
+const SLUG = /^[\w.-]+\/[\w.-]+$/;
+
+/* Search for projects that exist but nobody has curated yet. Mirrors the guards a
+   search-backed feed needs: no forks, no archived, no dead repos, and a relevance
+   re-check because GitHub's matcher is looser than the query implies. */
+async function discover(seeded) {
+  const since = new Date(Date.now() - CONFIG.discoverWindowDays * 86400000).toISOString().slice(0, 10);
+  const params = new URLSearchParams({
+    q: `${CONFIG.discoverQuery} fork:false archived:false is:public pushed:>=${since}`,
+    sort: 'stars', order: 'desc', per_page: '60'
+  });
+  const headers = { accept: 'application/vnd.github+json' };
+  if (process.env.GITHUB_TOKEN) headers.authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+
+  let data;
+  try {
+    data = await json(`https://api.github.com/search/repositories?${params}`, headers);
+  } catch (err) {
+    warnings.push(`GitHub discovery: ${err.message}`);
+    process.stdout.write(`  ✗ discovery — ${err.message}\n`);
+    return [];
+  }
+  if (data.incomplete_results) warnings.push('GitHub returned an incomplete search result set.');
+
+  const seen = new Set(seeded.map(r => r.toLowerCase()));
+  const out = [];
+  for (const r of data.items || []) {
+    const name = r.full_name || '';
+    const desc = r.description || '';
+    const topics = Array.isArray(r.topics) ? r.topics : [];
+
+    if (!SLUG.test(name) || seen.has(name.toLowerCase())) continue;
+    if (r.private || r.fork || r.archived || r.disabled) continue;
+    if (!Number.isFinite(r.stargazers_count) || r.stargazers_count < 0) continue;
+    // GitHub matches loosely; require the subject to actually be named.
+    if (!/\bclaude\b/i.test(`${name} ${desc}`) && !topics.includes('claude-code')) continue;
+
+    seen.add(name.toLowerCase());
+    out.push({
+      repo: name,
+      description: desc.slice(0, 600),
+      stars: Math.floor(r.stargazers_count),
+      forks: Math.floor(r.forks_count || 0),
+      language: (r.language || '').slice(0, 50),
+      topics: topics.slice(0, 8),
+      url: `https://github.com/${name}`,
+      pushedAt: (r.pushed_at || '').slice(0, 10),
+      discovered: true
+    });
+    if (out.length >= CONFIG.discoverMax) break;
+  }
+  process.stdout.write(`  ✓ discovery — ${out.length} new projects (${data.total_count ?? '?'} matched)\n`);
+  return out;
 }
 
 /* ---------------------------------------------------------------------- HN */
@@ -198,8 +259,11 @@ async function reddit() {
 const builds = JSON.parse(await readFile(join(ROOT, 'data/builds.json'), 'utf8'));
 const repos = builds.items.filter(i => i.repo).map(i => i.repo);
 
-console.log(`\nGitHub (${repos.length} repos)`);
-const gh = await github(repos);
+console.log(`\nGitHub (${repos.length} seeded repos)`);
+const seededData = await github(repos);
+console.log('\nGitHub discovery');
+const found = await discover(repos);
+const gh = [...seededData, ...found].sort((a, b) => b.stars - a.stars);
 console.log('\nHacker News');
 const hn = await hackernews();
 console.log('\nReddit');
@@ -216,7 +280,7 @@ const payload = {
 
 await writeFile(join(ROOT, 'data/live.json'), JSON.stringify(payload, null, 2) + '\n');
 
-console.log(`\nWrote data/live.json — ${gh.length} repos, ${hn.length} HN stories, ${rd.length} Reddit posts.`);
+console.log(`\nWrote data/live.json — ${gh.length} repos (${seededData.length} seeded + ${found.length} discovered), ${hn.length} HN stories, ${rd.length} Reddit posts.`);
 if (warnings.length) {
   console.log(`\n${warnings.length} warning(s):`);
   for (const w of warnings) console.log(`  · ${w}`);
