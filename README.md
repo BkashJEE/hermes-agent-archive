@@ -66,6 +66,25 @@ Discovered results are deduped against the seeds, and dropped if they're private
 archived, disabled, or don't actually name Claude in the slug/description or carry the
 `claude-code` topic — GitHub's matcher is looser than the query implies.
 
+## Sourcing feeds every section, not just builds
+
+`npm run sync` is the whole pipeline:
+
+```bash
+npm run fetch    # pull real GitHub / HN / Reddit numbers  -> data/live.json
+npm run route    # decide which shelf each signal belongs on
+```
+
+Routing has two implementations with the same output. With `TYPESAFE_API_KEY` set it
+asks Jev a Choice across the seven sections plus a `none` escape, and a Noul on whether
+a reader would actually learn something — so ecosystem news and promo posts get dropped
+instead of shelved. Without a key it falls back to deterministic keyword rules, which
+work but cannot tell a use case from a news item.
+
+Routed items appear in their section marked `SOURCED`, keeping the title, link, author
+and metric they were fetched with. Anything already curated by hand wins: a fetched
+duplicate of a curated URL is dropped.
+
 ## Ranking candidate features with Jev
 
 `scripts/rank-with-jev.mjs` scores candidate capabilities against what this site

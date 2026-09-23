@@ -58,8 +58,9 @@ async function load() {
   applyLive();
 }
 
-/* Merge fetched public metrics onto curated entries, and append fetched posts.
-   Everything here comes from a public API — nothing is hand-written. */
+/* Merge fetched public metrics onto curated entries, then shelve everything the
+   sourcing pipeline found. Every value here came from a public API — nothing is
+   hand-written, and nothing is estimated. */
 function applyLive() {
   const live = state.live;
   if (!live) return;
@@ -81,37 +82,51 @@ function applyLive() {
     return true;
   });
 
-  const extra = [];
+  const shelve = (sectionId, raw) => {
+    if (!state.data[sectionId]) return;
+    state.data[sectionId].push({
+      id: raw.id,
+      title: raw.title,
+      summary: raw.summary,
+      source: raw.source,
+      url: raw.url,
+      author: raw.author,
+      date: raw.date,
+      lang: raw.lang,
+      metric: raw.metric,
+      metric2: raw.metric2,
+      sourced: raw.routedBy || 'auto',
+      tags: ['sourced', ...(raw.topics || []).slice(0, 2)]
+    });
+  };
 
-  // Repos found by search that nobody seeded — surfaced as their own cards.
-  for (const g of (live.github || []).filter(g => g.discovered)) {
-    extra.push({
-      id: `gh-${g.repo.replace(/[^\w]+/g, '-').toLowerCase()}`,
-      title: g.repo,
-      summary: g.description || 'No project description supplied.',
-      source: 'github', url: g.url, date: g.pushedAt, lang: g.language,
-      metric: { kind: 'stars', value: g.stars }, metric2: { kind: 'forks', value: g.forks },
-      tags: ['discovered', ...(g.topics || []).slice(0, 3)]
-    });
+  if (live.routed) {
+    // Routed by scripts/route-signals.mjs — each signal on the shelf it belongs to.
+    for (const [sectionId, items] of Object.entries(live.routed))
+      for (const raw of items) shelve(sectionId, raw);
+    return;
   }
 
-  for (const h of live.hn || []) {
-    extra.push({
-      id: `hn-${h.id}`, title: h.title, summary: h.summary || 'Discussed on Hacker News.',
-      source: 'hn', url: h.url, date: h.date, author: h.author,
-      metric: { kind: 'points', value: h.points }, metric2: { kind: 'comments', value: h.comments },
-      tags: ['discussion']
+  // Not routed yet: everything fetched still belongs somewhere, so it goes to builds.
+  for (const g of (live.github || []).filter(g => g.discovered))
+    shelve('builds', {
+      id: `gh-${g.repo.replace(/[^\w]+/g, '-').toLowerCase()}`, title: g.repo,
+      summary: g.description || 'No project description supplied.', source: 'github',
+      url: g.url, date: g.pushedAt, lang: g.language, topics: g.topics,
+      metric: { kind: 'stars', value: g.stars }, metric2: { kind: 'forks', value: g.forks }
     });
-  }
-  for (const r of live.reddit || []) {
-    extra.push({
-      id: `rd-${r.id}`, title: r.title, summary: r.summary || `Posted in r/${r.subreddit}.`,
-      source: 'reddit', url: r.url, date: r.date, author: r.author,
-      metric: { kind: 'upvotes', value: r.upvotes }, metric2: { kind: 'comments', value: r.comments },
-      tags: ['discussion', r.subreddit.toLowerCase()]
+  for (const h of live.hn || [])
+    shelve('builds', {
+      id: `hn-${h.id}`, title: h.title, summary: h.summary, source: 'hn', url: h.url,
+      author: h.author, date: h.date,
+      metric: { kind: 'points', value: h.points }, metric2: { kind: 'comments', value: h.comments }
     });
-  }
-  state.data.builds = [...state.data.builds, ...extra];
+  for (const r of live.reddit || [])
+    shelve('builds', {
+      id: `rd-${r.id}`, title: r.title, summary: r.summary, source: 'reddit', url: r.url,
+      author: r.author, date: r.date,
+      metric: { kind: 'upvotes', value: r.upvotes }, metric2: { kind: 'comments', value: r.comments }
+    });
 }
 
 /* -------------------------------------------------------------- filters */
@@ -172,7 +187,8 @@ function metricBlock(item) {
 
 function card(item, rank) {
   return `<button class="card" role="listitem" data-id="${esc(item.id)}">
-    <div class="card-top"><span class="rank">#${rank}</span>${pill(item.source)}</div>
+    <div class="card-top"><span class="rank">#${rank}</span>
+      ${item.sourced ? '<span class="pill pill-sourced" title="Found by the sourcing pipeline, not written by hand">SOURCED</span>' : ''}${pill(item.source)}</div>
     <h3>${esc(item.title)}</h3>
     <p class="sum">${esc(item.summary)}</p>
     ${metricBlock(item)}
@@ -314,7 +330,8 @@ function wire() {
   $('#siteQuoteBy').textContent = state.cfg.site.quoteAuthor;
   $('#updatedAt').textContent   = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
   $('#footGen').textContent     = state.live?.generatedAt
-    ? `Live signals last fetched ${new Date(state.live.generatedAt).toLocaleString()}.`
+    ? `Live signals last fetched ${new Date(state.live.generatedAt).toLocaleString()}`
+      + (state.live.routedAt ? `, shelved by ${state.live.routedBy === 'jev' ? 'Jev' : 'keyword rules'}.` : '.')
     : 'Live signals not fetched yet — run `npm run fetch` to pull real GitHub, Hacker News and Reddit numbers.';
 
   const warn = state.live?.warnings || [];

@@ -274,7 +274,7 @@ code{font-family:var(--mono);font-size:.92em}
 }
 .card:hover::after{opacity:1}
 
-.card-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
+.card-top{display:flex;align-items:center;justify-content:space-between;gap:5px;margin-bottom:8px;flex-wrap:wrap}
 .rank{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--ink-mute)}
 .pill{
   font-family:var(--mono);font-size:8px;letter-spacing:.14em;font-weight:700;
@@ -283,6 +283,7 @@ code{font-family:var(--mono);font-size:.92em}
 .pill-x{color:var(--x)} .pill-reddit{color:var(--reddit)} .pill-hn{color:var(--hn)}
 .pill-fb{color:var(--fb)} .pill-github{color:var(--github)} .pill-docs{color:var(--docs)}
 .pill-curated{color:var(--ink-mute)}
+.pill-sourced{color:var(--accent);border-style:dashed}
 
 .card h3{
   margin:0 0 7px;font-size:13.5px;font-weight:600;line-height:1.35;color:var(--ink);

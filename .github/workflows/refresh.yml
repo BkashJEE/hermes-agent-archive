@@ -18,7 +18,14 @@ jobs:
       - name: Fetch public metrics
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
         run: node scripts/fetch-signals.mjs
+
+      - name: Route signals onto their shelves
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: node scripts/route-signals.mjs
       - name: Commit if changed
         run: |
           git config user.name "github-actions[bot]"

@@ -7,7 +7,12 @@
   "scripts": {
     "start": "python3 -m http.server 4179",
     "fetch": "node scripts/fetch-signals.mjs",
+    "route": "node scripts/route-signals.mjs",
+    "sync": "npm run fetch && npm run route",
+    "rank": "node scripts/rank-with-jev.mjs",
     "check": "node scripts/check-data.mjs"
   },
-  "engines": { "node": ">=20" }
+  "engines": {
+    "node": ">=20"
+  }
 }
