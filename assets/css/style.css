@@ -30,7 +30,8 @@
 
   --r-sm:4px; --r-md:8px; --r-lg:12px;
   --mono:"JetBrains Mono",ui-monospace,"Cascadia Code",monospace;
-  --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --sans:"Poppins",Arial,system-ui,sans-serif;
+  --body:"Lora",Georgia,"Times New Roman",serif;
   --side-w:238px;
   --top-h:56px;
 }
@@ -50,9 +51,9 @@ body{
     var(--bg);
   background-attachment:fixed;
   color:var(--ink);
-  font-family:var(--sans);
+  font-family:var(--body);
   font-size:14px;
-  line-height:1.55;
+  line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
 
@@ -80,19 +81,20 @@ code{font-family:var(--mono);font-size:.92em}
 }
 .brand-mark svg{width:20px;height:20px;display:block}
 .brand-text strong{
+  font-family:var(--sans);
   display:block;font-family:var(--mono);font-size:14px;font-weight:700;
   letter-spacing:.08em;white-space:nowrap;
 }
 .brand-text strong em{color:var(--accent);font-style:normal}
 .brand-text small{
-  display:block;font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;
+  display:block;font-family:var(--sans);font-size:8.5px;letter-spacing:.14em;
   color:var(--ink-mute);white-space:nowrap;
 }
 .brand-text small b{color:var(--ink-dim);font-weight:500}
 
 .live-pill{
   display:inline-flex;align-items:center;gap:6px;flex:none;
-  font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:var(--accent);
+  font-family:var(--sans);font-size:9.5px;letter-spacing:.16em;color:var(--accent);
 }
 .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 var(--accent-soft);animation:pulse 2.4s infinite}
 @keyframes pulse{70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
@@ -137,7 +139,7 @@ code{font-family:var(--mono);font-size:.92em}
 .cta{
   flex:none;display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 14px;
   background:var(--accent);color:var(--accent-ink);border-radius:var(--r-sm);
-  font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;
+  font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.12em;
   transition:filter .15s,transform .15s;
 }
 .cta:hover{filter:brightness(1.12);transform:translateY(-1px)}
@@ -165,7 +167,7 @@ code{font-family:var(--mono);font-size:.92em}
   border:1px solid var(--accent);border-radius:50%;color:var(--accent);
 }
 .side-card-mark svg{width:17px;height:17px;display:block}
-.side-card p{margin:0;font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--ink-dim);line-height:1.7}
+.side-card p{margin:0;font-family:var(--sans);font-size:8.5px;letter-spacing:.16em;color:var(--ink-dim);line-height:1.7}
 
 .nav{display:flex;flex-direction:column;gap:1px;margin-bottom:22px}
 .nav a{
@@ -180,7 +182,7 @@ code{font-family:var(--mono);font-size:.92em}
 
 .side-block h4{
   margin:0 0 8px;padding:0 10px;
-  font-family:var(--mono);font-size:8.5px;letter-spacing:.18em;color:var(--ink-mute);font-weight:500;
+  font-family:var(--sans);font-size:8.5px;letter-spacing:.18em;color:var(--ink-mute);font-weight:500;
 }
 .taglist{list-style:none;margin:0 0 10px;padding:0;display:flex;flex-direction:column;gap:1px}
 .taglist button{
@@ -217,20 +219,20 @@ code{font-family:var(--mono);font-size:.92em}
 }
 .hero h1{
   margin:0 0 3px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;
-  font-family:var(--mono);font-size:22px;font-weight:700;letter-spacing:.02em;
+  font-family:var(--sans);font-size:23px;font-weight:600;letter-spacing:-.01em;
 }
 .badge{
-  font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;font-weight:700;
+  font-family:var(--sans);font-size:8.5px;letter-spacing:.16em;font-weight:700;
   padding:3px 7px;border-radius:3px;background:var(--accent);color:var(--accent-ink);
 }
 .hero p{margin:0;font-size:12.5px;color:var(--ink-dim);max-width:78ch}
 
 .listbar{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:12px}
-.listbar h2{margin:0;font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;color:var(--ink);font-weight:700}
+.listbar h2{margin:0;font-family:var(--sans);font-size:11.5px;letter-spacing:.14em;color:var(--ink);font-weight:600;text-transform:uppercase}
 .listbar h2 span{color:var(--accent)}
 .listbar p{margin:2px 0 0;font-size:11px;color:var(--ink-mute)}
 .listbar-right{display:flex;align-items:center;gap:8px}
-.listbar-label{font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--ink-mute)}
+.listbar-label{font-family:var(--sans);font-size:9px;letter-spacing:.14em;color:var(--ink-mute)}
 .ghost-btn{
   height:30px;padding:0 11px;background:var(--panel-2);border:1px solid var(--line);
   border-radius:var(--r-sm);color:var(--ink-dim);font-size:11px;cursor:pointer;transition:.15s;
@@ -241,7 +243,7 @@ code{font-family:var(--mono);font-size:.92em}
 .chip{
   display:inline-flex;align-items:center;gap:6px;padding:3px 9px;
   background:var(--accent-soft);border:1px solid rgba(245,165,36,.32);border-radius:999px;
-  font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--accent);cursor:pointer;
+  font-family:var(--sans);font-size:9.5px;letter-spacing:.1em;color:var(--accent);cursor:pointer;
 }
 .chip:hover{background:rgba(245,165,36,.2)}
 
@@ -284,7 +286,7 @@ code{font-family:var(--mono);font-size:.92em}
 .card-top{display:flex;align-items:center;justify-content:space-between;gap:5px;margin-bottom:8px;flex-wrap:wrap}
 .rank{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--ink-mute)}
 .pill{
-  font-family:var(--mono);font-size:8px;letter-spacing:.14em;font-weight:700;
+  font-family:var(--sans);font-size:8px;letter-spacing:.14em;font-weight:700;
   padding:2px 6px;border-radius:3px;border:1px solid currentColor;white-space:nowrap;
 }
 .pill-x{color:var(--x)} .pill-reddit{color:var(--reddit)} .pill-hn{color:var(--hn)}
@@ -296,11 +298,12 @@ code{font-family:var(--mono);font-size:.92em}
 .pill-sourced{color:var(--accent);border-style:dashed}
 
 .card h3{
+  font-family:var(--sans);
   margin:0 0 7px;font-size:13.5px;font-weight:600;line-height:1.35;color:var(--ink);
   word-break:break-word;
 }
 .card .sum{
-  position:relative;margin:0;padding-left:12px;font-size:11.5px;line-height:1.6;color:var(--ink-dim);
+  position:relative;margin:0;padding-left:12px;font-family:var(--body);font-size:11.5px;line-height:1.6;color:var(--ink-dim);
   display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;
 }
 .card .sum::before{content:"\25B8";position:absolute;left:0;top:0;color:var(--accent);font-size:9px}
@@ -321,7 +324,7 @@ code{font-family:var(--mono);font-size:.92em}
   display:flex;flex-direction:column;align-items:flex-start;gap:8px;
   padding:34px;border:1px solid var(--line);border-radius:var(--r-md);color:var(--ink-dim);
 }
-.empty strong{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--ink)}
+.empty strong{font-family:var(--sans);font-size:12px;letter-spacing:.1em;color:var(--ink)}
 .empty span{font-size:12px;max-width:52ch}
 
 .foot{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);color:var(--ink-mute);font-size:11px;max-width:92ch}
@@ -334,7 +337,7 @@ code{font-family:var(--mono);font-size:.92em}
 .tagrow{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin-top:auto;padding-top:10px}
 .trow-tag{
   padding:2px 7px;border:1px solid var(--line-2);border-radius:999px;
-  font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;color:var(--ink-dim);
+  font-family:var(--sans);font-size:8.5px;letter-spacing:.1em;color:var(--ink-dim);
 }
 .trow-note{font-family:var(--mono);font-size:8px;letter-spacing:.12em;color:var(--ink-mute)}
 .foot-warn{color:var(--hn)}
@@ -355,9 +358,10 @@ code{font-family:var(--mono);font-size:.92em}
 }
 .drawer-close:hover{color:var(--accent);border-color:var(--line-2)}
 .d-kicker{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
-.drawer h3{margin:0 0 6px;font-size:20px;font-weight:700;line-height:1.3;padding-right:36px}
-.d-sum{margin:0 0 16px;font-size:13.5px;color:var(--ink-dim)}
-.d-body{font-size:13px;line-height:1.75;color:var(--ink-dim)}
+.drawer h3{
+  font-family:var(--sans);margin:0 0 6px;font-size:20px;font-weight:700;line-height:1.3;padding-right:36px}
+.d-sum{margin:0 0 16px;font-family:var(--body);font-size:14px;line-height:1.7;color:var(--ink-dim)}
+.d-body{font-family:var(--body);font-size:13.5px;line-height:1.8;color:var(--ink-dim);max-width:62ch}
 .d-body p{margin:0 0 12px}
 .d-snip{position:relative;margin:16px 0}
 .d-snip pre{
@@ -375,13 +379,13 @@ code{font-family:var(--mono);font-size:.92em}
 .d-tags{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0}
 .d-tag{
   padding:3px 9px;border:1px solid var(--line-2);border-radius:999px;
-  font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--ink-mute);cursor:pointer;
+  font-family:var(--sans);font-size:9px;letter-spacing:.1em;color:var(--ink-mute);cursor:pointer;
 }
 .d-tag:hover{color:var(--accent);border-color:var(--accent)}
 .d-link{
   display:inline-flex;align-items:center;gap:7px;margin-top:6px;height:34px;padding:0 14px;
   background:var(--accent);color:var(--accent-ink);border-radius:var(--r-sm);
-  font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;
+  font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.12em;
 }
 .d-link:hover{filter:brightness(1.12)}
 .d-meta{margin-top:18px;padding-top:12px;border-top:1px solid var(--line);font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;color:var(--ink-mute)}

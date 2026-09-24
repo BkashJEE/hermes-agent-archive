@@ -85,6 +85,17 @@ duplicate of a curated URL is dropped, because hand-written entries win.
 fetched stories can land on the wrong shelf. The Jev router's `none` option
 and `worth_keeping` check fix this. Do not try to fix it with more regexes.
 
+## Typography
+
+Anthropic brand standard, not the portfolio's pairing:
+
+- `--sans` **Poppins** (Arial fallback) — headings, labels, pills, buttons, nav
+- `--body` **Lora** (Georgia fallback) — card summaries and drawer prose
+- `--mono` **JetBrains Mono** — code snippets and figures only, where alignment matters
+
+Colours still come from the portfolio (amber on near-black); only the fonts follow the
+brand standard. Do not swap either back to Inter.
+
 ## Secrets
 
 `.env` is gitignored and written at mode 600 by `npm run key`. Never read it, echo it,
