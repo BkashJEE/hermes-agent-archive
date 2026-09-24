@@ -28,7 +28,8 @@ const CONFIG = {
   // GitHub *discovery*: finds projects nobody has seeded yet, the way a search feed does.
   discoverQuery: 'hermes-agent in:name,description,topics',
   discoverWindowDays: 30,
-  discoverMax: 24,
+  discoverMax: 60,
+  discoverPages: 3,          // 100 per page; the query matches thousands
   hnQueries:  ['hermes agent', 'nous research hermes'],
   subreddits: ['NousResearch', 'HermesAgent'],
   redditWindow: 'month',   // hour | day | week | month | year | all
@@ -38,7 +39,10 @@ const CONFIG = {
   // Popularity floors. This archive is a "most viewed, most talked about" shelf,
   // so something nobody engaged with does not belong on it regardless of topic.
   // Override per run: MIN_STARS=50000 node scripts/fetch-signals.mjs
-  minStars:         Number(process.env.MIN_STARS         ?? 25000),
+  // A community shelf needs the community, not just the giants. Substance is
+  // Jev's job (it rejects on usefulness, not popularity); this floor only keeps
+  // out abandoned scratch repos.
+  minStars:         Number(process.env.MIN_STARS         ?? 1000),
   minHnPoints:      Number(process.env.MIN_HN_POINTS     ?? 300),
   minRedditUpvotes: Number(process.env.MIN_REDDIT_UPVOTES ?? 200)
 };
@@ -112,22 +116,33 @@ const SLUG = /^[\w.-]+\/[\w.-]+$/;
    re-check because GitHub's matcher is looser than the query implies. */
 async function discover(seeded) {
   const since = new Date(Date.now() - CONFIG.discoverWindowDays * 86400000).toISOString().slice(0, 10);
-  const params = new URLSearchParams({
-    q: `${CONFIG.discoverQuery} fork:false archived:false is:public pushed:>=${since}`,
-    sort: 'stars', order: 'desc', per_page: '60'
-  });
   const headers = { accept: 'application/vnd.github+json' };
   if (process.env.GITHUB_TOKEN) headers.authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
 
-  let data;
-  try {
-    data = await json(`https://api.github.com/search/repositories?${params}`, headers);
-  } catch (err) {
-    warnings.push(`GitHub discovery: ${err.message}`);
-    process.stdout.write(`  ✗ discovery — ${err.message}\n`);
-    return [];
+  /* One page only ever showed the top slice of thousands of matches. */
+  const pool = [];
+  let total = 0, incomplete = false;
+  for (let page = 1; page <= CONFIG.discoverPages; page++) {
+    const params = new URLSearchParams({
+      q: `${CONFIG.discoverQuery} fork:false archived:false is:public pushed:>=${since}`,
+      sort: 'stars', order: 'desc', per_page: '100', page: String(page)
+    });
+    try {
+      const data = await json(`https://api.github.com/search/repositories?${params}`, headers);
+      total = data.total_count ?? total;
+      incomplete ||= !!data.incomplete_results;
+      const items = data.items || [];
+      pool.push(...items);
+      if (items.length < 100) break;              // no further pages
+    } catch (err) {
+      warnings.push(`GitHub discovery page ${page}: ${err.message}`);
+      process.stdout.write(`  ✗ discovery page ${page} — ${err.message}\n`);
+      break;
+    }
   }
-  if (data.incomplete_results) warnings.push('GitHub returned an incomplete search result set.');
+  if (!pool.length) return [];
+  if (incomplete) warnings.push('GitHub returned an incomplete search result set.');
+  const data = { items: pool, total_count: total };
 
   const seen = new Set(seeded.map(r => r.toLowerCase()));
   const out = [];
@@ -266,6 +281,7 @@ async function reddit() {
 const index = JSON.parse(await readFile(join(ROOT, 'data/index.json'), 'utf8'));
 const repos = [];
 for (const section of index.sections) {
+  if (!section.file) continue;           // a computed section has nothing on disk
   const { items } = JSON.parse(await readFile(join(ROOT, 'data', section.file), 'utf8'));
   for (const item of items) if (item.repo && !repos.includes(item.repo)) repos.push(item.repo);
 }

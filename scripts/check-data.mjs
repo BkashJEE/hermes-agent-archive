@@ -14,6 +14,8 @@ const errors = [];
 let total = 0;
 
 for (const section of cfg.sections) {
+  // A computed section (the dashboard) has no data file and nothing to validate.
+  if (!section.file) { console.log(`  · ${section.id.padEnd(16)} computed, no data file`); continue; }
   const { items } = await read(section.file);
   for (const it of items) {
     total++;
