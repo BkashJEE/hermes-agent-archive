@@ -224,8 +224,15 @@ After merging a reviewed PR into `main`, deploy from a clean checkout:
 npm test
 npm run check
 npx vercel@60.0.0 link --project hermes-agent-archive --scope bkashjee-2377s-projects
-npx vercel@60.0.0 deploy --prod --scope bkashjee-2377s-projects
+npx vercel@60.0.0 deploy --dry --json
+npx vercel@60.0.0 deploy --prod --skip-domain --scope bkashjee-2377s-projects
+# Verify the returned deployment URL, then promote that exact release:
+npx vercel@60.0.0 promote <deployment-url> --scope bkashjee-2377s-projects
 ```
+
+Check the dry-run manifest includes every asset and configured data file, and excludes
+secrets, scripts, and research files. Vercel's include patterns use `!assets` and
+`!data` without trailing slashes so it traverses those directories.
 
 Deployment is manual; a repository push does not publish automatically.
 The weekly refresh job updates Jev classifications when its key is configured.

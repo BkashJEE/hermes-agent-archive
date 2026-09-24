@@ -137,6 +137,11 @@ Use the Web Animations API for widths and strokes (the resting style stays corre
 
 ## Browser gotchas
 
+Before deployment, run `vercel deploy --dry --json` and verify every runtime asset
+and configured JSON file is included. Directory exceptions in `.vercelignore`
+must not end in `/`: that excluded all assets and data in a previous deployment.
+Deploy with `--prod --skip-domain`, verify the staged URL, then promote it.
+
 The local server caches aggressively — a hash change does not reload the page, so verify
 CSS and JS edits with a real reload (`?v=<timestamp>`), not a hash navigation.
 
