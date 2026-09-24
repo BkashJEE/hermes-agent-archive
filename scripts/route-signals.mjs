@@ -86,6 +86,7 @@ function routeByKeyword(item) {
 async function routeWithJev(items) {
   const criteria = { ...SECTIONS, none: 'Not about this subject at all, or too thin to be worth a card — general news, drama, an unrelated project.' };
   const out = new Map();
+  let judged = 0;
 
   for (const item of items) {
     const body = {
@@ -122,6 +123,7 @@ async function routeWithJev(items) {
       const section = answers.section.choice;
       const keep = answers.worth_keeping.noul;
 
+      judged++;
       if (section === 'none' || keep < 0.5) {
         const why = section === 'none'
           ? `not about this subject (${(answers.section.probabilities?.none * 100 || 0).toFixed(0)}% sure)`
@@ -141,6 +143,7 @@ async function routeWithJev(items) {
       process.stdout.write(`  ✗ ${item.title.slice(0, 40)} — ${err.message}\n`);
     }
   }
+  out.judged = judged;
   return out;
 }
 
@@ -190,8 +193,10 @@ console.log(`\nRouting ${popular.length} signals with ${KEY ? 'Jev' : 'keyword r
 const routed = {};
 const add = (section, item) => { (routed[section] ||= []).push(item); };
 
+let decided = 0;
 if (KEY) {
   const decisions = await routeWithJev(popular);
+  decided = decisions.judged;
   for (const c of popular) {
     const d = decisions.get(c.id);
     if (d) add(d.section, { ...c, routedBy: 'jev', routeConfidence: +d.confidence.toFixed(2) });
@@ -218,9 +223,17 @@ if (capped) console.log(`\nCapped ${capped} item(s) at ${MAX_PER_SECTION} per se
 
 const total = Object.values(routed).reduce((n, a) => n + a.length, 0);
 
-// Never trade a good shelf layout for an empty one because a run failed.
+/* Never trade a good shelf layout for an empty one because a run failed — but a
+   run where the judge legitimately rejected every candidate is a result, not an
+   error. Only a run that produced no decisions at all is a failure. */
 if (total === 0 && popular.length > 0) {
-  console.error(`\nRouted nothing out of ${popular.length} candidates — leaving data/live.json untouched.`);
+  const judged = KEY ? decided : popular.length;
+  console.log(`\nNothing reached a shelf. data/live.json is untouched.`);
+  if (judged > 0) {
+    console.log(`All ${judged} candidate(s) were judged and rejected — that is a verdict, not a failure.`);
+    process.exit(0);
+  }
+  console.error(`No candidate could be judged at all. Check the errors above.`);
   process.exit(1);
 }
 
