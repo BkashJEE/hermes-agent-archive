@@ -130,6 +130,16 @@ happened here.
   no "Generated with" line. This is the repo owner's standing preference.
 - Commit subject in the imperative, body explaining *why*.
 
+## Animation must never own a value
+
+Every figure, bar width and chart line is written at its real value first; the
+animation plays over the top. A hidden tab throttles `requestAnimationFrame` to
+nothing, and an animation that carries the value leaves `0` on screen — a number
+nobody measured, which is the one thing this site must not show.
+
+Use the Web Animations API for widths and strokes (the resting style stays correct),
+`document.hidden` and `prefers-reduced-motion` as early exits.
+
 ## Browser gotchas
 
 The local server caches aggressively — a hash change does not reload the page, so verify

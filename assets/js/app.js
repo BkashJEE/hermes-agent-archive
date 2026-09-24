@@ -272,6 +272,43 @@ function render() {
 }
 
 
+/* ------------------------------------------------------- motion helpers */
+
+const REDUCED = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+
+/* Ease a figure up to its real value. The real value is written FIRST, so if the
+   animation never runs — a hidden tab throttles rAF to nothing — what is on screen
+   is still the truth rather than a zero. */
+function countUp(el, value, ms = 750) {
+  el.textContent = num(value);
+  if (REDUCED || document.hidden || value < 2) return;
+  const start = performance.now();
+  const step = now => {
+    const p = Math.min(1, (now - start) / ms);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = num(Math.round(value * eased));
+    if (p < 1) requestAnimationFrame(step);
+    else el.textContent = num(value);
+  };
+  requestAnimationFrame(step);
+}
+
+/* Grow a bar to its real width. Same rule as the figures: the final width is set
+   straight away and the animation plays over the top, so a throttled tab shows a
+   correct chart rather than an empty one. */
+function growTo(el, target, delay = 0) {
+  el.style.width = target;
+  if (REDUCED || document.hidden || typeof el.animate !== 'function') return;
+  el.animate([{ width: '0%' }, { width: target }], {
+    duration: 620, delay, easing: 'cubic-bezier(.22,.7,.3,1)', fill: 'backwards'
+  });
+}
+
+function growBars(root) {
+  [...root.querySelectorAll('.bar-fill')].forEach((fill, i) =>
+    growTo(fill, fill.dataset.w, Math.min(i * 22, 600)));
+}
+
 /* ------------------------------------------------------------- dashboard */
 
 /* Every figure below is counted from what is loaded in this page right now, or is a
@@ -339,7 +376,7 @@ function barChart(rows, { action, total } = {}) {
     return `<div class="bar-row${action ? ' bar-click' : ''}"${attr}
         data-tip="${esc(label)} · ${num(n)} ${n === 1 ? 'entry' : 'entries'} · ${share}% of ${num(sum)}">
       <span class="bar-label" title="${esc(label)}">${esc(label)}</span>
-      <span class="bar-track"><span class="bar-fill" style="width:${pct.toFixed(1)}%"></span></span>
+      <span class="bar-track"><span class="bar-fill" data-w="${pct.toFixed(1)}%"></span></span>
       <span class="bar-n">${num(n)}</span>
     </div>`;
   }).join('')}</div>`;
@@ -420,20 +457,27 @@ function renderDashboard() {
   const warnings = (live.warnings || []).length;
   const series = timelineSeries();
 
-  const tile = (k, v, note) =>
-    `<div class="tile"><span class="tile-k">${esc(k)}</span><span class="tile-v">${v}</span>${note ? `<span class="tile-note">${esc(note)}</span>` : ''}</div>`;
+  /* A tile may carry a share track — the progress-stat idea: a big numeral with a
+     thin rail underneath showing what fraction of the whole it represents. */
+  const tile = (k, v, note, share) =>
+    `<div class="tile">
+       <span class="tile-k">${esc(k)}</span>
+       <span class="tile-v" data-count="${typeof v === 'number' ? v : ''}">${typeof v === 'number' ? num(v) : v}</span>
+       ${share != null ? `<span class="tile-rail"><span class="tile-rail-fill" data-w="${(share * 100).toFixed(1)}%"></span></span>` : ''}
+       ${note ? `<span class="tile-note">${esc(note)}</span>` : ''}
+     </div>`;
 
   const metricTiles = st.byMetric.length
     ? st.byMetric.map(([kind, r]) =>
-        tile(kind, num(r.total), `across ${num(r.items)} ${r.items === 1 ? 'entry' : 'entries'}`)).join('')
+        tile(kind, r.total, `across ${num(r.items)} ${r.items === 1 ? 'entry' : 'entries'}`)).join('')
     : '<p class="dash-none">No fetched metrics loaded.</p>';
 
   $('#dashboard').innerHTML = `
     <div class="dash-tiles">
-      ${tile('items in the archive', num(st.total))}
-      ${tile('carry a real metric', num(st.withMetric), `${Math.round(st.withMetric / (st.total || 1) * 100)}% of the archive`)}
-      ${tile('credited authors', num(st.authors))}
-      ${tile('distinct sources', num(st.sources))}
+      ${tile('items in the archive', st.total)}
+      ${tile('carry a real metric', st.withMetric, `${Math.round(st.withMetric / (st.total || 1) * 100)}% of the archive`, st.withMetric / (st.total || 1))}
+      ${tile('credited authors', st.authors)}
+      ${tile('distinct sources', st.sources)}
     </div>
 
     <section class="dash-block">
@@ -457,8 +501,10 @@ function renderDashboard() {
     </div>
 
     <section class="dash-block">
-      <h3>BY AUTHOR <span class="dash-hint">top ${st.byAuthor.length} &middot; click to filter the archive</span></h3>
-      ${barChart(st.byAuthor, { action: 'author' })}
+      <h3>BY AUTHOR <span class="dash-hint">click to filter the archive</span></h3>
+      <div id="authorBars" data-expanded="0">${barChart(st.byAuthor.slice(0, 10), { action: 'author' })}</div>
+      ${st.byAuthor.length > 10
+        ? `<button class="ghost-btn dash-more" id="authorMore">Show all ${st.byAuthor.length} &#8595;</button>` : ''}
     </section>
 
     <p class="dash-fresh">
@@ -469,6 +515,37 @@ function renderDashboard() {
     </p>`;
 
   wireTips();
+  revealDashboard(st);
+}
+
+function revealDashboard(st) {
+  const root = $('#dashboard');
+
+  for (const el of root.querySelectorAll('.tile-v[data-count]')) {
+    const v = Number(el.dataset.count);
+    if (Number.isFinite(v) && el.dataset.count !== '') countUp(el, v);
+  }
+  for (const rail of root.querySelectorAll('.tile-rail-fill')) growTo(rail, rail.dataset.w, 150);
+  growBars(root);
+
+  /* The line is drawn in full and the draw-on plays over it, never leaving a blank
+     chart behind if the animation is dropped. */
+  const line = root.querySelector('.area-line');
+  if (line && !REDUCED && !document.hidden && typeof line.animate === 'function') {
+    const len = line.getTotalLength();
+    line.animate(
+      [{ strokeDasharray: len, strokeDashoffset: len }, { strokeDasharray: len, strokeDashoffset: 0 }],
+      { duration: 1100, easing: 'cubic-bezier(.22,.7,.3,1)' }
+    );
+  }
+
+  const more = $('#authorMore');
+  if (more) more.onclick = () => {
+    const box = $('#authorBars');
+    box.innerHTML = barChart(st.byAuthor, { action: 'author' });
+    growBars(box);
+    more.remove();
+  };
 }
 
 /* Hover layer: every mark carrying data-tip gets the shared tooltip. */
@@ -540,6 +617,114 @@ function openDrawer(id) {
 function closeDrawer() {
   $('#drawer').hidden = true;
   $('#scrim').hidden = true;
+}
+
+/* ---------------------------------------------------------- command palette */
+
+/* 700 items is past the point where scrolling is a navigation strategy.
+   Cmd/Ctrl-K opens one field that reaches every shelf, author, tag and entry. */
+const palette = { open: false, rows: [], active: 0 };
+
+function paletteRows(q) {
+  const hits = [];
+  const needle = q.trim().toLowerCase();
+  const ok = s => !needle || String(s).toLowerCase().includes(needle);
+
+  for (const sec of state.cfg.sections)
+    if (ok(sec.label)) hits.push({ kind: 'Shelf', label: sec.label, meta: sec.file ? `${(state.data[sec.id] || []).length} entries` : 'computed', act: () => { state.section = sec.id; render(); } });
+
+  const authors = new Map(), tags = new Map();
+  for (const sec of state.cfg.sections.filter(s => s.file))
+    for (const it of state.data[sec.id] || []) {
+      if (it.author) authors.set(it.author, (authors.get(it.author) || 0) + 1);
+      for (const t of it.tags || []) tags.set(t, (tags.get(t) || 0) + 1);
+    }
+
+  for (const [name, n] of [...authors].sort((a, b) => b[1] - a[1]))
+    if (ok(name) && hits.length < 60) hits.push({ kind: 'Author', label: name, meta: `${n} ${n === 1 ? 'entry' : 'entries'}`, act: () => { state.author = name; state.section = 'use-cases'; render(); } });
+
+  for (const [name, n] of [...tags].sort((a, b) => b[1] - a[1]))
+    if (ok(name) && hits.length < 80) hits.push({ kind: 'Tag', label: name, meta: `${n}`, act: () => { state.tag = name; render(); } });
+
+  if (needle)
+    for (const sec of state.cfg.sections.filter(s => s.file))
+      for (const it of state.data[sec.id] || []) {
+        if (hits.length >= 120) break;
+        if (ok(it.title)) hits.push({ kind: sec.label, label: it.title, meta: SOURCE_LABEL[it.source] || '', act: () => { state.section = sec.id; render(); openDrawer(it.id); } });
+      }
+
+  return hits.slice(0, 60);
+}
+
+function paletteRender(q) {
+  palette.rows = paletteRows(q);
+  palette.active = 0;
+  const list = $('#palList');
+  list.innerHTML = palette.rows.length
+    ? palette.rows.map((r, i) => `<li class="pal-row${i ? '' : ' on'}" role="option" aria-selected="${!i}" data-i="${i}">
+        <span class="pal-kind">${esc(r.kind)}</span>
+        <span class="pal-label">${esc(r.label)}</span>
+        <span class="pal-meta">${esc(r.meta || '')}</span></li>`).join('')
+    : '<li class="pal-none">Nothing matches.</li>';
+  list.firstElementChild?.scrollIntoView?.({ block: 'nearest' });
+}
+
+function paletteMove(d) {
+  if (!palette.rows.length) return;
+  palette.active = (palette.active + d + palette.rows.length) % palette.rows.length;
+  const rows = $$('#palList .pal-row');
+  rows.forEach((el, i) => { el.classList.toggle('on', i === palette.active); el.setAttribute('aria-selected', i === palette.active); });
+  rows[palette.active]?.scrollIntoView({ block: 'nearest' });
+}
+
+function paletteRun() {
+  const row = palette.rows[palette.active];
+  if (!row) return;
+  paletteClose();
+  row.act();
+}
+
+function paletteOpen() {
+  if (palette.open) return;
+  palette.open = true;
+  $('#palette').hidden = false;
+  const input = $('#palInput');
+  input.value = '';
+  paletteRender('');
+  input.focus();
+}
+
+function paletteClose() {
+  palette.open = false;
+  $('#palette').hidden = true;
+}
+
+function wirePalette() {
+  if ($('#palette')) return;
+  const el = document.createElement('div');
+  el.id = 'palette';
+  el.className = 'pal';
+  el.hidden = true;
+  el.innerHTML = `<div class="pal-scrim" data-pal-close></div>
+    <div class="pal-box" role="dialog" aria-modal="true" aria-label="Jump to">
+      <input id="palInput" class="pal-input" type="text" placeholder="Jump to a shelf, author, tag or entry…"
+             autocomplete="off" spellcheck="false" role="combobox" aria-expanded="true" aria-controls="palList">
+      <ul id="palList" class="pal-list" role="listbox" aria-label="Results"></ul>
+      <div class="pal-foot"><kbd>&#8593;</kbd><kbd>&#8595;</kbd> move <kbd>&#8629;</kbd> open <kbd>esc</kbd> close</div>
+    </div>`;
+  document.body.appendChild(el);
+
+  $('#palInput').addEventListener('input', e => paletteRender(e.target.value));
+  el.addEventListener('click', e => {
+    if (e.target.closest('[data-pal-close]')) return paletteClose();
+    const row = e.target.closest('.pal-row');
+    if (row) { palette.active = +row.dataset.i; paletteRun(); }
+  });
+  el.addEventListener('keydown', e => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); paletteMove(1); }
+    if (e.key === 'ArrowUp')   { e.preventDefault(); paletteMove(-1); }
+    if (e.key === 'Enter')     { e.preventDefault(); paletteRun(); }
+  });
 }
 
 /* ---------------------------------------------------------------- wiring */
@@ -636,9 +821,12 @@ function wire() {
   $('#drawerClose').addEventListener('click', closeDrawer);
   $('#scrim').addEventListener('click', closeDrawer);
 
+  wirePalette();
+
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') { closeDrawer(); $('#sidebar').classList.remove('open'); }
-    if (e.key === '/' && document.activeElement !== $('#search')) { e.preventDefault(); $('#search').focus(); }
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); paletteOpen(); return; }
+    if (e.key === 'Escape') { paletteClose(); closeDrawer(); $('#sidebar').classList.remove('open'); }
+    if (e.key === '/' && document.activeElement !== $('#search') && !palette.open) { e.preventDefault(); $('#search').focus(); }
     if ((e.key === 'Enter' || e.key === ' ') && document.activeElement?.hasAttribute?.('data-author')) {
       e.preventDefault();
       document.activeElement.click();
