@@ -1,6 +1,6 @@
 /* Use-Case Archive — data loading, filtering, rendering. No framework, no build step. */
 
-import { sectionIcon } from './icons.js?v=menu-2';
+import { sectionIcon } from './icons.js?v=badge-3';
 import { mergeLive } from './archive.js';
 import { formatDetails } from './details.js';
 import { creditFor } from './credits.js';
@@ -641,6 +641,7 @@ function setSidebar(open) {
 }
 
 function wire() {
+  $('#archiveMark').innerHTML = sectionIcon('archive');
   wirePalette();
   $('#jumpBtn').addEventListener('click', paletteOpen);
   const applyTheme = theme => {
