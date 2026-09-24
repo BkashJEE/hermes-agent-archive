@@ -591,3 +591,5 @@ code{font-family:var(--mono);font-size:.92em}
   *,*::before,*::after{animation:none!important;transition:none!important}
   .card:hover,.card:active{transform:none}
 }
+
+.trend-note{margin:10px 0 0;font-family:var(--mono);font-size:10px;line-height:1.6;color:var(--teal);overflow-wrap:anywhere}

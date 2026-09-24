@@ -5,58 +5,95 @@ import { spawnSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { githubTrend, recordGithubObservations } from '../assets/js/trends.js';
 import { mergeLive } from '../assets/js/archive.js';
 import { MODEL, RANKING_VERSION, attachRankings, compareRankings, inputKey, validAssessment } from '../assets/js/ranking.js';
 
 const item = (id, usefulness, popularity = 'unknown') => ({ id, title: id, source: 'reddit',
   ranking: { usefulness, popularity } });
 
-test('API merging preserves seeded write-ups across all shelves, including unresolved repos', () => {
+test('API merging preserves seeded write-ups across all shelves, excluding unresolved repos', () => {
   const data = { toolkit: [{ id: 'tool', repo: 'org/tool', title: 'Tool', summary: 'Curated explanation', detail: 'Setup steps', url: 'https://github.com/org/tool' }],
     builds: [{ id: 'missing', repo: 'org/missing', title: 'Unresolved tool', metric: { kind: 'stars', value: 999 } }] };
-  mergeLive(data, { github: [{ repo: 'org/tool', description: 'API one-liner', stars: 51, forks: 2, url: 'https://github.com/org/tool' }],
+  mergeLive(data, { github: [{ repo: 'org/tool', description: 'API one-liner', stars: 5000, forks: 2, url: 'https://github.com/org/tool' }],
     routed: { builds: [{ id: 'duplicate', url: 'https://github.com/org/tool' }] } });
   assert.equal(data.toolkit[0].summary, 'Curated explanation');
-  assert.equal(data.toolkit[0].metric.value, 51);
-  assert.equal(data.builds.length, 1);
-  assert.equal(data.builds[0].id, 'missing');
-  assert.equal(data.builds[0].metric, undefined);
+  assert.equal(data.toolkit[0].metric.value, 5000);
+  assert.equal(data.builds.length, 0);
 });
 
-test('GitHub cutoff excludes 0–50 stars across seeds, URL entries and routed shelves', () => {
+test('GitHub requires 5000 verified stars across all shelves and hides unknown counts', () => {
   const data = { builds: [], toolkit: [
-    { id: 'zero', repo: 'org/zero' }, { id: 'fifty', repo: 'org/fifty' },
-    { id: 'url-only', url: 'https://github.com/ORG/fifty/issues/1' },
-    { id: 'qualifies', repo: 'org/qualifies' }, { id: 'unknown', repo: 'org/unknown' }
+    { id: 'zero', repo: 'org/zero' }, { id: 'low', repo: 'org/low' },
+    { id: 'url-only', url: 'https://github.com/ORG/low/' },
+    { id: 'qualifies', repo: 'org/qualifies' }, { id: 'unknown', repo: 'org/unknown' },
+    { id: 'discussion', source:'github', url:'https://github.com/org/low/discussions/1' },
+    { id: 'discord-archive', source:'discord', url:'https://github.com/org/low/blob/main/messages.txt' }
   ] };
   const live = { github: [
-    { repo: 'org/zero', stars: 0 }, { repo: 'org/fifty', stars: 50 },
-    { repo: 'org/qualifies', stars: 51 }
+    { repo: 'org/zero', stars: 0 }, { repo: 'org/low', stars: 4999 },
+    { repo: 'org/qualifies', stars: 5000 }
   ], routed: { builds: [
-    { id: 'routed-low', source: 'github', url: 'https://github.com/org/low', metric: { kind: 'stars', value: 49 } },
-    { id: 'routed-fifty', source: 'github', metric: { kind: 'stars', value: 50 } },
-    { id: 'routed-high', source: 'github', metric: { kind: 'stars', value: 51 } },
-    { id: 'routed-unknown', source: 'github' },
+    { id: 'routed-low', source: 'github', metric: { kind: 'stars', value: 4999 } },
+    { id: 'routed-high', source: 'github', metric: { kind: 'stars', value: 5000 } },
+    { id: 'routed-unknown', source: 'github', url:'https://github.com/org/unknown' },
     { id: 'routed-null', source: 'github', metric: { kind: 'stars', value: null } },
     { id: 'reddit', source: 'reddit', metric: { kind: 'upvotes', value: 5 } }
   ] } };
   const stored = structuredClone(data), snapshot = structuredClone(live);
   mergeLive(data, live);
-  assert.deepEqual(data.toolkit.map(x => x.id), ['qualifies', 'unknown']);
-  assert.deepEqual(data.builds.map(x => x.id), ['routed-high', 'routed-unknown', 'routed-null', 'reddit']);
+  assert.deepEqual(data.toolkit.map(x => x.id), ['qualifies', 'discussion', 'discord-archive']);
+  assert.deepEqual(data.builds.map(x => x.id), ['routed-high', 'reddit']);
   assert.deepEqual(live, snapshot);
-  live.github.find(x => x.repo === 'org/fifty').stars = 51;
+  live.github.find(x => x.repo === 'org/low').stars = 5000;
   mergeLive(stored, live);
-  assert.ok(stored.toolkit.some(x => x.id === 'fifty'));
+  assert.ok(stored.toolkit.some(x => x.id === 'low'));
   assert.ok(stored.toolkit.some(x => x.id === 'url-only'));
 });
 
-test('unrouted GitHub discoveries obey the same cutoff', () => {
+test('unrouted discoveries and unavailable snapshots obey the 5000-star rule', () => {
   const data = { builds: [] };
-  mergeLive(data, { github: [0, 50, 51].map(stars => ({
+  mergeLive(data, { github: [0, 4999, 5000].map(stars => ({
     repo: `org/repo-${stars}`, stars, discovered: true, url: `https://github.com/org/repo-${stars}`
   })) });
-  assert.deepEqual(data.builds.map(x => x.metric.value), [51]);
+  assert.deepEqual(data.builds.map(x => x.metric.value), [5000]);
+  const missing = { builds: [{id:'repo', repo:'org/tool'}, {id:'post', source:'reddit'}] };
+  mergeLive(missing, null);
+  assert.deepEqual(missing.builds.map(x => x.id), ['post']);
+});
+
+test('latest API counts override old routed star figures in either direction', () => {
+  const live = { github: [{repo:'org/tool',stars:6000,forks:20}], routed: { builds: [
+    {id:'tool',source:'github',url:'https://github.com/org/tool',metric:{kind:'stars',value:4000}}
+  ] } };
+  const data = {builds:[]}; mergeLive(data,live);
+  assert.equal(data.builds[0].metric.value,6000);
+  live.github[0].stars=4999;
+  live.routed.builds[0].metric.value=6000;
+  const next = {builds:[]}; mergeLive(next,live);
+  assert.equal(next.builds.length,0);
+});
+
+test('trending requires two recent real measurements and positive growth', () => {
+  const from = '2026-09-23T00:00:00Z', to = '2026-09-24T00:00:00Z', now = Date.parse(to);
+  const previous = { generatedAt: from, github: [{repo:'org/tool',stars:5000}] };
+  const [g] = recordGithubObservations([{repo:'org/tool',stars:5120}], previous, to);
+  assert.deepEqual(githubTrend(g, now), {gain:120,perDay:120,from,to});
+  assert.equal(githubTrend({...g,previousStars:{value:5000,at:'2026-09-23T12:00:00Z'}},now).perDay,240);
+  for (const change of [{stars:5000},{stars:4999},{stale:true},{previousStars:null},
+    {observedAt:'invalid'}, {previousStars:{value:5000,at:'2026-09-23T23:59:00Z'}},
+    {previousStars:{value:5000,at:'2026-08-01T00:00:00Z'}}])
+    assert.equal(githubTrend({...g,...change},now),null);
+  assert.equal(githubTrend(g,now+15*86400000),null);
+  assert.equal(githubTrend(g,now-1),null);
+  const [unknown] = recordGithubObservations([{repo:'org/new',stars:6000}], previous,to);
+  assert.equal(githubTrend(unknown,now),null);
+  const [staleBaseline] = recordGithubObservations([{repo:'org/tool',stars:5120}],
+    {generatedAt:from,github:[{repo:'org/tool',stars:5000,stale:true}]},to);
+  assert.equal(githubTrend(staleBaseline,now),null);
+  const [rapid] = recordGithubObservations([{repo:'org/tool',stars:5121}],
+    {generatedAt:to,github:[g]},'2026-09-24T00:10:00Z');
+  assert.deepEqual(rapid.previousStars,g.previousStars);
 });
 
 test('unavailable API snapshots cannot expose curated engagement figures', () => {

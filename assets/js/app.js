@@ -1,7 +1,7 @@
 /* Use-Case Archive — data loading, filtering, rendering. No framework, no build step. */
 
 import { sectionIcon } from './icons.js?v=badge-3';
-import { mergeLive } from './archive.js?v=stars-4';
+import { mergeLive } from './archive.js?v=trends-5';
 import { formatDetails } from './details.js';
 import { creditFor } from './credits.js';
 import { attachRankings, compareRankings, usefulnessLabel, popularityLabel } from './ranking.js';
@@ -67,6 +67,7 @@ async function load() {
 /* -------------------------------------------------------------- filters */
 
 function matches(item) {
+  if (state.sort === 'trending' && !item.trend) return false;
   if (state.author && creditFor(item).name !== state.author) return false;
   if (state.source !== 'all' && item.source !== state.source) return false;
   if (state.tag && !(item.tags || []).includes(state.tag)) return false;
@@ -79,7 +80,9 @@ function matches(item) {
 }
 
 function sortItems(items) {
-  return [...items].sort((a, b) => state.sort === 'az'
+  return [...items].sort((a, b) => state.sort === 'trending'
+    ? (b.trend.perDay - a.trend.perDay || a.title.localeCompare(b.title))
+    : state.sort === 'az'
     ? a.title.localeCompare(b.title) : compareRankings(a, b, state.sort));
 }
 
@@ -112,12 +115,13 @@ function metricBlock(item) {
 function card(item, rank, iconName) {
   const credit = creditFor(item);
   return `<li><button class="card" data-id="${esc(item.id)}">
-    <div class="card-top"><span class="card-index"><span class="card-tab">${sectionIcon(iconName)}</span><span class="rank">${state.sort === 'az' ? 'A–Z' : item.ranking ? `#${rank}` : 'UNCLASSIFIED'}</span></span>
+    <div class="card-top"><span class="card-index"><span class="card-tab">${sectionIcon(iconName)}</span><span class="rank">${state.sort === 'az' ? 'A–Z' : (item.ranking || state.sort === 'trending') ? `#${rank}` : 'UNCLASSIFIED'}</span></span>
       ${item.sourced ? '<span class="pill pill-sourced" title="Found by the sourcing pipeline, not written by hand">SOURCED</span>' : ''}${pill(item.source)}</div>
     <h3>${esc(item.title)}</h3>
     <p class="card-byline"><span>${esc(credit.label)}</span> <strong>${esc(credit.name)}</strong></p>
     <p class="sum">${esc(item.summary)}</p>
     ${metricBlock(item)}
+    ${item.trend ? `<p class="trend-note">↗ +${num(item.trend.gain)} stars · ${esc(new Date(item.trend.from).toLocaleString())} – ${esc(new Date(item.trend.to).toLocaleString())}</p>` : ''}
     <div class="card-foot"><span>Open ${item.url ? '&#8599;' : '&rarr;'}</span><span class="when">${item.ranking ? 'Jev classified' : 'Awaiting Jev'}</span></div>
   </button></li>`;
 }
@@ -145,6 +149,7 @@ function renderTags() {
 
 function renderFilters() {
   const bits = [];
+  if (state.sort === 'trending') bits.push(['trending', 'TRENDING: MEASURED STAR GROWTH']);
   if (state.q)                  bits.push(['q',      `SEARCH: ${state.q}`]);
   if (state.author)             bits.push(['author', `AUTHOR: ${state.author}`]);
   if (state.tag)                bits.push(['tag',    `TAG: ${state.tag}`]);
@@ -181,6 +186,7 @@ function render() {
   $('#listTitle').innerHTML   = `${esc(sec.label.toUpperCase())} &middot; <span>${items.length}</span>`;
   const classified = items.filter(item => item.ranking).length;
   $('#listSub').textContent = !items.length ? 'No entries to rank in this view.'
+    : state.sort === 'trending' ? 'Positive GitHub star growth, fastest per day first. Two API measurements 1 hour–14 days apart; latest measurement within 14 days. Publication dates do not affect rank.'
     : state.sort === 'az' ? 'Alphabetical.'
     : !classified ? 'Awaiting Jev classification. Unclassified entries are alphabetical; dates never affect the order.'
     : state.sort === 'popular' && !items.some(item => item.ranking && item.ranking.popularity !== 'unknown')
@@ -200,6 +206,9 @@ function render() {
        <strong>This shelf isn't stocked yet.</strong>
        <span>We're collecting ${esc(sec.label.toLowerCase())} worth keeping. Every entry needs a real source before it earns a place here.</span>
        <a class="ghost-btn empty-link" href="#use-cases" data-browse>Browse ${(state.data['use-cases'] || []).length} user stories &rarr;</a>`
+    : state.sort === 'trending' ? `<strong>No measured trends in this view yet.</strong>
+       <span>Trending needs positive star growth between two recent API snapshots. Repositories without enough history are excluded. Try another shelf or clear filters.</span>
+       <button class="ghost-btn" data-clear>Clear filters</button>`
     : `<strong>Nothing matches those filters.</strong>
        <span>This shelf has entries. Choose All Sources or clear your filters to see them.</span>
        <button class="ghost-btn" data-clear>Clear filters</button>`;
@@ -612,6 +621,7 @@ function fillSelect(el, options, selected) {
 }
 
 function clearFilters() {
+  if (state.sort === 'trending') { state.sort = 'recommended'; $('#sortSel').value = state.sort; }
   state.q = ''; state.tag = null; state.author = null; state.source = 'all';
   $('#search').value = '';
   $('#sourceSel').value = 'all';
@@ -721,6 +731,7 @@ function wire() {
     const drop = e.target.closest('[data-drop]');
     if (drop) {
       const k = drop.dataset.drop;
+      if (k === 'trending') { state.sort = 'recommended'; $('#sortSel').value = state.sort; }
       if (k === 'q')      { state.q = ''; $('#search').value = ''; }
       if (k === 'tag')    state.tag = null;
       if (k === 'author') state.author = null;

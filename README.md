@@ -123,7 +123,7 @@ settings is caught.
 
 | Source | Floor | Override |
 | --- | --- | --- |
-| GitHub | 1,000 stars | `MIN_STARS=50000` |
+| GitHub | 5,000 stars | `MIN_STARS=50000` |
 | Hacker News | 300 points | `MIN_HN_POINTS=500` |
 | Reddit | 200 upvotes | `MIN_REDDIT_UPVOTES=400` |
 
@@ -274,3 +274,20 @@ the write-up. The UI exposes assessment labels, not model scores disguised as
 public metrics. The old feature-idea experiment remains `npm run rank:ideas`.
 
 Run `npm test` for ranking policy and cache regression checks.
+
+### Repository eligibility and Trending
+
+Repository entries need at least 5,000 stars in a fetched public API snapshot.
+Missing counts do not qualify. The same rule applies to curated and discovered
+repositories; stored content is retained. Discussions and community stories mirrored
+on GitHub are not repository entries and do not inherit the hosting repo's stars.
+
+Choose **Trending · star growth** under Rank by to filter to repositories with
+positive measured growth. Two snapshots must be 1 hour–14 days apart, with the
+latest within 14 days. Results are ordered by stars gained per day, and each card
+shows the actual gain and measurement interval. Missing history, stale fetches and
+non-positive growth are excluded. The ordinary Jev sorting remains date independent.
+
+The fetcher records observation timestamps and prior star counts on each refresh.
+To bootstrap history from a committed API snapshot (without changing counts), run
+`node scripts/backfill-trends.mjs <snapshot-commit-sha>`.

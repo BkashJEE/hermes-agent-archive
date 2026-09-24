@@ -148,6 +148,10 @@
       "label": "Most popular \u00b7 Jev"
     },
     {
+      "id": "trending",
+      "label": "Trending \u00b7 star growth"
+    },
+    {
       "id": "az",
       "label": "A \u2192 Z"
     }

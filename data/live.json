@@ -14,7 +14,12 @@
       "language": "Python",
       "url": "https://github.com/NousResearch/hermes-agent",
       "pushedAt": "2026-09-24",
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z",
+      "previousStars": {
+        "value": 248480,
+        "at": "2026-09-24T05:53:02.482Z"
+      }
     },
     {
       "repo": "farion1231/cc-switch",
@@ -24,7 +29,12 @@
       "language": "Rust",
       "url": "https://github.com/farion1231/cc-switch",
       "pushedAt": "2026-09-24",
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z",
+      "previousStars": {
+        "value": 135977,
+        "at": "2026-09-24T05:53:02.482Z"
+      }
     },
     {
       "repo": "nexu-io/open-design",
@@ -45,7 +55,12 @@
       "url": "https://github.com/nexu-io/open-design",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z",
+      "previousStars": {
+        "value": 97861,
+        "at": "2026-09-24T05:53:02.482Z"
+      }
     },
     {
       "repo": "thedotmack/claude-mem",
@@ -55,7 +70,12 @@
       "language": "TypeScript",
       "url": "https://github.com/thedotmack/claude-mem",
       "pushedAt": "2026-09-24",
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z",
+      "previousStars": {
+        "value": 94569,
+        "at": "2026-09-24T05:53:02.482Z"
+      }
     },
     {
       "repo": "ruvnet/ruflo",
@@ -65,7 +85,12 @@
       "language": "TypeScript",
       "url": "https://github.com/ruvnet/ruflo",
       "pushedAt": "2026-09-24",
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z",
+      "previousStars": {
+        "value": 73165,
+        "at": "2026-09-24T05:53:02.482Z"
+      }
     },
     {
       "repo": "colbymchenry/codegraph",
@@ -75,7 +100,12 @@
       "language": "C",
       "url": "https://github.com/colbymchenry/codegraph",
       "pushedAt": "2026-09-23",
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z",
+      "previousStars": {
+        "value": 71966,
+        "at": "2026-09-24T05:53:02.482Z"
+      }
     },
     {
       "repo": "Mintplex-Labs/anything-llm",
@@ -96,7 +126,12 @@
       "url": "https://github.com/Mintplex-Labs/anything-llm",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z",
+      "previousStars": {
+        "value": 66389,
+        "at": "2026-09-24T05:53:02.482Z"
+      }
     },
     {
       "repo": "CherryHQ/cherry-studio",
@@ -117,7 +152,12 @@
       "url": "https://github.com/CherryHQ/cherry-studio",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z",
+      "previousStars": {
+        "value": 52125,
+        "at": "2026-09-24T05:53:02.482Z"
+      }
     },
     {
       "repo": "mindsdb/mindshub",
@@ -138,7 +178,12 @@
       "url": "https://github.com/mindsdb/mindshub",
       "pushedAt": "2026-09-16",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z",
+      "previousStars": {
+        "value": 39763,
+        "at": "2026-09-24T05:53:02.482Z"
+      }
     },
     {
       "repo": "1Panel-dev/1Panel",
@@ -159,7 +204,12 @@
       "url": "https://github.com/1Panel-dev/1Panel",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z",
+      "previousStars": {
+        "value": 37009,
+        "at": "2026-09-24T05:53:02.482Z"
+      }
     },
     {
       "repo": "iOfficeAI/AionUi",
@@ -180,7 +230,12 @@
       "url": "https://github.com/iOfficeAI/AionUi",
       "pushedAt": "2026-09-09",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z",
+      "previousStars": {
+        "value": 33079,
+        "at": "2026-09-24T05:53:02.482Z"
+      }
     },
     {
       "repo": "garrytan/gbrain",
@@ -190,7 +245,12 @@
       "language": "TypeScript",
       "url": "https://github.com/garrytan/gbrain",
       "pushedAt": "2026-09-24",
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z",
+      "previousStars": {
+        "value": 30283,
+        "at": "2026-09-24T05:53:02.482Z"
+      }
     },
     {
       "repo": "titanwings/distilly",
@@ -211,7 +271,8 @@
       "url": "https://github.com/titanwings/distilly",
       "pushedAt": "2026-09-22",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "NVIDIA/NemoClaw",
@@ -232,7 +293,8 @@
       "url": "https://github.com/NVIDIA/NemoClaw",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "screenpipe/screenpipe",
@@ -253,7 +315,8 @@
       "url": "https://github.com/screenpipe/screenpipe",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "jnMetaCode/agency-agents-zh",
@@ -274,7 +337,8 @@
       "url": "https://github.com/jnMetaCode/agency-agents-zh",
       "pushedAt": "2026-09-17",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "nesquena/hermes-webui",
@@ -292,7 +356,8 @@
       "url": "https://github.com/nesquena/hermes-webui",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "langbot-app/LangBot",
@@ -313,7 +378,8 @@
       "url": "https://github.com/langbot-app/LangBot",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "citrolabs/ego-lite",
@@ -334,7 +400,8 @@
       "url": "https://github.com/citrolabs/ego-lite",
       "pushedAt": "2026-09-23",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "fathah/hermes-desktop",
@@ -353,7 +420,8 @@
       "url": "https://github.com/fathah/hermes-desktop",
       "pushedAt": "2026-09-16",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "EKKOLearnAI/ekko-studio",
@@ -374,7 +442,8 @@
       "url": "https://github.com/EKKOLearnAI/ekko-studio",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "MervinPraison/PraisonAI",
@@ -395,7 +464,8 @@
       "url": "https://github.com/MervinPraison/PraisonAI",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "jnMetaCode/superpowers-zh",
@@ -416,7 +486,8 @@
       "url": "https://github.com/jnMetaCode/superpowers-zh",
       "pushedAt": "2026-09-17",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "mnfst/llm-gateway",
@@ -437,7 +508,8 @@
       "url": "https://github.com/mnfst/llm-gateway",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "outsourc-e/hermes-workspace",
@@ -457,7 +529,8 @@
       "url": "https://github.com/outsourc-e/hermes-workspace",
       "pushedAt": "2026-09-10",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "Devin-AXIS/iPolloWork",
@@ -478,7 +551,8 @@
       "url": "https://github.com/Devin-AXIS/iPolloWork",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "ThinkInAIXYZ/deepchat",
@@ -499,7 +573,8 @@
       "url": "https://github.com/ThinkInAIXYZ/deepchat",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "Sylinko/Everywhere",
@@ -520,7 +595,8 @@
       "url": "https://github.com/Sylinko/Everywhere",
       "pushedAt": "2026-09-17",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "0xNyk/awesome-hermes-agent",
@@ -541,7 +617,8 @@
       "url": "https://github.com/0xNyk/awesome-hermes-agent",
       "pushedAt": "2026-09-22",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "the-open-agent/openagent",
@@ -562,7 +639,8 @@
       "url": "https://github.com/the-open-agent/openagent",
       "pushedAt": "2026-09-17",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "spinabot/brigade",
@@ -583,7 +661,8 @@
       "url": "https://github.com/spinabot/brigade",
       "pushedAt": "2026-09-15",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "Waishnav/devspace",
@@ -603,7 +682,8 @@
       "url": "https://github.com/Waishnav/devspace",
       "pushedAt": "2026-09-19",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "conorbronsdon/avoid-ai-writing",
@@ -623,7 +703,8 @@
       "url": "https://github.com/conorbronsdon/avoid-ai-writing",
       "pushedAt": "2026-09-23",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "EverMind-AI/Raven",
@@ -644,7 +725,8 @@
       "url": "https://github.com/EverMind-AI/Raven",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "liustack/modlens",
@@ -665,7 +747,8 @@
       "url": "https://github.com/liustack/modlens",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "tutti-os/tutti",
@@ -686,7 +769,8 @@
       "url": "https://github.com/tutti-os/tutti",
       "pushedAt": "2026-09-05",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "agent-of-empires/agent-of-empires",
@@ -707,7 +791,8 @@
       "url": "https://github.com/agent-of-empires/agent-of-empires",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "mnemosyne-oss/mnemosyne",
@@ -726,7 +811,8 @@
       "url": "https://github.com/mnemosyne-oss/mnemosyne",
       "pushedAt": "2026-09-23",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "liaohch3/claude-tap",
@@ -747,7 +833,8 @@
       "url": "https://github.com/liaohch3/claude-tap",
       "pushedAt": "2026-09-22",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "Tiger3807861189/J-Space-Cognition-Suite",
@@ -768,7 +855,8 @@
       "url": "https://github.com/Tiger3807861189/J-Space-Cognition-Suite",
       "pushedAt": "2026-09-14",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "qingchencloud/clawpanel",
@@ -789,7 +877,8 @@
       "url": "https://github.com/qingchencloud/clawpanel",
       "pushedAt": "2026-09-15",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "rlaope/oh-my-hermes",
@@ -810,7 +899,8 @@
       "url": "https://github.com/rlaope/oh-my-hermes",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "LearnPrompt/LearnPrompt",
@@ -831,7 +921,8 @@
       "url": "https://github.com/LearnPrompt/LearnPrompt",
       "pushedAt": "2026-09-21",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "AtomicBot-ai/atomic-agent",
@@ -852,7 +943,8 @@
       "url": "https://github.com/AtomicBot-ai/atomic-agent",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "HarnessRouter/harnessrouter",
@@ -873,7 +965,8 @@
       "url": "https://github.com/HarnessRouter/harnessrouter",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "LoRexxar/Kunlun-M",
@@ -885,7 +978,8 @@
       "url": "https://github.com/LoRexxar/Kunlun-M",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "Javis603/token-monitor",
@@ -906,7 +1000,8 @@
       "url": "https://github.com/Javis603/token-monitor",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "codejunkie99/agentic-stack",
@@ -918,7 +1013,8 @@
       "url": "https://github.com/codejunkie99/agentic-stack",
       "pushedAt": "2026-09-16",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "Infisical/agent-vault",
@@ -934,7 +1030,8 @@
       "url": "https://github.com/Infisical/agent-vault",
       "pushedAt": "2026-09-21",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "lennney/stop-that-shit",
@@ -955,7 +1052,8 @@
       "url": "https://github.com/lennney/stop-that-shit",
       "pushedAt": "2026-09-21",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "Stack-Cairn/LiveAgent",
@@ -976,7 +1074,8 @@
       "url": "https://github.com/Stack-Cairn/LiveAgent",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "cogwheel0/conduit",
@@ -997,7 +1096,8 @@
       "url": "https://github.com/cogwheel0/conduit",
       "pushedAt": "2026-09-22",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "Orkas-AI/Orkas",
@@ -1018,7 +1118,8 @@
       "url": "https://github.com/Orkas-AI/Orkas",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "MemTensor/memmy-agent",
@@ -1039,7 +1140,8 @@
       "url": "https://github.com/MemTensor/memmy-agent",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "joeynyc/hermes-hudui",
@@ -1051,7 +1153,8 @@
       "url": "https://github.com/joeynyc/hermes-hudui",
       "pushedAt": "2026-09-04",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "undertheseanlp/underthesea",
@@ -1072,7 +1175,8 @@
       "url": "https://github.com/undertheseanlp/underthesea",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "Jamailar/Beav",
@@ -1093,7 +1197,8 @@
       "url": "https://github.com/Jamailar/Beav",
       "pushedAt": "2026-09-23",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "Eynzof/Hermes-CN-Desktop",
@@ -1113,7 +1218,8 @@
       "url": "https://github.com/Eynzof/Hermes-CN-Desktop",
       "pushedAt": "2026-09-21",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "shiwenwen/hope-agent",
@@ -1134,7 +1240,8 @@
       "url": "https://github.com/shiwenwen/hope-agent",
       "pushedAt": "2026-09-23",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "abundantbeing/hermes-browser-extension",
@@ -1155,7 +1262,8 @@
       "url": "https://github.com/abundantbeing/hermes-browser-extension",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "kenryu42/cc-safety-net",
@@ -1176,7 +1284,8 @@
       "url": "https://github.com/kenryu42/cc-safety-net",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "uzairansaruzi/hermex",
@@ -1197,7 +1306,8 @@
       "url": "https://github.com/uzairansaruzi/hermex",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "ClaudioDrews/memory-os",
@@ -1218,7 +1328,8 @@
       "url": "https://github.com/ClaudioDrews/memory-os",
       "pushedAt": "2026-09-20",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "greyhaven-ai/autocontext",
@@ -1239,7 +1350,8 @@
       "url": "https://github.com/greyhaven-ai/autocontext",
       "pushedAt": "2026-09-23",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "ksimback/hermes-ecosystem",
@@ -1257,7 +1369,8 @@
       "url": "https://github.com/ksimback/hermes-ecosystem",
       "pushedAt": "2026-09-24",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     },
     {
       "repo": "uphiago/recon-skills",
@@ -1278,7 +1391,8 @@
       "url": "https://github.com/uphiago/recon-skills",
       "pushedAt": "2026-09-01",
       "discovered": true,
-      "stale": false
+      "stale": false,
+      "observedAt": "2026-09-24T09:22:15.106Z"
     }
   ],
   "hn": [],
