@@ -555,6 +555,7 @@ function openDrawer(id, trigger) {
 
   drawerTrigger = trigger || document.activeElement;
   const story = (it.tags || []).includes('user-story');
+  const copyLabel = (it.tags || []).includes('prompt') ? 'COPY PROMPT' : 'COPY';
   const paragraphs = (it.detail || it.summary || '').split('\n\n');
   // Imported stories already end with attribution. Move that exact line into the
   // caption, preserving its wording rather than quoting the author twice.
@@ -576,7 +577,7 @@ function openDrawer(id, trigger) {
       <figcaption class="d-attribution"><span class="attribution-rule" aria-hidden="true"></span>${esc(credit)}</figcaption></figure>`
       : `<p class="d-attribution">${esc(credit)}</p><div class="d-body">${body}</div>`}
     ${it.snippet ? `<div class="d-snip">
-        <button class="copy-btn" id="copyBtn">COPY</button>
+        <button class="copy-btn" id="copyBtn">${copyLabel}</button>
         <pre><code>${esc(it.snippet)}</code></pre></div>` : ''}
     ${(it.tags || []).length ? `<div class="d-tags">${it.tags.map(t => `<button class="d-tag" data-tag="${esc(t)}">#${esc(t)}</button>`).join('')}</div>` : ''}
     ${it.url ? `<a class="d-link" href="${esc(it.url)}" target="_blank" rel="noopener noreferrer">READ THE ORIGINAL &#8599;</a>` : ''}
@@ -596,7 +597,7 @@ function openDrawer(id, trigger) {
       await navigator.clipboard.writeText(it.snippet);
       copy.textContent = 'COPIED';
       copy.classList.add('done');
-      setTimeout(() => { copy.textContent = 'COPY'; copy.classList.remove('done'); }, 1400);
+      setTimeout(() => { copy.textContent = copyLabel; copy.classList.remove('done'); }, 1400);
     } catch {
       copy.textContent = 'SELECT IT';
     }

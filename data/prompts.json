@@ -1,4 +1,239 @@
 {
-  "note": "Cleared during the pivot to Hermes Agent. The previous entries documented Claude Code and did not belong here. Refill from the Hermes Agent docs and the sourcing pipeline \u2014 never from memory.",
-  "items": []
+  "note": "Exact prompt examples from the official Hermes Agent documentation. Original wording is MIT-licensed by Nous Research; editorial descriptions and usage notes explain customization. Source revision is recorded on each item.",
+  "license": {
+    "name": "MIT",
+    "copyright": "Copyright (c) 2025 Nous Research",
+    "notice": "assets/licenses/hermes-agent.txt"
+  },
+  "items": [
+    {
+      "id": "prompt-parallel-research",
+      "title": "Research three topics in parallel",
+      "summary": "Run independent research tasks and combine their findings into a briefing.",
+      "detail": "Official documentation example from Nous Research. The copyable prompt below preserves the source wording.\n\n- How to use: Replace the three topics and the example year with your own research questions. Hermes needs web tools for current sources.\n- Customize example names, paths and topics before running it.\n- This is a documented example, not a claim of measured popularity.",
+      "snippet": "Research these three topics in parallel:\n1. Current state of WebAssembly outside the browser\n2. RISC-V server chip adoption in 2025\n3. Practical quantum computing applications\n\nFocus on recent developments and key players.",
+      "tags": [
+        "prompt",
+        "official-example",
+        "research",
+        "agents"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/delegation-patterns#pattern-parallel-research",
+      "sourceRevision": "130b8f2c5dbca93a81aa396dd2ba44420d78f6f0",
+      "sourceFile": "website/docs/guides/delegation-patterns.md",
+      "verifiedAt": "2026-09-24"
+    },
+    {
+      "id": "prompt-auth-review",
+      "title": "Review and repair an authentication module",
+      "summary": "Inspect authentication code for security problems, fix findings and run tests.",
+      "detail": "Official documentation example from Nous Research. The copyable prompt below preserves the source wording.\n\n- How to use: Replace src/auth/ with your authentication directory. Give Hermes the project path and test command; this prompt authorizes code changes.\n- Customize example names, paths and topics before running it.\n- This is a documented example, not a claim of measured popularity.",
+      "snippet": "Review the authentication module at src/auth/ for security issues.\nCheck for SQL injection, JWT validation problems, password handling,\nand session management. Fix anything you find and run the tests.",
+      "tags": [
+        "prompt",
+        "official-example",
+        "dev-workflow",
+        "security"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/delegation-patterns#pattern-code-review",
+      "sourceRevision": "130b8f2c5dbca93a81aa396dd2ba44420d78f6f0",
+      "sourceFile": "website/docs/guides/delegation-patterns.md",
+      "verifiedAt": "2026-09-24"
+    },
+    {
+      "id": "prompt-compare-search",
+      "title": "Compare three full-text search approaches",
+      "summary": "Evaluate search options by setup effort, capabilities, resources and maintenance.",
+      "detail": "Official documentation example from Nous Research. The copyable prompt below preserves the source wording.\n\n- How to use: Replace Django and the three search products with your stack and alternatives. Provide project constraints before using the comparison.\n- Customize example names, paths and topics before running it.\n- This is a documented example, not a claim of measured popularity.",
+      "snippet": "I need to add full-text search to our Django app. Evaluate three approaches\nin parallel:\n1. PostgreSQL tsvector (built-in)\n2. Elasticsearch via django-elasticsearch-dsl\n3. Meilisearch via meilisearch-python\n\nFor each: setup complexity, query capabilities, resource requirements,\nand maintenance overhead. Compare them and recommend one.",
+      "tags": [
+        "prompt",
+        "official-example",
+        "research",
+        "dev-workflow"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/delegation-patterns#pattern-compare-alternatives",
+      "sourceRevision": "130b8f2c5dbca93a81aa396dd2ba44420d78f6f0",
+      "sourceFile": "website/docs/guides/delegation-patterns.md",
+      "verifiedAt": "2026-09-24"
+    },
+    {
+      "id": "prompt-scheduled-briefing",
+      "title": "Schedule an AI news briefing for Telegram",
+      "summary": "Ask Hermes to schedule a morning briefing and deliver source links to Telegram.",
+      "detail": "Official documentation example from Nous Research. The copyable prompt below preserves the source wording.\n\n- How to use: Connect the Telegram gateway first. Replace the topic, delivery channel and 8am schedule; specify your timezone. This prompt creates a recurring job.\n- Customize example names, paths and topics before running it.\n- This is a documented example, not a claim of measured popularity.",
+      "snippet": "Every morning at 8am, search the web for the latest news about AI agents\nand open source LLMs. Summarize the top 3 stories in a concise briefing\nwith links. Use a friendly, professional tone. Deliver to telegram.",
+      "tags": [
+        "prompt",
+        "official-example",
+        "automation",
+        "research",
+        "messaging"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/daily-briefing-bot#option-a-natural-language-in-chat",
+      "sourceRevision": "130b8f2c5dbca93a81aa396dd2ba44420d78f6f0",
+      "sourceFile": "website/docs/guides/daily-briefing-bot.md",
+      "verifiedAt": "2026-09-24"
+    },
+    {
+      "id": "prompt-sourced-briefing",
+      "title": "Write a concise briefing with source URLs",
+      "summary": "Turn recent articles into three short news summaries with links.",
+      "detail": "Official documentation example from Nous Research. The copyable prompt below preserves the source wording.\n\n- How to use: Paste as a one-off task, or use the text as a scheduled job body. It requires web search and does not create a schedule by itself.\n- Customize example names, paths and topics before running it.\n- This is a documented example, not a claim of measured popularity.",
+      "snippet": "Search the web for the latest news about AI agents and open source LLMs.\nFind at least 5 recent articles from the past 24 hours. Summarize the\ntop 3 most important stories in a concise daily briefing format. For each\nstory include: a clear headline, a 2-sentence summary, and the source URL.\nUse a friendly, professional tone. Format with emoji bullet points.",
+      "tags": [
+        "prompt",
+        "official-example",
+        "research",
+        "content-creation"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/daily-briefing-bot#the-golden-rule-self-contained-prompts",
+      "sourceRevision": "130b8f2c5dbca93a81aa396dd2ba44420d78f6f0",
+      "sourceFile": "website/docs/guides/daily-briefing-bot.md",
+      "verifiedAt": "2026-09-24"
+    },
+    {
+      "id": "prompt-manual-pr-review",
+      "title": "Review a pull request with exact code references",
+      "summary": "Review a PR diff for bugs, security and code quality with precise line references.",
+      "detail": "Official documentation example from Nous Research. The copyable prompt below preserves the source wording.\n\n- How to use: Replace the example repository and PR number 3888 with your target. Install and authenticate the gh CLI as needed. The wording requests a review, not posting or merging it.\n- Customize example names, paths and topics before running it.\n- This is a documented example, not a claim of measured popularity.",
+      "snippet": "Review this pull request. Read the diff, check for bugs, security issues,\nand code quality. Be specific about line numbers and quote problematic code.\n\nRun: gh pr diff 3888 --repo NousResearch/hermes-agent",
+      "tags": [
+        "prompt",
+        "official-example",
+        "dev-workflow",
+        "code-review"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/github-pr-review-agent#step-2-try-a-manual-review",
+      "sourceRevision": "130b8f2c5dbca93a81aa396dd2ba44420d78f6f0",
+      "sourceFile": "website/docs/guides/github-pr-review-agent.md",
+      "verifiedAt": "2026-09-24"
+    },
+    {
+      "id": "prompt-remember-backend",
+      "title": "Remember backend review conventions",
+      "summary": "Teach Hermes persistent conventions for a Python and FastAPI backend.",
+      "detail": "Official documentation example from Nous Research. The copyable prompt below preserves the source wording.\n\n- How to use: Replace the example stack, ORM and test conventions with your project rules. The prompt explicitly asks Hermes to remember them.\n- Customize example names, paths and topics before running it.\n- This is a documented example, not a claim of measured popularity.",
+      "snippet": "Remember: In our backend repo, we use Python with FastAPI.\nAll endpoints must have type annotations and Pydantic models.\nWe don't allow raw SQL — only SQLAlchemy ORM.\nTest files go in tests/ and must use pytest fixtures.",
+      "tags": [
+        "prompt",
+        "official-example",
+        "memory",
+        "dev-workflow"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/github-pr-review-agent#step-4-teach-it-your-conventions",
+      "sourceRevision": "130b8f2c5dbca93a81aa396dd2ba44420d78f6f0",
+      "sourceFile": "website/docs/guides/github-pr-review-agent.md",
+      "verifiedAt": "2026-09-24"
+    },
+    {
+      "id": "prompt-local-git-summary",
+      "title": "Summarize the current Git working state",
+      "summary": "Get a concise account of local Git changes using the connected project tools.",
+      "detail": "Official documentation example from Nous Research. The copyable prompt below preserves the source wording.\n\n- How to use: Connect the local Git or filesystem MCP server described in the source and scope it to your project.\n- Customize example names, paths and topics before running it.\n- This is a documented example, not a claim of measured popularity.",
+      "snippet": "Check the local git state and summarize what changed recently.",
+      "tags": [
+        "prompt",
+        "official-example",
+        "dev-workflow",
+        "integrations"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/use-mcp-with-hermes#pattern-1-local-project-assistant",
+      "sourceRevision": "130b8f2c5dbca93a81aa396dd2ba44420d78f6f0",
+      "sourceFile": "website/docs/guides/use-mcp-with-hermes.md",
+      "verifiedAt": "2026-09-24"
+    },
+    {
+      "id": "prompt-triage-mcp-issues",
+      "title": "Group MCP issues and draft a bug report",
+      "summary": "Cluster related GitHub issues and draft a report for the most common problem.",
+      "detail": "Official documentation example from Nous Research. The copyable prompt below preserves the source wording.\n\n- How to use: Connect the GitHub MCP server with issue-listing access and tell Hermes which repository to inspect. The prompt asks for a draft, not publication.\n- Customize example names, paths and topics before running it.\n- This is a documented example, not a claim of measured popularity.",
+      "snippet": "List open issues about MCP, cluster them by theme, and draft a high-quality issue for the most common bug.",
+      "tags": [
+        "prompt",
+        "official-example",
+        "dev-workflow",
+        "integrations"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/use-mcp-with-hermes#pattern-3-github-triage-assistant",
+      "sourceRevision": "130b8f2c5dbca93a81aa396dd2ba44420d78f6f0",
+      "sourceFile": "website/docs/guides/use-mcp-with-hermes.md",
+      "verifiedAt": "2026-09-24"
+    },
+    {
+      "id": "prompt-onboarding-summary",
+      "title": "Read and summarize an MCP onboarding guide",
+      "summary": "Discover documentation resources and summarize the onboarding guide.",
+      "detail": "Official documentation example from Nous Research. The copyable prompt below preserves the source wording.\n\n- How to use: Connect a documentation MCP server with resources enabled. Replace the guide name if your server uses a different one.\n- Customize example names, paths and topics before running it.\n- This is a documented example, not a claim of measured popularity.",
+      "snippet": "List available MCP resources from the docs server, then read the onboarding guide and summarize it.",
+      "tags": [
+        "prompt",
+        "official-example",
+        "integrations",
+        "personal-assistant"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/use-mcp-with-hermes#pattern-4-documentation--knowledge-servers",
+      "sourceRevision": "130b8f2c5dbca93a81aa396dd2ba44420d78f6f0",
+      "sourceFile": "website/docs/guides/use-mcp-with-hermes.md",
+      "verifiedAt": "2026-09-24"
+    },
+    {
+      "id": "prompt-plan-rest-api",
+      "title": "Plan a REST API with the plan skill",
+      "summary": "Invoke the installed plan skill with a concrete API design task.",
+      "detail": "Official documentation example from Nous Research. The copyable prompt below preserves the source wording.\n\n- How to use: Confirm the plan skill is installed. Replace the todo app with the service you want to design.\n- Customize example names, paths and topics before running it.\n- This is a documented example, not a claim of measured popularity.",
+      "snippet": "/plan Design a REST API for a todo app",
+      "tags": [
+        "prompt",
+        "official-example",
+        "dev-workflow",
+        "planning"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/work-with-skills#using-a-skill",
+      "sourceRevision": "130b8f2c5dbca93a81aa396dd2ba44420d78f6f0",
+      "sourceFile": "website/docs/guides/work-with-skills.md",
+      "verifiedAt": "2026-09-24"
+    },
+    {
+      "id": "prompt-save-workflow",
+      "title": "Save a successful workflow as a reusable skill",
+      "summary": "Capture a completed procedure so you can invoke it again in a later session.",
+      "detail": "Official documentation example from Nous Research. The copyable prompt below preserves the source wording.\n\n- How to use: Use after Hermes has completed a workflow in the current conversation. Replace deploy-staging with a descriptive skill name, then review the saved procedure.\n- Customize example names, paths and topics before running it.\n- This is a documented example, not a claim of measured popularity.",
+      "snippet": "save what you just did as a skill called `deploy-staging`.",
+      "tags": [
+        "prompt",
+        "official-example",
+        "agent-skills",
+        "dev-workflow"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/tips#when-to-create-skills",
+      "sourceRevision": "130b8f2c5dbca93a81aa396dd2ba44420d78f6f0",
+      "sourceFile": "website/docs/guides/tips.md",
+      "verifiedAt": "2026-09-24"
+    }
+  ]
 }
