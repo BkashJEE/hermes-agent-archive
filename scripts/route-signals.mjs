@@ -60,7 +60,7 @@ const RULES = [
 ];
 
 /* A fetched item has to be about the subject at all before it's shelved. */
-const RELEVANT = /\bclaude|agent|skill|prompt|mcp|subagent|coding assistant\b/i;
+const RELEVANT = /\bhermes|agent|skill|prompt|mcp|subagent|harness\b/i;
 
 function routeByKeyword(item) {
   const all = `${item.title} ${item.summary} ${(item.topics || []).join(' ')}`;
@@ -94,12 +94,12 @@ async function routeWithJev(items) {
       questions: {
         section: {
           type: 'choice',
-          instructions: 'An archive of Claude Code craft has seven shelves. Which shelf does `item` belong on? Judge what the item is fundamentally about, not what it mentions in passing.',
+          instructions: 'An archive of Hermes Agent craft has seven shelves. Which shelf does `item` belong on? Judge what the item is fundamentally about, not what it mentions in passing.',
           criteria
         },
         worth_keeping: {
           type: 'noul',
-          instructions: 'Would a reader browsing an archive of Claude Code craft learn something useful and specific from `item`?',
+          instructions: 'Would a reader browsing an archive of Hermes Agent craft learn something useful and specific from `item`?',
           criteria: { true: 'Specific and useful — a concrete technique, tool or finding', false: 'Vague, promotional, or just news about the ecosystem' }
         }
       }

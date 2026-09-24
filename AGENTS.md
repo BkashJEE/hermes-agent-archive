@@ -4,9 +4,13 @@ Conventions for any agent working in this repo (Codex, Claude Code, or a human).
 
 ## What this is
 
-A private static site cataloguing Claude Code craft — use cases, skills, prompts,
-settings, commands, hidden tricks and community builds — for the owner's followers,
-and as a content bank the owner mines for posts.
+A private static site cataloguing **Hermes Agent** craft — user stories, skills, prompts,
+settings, commands, hidden tricks and community builds — for the owner's followers, and
+as a content bank the owner mines for posts.
+
+**Scope rule: only Hermes Agent related things are stored here.** Content about other
+agents or harnesses does not belong, however good it is. The archive was pivoted from
+Claude Code on 2026-09-23 and those entries were removed, not migrated.
 
 Plain HTML, CSS and vanilla ES modules. **No framework, no build step, no dependencies,
 no server.** Content is JSON files in `data/`. Keep it that way: if a change needs npm
@@ -78,7 +82,7 @@ each section caps at 10 sourced items. Sourced cards are marked `SOURCED`; a fet
 duplicate of a curated URL is dropped, because hand-written entries win.
 
 **Known weakness:** the keyword fallback cannot tell a use case from ecosystem news, so
-Hacker News stories currently sit on the Use Cases shelf. The Jev router's `none` option
+fetched stories can land on the wrong shelf. The Jev router's `none` option
 and `worth_keeping` check fix this. Do not try to fix it with more regexes.
 
 ## Secrets

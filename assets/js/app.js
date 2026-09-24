@@ -4,8 +4,10 @@ const $  = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
 const SOURCE_LABEL = {
-  x: 'X / TWITTER', reddit: 'REDDIT', hn: 'HACKER NEWS',
-  fb: 'FACEBOOK', github: 'GITHUB', docs: 'OFFICIAL DOCS', community: 'COMMUNITY'
+  x: 'X / TWITTER', reddit: 'REDDIT', hn: 'HACKER NEWS', discord: 'DISCORD',
+  fb: 'FACEBOOK', github: 'GITHUB', youtube: 'YOUTUBE', blog: 'BLOG',
+  podcast: 'PODCAST', linkedin: 'LINKEDIN', producthunt: 'PRODUCT HUNT',
+  docs: 'OFFICIAL DOCS', community: 'COMMUNITY'
 };
 
 const state = {

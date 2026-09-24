@@ -1,9 +1,8 @@
 # Hermes Agent Archive
 
-A public archive of the Claude Code craft people actually use — the most viewed, talked
-about and reused **use cases, skills, prompts, settings, commands, hidden tricks** and
-**community builds** — filterable by where it showed up (X, Reddit, Hacker News, Facebook,
-GitHub, official docs).
+A private archive of the Hermes Agent craft people actually use — **user stories, skills,
+prompts, settings, commands, hidden tricks** and **community builds** — filterable by
+where it showed up (X, Reddit, Discord, Hacker News, GitHub, YouTube, blogs, podcasts).
 
 Static site. No build step, no framework, no dependencies. Content is plain JSON.
 
@@ -81,6 +80,18 @@ loads it automatically; anything exported in your shell still wins over the file
 | `TYPESAFE_API_KEY` | Jev routing and feature ranking | keyword rules route; ranking is unavailable |
 | `GITHUB_TOKEN` | 5000 API requests/hour instead of 60 | fine for one run, rate-limits on repeats |
 | `REDDIT_CLIENT_ID` / `_SECRET` | the Reddit section | stays empty — Reddit refuses anonymous reads |
+
+## Where the user stories come from
+
+```bash
+node scripts/import-hermes-stories.mjs
+```
+
+All 326 community stories published at
+<https://hermes-agent.nousresearch.com/docs/user-stories>, parsed from the page and
+written to `data/use-cases.json`. Each keeps its headline, quote, author, date and link
+to the original post exactly as Nous published them — nothing is paraphrased. The
+importer fails loudly if the page markup changes rather than importing half a shelf.
 
 ## Only popular things get sourced
 

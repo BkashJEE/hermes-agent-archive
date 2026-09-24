@@ -26,11 +26,11 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 const CONFIG = {
   // GitHub *discovery*: finds projects nobody has seeded yet, the way a search feed does.
-  discoverQuery: 'claude-code in:name,description,topics',
+  discoverQuery: 'hermes-agent in:name,description,topics',
   discoverWindowDays: 30,
   discoverMax: 24,
-  hnQueries:  ['claude code', 'claude agent skills'],
-  subreddits: ['ClaudeAI', 'ClaudeCode'],
+  hnQueries:  ['hermes agent', 'nous research hermes'],
+  subreddits: ['NousResearch', 'HermesAgent'],
   redditWindow: 'month',   // hour | day | week | month | year | all
   perSource: 12,
   windowDays: 120,
@@ -141,7 +141,7 @@ async function discover(seeded) {
     if (r.private || r.fork || r.archived || r.disabled) continue;
     if (!Number.isFinite(r.stargazers_count) || r.stargazers_count < CONFIG.minStars) { belowBar++; continue; }
     // GitHub matches loosely; require the subject to actually be named.
-    if (!/\bclaude\b/i.test(`${name} ${desc}`) && !topics.includes('claude-code')) continue;
+    if (!/\bhermes\b/i.test(`${name} ${desc}`) && !topics.includes('hermes-agent')) continue;
 
     seen.add(name.toLowerCase());
     out.push({

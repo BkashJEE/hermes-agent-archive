@@ -287,6 +287,9 @@ code{font-family:var(--mono);font-size:.92em}
 }
 .pill-x{color:var(--x)} .pill-reddit{color:var(--reddit)} .pill-hn{color:var(--hn)}
 .pill-fb{color:var(--fb)} .pill-github{color:var(--github)} .pill-docs{color:var(--docs)}
+.pill-discord{color:#8b7cf6} .pill-youtube{color:#f56262} .pill-blog{color:#2dd4bf}
+.pill-podcast{color:#f5a524} .pill-linkedin{color:#4a8cff} .pill-producthunt{color:#f56262}
+.pill-community{color:var(--ink-mute)}
 .pill-curated{color:var(--ink-mute)}
 .pill-sourced{color:var(--accent);border-style:dashed}
 
