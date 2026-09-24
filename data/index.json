@@ -36,8 +36,8 @@
       "label": "Prompts",
       "icon": "prompts",
       "file": "prompts.json",
-      "title": "PROMPTS PEOPLE STEAL",
-      "blurb": "Prompt wording with a track record on Hermes Agent."
+      "title": "HERMES PROMPT EXAMPLES",
+      "blurb": "Copyable examples from official Hermes Agent documentation, with setup notes and source credit."
     },
     {
       "id": "settings",

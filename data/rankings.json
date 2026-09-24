@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-09-24T17:13:58.051Z",
+  "classifiedAt": "2026-09-24T18:15:40.925Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -4281,6 +4281,78 @@
       "usefulness": 1.35,
       "popularity": "strong",
       "confidence": 0.51
+    },
+    "prompt-parallel-research": {
+      "input": "b41bb3a982e727c41754513bb9c02e9be1641c40776380f3cd36bfc809c9d4b5",
+      "usefulness": 1.86,
+      "popularity": "unknown",
+      "confidence": 0.26
+    },
+    "prompt-auth-review": {
+      "input": "66f7b3f5ca36157be97bd2d5af852b8a51b051b0a1317da16e8a54c962b7349a",
+      "usefulness": 2.7,
+      "popularity": "unknown",
+      "confidence": 0.72
+    },
+    "prompt-compare-search": {
+      "input": "652e1490c3370d15886993711c9ff028d20c2594a3d9af86d792d72067e385bf",
+      "usefulness": 2.67,
+      "popularity": "unknown",
+      "confidence": 0.64
+    },
+    "prompt-scheduled-briefing": {
+      "input": "c21f5cda2be9e84d8fa717182080b4129c21664bb80fea878ed0e98b35356e02",
+      "usefulness": 2.66,
+      "popularity": "unknown",
+      "confidence": 0.69
+    },
+    "prompt-sourced-briefing": {
+      "input": "b5203dadc4abd1275d543d33b635bb79d8488ec16f88c75e66863c9cfe1f7033",
+      "usefulness": 2.74,
+      "popularity": "unknown",
+      "confidence": 0.7
+    },
+    "prompt-manual-pr-review": {
+      "input": "2ea2fb8f20269cd4470f02def20b98949a4a7cee910a87165b0f76da2302a1fc",
+      "usefulness": 2.67,
+      "popularity": "unknown",
+      "confidence": 0.63
+    },
+    "prompt-remember-backend": {
+      "input": "5f5b4852d9f04d97dccfd34a5f5d890d9fe35fb8a5ad549d0e97aa2915e2c376",
+      "usefulness": 2.33,
+      "popularity": "unknown",
+      "confidence": 0.4
+    },
+    "prompt-local-git-summary": {
+      "input": "47590dd6d695d053d1b0a4abe7510c5511ff0b569e661e0e0cefad95dfd7af4f",
+      "usefulness": 1.42,
+      "popularity": "unknown",
+      "confidence": 0.59
+    },
+    "prompt-triage-mcp-issues": {
+      "input": "9940dd52925c879a2e7a16679f2a91db609bf1ac09c8eb1394318d5f1e8674e4",
+      "usefulness": 2.23,
+      "popularity": "unknown",
+      "confidence": 0.5
+    },
+    "prompt-onboarding-summary": {
+      "input": "ded6ca4bca2c21c5b5d1e961cfdb37ca9a524890e2d9c5aac9aa8af127859ee4",
+      "usefulness": 1.72,
+      "popularity": "unknown",
+      "confidence": 0.37
+    },
+    "prompt-plan-rest-api": {
+      "input": "4b10f6f33a351a526e6575c0dbd0bb43bd891563be582c4c5c955821452bd8c3",
+      "usefulness": 1.47,
+      "popularity": "unknown",
+      "confidence": 0.56
+    },
+    "prompt-save-workflow": {
+      "input": "26cdafef4bdb0d183566e5eeadd0cbe7acbe71461aecf439bab3f293ccb07e64",
+      "usefulness": 1.47,
+      "popularity": "unknown",
+      "confidence": 0.5
     }
   }
 }
