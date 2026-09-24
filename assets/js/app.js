@@ -1,6 +1,6 @@
 /* Use-Case Archive — data loading, filtering, rendering. No framework, no build step. */
 
-import { sectionIcon } from './icons.js';
+import { sectionIcon } from './icons.js?v=menu-2';
 import { mergeLive } from './archive.js';
 import { formatDetails } from './details.js';
 import { creditFor } from './credits.js';
