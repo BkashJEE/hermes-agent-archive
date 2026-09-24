@@ -1,7 +1,7 @@
 /* Use-Case Archive — data loading, filtering, rendering. No framework, no build step. */
 
 import { sectionIcon } from './icons.js?v=badge-3';
-import { mergeLive } from './archive.js';
+import { mergeLive } from './archive.js?v=stars-4';
 import { formatDetails } from './details.js';
 import { creditFor } from './credits.js';
 import { attachRankings, compareRankings, usefulnessLabel, popularityLabel } from './ranking.js';
