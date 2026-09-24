@@ -71,6 +71,14 @@ archived, disabled, or don't actually name Claude in the slug/description or car
 npm run key
 ```
 
+Three ways in, use whichever works in your terminal:
+
+```bash
+npm run key              # bordered paste box (needs raw-mode support)
+npm run key -- --plain   # plain line prompt, if the box does not render
+cp .env.example .env && chmod 600 .env && ${EDITOR:-nano} .env   # just edit the file
+```
+
 A terminal prompt for the four optional keys. Input is hidden as you paste, values are
 written to `.env` with owner-only permissions, and `.env` is gitignored. Every script
 loads it automatically; anything exported in your shell still wins over the file.
