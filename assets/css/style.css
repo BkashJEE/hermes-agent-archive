@@ -73,10 +73,12 @@ code{font-family:var(--mono);font-size:.92em}
 }
 .brand{display:flex;align-items:center;gap:10px;min-width:0}
 .brand-mark{
-  display:grid;place-items:center;width:26px;height:26px;flex:none;
-  border:1px solid var(--line-2);border-radius:var(--r-sm);
-  color:var(--accent);background:var(--panel-2);font-size:13px;
+  display:grid;place-items:center;width:28px;height:28px;flex:none;
+  border:1px solid var(--line-2);border-radius:7px;
+  background:linear-gradient(150deg,#1a1a24,#0d0d13);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06);
 }
+.brand-mark svg{width:20px;height:20px;display:block}
 .brand-text strong{
   display:block;font-family:var(--mono);font-size:14px;font-weight:700;
   letter-spacing:.08em;white-space:nowrap;
@@ -159,10 +161,10 @@ code{font-family:var(--mono);font-size:.92em}
   background:linear-gradient(145deg,var(--panel-3),var(--panel));
 }
 .side-card-mark{
-  display:grid;place-items:center;width:30px;height:30px;flex:none;
-  border:1px solid var(--accent);border-radius:50%;
-  color:var(--accent);font-family:var(--mono);font-weight:700;font-size:13px;
+  display:grid;place-items:center;width:32px;height:32px;flex:none;
+  border:1px solid var(--accent);border-radius:50%;color:var(--accent);
 }
+.side-card-mark svg{width:17px;height:17px;display:block}
 .side-card p{margin:0;font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--ink-dim);line-height:1.7}
 
 .nav{display:flex;flex-direction:column;gap:1px;margin-bottom:22px}
