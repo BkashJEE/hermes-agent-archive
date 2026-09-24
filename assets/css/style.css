@@ -3,28 +3,33 @@
    ========================================================================== */
 
 :root{
-  --bg:#05070a;
-  --panel:#0a0e13;
-  --panel-2:#0d1219;
-  --panel-3:#111823;
-  --line:#1a2330;
-  --line-2:#24313f;
-  --ink:#d6e0ea;
-  --ink-dim:#8d9caf;
-  --ink-mute:#5d6c7d;
-  --accent:#a8ec2a;
-  --accent-ink:#06140a;
-  --accent-soft:rgba(168,236,42,.12);
+  /* Palette lifted from bkashjee.github.io (src/styles/index.css) so the archive
+     reads as the same property: amber accent on near-black, teal and violet as
+     the supporting hues. */
+  --bg:#0a0a0f;
+  --panel:#12121a;
+  --panel-2:#15151d;
+  --panel-3:#17171f;
+  --line:#26262f;
+  --line-2:#35353f;
+  --ink:#ededf2;
+  --ink-dim:#a8a8b5;
+  --ink-mute:#6d6d7a;
+  --accent:#f5a524;
+  --accent-ink:#17120a;
+  --accent-soft:rgba(245,165,36,.12);
+  --teal:#2dd4bf;
+  --violet:#8b7cf6;
 
-  --x:#e7e9ea;
-  --reddit:#ff5c33;
-  --hn:#ff8a3d;
-  --fb:#4a8cff;
-  --github:#b48cff;
-  --docs:#3fd0c9;
+  --x:#ededf2;
+  --reddit:#f5a524;
+  --hn:#f5a524;
+  --fb:#8b7cf6;
+  --github:#8b7cf6;
+  --docs:#2dd4bf;
 
   --r-sm:4px; --r-md:8px; --r-lg:12px;
-  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --mono:"JetBrains Mono",ui-monospace,"Cascadia Code",monospace;
   --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
   --side-w:238px;
   --top-h:56px;
@@ -40,8 +45,8 @@ html,body{height:100%}
 body{
   margin:0;
   background:
-    radial-gradient(1100px 620px at 78% -18%,rgba(168,236,42,.07),transparent 62%),
-    radial-gradient(900px 520px at 4% 4%,rgba(74,140,255,.07),transparent 60%),
+    radial-gradient(1100px 620px at 78% -18%,rgba(245,165,36,.07),transparent 62%),
+    radial-gradient(900px 520px at 4% 4%,rgba(139,124,246,.07),transparent 60%),
     var(--bg);
   background-attachment:fixed;
   color:var(--ink);
@@ -62,7 +67,7 @@ code{font-family:var(--mono);font-size:.92em}
   position:sticky;top:0;z-index:40;
   display:flex;align-items:center;gap:12px;
   height:var(--top-h);padding:0 14px;
-  background:rgba(6,9,13,.93);
+  background:rgba(10,10,15,.93);
   backdrop-filter:blur(14px);
   border-bottom:1px solid var(--line);
 }
@@ -95,7 +100,7 @@ code{font-family:var(--mono);font-size:.92em}
   background:var(--panel-2);border:1px solid var(--line);border-radius:999px;
   padding:0 10px;height:32px;transition:border-color .15s,box-shadow .15s;
 }
-.search:focus-within{border-color:var(--line-2);box-shadow:0 0 0 3px rgba(168,236,42,.08)}
+.search:focus-within{border-color:var(--line-2);box-shadow:0 0 0 3px rgba(245,165,36,.1)}
 .search-icon{color:var(--ink-mute);font-size:12px;margin-right:8px}
 .search input{flex:1;background:none;border:0;outline:0;font-size:12.5px;color:var(--ink)}
 .search input::placeholder{color:var(--ink-mute)}
@@ -142,7 +147,7 @@ code{font-family:var(--mono);font-size:.92em}
 .sidebar{
   position:sticky;top:var(--top-h);height:calc(100vh - var(--top-h));
   overflow-y:auto;padding:16px 12px 24px;
-  border-right:1px solid var(--line);background:rgba(8,11,16,.55);
+  border-right:1px solid var(--line);background:rgba(18,18,26,.5);
   scrollbar-width:thin;scrollbar-color:var(--line-2) transparent;
 }
 .sidebar::-webkit-scrollbar{width:6px}
@@ -201,7 +206,7 @@ code{font-family:var(--mono);font-size:.92em}
 .hero{
   display:flex;align-items:center;gap:14px;padding:14px 16px;margin-bottom:18px;
   border:1px solid var(--line);border-radius:var(--r-md);
-  background:linear-gradient(120deg,rgba(168,236,42,.08),transparent 46%),var(--panel);
+  background:linear-gradient(120deg,rgba(245,165,36,.09),transparent 46%),var(--panel);
 }
 .hero-icon{
   display:grid;place-items:center;width:42px;height:42px;flex:none;
@@ -233,10 +238,10 @@ code{font-family:var(--mono);font-size:.92em}
 .active-filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
 .chip{
   display:inline-flex;align-items:center;gap:6px;padding:3px 9px;
-  background:var(--accent-soft);border:1px solid rgba(168,236,42,.3);border-radius:999px;
+  background:var(--accent-soft);border:1px solid rgba(245,165,36,.32);border-radius:999px;
   font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--accent);cursor:pointer;
 }
-.chip:hover{background:rgba(168,236,42,.2)}
+.chip:hover{background:rgba(245,165,36,.2)}
 
 /* ---------- grid ---------- */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:16px}
@@ -245,7 +250,7 @@ code{font-family:var(--mono);font-size:.92em}
   position:relative;display:flex;flex-direction:column;
   padding:13px;min-height:190px;cursor:pointer;text-align:left;
   border:0;border-radius:var(--r-lg);
-  background:linear-gradient(168deg,#141d29 0%,#0d131b 46%,#080c11 100%);
+  background:linear-gradient(168deg,#1c1c26 0%,#14141c 46%,#0d0d13 100%);
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.07),
     inset 0 -1px 0 rgba(0,0,0,.6),
@@ -258,7 +263,7 @@ code{font-family:var(--mono);font-size:.92em}
 }
 .card:hover{
   transform:translateY(-4px) scale(1.012);
-  background:linear-gradient(168deg,#18222f 0%,#0f1620 46%,#090d13 100%);
+  background:linear-gradient(168deg,#22222e 0%,#17171f 46%,#101016 100%);
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.1),
     inset 0 -1px 0 rgba(0,0,0,.6),
@@ -270,7 +275,7 @@ code{font-family:var(--mono);font-size:.92em}
 .card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .card::after{
   content:"";position:absolute;inset:0;border-radius:var(--r-lg);pointer-events:none;
-  background:linear-gradient(140deg,rgba(168,236,42,.12),transparent 42%);opacity:0;transition:opacity .18s;
+  background:linear-gradient(140deg,rgba(245,165,36,.13),transparent 42%);opacity:0;transition:opacity .18s;
 }
 .card:hover::after{opacity:1}
 
@@ -352,8 +357,8 @@ code{font-family:var(--mono);font-size:.92em}
 .d-snip{position:relative;margin:16px 0}
 .d-snip pre{
   margin:0;padding:14px 14px 14px;overflow-x:auto;
-  background:#06090d;border:1px solid var(--line);border-radius:var(--r-md);
-  font-family:var(--mono);font-size:11.5px;line-height:1.7;color:#cfe3a8;white-space:pre-wrap;word-break:break-word;
+  background:#0d0d13;border:1px solid var(--line);border-radius:var(--r-md);
+  font-family:var(--mono);font-size:11.5px;line-height:1.7;color:#f0d9a8;white-space:pre-wrap;word-break:break-word;
 }
 .copy-btn{
   position:absolute;top:8px;right:8px;height:24px;padding:0 9px;
