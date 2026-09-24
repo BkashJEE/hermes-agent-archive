@@ -30,7 +30,9 @@ const KEY = process.env.TYPESAFE_API_KEY;
    These mirror the fetch-time floors and catch anything fetched earlier under
    looser settings, so lowering the bar needs an explicit re-fetch. */
 const FLOOR = {
-  stars:   Number(process.env.MIN_STARS          ?? 25000),
+  // Must match the fetcher's floor — two defaults drifting apart silently cut
+  // candidates the fetcher deliberately collected. Substance is Jev's call.
+  stars:   Number(process.env.MIN_STARS          ?? 1000),
   points:  Number(process.env.MIN_HN_POINTS      ?? 300),
   upvotes: Number(process.env.MIN_REDDIT_UPVOTES ?? 200)
 };
