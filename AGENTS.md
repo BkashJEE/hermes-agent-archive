@@ -149,6 +149,14 @@ CSS and JS edits with a real reload (`?v=<timestamp>`), not a hash navigation.
 browser's `[hidden]` rule. The global `[hidden]{display:none!important}` in the
 stylesheet is load-bearing — do not remove it.
 
+## GitHub visibility cutoff
+
+Exclude repositories with a fetched public star count of 50 or fewer from every
+rendered shelf. Apply this in the shared archive merge so navigation, dashboard,
+search and Jev ranking use the same collection. Unknown counts stay visible without
+a guessed metric. Keep the stored entries and API snapshots; a later count above
+50 can make a repository visible again. Discovery retains its stricter existing floor.
+
 ## Archive ranking
 
 `npm run rank` classifies actual archive entries with Jev and writes

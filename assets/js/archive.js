@@ -1,6 +1,18 @@
 /* Merge fetched public metrics onto curated entries, then shelve everything the
    sourcing pipeline found. Every value here came from a public API — nothing is
    hand-written, and nothing is estimated. */
+const belowStarCutoff = stars => Number.isFinite(stars) && stars >= 0 && stars <= 50;
+
+function githubRepo(item) {
+  if (item.repo) return item.repo.toLowerCase();
+  try {
+    const url = new URL(item.url);
+    const parts = url.pathname.split('/').filter(Boolean);
+    if (url.hostname === 'github.com' && parts.length >= 2)
+      return parts.slice(0, 2).join('/').replace(/\.git$/i, '').toLowerCase();
+  } catch { /* No repository identity can be inferred from an invalid URL. */ }
+}
+
 export function mergeLive(data, live) {
   // Only the public API snapshot can supply engagement, including in the CLI job.
   for (const items of Object.values(data)) for (const item of items) {
@@ -12,6 +24,9 @@ export function mergeLive(data, live) {
   const byRepo = new Map((live.github || []).map(g => [g.repo.toLowerCase(), g]));
   for (const [sectionId, items] of Object.entries(data)) {
     data[sectionId] = items.filter(item => {
+      // The visibility rule applies to every shelf, including URL-only entries.
+      // Stored content is retained so a later public count can qualify it again.
+      if (belowStarCutoff(byRepo.get(githubRepo(item))?.stars)) return false;
       if (!item.repo) return true;
       const g = byRepo.get(item.repo.toLowerCase());
       // Nothing is removed because a lookup failed — the write-up is the value,
@@ -32,6 +47,9 @@ export function mergeLive(data, live) {
   const seenIds = new Set(Object.values(data).flat().map(it => it.id));
   const seenUrls = new Set(Object.values(data).flat().map(it => it.url).filter(Boolean));
   const shelve = (sectionId, raw) => {
+    const repo = githubRepo(raw);
+    const stars = byRepo.get(repo)?.stars ?? (raw.metric?.kind === 'stars' ? raw.metric.value : undefined);
+    if ((repo || raw.source === 'github') && belowStarCutoff(stars)) return;
     if (seenIds.has(raw.id) || (raw.url && seenUrls.has(raw.url))) return;
     if (!data[sectionId]) return;
     seenIds.add(raw.id); if (raw.url) seenUrls.add(raw.url);

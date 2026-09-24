@@ -14,13 +14,49 @@ const item = (id, usefulness, popularity = 'unknown') => ({ id, title: id, sourc
 test('API merging preserves seeded write-ups across all shelves, including unresolved repos', () => {
   const data = { toolkit: [{ id: 'tool', repo: 'org/tool', title: 'Tool', summary: 'Curated explanation', detail: 'Setup steps', url: 'https://github.com/org/tool' }],
     builds: [{ id: 'missing', repo: 'org/missing', title: 'Unresolved tool', metric: { kind: 'stars', value: 999 } }] };
-  mergeLive(data, { github: [{ repo: 'org/tool', description: 'API one-liner', stars: 21, forks: 2, url: 'https://github.com/org/tool' }],
+  mergeLive(data, { github: [{ repo: 'org/tool', description: 'API one-liner', stars: 51, forks: 2, url: 'https://github.com/org/tool' }],
     routed: { builds: [{ id: 'duplicate', url: 'https://github.com/org/tool' }] } });
   assert.equal(data.toolkit[0].summary, 'Curated explanation');
-  assert.equal(data.toolkit[0].metric.value, 21);
+  assert.equal(data.toolkit[0].metric.value, 51);
   assert.equal(data.builds.length, 1);
   assert.equal(data.builds[0].id, 'missing');
   assert.equal(data.builds[0].metric, undefined);
+});
+
+test('GitHub cutoff excludes 0–50 stars across seeds, URL entries and routed shelves', () => {
+  const data = { builds: [], toolkit: [
+    { id: 'zero', repo: 'org/zero' }, { id: 'fifty', repo: 'org/fifty' },
+    { id: 'url-only', url: 'https://github.com/ORG/fifty/issues/1' },
+    { id: 'qualifies', repo: 'org/qualifies' }, { id: 'unknown', repo: 'org/unknown' }
+  ] };
+  const live = { github: [
+    { repo: 'org/zero', stars: 0 }, { repo: 'org/fifty', stars: 50 },
+    { repo: 'org/qualifies', stars: 51 }
+  ], routed: { builds: [
+    { id: 'routed-low', source: 'github', url: 'https://github.com/org/low', metric: { kind: 'stars', value: 49 } },
+    { id: 'routed-fifty', source: 'github', metric: { kind: 'stars', value: 50 } },
+    { id: 'routed-high', source: 'github', metric: { kind: 'stars', value: 51 } },
+    { id: 'routed-unknown', source: 'github' },
+    { id: 'routed-null', source: 'github', metric: { kind: 'stars', value: null } },
+    { id: 'reddit', source: 'reddit', metric: { kind: 'upvotes', value: 5 } }
+  ] } };
+  const stored = structuredClone(data), snapshot = structuredClone(live);
+  mergeLive(data, live);
+  assert.deepEqual(data.toolkit.map(x => x.id), ['qualifies', 'unknown']);
+  assert.deepEqual(data.builds.map(x => x.id), ['routed-high', 'routed-unknown', 'routed-null', 'reddit']);
+  assert.deepEqual(live, snapshot);
+  live.github.find(x => x.repo === 'org/fifty').stars = 51;
+  mergeLive(stored, live);
+  assert.ok(stored.toolkit.some(x => x.id === 'fifty'));
+  assert.ok(stored.toolkit.some(x => x.id === 'url-only'));
+});
+
+test('unrouted GitHub discoveries obey the same cutoff', () => {
+  const data = { builds: [] };
+  mergeLive(data, { github: [0, 50, 51].map(stars => ({
+    repo: `org/repo-${stars}`, stars, discovered: true, url: `https://github.com/org/repo-${stars}`
+  })) });
+  assert.deepEqual(data.builds.map(x => x.metric.value), [51]);
 });
 
 test('unavailable API snapshots cannot expose curated engagement figures', () => {
