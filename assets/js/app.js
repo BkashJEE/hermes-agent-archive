@@ -3,6 +3,7 @@
 import { sectionIcon } from './icons.js';
 import { mergeLive } from './archive.js';
 import { formatDetails } from './details.js';
+import { creditFor } from './credits.js';
 import { attachRankings, compareRankings, usefulnessLabel, popularityLabel } from './ranking.js';
 
 const $  = (s, r = document) => r.querySelector(s);
@@ -109,10 +110,12 @@ function metricBlock(item) {
 }
 
 function card(item, rank, iconName) {
+  const credit = creditFor(item);
   return `<li><button class="card" data-id="${esc(item.id)}">
     <div class="card-top"><span class="card-index"><span class="card-tab">${sectionIcon(iconName)}</span><span class="rank">${state.sort === 'az' ? 'A–Z' : item.ranking ? `#${rank}` : 'UNCLASSIFIED'}</span></span>
       ${item.sourced ? '<span class="pill pill-sourced" title="Found by the sourcing pipeline, not written by hand">SOURCED</span>' : ''}${pill(item.source)}</div>
     <h3>${esc(item.title)}</h3>
+    <p class="card-byline"><span>${esc(credit.label)}</span> <strong>${esc(credit.name)}</strong></p>
     <p class="sum">${esc(item.summary)}</p>
     ${metricBlock(item)}
     <div class="card-foot"><span>Open ${item.url ? '&#8599;' : '&rarr;'}</span><span class="when">${item.ranking ? 'Jev classified' : 'Awaiting Jev'}</span></div>
@@ -182,7 +185,7 @@ function render() {
        <span class="empty-kicker">ROOM FOR THE NEXT GOOD FIND</span>
        <strong>This shelf isn't stocked yet.</strong>
        <span>We're collecting ${esc(sec.label.toLowerCase())} worth keeping. Every entry needs a real source before it earns a place here.</span>
-       <a class="ghost-btn empty-link" href="#use-cases" data-browse>Explore the user stories &rarr;</a>`
+       <a class="ghost-btn empty-link" href="#use-cases" data-browse>Browse ${(state.data['use-cases'] || []).length} user stories &rarr;</a>`
     : `<strong>Nothing matches those filters.</strong>
        <span>This shelf has entries. Choose All Sources or clear your filters to see them.</span>
        <button class="ghost-btn" data-clear>Clear filters</button>`;
@@ -220,7 +223,8 @@ function openDrawer(id, trigger) {
   const body = formatDetails(paragraphs);
   const date = it.date ? new Date(`${it.date.slice(0, 10)}T12:00:00Z`).toLocaleDateString('en-US',
     { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }) : '';
-  const credit = attribution || [it.author, SOURCE_LABEL[it.source], date].filter(Boolean).join(' · ');
+  const author = creditFor(it);
+  const credit = attribution || [`${author.label} ${author.name}`, SOURCE_LABEL[it.source], date].filter(Boolean).join(' · ');
 
   $('#drawerBody').innerHTML = `
     <div class="d-kicker">${pill(it.source)}${it.lang ? `<span class="pill pill-curated">${esc(it.lang)}</span>` : ''}</div>
