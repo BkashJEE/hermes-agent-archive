@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=badge-3">
+<link rel="stylesheet" href="assets/css/style.css?v=trends-5">
 </head>
 <body>
 
@@ -113,8 +113,8 @@
     </div>
 
     <footer class="foot">
-      <p><b>How ranking works.</b> Jev classifies usefulness and observed popularity. Usefulness bands lead; public popularity breaks ties. Missing engagement means unknown popularity. These are editorial assessments, not measured engagement. Dates never determine rank.</p>
-      <p><b>How the numbers work.</b> GitHub stars, Hacker News points and Reddit upvotes are fetched live from public APIs by <code>scripts/fetch-signals.mjs</code>. Items with no public metric show their tags and <span class="trow-note">no public metric</span> &mdash; nothing on this page is a guessed number. GitHub repositories with a fetched count of 50 stars or fewer are excluded.</p>
+      <p><b>How ranking works.</b> Jev classifies usefulness and observed popularity. Usefulness bands lead; public popularity breaks ties. Missing engagement means unknown popularity. These are editorial assessments, not measured engagement. Publication dates never determine rank.</p>
+      <p><b>How the numbers work.</b> GitHub stars, Hacker News points and Reddit upvotes are fetched live from public APIs by <code>scripts/fetch-signals.mjs</code>. Items with no public metric show their tags and <span class="trow-note">no public metric</span> &mdash; nothing on this page is a guessed number. GitHub repositories require at least 5,000 verified stars; unknown counts are excluded. Trending shows positive GitHub star growth between two public API snapshots, ordered by growth per day. It does not use publication dates.</p>
       <p id="footGen" class="foot-gen"></p>
     </footer>
   </main>
@@ -126,6 +126,6 @@
   <div id="drawerBody"></div>
 </aside>
 
-<script type="module" src="assets/js/app.js?v=stars-4"></script>
+<script type="module" src="assets/js/app.js?v=trends-5"></script>
 </body>
 </html>

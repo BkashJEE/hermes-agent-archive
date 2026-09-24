@@ -1,14 +1,17 @@
 /* Merge fetched public metrics onto curated entries, then shelve everything the
    sourcing pipeline found. Every value here came from a public API — nothing is
    hand-written, and nothing is estimated. */
-const belowStarCutoff = stars => Number.isFinite(stars) && stars >= 0 && stars <= 50;
+import { githubTrend } from './trends.js';
 
-function githubRepo(item) {
+export const MIN_GITHUB_STARS = 5000;
+const qualifies = stars => Number.isFinite(stars) && stars >= MIN_GITHUB_STARS;
+
+export function githubRepo(item) {
   if (item.repo) return item.repo.toLowerCase();
   try {
     const url = new URL(item.url);
     const parts = url.pathname.split('/').filter(Boolean);
-    if (url.hostname === 'github.com' && parts.length >= 2)
+    if (url.hostname === 'github.com' && parts.length === 2)
       return parts.slice(0, 2).join('/').replace(/\.git$/i, '').toLowerCase();
   } catch { /* No repository identity can be inferred from an invalid URL. */ }
 }
@@ -16,22 +19,26 @@ function githubRepo(item) {
 export function mergeLive(data, live) {
   // Only the public API snapshot can supply engagement, including in the CLI job.
   for (const items of Object.values(data)) for (const item of items) {
-    delete item.metric; delete item.metric2;
+    delete item.metric; delete item.metric2; delete item.trend;
   }
-  if (!live) return;
+  if (!live) {
+    for (const [id, items] of Object.entries(data))
+      data[id] = items.filter(item => !githubRepo(item));
+    return;
+  }
   // GitHub: attach real stars/forks to any seeded repo, on any shelf.
-  // Seeds retain their write-ups when no metric is available.
+  // Repository write-ups stay on disk; only verified 5k+ repos enter the view.
   const byRepo = new Map((live.github || []).map(g => [g.repo.toLowerCase(), g]));
   for (const [sectionId, items] of Object.entries(data)) {
     data[sectionId] = items.filter(item => {
       // The visibility rule applies to every shelf, including URL-only entries.
       // Stored content is retained so a later public count can qualify it again.
-      if (belowStarCutoff(byRepo.get(githubRepo(item))?.stars)) return false;
+      const repo = githubRepo(item), observation = byRepo.get(repo);
+      if (repo && !qualifies(observation?.stars)) return false;
+      item.trend = githubTrend(observation);
       if (!item.repo) return true;
       const g = byRepo.get(item.repo.toLowerCase());
-      // Nothing is removed because a lookup failed — the write-up is the value,
-      // the star count is decoration. It simply shows no metric.
-      if (!g) return true;
+      // Qualification above guarantees a fetched observation for this seed.
       item.title   = g.repo;                       // follow renames/transfers
       // A curated write-up outranks the repo's own one-liner.
       if (!item.detail) item.summary = g.description || item.summary;
@@ -48,8 +55,9 @@ export function mergeLive(data, live) {
   const seenUrls = new Set(Object.values(data).flat().map(it => it.url).filter(Boolean));
   const shelve = (sectionId, raw) => {
     const repo = githubRepo(raw);
-    const stars = byRepo.get(repo)?.stars ?? (raw.metric?.kind === 'stars' ? raw.metric.value : undefined);
-    if ((repo || raw.source === 'github') && belowStarCutoff(stars)) return;
+    const observation = byRepo.get(repo);
+    const stars = observation?.stars ?? (raw.metric?.kind === 'stars' ? raw.metric.value : undefined);
+    if ((repo || raw.metric?.kind === 'stars') && !qualifies(stars)) return;
     if (seenIds.has(raw.id) || (raw.url && seenUrls.has(raw.url))) return;
     if (!data[sectionId]) return;
     seenIds.add(raw.id); if (raw.url) seenUrls.add(raw.url);
@@ -62,8 +70,9 @@ export function mergeLive(data, live) {
       author: raw.author,
       date: raw.date,
       lang: raw.lang,
-      metric: raw.metric,
-      metric2: raw.metric2,
+      metric: observation ? { kind: 'stars', value: observation.stars } : raw.metric,
+      metric2: observation ? { kind: 'forks', value: observation.forks } : raw.metric2,
+      trend: githubTrend(observation),
       sourced: raw.routedBy || 'auto',
       tags: ['sourced', ...(raw.topics || []).slice(0, 2)]
     });
