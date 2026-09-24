@@ -199,9 +199,9 @@ function metricBlock(item) {
     <span class="trow-note">no public metric</span></div>`;
 }
 
-function card(item, rank) {
+function card(item, rank, iconName) {
   return `<li><button class="card" data-id="${esc(item.id)}">
-    <div class="card-top"><span class="rank">#${rank}</span>
+    <div class="card-top"><span class="card-index"><span class="card-tab">${sectionIcon(iconName)}</span><span class="rank">#${rank}</span></span>
       ${item.sourced ? '<span class="pill pill-sourced" title="Found by the sourcing pipeline, not written by hand">SOURCED</span>' : ''}${pill(item.source)}</div>
     <h3>${esc(item.title)}</h3>
     <p class="sum">${esc(item.summary)}</p>
@@ -258,7 +258,7 @@ function render() {
     ? 'Ranked by public reach where a real number exists, then by recency.'
     : state.sort === 'recent' ? 'Newest first.' : 'Alphabetical.';
 
-  $('#grid').innerHTML = items.map((it, i) => card(it, i + 1)).join('');
+  $('#grid').innerHTML = items.map((it, i) => card(it, i + 1, sec.icon)).join('');
   $('#grid').dataset.density = state.density;
   $$('button[data-density]').forEach(button => button.setAttribute('aria-pressed', button.dataset.density === state.density));
   const emptyShelf = !(state.data[sec.id] || []).length;

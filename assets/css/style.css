@@ -268,23 +268,29 @@ code{font-family:var(--mono);font-size:.92em}
 .grid[data-density="compact"]{gap:10px}
 .grid[data-density="compact"] .card{padding:12px;min-height:0}
 .grid[data-density="compact"] .sum{-webkit-line-clamp:2}
-.grid[data-density="compact"] .card h3{font-size:13px}
+.grid[data-density="compact"] .card h3{font-size:14px}
+.grid[data-density="compact"] .card-top{margin-bottom:10px}
+.grid[data-density="compact"] .card-tab{height:30px;margin-top:-12px}
 .grid[data-density="compact"] .card-foot{margin-top:6px}
 
 .card{
   position:relative;display:flex;flex-direction:column;
-  padding:13px;min-height:190px;cursor:pointer;text-align:left;
-  border:0;border-radius:var(--r-lg);
+  padding:17px;min-height:190px;cursor:pointer;text-align:left;
+  border:1px solid var(--line);border-radius:var(--r-lg);
   background:linear-gradient(168deg,var(--panel-3),var(--panel));
-  box-shadow:inset 0 1px 0 var(--highlight),0 6px 18px var(--shadow);
+  box-shadow:inset 0 1px 0 var(--highlight),0 2px 0 var(--bg),0 8px 22px var(--shadow);
   width:100%;color:var(--ink);
-  transition:transform .18s ease,box-shadow .18s ease;
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
 }
-.card:hover{transform:translateY(-3px);box-shadow:inset 0 1px 0 var(--accent-line),0 12px 24px var(--shadow)}
+.card:is(:hover,:focus-visible){border-color:var(--accent-line);box-shadow:inset 0 1px 0 var(--accent-line),inset 3px 0 0 var(--accent-soft),0 3px 0 var(--bg),0 14px 28px var(--shadow)}
+@media (hover:hover){.card:hover{transform:translateY(-3px)}}
 .card:active{transform:translateY(-1px)}
 .card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 
-.card-top{display:flex;align-items:center;justify-content:space-between;gap:5px;margin-bottom:8px;flex-wrap:wrap}
+.card-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.card-index{display:inline-flex;align-items:center;gap:10px;flex:none}
+.card-tab{display:grid;place-items:center;width:30px;height:35px;margin-top:-17px;border-radius:0 0 5px 5px;background:var(--accent);color:var(--accent-ink);box-shadow:0 2px 5px var(--shadow)}
+.card-tab svg{display:block;width:20px;height:20px}
 .rank{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--ink-mute)}
 .pill{
   font-family:var(--mono);font-size:8px;letter-spacing:.14em;font-weight:700;
@@ -302,14 +308,13 @@ code{font-family:var(--mono);font-size:.92em}
 .pill-sourced{color:var(--accent);border-style:dashed}
 
 .card h3{
-  margin:0 0 7px;font-size:13.5px;font-weight:600;line-height:1.35;color:var(--ink);
-  word-break:break-word;
+  margin:0 0 12px;font-size:16px;font-weight:600;line-height:1.4;letter-spacing:-.02em;color:var(--ink);
+  word-break:break-word;text-wrap:balance;
 }
 .card .sum{
-  position:relative;margin:0;padding-left:12px;font-size:11.5px;line-height:1.6;color:var(--ink-dim);
-  display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;
+  margin:0;padding-left:11px;border-left:1px solid var(--line-2);font-size:12.5px;line-height:1.7;color:var(--ink-dim);
+  display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;
 }
-.card .sum::before{content:"\25B8";position:absolute;left:0;top:0;color:var(--accent);font-size:9px}
 
 .metrics{display:flex;gap:18px;margin-top:auto;padding-top:10px}
 .metric .m-k{display:block;font-family:var(--mono);font-size:8px;letter-spacing:.14em;color:var(--ink-mute)}
@@ -318,7 +323,7 @@ code{font-family:var(--mono);font-size:.92em}
 
 .card-foot{
   display:flex;align-items:center;justify-content:space-between;gap:8px;
-  margin-top:10px;padding-top:2px;
+  margin-top:14px;padding-top:10px;border-top:1px solid var(--line);
   font-size:11px;color:var(--accent);
 }
 .card-foot .when{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;color:var(--ink-mute)}
@@ -444,4 +449,5 @@ code{font-family:var(--mono);font-size:.92em}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
+  .card:hover,.card:active{transform:none}
 }
