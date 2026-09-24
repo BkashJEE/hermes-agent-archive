@@ -1,5 +1,7 @@
 /* Use-Case Archive — data loading, filtering, rendering. No framework, no build step. */
 
+import { sectionIcon } from './icons.js';
+
 const $  = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
@@ -20,8 +22,15 @@ const state = {
   sort: 'talked',
   q: '',
   tag: null,
-  author: null
+  author: null,
+  tagQuery: '',
+  density: 'comfortable'
 };
+
+// Storage is optional: denied access must never prevent browsing.
+try {
+  if (localStorage.getItem('hermes-density') === 'compact') state.density = 'compact';
+} catch { /* Private windows may deny storage. */ }
 
 /* ---------------------------------------------------------------- utils */
 
@@ -177,7 +186,10 @@ const visible = id => (state.data[id] || []).filter(matches);
 
 function pill(source) {
   const key = SOURCE_LABEL[source] ? source : 'curated';
-  return `<span class="pill pill-${key}">${esc(SOURCE_LABEL[source] || 'CURATED')}</span>`;
+  // Colour marks the source family; unique monograms and names identify sources.
+  const marks = { x: 'X', reddit: 'rd', hn: 'Y', discord: 'dc', fb: 'f', github: 'gh',
+    youtube: '▶', blog: 'b', podcast: '♫', linkedin: 'in', producthunt: 'P', docs: '//', community: 'co' };
+  return `<span class="pill pill-${key}"><span class="source-mark" aria-hidden="true">${marks[source] || '—'}</span>${esc(SOURCE_LABEL[source] || 'CURATED')}</span>`;
 }
 
 function metricBlock(item) {
@@ -194,21 +206,21 @@ function metricBlock(item) {
     <span class="trow-note">no public metric</span></div>`;
 }
 
-function card(item, rank) {
-  return `<button class="card" role="listitem" data-id="${esc(item.id)}">
-    <div class="card-top"><span class="rank">#${rank}</span>
+function card(item, rank, iconName) {
+  return `<li><button class="card" data-id="${esc(item.id)}">
+    <div class="card-top"><span class="card-index"><span class="card-tab">${sectionIcon(iconName)}</span><span class="rank">#${rank}</span></span>
       ${item.sourced ? '<span class="pill pill-sourced" title="Found by the sourcing pipeline, not written by hand">SOURCED</span>' : ''}${pill(item.source)}</div>
     <h3>${esc(item.title)}</h3>
     <p class="sum">${esc(item.summary)}</p>
     ${metricBlock(item)}
     <div class="card-foot"><span>Open ${item.url ? '&#8599;' : '&rarr;'}</span><span class="when">${esc(ago(item.date))}</span></div>
-  </button>`;
+  </button></li>`;
 }
 
 function renderNav() {
   $('#nav').innerHTML = state.cfg.sections.map(s => `
-    <a href="#${s.id}" class="${s.id === state.section ? 'on' : ''}" data-section="${s.id}">
-      <span class="nav-ico">${s.icon}</span>${esc(s.label)}<span class="nav-n">${s.file ? visible(s.id).length : ''}</span>
+    <a href="#${s.id}" class="${s.id === state.section ? 'on' : ''}" data-section="${s.id}" ${s.id === state.section ? 'aria-current="page"' : ''}>
+      <span class="nav-ico">${sectionIcon(s.icon)}</span>${esc(s.label)}<span class="nav-n">${s.file ? visible(s.id).length : ''}</span>
     </a>`).join('');
 }
 
@@ -218,11 +230,12 @@ function renderTags() {
     for (const it of state.data[s.id] || [])
       for (const t of it.tags || []) counts.set(t, (counts.get(t) || 0) + 1);
 
-  const top = [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, 10);
+  const top = [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).filter(([tag]) => tag.toLowerCase().includes(state.tagQuery.toLowerCase()));
   $('#tagList').innerHTML = top.map(([t, n]) => `
-    <li><button data-tag="${esc(t)}" class="${state.tag === t ? 'on' : ''}">
+    <li><button data-tag="${esc(t)}" aria-pressed="${state.tag === t}" class="${state.tag === t ? 'on' : ''}">
       <i class="t-dot"></i>${esc(t)}<span class="t-n">${n}</span>
     </button></li>`).join('');
+  $('#tagEmpty').hidden = top.length > 0;
 }
 
 function renderFilters() {
@@ -239,9 +252,12 @@ function renderFilters() {
 }
 
 function render() {
+  const focused = document.activeElement;
+  const focusKey = focused?.dataset.tag ? ['tag', focused.dataset.tag]
+    : focused?.dataset.section ? ['section', focused.dataset.section] : null;
   const sec = state.cfg.sections.find(s => s.id === state.section) || state.cfg.sections[0];
 
-  $('#heroIcon').textContent  = sec.icon;
+  $('#heroIcon').innerHTML    = sectionIcon(sec.icon);
   $('#heroTitle').textContent = sec.title;
   $('#heroBlurb').textContent = sec.blurb;
   document.title = `${sec.label} · Hermes Agent Archive`;
@@ -263,12 +279,26 @@ function render() {
     ? 'Ranked by public reach where a real number exists, then by recency.'
     : state.sort === 'recent' ? 'Newest first.' : 'Alphabetical.';
 
-  $('#grid').innerHTML = items.map((it, i) => card(it, i + 1)).join('');
+  $('#grid').innerHTML = items.map((it, i) => card(it, i + 1, sec.icon)).join('');
+  $('#grid').dataset.density = state.density;
+  $$('button[data-density]').forEach(button => button.setAttribute('aria-pressed', button.dataset.density === state.density));
+  const emptyShelf = !(state.data[sec.id] || []).length;
   $('#empty').hidden = items.length > 0;
+  $('#empty').innerHTML = emptyShelf
+    ? `<div class="empty-icon">${sectionIcon(sec.icon)}</div>
+       <span class="empty-kicker">ROOM FOR THE NEXT GOOD FIND</span>
+       <strong>This shelf isn't stocked yet.</strong>
+       <span>We're collecting ${esc(sec.label.toLowerCase())} worth keeping. Every entry needs a real source before it earns a place here.</span>
+       <a class="ghost-btn empty-link" href="#use-cases" data-browse>Explore the user stories &rarr;</a>`
+    : `<strong>Nothing matches those filters.</strong>
+       <span>This shelf has entries. Widen the time range, choose All Sources, or clear your filters to see them.</span>
+       <button class="ghost-btn" data-clear>Clear filters</button>`;
+
 
   renderNav();
   renderTags();
   renderFilters();
+  if (focusKey) $$('[data-' + focusKey[0] + ']').find(el => el.dataset[focusKey[0]] === focusKey[1])?.focus({ preventScroll: true });
 }
 
 
@@ -577,28 +607,43 @@ function findItem(id) {
   return null;
 }
 
-function openDrawer(id) {
+let drawerTrigger = null;
+
+function openDrawer(id, trigger) {
   const it = findItem(id);
   if (!it) return;
 
-  const body = (it.detail || it.summary).split('\n\n')
-    .map(p => `<p>${esc(p).replace(/\n/g, '<br>')}</p>`).join('');
+  drawerTrigger = trigger || document.activeElement;
+  const story = (it.tags || []).includes('user-story');
+  const paragraphs = (it.detail || it.summary || '').split('\n\n');
+  // Imported stories already end with attribution. Move that exact line into the
+  // caption, preserving its wording rather than quoting the author twice.
+  const attribution = story && paragraphs.at(-1)?.startsWith(`— ${it.author},`)
+    ? paragraphs.pop().replace(/^— /, '') : null;
+  const body = paragraphs.map(p => `<p>${esc(p).replace(/\n/g, '<br>')}</p>`).join('');
+  const date = it.date ? new Date(`${it.date.slice(0, 10)}T12:00:00Z`).toLocaleDateString('en-US',
+    { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }) : '';
+  const credit = attribution || [it.author, SOURCE_LABEL[it.source], date].filter(Boolean).join(' · ');
 
   $('#drawerBody').innerHTML = `
-    <div class="d-kicker">${pill(it.source)}${it.lang ? `<span class="pill pill-curated">${esc(it.lang)}</span>` : ''}
-      <span class="rank">${esc(ago(it.date))}</span></div>
-    <h3>${esc(it.title)}</h3>
-    <p class="d-sum">${esc(it.summary)}</p>
-    <div class="d-body">${body}</div>
+    <div class="d-kicker">${pill(it.source)}${it.lang ? `<span class="pill pill-curated">${esc(it.lang)}</span>` : ''}</div>
+    <h3 id="drawerTitle">${esc(it.title)}</h3>
+    ${story ? `<figure class="d-story"><blockquote class="d-body" cite="${esc(it.url)}">${body}</blockquote>
+      <figcaption class="d-attribution"><span class="attribution-rule" aria-hidden="true"></span>${esc(credit)}</figcaption></figure>`
+      : `<p class="d-attribution">${esc(credit)}</p><div class="d-body">${body}</div>`}
     ${it.snippet ? `<div class="d-snip">
         <button class="copy-btn" id="copyBtn">COPY</button>
         <pre><code>${esc(it.snippet)}</code></pre></div>` : ''}
     ${(it.tags || []).length ? `<div class="d-tags">${it.tags.map(t => `<button class="d-tag" data-tag="${esc(t)}">#${esc(t)}</button>`).join('')}</div>` : ''}
-    ${it.url ? `<a class="d-link" href="${esc(it.url)}" target="_blank" rel="noopener noreferrer">OPEN SOURCE &#8599;</a>` : ''}
-    <p class="d-meta">${it.author ? `BY ${esc(it.author)} &middot; ` : ''}${esc(SOURCE_LABEL[it.source] || 'CURATED')}${it.metric ? ` &middot; ${num(it.metric.value)} ${esc(it.metric.kind)}` : ''}</p>`;
+    ${it.url ? `<a class="d-link" href="${esc(it.url)}" target="_blank" rel="noopener noreferrer">READ THE ORIGINAL &#8599;</a>` : ''}
+    <div class="d-meta">${it.metric ? metricBlock(it) : '<span class="trow-note">no public metric</span>'}</div>`;
 
   $('#drawer').hidden = false;
   $('#scrim').hidden = false;
+  $('.topbar').inert = true;
+  $('.shell').inert = true;
+  document.body.classList.add('modal-open');
+  $('#drawer').scrollTop = 0;
   $('#drawerClose').focus();
 
   const copy = $('#copyBtn');
@@ -615,8 +660,14 @@ function openDrawer(id) {
 }
 
 function closeDrawer() {
+  if ($('#drawer').hidden) return;
   $('#drawer').hidden = true;
   $('#scrim').hidden = true;
+  $('.topbar').inert = false;
+  $('.shell').inert = false;
+  document.body.classList.remove('modal-open');
+  if (drawerTrigger?.isConnected) drawerTrigger.focus({ preventScroll: true });
+  else $('#listTitle').focus();
 }
 
 /* ---------------------------------------------------------- command palette */
@@ -746,7 +797,29 @@ function routeFromHash() {
   if (state.cfg.sections.some(s => s.id === id)) state.section = id;
 }
 
+const mobile = matchMedia('(max-width:960px)');
+function setSidebar(open) {
+  open = mobile.matches && open;
+  $('#sidebar').classList.toggle('open', open);
+  $('#sidebar').inert = mobile.matches && !open;
+  $('#sidebarScrim').hidden = !open;
+  $('#main').inert = open;
+  $('#menuBtn').setAttribute('aria-expanded', open);
+  document.body.classList.toggle('sidebar-open', open);
+}
+
 function wire() {
+  setSidebar(false);
+  mobile.addEventListener('change', () => setSidebar(false));
+  new ResizeObserver(([entry]) => {
+    document.documentElement.style.setProperty('--top-h', `${entry.target.offsetHeight}px`);
+  }).observe($('.topbar'));
+  $('#tagSearch').addEventListener('input', e => { state.tagQuery = e.target.value.trim(); renderTags(); });
+  $$('button[data-density]').forEach(button => button.addEventListener('click', () => {
+    state.density = button.dataset.density;
+    try { localStorage.setItem('hermes-density', state.density); } catch { /* Browsing still works. */ }
+    render();
+  }));
   fillSelect($('#sourceSel'), state.cfg.sources, state.source);
   fillSelect($('#rangeSel'),  state.cfg.ranges,  state.range);
   fillSelect($('#sortSel'),   state.cfg.sorts,   state.sort);
@@ -796,14 +869,16 @@ function wire() {
     applyTheme(next);
     try { localStorage.setItem('ha-theme', next); } catch {}
   });
-  $('#menuBtn').addEventListener('click', () => $('#sidebar').classList.toggle('open'));
+  $('#menuBtn').addEventListener('click', () => setSidebar(!$('#sidebar').classList.contains('open')));
+  $('#sidebarScrim').addEventListener('click', () => { setSidebar(false); $('#menuBtn').focus(); });
 
   $('#nav').addEventListener('click', e => {
     const a = e.target.closest('[data-section]');
     if (!a) return;
     state.section = a.dataset.section;
-    $('#sidebar').classList.remove('open');
+    setSidebar(false);
     render();
+    $('#listTitle').focus({ preventScroll: true });
   });
 
   document.addEventListener('click', e => {
@@ -817,7 +892,10 @@ function wire() {
     const tagBtn = e.target.closest('[data-tag]');
     if (tagBtn) {
       state.tag = state.tag === tagBtn.dataset.tag ? null : tagBtn.dataset.tag;
-      closeDrawer(); render(); return;
+      const fromDrawer = !$('#drawer').hidden;
+      closeDrawer(); setSidebar(false); render();
+      if (fromDrawer || mobile.matches) $('#listTitle').focus({ preventScroll: true });
+      return;
     }
     const drop = e.target.closest('[data-drop]');
     if (drop) {
@@ -827,12 +905,17 @@ function wire() {
       if (k === 'author') state.author = null;
       if (k === 'source') { state.source = 'all'; $('#sourceSel').value = 'all'; }
       if (k === 'range')  { state.range  = 'all'; $('#rangeSel').value  = 'all'; }
-      render(); return;
+      render(); $('#clearBtn').focus(); return;
     }
-    if (e.target.closest('[data-clear]')) { clearFilters(); return; }
+    if (e.target.closest('[data-browse]')) {
+      e.preventDefault();
+      state.section = 'use-cases'; location.hash = 'use-cases';
+      clearFilters(); setSidebar(false); $('#listTitle').focus(); return;
+    }
+    if (e.target.closest('[data-clear]')) { clearFilters(); $('#clearBtn').focus(); return; }
 
     const c = e.target.closest('.card');
-    if (c) openDrawer(c.dataset.id);
+    if (c) openDrawer(c.dataset.id, c);
   });
 
   $('#drawerClose').addEventListener('click', closeDrawer);
@@ -841,9 +924,31 @@ function wire() {
   wirePalette();
 
   document.addEventListener('keydown', e => {
+    /* The palette is a dialog in its own right and owns the keyboard while open. */
+    if (palette.open) {
+      if (e.key === 'Escape') { e.preventDefault(); paletteClose(); }
+      return;
+    }
     if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); paletteOpen(); return; }
-    if (e.key === 'Escape') { paletteClose(); closeDrawer(); $('#sidebar').classList.remove('open'); }
-    if (e.key === '/' && document.activeElement !== $('#search') && !palette.open) { e.preventDefault(); $('#search').focus(); }
+
+    if (!$('#drawer').hidden) {
+      if (e.key === 'Escape') { e.preventDefault(); closeDrawer(); }
+      if (e.key === 'Tab') {
+        const controls = $$('button, a[href], input, select, [tabindex="0"]', $('#drawer'));
+        const first = controls[0], last = controls.at(-1);
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+      return; // Global search shortcuts must never escape the dialog.
+    }
+
+    if (e.key === 'Escape' && $('#sidebar').classList.contains('open')) {
+      setSidebar(false); $('#menuBtn').focus();
+    }
+    if (e.key === '/' && !e.ctrlKey && !e.metaKey && !e.altKey &&
+        !e.target.closest('input, textarea, select, [contenteditable="true"]')) {
+      e.preventDefault(); $('#search').focus();
+    }
     if ((e.key === 'Enter' || e.key === ' ') && document.activeElement?.hasAttribute?.('data-author')) {
       e.preventDefault();
       document.activeElement.click();
@@ -859,8 +964,8 @@ load()
   .then(() => { routeFromHash(); wire(); render(); })
   .catch(err => {
     $('#grid').innerHTML =
-      `<div class="empty"><strong>COULD NOT LOAD DATA</strong>
+      `<li class="empty"><strong>COULD NOT LOAD DATA</strong>
        <span>${esc(err.message)} — this page reads local JSON over fetch(), so it needs a web server.
-       Run <code>npm start</code> (or <code>python3 -m http.server</code>) instead of opening the file directly.</span></div>`;
+       Run <code>npm start</code> (or <code>python3 -m http.server</code>) instead of opening the file directly.</span></li>`;
     $('#empty').hidden = true;
   });

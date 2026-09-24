@@ -14,18 +14,18 @@
 <body>
 
 <header class="topbar">
-  <button class="icon-btn" id="menuBtn" aria-label="Toggle navigation">&#9776;</button>
+  <button class="icon-btn" id="menuBtn" aria-label="Toggle navigation" aria-controls="sidebar" aria-expanded="false">&#9776;</button>
 
   <a class="brand" href="#use-cases">
     <span class="brand-mark" aria-hidden="true">
       <svg viewBox="0 0 64 64"><defs><linearGradient id="bm" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#f7c452"/><stop offset=".55" stop-color="#f5a524"/><stop offset="1" stop-color="#e08a10"/>
+        <stop offset="0" class="brand-light"/><stop offset=".55" class="brand-accent"/><stop offset="1" class="brand-shade"/>
       </linearGradient></defs>
       <g transform="rotate(-19 32 32)" fill="url(#bm)">
         <rect x="13" y="19" width="38" height="7.5" rx="3.75"/>
         <rect x="13" y="30" width="27" height="7.5" rx="3.75"/>
         <rect x="13" y="41" width="16" height="7.5" rx="3.75"/>
-      </g><circle cx="45.5" cy="45" r="4" fill="#2dd4bf"/></svg>
+      </g><circle cx="45.5" cy="45" r="4" class="brand-dot"/></svg>
     </span>
     <span class="brand-text">
       <strong>HERMES AGENT <em>ARCHIVE</em></strong>
@@ -54,6 +54,7 @@
 </header>
 
 <div class="shell">
+  <div class="sidebar-scrim" id="sidebarScrim" hidden></div>
   <aside class="sidebar" id="sidebar">
     <div class="side-card">
       <span class="side-card-mark">
@@ -70,8 +71,11 @@
 
     <div class="side-block">
       <h4>TAG WATCHLIST</h4>
+      <label class="sr-only" for="tagSearch">Find a tag</label>
+      <input id="tagSearch" class="tag-search" type="search" placeholder="Find a tag…" autocomplete="off">
       <ul id="tagList" class="taglist"></ul>
-      <p class="side-note">Tags are computed from every item in the archive. Click one to filter across all sections.</p>
+      <p class="side-note" id="tagEmpty" hidden>No matching tags.</p>
+      <p class="side-note">Tags are computed from every item in the archive. Choose a tag to filter any shelf. Scroll to explore the full list.</p>
     </div>
 
     <blockquote class="side-quote">
@@ -91,10 +95,14 @@
 
     <div class="listbar" id="listbar">
       <div>
-        <h2 id="listTitle">POPULAR &middot; <span id="listCount">0</span></h2>
+        <h2 id="listTitle" tabindex="-1" aria-live="polite">POPULAR &middot; <span id="listCount">0</span></h2>
         <p id="listSub">Ranked by reach where a real number exists, then by curation.</p>
       </div>
       <div class="listbar-right">
+        <div class="density" role="group" aria-label="Card density">
+          <button class="ghost-btn" data-density="comfortable" aria-pressed="true">Comfortable</button>
+          <button class="ghost-btn" data-density="compact" aria-pressed="false">Compact</button>
+        </div>
         <span class="listbar-label">Rank by</span>
         <label class="sr-only" for="sortSel">Sort</label>
         <select id="sortSel" class="select"></select>
@@ -106,7 +114,7 @@
 
     <section id="dashboard" class="dash" hidden aria-label="Archive overview"></section>
 
-    <div id="grid" class="grid" role="list"></div>
+    <ul id="grid" class="grid" aria-label="Archive items"></ul>
 
     <div id="empty" class="empty" hidden>
       <strong>Nothing matches those filters.</strong>
@@ -115,14 +123,14 @@
     </div>
 
     <footer class="foot">
-      <p><b>How the numbers work.</b> GitHub stars, Hacker News points and Reddit upvotes are fetched live from public APIs by <code>scripts/fetch-signals.mjs</code>. Items with no public metric are marked <span class="pill pill-curated">CURATED</span> &mdash; nothing on this page is a guessed number.</p>
+      <p><b>How the numbers work.</b> GitHub stars, Hacker News points and Reddit upvotes are fetched live from public APIs by <code>scripts/fetch-signals.mjs</code>. Items with no public metric show their tags and <span class="trow-note">no public metric</span> &mdash; nothing on this page is a guessed number.</p>
       <p id="footGen" class="foot-gen"></p>
     </footer>
   </main>
 </div>
 
 <div class="drawer-scrim" id="scrim" hidden></div>
-<aside class="drawer" id="drawer" hidden aria-label="Item detail" role="dialog" aria-modal="true">
+<aside class="drawer" id="drawer" hidden aria-labelledby="drawerTitle" role="dialog" aria-modal="true">
   <button class="drawer-close" id="drawerClose" aria-label="Close">&#10005;</button>
   <div id="drawerBody"></div>
 </aside>

@@ -18,7 +18,7 @@
     {
       "id": "use-cases",
       "label": "Use Cases",
-      "icon": "◈",
+      "icon": "stories",
       "file": "use-cases.json",
       "title": "WHAT PEOPLE ACTUALLY BUILD",
       "blurb": "Real Hermes Agent user stories — every one quoted and linked to the original post on X, Reddit, Discord, GitHub, YouTube or a blog."
@@ -26,7 +26,7 @@
     {
       "id": "skills",
       "label": "Skills",
-      "icon": "◆",
+      "icon": "skills",
       "file": "skills.json",
       "title": "SKILLS WORTH INSTALLING",
       "blurb": "Hermes Agent skills — packaged capabilities you install rather than re-prompt."
@@ -34,7 +34,7 @@
     {
       "id": "prompts",
       "label": "Prompts",
-      "icon": "✎",
+      "icon": "prompts",
       "file": "prompts.json",
       "title": "PROMPTS PEOPLE STEAL",
       "blurb": "Prompt wording with a track record on Hermes Agent."
@@ -42,7 +42,7 @@
     {
       "id": "settings",
       "label": "Settings",
-      "icon": "⚙",
+      "icon": "settings",
       "file": "settings.json",
       "title": "SETTINGS THAT CHANGE THE RUN",
       "blurb": "Hermes Agent configuration that materially changes how a run behaves."
@@ -50,7 +50,7 @@
     {
       "id": "commands",
       "label": "Commands",
-      "icon": "⌫",
+      "icon": "commands",
       "file": "commands.json",
       "title": "COMMANDS ON THE HOT PATH",
       "blurb": "Hermes Agent commands and invocations, by how often they earn their keystrokes."
@@ -58,7 +58,7 @@
     {
       "id": "tricks",
       "label": "Hidden Tricks",
-      "icon": "✦",
+      "icon": "tricks",
       "file": "tricks.json",
       "title": "HIDDEN TRICKS",
       "blurb": "Non-obvious Hermes Agent moves most people never find."
@@ -74,7 +74,7 @@
     {
       "id": "builds",
       "label": "People Build",
-      "icon": "⚑",
+      "icon": "builds",
       "file": "builds.json",
       "title": "WHAT PEOPLE ARE BUILDING",
       "blurb": "Projects built on Hermes Agent, shown off on X, Reddit, Discord, Hacker News and GitHub. Numbers are fetched live, never guessed."
