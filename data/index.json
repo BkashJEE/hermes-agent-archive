@@ -1,0 +1,174 @@
+{
+  "site": {
+    "name": "HERMES AGENT ARCHIVE",
+    "tagline": "The most viewed, talked about and actually-used Hermes Agent craft — curated in public.",
+    "curator": "@BkashJosi",
+    "quote": "Ship the trick, not the hype.",
+    "quoteAuthor": "— HERMES AGENT ARCHIVE"
+  },
+  "sections": [
+    {
+      "id": "use-cases",
+      "label": "Use Cases",
+      "icon": "◈",
+      "file": "use-cases.json",
+      "title": "WHAT PEOPLE ACTUALLY BUILD",
+      "blurb": "Real Hermes Agent user stories — every one quoted and linked to the original post on X, Reddit, Discord, GitHub, YouTube or a blog."
+    },
+    {
+      "id": "skills",
+      "label": "Skills",
+      "icon": "◆",
+      "file": "skills.json",
+      "title": "SKILLS WORTH INSTALLING",
+      "blurb": "Hermes Agent skills — packaged capabilities you install rather than re-prompt."
+    },
+    {
+      "id": "prompts",
+      "label": "Prompts",
+      "icon": "✎",
+      "file": "prompts.json",
+      "title": "PROMPTS PEOPLE STEAL",
+      "blurb": "Prompt wording with a track record on Hermes Agent."
+    },
+    {
+      "id": "settings",
+      "label": "Settings",
+      "icon": "⚙",
+      "file": "settings.json",
+      "title": "SETTINGS THAT CHANGE THE RUN",
+      "blurb": "Hermes Agent configuration that materially changes how a run behaves."
+    },
+    {
+      "id": "commands",
+      "label": "Commands",
+      "icon": "⌫",
+      "file": "commands.json",
+      "title": "COMMANDS ON THE HOT PATH",
+      "blurb": "Hermes Agent commands and invocations, by how often they earn their keystrokes."
+    },
+    {
+      "id": "tricks",
+      "label": "Hidden Tricks",
+      "icon": "✦",
+      "file": "tricks.json",
+      "title": "HIDDEN TRICKS",
+      "blurb": "Non-obvious Hermes Agent moves most people never find."
+    },
+    {
+      "id": "toolkit",
+      "label": "Works With",
+      "icon": "⚒",
+      "file": "toolkit.json",
+      "title": "WHAT WORKS WITH HERMES",
+      "blurb": "Repos worth pairing with Hermes Agent — why it helps, how to wire it up, and the job it actually does. Each one was read before it was listed."
+    },
+    {
+      "id": "builds",
+      "label": "People Build",
+      "icon": "⚑",
+      "file": "builds.json",
+      "title": "WHAT PEOPLE ARE BUILDING",
+      "blurb": "Projects built on Hermes Agent, shown off on X, Reddit, Discord, Hacker News and GitHub. Numbers are fetched live, never guessed."
+    }
+  ],
+  "sources": [
+    {
+      "id": "all",
+      "label": "All Sources"
+    },
+    {
+      "id": "x",
+      "label": "X / Twitter"
+    },
+    {
+      "id": "reddit",
+      "label": "Reddit"
+    },
+    {
+      "id": "discord",
+      "label": "Discord"
+    },
+    {
+      "id": "hn",
+      "label": "Hacker News"
+    },
+    {
+      "id": "github",
+      "label": "GitHub"
+    },
+    {
+      "id": "youtube",
+      "label": "YouTube"
+    },
+    {
+      "id": "blog",
+      "label": "Blogs"
+    },
+    {
+      "id": "podcast",
+      "label": "Podcasts"
+    },
+    {
+      "id": "linkedin",
+      "label": "LinkedIn"
+    },
+    {
+      "id": "producthunt",
+      "label": "Product Hunt"
+    },
+    {
+      "id": "fb",
+      "label": "Facebook"
+    },
+    {
+      "id": "docs",
+      "label": "Official Docs"
+    },
+    {
+      "id": "community",
+      "label": "Community"
+    }
+  ],
+  "ranges": [
+    {
+      "id": "all",
+      "label": "All time",
+      "days": 0
+    },
+    {
+      "id": "1",
+      "label": "Past 24 hours",
+      "days": 1
+    },
+    {
+      "id": "7",
+      "label": "Past 7 days",
+      "days": 7
+    },
+    {
+      "id": "30",
+      "label": "Past 30 days",
+      "days": 30
+    },
+    {
+      "id": "90",
+      "label": "Past 90 days",
+      "days": 90
+    }
+  ],
+  "sorts": [
+    {
+      "id": "talked",
+      "label": "Most talked about"
+    },
+    {
+      "id": "recent",
+      "label": "Most recent"
+    },
+    {
+      "id": "az",
+      "label": "A → Z"
+    }
+  ]
+}

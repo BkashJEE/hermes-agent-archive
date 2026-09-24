@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "archive",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4179"],
+      "port": 4179
+    }
+  ]
+}

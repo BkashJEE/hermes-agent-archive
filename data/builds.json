@@ -1,0 +1,75 @@
+{
+  "note": "Seeded repos for the Hermes Agent ecosystem; stars, forks and descriptions are filled in by scripts/fetch-signals.mjs from the public GitHub API. Anything that doesn't resolve is hidden rather than guessed.",
+  "items": [
+    {
+      "id": "gh-hermes-agent",
+      "repo": "NousResearch/hermes-agent",
+      "title": "NousResearch/hermes-agent",
+      "summary": "The agent that grows with you.",
+      "source": "github",
+      "date": "2026-09-23"
+    },
+    {
+      "id": "jev-hermes-newsroom-with-jev-omarchy",
+      "title": "Hermes Newsroom with Jev + Omarchy",
+      "summary": "Building Hermes Newsroom inside a Hermes+Omarchy command center so Jev helps turn agent work into a live newspaper around Hermes Agent activity.",
+      "detail": "Building Hermes Newsroom inside a Hermes+Omarchy command center so Jev helps turn agent work into a live newspaper around Hermes Agent activity.\n\nPosted by @BkashJosi on 2026-09-22. Listed under Agents in the independent Jev builder directory, which reports 460 X impressions for the original post.",
+      "tags": [
+        "jev-directory",
+        "agents"
+      ],
+      "source": "x",
+      "url": "https://x.com/BkashJosi/status/2102354216144822581",
+      "author": "@BkashJosi",
+      "date": "2026-09-22",
+      "metric": {
+        "kind": "impressions",
+        "value": 460
+      },
+      "credit": "jev-use-cases.com"
+    },
+    {
+      "id": "jev-asimov-jev-noul-linkedin-jsonld",
+      "title": "ASIMOV --jev=NOUL LinkedIn to JSON-LD",
+      "summary": "ASIMOV Platform ships built-in --jev=NOUL so Hermes-style harnesses offload NL postprocessing to Jev; demo turns a LinkedIn network into JSON-LD.",
+      "detail": "ASIMOV Platform ships built-in --jev=NOUL so Hermes-style harnesses offload NL postprocessing to Jev; demo turns a LinkedIn network into JSON-LD.\n\nPosted by @bendiken on 2026-09-22. Listed under Agents in the independent Jev builder directory, which reports 117 X impressions for the original post.",
+      "tags": [
+        "jev-directory",
+        "agents"
+      ],
+      "source": "x",
+      "url": "https://x.com/bendiken/status/2102377817459872084",
+      "author": "@bendiken",
+      "date": "2026-09-22",
+      "metric": {
+        "kind": "impressions",
+        "value": 117
+      },
+      "metric2": {
+        "kind": "votes",
+        "value": 1
+      },
+      "credit": "jev-use-cases.com"
+    },
+    {
+      "id": "jev-openrouter-style-layer-for-agent-harnesses-includi-0417562102",
+      "title": "OpenRouter-style layer for agent harnesses including Jev",
+      "summary": "Open-source plug-and-play infrastructure to run many agent harnesses under one interface, including System One powered by Jev alongside Codex, Claude Code, Hermes, and others.",
+      "detail": "Open-source plug-and-play infrastructure to run many agent harnesses under one interface, including System One powered by Jev alongside Codex, Claude Code, Hermes, and others.\n\nPosted by @0x_rody on 2026-09-23. Listed under Agents in the independent Jev builder directory, which reports 542 X impressions for the original post.",
+      "tags": [
+        "jev-directory",
+        "agents"
+      ],
+      "source": "x",
+      "url": "https://x.com/0x_rody/status/2102768250417562102",
+      "author": "@0x_rody",
+      "date": "2026-09-23",
+      "metric": {
+        "kind": "impressions",
+        "value": 542
+      },
+      "credit": "jev-use-cases.com"
+    }
+  ],
+  "jevImportedAt": "2026-09-24T04:38:34.714Z"
+}

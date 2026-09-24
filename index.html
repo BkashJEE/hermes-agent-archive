@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hermes Agent Archive</title>
+<meta name="description" content="The most viewed, talked about and actually-used agent craft — use cases, skills, prompts, settings, commands and hidden tricks, curated in public.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23f7c452'/%3E%3Cstop offset='.55' stop-color='%23f5a524'/%3E%3Cstop offset='1' stop-color='%23e08a10'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='%230a0a0f'/%3E%3Cg transform='rotate(-19 32 32)' fill='url(%23a)'%3E%3Crect x='13' y='19' width='38' height='7.5' rx='3.75'/%3E%3Crect x='13' y='30' width='27' height='7.5' rx='3.75'/%3E%3Crect x='13' y='41' width='16' height='7.5' rx='3.75'/%3E%3C/g%3E%3Ccircle cx='45.5' cy='45' r='4' fill='%232dd4bf'/%3E%3C/svg%3E"><text y='.9em' font-size='90'>&#9670;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <button class="icon-btn" id="menuBtn" aria-label="Toggle navigation">&#9776;</button>
+
+  <a class="brand" href="#use-cases">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 64 64"><defs><linearGradient id="bm" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#f7c452"/><stop offset=".55" stop-color="#f5a524"/><stop offset="1" stop-color="#e08a10"/>
+      </linearGradient></defs>
+      <g transform="rotate(-19 32 32)" fill="url(#bm)">
+        <rect x="13" y="19" width="38" height="7.5" rx="3.75"/>
+        <rect x="13" y="30" width="27" height="7.5" rx="3.75"/>
+        <rect x="13" y="41" width="16" height="7.5" rx="3.75"/>
+      </g><circle cx="45.5" cy="45" r="4" fill="#2dd4bf"/></svg>
+    </span>
+    <span class="brand-text">
+      <strong>HERMES AGENT <em>ARCHIVE</em></strong>
+      <small>THE CRAFT PEOPLE ACTUALLY USE &middot; CURATED BY <b id="curator">@BkashJosi</b></small>
+    </span>
+  </a>
+
+  <span class="live-pill"><i class="dot"></i>LIVE</span>
+
+  <div class="search">
+    <span class="search-icon" aria-hidden="true">&#9906;</span>
+    <input id="search" type="search" placeholder="Search tricks, prompts, settings, commands, builds&hellip;" autocomplete="off" aria-label="Search the archive">
+    <kbd>/</kbd>
+  </div>
+
+  <label class="sr-only" for="sourceSel">Source</label>
+  <select id="sourceSel" class="select" title="Filter by where it was shown"></select>
+
+  <label class="sr-only" for="rangeSel">Time range</label>
+  <select id="rangeSel" class="select" title="Filter by date"></select>
+
+  <button class="icon-btn" id="refreshBtn" title="Reload data" aria-label="Reload data">&#8635;</button>
+  <span class="updated">UPDATED <b id="updatedAt">&mdash;</b></span>
+  <a class="cta" href="#submit" id="submitBtn">&#9670; SUBMIT A TRICK</a>
+</header>
+
+<div class="shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="side-card">
+      <span class="side-card-mark">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><g transform="rotate(-19 32 32)" fill="currentColor">
+          <rect x="13" y="19" width="38" height="7.5" rx="3.75"/>
+          <rect x="13" y="30" width="27" height="7.5" rx="3.75"/>
+          <rect x="13" y="41" width="16" height="7.5" rx="3.75"/>
+        </g></svg>
+      </span>
+      <p>CURATED<br>SHARED<br>STOLEN</p>
+    </div>
+
+    <nav id="nav" class="nav" aria-label="Sections"></nav>
+
+    <div class="side-block">
+      <h4>TAG WATCHLIST</h4>
+      <ul id="tagList" class="taglist"></ul>
+      <p class="side-note">Tags are computed from every item in the archive. Click one to filter across all sections.</p>
+    </div>
+
+    <blockquote class="side-quote">
+      <p id="siteQuote">&ldquo;Ship the trick, not the hype.&rdquo;</p>
+      <cite id="siteQuoteBy">&mdash; USE-CASE ARCHIVE</cite>
+    </blockquote>
+  </aside>
+
+  <main class="main" id="main">
+    <section class="hero">
+      <div class="hero-icon" id="heroIcon" aria-hidden="true">&#9670;</div>
+      <div class="hero-text">
+        <h1><span id="heroTitle">USE CASES THAT STICK</span><span class="badge" id="heroBadge">ARCHIVE</span></h1>
+        <p id="heroBlurb">Workflows people run every day.</p>
+      </div>
+    </section>
+
+    <div class="listbar">
+      <div>
+        <h2 id="listTitle">POPULAR &middot; <span id="listCount">0</span></h2>
+        <p id="listSub">Ranked by reach where a real number exists, then by curation.</p>
+      </div>
+      <div class="listbar-right">
+        <span class="listbar-label">Rank by</span>
+        <label class="sr-only" for="sortSel">Sort</label>
+        <select id="sortSel" class="select"></select>
+        <button class="ghost-btn" id="clearBtn">&#10005; Clear filters</button>
+      </div>
+    </div>
+
+    <div id="activeFilters" class="active-filters" hidden></div>
+
+    <div id="grid" class="grid" role="list"></div>
+
+    <div id="empty" class="empty" hidden>
+      <strong>Nothing matches those filters.</strong>
+      <span>Widen the time range, switch the source back to <em>All Sources</em>, or clear the search.</span>
+      <button class="ghost-btn" data-clear>Clear filters</button>
+    </div>
+
+    <footer class="foot">
+      <p><b>How the numbers work.</b> GitHub stars, Hacker News points and Reddit upvotes are fetched live from public APIs by <code>scripts/fetch-signals.mjs</code>. Items with no public metric are marked <span class="pill pill-curated">CURATED</span> &mdash; nothing on this page is a guessed number.</p>
+      <p id="footGen" class="foot-gen"></p>
+    </footer>
+  </main>
+</div>
+
+<div class="drawer-scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" hidden aria-label="Item detail" role="dialog" aria-modal="true">
+  <button class="drawer-close" id="drawerClose" aria-label="Close">&#10005;</button>
+  <div id="drawerBody"></div>
+</aside>
+
+<script type="module" src="assets/js/app.js"></script>
+</body>
+</html>

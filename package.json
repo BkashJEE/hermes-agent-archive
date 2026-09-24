@@ -1,0 +1,19 @@
+{
+  "name": "hermes-agent-archive",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The most viewed, talked about and actually-used Claude Code craft, curated in public.",
+  "type": "module",
+  "scripts": {
+    "key": "node scripts/set-key.mjs",
+    "start": "python3 -m http.server 4179",
+    "fetch": "node scripts/fetch-signals.mjs",
+    "route": "node scripts/route-signals.mjs",
+    "sync": "npm run fetch && npm run route",
+    "rank": "node scripts/rank-with-jev.mjs",
+    "check": "node scripts/check-data.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
