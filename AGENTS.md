@@ -31,7 +31,7 @@ npm run key    # paste API keys into a gitignored .env
 estimate, not a placeholder that looks real.
 
 - Metrics come from public APIs via `scripts/fetch-signals.mjs`, or they don't exist.
-- A repo that fails to resolve is **hidden**, never shown with a guessed figure.
+- A repo that fails to resolve retains its write-up without a guessed metric.
 - An item with no public metric renders its tags and `no public metric`.
 - A source that failed at fetch time is named in the page footer.
 - X and Facebook have no free API. Entries from there are hand-curated **with a real
@@ -45,7 +45,7 @@ If you cannot source a number, leave the shelf thinner. That is the product.
 index.html              the page
 assets/css/style.css    theme; colors are tokens on :root
 assets/js/app.js        load, filter, rank, drawer
-data/index.json         sections, sources, ranges, sorts
+data/index.json         sections, sources, sorts
 data/<section>.json     the curated content
 data/live.json          GENERATED — never hand-edit
 data/research/          inputs and outputs for ranking work
@@ -77,29 +77,19 @@ unknown sources, malformed dates and non-http URLs.
 Hacker News points, and Reddit upvotes. `route-signals.mjs` decides which section each
 signal belongs on — via Jev when `TYPESAFE_API_KEY` is set, via keyword rules otherwise.
 
-Popularity floors (25,000 stars · 300 HN points · 200 upvotes) apply at both stages, and
-each section caps at 10 sourced items. Sourced cards are marked `SOURCED`; a fetched
+Discovery floors default to 1,000 GitHub stars, 300 HN points and 200 Reddit upvotes;
+Jev judges relevance and quality.
+Section limits are configurable in the sourcing scripts. Sourced cards are marked `SOURCED`; a fetched
 duplicate of a curated URL is dropped, because hand-written entries win.
 
 **Known weakness:** the keyword fallback cannot tell a use case from ecosystem news, so
 fetched stories can land on the wrong shelf. The Jev router's `none` option
 and `worth_keeping` check fix this. Do not try to fix it with more regexes.
 
-## Typography
+## Typography and colour
 
-Anthropic brand standard, not the portfolio's pairing:
-
-- `--sans` **Poppins** (Arial fallback) — headings, labels, pills, buttons, nav
-- `--body` **Lora** (Georgia fallback) — card summaries and drawer prose
-- `--mono` **JetBrains Mono** — code snippets and figures only, where alignment matters
-
-Colours still come from the portfolio (amber on near-black); only the fonts follow the
-brand standard. Do not swap either back to Inter.
-
-**Broadsheet theme** (`:root[data-theme="broadsheet"]`) is the one exception: it adds
-`--display` (Anton) for mastheads and figures, because a letterpress broadsheet needs a
-condensed display face. It overrides tokens only — no component is rewritten for it, so
-anything built against the tokens follows both themes for free.
+Keep Inter and JetBrains Mono and the portfolio colour tokens. The optional
+broadsheet layout changes structure, not the approved fonts or palette.
 
 ## Secrets
 
@@ -153,3 +143,12 @@ CSS and JS edits with a real reload (`?v=<timestamp>`), not a hash navigation.
 `.empty`, `.active-filters` and `.drawer` set `display` on a class, which outranks the
 browser's `[hidden]` rule. The global `[hidden]{display:none!important}` in the
 stylesheet is load-bearing — do not remove it.
+
+## Archive ranking
+
+`npm run rank` classifies actual archive entries with Jev and writes
+`data/rankings.json`. The old feature-idea experiment is `npm run rank:ideas`.
+Rank by usefulness and observed public popularity, never by date. Missing public
+engagement is unknown, not zero popularity. Model scores are internal editorial
+judgments and must never be rendered as public engagement metrics. Keep cache keys
+sensitive to content and fetched evidence; stale entries are unclassified.
