@@ -2,6 +2,7 @@
 
 import { sectionIcon } from './icons.js';
 import { mergeLive } from './archive.js';
+import { formatDetails } from './details.js';
 import { attachRankings, compareRankings, usefulnessLabel, popularityLabel } from './ranking.js';
 
 const $  = (s, r = document) => r.querySelector(s);
@@ -216,7 +217,7 @@ function openDrawer(id, trigger) {
   // caption, preserving its wording rather than quoting the author twice.
   const attribution = story && paragraphs.at(-1)?.startsWith(`— ${it.author},`)
     ? paragraphs.pop().replace(/^— /, '') : null;
-  const body = paragraphs.map(p => `<p>${esc(p).replace(/\n/g, '<br>')}</p>`).join('');
+  const body = formatDetails(paragraphs);
   const date = it.date ? new Date(`${it.date.slice(0, 10)}T12:00:00Z`).toLocaleDateString('en-US',
     { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }) : '';
   const credit = attribution || [it.author, SOURCE_LABEL[it.source], date].filter(Boolean).join(' · ');

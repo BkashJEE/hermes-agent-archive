@@ -374,6 +374,10 @@ code{font-family:var(--mono);font-size:.92em}
 .d-story{margin:28px 0}
 .d-body{margin:24px 0 0;font-size:15px;line-height:1.85;color:var(--ink);max-width:60ch;overflow-wrap:anywhere}
 .d-body p{margin:0 0 18px}
+.d-body ul{margin:0 0 22px;padding-left:24px;list-style:disc}
+.d-body li{padding-left:6px;margin:0 0 14px}
+.d-body li::marker{color:var(--accent)}
+.d-body li:last-child{margin-bottom:0}
 .d-attribution{display:flex;align-items:baseline;gap:12px;margin:20px 0 28px;font-size:12px;line-height:1.8;color:var(--ink-dim);overflow-wrap:anywhere}
 .attribution-rule{width:24px;height:1px;background:var(--accent);flex:none;align-self:center}
 .d-snip{position:relative;margin:16px 0}
