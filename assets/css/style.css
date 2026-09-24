@@ -576,13 +576,52 @@ code{font-family:var(--mono);font-size:.92em}
   --display:"Anton",Impact,"Haettenschweiler",sans-serif;
 }
 
-/* Paper: fibre noise over a warm wash, both generated, no image files. */
+/* ---- The sheet -------------------------------------------------------------
+   Aged newsprint, built entirely from generated layers — no image files.
+   Stacked front to back: fibre grain, coarse mottling, foxing spots, two fold
+   creases, a darkened edge, then the warm stock itself. Fixed attachment, so
+   the page scrolls across one sheet rather than dragging the texture with it.
+   --------------------------------------------------------------------------- */
+
+:root[data-theme="broadsheet"]{
+  /* fine fibre grain */
+  --paper-grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23f)' opacity='.13'/%3E%3C/svg%3E");
+  /* coarse blotching, the uneven tone of old stock */
+  --paper-mottle:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012' numOctaves='3' seed='7'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 .45 0 0 0 0 .33 0 0 0 0 .13 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='600' height='600' filter='url(%23m)' opacity='.5'/%3E%3C/svg%3E");
+}
+
 :root[data-theme="broadsheet"] body{
   background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.055'/%3E%3C/svg%3E"),
-    radial-gradient(1200px 700px at 50% -10%,rgba(120,98,60,.09),transparent 65%),
-    var(--bg);
+    /* foxing — the brown age spots that bloom on stored paper */
+    radial-gradient(9px 7px at 12% 22%,rgba(122,84,38,.16),transparent 70%),
+    radial-gradient(6px 5px at 74% 13%,rgba(122,84,38,.13),transparent 70%),
+    radial-gradient(13px 10px at 88% 61%,rgba(122,84,38,.10),transparent 72%),
+    radial-gradient(7px 6px at 31% 78%,rgba(122,84,38,.12),transparent 70%),
+    radial-gradient(5px 4px at 57% 44%,rgba(122,84,38,.11),transparent 70%),
+    radial-gradient(11px 8px at 6% 91%,rgba(122,84,38,.09),transparent 72%),
+    /* two creases where the sheet was folded */
+    linear-gradient(90deg,transparent calc(33% - 1px),rgba(90,68,36,.10) 33%,transparent calc(33% + 1px)),
+    linear-gradient(0deg,transparent calc(62% - 1px),rgba(90,68,36,.08) 62%,transparent calc(62% + 1px)),
+    var(--paper-grain),
+    var(--paper-mottle),
+    /* edges darken first, as they always do */
+    radial-gradient(130% 95% at 50% 45%,transparent 52%,rgba(96,72,38,.16) 82%,rgba(74,54,26,.28) 100%),
+    /* warm wash over the stock */
+    linear-gradient(168deg,#f0e8d6 0%,#e9dfc8 42%,#e2d6ba 100%);
+  background-attachment:fixed;
+  background-size:auto,auto,auto,auto,auto,auto,auto,auto,200px 200px,600px 600px,auto,auto;
   color:var(--ink);
+}
+
+/* Printed areas sit on the same sheet: a paler wash plus the same grain, so a
+   card reads as ink laid on paper rather than a panel floating above it. */
+:root[data-theme="broadsheet"] .tile,
+:root[data-theme="broadsheet"] .card,
+:root[data-theme="broadsheet"] .hero,
+:root[data-theme="broadsheet"] .side-card{
+  background-image:var(--paper-grain),linear-gradient(150deg,rgba(255,252,242,.55),rgba(233,223,200,.35));
+  background-size:200px 200px,auto;
+  background-blend-mode:multiply,normal;
 }
 
 :root[data-theme="broadsheet"] .topbar{
