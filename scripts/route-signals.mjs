@@ -123,7 +123,10 @@ async function routeWithJev(items) {
       const keep = answers.worth_keeping.noul;
 
       if (section === 'none' || keep < 0.5) {
-        process.stdout.write(`  – dropped  ${item.title.slice(0, 54)}\n`);
+        const why = section === 'none'
+          ? `not about this subject (${(answers.section.probabilities?.none * 100 || 0).toFixed(0)}% sure)`
+          : `too thin to be worth a card (useful to a reader: ${(keep * 100).toFixed(0)}%)`;
+        process.stdout.write(`  – dropped  ${item.title.slice(0, 40).padEnd(42)} ${why}\n`);
         continue;
       }
       out.set(item.id, { section, confidence: answers.section.confidence, keep });
@@ -149,6 +152,7 @@ const live = JSON.parse(await readFile(join(ROOT, 'data/live.json'), 'utf8'));
 const curatedUrls = new Set();
 const index = JSON.parse(await readFile(join(ROOT, 'data/index.json'), 'utf8'));
 for (const s of index.sections) {
+  if (!s.file) continue;                 // a computed section has nothing on disk
   const { items } = JSON.parse(await readFile(join(ROOT, 'data', s.file), 'utf8'));
   for (const it of items) if (it.url) curatedUrls.add(it.url);
 }

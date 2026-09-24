@@ -266,6 +266,7 @@ async function reddit() {
 const index = JSON.parse(await readFile(join(ROOT, 'data/index.json'), 'utf8'));
 const repos = [];
 for (const section of index.sections) {
+  if (!section.file) continue;           // a computed section has nothing on disk
   const { items } = JSON.parse(await readFile(join(ROOT, 'data', section.file), 'utf8'));
   for (const item of items) if (item.repo && !repos.includes(item.repo)) repos.push(item.repo);
 }
