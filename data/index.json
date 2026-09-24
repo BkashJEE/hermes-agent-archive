@@ -56,6 +56,14 @@
       "blurb": "Non-obvious Hermes Agent moves most people never find."
     },
     {
+      "id": "toolkit",
+      "label": "Works With",
+      "icon": "⚒",
+      "file": "toolkit.json",
+      "title": "WHAT WORKS WITH HERMES",
+      "blurb": "Repos worth pairing with Hermes Agent — why it helps, how to wire it up, and the job it actually does. Each one was read before it was listed."
+    },
+    {
       "id": "builds",
       "label": "People Build",
       "icon": "⚑",

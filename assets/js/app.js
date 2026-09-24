@@ -66,23 +66,27 @@ async function load() {
 function applyLive() {
   const live = state.live;
   if (!live) return;
-  const builds = state.data.builds || [];
-
-  // GitHub: attach real stars/forks to seeded repos; drop seeds that never resolved.
+  // GitHub: attach real stars/forks to any seeded repo, on any shelf.
+  // A seed that never resolved is hidden rather than shown with a guess.
   const byRepo = new Map((live.github || []).map(g => [g.repo.toLowerCase(), g]));
-  state.data.builds = builds.filter(item => {
-    if (!item.repo) return true;
-    const g = byRepo.get(item.repo.toLowerCase());
-    if (!g) { item.unresolved = true; return false; }
-    item.title   = g.repo;                       // follow renames/transfers
-    item.summary = g.description || item.summary;
-    item.metric  = { kind: 'stars', value: g.stars };
-    item.metric2 = { kind: 'forks', value: g.forks };
-    item.lang    = g.language;
-    item.url     = g.url;
-    item.date    = g.pushedAt || item.date;
-    return true;
-  });
+  for (const [sectionId, items] of Object.entries(state.data)) {
+    state.data[sectionId] = items.filter(item => {
+      if (!item.repo) return true;
+      const g = byRepo.get(item.repo.toLowerCase());
+      // Nothing is removed because a lookup failed — the write-up is the value,
+      // the star count is decoration. It simply shows no metric.
+      if (!g) return true;
+      item.title   = g.repo;                       // follow renames/transfers
+      // A curated write-up outranks the repo's own one-liner.
+      if (!item.detail) item.summary = g.description || item.summary;
+      item.metric  = { kind: 'stars', value: g.stars };
+      item.metric2 = { kind: 'forks', value: g.forks };
+      item.lang    = g.language;
+      item.url     = g.url;
+      item.date    = g.pushedAt || item.date;
+      return true;
+    });
+  }
 
   const shelve = (sectionId, raw) => {
     if (!state.data[sectionId]) return;

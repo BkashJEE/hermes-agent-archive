@@ -1,0 +1,57 @@
+{
+  "note": "Repos that pair with Hermes Agent. Every entry was chosen after reading the project's own README; the WHY/HOW/USE CASE is editorial, written by the archive, and says so. Stars, forks and descriptions are filled in live by scripts/fetch-signals.mjs. A repo whose README does not itself claim Hermes support is marked as such rather than implied.",
+  "items": [
+    {
+      "id": "kit-cc-switch",
+      "repo": "farion1231/cc-switch",
+      "title": "farion1231/cc-switch",
+      "summary": "One desktop app to manage every harness you run — and it names Hermes Agent in its own headline.",
+      "detail": "WHY\nRunning more than one agent harness means more than one config, more than one set of provider keys, and no single place to see what is pointed where. cc-switch is a Tauri desktop app whose stated job is managing exactly that spread — its README headline lists Claude Code, Claude Desktop, Codex, Gemini CLI, Grok Build, OpenCode, OpenClaw, Hermes Agent and MiniMax Code by name.\n\nHOW\nInstall the desktop release for your platform, point it at the harnesses already on your machine, and switch the active provider or profile from one window instead of editing each harness's own config file.\n\nUSE CASE\nYou run Hermes for long-lived agent work and something else for quick edits. Instead of hand-editing two config files whenever you change provider, you flip it in one place and both follow.\n\nVerified: Hermes Agent is named in the project's own README headline.",
+      "tags": ["toolkit", "config", "multi-harness"],
+      "source": "github",
+      "date": "2026-09-23"
+    },
+    {
+      "id": "kit-codegraph",
+      "repo": "colbymchenry/codegraph",
+      "title": "colbymchenry/codegraph",
+      "summary": "A pre-indexed code graph so the agent stops burning tokens rediscovering your repo.",
+      "detail": "WHY\nAn agent exploring an unfamiliar codebase spends most of its budget on the same greps and reads, every session. CodeGraph keeps a semantic index of the repo that syncs as code changes, so the agent asks the graph instead of re-reading the tree. The README claims a Rust kernel, 100% local operation, and \"fewer tokens, fewer tool calls\".\n\nHOW\nInstall from npm (@colbymchenry/codegraph), index the repo once, and let it sync on change. It advertises support for Hermes Agent alongside Claude Code, Cursor, Codex, OpenCode, Gemini, Antigravity, Kiro and Copilot.\n\nUSE CASE\nA large monorepo where every session starts with the agent relearning the layout. Index it once and the orientation cost goes to near zero — the saving compounds on every run.\n\nVerified: Hermes Agent is named in the project's own README headline. Token and speed claims are the project's, not measured here.",
+      "snippet": "npm install -g @colbymchenry/codegraph",
+      "tags": ["toolkit", "context", "indexing", "local-first"],
+      "source": "github",
+      "date": "2026-09-23"
+    },
+    {
+      "id": "kit-gbrain",
+      "repo": "garrytan/gbrain",
+      "title": "garrytan/gbrain",
+      "summary": "Memory you own, shared across whichever agent you happen to be using.",
+      "detail": "WHY\nAgent memory usually belongs to the harness, so switching tools loses it. GBrain's stated premise is the opposite: it stores explicit facts with their sources, supports corrections and withdrawal, and makes the same memory available across agents. Facts carry provenance, which means you can audit what it believes and why — rare in a memory layer.\n\nHOW\nStart with the keyless mode and keyword retrieval; add semantic search, synthesis and background enrichment when the corpus justifies it. Newer local brains ship a content root with memory skills that connected agents can join.\n\nUSE CASE\nFacts about your own stack — deploy targets, naming rules, which service owns what — that you would otherwise re-explain to every agent, every session, forever.\n\nVerified: the GitHub description names Hermes; the README describes cross-agent memory generally rather than a Hermes-specific integration.",
+      "tags": ["toolkit", "memory", "provenance"],
+      "source": "github",
+      "date": "2026-09-23"
+    },
+    {
+      "id": "kit-claude-mem",
+      "repo": "thedotmack/claude-mem",
+      "title": "thedotmack/claude-mem",
+      "summary": "Compresses what happened into context that survives the next session.",
+      "detail": "WHY\nLong agent sessions end and take their working knowledge with them. claude-mem is a persistent memory compression system: rather than replaying a transcript, it compresses sessions into retrievable context and injects the relevant part back when it matters.\n\nHOW\nInstall it beside the harness and let it capture sessions; it exposes search tools over the compressed store. The repo documents a quick start, how it works, and its search tools.\n\nUSE CASE\nMulti-day work on one feature, where the context that matters was established on day one and the agent no longer has it on day three.\n\nCaveat, stated plainly: the README says \"built for Claude Code\". The GitHub description claims it works with Hermes among others, but the project's own documentation leads with a different harness — check it against your setup before relying on it.",
+      "tags": ["toolkit", "memory", "context"],
+      "source": "github",
+      "date": "2026-09-23"
+    },
+    {
+      "id": "kit-ruflo",
+      "repo": "ruvnet/ruflo",
+      "title": "ruvnet/ruflo",
+      "summary": "A meta-harness: agent teams, memory, verification and cost control layered over a harness.",
+      "detail": "WHY\nOne agent doing everything hits a ceiling. Ruflo's framing is \"Agent = Model + Harness\" and it sells the layer above: planning, memory, agent teams, plugins, cost accounting and verification, with a fourteen-chapter guide explaining the progression from a first task to a working team.\n\nHOW\nInstall from npm (ruflo). Start with a single task, then add memory and teams as the work justifies it — the documentation is explicitly staged that way.\n\nUSE CASE\nWork that needs several roles — someone to plan, someone to implement, someone to check — and a record of what each cost.\n\nCaveat, stated plainly: the README describes it as a meta-harness \"for Claude Code and Codex\" and does not name Hermes Agent. It is here for the pattern, not for a verified Hermes integration.",
+      "snippet": "npx ruflo",
+      "tags": ["toolkit", "orchestration", "teams"],
+      "source": "github",
+      "date": "2026-09-23"
+    }
+  ]
+}

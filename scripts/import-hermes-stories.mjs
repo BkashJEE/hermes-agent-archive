@@ -86,13 +86,26 @@ for (const tile of tiles) {
   });
 }
 
+/* Additive by design: an entry that has since been taken off the source page stays
+   in the archive rather than vanishing from it. Re-imports refresh in place. */
+const target = join(ROOT, 'data/use-cases.json');
+const existing = JSON.parse(await readFile(target, 'utf8').catch(() => '{"items":[]}')).items || [];
+const byId = new Map(existing.map(i => [i.id, i]));
+let added = 0, refreshed = 0;
+for (const item of items) {
+  if (byId.has(item.id)) { byId.set(item.id, { ...byId.get(item.id), ...item }); refreshed++; }
+  else { byId.set(item.id, item); added++; }
+}
+const kept = existing.length - refreshed;
+
 const payload = {
-  note: `Imported from ${URL_SRC} by scripts/import-hermes-stories.mjs. Every entry is a real post quoted and attributed on that page; the headline, quote, author and link are as published. Re-run to refresh.`,
+  note: `Imported from ${URL_SRC} by scripts/import-hermes-stories.mjs. Every entry is a real post quoted and attributed on that page; the headline, quote, author and link are as published. Entries are merged, never replaced — nothing already archived is removed by a re-import.`,
   importedAt: new Date().toISOString(),
-  items
+  items: [...byId.values()]
 };
 
-await writeFile(join(ROOT, 'data/use-cases.json'), JSON.stringify(payload, null, 2) + '\n');
+await writeFile(target, JSON.stringify(payload, null, 2) + '\n');
+console.log(`\n${added} new · ${refreshed} refreshed · ${kept} kept from earlier imports.`);
 
 const byCat = items.reduce((m, i) => (m[i.tags[1]] = (m[i.tags[1]] || 0) + 1, m), {});
 const bySrc = items.reduce((m, i) => (m[i.source] = (m[i.source] || 0) + 1, m), {});

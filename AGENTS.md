@@ -102,6 +102,20 @@ brand standard. Do not swap either back to Inter.
 print it to logs, or commit it. Never add a key to a data file, a workflow, or a script
 default. Scripts read from `process.env`; a shell export wins over the file.
 
+## Additive only — nothing is ever deleted
+
+The archive accumulates. No pipeline stage may remove an entry that is already in it.
+
+- `fetch-signals.mjs` merges into `data/live.json`; a source that fails keeps its last
+  known value marked `stale` rather than dropping it.
+- `import-hermes-stories.mjs` merges by id; an entry pulled from the source page keeps
+  its place in the archive even if it later disappears upstream.
+- A seeded repo that does not resolve stays on its shelf **without** a metric. The
+  write-up is the value; the star count is decoration.
+
+This rule exists because a single GitHub rate-limit once wiped a shelf and a 248k-star
+repo out of `live.json`. Recovery was `git show <sha>:data/live.json`.
+
 ## Scripts must fail honestly
 
 A script that cannot do its job exits non-zero and leaves existing data untouched.
