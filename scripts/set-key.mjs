@@ -131,7 +131,7 @@ const row = text => {                       // pad by visible width, not by eye
 };
 
 console.log(`\n  ╭${'─'.repeat(BOX)}╮`);
-console.log(row(`API KEYS · use-case-archive`));
+console.log(row(`API KEYS · hermes-agent-archive`));
 console.log(row(dim(`Masked input · written to .env (gitignored, chmod 600)`)));
 console.log(row(dim(`Nothing here is echoed, logged, or committed.`)));
 console.log(`  ╰${'─'.repeat(BOX)}╯\n`);
@@ -140,7 +140,7 @@ console.log(`  ╰${'─'.repeat(BOX)}╯\n`);
    at the next prompt — losing it because the flow was abandoned is not on. */
 async function save() {
   const body = [
-    '# Local secrets for use-case-archive. Gitignored — do not commit this file.',
+    '# Local secrets for hermes-agent-archive. Gitignored — do not commit this file.',
     `# Written by \`npm run key\` on ${new Date().toISOString().slice(0, 10)}.`,
     ...[...existing].map(([k, v]) => `${k}=${v}`)
   ].join('\n') + '\n';

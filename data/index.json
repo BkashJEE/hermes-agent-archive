@@ -1,39 +1,138 @@
 {
   "site": {
-    "name": "USE-CASE ARCHIVE",
+    "name": "HERMES AGENT ARCHIVE",
     "tagline": "The most viewed, talked about and actually-used Claude Code craft — curated in public.",
     "curator": "@BkashJosi",
     "quote": "Ship the trick, not the hype.",
-    "quoteAuthor": "— USE-CASE ARCHIVE"
+    "quoteAuthor": "— HERMES AGENT ARCHIVE"
   },
   "sections": [
-    { "id": "use-cases", "label": "Use Cases",      "icon": "◈", "file": "use-cases.json", "title": "USE CASES THAT STICK",        "blurb": "Workflows people run every day — ranked by how loudly the internet talks about them." },
-    { "id": "skills",    "label": "Skills",         "icon": "◆", "file": "skills.json",    "title": "SKILLS WORTH INSTALLING",     "blurb": "SKILL.md packages that turn a one-off prompt into a repeatable capability." },
-    { "id": "prompts",   "label": "Prompts",        "icon": "✎", "file": "prompts.json",   "title": "PROMPTS PEOPLE STEAL",        "blurb": "Copy-paste prompts with a track record. Hit COPY, edit the brackets, run." },
-    { "id": "settings",  "label": "Settings",       "icon": "⚙", "file": "settings.json",  "title": "SETTINGS THAT CHANGE THE RUN","blurb": "settings.json keys and flags that materially change how the agent behaves." },
-    { "id": "commands",  "label": "Commands",       "icon": "⌫", "file": "commands.json",  "title": "COMMANDS ON THE HOT PATH",    "blurb": "Slash commands and CLI invocations, ordered by how often they earn their keystrokes." },
-    { "id": "tricks",    "label": "Hidden Tricks",  "icon": "✦", "file": "tricks.json",    "title": "HIDDEN TRICKS",               "blurb": "Undocumented-feeling moves: keystrokes, prefixes and escape hatches most people never find." },
-    { "id": "builds",    "label": "People Build",   "icon": "⚑", "file": "builds.json",    "title": "WHAT PEOPLE ARE BUILDING",    "blurb": "Projects shown off on X, Reddit, Hacker News and GitHub. Numbers are fetched live, never guessed." }
+    {
+      "id": "use-cases",
+      "label": "Use Cases",
+      "icon": "◈",
+      "file": "use-cases.json",
+      "title": "USE CASES THAT STICK",
+      "blurb": "Workflows people run every day — ranked by how loudly the internet talks about them."
+    },
+    {
+      "id": "skills",
+      "label": "Skills",
+      "icon": "◆",
+      "file": "skills.json",
+      "title": "SKILLS WORTH INSTALLING",
+      "blurb": "SKILL.md packages that turn a one-off prompt into a repeatable capability."
+    },
+    {
+      "id": "prompts",
+      "label": "Prompts",
+      "icon": "✎",
+      "file": "prompts.json",
+      "title": "PROMPTS PEOPLE STEAL",
+      "blurb": "Copy-paste prompts with a track record. Hit COPY, edit the brackets, run."
+    },
+    {
+      "id": "settings",
+      "label": "Settings",
+      "icon": "⚙",
+      "file": "settings.json",
+      "title": "SETTINGS THAT CHANGE THE RUN",
+      "blurb": "settings.json keys and flags that materially change how the agent behaves."
+    },
+    {
+      "id": "commands",
+      "label": "Commands",
+      "icon": "⌫",
+      "file": "commands.json",
+      "title": "COMMANDS ON THE HOT PATH",
+      "blurb": "Slash commands and CLI invocations, ordered by how often they earn their keystrokes."
+    },
+    {
+      "id": "tricks",
+      "label": "Hidden Tricks",
+      "icon": "✦",
+      "file": "tricks.json",
+      "title": "HIDDEN TRICKS",
+      "blurb": "Undocumented-feeling moves: keystrokes, prefixes and escape hatches most people never find."
+    },
+    {
+      "id": "builds",
+      "label": "People Build",
+      "icon": "⚑",
+      "file": "builds.json",
+      "title": "WHAT PEOPLE ARE BUILDING",
+      "blurb": "Projects shown off on X, Reddit, Hacker News and GitHub. Numbers are fetched live, never guessed."
+    }
   ],
   "sources": [
-    { "id": "all",    "label": "All Sources" },
-    { "id": "x",      "label": "X / Twitter" },
-    { "id": "reddit", "label": "Reddit" },
-    { "id": "hn",     "label": "Hacker News" },
-    { "id": "fb",     "label": "Facebook" },
-    { "id": "github", "label": "GitHub" },
-    { "id": "docs",   "label": "Official Docs" }
+    {
+      "id": "all",
+      "label": "All Sources"
+    },
+    {
+      "id": "x",
+      "label": "X / Twitter"
+    },
+    {
+      "id": "reddit",
+      "label": "Reddit"
+    },
+    {
+      "id": "hn",
+      "label": "Hacker News"
+    },
+    {
+      "id": "fb",
+      "label": "Facebook"
+    },
+    {
+      "id": "github",
+      "label": "GitHub"
+    },
+    {
+      "id": "docs",
+      "label": "Official Docs"
+    }
   ],
   "ranges": [
-    { "id": "all", "label": "All time", "days": 0 },
-    { "id": "1",   "label": "Past 24 hours", "days": 1 },
-    { "id": "7",   "label": "Past 7 days", "days": 7 },
-    { "id": "30",  "label": "Past 30 days", "days": 30 },
-    { "id": "90",  "label": "Past 90 days", "days": 90 }
+    {
+      "id": "all",
+      "label": "All time",
+      "days": 0
+    },
+    {
+      "id": "1",
+      "label": "Past 24 hours",
+      "days": 1
+    },
+    {
+      "id": "7",
+      "label": "Past 7 days",
+      "days": 7
+    },
+    {
+      "id": "30",
+      "label": "Past 30 days",
+      "days": 30
+    },
+    {
+      "id": "90",
+      "label": "Past 90 days",
+      "days": 90
+    }
   ],
   "sorts": [
-    { "id": "talked", "label": "Most talked about" },
-    { "id": "recent", "label": "Most recent" },
-    { "id": "az",     "label": "A → Z" }
+    {
+      "id": "talked",
+      "label": "Most talked about"
+    },
+    {
+      "id": "recent",
+      "label": "Most recent"
+    },
+    {
+      "id": "az",
+      "label": "A → Z"
+    }
   ]
 }

@@ -1,4 +1,4 @@
-# Use-Case Archive
+# Hermes Agent Archive
 
 A public archive of the Claude Code craft people actually use — the most viewed, talked
 about and reused **use cases, skills, prompts, settings, commands, hidden tricks** and

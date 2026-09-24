@@ -242,7 +242,7 @@ function render() {
 
   $('#grid').innerHTML = items.map((it, i) => card(it, i + 1)).join('');
   $('#empty').hidden = items.length > 0;
-  document.title = `${sec.label} · Use-Case Archive`;
+  document.title = `${sec.label} · Hermes Agent Archive`;
 
   renderNav();
   renderTags();

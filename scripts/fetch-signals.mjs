@@ -43,7 +43,7 @@ const CONFIG = {
   minRedditUpvotes: Number(process.env.MIN_REDDIT_UPVOTES ?? 200)
 };
 
-const UA = 'use-case-archive/1.0 (+https://github.com/BkashJEE)';
+const UA = 'hermes-agent-archive/1.0 (+https://github.com/BkashJEE)';
 const since = Math.floor((Date.now() - CONFIG.windowDays * 86400000) / 1000);
 const warnings = [];
 
