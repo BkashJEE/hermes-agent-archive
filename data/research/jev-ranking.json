@@ -1,0 +1,231 @@
+{
+  "rankedAt": "2026-09-24T07:40:03.469Z",
+  "model": "jev-latest",
+  "weights": {
+    "fit": 0.45,
+    "value": 0.35,
+    "effort": 0.2
+  },
+  "usage": {
+    "input_tokens": 21923,
+    "output_tokens": 1098
+  },
+  "results": [
+    {
+      "title": "Postgres natural-language filter",
+      "url": "https://x.com/iam_zachi/status/2100679300756435135",
+      "author": "@iam_zachi",
+      "category": "Search & data",
+      "fit": 2.26,
+      "value": 2.91,
+      "effort": 2.79,
+      "contentNotFeature": 0.75,
+      "lowestConfidence": 0,
+      "priority": 0.369
+    },
+    {
+      "title": "Harness with Jev",
+      "url": "https://x.com/sydneyrunkle/status/2100754364545761643",
+      "author": "@sydneyrunkle",
+      "category": "Agents",
+      "fit": 1.61,
+      "value": 1.84,
+      "effort": 1.01,
+      "contentNotFeature": 0.79,
+      "lowestConfidence": 0.16,
+      "priority": 0.292
+    },
+    {
+      "title": "Instant tool-call compaction",
+      "url": "https://x.com/tamarajtran/status/2100694549362553153",
+      "author": "@tamarajtran",
+      "category": "Agents",
+      "fit": 1.17,
+      "value": 1.75,
+      "effort": 1.16,
+      "contentNotFeature": 0.8,
+      "lowestConfidence": 0.03,
+      "priority": 0.227
+    },
+    {
+      "title": "Jev-as-a-Judge evals",
+      "url": "https://x.com/LangChain/status/2101454284927959080",
+      "author": "@LangChain",
+      "category": "Safety & review",
+      "fit": 1.51,
+      "value": 1.6,
+      "effort": 1.65,
+      "contentNotFeature": 0.8,
+      "lowestConfidence": 0,
+      "priority": 0.227
+    },
+    {
+      "title": "Keystroke file launcher",
+      "url": "https://x.com/dabit3/status/2100756930054504776",
+      "author": "@dabit3",
+      "category": "Computer use",
+      "fit": 0.99,
+      "value": 1.89,
+      "effort": 1.52,
+      "contentNotFeature": 0.81,
+      "lowestConfidence": 0,
+      "priority": 0.201
+    },
+    {
+      "title": "Real-time feed quality filter",
+      "url": "https://x.com/RBilgil/status/2100976648552169805",
+      "author": "@RBilgil",
+      "category": "Computer use",
+      "fit": 1.35,
+      "value": 1.38,
+      "effort": 2.21,
+      "contentNotFeature": 0.63,
+      "lowestConfidence": 0,
+      "priority": 0.162
+    },
+    {
+      "title": "Command safety review",
+      "url": "https://x.com/rauchg/status/2100307962262872105",
+      "author": "@rauchg",
+      "category": "Safety & review",
+      "fit": 0.74,
+      "value": 1.68,
+      "effort": 1.46,
+      "contentNotFeature": 0.74,
+      "lowestConfidence": 0,
+      "priority": 0.157
+    },
+    {
+      "title": "GrokBot decision routing",
+      "url": "https://x.com/0xCodila/status/2101433560796467348",
+      "author": "@0xCodila",
+      "category": "Agents",
+      "fit": 1.03,
+      "value": 1.38,
+      "effort": 1.61,
+      "contentNotFeature": 0.81,
+      "lowestConfidence": 0,
+      "priority": 0.156
+    },
+    {
+      "title": "PR newsjacking",
+      "url": "https://x.com/elvissun/status/2100951347080421409",
+      "author": "@elvissun",
+      "category": "Search & data",
+      "fit": 1.26,
+      "value": 1.55,
+      "effort": 2.62,
+      "contentNotFeature": 0.77,
+      "lowestConfidence": 0,
+      "priority": 0.146
+    },
+    {
+      "title": "Voice browser control",
+      "url": "https://x.com/moritzkremb/status/2100577979021832365",
+      "author": "@moritzkremb",
+      "category": "Computer use",
+      "fit": 0.84,
+      "value": 1.6,
+      "effort": 1.83,
+      "contentNotFeature": 0.84,
+      "lowestConfidence": 0,
+      "priority": 0.143
+    },
+    {
+      "title": "SEO and GEO audits",
+      "url": "https://x.com/irabukht/status/2101090579127951694",
+      "author": "@irabukht",
+      "category": "Search & data",
+      "fit": 1.19,
+      "value": 1.7,
+      "effort": 2.82,
+      "contentNotFeature": 0.77,
+      "lowestConfidence": 0.02,
+      "priority": 0.142
+    },
+    {
+      "title": "Desktop computer use",
+      "url": "https://x.com/trycua/status/2100649543079502213",
+      "author": "@trycua",
+      "category": "Computer use",
+      "fit": 0.75,
+      "value": 1.68,
+      "effort": 1.81,
+      "contentNotFeature": 0.78,
+      "lowestConfidence": 0,
+      "priority": 0.141
+    },
+    {
+      "title": "Real-time game level generation",
+      "url": "https://x.com/HugoDuprez/status/2100953089003921543",
+      "author": "@HugoDuprez",
+      "category": "Creative & real-time",
+      "fit": 0.65,
+      "value": 1.46,
+      "effort": 2,
+      "contentNotFeature": 0.86,
+      "lowestConfidence": 0,
+      "priority": 0.101
+    },
+    {
+      "title": "Bulk email classifier",
+      "url": "https://x.com/rileybrown/status/2100404532119269426",
+      "author": "@rileybrown",
+      "category": "Search & data",
+      "fit": 1.38,
+      "value": 1.31,
+      "effort": 3.38,
+      "contentNotFeature": 0.71,
+      "lowestConfidence": 0,
+      "priority": 0.101
+    },
+    {
+      "title": "Resume-job relevance scoring",
+      "url": "https://x.com/h_nilforoshan/status/2100409794276520341",
+      "author": "@h_nilforoshan",
+      "category": "Search & data",
+      "fit": 1.27,
+      "value": 0.9,
+      "effort": 2.96,
+      "contentNotFeature": 0.79,
+      "lowestConfidence": 0.13,
+      "priority": 0.074
+    },
+    {
+      "title": "Flight search",
+      "url": "https://x.com/gregpr07/status/2100411066966749359",
+      "author": "@gregpr07",
+      "category": "Computer use",
+      "fit": 0.55,
+      "value": 1.43,
+      "effort": 2.91,
+      "contentNotFeature": 0.8,
+      "lowestConfidence": 0.09,
+      "priority": 0.041
+    },
+    {
+      "title": "Live trading",
+      "url": "https://x.com/jarrodwatts/status/2100356151468585346",
+      "author": "@jarrodwatts",
+      "category": "Creative & real-time",
+      "fit": 0.55,
+      "value": 1.18,
+      "effort": 2.75,
+      "contentNotFeature": 0.86,
+      "lowestConfidence": 0,
+      "priority": 0.028
+    },
+    {
+      "title": "Defense game (Flappy guardrail)",
+      "url": "https://x.com/rchan0687587257/status/2101349181969535431",
+      "author": "@rchan0687587257",
+      "category": "Creative & real-time",
+      "fit": 0.35,
+      "value": 0.58,
+      "effort": 2.2,
+      "contentNotFeature": 0.82,
+      "lowestConfidence": 0,
+      "priority": -0.02
+    }
+  ]
+}

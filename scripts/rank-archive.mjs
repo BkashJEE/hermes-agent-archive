@@ -26,7 +26,6 @@ async function main() {
   const cfg = await read('index.json'), data = {};
   for (const section of cfg.sections.filter(s => s.file)) {
     data[section.id] = (await read(section.file)).items;
-    for (const item of data[section.id]) { delete item.metric; delete item.metric2; }
   }
   mergeLive(data, await read('live.json'));
   const items = Object.values(data).flat();

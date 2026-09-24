@@ -11,6 +11,25 @@ import { MODEL, RANKING_VERSION, attachRankings, compareRankings, inputKey, vali
 const item = (id, usefulness, popularity = 'unknown') => ({ id, title: id, source: 'reddit',
   ranking: { usefulness, popularity } });
 
+test('API merging preserves seeded write-ups across all shelves, including unresolved repos', () => {
+  const data = { toolkit: [{ id: 'tool', repo: 'org/tool', title: 'Tool', summary: 'Curated explanation', detail: 'Setup steps', url: 'https://github.com/org/tool' }],
+    builds: [{ id: 'missing', repo: 'org/missing', title: 'Unresolved tool', metric: { kind: 'stars', value: 999 } }] };
+  mergeLive(data, { github: [{ repo: 'org/tool', description: 'API one-liner', stars: 21, forks: 2, url: 'https://github.com/org/tool' }],
+    routed: { builds: [{ id: 'duplicate', url: 'https://github.com/org/tool' }] } });
+  assert.equal(data.toolkit[0].summary, 'Curated explanation');
+  assert.equal(data.toolkit[0].metric.value, 21);
+  assert.equal(data.builds.length, 1);
+  assert.equal(data.builds[0].id, 'missing');
+  assert.equal(data.builds[0].metric, undefined);
+});
+
+test('unavailable API snapshots cannot expose curated engagement figures', () => {
+  const data = { builds: [{ id: 'a', metric: { kind: 'views', value: 100 }, metric2: { kind: 'likes', value: 10 } }] };
+  mergeLive(data, null);
+  assert.equal(data.builds[0].metric, undefined);
+  assert.equal(data.builds[0].metric2, undefined);
+});
+
 test('usefulness leads by default; public popularity breaks band ties', () => {
   const useful = item('Useful', 4), popular = item('Popular', 2, 'widespread');
   assert.ok(compareRankings(useful, popular) < 0);
@@ -53,7 +72,7 @@ test('missing, malformed, or stale classifications are never attached', async ()
 test('every shipped classification matches the rendered archive and its public evidence', async () => {
   const read = async file => JSON.parse(await readFile(new URL(`../data/${file}`, import.meta.url), 'utf8'));
   const cfg = await read('index.json'), data = {};
-  for (const section of cfg.sections) {
+  for (const section of cfg.sections.filter(s => s.file)) {
     data[section.id] = (await read(section.file)).items;
     for (const entry of data[section.id]) { delete entry.metric; delete entry.metric2; }
   }

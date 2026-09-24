@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=credits-1">
+<link rel="stylesheet" href="assets/css/style.css?v=combined-1">
 </head>
 <body>
 
@@ -43,6 +43,8 @@
 
   <label class="sr-only" for="sourceSel">Source</label>
   <select id="sourceSel" class="select" title="Filter by where it was shown"></select>
+  <button class="icon-btn" id="jumpBtn" aria-label="Jump to a shelf or entry" title="Jump to (Ctrl/⌘ K)">⌘K</button>
+  <button class="icon-btn" id="themeBtn" aria-label="Broadsheet layout" aria-pressed="false" title="Toggle broadsheet layout">▤</button>
   <button class="icon-btn" id="refreshBtn" title="Reload data" aria-label="Reload data">&#8635;</button>
   <span class="updated">UPDATED <b id="updatedAt">&mdash;</b></span>
   <a class="cta" href="#submit" id="submitBtn">&#9670; SUBMIT A TRICK</a>
@@ -83,12 +85,12 @@
     <section class="hero">
       <div class="hero-icon" id="heroIcon" aria-hidden="true">&#9670;</div>
       <div class="hero-text">
-        <h1><span id="heroTitle">USE CASES THAT STICK</span><span class="badge" id="heroBadge">ARCHIVE</span></h1>
+        <h1><span id="heroTitle" tabindex="-1">USE CASES THAT STICK</span><span class="badge" id="heroBadge">ARCHIVE</span></h1>
         <p id="heroBlurb">Workflows people run every day.</p>
       </div>
     </section>
 
-    <div class="listbar">
+    <div class="listbar" id="listbar">
       <div>
         <h2 id="listTitle" tabindex="-1" aria-live="polite">POPULAR &middot; <span id="listCount">0</span></h2>
         <p id="listSub">Ranked by Jev usefulness and public popularity.</p>
@@ -107,6 +109,7 @@
 
     <div id="activeFilters" class="active-filters" hidden></div>
 
+    <section id="dashboard" class="dash" hidden aria-label="Archive overview"></section>
     <ul id="grid" class="grid" aria-label="Archive items"></ul>
 
     <div id="empty" class="empty" hidden>
@@ -129,6 +132,6 @@
   <div id="drawerBody"></div>
 </aside>
 
-<script type="module" src="assets/js/app.js?v=credits-1"></script>
+<script type="module" src="assets/js/app.js?v=combined-1"></script>
 </body>
 </html>

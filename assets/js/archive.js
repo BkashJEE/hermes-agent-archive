@@ -2,27 +2,39 @@
    sourcing pipeline found. Every value here came from a public API — nothing is
    hand-written, and nothing is estimated. */
 export function mergeLive(data, live) {
+  // Only the public API snapshot can supply engagement, including in the CLI job.
+  for (const items of Object.values(data)) for (const item of items) {
+    delete item.metric; delete item.metric2;
+  }
   if (!live) return;
-  const builds = data.builds || [];
-
-  // GitHub: attach real stars/forks to seeded repos; drop seeds that never resolved.
+  // GitHub: attach real stars/forks to any seeded repo, on any shelf.
+  // Seeds retain their write-ups when no metric is available.
   const byRepo = new Map((live.github || []).map(g => [g.repo.toLowerCase(), g]));
-  data.builds = builds.filter(item => {
-    if (!item.repo) return true;
-    const g = byRepo.get(item.repo.toLowerCase());
-    if (!g) { item.unresolved = true; return false; }
-    item.title   = g.repo;                       // follow renames/transfers
-    item.summary = g.description || item.summary;
-    item.metric  = { kind: 'stars', value: g.stars };
-    item.metric2 = { kind: 'forks', value: g.forks };
-    item.lang    = g.language;
-    item.url     = g.url;
-    item.date    = g.pushedAt || item.date;
-    return true;
-  });
+  for (const [sectionId, items] of Object.entries(data)) {
+    data[sectionId] = items.filter(item => {
+      if (!item.repo) return true;
+      const g = byRepo.get(item.repo.toLowerCase());
+      // Nothing is removed because a lookup failed — the write-up is the value,
+      // the star count is decoration. It simply shows no metric.
+      if (!g) return true;
+      item.title   = g.repo;                       // follow renames/transfers
+      // A curated write-up outranks the repo's own one-liner.
+      if (!item.detail) item.summary = g.description || item.summary;
+      item.metric  = { kind: 'stars', value: g.stars };
+      item.metric2 = { kind: 'forks', value: g.forks };
+      item.lang    = g.language;
+      item.url     = g.url;
+      item.date    = g.pushedAt || item.date;
+      return true;
+    });
+  }
 
+  const seenIds = new Set(Object.values(data).flat().map(it => it.id));
+  const seenUrls = new Set(Object.values(data).flat().map(it => it.url).filter(Boolean));
   const shelve = (sectionId, raw) => {
+    if (seenIds.has(raw.id) || (raw.url && seenUrls.has(raw.url))) return;
     if (!data[sectionId]) return;
+    seenIds.add(raw.id); if (raw.url) seenUrls.add(raw.url);
     data[sectionId].push({
       id: raw.id,
       title: raw.title,
@@ -67,4 +79,3 @@ export function mergeLive(data, live) {
       metric: { kind: 'upvotes', value: r.upvotes }, metric2: { kind: 'comments', value: r.comments }
     });
 }
-

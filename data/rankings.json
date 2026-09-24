@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-09-24T09:44:51.944Z",
+  "classifiedAt": "2026-09-24T17:13:58.051Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -1985,10 +1985,10 @@
       "confidence": 0.55
     },
     "gh-hermes-agent": {
-      "input": "6f9a68349c1d02174a3f412ef8a001ab7f724759635118ed1be50a244726c80a",
+      "input": "9788b79c0883d4de9c0d3f91e946e657bdc6b0851b84c9c2b3ed68b407b59160",
       "usefulness": 0,
       "popularity": "widespread",
-      "confidence": 0.91
+      "confidence": 0.89
     },
     "jev-hermes-newsroom-with-jev-omarchy": {
       "input": "f33df236fb350388c648db1635e94c18475cdccd8e67074b11857c9d7ed37604",
@@ -2049,6 +2049,2238 @@
       "usefulness": 0.02,
       "popularity": "widespread",
       "confidence": 0.34
+    },
+    "gh-jnmetacode-superpowers-zh": {
+      "input": "eabacc4a0324ff9ef1f4ce45f0e5c995756fd6c581ef8d80332f3efef0a4ea8b",
+      "usefulness": 0.2,
+      "popularity": "strong",
+      "confidence": 0.43
+    },
+    "gh-conorbronsdon-avoid-ai-writing": {
+      "input": "1473f9162ede2fb477f4e242070c711fcfa1e41563721c9755ef274749be8ee0",
+      "usefulness": 0.92,
+      "popularity": "strong",
+      "confidence": 0.56
+    },
+    "cli-ignore-user-config": {
+      "input": "97efedd61981b7ed74172ce9f253f3232458a788fe5222501b5cb4952c8d9788",
+      "usefulness": 1.06,
+      "popularity": "unknown",
+      "confidence": 0.69
+    },
+    "cli-provider-provider": {
+      "input": "30daa403a67d8a6e144195da0210da5789bb6490de81ecb75db577489bcd5fd8",
+      "usefulness": 0.34,
+      "popularity": "unknown",
+      "confidence": 0.71
+    },
+    "cli-safe-mode": {
+      "input": "432367a024bb44bc645ea4bd405225def56af121e9ac28bde1ccdd77fee5e432",
+      "usefulness": 1.99,
+      "popularity": "unknown",
+      "confidence": 0.42
+    },
+    "cli-max-turns-n": {
+      "input": "60e9a54a6fdf55fdad22f04f7c4683246c10915abaa3b292e6a8ff62dcc6db3c",
+      "usefulness": 0.39,
+      "popularity": "unknown",
+      "confidence": 0.68
+    },
+    "cli-enroll": {
+      "input": "b8b3e3c30e9cf1b13d04e5f8865f8b781631ec17b645beeaa413365e627967bc",
+      "usefulness": 0.36,
+      "popularity": "unknown",
+      "confidence": 0.7
+    },
+    "cli-agent": {
+      "input": "6af38e3f64a93e653cae4f21cb46946e3f1c889746207f6c06a17bc673756d94",
+      "usefulness": 0,
+      "popularity": "unknown",
+      "confidence": 1
+    },
+    "cli-quick": {
+      "input": "9fe0fdb2db355a25dca033bca0646174bac5c98d96f1590015cff6dbbd3f8a1f",
+      "usefulness": 1.34,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "cli-reset": {
+      "input": "704612a27c0b6c3faf4fbf8bedf8cbd298ed55ba2ff09243b29dc0058b000ea8",
+      "usefulness": 0.39,
+      "popularity": "unknown",
+      "confidence": 0.68
+    },
+    "cli-reconfigure": {
+      "input": "0dfcf01a4e292397442bc7e64462b8beeaefe423d9a57dd13e07c0c743f69fce",
+      "usefulness": 0.15,
+      "popularity": "unknown",
+      "confidence": 0.88
+    },
+    "cli-portal": {
+      "input": "cb078ccc92f64c5f14d861ffe618b2807256a66585c0f4491f36f792653d20cd",
+      "usefulness": 1.46,
+      "popularity": "unknown",
+      "confidence": 0.51
+    },
+    "cli-add-name-url-url-key-key-note-text": {
+      "input": "6613433ce83a9d5c7e722c4fc20874df94c8840583ef0464a6ba9fe158e80739",
+      "usefulness": 1.68,
+      "popularity": "unknown",
+      "confidence": 0.49
+    },
+    "cli-xai": {
+      "input": "56d5237303dc276f2a46793b429bf2602b4f44b14d5d598dc3c177c6230d63be",
+      "usefulness": 2.01,
+      "popularity": "unknown",
+      "confidence": 0.5
+    },
+    "cli-apply": {
+      "input": "a99facfa27dd6bac26ee0e2967c6a3119d5072e9fc5e260fa6276e2a0d07c0d2",
+      "usefulness": 0.62,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "cli-no-backup": {
+      "input": "bb04a093ca692ca33b68339e61d1b2e2a589c6b9788b9d478d27e2b2710dc9ca",
+      "usefulness": 0.79,
+      "popularity": "unknown",
+      "confidence": 0.69
+    },
+    "cli-dry-run": {
+      "input": "cebbe084eda6fd314d5968e21f92bb85bc3788cf8667859c44f9362c75e287d2",
+      "usefulness": 1.01,
+      "popularity": "unknown",
+      "confidence": 0.75
+    },
+    "cli-provider-name": {
+      "input": "377fc7221b69a192850c829898f896fe23bc3b5556fd7d1c0a9d27d1615dc502",
+      "usefulness": 0.39,
+      "popularity": "unknown",
+      "confidence": 0.68
+    },
+    "cli-get-key-json-raw": {
+      "input": "b777b1daa382069ebaa253b7ec3386d8cad87f6c4036a0f1aee24fe3259bcaec",
+      "usefulness": 2.28,
+      "popularity": "unknown",
+      "confidence": 0.33
+    },
+    "cli-set-key-value-force": {
+      "input": "da2f1064ed7b8f3520c7ae7bd6cdb5f95d047bae8b48e2581be2bfd50da4af88",
+      "usefulness": 3.09,
+      "popularity": "unknown",
+      "confidence": 0.24
+    },
+    "cli-unset-key": {
+      "input": "7ce6934c31628e5f5d8f66614f0988ee9aaa9205acb1f0476bfe86a4fe180790",
+      "usefulness": 1.55,
+      "popularity": "unknown",
+      "confidence": 0.4
+    },
+    "cli-path": {
+      "input": "c043e361f403d412fbefb1f1ebb8ffa95d94990ae93e1a18f7bcbf4d737e26b8",
+      "usefulness": 0.1,
+      "popularity": "unknown",
+      "confidence": 0.91
+    },
+    "cli-check": {
+      "input": "3fd6dbabb2123c42d0cef77fd1d391593f9d1f152860ec1ed6b9360c0764fb7e",
+      "usefulness": 0.35,
+      "popularity": "unknown",
+      "confidence": 0.71
+    },
+    "cli-snapshot": {
+      "input": "612ed178b5f4367983da0c107ef9f6bcc999f6d14d1b4781cd3c6f42ada17cb5",
+      "usefulness": 0.42,
+      "popularity": "unknown",
+      "confidence": 0.65
+    },
+    "cli-config": {
+      "input": "cfa1a41f246a70bfda5b1476e2bd82ea11f1c2fe171460fe4f2efaf42b56a3da",
+      "usefulness": 0.31,
+      "popularity": "unknown",
+      "confidence": 0.74
+    },
+    "cli-add-name-url-url-command-cmd-auth-oauth-header-args": {
+      "input": "16554622779a0de3140f3bfd31e7cae4c16501a17498ec687fd0645730d98246",
+      "usefulness": 1.55,
+      "popularity": "unknown",
+      "confidence": 0.44
+    },
+    "cli-login-name": {
+      "input": "c23687866a1ab94fdd99536c126947d3e96cff3f8ec09fbe29ccd3bed222b6d9",
+      "usefulness": 0.53,
+      "popularity": "unknown",
+      "confidence": 0.58
+    },
+    "cli-pack-export-enabled-only-name-name": {
+      "input": "e0ddb43bdab7f33227235634a2c3d5b39725bfc7dc20a2af74e808b8ccf1acdf",
+      "usefulness": 2.23,
+      "popularity": "unknown",
+      "confidence": 0.42
+    },
+    "cli-preset-name": {
+      "input": "c0c25dfc06be1680d4d897c57ce64a5b5781582e9b7f8ccf38807e12f111ba99",
+      "usefulness": 1.23,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "cli-redirect-uri": {
+      "input": "0b69eddb74d7cfa022d971be57172a8d88d332313f822d842e43f297295eae68",
+      "usefulness": 0.59,
+      "popularity": "unknown",
+      "confidence": 0.51
+    },
+    "cli-create-name-clone-clone-all-clone-from-source-no-alias": {
+      "input": "c5596ef706e72abd135669caae540a934f13534206a099e39656b15615562542",
+      "usefulness": 1.71,
+      "popularity": "unknown",
+      "confidence": 0.44
+    },
+    "cli-update-name-force-config-y": {
+      "input": "339833bd7766bf1bc7201aadcbd842a9b101300b2cd75a72147dccbd4c622003",
+      "usefulness": 0.91,
+      "popularity": "unknown",
+      "confidence": 0.68
+    },
+    "cli-sec-format-stream-json-structured-jsonl-output": {
+      "input": "927ceabede29f6e4aa39c64c4dabad65a25f2f0e4a11faef278a0accfc991418",
+      "usefulness": 3.34,
+      "popularity": "unknown",
+      "confidence": 0.45
+    },
+    "cli-sec-dots-inside-key-names": {
+      "input": "46f24260bac79854cd55a57827503cc11e756aaf124f71274f52f6661204645a",
+      "usefulness": 2.01,
+      "popularity": "unknown",
+      "confidence": 0.55
+    },
+    "cli-sec-what-gets-migrated": {
+      "input": "eee23a1a8d2b61bd2032bd6d7d067f2c8382fedf922fa44e54178c39fae33654",
+      "usefulness": 2.76,
+      "popularity": "unknown",
+      "confidence": 0.58
+    },
+    "cli-sec-maintenance-commands": {
+      "input": "cc7507a414fac799ec39d7ff903ab7b05898723e1291787a1f0a946a2dc06ce6",
+      "usefulness": 1.21,
+      "popularity": "unknown",
+      "confidence": 0.43
+    },
+    "cli-hermes-chat": {
+      "input": "ab2364b8e2a97fff9f1c21fbe1550a84087396ae450f17e439b65afb1db311dc",
+      "usefulness": 0.03,
+      "popularity": "unknown",
+      "confidence": 0.97
+    },
+    "cli-hermes-model": {
+      "input": "5a5229e36fd5349b8b2800a9c5f6cd4f8bc8e85573e5ee17e25c48fc9d0dd2b2",
+      "usefulness": 0.37,
+      "popularity": "unknown",
+      "confidence": 0.69
+    },
+    "cli-hermes-moa": {
+      "input": "da286b65ebe2ee5810fa00febc9b4b575851ee4e3531ec078959fa5b13ddbf9b",
+      "usefulness": 0.47,
+      "popularity": "unknown",
+      "confidence": 0.61
+    },
+    "cli-hermes-fallback": {
+      "input": "c9545242631a3130d3fd4c8c9bd4d83d9f3ebf37817a9e507aea2ea782c3ae7b",
+      "usefulness": 0.37,
+      "popularity": "unknown",
+      "confidence": 0.69
+    },
+    "cli-hermes-gateway": {
+      "input": "825721e46f3f76171b7b20b922b57cbb4d303868ad20e4952275db704a9f5230",
+      "usefulness": 0.03,
+      "popularity": "unknown",
+      "confidence": 0.98
+    },
+    "cli-hermes-proxy": {
+      "input": "299a3e39d09de82bf3e5c158cc204efeb139221f63def6b60be0f278e829485d",
+      "usefulness": 0.53,
+      "popularity": "unknown",
+      "confidence": 0.58
+    },
+    "cli-hermes-egress": {
+      "input": "3ed65f53a89a0ff74f08e71c7d091544bbc4e426571ff983f0633dea99f3840b",
+      "usefulness": 0.46,
+      "popularity": "unknown",
+      "confidence": 0.61
+    },
+    "cli-hermes-lsp": {
+      "input": "8dd6dc27df2e6abe5ea02fa35b718492a5ceeda84aa7fde4cdba80d05b388f25",
+      "usefulness": 0.35,
+      "popularity": "unknown",
+      "confidence": 0.71
+    },
+    "cli-hermes-setup": {
+      "input": "4c76a55750dc236d5094a2393476c34bcec86e513295be3d47b4eaad6f69c512",
+      "usefulness": 0.17,
+      "popularity": "unknown",
+      "confidence": 0.86
+    },
+    "cli-hermes-whatsapp": {
+      "input": "82d2320d577992652471ddc3a26bb4b02910e70357223e25d28de6d292167788",
+      "usefulness": 0.27,
+      "popularity": "unknown",
+      "confidence": 0.78
+    },
+    "cli-hermes-whatsapp-cloud": {
+      "input": "11647963b8a1ebd9eff3e759347f4d5114cebaf6f1b53110d98b836a1ddca71c",
+      "usefulness": 0.65,
+      "popularity": "unknown",
+      "confidence": 0.63
+    },
+    "cli-hermes-slack": {
+      "input": "fa0eddfba5602fc45021e38d5a7cc2aba283e6c5a994857b01ad0ee6073860c6",
+      "usefulness": 1.18,
+      "popularity": "unknown",
+      "confidence": 0.71
+    },
+    "cli-hermes-auth": {
+      "input": "0604189354a7188a52242554f81b523871305ba35d48f7664a414f95da1cc77e",
+      "usefulness": 0.89,
+      "popularity": "unknown",
+      "confidence": 0.63
+    },
+    "cli-hermes-send": {
+      "input": "8103c417eaa1ff23f998184b77ec46af4bd5278a123c1872172a79c6fc8c230a",
+      "usefulness": 1.26,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "cli-hermes-peer": {
+      "input": "8fb950ca38bea5797569a872a4eccef28a861a78e232d8e42e9e2c8b6eb65a26",
+      "usefulness": 1.15,
+      "popularity": "unknown",
+      "confidence": 0.67
+    },
+    "cli-hermes-secrets": {
+      "input": "ce1896bb08fb565b45122b848a123b2576e073175d0184692adebce863a075d5",
+      "usefulness": 1.09,
+      "popularity": "unknown",
+      "confidence": 0.75
+    },
+    "cli-hermes-migrate": {
+      "input": "61f02699b2b6caa6d5e1973332a22fe9eb2dce917fdf43a238306cc8ad2065ed",
+      "usefulness": 1.24,
+      "popularity": "unknown",
+      "confidence": 0.7
+    },
+    "cli-hermes-codex-runtime": {
+      "input": "ad2e8a14ae4cd500aace506793e7451eee6141de6bb16ca077dee433cd90210d",
+      "usefulness": 1.22,
+      "popularity": "unknown",
+      "confidence": 0.64
+    },
+    "cli-hermes-status": {
+      "input": "f8566bd5e15294c432d228fca481fa83c0996b93bce11d580cbcaf6274546deb",
+      "usefulness": 0.23,
+      "popularity": "unknown",
+      "confidence": 0.81
+    },
+    "cli-hermes-usage": {
+      "input": "d7d6afee0ae8e9dddcb4252993dc99fdcf316e82e2417ee90d6314ed641cef56",
+      "usefulness": 1,
+      "popularity": "unknown",
+      "confidence": 0.61
+    },
+    "cli-hermes-cron": {
+      "input": "6f07cfd864cbd4ccd3f56b06b25f7482952b07fba78389f43815cf067262d145",
+      "usefulness": 0.14,
+      "popularity": "unknown",
+      "confidence": 0.88
+    },
+    "cli-hermes-kanban": {
+      "input": "03745670847a927c9872ab883b287090f807ee421388c92be13440e89124e9a7",
+      "usefulness": 0.25,
+      "popularity": "unknown",
+      "confidence": 0.8
+    },
+    "cli-hermes-project": {
+      "input": "3d7de559400c93afa4a5eb9090d365daa2ca510c7fee7f2ef80f521987acaae0",
+      "usefulness": 1.35,
+      "popularity": "unknown",
+      "confidence": 0.63
+    },
+    "cli-hermes-webhook": {
+      "input": "6f2644c5ccdc4a01dba221c1fd67216d00793885af6efb01ed5b31922f71a03a",
+      "usefulness": 0.14,
+      "popularity": "unknown",
+      "confidence": 0.88
+    },
+    "cli-hermes-hooks": {
+      "input": "ce6044376a7ed632f4c13bd1feb70b6b203bd49a91c6b0a716fd62aa85e9683d",
+      "usefulness": 0.81,
+      "popularity": "unknown",
+      "confidence": 0.68
+    },
+    "cli-hermes-doctor": {
+      "input": "ebd64dd8ba9e241f49b5547e202942e3d5b431a7e9e627b77b71973808d02e53",
+      "usefulness": 0.51,
+      "popularity": "unknown",
+      "confidence": 0.58
+    },
+    "cli-hermes-security-audit": {
+      "input": "29991403da394810ea5f30d4c9dd000784f5f13e3da43d2e1e647a992534a0e7",
+      "usefulness": 1.23,
+      "popularity": "unknown",
+      "confidence": 0.65
+    },
+    "cli-hermes-approvals": {
+      "input": "eafa57ba1d165891480f5edb1235146991adcb388d0fcc82f098e6c52704bc65",
+      "usefulness": 0.57,
+      "popularity": "unknown",
+      "confidence": 0.61
+    },
+    "cli-hermes-dump": {
+      "input": "2eb5f3ce1a50ca268075223bb8a2763d339441b3e96546479560562e7c43d4a1",
+      "usefulness": 0.23,
+      "popularity": "unknown",
+      "confidence": 0.81
+    },
+    "cli-hermes-prompt-size": {
+      "input": "63119e0a25da7a2943ff8eac1c1b2f189e48fc98346bf6991227818df0119e40",
+      "usefulness": 1.24,
+      "popularity": "unknown",
+      "confidence": 0.67
+    },
+    "cli-hermes-debug": {
+      "input": "6f0c92369f913e249e1affd4e4a55966c8b19422d269d767efed10014c79d827",
+      "usefulness": 0.62,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "cli-hermes-backup": {
+      "input": "ac4c41af27ff1f98661daf82547a2250ee082d02768e6ab2f4480ec1fc8eba6c",
+      "usefulness": 0.93,
+      "popularity": "unknown",
+      "confidence": 0.79
+    },
+    "cli-hermes-checkpoints": {
+      "input": "11f51c78f4bbbdba268226b6914cb4a480f3995f927c42c82edbc9bac2249522",
+      "usefulness": 1.16,
+      "popularity": "unknown",
+      "confidence": 0.67
+    },
+    "cli-hermes-import": {
+      "input": "cca69302091285d75bcb44d1311f195ec80bdf7b97defc5951f005d7b03e48b9",
+      "usefulness": 0.63,
+      "popularity": "unknown",
+      "confidence": 0.64
+    },
+    "cli-hermes-logs": {
+      "input": "f25035f2271e2541bfdaf420b2e63c5be680d8aa51fc652b9a721a5d8d3e141f",
+      "usefulness": 0.67,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "cli-hermes-config": {
+      "input": "00bc4fd106d1630445f01b3e354ffad7be6cee7eb517325ce15a49d45fa24a00",
+      "usefulness": 0.36,
+      "popularity": "unknown",
+      "confidence": 0.7
+    },
+    "cli-hermes-skin": {
+      "input": "737fdc29789a60111b0ace56fa4c1a5a3005e2c08a6ec3c838334fbbe7b925e3",
+      "usefulness": 0.24,
+      "popularity": "unknown",
+      "confidence": 0.8
+    },
+    "cli-hermes-console": {
+      "input": "83d402049a6b68fe6a4d77030d0175766d2a942cea689f5fed424357c17d6cba",
+      "usefulness": 0.11,
+      "popularity": "unknown",
+      "confidence": 0.91
+    },
+    "cli-hermes-pairing": {
+      "input": "055e20451fd0c5b9f56c3850064bc9876322cb40e3164e322338e0e652e703b1",
+      "usefulness": 0.37,
+      "popularity": "unknown",
+      "confidence": 0.69
+    },
+    "cli-hermes-skills": {
+      "input": "cde690931f58d6562522b94cd99bb0f3396ee35535ed3d75ae1f6a9fb52ddc2f",
+      "usefulness": 0.07,
+      "popularity": "unknown",
+      "confidence": 0.94
+    },
+    "cli-hermes-bundles": {
+      "input": "63c14b7d0220e261c34dd14b979a516cd66fd4d623fa02d5a29a4b0ceacde830",
+      "usefulness": 0.53,
+      "popularity": "unknown",
+      "confidence": 0.58
+    },
+    "cli-hermes-curator": {
+      "input": "1285f912f50084b6ec756d6c6b795536461a057d299c9e29e34480d421bf1334",
+      "usefulness": 0.05,
+      "popularity": "unknown",
+      "confidence": 0.96
+    },
+    "cli-hermes-memory": {
+      "input": "f7dab221f6f3d58e11eb53d48e8d9196ed4a21e0cbbbc423cd5d0a15087ed538",
+      "usefulness": 0.37,
+      "popularity": "unknown",
+      "confidence": 0.69
+    },
+    "cli-hermes-acp": {
+      "input": "c62c9d47b6e2bfdc1d67955a80826f929b426ade5749e7eba76c468950c835e7",
+      "usefulness": 0.48,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "cli-hermes-mcp": {
+      "input": "800846d8d71df9f1acd90aa1947427878ca6caff412ae48905ed73e48303fe5e",
+      "usefulness": 0.31,
+      "popularity": "unknown",
+      "confidence": 0.75
+    },
+    "cli-hermes-plugins": {
+      "input": "3cdf7fc994a48cf832a7153550b555352931483249e81d8ee8c4fcb2f84bfef9",
+      "usefulness": 0.33,
+      "popularity": "unknown",
+      "confidence": 0.72
+    },
+    "cli-hermes-portal": {
+      "input": "f78ed5579b67a6df186a68073a69631b3deb86fb9a89f75acae11bf05d7c75ac",
+      "usefulness": 0,
+      "popularity": "unknown",
+      "confidence": 1
+    },
+    "cli-hermes-tools": {
+      "input": "024600a2e97d2d519d10c07621bfbbc67568b34d1666162b3dc536b05d6d7364",
+      "usefulness": 0.23,
+      "popularity": "unknown",
+      "confidence": 0.81
+    },
+    "cli-hermes-computer-use": {
+      "input": "1e5b5be007b076dc627cc8a99715eddb7f4b75096f1244fdc7382a34b2fa03b8",
+      "usefulness": 0.41,
+      "popularity": "unknown",
+      "confidence": 0.66
+    },
+    "cli-hermes-pets": {
+      "input": "b0a9858f918eb8de2e33f0a937d5c8da1b58908890116429a38e50f67c566be0",
+      "usefulness": 0.39,
+      "popularity": "unknown",
+      "confidence": 0.68
+    },
+    "cli-hermes-sessions": {
+      "input": "743dea84a7b1d8638652f09109b8a14337f571e6a7cb574b6dbaa3ab658d1513",
+      "usefulness": 0.5,
+      "popularity": "unknown",
+      "confidence": 0.58
+    },
+    "cli-hermes-insights": {
+      "input": "088060e8487fa308189549685fda54a53023387acf9a95a4db570c6be786a67f",
+      "usefulness": 0.27,
+      "popularity": "unknown",
+      "confidence": 0.77
+    },
+    "cli-hermes-claw": {
+      "input": "74ce0e811e7b40efbab3fb1168b975ca6bc4ca3b185e175ed7a3af691f0a8b94",
+      "usefulness": 0.03,
+      "popularity": "unknown",
+      "confidence": 0.97
+    },
+    "cli-hermes-import-agent": {
+      "input": "f17ae53a105ec9b33e91b3a6f5211198201622a2286da911296786afdf4d5d31",
+      "usefulness": 0.44,
+      "popularity": "unknown",
+      "confidence": 0.63
+    },
+    "cli-hermes-dashboard": {
+      "input": "14b4eb856a7f45e42accaf65ace4b9aae3ccbbfa5986592b2e06fcb07990ad42",
+      "usefulness": 0.27,
+      "popularity": "unknown",
+      "confidence": 0.78
+    },
+    "cli-hermes-serve": {
+      "input": "94adc1599aa994fcd2f0cb9d7f5f19dd73c2a46f28adcfece50efacca8ab0be6",
+      "usefulness": 0.23,
+      "popularity": "unknown",
+      "confidence": 0.81
+    },
+    "cli-hermes-profile": {
+      "input": "5759323ae328e6c9bf34338ea9e67d76afccd94497592dc3cc2748910659283f",
+      "usefulness": 0.3,
+      "popularity": "unknown",
+      "confidence": 0.75
+    },
+    "cli-hermes-completion": {
+      "input": "eb4b85db63da640d87c53288bb677f06e6e6d90e9a321c1e48f6446ccfb77ae6",
+      "usefulness": 0.64,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "cli-hermes-version": {
+      "input": "33533f47f2cf8518d48ec39e1e077e3c40048b8e211f0410624bcf6512a90d2e",
+      "usefulness": 0.02,
+      "popularity": "unknown",
+      "confidence": 0.98
+    },
+    "cli-hermes-update": {
+      "input": "b98c749849684d723103e5e8df1ad98c9850500a8592b2f6f0dc04e96223fe91",
+      "usefulness": 1.38,
+      "popularity": "unknown",
+      "confidence": 0.53
+    },
+    "cli-hermes-uninstall": {
+      "input": "cdbbf362a9bd40cfb50d3e5b01764b032d0b9257a002110f05a7ffb85710022b",
+      "usefulness": 0.23,
+      "popularity": "unknown",
+      "confidence": 0.81
+    },
+    "cli-system": {
+      "input": "b8a8e45d1ad3ec713b93c446fce09eb995cb5059c5995b9ce3604ddcbb2513c3",
+      "usefulness": 0,
+      "popularity": "unknown",
+      "confidence": 1
+    },
+    "cli-text": {
+      "input": "3319d43878b486b06063235dc3ad89cbcf004dcc06f76a6990c1ec9b471c69d4",
+      "usefulness": 0,
+      "popularity": "unknown",
+      "confidence": 1
+    },
+    "cli-tool-use": {
+      "input": "aa9b3536a58de66d80f097fa667e89f541d90e758f6ebb6e344e40b4d92481f4",
+      "usefulness": 0.02,
+      "popularity": "unknown",
+      "confidence": 0.99
+    },
+    "cli-tool-result": {
+      "input": "401064bac0a5c4ea9eeb862ebe96945072e210d64bd567cf187f5a72496b4c42",
+      "usefulness": 0.01,
+      "popularity": "unknown",
+      "confidence": 0.99
+    },
+    "cli-result": {
+      "input": "4f3a1fc6bc5afe997a92a55cd17c884dcdb6c12caba1bcf7e5db3f699f0ad070",
+      "usefulness": 0.09,
+      "popularity": "unknown",
+      "confidence": 0.92
+    },
+    "cli-run": {
+      "input": "3aefef3364494f9feafb92245c1abf239eacb10edc0ec0eb9da136652bb2f0ff",
+      "usefulness": 0.49,
+      "popularity": "unknown",
+      "confidence": 0.59
+    },
+    "cli-start": {
+      "input": "d5521464fa4467bfa904c391183cdb40e836c393ffa692a6ab259748fd9d60b7",
+      "usefulness": 0.21,
+      "popularity": "unknown",
+      "confidence": 0.82
+    },
+    "cli-stop": {
+      "input": "48ef5037876ce31e7f166523956ea6e5553dbbf0a9bcb90dd3ba7d333bfc843e",
+      "usefulness": 0.12,
+      "popularity": "unknown",
+      "confidence": 0.9
+    },
+    "cli-restart": {
+      "input": "5a85504c63f8a13f3e3bd6ccea40688ba44264b47c45ee31d4cd5adebdd328e7",
+      "usefulness": 0.07,
+      "popularity": "unknown",
+      "confidence": 0.94
+    },
+    "cli-status": {
+      "input": "4cdd4078aac96551fb4bfd737875417b21e6fd46b47cb6334013395a2bc0a53a",
+      "usefulness": 0.02,
+      "popularity": "unknown",
+      "confidence": 0.98
+    },
+    "cli-list": {
+      "input": "bf37ac3e9eba7346be4ca182e5d01c82d90cc8858222d98dcf2b796a1d2c2caa",
+      "usefulness": 1.2,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "cli-install": {
+      "input": "17d26ff515eac0d77100472d13a54e77406e3a06303c1292724c252beaf9edca",
+      "usefulness": 0.62,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "cli-uninstall": {
+      "input": "1ebcd6d2fdb4e97850be2298b105cbdb4aa0a1b5fbdecd14f0621de78e361569",
+      "usefulness": 0.15,
+      "popularity": "unknown",
+      "confidence": 0.87
+    },
+    "cli-setup": {
+      "input": "021c8284f5420245aea4d1359e7c2aa7de5bdd89f1e8c2dcabad652ffaee4733",
+      "usefulness": 0.02,
+      "popularity": "unknown",
+      "confidence": 0.98
+    },
+    "cli-migrate": {
+      "input": "243db48fad4ba19933c46e89bcd4240fdff004cbdb04c033fb7db1068cf9f1ec",
+      "usefulness": 2.64,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "cli-migrate-legacy": {
+      "input": "f27da7393ff6b0ef67f21dded1077be2dacecab1887c95f6af0d68d958051131",
+      "usefulness": 1.75,
+      "popularity": "unknown",
+      "confidence": 0.54
+    },
+    "cli-install-id": {
+      "input": "c88c80777a6c6fb76a81345bd30bf5bb688ae763e5deed9a69cf6bcf144f5a4e",
+      "usefulness": 0.12,
+      "popularity": "unknown",
+      "confidence": 0.9
+    },
+    "cli-install-all": {
+      "input": "6491f9c5a5c7e2f13f6e0db918b2345aeddc9bb8583163d265a6956467f1bcf0",
+      "usefulness": 0.39,
+      "popularity": "unknown",
+      "confidence": 0.67
+    },
+    "cli-which-id": {
+      "input": "df08dc8424925b51568450f3cb364538ff5c0b3ef0d3825f7f4dad4507879a66",
+      "usefulness": 0.32,
+      "popularity": "unknown",
+      "confidence": 0.73
+    },
+    "cli-model": {
+      "input": "d4857fe3bf3e5ca33437685da6f2bc1c58d2169871c85ea1e38e6b6490616f69",
+      "usefulness": 0.02,
+      "popularity": "unknown",
+      "confidence": 0.99
+    },
+    "cli-terminal": {
+      "input": "935ca9953ec3ce0aefb1c9a4a67a05fb6228fdc0a85456a2b1274fea80dc2fd9",
+      "usefulness": 0.06,
+      "popularity": "unknown",
+      "confidence": 0.95
+    },
+    "cli-gateway": {
+      "input": "5ec07357fd0f9ad03f2afe0128bb72dfb55783743bfa0b8d82a3001349291665",
+      "usefulness": 0.01,
+      "popularity": "unknown",
+      "confidence": 0.99
+    },
+    "cli-tools": {
+      "input": "eb130a8badbfc7a97989d3b23e9b794b68f882e720bea6c91d6a710a76b65ba1",
+      "usefulness": 0.17,
+      "popularity": "unknown",
+      "confidence": 0.86
+    },
+    "cli-open": {
+      "input": "8b749f106edba229073ee422a6281875dac7043724a385251e05521ecb65a6e7",
+      "usefulness": 0.04,
+      "popularity": "unknown",
+      "confidence": 0.97
+    },
+    "cli-dm-peer-agent-message": {
+      "input": "0b6af272d384d773eb55d2e88a05b09e27c09e76a012622cbad5fa4765284ff4",
+      "usefulness": 0.76,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "cli-run-peer-agent-message": {
+      "input": "7f1a246531955f780dcea00ce0c8aacd607185dbde6094635834dfeccdc02185",
+      "usefulness": 1.19,
+      "popularity": "unknown",
+      "confidence": 0.56
+    },
+    "cli-status-peer-agent-run-id": {
+      "input": "ac3759fe1f29b0034db46ab66b310dfbab46c350b24c252cbb14b3d04675ef9b",
+      "usefulness": 0.56,
+      "popularity": "unknown",
+      "confidence": 0.53
+    },
+    "cli-stop-peer-agent-run-id": {
+      "input": "c57a753352d7302150cdda6008f1dc0adb8f8e83064a9981558b3abb0d913e1e",
+      "usefulness": 0.75,
+      "popularity": "unknown",
+      "confidence": 0.61
+    },
+    "cli-remove-name": {
+      "input": "52de65922d42fea096a4e18fe5e1ffc8ae52173292376a14b45c40cb63e48237",
+      "usefulness": 0.57,
+      "popularity": "unknown",
+      "confidence": 0.59
+    },
+    "cli-token": {
+      "input": "f29e8d2233452e987de58a0316bbb19d1810e88604a74cf88895e08d75374c73",
+      "usefulness": 2.07,
+      "popularity": "unknown",
+      "confidence": 0.49
+    },
+    "cli-sync": {
+      "input": "3d2006c1c49253f24e785dba20a4ba8d57d5d7f6e1ebd204dd97ef43ea9b3f8a",
+      "usefulness": 1.73,
+      "popularity": "unknown",
+      "confidence": 0.5
+    },
+    "cli-disable": {
+      "input": "6ec734f2c0392a8a1d286f85eadc740d99d858a3bd7e121393229f57f90d1388",
+      "usefulness": 0.17,
+      "popularity": "unknown",
+      "confidence": 0.86
+    },
+    "cli-providers": {
+      "input": "93e12b7488c50b9e00fbe779a40a34bf8ab5d0891e2909c421f6df765bf46ac3",
+      "usefulness": 0.1,
+      "popularity": "unknown",
+      "confidence": 0.92
+    },
+    "cli-audit": {
+      "input": "ef592a6fbe22b7fa3cea6f61c496693079a3e062f4034c56eef0f63655e0d4cc",
+      "usefulness": 0.29,
+      "popularity": "unknown",
+      "confidence": 0.76
+    },
+    "cli-edit": {
+      "input": "f65a12143ec0e1e5aadb77a9b1b867f01d7b5ddc17a68c2f6df0f973dd5dfd03",
+      "usefulness": 1.16,
+      "popularity": "unknown",
+      "confidence": 0.52
+    },
+    "cli-pause": {
+      "input": "493ae16054baa371ab5d179e0a7bf9987d06870181fc2da0a4ae62dffaf83723",
+      "usefulness": 0.27,
+      "popularity": "unknown",
+      "confidence": 0.77
+    },
+    "cli-resume": {
+      "input": "79996417f8feedc42dbb5be0a4d41799a44dc88a5b943f6d92ef47d0bff5f9ef",
+      "usefulness": 1.1,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "cli-remove": {
+      "input": "9608ebe0d3e8d1c67bbc517e486abcf609a6fae6cd92b96408ecd1027da61d4e",
+      "usefulness": 0.2,
+      "popularity": "unknown",
+      "confidence": 0.83
+    },
+    "cli-doctor": {
+      "input": "fd1f831cfbe36963a51db37b3de3cad80e935461ff7e2c9b751a0685b50f6de5",
+      "usefulness": 1.41,
+      "popularity": "unknown",
+      "confidence": 0.53
+    },
+    "cli-tick": {
+      "input": "4c7ad13ff3a1d634c8257bfcc8606acb5678e666828c7256be905e581a320fd6",
+      "usefulness": 0.37,
+      "popularity": "unknown",
+      "confidence": 0.69
+    },
+    "cli-init": {
+      "input": "9e29cbeb706402ef5956254e347521cef76eeb48d5bdd3c14ac05ffc637a0e93",
+      "usefulness": 0.75,
+      "popularity": "unknown",
+      "confidence": 0.72
+    },
+    "cli-boards-create-slug": {
+      "input": "6ecb0765f7c6f01bb35eb342473bccdc9a422077b7d258466293608de973830f",
+      "usefulness": 0.8,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "cli-boards-rename-slug-name": {
+      "input": "5944a1afad7d4a12563deb54e706a444b533f66fdc03ecf078f496e5f2f67d76",
+      "usefulness": 0.72,
+      "popularity": "unknown",
+      "confidence": 0.66
+    },
+    "cli-boards-rm-slug": {
+      "input": "c198c4c84eab7e6628a65524c91848949689b6699ffdfa1347ba9824f44cd202",
+      "usefulness": 1.5,
+      "popularity": "unknown",
+      "confidence": 0.4
+    },
+    "cli-create-title": {
+      "input": "b841afef0e5d91a1d0dec784094d91bd16e7440eac66e39ea13202bf45bf8014",
+      "usefulness": 0.93,
+      "popularity": "unknown",
+      "confidence": 0.53
+    },
+    "cli-show-id": {
+      "input": "baa78e1ddea5a09ee502a99a062493c23128dab1315ad22b72a76c89ef5adce6",
+      "usefulness": 0.29,
+      "popularity": "unknown",
+      "confidence": 0.76
+    },
+    "cli-assign-id-profile": {
+      "input": "2110f34cf83df161d1ff2fab5ed0f93bd59ccad25a2eed47207536e1d196a7c0",
+      "usefulness": 0.52,
+      "popularity": "unknown",
+      "confidence": 0.56
+    },
+    "cli-link-parent-child": {
+      "input": "72b286692e4d8ae3789b5c65f1e968487ef6b9deae3082ec1efd89960a41c665",
+      "usefulness": 0.51,
+      "popularity": "unknown",
+      "confidence": 0.58
+    },
+    "cli-unlink-parent-child": {
+      "input": "2b1936a460ab4e88e099dd598ee6350b34982945d9d827ec102121f99c528bd5",
+      "usefulness": 0.29,
+      "popularity": "unknown",
+      "confidence": 0.75
+    },
+    "cli-claim-id": {
+      "input": "c8f276e6d57a8fdc5cf0e331642f9e459323a35c6ec5ecf86b956d8c44509a54",
+      "usefulness": 0.57,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "cli-comment-id-text": {
+      "input": "3bc36ef5bcca5fd2d5acbc00a737f36187289de1d0cad88a585f1154891abb36",
+      "usefulness": 0.69,
+      "popularity": "unknown",
+      "confidence": 0.59
+    },
+    "cli-complete-id": {
+      "input": "4c8b3b8b42afcb9f0121f3312cdc2273c680df7e4ae69d8b7d12f5eb9e126d07",
+      "usefulness": 0.29,
+      "popularity": "unknown",
+      "confidence": 0.76
+    },
+    "cli-block-id-reason": {
+      "input": "8bf2dd886e0823b331083f1313d798f4e7059a1cb6ab6fa6460403e9901bb5d9",
+      "usefulness": 0.81,
+      "popularity": "unknown",
+      "confidence": 0.64
+    },
+    "cli-request-review-id": {
+      "input": "64ae0c3e0d171a8b25e3bc5bcabaa507862509e61d335746ddfb07c42de66529",
+      "usefulness": 1.16,
+      "popularity": "unknown",
+      "confidence": 0.66
+    },
+    "cli-request-changes-id-reason": {
+      "input": "3ebb9611cddc3088acecc3e2504504ed40d45df529eca9ca687bd7803501c7e6",
+      "usefulness": 0.73,
+      "popularity": "unknown",
+      "confidence": 0.66
+    },
+    "cli-reopen-review-id": {
+      "input": "5bd341acd6d290ee879667b8676879c5c77aac530913e7d1bd7bb58a6ffaebbf",
+      "usefulness": 1.1,
+      "popularity": "unknown",
+      "confidence": 0.72
+    },
+    "cli-schedule-id-reason": {
+      "input": "af10097b541f820ff27b98ee8c892df9edef6614c1ea92b2fa57c6ac370bb3dc",
+      "usefulness": 0.86,
+      "popularity": "unknown",
+      "confidence": 0.71
+    },
+    "cli-unblock-id": {
+      "input": "f8fcc37ac34ac575a662488ee531b570d28fe69fb685ce0038ab24cf49ddaf69",
+      "usefulness": 0.9,
+      "popularity": "unknown",
+      "confidence": 0.71
+    },
+    "cli-archive-id": {
+      "input": "b27ae5ce321291a1418e1d67fe337019cc77e23be27b153dece60a88199427f0",
+      "usefulness": 0.18,
+      "popularity": "unknown",
+      "confidence": 0.85
+    },
+    "cli-tail-id": {
+      "input": "fde19f52e60d2b744850c2642a56751d2a003ca515250234d0dbe5848b814f1d",
+      "usefulness": 0.22,
+      "popularity": "unknown",
+      "confidence": 0.82
+    },
+    "cli-dispatch": {
+      "input": "7a3b5b124a8bf92837923fbb0a01a7260c3574d2fb157345793b85fdf8cfc0eb",
+      "usefulness": 0.55,
+      "popularity": "unknown",
+      "confidence": 0.54
+    },
+    "cli-context-id": {
+      "input": "f9b273a7479cb36ff014f02b99dd72cce50696d819beb5b8d033b75a6cfda250",
+      "usefulness": 0.35,
+      "popularity": "unknown",
+      "confidence": 0.71
+    },
+    "cli-gc": {
+      "input": "57b6dd57cb25bddba48e53f44b25fbe93f0263332252a25875f394fe7f67bc1d",
+      "usefulness": 0.61,
+      "popularity": "unknown",
+      "confidence": 0.63
+    },
+    "cli-create": {
+      "input": "0832035cd923f0a1978e9670ce677de212dce82084ee8c40a2e8e37d18e8097b",
+      "usefulness": 0.02,
+      "popularity": "unknown",
+      "confidence": 0.98
+    },
+    "cli-show": {
+      "input": "fc62e47d792ba3ac425a7ed97fa8c4fc179326e6aaac2f7fdf59ae16024df260",
+      "usefulness": 0.02,
+      "popularity": "unknown",
+      "confidence": 0.98
+    },
+    "cli-add-folder": {
+      "input": "6f1e8d5e93bdb71b14ee84e460841a192e3211171cb0ddc1157d2e946451ffe9",
+      "usefulness": 0.28,
+      "popularity": "unknown",
+      "confidence": 0.77
+    },
+    "cli-remove-folder": {
+      "input": "7d7d513475a38cef1ad8b2c227d29bcedd55c6092d9c99fe61101f285d9ea388",
+      "usefulness": 0.2,
+      "popularity": "unknown",
+      "confidence": 0.83
+    },
+    "cli-rename": {
+      "input": "7628fc6e01b92ff35be5079e44b0c4800ca38625ef989d166f7c3fcda048d2cf",
+      "usefulness": 0.09,
+      "popularity": "unknown",
+      "confidence": 0.93
+    },
+    "cli-set-primary": {
+      "input": "e62ad73ed0091b7dfe208dcf25f52b6a03b3a6854203fca03260dbdb6e8c37c6",
+      "usefulness": 0.11,
+      "popularity": "unknown",
+      "confidence": 0.91
+    },
+    "cli-use": {
+      "input": "3736ebdfe2ce953d3fae3bf1a7e388fe61a4ad2c4e2c2c3a91e6579ebaf2d12e",
+      "usefulness": 0.04,
+      "popularity": "unknown",
+      "confidence": 0.97
+    },
+    "cli-archive": {
+      "input": "8adce451a006a1fcd7b813aafd31ef91a43c4173cf23ae76972282b6b8887a97",
+      "usefulness": 0.17,
+      "popularity": "unknown",
+      "confidence": 0.86
+    },
+    "cli-restore": {
+      "input": "e4700c02649338270d6313d68d439d5f9b24172959d0080d07572eda64aefd36",
+      "usefulness": 0.11,
+      "popularity": "unknown",
+      "confidence": 0.91
+    },
+    "cli-bind-board": {
+      "input": "2a2a9af3a3df5fe559c3f22f588a0a1f038b2318478de6b4a2c3121f763ee914",
+      "usefulness": 0.27,
+      "popularity": "unknown",
+      "confidence": 0.78
+    },
+    "cli-test": {
+      "input": "7167aef6ba8a281fe4b987179f7734b034489d5ce3d07468bf719153472fbd4d",
+      "usefulness": 0.39,
+      "popularity": "unknown",
+      "confidence": 0.67
+    },
+    "cli-prune": {
+      "input": "22927e6ab82f7fd368be66e3f5f2f57a4ef592c6d3c9a8a5be45fd844eb9f9b0",
+      "usefulness": 1.11,
+      "popularity": "unknown",
+      "confidence": 0.64
+    },
+    "cli-clear": {
+      "input": "08e63780022a5693ede5ec4426d1f62d7667f7e7048a1ee3689af6fd0626373c",
+      "usefulness": 0.35,
+      "popularity": "unknown",
+      "confidence": 0.71
+    },
+    "cli-clear-legacy": {
+      "input": "41685334e87c91230586539f4083822cb8c8581cda4f3eb31523295563d64d8d",
+      "usefulness": 1.92,
+      "popularity": "unknown",
+      "confidence": 0.51
+    },
+    "cli-log-name": {
+      "input": "f3b80e21cb7f93a5c3b9edd33d3d93d3731eca61abc730c1ae19b7405cea6696",
+      "usefulness": 0.3,
+      "popularity": "unknown",
+      "confidence": 0.75
+    },
+    "cli-env-path": {
+      "input": "6d2a2735afbab9fd28fce35223eaee221a00b840586bda23fdee2376f71fb4d6",
+      "usefulness": 0.22,
+      "popularity": "unknown",
+      "confidence": 0.81
+    },
+    "cli-approve-platform-code": {
+      "input": "1a6bba7bf971ed907af668c6a5d1980f8393e3688aa45c53bb8c01eb6125fc41",
+      "usefulness": 0.23,
+      "popularity": "unknown",
+      "confidence": 0.81
+    },
+    "cli-revoke-platform-user-id": {
+      "input": "633650342b0f28a0060d583041ffd6ac77974d4dd0d6c2b61987b4ee035d224c",
+      "usefulness": 0.3,
+      "popularity": "unknown",
+      "confidence": 0.75
+    },
+    "cli-clear-pending": {
+      "input": "46af803c5a0424eed72314aef644f337ab9f6e9f8b192a3d67e080ec182c23e4",
+      "usefulness": 0.3,
+      "popularity": "unknown",
+      "confidence": 0.75
+    },
+    "cli-browse": {
+      "input": "9e28aa7b8b6a5d5376d2e31d45e3fad2aea6a25913e0223c5e06b30dba463dd2",
+      "usefulness": 0.28,
+      "popularity": "unknown",
+      "confidence": 0.77
+    },
+    "cli-search": {
+      "input": "9386dbdf62dfcc9e8f85c4acd6d86ef7f5eb67f7e0b60ebad3376b74706fd877",
+      "usefulness": 0.03,
+      "popularity": "unknown",
+      "confidence": 0.97
+    },
+    "cli-inspect": {
+      "input": "d2f84f967a72047ffda41864438ef00d8f94a1362750c13f2b9fffb4a1ab7c7e",
+      "usefulness": 0.32,
+      "popularity": "unknown",
+      "confidence": 0.74
+    },
+    "cli-update": {
+      "input": "5fe6bfe96799a507e98ff657246005259e5f908a2447bd3819e3596205b1c567",
+      "usefulness": 0.44,
+      "popularity": "unknown",
+      "confidence": 0.64
+    },
+    "cli-opt-out": {
+      "input": "dd82b6d42a68e57741a99a1a55a4e052f01df76ddeb3b00e9aa138802f5e534f",
+      "usefulness": 2.65,
+      "popularity": "unknown",
+      "confidence": 0.46
+    },
+    "cli-opt-in": {
+      "input": "a4eda4ccb22d220837be54cbe07e558418cd0270cc7530d5dd908359c0048c05",
+      "usefulness": 1.51,
+      "popularity": "unknown",
+      "confidence": 0.49
+    },
+    "cli-publish": {
+      "input": "9b25b72d90a2501a0cc25dee408b73867f565f9d740dbb41395483cb2e7e8404",
+      "usefulness": 0.1,
+      "popularity": "unknown",
+      "confidence": 0.92
+    },
+    "cli-tap": {
+      "input": "e0da3eb9bf99f1954b4e9aa1f1505c1875816d05d76c74ff7ac9f5701ab1bf1e",
+      "usefulness": 0.02,
+      "popularity": "unknown",
+      "confidence": 0.98
+    },
+    "cli-show-name": {
+      "input": "526402190669900e5969daf66c8951bad20625b75f909d1a97097c2e98ab3408",
+      "usefulness": 0.2,
+      "popularity": "unknown",
+      "confidence": 0.83
+    },
+    "cli-create-name": {
+      "input": "cfaf9645b818e6aea032953033dcbc171944aa118d2a447bcb6b4ff908c6a684",
+      "usefulness": 0.77,
+      "popularity": "unknown",
+      "confidence": 0.63
+    },
+    "cli-delete-name": {
+      "input": "23351161f1ed6918bce2c379cdb745b2cb290aea180cf90bf612edb5888a31a6",
+      "usefulness": 0.18,
+      "popularity": "unknown",
+      "confidence": 0.85
+    },
+    "cli-reload": {
+      "input": "11c68815e55c370e1858d1c659cde67d3ccb5598f41d291c2ac1a3dd4c9f469b",
+      "usefulness": 0.87,
+      "popularity": "unknown",
+      "confidence": 0.69
+    },
+    "cli-run-background": {
+      "input": "de4ceacaa4fe3dcbcf8434bbebad5b3b8d4463a41b7a92a4244787cf66daf168",
+      "usefulness": 0.65,
+      "popularity": "unknown",
+      "confidence": 0.68
+    },
+    "cli-run-dry-run": {
+      "input": "3f223174280238633c5682841b4ecf91d6de9ac8f1f2b9adc3b3bcffd37f6295",
+      "usefulness": 0.5,
+      "popularity": "unknown",
+      "confidence": 0.58
+    },
+    "cli-backup": {
+      "input": "e7b7004bdede0e7303d9210adad5d46b1ba37f6c09dcba5a0b8f4a5b9410c0fe",
+      "usefulness": 1.36,
+      "popularity": "unknown",
+      "confidence": 0.63
+    },
+    "cli-rollback": {
+      "input": "66366ae13b36e9d9928d4c6209d37c9396b6587166016d0ba4462b837b802ffb",
+      "usefulness": 1,
+      "popularity": "unknown",
+      "confidence": 0.69
+    },
+    "cli-rollback-list": {
+      "input": "ac7100ef9cc4534275cd3a50c36c13ad0979aec716336f6f5762a85b0497913e",
+      "usefulness": 0.2,
+      "popularity": "unknown",
+      "confidence": 0.84
+    },
+    "cli-rollback-id-ts": {
+      "input": "6d39f0d6086eaeec746dc28487bcf994791915aa98b13d8c592327c27800894f",
+      "usefulness": 0.54,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "cli-rollback-y": {
+      "input": "4cd0cfe13f3fc0b2043fcf6d1c8dd5b1f98311cc33744f65418175fe9522c97c",
+      "usefulness": 0.49,
+      "popularity": "unknown",
+      "confidence": 0.59
+    },
+    "cli-pin-skill": {
+      "input": "3a650334ab358880721827e0a5bc185cc8a4d4bc6c2440850b62e3393aa15e9d",
+      "usefulness": 0.77,
+      "popularity": "unknown",
+      "confidence": 0.72
+    },
+    "cli-restore-skill": {
+      "input": "36e847d082db3c758f29c97c9cd849c137cc240fc0fe329da94b72c777dfc45e",
+      "usefulness": 0.18,
+      "popularity": "unknown",
+      "confidence": 0.85
+    },
+    "cli-archive-skill": {
+      "input": "b8821cd453995a969d20856016236a53ee2cab025cd26a825726405d9c7d9f58",
+      "usefulness": 0.12,
+      "popularity": "unknown",
+      "confidence": 0.9
+    },
+    "cli-list-archived": {
+      "input": "4ebacde5f78dc00fac15a7d25a314801eb1e4d5bb9ea61bb9f993e1fb0dfa613",
+      "usefulness": 0.22,
+      "popularity": "unknown",
+      "confidence": 0.82
+    },
+    "cli-add": {
+      "input": "55a16eb307d4250010db055542350b8a2949e40999eb8f42385a0ddf1b39b018",
+      "usefulness": 0.52,
+      "popularity": "unknown",
+      "confidence": 0.58
+    },
+    "cli-test-event": {
+      "input": "4a4f8a427ae388d96862b23b3862ff018b8a40c416c45fc93988252e32e60b39",
+      "usefulness": 0.64,
+      "popularity": "unknown",
+      "confidence": 0.58
+    },
+    "cli-off": {
+      "input": "457ab97ecabe2d8baae280b08b01b8cd5ac3ba8b6d2d07be145a82a740559c42",
+      "usefulness": 0.17,
+      "popularity": "unknown",
+      "confidence": 0.85
+    },
+    "cli-catalog": {
+      "input": "7c8b4b21e3630f93a5f47735cdee90293625c64feec7c532658e57d40b30d207",
+      "usefulness": 0.39,
+      "popularity": "unknown",
+      "confidence": 0.68
+    },
+    "cli-install-name": {
+      "input": "38784f14523d73683225280048d25b913b26a3abc51d9cd60ec0038e91a1dc54",
+      "usefulness": 0.25,
+      "popularity": "unknown",
+      "confidence": 0.79
+    },
+    "cli-serve-v-verbose": {
+      "input": "78ad413d5ea65a8eb1399579aa931490021cd452c5f1960b9d93b6e01795f853",
+      "usefulness": 0.49,
+      "popularity": "unknown",
+      "confidence": 0.59
+    },
+    "cli-test-name": {
+      "input": "ed71f35251a1185667919f15b017d87bee22569bec5d93d0a4295d1f8dabccff",
+      "usefulness": 0.29,
+      "popularity": "unknown",
+      "confidence": 0.76
+    },
+    "cli-install-identifier-force-ref-commit-sha-allow-removed": {
+      "input": "38fdbad36e08427e697884ed22718faff4135f6386884abfa17d57db8cc3c787",
+      "usefulness": 2.26,
+      "popularity": "unknown",
+      "confidence": 0.21
+    },
+    "cli-search-term-json": {
+      "input": "462665b616b1bbc9ea8903ac89ebdd2dff9284898c3ef0cbc314a38542ce6e04",
+      "usefulness": 1.29,
+      "popularity": "unknown",
+      "confidence": 0.47
+    },
+    "cli-update-name": {
+      "input": "ecc30d64f33ffba786cc1c6fc480320e2597000cf1961bd46364751a26c0ef2b",
+      "usefulness": 1.37,
+      "popularity": "unknown",
+      "confidence": 0.56
+    },
+    "cli-enable-name": {
+      "input": "c4447bfc18af27811bad3a7752a0ea5c61bdf3c7ee269ad041f429871e3f8b3a",
+      "usefulness": 0.16,
+      "popularity": "unknown",
+      "confidence": 0.86
+    },
+    "cli-disable-name": {
+      "input": "2f84d0d38d6074088c271055677e681d5b694ee5e2a9f0bf7e4a6ec82443ed8b",
+      "usefulness": 0.28,
+      "popularity": "unknown",
+      "confidence": 0.76
+    },
+    "cli-doctor-path-or-id-ci": {
+      "input": "1878ac53ce2877db7ccf75d458eed53929775867d7fa2f2c4889b8d0280a5caf",
+      "usefulness": 1.61,
+      "popularity": "unknown",
+      "confidence": 0.53
+    },
+    "cli-pack-install-path-or-url-force": {
+      "input": "362aafde6418b1e4c44e24dbc4197bf3618705c879a0d4e8d01b322e0665a841",
+      "usefulness": 2.51,
+      "popularity": "unknown",
+      "confidence": 0.48
+    },
+    "cli-pack-show-path-or-url": {
+      "input": "3dd0fae29e354a5650862c077a7414fb5c0c1ffe680658749b13d1bd7e173237",
+      "usefulness": 0.73,
+      "popularity": "unknown",
+      "confidence": 0.64
+    },
+    "cli-install-upgrade": {
+      "input": "1800b05ac2309f711c95274c02b4159fb75cff981d245e1e54422d118cc8f916",
+      "usefulness": 1.27,
+      "popularity": "unknown",
+      "confidence": 0.64
+    },
+    "cli-doctor-include-check-skip-check-json": {
+      "input": "03c65c8b72c9c13e4d699f4c8c9e236e71ac0510adf1db074c74b0f1874d233b",
+      "usefulness": 0.46,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "cli-permissions-status-json": {
+      "input": "c184eacf7571fa4e706312efbce865c9109bad86b2a9b157fccbef7a692ff230",
+      "usefulness": 0.6,
+      "popularity": "unknown",
+      "confidence": 0.5
+    },
+    "cli-permissions-grant": {
+      "input": "d93a732da04be2eea9c2738b81f426a1fb23c657e1e7003cf844ca57f38f5f17",
+      "usefulness": 0.6,
+      "popularity": "unknown",
+      "confidence": 0.59
+    },
+    "cli-select": {
+      "input": "0f64c1c05adeb03be416262955d072f831c02569b177eea60fcda45e015e4d6a",
+      "usefulness": 0.17,
+      "popularity": "unknown",
+      "confidence": 0.86
+    },
+    "cli-scale": {
+      "input": "9f388e9034be0df12d31cf9f92128e0ca64581e3925043d61b23710854eab263",
+      "usefulness": 0.16,
+      "popularity": "unknown",
+      "confidence": 0.87
+    },
+    "cli-export-output-session-id-id": {
+      "input": "87130bbbbd440a40969a5a925894b3b89250843eabb7265dc63b4dc46163cfeb",
+      "usefulness": 0.49,
+      "popularity": "unknown",
+      "confidence": 0.59
+    },
+    "cli-delete-session-id": {
+      "input": "6d44dc33691f5084c07f476ca4db42546d969b85d3f2a32cea1a69b8de6e7bcc",
+      "usefulness": 0.16,
+      "popularity": "unknown",
+      "confidence": 0.86
+    },
+    "cli-stats": {
+      "input": "65771612a3510b8ef3c5a4c29d66930893e49e163ec7bd25c5e1a5ba81fed999",
+      "usefulness": 0.13,
+      "popularity": "unknown",
+      "confidence": 0.89
+    },
+    "cli-rename-session-id-title": {
+      "input": "fab4774207a1ddb73d8b8fb220947763155826b4547a8f341ea5fd636b2466b2",
+      "usefulness": 0.42,
+      "popularity": "unknown",
+      "confidence": 0.65
+    },
+    "cli-optimize": {
+      "input": "30bdcf1b70f53a2369b67e19b9eba51a53aa625c94a7dc1bfc7938c81b01b9cf",
+      "usefulness": 1.32,
+      "popularity": "unknown",
+      "confidence": 0.66
+    },
+    "cli-optimize-storage": {
+      "input": "095fc6d11e9cdcd0fd88eb9ae755bedfee0cb7f0a88de38b7b40817b9df20a4b",
+      "usefulness": 1.38,
+      "popularity": "unknown",
+      "confidence": 0.61
+    },
+    "cli-repair": {
+      "input": "eacd9e9051fb1dd47fd936fe8397db7ac489bcd185b1213b47420d1873d354c5",
+      "usefulness": 1.34,
+      "popularity": "unknown",
+      "confidence": 0.65
+    },
+    "cli-repair-routing": {
+      "input": "74e40b7bf9aa8471399185e2a4c2e18b70dce24b08227ab5753d976c1ac5ee38",
+      "usefulness": 2.72,
+      "popularity": "unknown",
+      "confidence": 0.68
+    },
+    "cli-repair-profiles": {
+      "input": "000449a6fbab7b6b36d7c8fed5c0c661ee14860073b41d53a6076aef20d59653",
+      "usefulness": 2.72,
+      "popularity": "unknown",
+      "confidence": 0.59
+    },
+    "cli-recover": {
+      "input": "2e56d76c217336246b4c26cb96a5360b4f7c0fb9b079c3af732fede1ebf679a8",
+      "usefulness": 1.1,
+      "popularity": "unknown",
+      "confidence": 0.71
+    },
+    "cli-retitle-skills": {
+      "input": "9330e6e4ba9fa12dc6ac3805f7def0a3c395237c0ee93e0e4a2c9fd6e2208205",
+      "usefulness": 1.25,
+      "popularity": "unknown",
+      "confidence": 0.64
+    },
+    "cli-use-name": {
+      "input": "6c5fcb307b4e834c5f324aceafaedc56b0d092a515df110229102b8ad7f96e8c",
+      "usefulness": 0.32,
+      "popularity": "unknown",
+      "confidence": 0.73
+    },
+    "cli-delete-name-y": {
+      "input": "c63c4b076396a76d7969c7f194bbde06ec280fc67aa6a3c26f42fca53ce712ef",
+      "usefulness": 0.14,
+      "popularity": "unknown",
+      "confidence": 0.88
+    },
+    "cli-alias-name-remove-name-name": {
+      "input": "b143237d3cef382e09e192c92fd1f10bcc9c22931abd21b0feab62e7bcfde462",
+      "usefulness": 0.26,
+      "popularity": "unknown",
+      "confidence": 0.78
+    },
+    "cli-rename-old-new": {
+      "input": "04d4aa7baa1e2879279ebd219661b59d996f699418620adfe0a2198dd2d609da",
+      "usefulness": 0.35,
+      "popularity": "unknown",
+      "confidence": 0.7
+    },
+    "cli-export-name-o-file": {
+      "input": "b0c01aadb66bb941faf7488d0749640e38236de5a0a85ba8a1668e8fb9c97095",
+      "usefulness": 0.84,
+      "popularity": "unknown",
+      "confidence": 0.66
+    },
+    "cli-import-archive-name-name": {
+      "input": "4f77366006bca079a6edb9a8da34eeb12d3297fb8df780f9450cf98b7e52ed97",
+      "usefulness": 0.7,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "cli-install-source-name-n-alias-force-y": {
+      "input": "6f13df4a9ec87c7cabd36b624840293849eeadb27cd43a677e7ecb6081529c51",
+      "usefulness": 0.56,
+      "popularity": "unknown",
+      "confidence": 0.54
+    },
+    "cli-info-name": {
+      "input": "a5aad61a6c5d59ddf1034cca207694677776ad443d8c0795686aac19d73d8cfc",
+      "usefulness": 0.29,
+      "popularity": "unknown",
+      "confidence": 0.76
+    },
+    "cli-sec-hermes-agent-legacy-single-query-runner": {
+      "input": "ea37b3e0b3cc21926712dceb408d45731603967417780bcdee89c6433d26c2d4",
+      "usefulness": 1.8,
+      "popularity": "unknown",
+      "confidence": 0.56
+    },
+    "cli-sec-hermes-chat": {
+      "input": "915d3db2fbe6b2f25c06319eaafb91c29215b3935ac10425dde3f9c42464173c",
+      "usefulness": 0.01,
+      "popularity": "unknown",
+      "confidence": 0.99
+    },
+    "cli-sec-hermes-z-prompt-scripted-one-shot": {
+      "input": "f4180f8b7e6d803bad1fd88a040a420ec7a6a08d09677ce8c911746ab20b9b6f",
+      "usefulness": 3.53,
+      "popularity": "unknown",
+      "confidence": 0.61
+    },
+    "cli-sec-hermes-model": {
+      "input": "92dfd2eb0f45b013e9db1d6c4b296fa4fd87af274d726bb5005244e973cc16f3",
+      "usefulness": 1.95,
+      "popularity": "unknown",
+      "confidence": 0.43
+    },
+    "cli-sec-hermes-lsp": {
+      "input": "f466b52cd0fc081c83a62afd85cc50f31b6199613bfd0cc56b4214e998bbb4a6",
+      "usefulness": 1.74,
+      "popularity": "unknown",
+      "confidence": 0.55
+    },
+    "cli-sec-hermes-setup": {
+      "input": "7654799a4dda19592f3e1f84bca779e9346580d81c77fd5c597db05ae067c69d",
+      "usefulness": 1.69,
+      "popularity": "unknown",
+      "confidence": 0.48
+    },
+    "cli-sec-hermes-portal": {
+      "input": "8d3de523fb389bea051f0a0a4853ffc5bdbcb07f6902503fd50a72340df79ee8",
+      "usefulness": 0.38,
+      "popularity": "unknown",
+      "confidence": 0.68
+    },
+    "cli-sec-hermes-whatsapp": {
+      "input": "45c40918f50492d903eb1605eb196844ec46d9e26c4e1bce0ac4f817f85e1f5e",
+      "usefulness": 0.54,
+      "popularity": "unknown",
+      "confidence": 0.55
+    },
+    "cli-sec-hermes-slack": {
+      "input": "450f0f48ad21ca9b934760a2e63e8cf13fc0016392814c535da59f5716c21ab4",
+      "usefulness": 2.89,
+      "popularity": "unknown",
+      "confidence": 0.73
+    },
+    "cli-sec-hermes-send": {
+      "input": "bfd3a812199ada7b22635b1c97dd4801df0eefe653a91f8a9164738f67767dc8",
+      "usefulness": 3.12,
+      "popularity": "unknown",
+      "confidence": 0.7
+    },
+    "cli-sec-sending-images-and-other-media": {
+      "input": "36b095b6f4166bee189e61f94f082695297bd7ac891b9abb0fe0e732fd22ae83",
+      "usefulness": 2.38,
+      "popularity": "unknown",
+      "confidence": 0.39
+    },
+    "cli-sec-hermes-peer": {
+      "input": "3c32f6e939f35a59a221c89e807ff1838ec3d5b209c739ff65cfcf393244e094",
+      "usefulness": 2.73,
+      "popularity": "unknown",
+      "confidence": 0.63
+    },
+    "cli-sec-hermes-secrets": {
+      "input": "46b1fe2f872794a4f0f7244449d6790aa98fd8218d2b333f2fb508dce18cfa7f",
+      "usefulness": 1.44,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "cli-sec-hermes-migrate": {
+      "input": "191dcd5765fadc5936b55345b66ad2fec52160cb96c0ab817b3a699bc1b20dbc",
+      "usefulness": 1.97,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "cli-sec-hermes-codex-runtime": {
+      "input": "b7cfd8d88192d427d76d916ff583fb404d73aae4f7ae03272150d37a724780db",
+      "usefulness": 2.54,
+      "popularity": "unknown",
+      "confidence": 0.49
+    },
+    "cli-sec-hermes-proxy": {
+      "input": "bdb3403e955b77a44401894a827de013c87b205869ca39bf8777c2d20a04ead4",
+      "usefulness": 1.66,
+      "popularity": "unknown",
+      "confidence": 0.41
+    },
+    "cli-sec-hermes-security": {
+      "input": "8b8f529984d8c3140644508dfd34a6e7b492e07ebafa247b5b77920a923d886d",
+      "usefulness": 2.09,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "cli-sec-hermes-login-hermes-logout-deprecated": {
+      "input": "61c13b1676fc0aa2db10cee06b9efa14e80ef9c6be76a2c538dd28a392408812",
+      "usefulness": 0.09,
+      "popularity": "unknown",
+      "confidence": 0.93
+    },
+    "cli-sec-hermes-auth": {
+      "input": "de8237ad6a61b8e03976f101f2a46cafb0a3ca1afa9849e150266d6fe1be860f",
+      "usefulness": 0.87,
+      "popularity": "unknown",
+      "confidence": 0.63
+    },
+    "cli-sec-hermes-usage": {
+      "input": "da557400e4b5ebb7d4871372b9a8bf9b0ca1c12b8b6c903cf141a798fc867aa8",
+      "usefulness": 2.84,
+      "popularity": "unknown",
+      "confidence": 0.48
+    },
+    "cli-sec-hermes-cron": {
+      "input": "7b59eaafedea21afdb7ffffbf074614a44403acd0451de387981914697539dbc",
+      "usefulness": 1.87,
+      "popularity": "unknown",
+      "confidence": 0.42
+    },
+    "cli-sec-hermes-kanban": {
+      "input": "1163263a698af520f644d91939e732054a84bedb40cc28dba9b8aab5d4011359",
+      "usefulness": 2.04,
+      "popularity": "unknown",
+      "confidence": 0.36
+    },
+    "cli-sec-hermes-egress": {
+      "input": "324bc7b47accef9202f833c707a390860b2497f0d751cf55b10fc38d69b7f653",
+      "usefulness": 1.42,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "cli-sec-hermes-project": {
+      "input": "1635986c1d90a507b8a98206af19d7bd4e467ac9b16546e23283a65704f4820c",
+      "usefulness": 1.01,
+      "popularity": "unknown",
+      "confidence": 0.71
+    },
+    "cli-sec-hermes-webhook": {
+      "input": "062680c043021690fef55b76132764a48dcc7ed6521250a2cc6a94c8222e0ce1",
+      "usefulness": 0.55,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "cli-sec-hermes-webhook-subscribe": {
+      "input": "9eac544b0f955b5d608649826792d123257e7350f70e2e665c7a36df3a62beb1",
+      "usefulness": 2,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "cli-sec-hermes-doctor": {
+      "input": "d91bcf74d77e98553129b520925792019e5d456dee0d7f1c532352045f5f287e",
+      "usefulness": 2.98,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "cli-sec-hermes-dump": {
+      "input": "630110e067627a456cbd1b7b08c6099e0f6a0931209b1d29665e9bd94ef60115",
+      "usefulness": 1.32,
+      "popularity": "unknown",
+      "confidence": 0.47
+    },
+    "cli-sec-when-to-use": {
+      "input": "d7f5bcdfe82136691ef613002abb0e63daedbad5171104e21d73efdfff25a04a",
+      "usefulness": 0.68,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "cli-sec-hermes-debug": {
+      "input": "a91419362507706cc3b64b886d41bc8f75337620cba93cf5b21df427b2869013",
+      "usefulness": 3.04,
+      "popularity": "unknown",
+      "confidence": 0.73
+    },
+    "cli-sec-hermes-backup": {
+      "input": "3b0b7a6430c7f4324aa658bf65b0509d11b06d4c73034c442758c34876788937",
+      "usefulness": 3.09,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "cli-sec-hermes-checkpoints": {
+      "input": "32bc10afe28b4a9474c1c75c8a303469e17db230390545d56a7977c21665b809",
+      "usefulness": 0.93,
+      "popularity": "unknown",
+      "confidence": 0.64
+    },
+    "cli-sec-examples": {
+      "input": "98852298ac7bd05aaabe3193dd3d4e57526bc2b00f63c067332c309aab2a27c5",
+      "usefulness": 0.01,
+      "popularity": "unknown",
+      "confidence": 0.99
+    },
+    "cli-sec-hermes-import": {
+      "input": "a15707adf826e9b7825b5941900afef60c485ba693fa7437f001c9a5478169cd",
+      "usefulness": 1.93,
+      "popularity": "unknown",
+      "confidence": 0.53
+    },
+    "cli-sec-sqlite-databases": {
+      "input": "487117d6ca42fa26cfdfc245fc7a887f60ab109c1c3ba31a84e9a3045fddde07",
+      "usefulness": 2.58,
+      "popularity": "unknown",
+      "confidence": 0.48
+    },
+    "cli-sec-hermes-logs": {
+      "input": "859718ac38e8b0d5d742682eb49da61eadf123d9a0aa5b0d59d430f63eb63692",
+      "usefulness": 0.89,
+      "popularity": "unknown",
+      "confidence": 0.63
+    },
+    "cli-sec-filtering": {
+      "input": "fb265401c8792bf43be6540136a53bd13474d85f1ead6065c081a1568721c639",
+      "usefulness": 1.47,
+      "popularity": "unknown",
+      "confidence": 0.49
+    },
+    "cli-sec-log-rotation": {
+      "input": "d7fc006485609857ab31a7a4d1ca5362c3db7e4430c73e4933a1c398efe6bbb8",
+      "usefulness": 1.41,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "cli-sec-hermes-prompt-size": {
+      "input": "9c24ae5c12a6a015c3aacdd409b2a7650c9375fb693814258df9598f12d25d42",
+      "usefulness": 2.72,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "cli-sec-hermes-bundles": {
+      "input": "3ec3ea1bba4602389153f82ea91d37802a5f6f88b479e212b562467ad32c6362",
+      "usefulness": 1.57,
+      "popularity": "unknown",
+      "confidence": 0.47
+    },
+    "cli-sec-hermes-curator": {
+      "input": "d5a20fb62094e1490b3cf8d8e306e870b73cdb4d3c9b1c719c618cead2caecb7",
+      "usefulness": 2.27,
+      "popularity": "unknown",
+      "confidence": 0.48
+    },
+    "cli-sec-hermes-moa": {
+      "input": "33d9dd9990ceebd50a320a16f981681d9257f37a8a871d5fdbd2f7eecf83a692",
+      "usefulness": 1.7,
+      "popularity": "unknown",
+      "confidence": 0.51
+    },
+    "cli-sec-hermes-fallback": {
+      "input": "4b17ae39a7c766783b6208f4b4ae76b7ec2a51d7266a6d9c712fe0d02a1b620f",
+      "usefulness": 0.82,
+      "popularity": "unknown",
+      "confidence": 0.71
+    },
+    "cli-sec-hermes-hooks": {
+      "input": "93dedc208fc71b71be02598b35dc5c6e6151bd7bb5c2b0774cc503272ac3a757",
+      "usefulness": 1.6,
+      "popularity": "unknown",
+      "confidence": 0.46
+    },
+    "cli-sec-hermes-memory": {
+      "input": "dbdee62685c498ed409591be732fb8bb8d8603e5003a035ffba8bf34558a2aeb",
+      "usefulness": 1.33,
+      "popularity": "unknown",
+      "confidence": 0.54
+    },
+    "cli-sec-hermes-acp": {
+      "input": "1fea6a3b70cbb65624fe2fffc168d6a19c0edc167b1c54b6af9ac906073790de",
+      "usefulness": 0.71,
+      "popularity": "unknown",
+      "confidence": 0.63
+    },
+    "cli-sec-hermes-mcp": {
+      "input": "4297a2bd294db91292df73a0c09d2d1906a0c303e208762bce841a6fa4b18bf3",
+      "usefulness": 0.41,
+      "popularity": "unknown",
+      "confidence": 0.65
+    },
+    "cli-sec-hermes-plugins": {
+      "input": "bc78134ba01f621a67dd2e58dea86bd5ad6dc06e08bdf5c0428e3b8faff46176",
+      "usefulness": 1.71,
+      "popularity": "unknown",
+      "confidence": 0.52
+    },
+    "cli-sec-hermes-tools": {
+      "input": "4c37d796cb6e8656a83b24201739edc62f0b85e5a1aa2f9b986efed79a4a6c10",
+      "usefulness": 0.06,
+      "popularity": "unknown",
+      "confidence": 0.95
+    },
+    "cli-sec-hermes-pets": {
+      "input": "36536649a826f882cb2551f05dfa1cd080a213f2e134bff45fb801953600439a",
+      "usefulness": 0.49,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "cli-sec-hermes-claw": {
+      "input": "6c72e3d567597b813a935e5aa98d26678f2f4f54ff3a04bf9d39927a2825feaa",
+      "usefulness": 1.82,
+      "popularity": "unknown",
+      "confidence": 0.53
+    },
+    "cli-sec-hermes-import-agent": {
+      "input": "d21165100c11378406ccbd1c1cfafcbb0a2b1c63d0508aada40e2d4b5dd55251",
+      "usefulness": 3.08,
+      "popularity": "unknown",
+      "confidence": 0.76
+    },
+    "cli-sec-hermes-serve": {
+      "input": "48cbd89f02f58e61041c851661724c2755ae653a4f55dc9299a74d0f23606ae2",
+      "usefulness": 3.04,
+      "popularity": "unknown",
+      "confidence": 0.54
+    },
+    "cli-sec-hermes-dashboard": {
+      "input": "04eff91085c42038b7579fb27448dc0ec6a1962f98ca6a86b985a83c8c5e5b05",
+      "usefulness": 2.28,
+      "popularity": "unknown",
+      "confidence": 0.36
+    },
+    "cli-sec-hermes-dashboard-register": {
+      "input": "22195982df6ed7be615114e1bc7c4aae1e9eea78f364d645da447bd931c0c853",
+      "usefulness": 1.7,
+      "popularity": "unknown",
+      "confidence": 0.5
+    },
+    "cli-sec-hermes-profile": {
+      "input": "b4fea6f3b86bd28b7478031c8ba282caa0aaf9c59f19dc209547d9dad14438b7",
+      "usefulness": 0.61,
+      "popularity": "unknown",
+      "confidence": 0.59
+    },
+    "cli-sec-hermes-completion": {
+      "input": "034d79f0062b5c702e969c62c1887c4eddda2e5450eaef3ef9412168903bb17a",
+      "usefulness": 1.04,
+      "popularity": "unknown",
+      "confidence": 0.56
+    },
+    "cli-sec-hermes-update": {
+      "input": "0f4782dc538d7eeee90adecf7620e0790f5d0feb7e4560d967c163e39a4ef3ab",
+      "usefulness": 2.26,
+      "popularity": "unknown",
+      "confidence": 0.35
+    },
+    "cli-in-dir": {
+      "input": "56f682beb55eef93a857740396a01e969ba89078cec21023a79261ab9c9e67d0",
+      "usefulness": 1.32,
+      "popularity": "unknown",
+      "confidence": 0.51
+    },
+    "cli-yolo": {
+      "input": "f7635ff489746556913c421dcc6b8cb34810058ae9e37b73742a41364fa56654",
+      "usefulness": 0.42,
+      "popularity": "unknown",
+      "confidence": 0.65
+    },
+    "cli-pass-session-id": {
+      "input": "7536acc54473d2564923c98a0bf2959d6c06ea02d599df281df028d9f3aa4bf3",
+      "usefulness": 0.49,
+      "popularity": "unknown",
+      "confidence": 0.59
+    },
+    "cli-ignore-rules": {
+      "input": "26dbce4bc5d4cb4cd87a46c59cf9b2d821f277bf0915e9bc9c479e0870dd391f",
+      "usefulness": 0.96,
+      "popularity": "unknown",
+      "confidence": 0.67
+    },
+    "cli-tui": {
+      "input": "5fd211f821182ab78430366d08236f1594ada811f3952ec2e11b0ebebbbdb9b4",
+      "usefulness": 0.58,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "cli-cli": {
+      "input": "a12e910df0d9b5526dc6e58d9624d4fbb66b07c698e2d2cbcdd84ccd03c88b43",
+      "usefulness": 0.84,
+      "popularity": "unknown",
+      "confidence": 0.71
+    },
+    "cli-dev": {
+      "input": "2316961f9e9fb3afaee7840bc8f82711f60602955f83edae5193ca00855b3a8d",
+      "usefulness": 1.35,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "cli-query-file-path": {
+      "input": "247530aeda18b136eda97517ba91b511852714573a1a8efe7a6cd1a68d31d476",
+      "usefulness": 1.99,
+      "popularity": "unknown",
+      "confidence": 0.44
+    },
+    "cli-oneshot": {
+      "input": "b67a6b15c4aa410da9344f2608959f25737e94bb35a23ceb11edc748d13f6aa0",
+      "usefulness": 1.23,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "cli-format-stream-json": {
+      "input": "a14a59e1323bd639020c3a256ffdec3a081b40c4178ec1ec90a0be83b06756fa",
+      "usefulness": 0.95,
+      "popularity": "unknown",
+      "confidence": 0.63
+    },
+    "cli-image-path": {
+      "input": "54845268b7d18a687ed4842d482fb3534fe6e061f22d31795c12b8209ecd3b15",
+      "usefulness": 0.64,
+      "popularity": "unknown",
+      "confidence": 0.65
+    },
+    "cli-worktree": {
+      "input": "44d85bb2fcbe36d37dad435a46b2f0e0472f60005eda9f335ec58d9cebc40528",
+      "usefulness": 0.72,
+      "popularity": "unknown",
+      "confidence": 0.73
+    },
+    "cli-checkpoints": {
+      "input": "29c5a0b1932bde80b41754fef62669ef81506247a26ace617671382a93bf44c9",
+      "usefulness": 0.62,
+      "popularity": "unknown",
+      "confidence": 0.65
+    },
+    "cli-source-tag": {
+      "input": "127a195fd8499a16ebea72c077eaa6436a248ed4c1f3451e280c7949aed73f53",
+      "usefulness": 1.05,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "cli-all": {
+      "input": "2d7d911b6ec0571258b8dcab0e2733a89d9c7bd5c460f29a27ad074b96c39ea0",
+      "usefulness": 1.48,
+      "popularity": "unknown",
+      "confidence": 0.49
+    },
+    "cli-no-supervise": {
+      "input": "ce7cc3993b85fca4d431640b36f9461d8021eb62e98da3b67e83c5ec0dcf4c32",
+      "usefulness": 1.54,
+      "popularity": "unknown",
+      "confidence": 0.41
+    },
+    "cli-external-supervisor": {
+      "input": "117adc2cbc528da4e420153dc2b249ac87523fc08c4ac267994ac5a370c45403",
+      "usefulness": 1.98,
+      "popularity": "unknown",
+      "confidence": 0.55
+    },
+    "cli-non-interactive": {
+      "input": "2d47079f9efc118b173a9809971afd083fff0fa708dab868434e5cb558bd133e",
+      "usefulness": 0.38,
+      "popularity": "unknown",
+      "confidence": 0.68
+    },
+    "cli-json": {
+      "input": "0fd286bdc3a42609e7f18261c97bc65ea15b6184c627ec25c47eba47a525fd23",
+      "usefulness": 0.46,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "cli-deep": {
+      "input": "0e6eb464980a0590266258d0dc55bae2462db38c7b58d571766fd79143aaa4c6",
+      "usefulness": 0.24,
+      "popularity": "unknown",
+      "confidence": 0.8
+    },
+    "cli-board-slug": {
+      "input": "af8e6998a52c769491f2238f8360aacb7b6e5567a7cbc131245ec65bc4ced1af",
+      "usefulness": 0.27,
+      "popularity": "unknown",
+      "confidence": 0.78
+    },
+    "cli-prompt": {
+      "input": "8a4552c2cc1410a91964513e9044e0107a7ff64ec97b2d51dda26741520ca994",
+      "usefulness": 0.19,
+      "popularity": "unknown",
+      "confidence": 0.84
+    },
+    "cli-events": {
+      "input": "957fc169737e8e0e5d10c4cc153ee470d2aa09030daf1537afa2d1aae2c7efdc",
+      "usefulness": 0.38,
+      "popularity": "unknown",
+      "confidence": 0.68
+    },
+    "cli-description": {
+      "input": "dd424759a2b8d9721d15d6fbf3b3874d7560714512dad5f0bc5d1c0b15a05f65",
+      "usefulness": 0,
+      "popularity": "unknown",
+      "confidence": 1
+    },
+    "cli-skills": {
+      "input": "402da392624cc95d93a88e2b64a205649dc74126865d37aba4006e6cb2ca2925",
+      "usefulness": 0.14,
+      "popularity": "unknown",
+      "confidence": 0.88
+    },
+    "cli-deliver": {
+      "input": "c2a6c4da75a4345ebc3cbef487acf2d42211083c8550bb056a7e13a0e88c7863",
+      "usefulness": 0.3,
+      "popularity": "unknown",
+      "confidence": 0.75
+    },
+    "cli-deliver-chat-id": {
+      "input": "0056f32518c625ffb9551daa6307b66c2ec2b170e1834301dcf02c35dc4fc9e6",
+      "usefulness": 0.19,
+      "popularity": "unknown",
+      "confidence": 0.84
+    },
+    "cli-secret": {
+      "input": "0b8758b03c5c34bc8df65b03a1e72c9999d0fdeefa1fa1a455ddfb77d42a133f",
+      "usefulness": 0.25,
+      "popularity": "unknown",
+      "confidence": 0.79
+    },
+    "cli-deliver-only": {
+      "input": "dd5999ee52a1f8c1ee55833a14fdc6e0893168f1969dfe17af8a0f6f550d6128",
+      "usefulness": 1.76,
+      "popularity": "unknown",
+      "confidence": 0.5
+    },
+    "cli-mirror-to-session": {
+      "input": "977f15d2659494cf1137f2459442d737b80a2f2fcbdb53d3d79543bf38d5ed97",
+      "usefulness": 1.43,
+      "popularity": "unknown",
+      "confidence": 0.54
+    },
+    "cli-script": {
+      "input": "4e0bc4656adb677f42a52b5cca6a10378c496653822bea42e41371575cbfe9b7",
+      "usefulness": 1.94,
+      "popularity": "unknown",
+      "confidence": 0.49
+    },
+    "cli-route-profile": {
+      "input": "7d8b4d6d335ab182d1e48fb7957ee81e9ee49ddc6627fc72a9e6443889c5e943",
+      "usefulness": 1.42,
+      "popularity": "unknown",
+      "confidence": 0.44
+    },
+    "cli-fix": {
+      "input": "6f0df9ee05e900f1d9411a1a54ca13b7e84f86812b5e9d05eeb60fc58c1975a8",
+      "usefulness": 0.39,
+      "popularity": "unknown",
+      "confidence": 0.67
+    },
+    "cli-show-keys": {
+      "input": "6765dc6c3c7a7482e39bfc40bf806ae19bb1b238ef14c4a6b47f2c2492b9b623",
+      "usefulness": 0.89,
+      "popularity": "unknown",
+      "confidence": 0.7
+    },
+    "cli-lines-n": {
+      "input": "fbfb3c854041a343d5e40ac948a936b124e0cd69c532f88a9621f8dfe10706f5",
+      "usefulness": 0.36,
+      "popularity": "unknown",
+      "confidence": 0.7
+    },
+    "cli-expire-days": {
+      "input": "33d3a1e2c1864079d461f236a17f4c81cb04efe1b9e219f68c3cb6fa89a5feec",
+      "usefulness": 0.49,
+      "popularity": "unknown",
+      "confidence": 0.59
+    },
+    "cli-nous": {
+      "input": "5ccf4a640dbf0ad5b6b184948a42d5f84bef759598ae6495feae2d8c12205129",
+      "usefulness": 1.22,
+      "popularity": "unknown",
+      "confidence": 0.65
+    },
+    "cli-local": {
+      "input": "f499c1935eb225da477af940080001e0fa5f3bfcb59a44e869e3ce0ed721b4f2",
+      "usefulness": 0.5,
+      "popularity": "unknown",
+      "confidence": 0.59
+    },
+    "cli-no-redact": {
+      "input": "25d07c5fc2fab64c8a74608e8fb8ba04dc269abb043010465b62f3b7ad727f1b",
+      "usefulness": 0.67,
+      "popularity": "unknown",
+      "confidence": 0.65
+    },
+    "cli-level-level": {
+      "input": "42d2aad269942eb07511ab22edc275be1993eaeae52e3a0c705b70185cfd7d88",
+      "usefulness": 0.26,
+      "popularity": "unknown",
+      "confidence": 0.78
+    },
+    "cli-session-id": {
+      "input": "58d50d175bceb16fe305b430afd3564f8969ac180307374a296048c0c927160e",
+      "usefulness": 0.79,
+      "popularity": "unknown",
+      "confidence": 0.68
+    },
+    "cli-since-time": {
+      "input": "beb291ca9bb6149f0a189e22963b68cb9444e8af314a65b52149b0d6e007b887",
+      "usefulness": 0.92,
+      "popularity": "unknown",
+      "confidence": 0.59
+    },
+    "cli-component-name": {
+      "input": "4fb102a7413bcf5959481c0e5e9699b8480e0f4416fc3ded961b4c700544dae9",
+      "usefulness": 0.2,
+      "popularity": "unknown",
+      "confidence": 0.84
+    },
+    "cli-summary": {
+      "input": "7b97595c578a43e09ba38cfed3acee82968f979a2a7a4cf56e9d2aac4e5f5306",
+      "usefulness": 0.11,
+      "popularity": "unknown",
+      "confidence": 0.91
+    },
+    "cli-days-n": {
+      "input": "ddd08615cd03c10e42af5c424499f1aac571906698d2ba0920a59f0612d7c8a4",
+      "usefulness": 0.35,
+      "popularity": "unknown",
+      "confidence": 0.71
+    },
+    "cli-source-platform": {
+      "input": "ace016f505091c652051b177dd6e1480ae11640ccf9fa8fb31c0cbd1f363103d",
+      "usefulness": 0.35,
+      "popularity": "unknown",
+      "confidence": 0.7
+    },
+    "cli-overwrite": {
+      "input": "3977c9716e4088e3c30d35301e151bd5bf41274532e931dbc79bc0242c546414",
+      "usefulness": 0.55,
+      "popularity": "unknown",
+      "confidence": 0.58
+    },
+    "cli-migrate-secrets": {
+      "input": "2f7aa1ef1fa9e7ef35acc181cffeeb9409ff311a11de9c7abb68bf182974ff6d",
+      "usefulness": 0.77,
+      "popularity": "unknown",
+      "confidence": 0.69
+    },
+    "cli-source-path": {
+      "input": "0cb4f813d0e176e89701f432becb17a03f954959e125ac1dc786b5a9ffe10879",
+      "usefulness": 0.19,
+      "popularity": "unknown",
+      "confidence": 0.84
+    },
+    "cli-workspace-target-path": {
+      "input": "0ec0a450be8f17a39e36e9221d836a5d3fa641d403361db63324eeb7fd947f8f",
+      "usefulness": 0.31,
+      "popularity": "unknown",
+      "confidence": 0.74
+    },
+    "cli-skill-conflict-mode": {
+      "input": "a5a539c02bbe376726224fa209982521768da5c38c3e0fe98c98e8bcf6e3321b",
+      "usefulness": 0.78,
+      "popularity": "unknown",
+      "confidence": 0.7
+    },
+    "cli-yes": {
+      "input": "9c1857bc656985b3bcad5a21dfe432f488d07371bc5d6b9b39c571fb7817f90d",
+      "usefulness": 0.37,
+      "popularity": "unknown",
+      "confidence": 0.69
+    },
+    "cli-name": {
+      "input": "dc4dc65c8a9d06e07c997dfe70f21b43f3919ae5469476891c28a9c65f7ac7ef",
+      "usefulness": 0.08,
+      "popularity": "unknown",
+      "confidence": 0.93
+    },
+    "cli-portal-url": {
+      "input": "b374e3210e23175d124c9109eca06b12068423b9a2e1f863d3b19f0b68f783db",
+      "usefulness": 0.5,
+      "popularity": "unknown",
+      "confidence": 0.59
+    },
+    "cli-plan": {
+      "input": "d172895dcd162ac0cfb80027efe0c1caac8b9c6f951beca5a2efd38ed8ed5216",
+      "usefulness": 1.81,
+      "popularity": "unknown",
+      "confidence": 0.41
+    },
+    "cli-sec-model-slash-command-mid-session": {
+      "input": "b8f06ae5e5c70015e03bf75cef7e8887f772119a174a7deaf08f7e1d39a237b3",
+      "usefulness": 2.79,
+      "popularity": "unknown",
+      "confidence": 0.67
+    },
+    "cli-sec-diagnostic-shortcuts": {
+      "input": "134cf10f5115d0bd2c5b9959ad5fe434184dc20da195d9efe69d6309c0d4d922",
+      "usefulness": 0.06,
+      "popularity": "unknown",
+      "confidence": 0.95
+    },
+    "kit-cc-switch": {
+      "input": "c6785904ee569a192a51cee14ae6794863444e6e01bd2f1b22f1c5bf376ea335",
+      "usefulness": 2.15,
+      "popularity": "widespread",
+      "confidence": 0.59
+    },
+    "kit-codegraph": {
+      "input": "bd3b6a850f599a40361c57a2cd6a5daf613065750daa7fd0ac928e42e8c76889",
+      "usefulness": 2.46,
+      "popularity": "widespread",
+      "confidence": 0.51
+    },
+    "kit-gbrain": {
+      "input": "fd6bd5ea637b54160436f4181bd3763b842e51331f90dbce0ba5d048d45c6455",
+      "usefulness": 2.19,
+      "popularity": "strong",
+      "confidence": 0.51
+    },
+    "kit-claude-mem": {
+      "input": "1a8971695b4e07dee171df1d12700dc58899d7a56c4cd88482d62faa559b554e",
+      "usefulness": 2.22,
+      "popularity": "widespread",
+      "confidence": 0.61
+    },
+    "kit-ruflo": {
+      "input": "1ef100d88bbd4b54cd8661a1991fb00cb17aa6f2d61a1755e79f9e1a42e587cb",
+      "usefulness": 1.91,
+      "popularity": "widespread",
+      "confidence": 0.48
+    },
+    "gh-screenpipe-screenpipe": {
+      "input": "d8c73174b4cf57f5142ef45564b470e1fdbae6af4fa23818824abbc285d4a927",
+      "usefulness": 0.89,
+      "popularity": "strong",
+      "confidence": 0.62
+    },
+    "gh-jnmetacode-agency-agents-zh": {
+      "input": "ced0afee16fdcd5283e5bb0dfa329048938749874d2690b0f9c119a8a387e290",
+      "usefulness": 1.42,
+      "popularity": "strong",
+      "confidence": 0.34
+    },
+    "gh-waishnav-devspace": {
+      "input": "91442dba686ed77adc65155b037c06de0367e5b679a2a890cebbff08b6b014b7",
+      "usefulness": 0.3,
+      "popularity": "strong",
+      "confidence": 0.74
+    },
+    "gh-liustack-modlens": {
+      "input": "29ae9571bdf0a3ae0edf1837352319da834fa89534fa86b9a2ddbc48c7087a15",
+      "usefulness": 1.24,
+      "popularity": "strong",
+      "confidence": 0.5
+    },
+    "gh-mnemosyne-oss-mnemosyne": {
+      "input": "2b81555f063bdd8950d2f80d2e456313b9b756e8b2bc8a63e556ee4245cef0cb",
+      "usefulness": 0.48,
+      "popularity": "strong",
+      "confidence": 0.4
+    },
+    "gh-liaohch3-claude-tap": {
+      "input": "140e5da1a6283ff6f60378ccb0421526fb7fceb2e7e745ca305600f377a9df25",
+      "usefulness": 1.65,
+      "popularity": "strong",
+      "confidence": 0.55
+    },
+    "gh-harnessrouter-harnessrouter": {
+      "input": "8d89c11f7db4c43069c527e4db3dce5828cccfa7426dd44d0734adb4709de482",
+      "usefulness": 1.31,
+      "popularity": "strong",
+      "confidence": 0.41
+    },
+    "gh-codejunkie99-agentic-stack": {
+      "input": "09a5b52ea37e9fedfdea0c8e00fc2602ff44b1545e6496e10e318ad0c005ba51",
+      "usefulness": 1.05,
+      "popularity": "strong",
+      "confidence": 0.56
+    },
+    "gh-infisical-agent-vault": {
+      "input": "7a4181c91376d27640ea6a4c05d161764c2fc7b5c2093adcdfcd1855ec817389",
+      "usefulness": 0.84,
+      "popularity": "strong",
+      "confidence": 0.48
+    },
+    "gh-lennney-stop-that-shit": {
+      "input": "2b7d0eb8a12917f10f6dbe9745410d49c0f5bbd7a3cfbda224a6b69559c485d5",
+      "usefulness": 1.35,
+      "popularity": "strong",
+      "confidence": 0.51
     }
   }
 }

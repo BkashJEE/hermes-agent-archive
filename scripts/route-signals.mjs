@@ -30,7 +30,9 @@ const KEY = process.env.TYPESAFE_API_KEY;
    These mirror the fetch-time floors and catch anything fetched earlier under
    looser settings, so lowering the bar needs an explicit re-fetch. */
 const FLOOR = {
-  stars:   Number(process.env.MIN_STARS          ?? 25000),
+  // Must match the fetcher's floor — two defaults drifting apart silently cut
+  // candidates the fetcher deliberately collected. Substance is Jev's call.
+  stars:   Number(process.env.MIN_STARS          ?? 1000),
   points:  Number(process.env.MIN_HN_POINTS      ?? 300),
   upvotes: Number(process.env.MIN_REDDIT_UPVOTES ?? 200)
 };
@@ -86,6 +88,7 @@ function routeByKeyword(item) {
 async function routeWithJev(items) {
   const criteria = { ...SECTIONS, none: 'Not about this subject at all, or too thin to be worth a card — general news, drama, an unrelated project.' };
   const out = new Map();
+  let judged = 0;
 
   for (const item of items) {
     const body = {
@@ -122,8 +125,12 @@ async function routeWithJev(items) {
       const section = answers.section.choice;
       const keep = answers.worth_keeping.noul;
 
+      judged++;
       if (section === 'none' || keep < 0.5) {
-        process.stdout.write(`  – dropped  ${item.title.slice(0, 54)}\n`);
+        const why = section === 'none'
+          ? `not about this subject (${(answers.section.probabilities?.none * 100 || 0).toFixed(0)}% sure)`
+          : `too thin to be worth a card (useful to a reader: ${(keep * 100).toFixed(0)}%)`;
+        process.stdout.write(`  – dropped  ${item.title.slice(0, 40).padEnd(42)} ${why}\n`);
         continue;
       }
       out.set(item.id, { section, confidence: answers.section.confidence, keep });
@@ -138,6 +145,7 @@ async function routeWithJev(items) {
       process.stdout.write(`  ✗ ${item.title.slice(0, 40)} — ${err.message}\n`);
     }
   }
+  out.judged = judged;
   return out;
 }
 
@@ -149,6 +157,7 @@ const live = JSON.parse(await readFile(join(ROOT, 'data/live.json'), 'utf8'));
 const curatedUrls = new Set();
 const index = JSON.parse(await readFile(join(ROOT, 'data/index.json'), 'utf8'));
 for (const s of index.sections) {
+  if (!s.file) continue;                 // a computed section has nothing on disk
   const { items } = JSON.parse(await readFile(join(ROOT, 'data', s.file), 'utf8'));
   for (const it of items) if (it.url) curatedUrls.add(it.url);
 }
@@ -186,8 +195,10 @@ console.log(`\nRouting ${popular.length} signals with ${KEY ? 'Jev' : 'keyword r
 const routed = {};
 const add = (section, item) => { (routed[section] ||= []).push(item); };
 
+let decided = 0;
 if (KEY) {
   const decisions = await routeWithJev(popular);
+  decided = decisions.judged;
   for (const c of popular) {
     const d = decisions.get(c.id);
     if (d) add(d.section, { ...c, routedBy: 'jev', routeConfidence: +d.confidence.toFixed(2) });
@@ -214,9 +225,17 @@ if (capped) console.log(`\nCapped ${capped} item(s) at ${MAX_PER_SECTION} per se
 
 const total = Object.values(routed).reduce((n, a) => n + a.length, 0);
 
-// Never trade a good shelf layout for an empty one because a run failed.
+/* Never trade a good shelf layout for an empty one because a run failed — but a
+   run where the judge legitimately rejected every candidate is a result, not an
+   error. Only a run that produced no decisions at all is a failure. */
 if (total === 0 && popular.length > 0) {
-  console.error(`\nRouted nothing out of ${popular.length} candidates — leaving data/live.json untouched.`);
+  const judged = KEY ? decided : popular.length;
+  console.log(`\nNothing reached a shelf. data/live.json is untouched.`);
+  if (judged > 0) {
+    console.log(`All ${judged} candidate(s) were judged and rejected — that is a verdict, not a failure.`);
+    process.exit(0);
+  }
+  console.error(`No candidate could be judged at all. Check the errors above.`);
   process.exit(1);
 }
 

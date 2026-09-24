@@ -1,19 +1,27 @@
 {
   "site": {
     "name": "HERMES AGENT ARCHIVE",
-    "tagline": "The most viewed, talked about and actually-used Hermes Agent craft — curated in public.",
+    "tagline": "The most viewed, talked about and actually-used Hermes Agent craft \u2014 curated in public.",
     "curator": "@BkashJosi",
     "quote": "Ship the trick, not the hype.",
-    "quoteAuthor": "— HERMES AGENT ARCHIVE"
+    "quoteAuthor": "\u2014 HERMES AGENT ARCHIVE"
   },
   "sections": [
+    {
+      "id": "dashboard",
+      "label": "Dashboard",
+      "icon": "dashboard",
+      "kind": "dashboard",
+      "title": "WHAT IS IN THE ARCHIVE",
+      "blurb": "Counted live from what is loaded right now \u2014 nothing here is stored, and nothing is estimated."
+    },
     {
       "id": "use-cases",
       "label": "Use Cases",
       "icon": "stories",
       "file": "use-cases.json",
       "title": "WHAT PEOPLE ACTUALLY BUILD",
-      "blurb": "Real Hermes Agent user stories — every one quoted and linked to the original post on X, Reddit, Discord, GitHub, YouTube or a blog."
+      "blurb": "Real Hermes Agent user stories \u2014 every one quoted and linked to the original post on X, Reddit, Discord, GitHub, YouTube or a blog."
     },
     {
       "id": "skills",
@@ -21,7 +29,7 @@
       "icon": "skills",
       "file": "skills.json",
       "title": "SKILLS WORTH INSTALLING",
-      "blurb": "Hermes Agent skills — packaged capabilities you install rather than re-prompt."
+      "blurb": "Hermes Agent skills \u2014 packaged capabilities you install rather than re-prompt."
     },
     {
       "id": "prompts",
@@ -54,6 +62,14 @@
       "file": "tricks.json",
       "title": "HIDDEN TRICKS",
       "blurb": "Non-obvious Hermes Agent moves most people never find."
+    },
+    {
+      "id": "toolkit",
+      "label": "Works With",
+      "icon": "toolkit",
+      "file": "toolkit.json",
+      "title": "WHAT WORKS WITH HERMES",
+      "blurb": "Repos worth pairing with Hermes Agent \u2014 why it helps, how to wire it up, and the job it actually does. Each one was read before it was listed."
     },
     {
       "id": "builds",
@@ -125,15 +141,15 @@
   "sorts": [
     {
       "id": "recommended",
-      "label": "Most useful · Jev"
+      "label": "Most useful \u00b7 Jev"
     },
     {
       "id": "popular",
-      "label": "Most popular · Jev"
+      "label": "Most popular \u00b7 Jev"
     },
     {
       "id": "az",
-      "label": "A → Z"
+      "label": "A \u2192 Z"
     }
   ]
 }

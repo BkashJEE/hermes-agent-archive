@@ -1,6 +1,8 @@
 /* Section family: 24px grid, 1.5px strokes, rounded ends and a 19° shelf rake.
    Names are referenced by data/index.json; navigation, hero and empty states share it. */
 const paths = {
+  dashboard: '<path d="m4 7 16-5v16L4 23Z M8 16v-4 M12 15V8 M16 14v-5"/>',
+  toolkit: '<path d="m4 10 16-5v13L4 23Z M8 8V5l8-2v3 M4 14l16-5 M10 12v4"/>',
   stories: '<path d="m4 7 16-5v13L4 20Z M8 9l8-2.5 M8 13l5-1.5"/>',
   skills: '<path d="m12 3 8 6-8 6-8-6Z M4 14l8 6 8-6"/>',
   prompts: '<path d="m4 7 16-5v13l-9 3-7 4Z M8 9l8-2.5 M8 13l5-1.5"/>',

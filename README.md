@@ -71,6 +71,14 @@ archived, disabled, or don't actually name Claude in the slug/description or car
 npm run key
 ```
 
+Three ways in, use whichever works in your terminal:
+
+```bash
+npm run key              # bordered paste box (needs raw-mode support)
+npm run key -- --plain   # plain line prompt, if the box does not render
+cp .env.example .env && chmod 600 .env && ${EDITOR:-nano} .env   # just edit the file
+```
+
 A terminal prompt for the four optional keys. Input is hidden as you paste, values are
 written to `.env` with owner-only permissions, and `.env` is gitignored. Every script
 loads it automatically; anything exported in your shell still wins over the file.
@@ -103,9 +111,8 @@ Pulls the Hermes-related entries out of <https://www.jev-use-cases.com> — it r
 tiles but ships all ~700 records in its flight payload, so one fetch gets the set. Only
 entries that mention Hermes are kept; at the last run that was 3 of 699.
 
-X impressions are the directory's own published figures, carried over as-is and credited
-to it. We do not measure impressions and never estimate them — this is the only place an
-X number on this site comes from.
+Imported directory figures remain in the source records but are not displayed or used
+as popularity evidence. Only the public API snapshot supplies engagement metrics.
 
 ## Only popular things get sourced
 
@@ -116,7 +123,7 @@ settings is caught.
 
 | Source | Floor | Override |
 | --- | --- | --- |
-| GitHub | 25,000 stars | `MIN_STARS=50000` |
+| GitHub | 1,000 stars | `MIN_STARS=50000` |
 | Hacker News | 300 points | `MIN_HN_POINTS=500` |
 | Reddit | 200 upvotes | `MIN_REDDIT_UPVOTES=400` |
 
@@ -204,7 +211,26 @@ npm run check
 
 It fails on duplicate ids, unknown sources, malformed dates and non-http URLs.
 
-## Status: private
+## Deployment
+
+Production is https://hermes-agent-archive.vercel.app. The repository stays private.
+Vercel serves plain static files with no build or install step. `.vercelignore`
+allows only the HTML, assets, and runtime JSON; update it when adding a data file.
+Secrets, maintenance scripts, and research inputs are excluded from the upload.
+
+After merging a reviewed PR into `main`, deploy from a clean checkout:
+
+```bash
+npm test
+npm run check
+npx vercel@60.0.0 link --project hermes-agent-archive --scope bkashjee-2377s-projects
+npx vercel@60.0.0 deploy --prod --scope bkashjee-2377s-projects
+```
+
+Deployment is manual; a repository push does not publish automatically.
+The weekly refresh job updates Jev classifications when its key is configured.
+
+## Repository visibility
 
 This repo is private for now, and it's a content source as much as a site — the sections
 are the shelves you pull posts from.

@@ -2,6 +2,12 @@
    not necessarily the person who wrote every contribution. */
 export function creditFor(item) {
   if (item.author?.trim()) return { label: 'By', name: item.author.trim() };
+  if (item.source === 'docs' && item.url) {
+    try {
+      if (new URL(item.url).hostname === 'hermes-agent.nousresearch.com')
+        return { label: 'Documentation by', name: 'Nous Research' };
+    } catch { /* Invalid links cannot establish a publisher. */ }
+  }
   if (item.source === 'github' && item.url) {
     try {
       const url = new URL(item.url);

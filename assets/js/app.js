@@ -25,6 +25,7 @@ const state = {
   sort: 'recommended',
   q: '',
   tag: null,
+  author: null,
   tagQuery: '',
   density: 'comfortable'
 };
@@ -53,13 +54,11 @@ async function load() {
   state.cfg = await getJSON('data/index.json');
 
   const sections = await Promise.all(
-    state.cfg.sections.map(s => getJSON(`data/${s.file}`).catch(() => ({ items: [] })))
+    state.cfg.sections.map(s => s.file ? getJSON(`data/${s.file}`).catch(() => ({ items: [] })) : { items: [] })
   );
   state.cfg.sections.forEach((s, i) => { state.data[s.id] = sections[i].items || []; });
 
   state.live = await getJSON('data/live.json').catch(() => null);
-  // Only live API data can supply engagement metrics.
-  for (const items of Object.values(state.data)) for (const item of items) { delete item.metric; delete item.metric2; }
   mergeLive(state.data, state.live);
   const rankings = await getJSON('data/rankings.json').catch(() => null);
   await attachRankings(Object.values(state.data).flat(), rankings);
@@ -68,6 +67,7 @@ async function load() {
 /* -------------------------------------------------------------- filters */
 
 function matches(item) {
+  if (state.author && creditFor(item).name !== state.author) return false;
   if (state.source !== 'all' && item.source !== state.source) return false;
   if (state.tag && !(item.tags || []).includes(state.tag)) return false;
   if (state.q) {
@@ -125,7 +125,7 @@ function card(item, rank, iconName) {
 function renderNav() {
   $('#nav').innerHTML = state.cfg.sections.map(s => `
     <a href="#${s.id}" class="${s.id === state.section ? 'on' : ''}" data-section="${s.id}" ${s.id === state.section ? 'aria-current="page"' : ''}>
-      <span class="nav-ico">${sectionIcon(s.icon)}</span>${esc(s.label)}<span class="nav-n">${visible(s.id).length}</span>
+      <span class="nav-ico">${sectionIcon(s.icon)}</span>${esc(s.label)}<span class="nav-n">${s.file ? visible(s.id).length : ''}</span>
     </a>`).join('');
 }
 
@@ -146,6 +146,7 @@ function renderTags() {
 function renderFilters() {
   const bits = [];
   if (state.q)                  bits.push(['q',      `SEARCH: ${state.q}`]);
+  if (state.author)             bits.push(['author', `AUTHOR: ${state.author}`]);
   if (state.tag)                bits.push(['tag',    `TAG: ${state.tag}`]);
   if (state.source !== 'all')   bits.push(['source', `SOURCE: ${SOURCE_LABEL[state.source] || state.source}`]);
 
@@ -159,6 +160,19 @@ function render() {
   const focusKey = focused?.dataset.tag ? ['tag', focused.dataset.tag]
     : focused?.dataset.section ? ['section', focused.dataset.section] : null;
   const sec = state.cfg.sections.find(s => s.id === state.section) || state.cfg.sections[0];
+  const isDash = sec.kind === 'dashboard';
+  $('#dashboard').hidden = !isDash;
+  $('#listbar').hidden = isDash;
+  $('#grid').hidden = isDash;
+  if (isDash) {
+    $('#heroIcon').innerHTML = sectionIcon(sec.icon);
+    $('#heroTitle').textContent = sec.title;
+    $('#heroBlurb').textContent = sec.blurb;
+    $('#empty').hidden = true;
+    document.title = `${sec.label} · Hermes Agent Archive`;
+    renderDashboard(); renderNav(); renderTags(); renderFilters();
+    return;
+  }
   const items = sortItems(visible(sec.id));
 
   $('#heroIcon').innerHTML    = sectionIcon(sec.icon);
@@ -196,6 +210,323 @@ function render() {
   renderFilters();
   if (focusKey) $$('[data-' + focusKey[0] + ']').find(el => el.dataset[focusKey[0]] === focusKey[1])?.focus({ preventScroll: true });
 }
+
+/* ------------------------------------------------------- motion helpers */
+
+const REDUCED = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+
+/* Display counted values directly; animation must never invent intermediate figures. */
+function countUp(el, value) { el.textContent = num(value); }
+
+/* Grow a bar to its real width. Same rule as the figures: the final width is set
+   straight away and the animation plays over the top, so a throttled tab shows a
+   correct chart rather than an empty one. */
+function growTo(el, target, delay = 0) {
+  el.style.width = target;
+  if (REDUCED || document.hidden || typeof el.animate !== 'function') return;
+  el.animate([{ width: '0%' }, { width: target }], {
+    duration: 620, delay, easing: 'cubic-bezier(.22,.7,.3,1)', fill: 'backwards'
+  });
+}
+
+function growBars(root) {
+  [...root.querySelectorAll('.bar-fill')].forEach((fill, i) =>
+    growTo(fill, fill.dataset.w, Math.min(i * 22, 600)));
+}
+
+/* ------------------------------------------------------------- dashboard */
+
+/* Every figure below is counted from what is loaded in this page right now, or is a
+   sum of values fetched from a public API. Metric kinds are never added together:
+   a star, an upvote and an impression measure different things, so one combined
+   "engagement" number would be a number nobody ever measured. */
+function dashboardStats() {
+  const sections = state.cfg.sections.filter(s => s.file);
+  const all = sections.flatMap(s => state.data[s.id] || []);
+
+  const byShelf  = sections.map(s => [s.label, (state.data[s.id] || []).length]);
+  const bySource = new Map();
+  const byAuthor = new Map();
+  const byMetric = new Map();       // kind -> { total, items }
+
+  for (const it of all) {
+    bySource.set(it.source, (bySource.get(it.source) || 0) + 1);
+    const credit = creditFor(it);
+    if (credit.label !== 'Author') byAuthor.set(credit.name, (byAuthor.get(credit.name) || 0) + 1);
+    for (const m of [it.metric, it.metric2]) {
+      if (!m || !Number.isFinite(m.value)) continue;
+      const row = byMetric.get(m.kind) || { total: 0, items: 0 };
+      row.total += m.value; row.items++;
+      byMetric.set(m.kind, row);
+    }
+  }
+
+  return {
+    total: all.length,
+    withMetric: all.filter(i => i.metric).length,
+    authors: byAuthor.size,
+    sources: bySource.size,
+    byShelf:  byShelf.sort((a, b) => b[1] - a[1]),
+    bySource: [...bySource].sort((a, b) => b[1] - a[1]),
+    byAuthor: [...byAuthor].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])),
+    byMetric: [...byMetric].sort((a, b) => b[1].total - a[1].total)
+  };
+}
+
+/* One shared tooltip for every chart — created once, moved on hover. */
+function chartTip() {
+  let el = document.getElementById('chartTip');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'chartTip';
+    el.className = 'chart-tip';
+    el.hidden = true;
+    document.body.appendChild(el);
+  }
+  return el;
+}
+
+/* Horizontal bars: one series, one hue, magnitude by category.
+   Rounded data-end, recessive gridlines, value direct-labelled. */
+function barChart(rows, { action, total } = {}) {
+  if (!rows.length) return '<p class="dash-none">Nothing to count yet.</p>';
+  const max = Math.max(...rows.map(r => r[1])) || 1;
+  const sum = total ?? rows.reduce((n, r) => n + r[1], 0);
+
+  return `<div class="bars">${rows.map(([label, n]) => {
+    const pct = Math.max(1.2, (n / max) * 100);
+    const share = sum ? ((n / sum) * 100).toFixed(n / sum < 0.1 ? 1 : 0) : '0';
+    const attr = action
+      ? ` data-${action}="${esc(label)}" aria-label="${esc(label)}, ${n} entries — filter the archive"`
+      : '';
+    return `<${action ? 'button type="button"' : 'div'} class="bar-row${action ? ' bar-click' : ''}"${attr}
+        data-tip="${esc(label)} · ${num(n)} ${n === 1 ? 'entry' : 'entries'} · ${share}% of ${num(sum)}">
+      <span class="bar-label" title="${esc(label)}">${esc(label)}</span>
+      <span class="bar-track"><span class="bar-fill" data-w="${pct.toFixed(1)}%"></span></span>
+      <span class="bar-n">${num(n)}</span>
+    </${action ? 'button' : 'div'}>`;
+  }).join('')}</div>`;
+}
+
+function renderDashboard() {
+  const st = dashboardStats();
+  const live = state.live || {};
+  const stale = (live.github || []).filter(g => g.stale).length;
+  const warnings = (live.warnings || []).length;
+
+  /* A tile may carry a share track — the progress-stat idea: a big numeral with a
+     thin rail underneath showing what fraction of the whole it represents. */
+  const tile = (k, v, note, share) =>
+    `<div class="tile">
+       <span class="tile-k">${esc(k)}</span>
+       <span class="tile-v" data-count="${typeof v === 'number' ? v : ''}">${typeof v === 'number' ? num(v) : v}</span>
+       ${share != null ? `<span class="tile-rail"><span class="tile-rail-fill" data-w="${(share * 100).toFixed(1)}%"></span></span>` : ''}
+       ${note ? `<span class="tile-note">${esc(note)}</span>` : ''}
+     </div>`;
+
+  const metricTiles = st.byMetric.length
+    ? st.byMetric.map(([kind, r]) =>
+        tile(kind, r.total, `across ${num(r.items)} ${r.items === 1 ? 'entry' : 'entries'}`)).join('')
+    : '<p class="dash-none">No fetched metrics loaded.</p>';
+
+  $('#dashboard').innerHTML = `
+    <div class="dash-tiles">
+      ${tile('items in the archive', st.total)}
+      ${tile('carry a real metric', st.withMetric, `${Math.round(st.withMetric / (st.total || 1) * 100)}% of the archive`, st.withMetric / (st.total || 1))}
+      ${tile('authors / owners', st.authors)}
+      ${tile('distinct sources', st.sources)}
+    </div>
+
+    <section class="dash-block">
+      <h3>COUNTED TOTALS</h3>
+      <p class="dash-sub">Each kind on its own. Stars, points and upvotes measure
+      different things, so they are never added together.</p>
+      <div class="dash-tiles dash-tiles-sm">${metricTiles}</div>
+    </section>
+
+    <div class="dash-cols">
+      <section class="dash-block"><h3>BY SHELF</h3>${barChart(st.byShelf, { total: st.total })}</section>
+      <section class="dash-block"><h3>BY SOURCE</h3>
+        ${barChart(st.bySource.map(([s, n]) => [SOURCE_LABEL[s] || s, n]), { total: st.total })}</section>
+    </div>
+
+    <section class="dash-block">
+      <h3>BY AUTHOR / OWNER <span class="dash-hint">click to filter the archive</span></h3>
+      <div id="authorBars" data-expanded="0">${barChart(st.byAuthor.slice(0, 10), { action: 'author' })}</div>
+      ${st.byAuthor.length > 10
+        ? `<button class="ghost-btn dash-more" id="authorMore">Show all ${st.byAuthor.length} &#8595;</button>` : ''}
+    </section>
+
+    <p class="dash-fresh">
+      ${live.generatedAt ? `Metrics fetched ${esc(new Date(live.generatedAt).toLocaleString())}.` : 'No metrics fetched yet.'}
+      ${live.routedBy ? ` Sourced items shelved by ${live.routedBy === 'jev' ? 'Jev' : 'keyword rules'}.` : ''}
+      ${stale ? ` ${stale} repo${stale === 1 ? '' : 's'} carried over from an earlier fetch.` : ''}
+      ${warnings ? ` ${warnings} source${warnings === 1 ? ' was' : 's were'} unavailable at the last fetch.` : ''}
+    </p>`;
+
+  wireTips();
+  revealDashboard(st);
+}
+
+function revealDashboard(st) {
+  const root = $('#dashboard');
+
+  for (const el of root.querySelectorAll('.tile-v[data-count]')) {
+    const v = Number(el.dataset.count);
+    if (Number.isFinite(v) && el.dataset.count !== '') countUp(el, v);
+  }
+  for (const rail of root.querySelectorAll('.tile-rail-fill')) growTo(rail, rail.dataset.w, 150);
+  growBars(root);
+
+  const more = $('#authorMore');
+  if (more) more.onclick = () => {
+    const box = $('#authorBars');
+    box.innerHTML = barChart(st.byAuthor, { action: 'author' });
+    growBars(box);
+    more.remove();
+  };
+}
+
+/* Hover layer: every mark carrying data-tip gets the shared tooltip. */
+function wireTips() {
+  const tip = chartTip();
+  const dash = $('#dashboard');
+  const show = e => {
+    const el = e.target.closest('[data-tip]');
+    if (!el) return;
+    tip.textContent = el.dataset.tip;
+    tip.hidden = false;
+    const r = el.getBoundingClientRect();
+    tip.style.left = `${Math.min(window.innerWidth - tip.offsetWidth - 10, Math.max(8, r.left + r.width / 2 - tip.offsetWidth / 2))}px`;
+    tip.style.top  = `${Math.max(8, r.top - tip.offsetHeight - 8)}px`;
+  };
+  dash.onmouseover = show;
+  dash.onfocusin = show;
+  dash.onmouseout = e => { if (!e.relatedTarget || !dash.contains(e.relatedTarget)) tip.hidden = true; };
+  dash.onfocusout = () => { tip.hidden = true; };
+}
+
+
+/* ---------------------------------------------------------- command palette */
+
+/* 700 items is past the point where scrolling is a navigation strategy.
+   Cmd/Ctrl-K opens one field that reaches every shelf, author, tag and entry. */
+const palette = { open: false, rows: [], active: 0, trigger: null };
+
+function paletteRows(q) {
+  const hits = [];
+  const needle = q.trim().toLowerCase();
+  const ok = s => !needle || String(s).toLowerCase().includes(needle);
+
+  for (const sec of state.cfg.sections)
+    if (ok(sec.label)) hits.push({ kind: 'Shelf', label: sec.label, meta: sec.file ? `${(state.data[sec.id] || []).length} entries` : 'computed', act: () => { state.section = sec.id; location.hash = sec.id; render(); } });
+
+  const authors = new Map(), tags = new Map();
+  for (const sec of state.cfg.sections.filter(s => s.file))
+    for (const it of state.data[sec.id] || []) {
+      const credit = creditFor(it);
+      if (credit.label !== 'Author') authors.set(credit.name, (authors.get(credit.name) || 0) + 1);
+      for (const t of it.tags || []) tags.set(t, (tags.get(t) || 0) + 1);
+    }
+
+  for (const [name, n] of [...authors].sort((a, b) => b[1] - a[1]))
+    if (ok(name) && hits.length < 60) hits.push({ kind: 'Author', label: name, meta: `${n} ${n === 1 ? 'entry' : 'entries'}`, act: () => { filterAuthor(name); } });
+
+  for (const [name, n] of [...tags].sort((a, b) => b[1] - a[1]))
+    if (ok(name) && hits.length < 80) hits.push({ kind: 'Tag', label: name, meta: `${n}`, act: () => { clearFilters(); state.tag = name; state.section = state.cfg.sections.find(s => (state.data[s.id] || []).some(it => it.tags?.includes(name)))?.id || 'use-cases'; location.hash = state.section; render(); } });
+
+  if (needle)
+    for (const sec of state.cfg.sections.filter(s => s.file))
+      for (const it of state.data[sec.id] || []) {
+        if (hits.length >= 120) break;
+        if (ok(it.title)) hits.push({ kind: sec.label, label: it.title, meta: SOURCE_LABEL[it.source] || '', act: () => { clearFilters(); state.section = sec.id; location.hash = sec.id; render(); openDrawer(it.id, document.querySelector(`[data-id="${CSS.escape(it.id)}"]`)); } });
+      }
+
+  return hits.slice(0, 60);
+}
+
+function paletteRender(q) {
+  palette.rows = paletteRows(q);
+  palette.active = 0;
+  const list = $('#palList');
+  list.innerHTML = palette.rows.length
+    ? palette.rows.map((r, i) => `<li id="pal-option-${i}" class="pal-row${i ? '' : ' on'}" role="option" aria-selected="${!i}" data-i="${i}">
+        <span class="pal-kind">${esc(r.kind)}</span>
+        <span class="pal-label">${esc(r.label)}</span>
+        <span class="pal-meta">${esc(r.meta || '')}</span></li>`).join('')
+    : '<li class="pal-none">Nothing matches.</li>';
+  $('#palInput').setAttribute('aria-activedescendant', palette.rows.length ? 'pal-option-0' : '');
+  list.firstElementChild?.scrollIntoView?.({ block: 'nearest' });
+}
+
+function paletteMove(d) {
+  if (!palette.rows.length) return;
+  palette.active = (palette.active + d + palette.rows.length) % palette.rows.length;
+  const rows = $$('#palList .pal-row');
+  rows.forEach((el, i) => { el.classList.toggle('on', i === palette.active); el.setAttribute('aria-selected', i === palette.active); });
+  $('#palInput').setAttribute('aria-activedescendant', `pal-option-${palette.active}`);
+  rows[palette.active]?.scrollIntoView({ block: 'nearest' });
+}
+
+function paletteRun() {
+  const row = palette.rows[palette.active];
+  if (!row) return;
+  paletteClose();
+  row.act();
+}
+
+function paletteOpen() {
+  if (palette.open) return;
+  palette.trigger = document.activeElement;
+  setSidebar(false);
+  palette.open = true;
+  $('.topbar').inert = true; $('.shell').inert = true;
+  document.body.classList.add('modal-open');
+  $('#palette').hidden = false;
+  const input = $('#palInput');
+  input.value = '';
+  paletteRender('');
+  input.focus();
+}
+
+function paletteClose() {
+  if (!palette.open) return;
+  palette.open = false;
+  $('.topbar').inert = false; $('.shell').inert = false;
+  document.body.classList.remove('modal-open');
+  $('#palette').hidden = true;
+  if (palette.trigger?.isConnected) palette.trigger.focus();
+}
+
+function wirePalette() {
+  if ($('#palette')) return;
+  const el = document.createElement('div');
+  el.id = 'palette';
+  el.className = 'pal';
+  el.hidden = true;
+  el.innerHTML = `<div class="pal-scrim" data-pal-close></div>
+    <div class="pal-box" role="dialog" aria-modal="true" aria-label="Jump to">
+      <input id="palInput" class="pal-input" type="text" placeholder="Jump to a shelf, author, tag or entry…"
+             autocomplete="off" spellcheck="false" aria-label="Jump to a shelf, author, tag or entry" role="combobox" aria-expanded="true" aria-controls="palList">
+      <ul id="palList" class="pal-list" role="listbox" aria-label="Results"></ul>
+      <div class="pal-foot"><kbd>&#8593;</kbd><kbd>&#8595;</kbd> move <kbd>&#8629;</kbd> open <kbd>esc</kbd> close</div>
+    </div>`;
+  document.body.appendChild(el);
+
+  $('#palInput').addEventListener('input', e => paletteRender(e.target.value));
+  el.addEventListener('click', e => {
+    if (e.target.closest('[data-pal-close]')) return paletteClose();
+    const row = e.target.closest('.pal-row');
+    if (row) { palette.active = +row.dataset.i; paletteRun(); }
+  });
+  el.addEventListener('keydown', e => {
+    if (e.key === 'Tab') { e.preventDefault(); $('#palInput').focus(); }
+    if (e.key === 'ArrowDown') { e.preventDefault(); paletteMove(1); }
+    if (e.key === 'ArrowUp')   { e.preventDefault(); paletteMove(-1); }
+    if (e.key === 'Enter')     { e.preventDefault(); paletteRun(); }
+  });
+}
+
 
 /* --------------------------------------------------------------- drawer */
 
@@ -281,10 +612,16 @@ function fillSelect(el, options, selected) {
 }
 
 function clearFilters() {
-  state.q = ''; state.tag = null; state.source = 'all';
+  state.q = ''; state.tag = null; state.author = null; state.source = 'all';
   $('#search').value = '';
   $('#sourceSel').value = 'all';
   render();
+}
+
+function filterAuthor(name) {
+  clearFilters(); state.author = name;
+  state.section = state.cfg.sections.find(s => (state.data[s.id] || []).some(it => creditFor(it).name === name))?.id || 'use-cases';
+  location.hash = state.section; render(); $('#listTitle').focus();
 }
 
 function routeFromHash() {
@@ -304,6 +641,18 @@ function setSidebar(open) {
 }
 
 function wire() {
+  wirePalette();
+  $('#jumpBtn').addEventListener('click', paletteOpen);
+  const applyTheme = theme => {
+    document.documentElement.dataset.theme = theme === 'broadsheet' ? theme : 'dark';
+    $('#themeBtn').setAttribute('aria-pressed', theme === 'broadsheet');
+  };
+  try { applyTheme(localStorage.getItem('ha-theme')); } catch { applyTheme('dark'); }
+  $('#themeBtn').addEventListener('click', () => {
+    const next = document.documentElement.dataset.theme === 'broadsheet' ? 'dark' : 'broadsheet';
+    applyTheme(next);
+    try { localStorage.setItem('ha-theme', next); } catch {}
+  });
   setSidebar(false);
   mobile.addEventListener('change', () => setSidebar(false));
   new ResizeObserver(([entry]) => {
@@ -354,10 +703,12 @@ function wire() {
     state.section = a.dataset.section;
     setSidebar(false);
     render();
-    $('#listTitle').focus({ preventScroll: true });
+    (state.section === 'dashboard' ? $('#heroTitle') : $('#listTitle')).focus({ preventScroll: true });
   });
 
   document.addEventListener('click', e => {
+    const authorBtn = e.target.closest('[data-author]');
+    if (authorBtn) { filterAuthor(authorBtn.dataset.author); return; }
     const tagBtn = e.target.closest('[data-tag]');
     if (tagBtn) {
       state.tag = state.tag === tagBtn.dataset.tag ? null : tagBtn.dataset.tag;
@@ -371,6 +722,7 @@ function wire() {
       const k = drop.dataset.drop;
       if (k === 'q')      { state.q = ''; $('#search').value = ''; }
       if (k === 'tag')    state.tag = null;
+      if (k === 'author') state.author = null;
       if (k === 'source') { state.source = 'all'; $('#sourceSel').value = 'all'; }
       render(); $('#clearBtn').focus(); return;
     }
@@ -399,6 +751,8 @@ function wire() {
       }
       return; // Global search shortcuts must never escape the dialog.
     }
+    if (palette.open) { if (e.key === 'Escape') { e.preventDefault(); paletteClose(); } return; }
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); paletteOpen(); return; }
     if (e.key === 'Escape' && $('#sidebar').classList.contains('open')) {
       setSidebar(false); $('#menuBtn').focus();
     }

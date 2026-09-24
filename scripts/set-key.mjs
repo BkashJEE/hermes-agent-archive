@@ -59,7 +59,25 @@ function cleanPaste(chunk) {
     .trim();
 }
 
+let stdinEnded = false;
+
+function plainPrompt(label) {
+  // Once stdin is exhausted every later prompt resolves empty instead of hanging.
+  if (stdinEnded) return Promise.resolve('');
+  return new Promise(resolve => {
+    let done = false;
+    const finish = v => { if (!done) { done = true; resolve(v); } };
+    const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+    rl.question(`       ${label}  (paste, then Enter — input is visible in this mode): `, a => {
+      rl.close();
+      finish(a.trim());
+    });
+    rl.on('close', () => { stdinEnded = !process.stdin.isTTY; finish(''); });
+  });
+}
+
 function pasteArea(label) {
+  if (!RAW_OK) return plainPrompt(label);
   return new Promise(resolve => {
     const stdin = process.stdin;
     const out = process.stdout;
@@ -117,10 +135,9 @@ function pasteArea(label) {
   });
 }
 
-if (!process.stdin.isTTY) {
-  console.error('This needs an interactive terminal — run `npm run key` directly, not through a pipe.');
-  process.exit(1);
-}
+/* Raw mode is not available in every terminal. When it is not, fall back to a
+   plain line read: the key still never touches shell history or a log. */
+const RAW_OK = process.stdin.isTTY && typeof process.stdin.setRawMode === 'function' && !process.argv.includes('--plain');
 
 const existing = parseEnv(await readFile(ENV, 'utf8').catch(() => ''));
 

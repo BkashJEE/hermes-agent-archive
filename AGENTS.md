@@ -31,7 +31,7 @@ npm run key    # paste API keys into a gitignored .env
 estimate, not a placeholder that looks real.
 
 - Metrics come from public APIs via `scripts/fetch-signals.mjs`, or they don't exist.
-- A repo that fails to resolve is **hidden**, never shown with a guessed figure.
+- A repo that fails to resolve retains its write-up without a guessed metric.
 - An item with no public metric renders its tags and `no public metric`.
 - A source that failed at fetch time is named in the page footer.
 - X and Facebook have no free API. Entries from there are hand-curated **with a real
@@ -77,19 +77,39 @@ unknown sources, malformed dates and non-http URLs.
 Hacker News points, and Reddit upvotes. `route-signals.mjs` decides which section each
 signal belongs on — via Jev when `TYPESAFE_API_KEY` is set, via keyword rules otherwise.
 
-Popularity floors (25,000 stars · 300 HN points · 200 upvotes) apply at both stages, and
-each section caps at 10 sourced items. Sourced cards are marked `SOURCED`; a fetched
+Discovery floors default to 1,000 GitHub stars, 300 HN points and 200 Reddit upvotes;
+Jev judges relevance and quality.
+Section limits are configurable in the sourcing scripts. Sourced cards are marked `SOURCED`; a fetched
 duplicate of a curated URL is dropped, because hand-written entries win.
 
 **Known weakness:** the keyword fallback cannot tell a use case from ecosystem news, so
 fetched stories can land on the wrong shelf. The Jev router's `none` option
 and `worth_keeping` check fix this. Do not try to fix it with more regexes.
 
+## Typography and colour
+
+Keep Inter and JetBrains Mono and the portfolio colour tokens. The optional
+broadsheet layout changes structure, not the approved fonts or palette.
+
 ## Secrets
 
 `.env` is gitignored and written at mode 600 by `npm run key`. Never read it, echo it,
 print it to logs, or commit it. Never add a key to a data file, a workflow, or a script
 default. Scripts read from `process.env`; a shell export wins over the file.
+
+## Additive only — nothing is ever deleted
+
+The archive accumulates. No pipeline stage may remove an entry that is already in it.
+
+- `fetch-signals.mjs` merges into `data/live.json`; a source that fails keeps its last
+  known value marked `stale` rather than dropping it.
+- `import-hermes-stories.mjs` merges by id; an entry pulled from the source page keeps
+  its place in the archive even if it later disappears upstream.
+- A seeded repo that does not resolve stays on its shelf **without** a metric. The
+  write-up is the value; the star count is decoration.
+
+This rule exists because a single GitHub rate-limit once wiped a shelf and a 248k-star
+repo out of `live.json`. Recovery was `git show <sha>:data/live.json`.
 
 ## Scripts must fail honestly
 
@@ -104,6 +124,16 @@ happened here.
 - No AI attribution in commit messages or PR descriptions — no `Co-Authored-By` trailer,
   no "Generated with" line. This is the repo owner's standing preference.
 - Commit subject in the imperative, body explaining *why*.
+
+## Animation must never own a value
+
+Every figure, bar width and chart line is written at its real value first; the
+animation plays over the top. A hidden tab throttles `requestAnimationFrame` to
+nothing, and an animation that carries the value leaves `0` on screen — a number
+nobody measured, which is the one thing this site must not show.
+
+Use the Web Animations API for widths and strokes (the resting style stays correct),
+`document.hidden` and `prefers-reduced-motion` as early exits.
 
 ## Browser gotchas
 
