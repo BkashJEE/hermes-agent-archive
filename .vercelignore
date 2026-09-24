@@ -1,9 +1,9 @@
 *
 !index.html
 !vercel.json
-!assets/
+!assets
 !assets/**
-!data/
+!data
 !data/index.json
 !data/use-cases.json
 !data/skills.json
