@@ -779,6 +779,23 @@ function wire() {
   $('#sortSel').addEventListener('change',   e => { state.sort   = e.target.value; render(); });
   $('#clearBtn').addEventListener('click', clearFilters);
   $('#refreshBtn').addEventListener('click', async () => { await load(); render(); });
+
+  /* Theme is a per-reader preference, so it lives in their browser only.
+     Storage can throw in a private window, so every touch is guarded. */
+  const applyTheme = t => {
+    document.documentElement.dataset.theme = t;
+    $('#themeBtn').textContent = t === 'broadsheet' ? '\u25a4' : '\u25a3';
+    $('#themeBtn').title = t === 'broadsheet' ? 'Switch to console' : 'Switch to broadsheet';
+    if (state.section === 'dashboard') render();
+  };
+  let saved = 'dark';
+  try { saved = localStorage.getItem('ha-theme') || 'dark'; } catch {}
+  applyTheme(saved);
+  $('#themeBtn').addEventListener('click', () => {
+    const next = document.documentElement.dataset.theme === 'broadsheet' ? 'dark' : 'broadsheet';
+    applyTheme(next);
+    try { localStorage.setItem('ha-theme', next); } catch {}
+  });
   $('#menuBtn').addEventListener('click', () => $('#sidebar').classList.toggle('open'));
 
   $('#nav').addEventListener('click', e => {

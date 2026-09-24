@@ -96,6 +96,11 @@ Anthropic brand standard, not the portfolio's pairing:
 Colours still come from the portfolio (amber on near-black); only the fonts follow the
 brand standard. Do not swap either back to Inter.
 
+**Broadsheet theme** (`:root[data-theme="broadsheet"]`) is the one exception: it adds
+`--display` (Anton) for mastheads and figures, because a letterpress broadsheet needs a
+condensed display face. It overrides tokens only — no component is rewritten for it, so
+anything built against the tokens follows both themes for free.
+
 ## Secrets
 
 `.env` is gitignored and written at mode 600 by `npm run key`. Never read it, echo it,
