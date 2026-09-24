@@ -270,7 +270,7 @@ for (const section of index.sections) {
   for (const item of items) if (item.repo && !repos.includes(item.repo)) repos.push(item.repo);
 }
 
-console.log(`\nGitHub (${repos.length} seeded repos)`);
+console.log(`\nGitHub (${repos.length} seeded repos)${process.env.GITHUB_TOKEN ? ` · authenticated via ${process.env.GITHUB_TOKEN_SOURCE || 'GITHUB_TOKEN'}` : ' · unauthenticated, 60 requests/hour'}`);
 const seededData = await github(repos);
 console.log('\nGitHub discovery');
 const found = await discover(repos);
