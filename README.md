@@ -93,6 +93,20 @@ written to `data/use-cases.json`. Each keeps its headline, quote, author, date a
 to the original post exactly as Nous published them — nothing is paraphrased. The
 importer fails loudly if the page markup changes rather than importing half a shelf.
 
+## The Jev builder directory
+
+```bash
+node scripts/import-jev-hermes.mjs
+```
+
+Pulls the Hermes-related entries out of <https://www.jev-use-cases.com> — it renders 18
+tiles but ships all ~700 records in its flight payload, so one fetch gets the set. Only
+entries that mention Hermes are kept; at the last run that was 3 of 699.
+
+X impressions are the directory's own published figures, carried over as-is and credited
+to it. We do not measure impressions and never estimate them — this is the only place an
+X number on this site comes from.
+
 ## Only popular things get sourced
 
 This is a "most viewed, most talked about" shelf, so nothing reaches it on topic alone —
