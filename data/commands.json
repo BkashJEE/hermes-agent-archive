@@ -1,4 +1,3498 @@
 {
-  "note": "Cleared during the pivot to Hermes Agent. The previous entries documented Claude Code and did not belong here. Refill from the Hermes Agent docs and the sourcing pipeline \u2014 never from memory.",
-  "items": []
+  "note": "Imported from the official Hermes Agent CLI reference (https://hermes-agent.nousresearch.com/docs/reference/cli-commands) by scripts/import-hermes-cli.mjs, merged with anything already here. Wording is Nous's own.",
+  "items": [
+    {
+      "id": "cli-hermes-chat",
+      "title": "hermes chat",
+      "summary": "Interactive or one-shot chat with the agent.",
+      "detail": "Interactive or one-shot chat with the agent.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes chat",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-model",
+      "title": "hermes model",
+      "summary": "Interactively choose the default provider and model.",
+      "detail": "Interactively choose the default provider and model.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes model",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-moa",
+      "title": "hermes moa",
+      "summary": "Configure named Mixture of Agents presets selectable from the model picker.",
+      "detail": "Configure named Mixture of Agents presets selectable from the model picker.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes moa",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-fallback",
+      "title": "hermes fallback",
+      "summary": "Manage fallback providers tried when the primary model errors.",
+      "detail": "Manage fallback providers tried when the primary model errors.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes fallback",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-gateway",
+      "title": "hermes gateway",
+      "summary": "Run or manage the messaging gateway service.",
+      "detail": "Run or manage the messaging gateway service.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes gateway",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-proxy",
+      "title": "hermes proxy",
+      "summary": "Local OpenAI-compatible proxy that attaches OAuth provider credentials. See Subscription Proxy.",
+      "detail": "Local OpenAI-compatible proxy that attaches OAuth provider credentials. See Subscription Proxy.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes proxy",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-egress",
+      "title": "hermes egress",
+      "summary": "Outbound credential-injection firewall for remote terminal sandboxes (iron-proxy). Disabled by default. See Egress proxy.",
+      "detail": "Outbound credential-injection firewall for remote terminal sandboxes (iron-proxy). Disabled by default. See Egress proxy.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes egress",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-lsp",
+      "title": "hermes lsp",
+      "summary": "Manage Language Server Protocol integration (semantic diagnostics for write_file/patch).",
+      "detail": "Manage Language Server Protocol integration (semantic diagnostics for write_file/patch).\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes lsp",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-setup",
+      "title": "hermes setup",
+      "summary": "Interactive setup wizard for all or part of the configuration.",
+      "detail": "Interactive setup wizard for all or part of the configuration.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes setup",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-whatsapp",
+      "title": "hermes whatsapp",
+      "summary": "Configure and pair the WhatsApp bridge.",
+      "detail": "Configure and pair the WhatsApp bridge.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes whatsapp",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-whatsapp-cloud",
+      "title": "hermes whatsapp-cloud",
+      "summary": "Configure the official Meta WhatsApp Business Cloud API adapter (Business account + public webhook required). Distinct from hermes whatsapp (Baileys personal-account bridge).",
+      "detail": "Configure the official Meta WhatsApp Business Cloud API adapter (Business account + public webhook required). Distinct from hermes whatsapp (Baileys personal-account bridge).\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes whatsapp-cloud",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-slack",
+      "title": "hermes slack",
+      "summary": "Slack helpers (currently: generate the app manifest with every command as a native slash).",
+      "detail": "Slack helpers (currently: generate the app manifest with every command as a native slash).\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes slack",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-auth",
+      "title": "hermes auth",
+      "summary": "Manage credentials — add, list, remove, reset, status, logout. Handles OAuth flows for Codex/Nous/Anthropic.",
+      "detail": "Manage credentials — add, list, remove, reset, status, logout. Handles OAuth flows for Codex/Nous/Anthropic.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes auth",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-send",
+      "title": "hermes send",
+      "summary": "Send a one-shot message to a configured messaging platform (Telegram, Discord, Slack, Signal, SMS, …). Useful from shell scripts, cron jobs, CI hooks, and monitoring daemons — no agent loop, no LLM.",
+      "detail": "Send a one-shot message to a configured messaging platform (Telegram, Discord, Slack, Signal, SMS, …). Useful from shell scripts, cron jobs, CI hooks, and monitoring daemons — no agent loop, no LLM.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes send",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-peer",
+      "title": "hermes peer",
+      "summary": "Register peer Hermes gateways on other machines and DM their agents' canonical Bot Chats (hermes peer dm <peer>[/<agent>] \"…\"). The transport behind cross-machine bot-to-bot messaging.",
+      "detail": "Register peer Hermes gateways on other machines and DM their agents' canonical Bot Chats (hermes peer dm <peer>[/<agent>] \"…\"). The transport behind cross-machine bot-to-bot messaging.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes peer",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-secrets",
+      "title": "hermes secrets",
+      "summary": "Manage external secret sources (currently Bitwarden Secrets Manager) for pulling API keys at process startup instead of from ~/.hermes/.env.",
+      "detail": "Manage external secret sources (currently Bitwarden Secrets Manager) for pulling API keys at process startup instead of from ~/.hermes/.env.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes secrets",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-migrate",
+      "title": "hermes migrate",
+      "summary": "Diagnose and (optionally) rewrite config.yaml to replace references to retired models or deprecated settings (e.g. migrate xai).",
+      "detail": "Diagnose and (optionally) rewrite config.yaml to replace references to retired models or deprecated settings (e.g. migrate xai).\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes migrate",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-codex-runtime",
+      "title": "hermes codex-runtime",
+      "summary": "Noninteractive counterpart of /codex-runtime: migrate [--dry-run] [--json] regenerates the Hermes-managed block in ~/.codex/config.toml for the selected profile. See Codex app-server runtime.",
+      "detail": "Noninteractive counterpart of /codex-runtime: migrate [--dry-run] [--json] regenerates the Hermes-managed block in ~/.codex/config.toml for the selected profile. See Codex app-server runtime.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes codex-runtime",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-status",
+      "title": "hermes status",
+      "summary": "Show agent, auth, and platform status.",
+      "detail": "Show agent, auth, and platform status.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes status",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-usage",
+      "title": "hermes usage",
+      "summary": "Show the configured account's rate-limit windows (the /usage block) without a session; --json for scripts.",
+      "detail": "Show the configured account's rate-limit windows (the /usage block) without a session; --json for scripts.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes usage",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-cron",
+      "title": "hermes cron",
+      "summary": "Inspect and tick the cron scheduler.",
+      "detail": "Inspect and tick the cron scheduler.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes cron",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-kanban",
+      "title": "hermes kanban",
+      "summary": "Multi-profile collaboration board (tasks, links, dispatcher).",
+      "detail": "Multi-profile collaboration board (tasks, links, dispatcher).\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes kanban",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-project",
+      "title": "hermes project",
+      "summary": "Manage named, multi-folder workspaces (projects). Anchors desktop session grouping and, when bound to a kanban board, gives tasks a deterministic worktree + branch convention. State is per-profile.",
+      "detail": "Manage named, multi-folder workspaces (projects). Anchors desktop session grouping and, when bound to a kanban board, gives tasks a deterministic worktree + branch convention. State is per-profile.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes project",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-webhook",
+      "title": "hermes webhook",
+      "summary": "Manage dynamic webhook subscriptions for event-driven activation.",
+      "detail": "Manage dynamic webhook subscriptions for event-driven activation.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes webhook",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-hooks",
+      "title": "hermes hooks",
+      "summary": "Inspect, approve, or remove shell-script hooks declared in config.yaml.",
+      "detail": "Inspect, approve, or remove shell-script hooks declared in config.yaml.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes hooks",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-doctor",
+      "title": "hermes doctor",
+      "summary": "Diagnose config and dependency issues.",
+      "detail": "Diagnose config and dependency issues.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes doctor",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-security-audit",
+      "title": "hermes security audit",
+      "summary": "On-demand supply-chain audit (OSV.dev) for the venv, plugin requirements, and pinned MCP servers.",
+      "detail": "On-demand supply-chain audit (OSV.dev) for the venv, plugin requirements, and pinned MCP servers.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes security audit",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-approvals",
+      "title": "hermes approvals",
+      "summary": "Approval-prompt tools — mine approval history into allowlist proposals.",
+      "detail": "Approval-prompt tools — mine approval history into allowlist proposals.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes approvals",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-dump",
+      "title": "hermes dump",
+      "summary": "Copy-pasteable setup summary for support/debugging.",
+      "detail": "Copy-pasteable setup summary for support/debugging.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes dump",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-prompt-size",
+      "title": "hermes prompt-size",
+      "summary": "Show a byte breakdown of the system prompt + tool schemas (skills index, memory, profile). Runs offline.",
+      "detail": "Show a byte breakdown of the system prompt + tool schemas (skills index, memory, profile). Runs offline.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes prompt-size",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-debug",
+      "title": "hermes debug",
+      "summary": "Debug tools — upload logs and system info for support.",
+      "detail": "Debug tools — upload logs and system info for support.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes debug",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-backup",
+      "title": "hermes backup",
+      "summary": "Back up Hermes home directory to a zip file.",
+      "detail": "Back up Hermes home directory to a zip file.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes backup",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-checkpoints",
+      "title": "hermes checkpoints",
+      "summary": "Inspect / prune / clear ~/.hermes/checkpoints/ (the shadow store used by /rollback). Run with no args for a status overview.",
+      "detail": "Inspect / prune / clear ~/.hermes/checkpoints/ (the shadow store used by /rollback). Run with no args for a status overview.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes checkpoints",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-import",
+      "title": "hermes import",
+      "summary": "Restore a Hermes backup from a zip file.",
+      "detail": "Restore a Hermes backup from a zip file.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes import",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-logs",
+      "title": "hermes logs",
+      "summary": "View, tail, and filter agent/gateway/error log files.",
+      "detail": "View, tail, and filter agent/gateway/error log files.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes logs",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-config",
+      "title": "hermes config",
+      "summary": "Show, edit, migrate, and query configuration files.",
+      "detail": "Show, edit, migrate, and query configuration files.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes config",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-skin",
+      "title": "hermes skin",
+      "summary": "List, switch, and tweak display skins.",
+      "detail": "List, switch, and tweak display skins.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes skin",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-console",
+      "title": "hermes console",
+      "summary": "Open the safe Hermes command console.",
+      "detail": "Open the safe Hermes command console.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes console",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-pairing",
+      "title": "hermes pairing",
+      "summary": "Approve or revoke messaging pairing codes.",
+      "detail": "Approve or revoke messaging pairing codes.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes pairing",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-skills",
+      "title": "hermes skills",
+      "summary": "Browse, install, publish, audit, and configure skills.",
+      "detail": "Browse, install, publish, audit, and configure skills.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes skills",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-bundles",
+      "title": "hermes bundles",
+      "summary": "Group several skills under a single /<name> slash command. See Skill Bundles.",
+      "detail": "Group several skills under a single /<name> slash command. See Skill Bundles.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes bundles",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-curator",
+      "title": "hermes curator",
+      "summary": "Background skill maintenance — status, run, pause, pin. See Curator.",
+      "detail": "Background skill maintenance — status, run, pause, pin. See Curator.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes curator",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-memory",
+      "title": "hermes memory",
+      "summary": "Configure external memory provider. Plugin-specific subcommands (e.g. hermes honcho) register automatically when their provider is active.",
+      "detail": "Configure external memory provider. Plugin-specific subcommands (e.g. hermes honcho) register automatically when their provider is active.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes memory",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-acp",
+      "title": "hermes acp",
+      "summary": "Run Hermes as an ACP server for editor integration.",
+      "detail": "Run Hermes as an ACP server for editor integration.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes acp",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-mcp",
+      "title": "hermes mcp",
+      "summary": "Manage MCP server configurations and run Hermes as an MCP server.",
+      "detail": "Manage MCP server configurations and run Hermes as an MCP server.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes mcp",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-plugins",
+      "title": "hermes plugins",
+      "summary": "Manage Hermes Agent plugins (install, enable, disable, remove).",
+      "detail": "Manage Hermes Agent plugins (install, enable, disable, remove).\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes plugins",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-portal",
+      "title": "hermes portal",
+      "summary": "Nous Portal status, subscription link, and Tool Gateway routing. See Tool Gateway.",
+      "detail": "Nous Portal status, subscription link, and Tool Gateway routing. See Tool Gateway.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes portal",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-tools",
+      "title": "hermes tools",
+      "summary": "Configure enabled tools per platform.",
+      "detail": "Configure enabled tools per platform.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes tools",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-computer-use",
+      "title": "hermes computer-use",
+      "summary": "Install or check the Computer Use (cua-driver) backend (macOS/Windows/Linux).",
+      "detail": "Install or check the Computer Use (cua-driver) backend (macOS/Windows/Linux).\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes computer-use",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-pets",
+      "title": "hermes pets",
+      "summary": "Browse, install, and select petdex animated pets shown across the CLI, TUI, and desktop app. Subcommands: list, install, select, show, off, scale, remove, doctor.",
+      "detail": "Browse, install, and select petdex animated pets shown across the CLI, TUI, and desktop app. Subcommands: list, install, select, show, off, scale, remove, doctor.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes pets",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-sessions",
+      "title": "hermes sessions",
+      "summary": "Browse, export, prune, rename, and delete sessions.",
+      "detail": "Browse, export, prune, rename, and delete sessions.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes sessions",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-insights",
+      "title": "hermes insights",
+      "summary": "Show token/cost/activity analytics.",
+      "detail": "Show token/cost/activity analytics.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes insights",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-claw",
+      "title": "hermes claw",
+      "summary": "OpenClaw migration helpers.",
+      "detail": "OpenClaw migration helpers.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes claw",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-import-agent",
+      "title": "hermes import-agent",
+      "summary": "Import a Claude Code (~/.claude) or Codex CLI (~/.codex) setup.",
+      "detail": "Import a Claude Code (~/.claude) or Codex CLI (~/.codex) setup.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes import-agent",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-dashboard",
+      "title": "hermes dashboard",
+      "summary": "Launch the web dashboard for managing config, API keys, and sessions.",
+      "detail": "Launch the web dashboard for managing config, API keys, and sessions.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes dashboard",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-serve",
+      "title": "hermes serve",
+      "summary": "Start the Hermes backend server (headless; powers the desktop app and remote backends).",
+      "detail": "Start the Hermes backend server (headless; powers the desktop app and remote backends).\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes serve",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-profile",
+      "title": "hermes profile",
+      "summary": "Manage profiles — multiple isolated Hermes instances.",
+      "detail": "Manage profiles — multiple isolated Hermes instances.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes profile",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-completion",
+      "title": "hermes completion",
+      "summary": "Print shell completion scripts (bash/zsh/fish).",
+      "detail": "Print shell completion scripts (bash/zsh/fish).\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes completion",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-version",
+      "title": "hermes --version",
+      "summary": "Show version information.",
+      "detail": "Show version information.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes --version",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-update",
+      "title": "hermes update",
+      "summary": "Pull latest code and reinstall dependencies. --check previews without installing; --backup takes a pre-pull HERMES_HOME snapshot.",
+      "detail": "Pull latest code and reinstall dependencies. --check previews without installing; --backup takes a pre-pull HERMES_HOME snapshot.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes update",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-hermes-uninstall",
+      "title": "hermes uninstall",
+      "summary": "Remove Hermes from the system.",
+      "detail": "Remove Hermes from the system.\n\nFrom the official Hermes Agent CLI reference.",
+      "snippet": "hermes uninstall",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-system",
+      "title": "system",
+      "summary": "subtype: \"init\", model, session_id",
+      "detail": "subtype: \"init\", model, session_id\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-text",
+      "title": "text",
+      "summary": "text — a streamed assistant text delta",
+      "detail": "text — a streamed assistant text delta\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-tool-use",
+      "title": "tool_use",
+      "summary": "name; input when the tool arguments are available",
+      "detail": "name; input when the tool arguments are available\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-tool-result",
+      "title": "tool_result",
+      "summary": "name, output (capped at 5000 chars), duration_ms, is_error",
+      "detail": "name, output (capped at 5000 chars), duration_ms, is_error\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-result",
+      "title": "result",
+      "summary": "session_id, exit_code, text, tokens (input, output, total, cache_read, cache_write), duration_ms; error when the turn failed",
+      "detail": "session_id, exit_code, text, tokens (input, output, total, cache_read, cache_write), duration_ms; error when the turn failed\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-run",
+      "title": "run",
+      "summary": "Run the gateway in the foreground. Recommended for WSL, Docker, and Termux.",
+      "detail": "Run the gateway in the foreground. Recommended for WSL, Docker, and Termux.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-start",
+      "title": "start",
+      "summary": "Start the installed systemd/launchd background service.",
+      "detail": "Start the installed systemd/launchd background service.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-stop",
+      "title": "stop",
+      "summary": "Stop the service (or foreground process).",
+      "detail": "Stop the service (or foreground process).\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-restart",
+      "title": "restart",
+      "summary": "Restart the service.",
+      "detail": "Restart the service.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-status",
+      "title": "status",
+      "summary": "Show service status.",
+      "detail": "Show service status.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-list",
+      "title": "list",
+      "summary": "List all profiles and whether each profile's gateway is currently running (with PID where available). Handy when you run multiple profiles side-by-side and want a single overview.",
+      "detail": "List all profiles and whether each profile's gateway is currently running (with PID where available). Handy when you run multiple profiles side-by-side and want a single overview.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-install",
+      "title": "install",
+      "summary": "Install as a systemd (Linux) or launchd (macOS) background service.",
+      "detail": "Install as a systemd (Linux) or launchd (macOS) background service.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-uninstall",
+      "title": "uninstall",
+      "summary": "Remove the installed service.",
+      "detail": "Remove the installed service.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-setup",
+      "title": "setup",
+      "summary": "Interactive messaging-platform setup.",
+      "detail": "Interactive messaging-platform setup.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-migrate",
+      "title": "migrate",
+      "summary": "Fold per-profile standalone gateways onto the one host gateway (--multiplex, the only mode — hermes update runs it automatically unless a real boundary blocks it). Re-running it converges a half-migrated host; a manifest on disk is the resume record, never a rollback (there is no --standalone). Runs a preflight (duplicate bot tokens, secondary port-binders without a /p/<profile>/ ingress) and changes nothing when blocked. Flags: --dry-run, -y/--yes. See Migrating from per-profile gateways.",
+      "detail": "Fold per-profile standalone gateways onto the one host gateway (--multiplex, the only mode — hermes update runs it automatically unless a real boundary blocks it). Re-running it converges a half-migrated host; a manifest on disk is the resume record, never a rollback (there is no --standalone). Runs a preflight (duplicate bot tokens, secondary port-binders without a /p/<profile>/ ingress) and changes nothing when blocked. Flags: --dry-run, -y/--yes. See Migrating from per-profile gateways.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-migrate-legacy",
+      "title": "migrate-legacy",
+      "summary": "Remove legacy hermes.service units left over from pre-rename installs. Profile units (hermes-gateway-<profile>.service) and unrelated services are never touched. Flags: --dry-run, -y/--yes.",
+      "detail": "Remove legacy hermes.service units left over from pre-rename installs. Profile units (hermes-gateway-<profile>.service) and unrelated services are never touched. Flags: --dry-run, -y/--yes.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-install-id",
+      "title": "install <id>",
+      "summary": "Eagerly install one server's binary.",
+      "detail": "Eagerly install one server's binary.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-install-all",
+      "title": "install-all",
+      "summary": "Install every server with a known auto-install recipe.",
+      "detail": "Install every server with a known auto-install recipe.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-which-id",
+      "title": "which <id>",
+      "summary": "Print the resolved binary path for one server.",
+      "detail": "Print the resolved binary path for one server.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-model",
+      "title": "model",
+      "summary": "Provider and model setup.",
+      "detail": "Provider and model setup.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-terminal",
+      "title": "terminal",
+      "summary": "Terminal backend and sandbox setup.",
+      "detail": "Terminal backend and sandbox setup.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-gateway",
+      "title": "gateway",
+      "summary": "Messaging platform setup.",
+      "detail": "Messaging platform setup.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-tools",
+      "title": "tools",
+      "summary": "Enable/disable tools per platform.",
+      "detail": "Enable/disable tools per platform.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-open",
+      "title": "open",
+      "summary": "Open portal.nousresearch.com/manage-subscription in your default browser.",
+      "detail": "Open portal.nousresearch.com/manage-subscription in your default browser.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-dm-peer-agent-message",
+      "title": "dm <peer>[/<agent>] [message]",
+      "summary": "Message the peer agent's canonical Bot Chat and print the reply (--json for machine-readable output; message falls back to stdin).",
+      "detail": "Message the peer agent's canonical Bot Chat and print the reply (--json for machine-readable output; message falls back to stdin).\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-run-peer-agent-message",
+      "title": "run <peer>[/<agent>] [message]",
+      "summary": "Start a long canonical Bot Chat turn asynchronously and return its run_id, session ID, and idempotency key (--json supported). Reuse --idempotency-key when retrying the same request.",
+      "detail": "Start a long canonical Bot Chat turn asynchronously and return its run_id, session ID, and idempotency key (--json supported). Reuse --idempotency-key when retrying the same request.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-status-peer-agent-run-id",
+      "title": "status <peer>[/<agent>] <run_id>",
+      "summary": "Poll an asynchronous peer run and print its final output when complete (--json supported).",
+      "detail": "Poll an asynchronous peer run and print its final output when complete (--json supported).\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-stop-peer-agent-run-id",
+      "title": "stop <peer>[/<agent>] <run_id>",
+      "summary": "Stop the exact asynchronous peer run without targeting another turn (--json supported).",
+      "detail": "Stop the exact asynchronous peer run without targeting another turn (--json supported).\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-remove-name",
+      "title": "remove <name>",
+      "summary": "Remove a peer from the registry (the .env key entry is left in place).",
+      "detail": "Remove a peer from the registry (the .env key entry is left in place).\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-token",
+      "title": "token",
+      "summary": "Rotate the access token: validates the new token against Bitwarden before storing it in .env (a rejected token changes nothing). Accepts --access-token for non-interactive use and --no-verify to skip the probe.",
+      "detail": "Rotate the access token: validates the new token against Bitwarden before storing it in .env (a rejected token changes nothing). Accepts --access-token for non-interactive use and --no-verify to skip the probe.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sync",
+      "title": "sync",
+      "summary": "Fetch secrets now and report what changed. Add --apply to actually export the secrets into the current shell's environment (default is dry-run).",
+      "detail": "Fetch secrets now and report what changed. Add --apply to actually export the secrets into the current shell's environment (default is dry-run).\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-disable",
+      "title": "disable",
+      "summary": "Turn off the Bitwarden integration.",
+      "detail": "Turn off the Bitwarden integration.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-providers",
+      "title": "providers",
+      "summary": "List available proxy upstream providers.",
+      "detail": "List available proxy upstream providers.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-audit",
+      "title": "audit",
+      "summary": "Run a one-shot supply-chain audit.",
+      "detail": "Run a one-shot supply-chain audit.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-edit",
+      "title": "edit",
+      "summary": "Update a job's schedule, prompt, name, delivery, repeat count, or attached skills. Supports --clear-skills, --add-skill, and --remove-skill, plus --reasoning-effort (empty string clears the pin).",
+      "detail": "Update a job's schedule, prompt, name, delivery, repeat count, or attached skills. Supports --clear-skills, --add-skill, and --remove-skill, plus --reasoning-effort (empty string clears the pin).\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-pause",
+      "title": "pause",
+      "summary": "Pause a job without deleting it.",
+      "detail": "Pause a job without deleting it.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-resume",
+      "title": "resume",
+      "summary": "Resume a paused job. A recurring slot that came due while paused stays due (one catch-up run or a logged skip on the next tick); otherwise the next future run is computed.",
+      "detail": "Resume a paused job. A recurring slot that came due while paused stays due (one catch-up run or a logged skip on the next tick); otherwise the next future run is computed.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-remove",
+      "title": "remove",
+      "summary": "Delete a scheduled job.",
+      "detail": "Delete a scheduled job.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-doctor",
+      "title": "doctor",
+      "summary": "Read-only fleet health check: failed runs, failed deliveries, overdue/missing next_run_at, missing scripts or workdirs. Exits non-zero when issues are found.",
+      "detail": "Read-only fleet health check: failed runs, failed deliveries, overdue/missing next_run_at, missing scripts or workdirs. Exits non-zero when issues are found.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-tick",
+      "title": "tick",
+      "summary": "Run due jobs once and exit.",
+      "detail": "Run due jobs once and exit.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-init",
+      "title": "init",
+      "summary": "Create kanban.db if missing. Idempotent.",
+      "detail": "Create kanban.db if missing. Idempotent.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-boards-create-slug",
+      "title": "boards create <slug>",
+      "summary": "Create a new board. Flags: --name, --description, --icon, --color, --switch (make active). Slug is kebab-case, auto-downcased.",
+      "detail": "Create a new board. Flags: --name, --description, --icon, --color, --switch (make active). Slug is kebab-case, auto-downcased.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-boards-rename-slug-name",
+      "title": "boards rename <slug> \"<name>\"",
+      "summary": "Change a board's display name. Slug is immutable.",
+      "detail": "Change a board's display name. Slug is immutable.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-boards-rm-slug",
+      "title": "boards rm <slug>",
+      "summary": "Archive (default) or hard-delete a board. --delete skips the archive step. Archived boards move to boards/_archived/<slug>-<ts>/. Refused for default.",
+      "detail": "Archive (default) or hard-delete a board. --delete skips the archive step. Archived boards move to boards/_archived/<slug>-<ts>/. Refused for default.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-create-title",
+      "title": "create \"<title>\"",
+      "summary": "Create a new task on the active board. Flags: --body, --assignee, --parent (repeatable), --workspace scratch|worktree|dir:<path>, --tenant, --priority, --triage, --idempotency-key, --max-runtime, --max-retries, --skill (repeatable).",
+      "detail": "Create a new task on the active board. Flags: --body, --assignee, --parent (repeatable), --workspace scratch|worktree|dir:<path>, --tenant, --priority, --triage, --idempotency-key, --max-runtime, --max-retries, --skill (repeatable).\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-show-id",
+      "title": "show <id>",
+      "summary": "Show a task with comments and events. --json for machine output.",
+      "detail": "Show a task with comments and events. --json for machine output.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-assign-id-profile",
+      "title": "assign <id> <profile>",
+      "summary": "Assign or reassign. Use none to unassign. Refused while task is running.",
+      "detail": "Assign or reassign. Use none to unassign. Refused while task is running.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-link-parent-child",
+      "title": "link <parent> <child>",
+      "summary": "Add a dependency. Cycle-detected. Both tasks must be on the same board.",
+      "detail": "Add a dependency. Cycle-detected. Both tasks must be on the same board.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-unlink-parent-child",
+      "title": "unlink <parent> <child>",
+      "summary": "Remove a dependency.",
+      "detail": "Remove a dependency.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-claim-id",
+      "title": "claim <id>",
+      "summary": "Atomically claim a ready task. Prints resolved workspace path.",
+      "detail": "Atomically claim a ready task. Prints resolved workspace path.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-comment-id-text",
+      "title": "comment <id> \"<text>\"",
+      "summary": "Append a comment. The next worker that claims the task reads it as part of its kanban_show() response.",
+      "detail": "Append a comment. The next worker that claims the task reads it as part of its kanban_show() response.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-complete-id",
+      "title": "complete <id>",
+      "summary": "Mark task done. Flags: --result, --summary, --metadata.",
+      "detail": "Mark task done. Flags: --result, --summary, --metadata.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-block-id-reason",
+      "title": "block <id> \"<reason>\"",
+      "summary": "Mark task blocked for human input. Also appends the reason as a comment.",
+      "detail": "Mark task blocked for human input. Also appends the reason as a comment.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-request-review-id",
+      "title": "request-review <id>",
+      "summary": "Move a task to review with a reviewer handoff — NOT a block. Flags: --summary, --metadata, --reviewer (reassigns before review dispatch).",
+      "detail": "Move a task to review with a reviewer handoff — NOT a block. Flags: --summary, --metadata, --reviewer (reassigns before review dispatch).\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-request-changes-id-reason",
+      "title": "request-changes <id> <reason>",
+      "summary": "Reviewer verdict for an active review run: close the review attempt and route the task back to its original implementer.",
+      "detail": "Reviewer verdict for an active review run: close the review attempt and route the task back to its original implementer.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-reopen-review-id",
+      "title": "reopen-review <id>...",
+      "summary": "Send review task(s) back for changes (review → ready/todo). Flag: --reason (appended as a comment).",
+      "detail": "Send review task(s) back for changes (review → ready/todo). Flag: --reason (appended as a comment).\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-schedule-id-reason",
+      "title": "schedule <id> \"<reason>\"",
+      "summary": "Park time-delay/follow-up work in scheduled so it is not shown as a human blocker.",
+      "detail": "Park time-delay/follow-up work in scheduled so it is not shown as a human blocker.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-unblock-id",
+      "title": "unblock <id>",
+      "summary": "Restore a blocked task to its source phase (review or ready), or todo while dependencies remain open.",
+      "detail": "Restore a blocked task to its source phase (review or ready), or todo while dependencies remain open.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-archive-id",
+      "title": "archive <id>",
+      "summary": "Hide from default list. gc will remove scratch workspaces.",
+      "detail": "Hide from default list. gc will remove scratch workspaces.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-tail-id",
+      "title": "tail <id>",
+      "summary": "Follow a task's event stream.",
+      "detail": "Follow a task's event stream.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-dispatch",
+      "title": "dispatch",
+      "summary": "One dispatcher pass on the active board. Flags: --dry-run, --max N, --failure-limit N, --json.",
+      "detail": "One dispatcher pass on the active board. Flags: --dry-run, --max N, --failure-limit N, --json.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-context-id",
+      "title": "context <id>",
+      "summary": "Print the full context a worker would see (title + body + parent results + comments).",
+      "detail": "Print the full context a worker would see (title + body + parent results + comments).\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-gc",
+      "title": "gc",
+      "summary": "Remove scratch workspaces for archived tasks.",
+      "detail": "Remove scratch workspaces for archived tasks.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-create",
+      "title": "create",
+      "summary": "Create a new project.",
+      "detail": "Create a new project.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-show",
+      "title": "show",
+      "summary": "Show a project's details.",
+      "detail": "Show a project's details.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-add-folder",
+      "title": "add-folder",
+      "summary": "Add a folder / repo to a project.",
+      "detail": "Add a folder / repo to a project.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-remove-folder",
+      "title": "remove-folder",
+      "summary": "Remove a folder from a project.",
+      "detail": "Remove a folder from a project.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-rename",
+      "title": "rename",
+      "summary": "Rename a project.",
+      "detail": "Rename a project.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-set-primary",
+      "title": "set-primary",
+      "summary": "Set the primary folder.",
+      "detail": "Set the primary folder.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-use",
+      "title": "use",
+      "summary": "Set the active project.",
+      "detail": "Set the active project.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-archive",
+      "title": "archive",
+      "summary": "Archive a project (recoverable).",
+      "detail": "Archive a project (recoverable).\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-restore",
+      "title": "restore",
+      "summary": "Restore an archived project.",
+      "detail": "Restore an archived project.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-bind-board",
+      "title": "bind-board",
+      "summary": "Bind a kanban board to this project.",
+      "detail": "Bind a kanban board to this project.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-test",
+      "title": "test",
+      "summary": "Send a test POST to verify a subscription is working.",
+      "detail": "Send a test POST to verify a subscription is working.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-prune",
+      "title": "prune",
+      "summary": "Force a cleanup sweep — delete orphan and stale projects, GC the store, enforce the size cap. Ignores the 24h idempotency marker.",
+      "detail": "Force a cleanup sweep — delete orphan and stale projects, GC the store, enforce the size cap. Ignores the 24h idempotency marker.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-clear",
+      "title": "clear",
+      "summary": "Delete the entire checkpoint base. Irreversible; asks for confirmation unless -f.",
+      "detail": "Delete the entire checkpoint base. Irreversible; asks for confirmation unless -f.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-clear-legacy",
+      "title": "clear-legacy",
+      "summary": "Delete only the legacy-<timestamp>/ archives produced by the v1→v2 migration. Exits 2 (after printing Could not delete N archive(s)) when any archive could not be removed, e.g. read-only git objects on Windows.",
+      "detail": "Delete only the legacy-<timestamp>/ archives produced by the v1→v2 migration. Exits 2 (after printing Could not delete N archive(s)) when any archive could not be removed, e.g. read-only git objects on Windows.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-log-name",
+      "title": "log_name",
+      "summary": "Which log to view: agent (default), errors, gateway, or list to show available files with sizes.",
+      "detail": "Which log to view: agent (default), errors, gateway, or list to show available files with sizes.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-env-path",
+      "title": "env-path",
+      "summary": "Print the .env file path.",
+      "detail": "Print the .env file path.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-approve-platform-code",
+      "title": "approve <platform> <code>",
+      "summary": "Approve a pairing code.",
+      "detail": "Approve a pairing code.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-revoke-platform-user-id",
+      "title": "revoke <platform> <user-id>",
+      "summary": "Revoke a user's access.",
+      "detail": "Revoke a user's access.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-clear-pending",
+      "title": "clear-pending",
+      "summary": "Clear pending pairing codes.",
+      "detail": "Clear pending pairing codes.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-browse",
+      "title": "browse",
+      "summary": "Paginated browser for skill registries.",
+      "detail": "Paginated browser for skill registries.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-search",
+      "title": "search",
+      "summary": "Search skill registries.",
+      "detail": "Search skill registries.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-inspect",
+      "title": "inspect",
+      "summary": "Preview a skill without installing it.",
+      "detail": "Preview a skill without installing it.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-update",
+      "title": "update",
+      "summary": "Reinstall hub skills with upstream changes when available.",
+      "detail": "Reinstall hub skills with upstream changes when available.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-opt-out",
+      "title": "opt-out",
+      "summary": "Stop bundled skills from being seeded into the active profile. Writes a .no-bundled-skills marker so the installer, hermes update, and any sync skip bundled-skill seeding. Safe by default — nothing on disk is touched. With --remove, also deletes already-present bundled skills that are unmodified (user-edited, hub-installed, and hand-written skills are never removed; previews and confirms first, --yes to skip).",
+      "detail": "Stop bundled skills from being seeded into the active profile. Writes a .no-bundled-skills marker so the installer, hermes update, and any sync skip bundled-skill seeding. Safe by default — nothing on disk is touched. With --remove, also deletes already-present bundled skills that are unmodified (user-edited, hub-installed, and hand-written skills are never removed; previews and confirms first, --yes to skip).\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-opt-in",
+      "title": "opt-in",
+      "summary": "Undo opt-out by removing the .no-bundled-skills marker so bundled skills are seeded again on the next hermes update. With --sync, re-seed immediately.",
+      "detail": "Undo opt-out by removing the .no-bundled-skills marker so bundled skills are seeded again on the next hermes update. With --sync, re-seed immediately.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-publish",
+      "title": "publish",
+      "summary": "Publish a skill to a registry.",
+      "detail": "Publish a skill to a registry.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-tap",
+      "title": "tap",
+      "summary": "Manage custom skill sources.",
+      "detail": "Manage custom skill sources.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-show-name",
+      "title": "show <name>",
+      "summary": "Show one bundle's name, description, skills, and file path",
+      "detail": "Show one bundle's name, description, skills, and file path\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-create-name",
+      "title": "create <name>",
+      "summary": "Create a new bundle. Pass --skill <id> (repeat) or omit for interactive entry. --description, --instruction, --force available.",
+      "detail": "Create a new bundle. Pass --skill <id> (repeat) or omit for interactive entry. --description, --instruction, --force available.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-delete-name",
+      "title": "delete <name>",
+      "summary": "Remove a bundle file",
+      "detail": "Remove a bundle file\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-reload",
+      "title": "reload",
+      "summary": "Re-scan ~/.hermes/skill-bundles/ and report added/removed bundles",
+      "detail": "Re-scan ~/.hermes/skill-bundles/ and report added/removed bundles\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-run-background",
+      "title": "run --background",
+      "summary": "Start the LLM pass in a background thread and return immediately",
+      "detail": "Start the LLM pass in a background thread and return immediately\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-run-dry-run",
+      "title": "run --dry-run",
+      "summary": "Preview only — produce the review report with no mutations",
+      "detail": "Preview only — produce the review report with no mutations\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-backup",
+      "title": "backup",
+      "summary": "Take a manual tar.gz snapshot of ~/.hermes/skills/ (curator also snapshots automatically before every real run)",
+      "detail": "Take a manual tar.gz snapshot of ~/.hermes/skills/ (curator also snapshots automatically before every real run)\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-rollback",
+      "title": "rollback",
+      "summary": "Restore ~/.hermes/skills/ from a snapshot (defaults to newest)",
+      "detail": "Restore ~/.hermes/skills/ from a snapshot (defaults to newest)\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-rollback-list",
+      "title": "rollback --list",
+      "summary": "List available snapshots",
+      "detail": "List available snapshots\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-rollback-id-ts",
+      "title": "rollback --id <ts>",
+      "summary": "Restore a specific snapshot by id",
+      "detail": "Restore a specific snapshot by id\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-rollback-y",
+      "title": "rollback -y",
+      "summary": "Skip the confirmation prompt",
+      "detail": "Skip the confirmation prompt\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-pin-skill",
+      "title": "pin <skill>",
+      "summary": "Pin a skill so the curator never auto-transitions it",
+      "detail": "Pin a skill so the curator never auto-transitions it\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-restore-skill",
+      "title": "restore <skill>",
+      "summary": "Restore an archived skill",
+      "detail": "Restore an archived skill\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-archive-skill",
+      "title": "archive <skill>",
+      "summary": "Archive a skill manually",
+      "detail": "Archive a skill manually\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-list-archived",
+      "title": "list-archived",
+      "summary": "List archived skills (recoverable via restore)",
+      "detail": "List archived skills (recoverable via restore)\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-add",
+      "title": "add",
+      "summary": "Pick a provider + model (same picker as hermes model) and append to the chain",
+      "detail": "Pick a provider + model (same picker as hermes model) and append to the chain\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-test-event",
+      "title": "test <event>",
+      "summary": "Fire every hook matching <event> against a synthetic payload",
+      "detail": "Fire every hook matching <event> against a synthetic payload\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-off",
+      "title": "off",
+      "summary": "Disable external provider (built-in only).",
+      "detail": "Disable external provider (built-in only).\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-catalog",
+      "title": "catalog",
+      "summary": "List Nous-approved MCPs (plain text, scriptable).",
+      "detail": "List Nous-approved MCPs (plain text, scriptable).\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-install-name",
+      "title": "install <name>",
+      "summary": "Install a catalog entry (e.g. hermes mcp install deepwiki).",
+      "detail": "Install a catalog entry (e.g. hermes mcp install deepwiki).\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-serve-v-verbose",
+      "title": "serve [-v|--verbose]",
+      "summary": "Run Hermes as an MCP server — expose conversations to other agents.",
+      "detail": "Run Hermes as an MCP server — expose conversations to other agents.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-test-name",
+      "title": "test <name>",
+      "summary": "Test connection to an MCP server.",
+      "detail": "Test connection to an MCP server.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-install-identifier-force-ref-commit-sha-allow-removed",
+      "title": "install <identifier> [--force] [--ref COMMIT_SHA] [--allow-removed]",
+      "summary": "Install a plugin from the Hermes plugin catalog (bare entry name), a Git URL, or owner/repo shorthand. Catalog names resolve to the entry's repo at its pinned 40-hex commit SHA, show the declared capability summary, and record catalog provenance on the installer's .install-metadata.json record (a .hermes-catalog.json copy is written inside the plugin dir for convenience, but is never trusted). Raw URLs are flagged as custom (unreviewed) sources; --ref (full 40-character commit SHA) pins them, and on a catalog entry records the checked-out SHA rather than the reviewed pin. --allow-removed (DANGEROUS) bypasses the removed-plugin blocklist at install AND exempts that install from the update/enable/load-time kill-list checks.",
+      "detail": "Install a plugin from the Hermes plugin catalog (bare entry name), a Git URL, or owner/repo shorthand. Catalog names resolve to the entry's repo at its pinned 40-hex commit SHA, show the declared capability summary, and record catalog provenance on the installer's .install-metadata.json record (a .hermes-catalog.json copy is written inside the plugin dir for convenience, but is never trusted). Raw URLs are flagged as custom (unreviewed) sources; --ref (full 40-character commit SHA) pins them, and on a catalog entry records the checked-out SHA rather than the reviewed pin. --allow-removed (DANGEROUS) bypasses the removed-plugin blocklist at install AND exempts that install from the update/enable/load-time kill-list checks.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-search-term-json",
+      "title": "search [term] [--json]",
+      "summary": "Search the Hermes plugin catalog (matches entry names, descriptions, and declared tools; omit term to list everything). The catalog is curated in-repo (plugin-catalog/), refreshed from the live repo with a 6-hour cache, and falls back to the in-tree copy offline. Cataloged ≠ audited — admission reviews the entry, not the code.",
+      "detail": "Search the Hermes plugin catalog (matches entry names, descriptions, and declared tools; omit term to list everything). The catalog is curated in-repo (plugin-catalog/), refreshed from the live repo with a 6-hour cache, and falls back to the in-tree copy offline. Cataloged ≠ audited — admission reviews the entry, not the code.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-update-name",
+      "title": "update <name>",
+      "summary": "Pull latest changes for an unpinned installed plugin. Pinned plugins must be reinstalled with --force --ref <new-commit> to move.",
+      "detail": "Pull latest changes for an unpinned installed plugin. Pinned plugins must be reinstalled with --force --ref <new-commit> to move.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-enable-name",
+      "title": "enable <name>",
+      "summary": "Enable a disabled plugin.",
+      "detail": "Enable a disabled plugin.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-disable-name",
+      "title": "disable <name>",
+      "summary": "Disable a plugin without removing it.",
+      "detail": "Disable a plugin without removing it.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-doctor-path-or-id-ci",
+      "title": "doctor [path-or-id] [--ci]",
+      "summary": "Validate a native plugin through the real manifest parser, loader, and registration path. --ci exits 1 on errors.",
+      "detail": "Validate a native plugin through the real manifest parser, loader, and registration path. --ci exits 1 on errors.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-pack-install-path-or-url-force",
+      "title": "pack install <path-or-url> [--force]",
+      "summary": "Install a plugin pack (hermes-pack.yaml) — a declarative set of plugins each pinned to an exact 40-character commit SHA. Shows a mandatory review screen (every plugin, source, pinned ref, declared capabilities), asks one confirmation for the pack contents, then runs ordinary pinned installs. Each plugin's declared capabilities still go through the standard per-plugin consent — a pack never bulk-grants. Partial failures are reported per plugin; exits non-zero when any plugin failed. Interactive only (no --yes).",
+      "detail": "Install a plugin pack (hermes-pack.yaml) — a declarative set of plugins each pinned to an exact 40-character commit SHA. Shows a mandatory review screen (every plugin, source, pinned ref, declared capabilities), asks one confirmation for the pack contents, then runs ordinary pinned installs. Each plugin's declared capabilities still go through the standard per-plugin consent — a pack never bulk-grants. Partial failures are reported per plugin; exits non-zero when any plugin failed. Interactive only (no --yes).\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-pack-show-path-or-url",
+      "title": "pack show <path-or-url>",
+      "summary": "Dry-run: parse, validate, and display a pack without installing anything.",
+      "detail": "Dry-run: parse, validate, and display a pack without installing anything.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-install-upgrade",
+      "title": "install --upgrade",
+      "summary": "Re-run the installer even if cua-driver is already on PATH. The upstream script always pulls the latest release, so this performs an in-place upgrade.",
+      "detail": "Re-run the installer even if cua-driver is already on PATH. The upstream script always pulls the latest release, so this performs an in-place upgrade.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-doctor-include-check-skip-check-json",
+      "title": "doctor [--include CHECK] [--skip CHECK] [--json]",
+      "summary": "Run cua-driver's health report and show its platform checks.",
+      "detail": "Run cua-driver's health report and show its platform checks.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-permissions-status-json",
+      "title": "permissions status [--json]",
+      "summary": "Report macOS Accessibility and Screen Recording grants.",
+      "detail": "Report macOS Accessibility and Screen Recording grants.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-permissions-grant",
+      "title": "permissions grant",
+      "summary": "Ask macOS to grant Accessibility and Screen Recording to Cua Driver.",
+      "detail": "Ask macOS to grant Accessibility and Screen Recording to Cua Driver.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-select",
+      "title": "select",
+      "summary": "Set the active pet (writes display.pet.*).",
+      "detail": "Set the active pet (writes display.pet.*).\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-scale",
+      "title": "scale",
+      "summary": "Resize the pet everywhere (display.pet.scale).",
+      "detail": "Resize the pet everywhere (display.pet.scale).\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-export-output-session-id-id",
+      "title": "export <output> [--session-id ID]",
+      "summary": "Export sessions to JSONL.",
+      "detail": "Export sessions to JSONL.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-delete-session-id",
+      "title": "delete <session-id>",
+      "summary": "Delete one session.",
+      "detail": "Delete one session.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-stats",
+      "title": "stats",
+      "summary": "Show session-store statistics.",
+      "detail": "Show session-store statistics.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-rename-session-id-title",
+      "title": "rename <session-id> <title>",
+      "summary": "Set or change a session title.",
+      "detail": "Set or change a session title.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-optimize",
+      "title": "optimize",
+      "summary": "Reclaim disk space: merge FTS5 index segments + VACUUM. Non-destructive — no session data changes.",
+      "detail": "Reclaim disk space: merge FTS5 index segments + VACUUM. Non-destructive — no session data changes.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-optimize-storage",
+      "title": "optimize-storage",
+      "summary": "Migrate the full-text search index to the compact v23 external-content layout; on large databases this reclaims a large fraction of state.db.",
+      "detail": "Migrate the full-text search index to the compact v23 external-content layout; on large databases this reclaims a large fraction of state.db.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-repair",
+      "title": "repair",
+      "summary": "Repair a malformed state.db schema (e.g. table messages_fts already exists) so hidden sessions reappear; a backup is made first.",
+      "detail": "Repair a malformed state.db schema (e.g. table messages_fts already exists) so hidden sessions reappear; a backup is made first.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-repair-routing",
+      "title": "repair-routing",
+      "summary": "Re-attach gateway conversations stranded in session rows that lost their routing identity (a chat \"jumping back in time\" after a restart). Dry-run by default; --apply performs the adoptions (stop the gateway first); --max-gap-seconds N tunes the contiguity window. Only unambiguous cases are repaired. See Sessions → Repair Stranded Gateway Sessions.",
+      "detail": "Re-attach gateway conversations stranded in session rows that lost their routing identity (a chat \"jumping back in time\" after a restart). Dry-run by default; --apply performs the adoptions (stop the gateway first); --max-gap-seconds N tunes the contiguity window. Only unambiguous cases are repaired. See Sessions → Repair Stranded Gateway Sessions.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-repair-profiles",
+      "title": "repair-profiles",
+      "summary": "Settle session, routing, Telegram-topic and voice-mode state that landed under the wrong profile (rows in another profile's store, labels disagreeing with the session key, parent links crossing profiles, index rows for deleted profiles). Dry-run by default; --apply performs the repairs after snapshotting every store (stop the gateway first); --legacy-main rekey|move decides what agent:main rows inside a named profile's store are; --json for automation. See Sessions → Repair State Crossed Between Profiles.",
+      "detail": "Settle session, routing, Telegram-topic and voice-mode state that landed under the wrong profile (rows in another profile's store, labels disagreeing with the session key, parent links crossing profiles, index rows for deleted profiles). Dry-run by default; --apply performs the repairs after snapshotting every store (stop the gateway first); --legacy-main rekey|move decides what agent:main rows inside a named profile's store are; --json for automation. See Sessions → Repair State Crossed Between Profiles.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-recover",
+      "title": "recover",
+      "summary": "Offline, non-destructive recovery of a damaged state.db into a separate clean database.",
+      "detail": "Offline, non-destructive recovery of a damaged state.db into a separate clean database.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-retitle-skills",
+      "title": "retitle-skills",
+      "summary": "Regenerate titles for sessions opened with a /skill, using what the user actually typed; lists changes unless --apply is passed.",
+      "detail": "Regenerate titles for sessions opened with a /skill, using what the user actually typed; lists changes unless --apply is passed.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-use-name",
+      "title": "use <name>",
+      "summary": "Set a sticky default profile.",
+      "detail": "Set a sticky default profile.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-delete-name-y",
+      "title": "delete <name> [-y]",
+      "summary": "Delete a profile.",
+      "detail": "Delete a profile.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-alias-name-remove-name-name",
+      "title": "alias <name> [--remove] [--name NAME]",
+      "summary": "Manage wrapper scripts for quick profile access.",
+      "detail": "Manage wrapper scripts for quick profile access.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-rename-old-new",
+      "title": "rename <old> <new>",
+      "summary": "Rename a profile.",
+      "detail": "Rename a profile.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-export-name-o-file",
+      "title": "export <name> [-o FILE]",
+      "summary": "Export a profile to a .tar.gz archive (local backup).",
+      "detail": "Export a profile to a .tar.gz archive (local backup).\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-import-archive-name-name",
+      "title": "import <archive> [--name NAME]",
+      "summary": "Import a profile from a .tar.gz archive (local restore).",
+      "detail": "Import a profile from a .tar.gz archive (local restore).\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-install-source-name-n-alias-force-y",
+      "title": "install <source> [--name N] [--alias] [--force] [-y]",
+      "summary": "Install a profile distribution from a git URL or local directory.",
+      "detail": "Install a profile distribution from a git URL or local directory.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-info-name",
+      "title": "info <name>",
+      "summary": "Show a profile's distribution manifest (version, requirements, source).",
+      "detail": "Show a profile's distribution manifest (version, requirements, source).\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-agent-legacy-single-query-runner",
+      "title": "hermes-agent (legacy single-query runner)",
+      "summary": "The install also ships hermes-agent, a minimal runner that sends one query and exits: hermes-agent --query \"summarize README.md\" (or hermes-agent \"summarize README.md\"). hermes-agent --he…",
+      "detail": "The install also ships hermes-agent, a minimal runner that sends one query and exits: hermes-agent --query \"summarize README.md\" (or hermes-agent \"summarize README.md\"). hermes-agent --help lists its options (--model, --base-url, --max-turns, --enabled-toolsets, --disabled-toolsets, --list-tools, --save-trajectories, …) and hermes-agent --version prints the version; neither starts the agent. Run with no query, it prints the same help and exits. For anything else use hermes (hermes -z <prompt> is the scripted one-shot).\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-agent-legacy-single-query-runner",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-chat",
+      "title": "hermes chat",
+      "summary": "Common options:",
+      "detail": "Common options:\n\nExamples:\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-chat",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-z-prompt-scripted-one-shot",
+      "title": "hermes -z <prompt> — scripted one-shot",
+      "summary": "For programmatic callers (shell scripts, CI, cron, parent processes piping in a prompt), hermes -z is the purest one-shot entry point: single prompt in, final response text out, nothing e…",
+      "detail": "For programmatic callers (shell scripts, CI, cron, parent processes piping in a prompt), hermes -z is the purest one-shot entry point: single prompt in, final response text out, nothing else on stdout or stderr. No banner, no spinner, no tool previews, no Session: line — just the agent's final reply as plain text.\n\nPer-run overrides (no mutation to ~/.hermes/config.yaml):\n\nSame agent, same tools, same skills — just strips every interactive / cosmetic layer. If you need tool output in the transcript too, use hermes chat --oneshot -q instead; -z is explicitly for \"I only want the final answer\".\n\nExit codes: 0 the turn completed; 2 it failed or stopped partway (partial, iteration budget, completed: false) — even when an explanation was printed; 130 it was interrupted; 1 a completed turn produced no text at all; 2 also for usage errors (bad flags) before the run starts. These codes intentionally differ from chat -q/-Q above (which exit 1 for failed/partial/budget and 0 for a completed turn with no text): -z reserves 1 for \"answered nothing\". Judge the run by the exit code (or the --usage-file flags), not by whether stdout is non-empty.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-z-prompt-scripted-one-shot",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-model",
+      "title": "hermes model",
+      "summary": "Interactive provider + model selector. This is the command for adding new providers, setting up API keys, and running OAuth flows. Run it from your terminal — not from inside an active He…",
+      "detail": "Interactive provider + model selector. This is the command for adding new providers, setting up API keys, and running OAuth flows. Run it from your terminal — not from inside an active Hermes chat session.\n\nUse this when you want to:\n\nhermes model (run from your terminal, outside any Hermes session) is the full provider setup wizard. It can add new providers, run OAuth flows, prompt for API keys, and configure endpoints.\n\n/model (typed inside an active Hermes chat session) can only switch between providers and models you've already set up. It cannot add new providers, run OAuth, or prompt for API keys.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-model",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-lsp",
+      "title": "hermes lsp",
+      "summary": "Manage the Language Server Protocol integration. LSP runs real language servers (pyright, gopls, rust-analyzer, …) in the background and feeds their diagnostics into the post-write check…",
+      "detail": "Manage the Language Server Protocol integration. LSP runs real language servers (pyright, gopls, rust-analyzer, …) in the background and feeds their diagnostics into the post-write check used by write_file and patch. Gated on git workspace detection — LSP only runs when the cwd or edited file is inside a git worktree.\n\nSubcommands:\n\nSee LSP — Semantic Diagnostics for the full guide, supported languages, and configuration knobs.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-lsp",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-setup",
+      "title": "hermes setup",
+      "summary": "Easiest path: hermes setup --portal — OAuth into Nous Portal and opt into the Tool Gateway in one shot.",
+      "detail": "Easiest path: hermes setup --portal — OAuth into Nous Portal and opt into the Tool Gateway in one shot.\n\nFirst run: launches the first-time wizard.\n\nReturning user (already configured): drops straight into the full reconfigure wizard — every prompt shows your current value as its default, press Enter to keep or type a new value. No menu.\n\nJump into one section instead of the full wizard:\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-setup",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-portal",
+      "title": "hermes portal",
+      "summary": "Inspect Nous Portal auth, Tool Gateway routing, and reach the subscription page. Subcommand-less invocation runs status.",
+      "detail": "Inspect Nous Portal auth, Tool Gateway routing, and reach the subscription page. Subcommand-less invocation runs status.\n\nFor configuration of the gateway itself, see Tool Gateway. For the one-shot setup path, see hermes setup --portal above.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-portal",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-whatsapp",
+      "title": "hermes whatsapp",
+      "summary": "Runs the WhatsApp pairing/setup flow, including mode selection and QR-code pairing.",
+      "detail": "Runs the WhatsApp pairing/setup flow, including mode selection and QR-code pairing.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-whatsapp",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-slack",
+      "title": "hermes slack",
+      "summary": "Generates a Slack app manifest that registers every gateway command in COMMAND_REGISTRY (/btw, /stop, /model, …) as a first-class Slack slash command — matching Discord and Telegram parit…",
+      "detail": "Generates a Slack app manifest that registers every gateway command in COMMAND_REGISTRY (/btw, /stop, /model, …) as a first-class Slack slash command — matching Discord and Telegram parity. Paste the output into your Slack app config at https://api.slack.com/apps → your app → Features → App Manifest → Edit, then Save. Slack prompts for reinstall if scopes or slash commands changed.\n\nRun hermes slack manifest --write again after hermes update to pick up any new commands.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-slack",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-send",
+      "title": "hermes send",
+      "summary": "Send a one-shot message to a configured messaging platform without spinning up an agent or gateway loop. Reuses the gateway's already-configured credentials (~/.hermes/.env + ~/.hermes/co…",
+      "detail": "Send a one-shot message to a configured messaging platform without spinning up an agent or gateway loop. Reuses the gateway's already-configured credentials (~/.hermes/.env + ~/.hermes/config.yaml) so ops scripts, cron jobs, CI hooks, and monitoring daemons can post status updates without reimplementing each platform's REST client.\n\nFor bot-token platforms (Telegram, Discord, Slack, Signal, SMS, WhatsApp-CloudAPI) no running gateway is required — hermes send talks directly to the platform's REST endpoint. Plugin platforms that need a persistent adapter still require a live gateway.\n\nIf neither a positional message argument nor --file is provided, hermes send reads from stdin when it is not a TTY. Exit codes: 0 on success, 1 on delivery/backend failure, 2 on usage errors.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-send",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-sending-images-and-other-media",
+      "title": "Sending images and other media",
+      "summary": "--file is for text bodies only. To deliver an image, document, video, or audio file as a native platform attachment, reference it inside the message text with the MEDIA:<local_path> direc…",
+      "detail": "--file is for text bodies only. To deliver an image, document, video, or audio file as a native platform attachment, reference it inside the message text with the MEDIA:<local_path> directive:\n\nBy default, image files are sent as photos (platforms like Telegram recompress these). Add [[as_document]] to the message to deliver them as uncompressed file attachments instead:\n\nExamples:\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#sending-images-and-other-media",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-peer",
+      "title": "hermes peer",
+      "summary": "Bot-to-bot DMs across machines. Register another Hermes gateway (any machine running the api_server platform) as a peer, then message its agents: hermes peer dm resolves the remote agent'…",
+      "detail": "Bot-to-bot DMs across machines. Register another Hermes gateway (any machine running the api_server platform) as a peer, then message its agents: hermes peer dm resolves the remote agent's canonical Bot Chat session over the peer's API server, runs one agent turn there, and prints the reply on stdout — the cross-machine twin of the local hermes -p <bot> chat --in ~ -c \"Bot Chat\" … bot-messaging command.\n\n<peer> alone targets the peer gateway's main agent; <peer>/<agent> targets a named profile on a multiplexed peer (routed via its /p/<profile>/ mirror).\n\nWhen at least one peer is registered, the Bot Mode messaging protocol (agent.bot_mode_protocol) taught to every canonical Bot Chat automatically includes the peer roster and the hermes peer dm pattern, so agents discover cross-machine teammates without SOUL edits. See Bot Mode.\n\nExit codes: 0 on success, 1 on delivery/peer failure, 2 on usage errors.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-peer",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-secrets",
+      "title": "hermes secrets",
+      "summary": "Pull API keys from an external secret manager at process startup instead of storing them in ~/.hermes/.env. Currently supports Bitwarden Secrets Manager. See the full guide: Bitwarden int…",
+      "detail": "Pull API keys from an external secret manager at process startup instead of storing them in ~/.hermes/.env. Currently supports Bitwarden Secrets Manager. See the full guide: Bitwarden integration.\n\nbitwarden (alias bw) subcommands:\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-secrets",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-migrate",
+      "title": "hermes migrate",
+      "summary": "Diagnose and (optionally) rewrite the active config.yaml to replace references to retired models or deprecated settings. A timestamped backup of the original config.yaml is taken before a…",
+      "detail": "Diagnose and (optionally) rewrite the active config.yaml to replace references to retired models or deprecated settings. A timestamped backup of the original config.yaml is taken before any rewrite (skip with --no-backup).\n\nCommon flags for migration subcommands:\n\nNot to be confused with hermes claw migrate (one-shot import of OpenClaw configuration into Hermes) — hermes migrate is the top-level config-rewrite command.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-migrate",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-codex-runtime",
+      "title": "hermes codex-runtime",
+      "summary": "Runs the ~/.codex/config.toml migration that /codex-runtime codex_app_server triggers, without a chat session: Hermes' mcp_servers (plus installed codex plugins and the default_permission…",
+      "detail": "Runs the ~/.codex/config.toml migration that /codex-runtime codex_app_server triggers, without a chat session: Hermes' mcp_servers (plus installed codex plugins and the default_permissions default) are projected into the managed block for the selected profile (hermes -p <name> codex-runtime migrate). User text outside the block is kept verbatim; a user-owned [mcp_servers.<name>] with the same name as a Hermes server is preserved and the Hermes projection for that name skipped (reported as preserved_user_servers). The result is validated as TOML before an atomic write; exit code is 1 when the report contains errors.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-codex-runtime",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-proxy",
+      "title": "hermes proxy",
+      "summary": "Run a local OpenAI-compatible HTTP server that forwards requests to an OAuth-authenticated upstream provider (e.g. Nous Portal, xAI). External apps can point at the proxy with any bearer…",
+      "detail": "Run a local OpenAI-compatible HTTP server that forwards requests to an OAuth-authenticated upstream provider (e.g. Nous Portal, xAI). External apps can point at the proxy with any bearer token; the proxy attaches your real OAuth credentials on the way out. See Subscription Proxy for the full guide.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-proxy",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-security",
+      "title": "hermes security",
+      "summary": "On-demand vulnerability scan against OSV.dev. Covers the Hermes venv (installed PyPI distributions), Python dependencies declared by plugins under ~/.hermes/plugins/, and pinned npx/uvx M…",
+      "detail": "On-demand vulnerability scan against OSV.dev. Covers the Hermes venv (installed PyPI distributions), Python dependencies declared by plugins under ~/.hermes/plugins/, and pinned npx/uvx MCP servers in config.yaml. Does NOT scan globally-installed packages or editor/browser extensions.\n\naudit flags:\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-security",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-login-hermes-logout-deprecated",
+      "title": "hermes login / hermes logout (Deprecated)",
+      "summary": "hermes login has been removed. Use hermes auth to manage OAuth credentials, hermes model to select a provider, or hermes setup for full interactive setup.",
+      "detail": "hermes login has been removed. Use hermes auth to manage OAuth credentials, hermes model to select a provider, or hermes setup for full interactive setup.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-login-hermes-logout-deprecated",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-auth",
+      "title": "hermes auth",
+      "summary": "Manage credential pools for same-provider key rotation. See Credential Pools for full documentation.",
+      "detail": "Manage credential pools for same-provider key rotation. See Credential Pools for full documentation.\n\nSubcommands: add, list, remove, reset, priority, refresh, status, logout, spotify. When called with no subcommand, launches the interactive management wizard.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-auth",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-usage",
+      "title": "hermes usage",
+      "summary": "The account-limits block of the /usage slash command — Codex 5-hour / weekly windows, plan and banked resets; Anthropic OAuth windows; OpenRouter credits — without starting a session, so…",
+      "detail": "The account-limits block of the /usage slash command — Codex 5-hour / weekly windows, plan and banked resets; Anthropic OAuth windows; OpenRouter credits — without starting a session, so shell scripts and cron jobs can read it.\n\nCredentials resolve exactly as they do for /usage in a session with no live agent (the auth store, then the credential pool); the command never adds or refreshes a credential it would not use for chat. Exit code 0 on success; 1 with a single stderr line when no credential is configured for the provider, the provider has no usage endpoint, or the fetch fails (stdout stays empty).\n\n--json schema (keys are stable; new keys may be added):\n\nused_percent is null when the provider did not report the window; resets_at is ISO-8601 UTC or null (some windows carry a free-text detail instead); plan is null when unknown.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-usage",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-cron",
+      "title": "hermes cron",
+      "summary": "The cron trigger is pluggable via the cron.provider config key. Empty (the default) uses the built-in in-process ticker. Set it to chronos (the NAS-managed provider for scale-to-zero host…",
+      "detail": "The cron trigger is pluggable via the cron.provider config key. Empty (the default) uses the built-in in-process ticker. Set it to chronos (the NAS-managed provider for scale-to-zero hosted gateways) — configured via the cron.chronos.* keys (portal_url, callback_url, expected_audience, nas_jwks_url) — or name a custom provider under plugins/cron/<name>/ or $HERMES_HOME/plugins/<name>/. An unknown or unavailable provider falls back to the built-in, so cron is never left without a trigger. See the cron internals doc.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-cron",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-kanban",
+      "title": "hermes kanban",
+      "summary": "Multi-profile, multi-project collaboration board. Each install can host many boards (one per project, repo, or domain); each board is a standalone queue with its own SQLite DB and dispatc…",
+      "detail": "Multi-profile, multi-project collaboration board. Each install can host many boards (one per project, repo, or domain); each board is a standalone queue with its own SQLite DB and dispatcher scope. New installs start with one board called default, whose DB is ~/.hermes/kanban.db for back-compat; additional boards live at ~/.hermes/kanban/boards/<slug>/kanban.db. The gateway-embedded dispatcher sweeps every board per tick.\n\nGlobal flags (apply to every action below):\n\nThis is the human / scripting surface. Agent workers spawned by the dispatcher drive the board through a dedicated kanban_* toolset (kanban_show, kanban_complete, kanban_request_review, kanban_request_changes, kanban_block, kanban_create, kanban_link, kanban_comment, kanban_heartbeat; orchestrator profiles also get kanban_list and kanban_unblock) instead of shelling to hermes kanban. Workers have HERMES_KANBAN_BOARD pinned in their env so they physically cannot see other boards.\n\nExamples:\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-kanban",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-egress",
+      "title": "hermes egress",
+      "summary": "Outbound credential-injection firewall for remote terminal sandboxes. Wraps the iron-proxy daemon — a TLS-intercepting proxy that swaps opaque proxy tokens for real upstream API credentia…",
+      "detail": "Outbound credential-injection firewall for remote terminal sandboxes. Wraps the iron-proxy daemon — a TLS-intercepting proxy that swaps opaque proxy tokens for real upstream API credentials at the network boundary, so sandboxes never hold real keys. Disabled by default; see the full Egress proxy page for setup + architecture.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-egress",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-project",
+      "title": "hermes project",
+      "summary": "Projects are human-named workspaces that can span multiple folders / repos. They anchor desktop session grouping and, when bound to a kanban board, give tasks a deterministic worktree + b…",
+      "detail": "Projects are human-named workspaces that can span multiple folders / repos. They anchor desktop session grouping and, when bound to a kanban board, give tasks a deterministic worktree + branch convention. State is per-profile.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-project",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-webhook",
+      "title": "hermes webhook",
+      "summary": "Manage dynamic webhook subscriptions for event-driven agent activation. Requires the webhook platform to be enabled in config — if not configured, prints setup instructions.",
+      "detail": "Manage dynamic webhook subscriptions for event-driven agent activation. Requires the webhook platform to be enabled in config — if not configured, prints setup instructions.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-webhook",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-webhook-subscribe",
+      "title": "hermes webhook subscribe",
+      "summary": "Subscriptions persist to ~/.hermes/webhook_subscriptions.json and are hot-reloaded by the webhook adapter without a gateway restart. Re-running subscribe for an existing name keeps its se…",
+      "detail": "Subscriptions persist to ~/.hermes/webhook_subscriptions.json and are hot-reloaded by the webhook adapter without a gateway restart. Re-running subscribe for an existing name keeps its secret and profile binding unless you pass --secret / --route-profile.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-webhook-subscribe",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-doctor",
+      "title": "hermes doctor",
+      "summary": "Exit status: 0 when the report lists no unresolved problems, 1 when at least one remains (including problems --fix could not repair), so a health gate or CI step can trust hermes doctor a…",
+      "detail": "Exit status: 0 when the report lists no unresolved problems, 1 when at least one remains (including problems --fix could not repair), so a health gate or CI step can trust hermes doctor as a check.\n\nThe API Connectivity section includes an IPv6 route check: it opens one short (2 s) IPv6 TCP connection to a known dual-stack host. A route that is advertised but only times out (a blackholed IPv6 prefix) is reported as a warning naming the remedy, network.force_ipv4: true. Having no IPv6 route at all is healthy and reported as OK; the check is skipped when force_ipv4 is already set.\n\nCustom-endpoint config checks (both warn-only; --fix does not rewrite them):\n\nConfig Structure also flags any list/mapping setting stored as one quoted string (plugins.enabled: '[\"a\",\"b\"]', model_catalog.excluded_providers: '[\"openai-api\"]' — the shape older config set versions wrote): every reader ignores such a string, so the plugins silently stay unmounted and the exclusion never applies. The finding names the key and the hermes config set <key> '<literal>' command that stores a real list; the same warning appears in the startup banner. --fix does not rewrite the file.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-doctor",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-dump",
+      "title": "hermes dump",
+      "summary": "Outputs a compact, plain-text summary of your entire Hermes setup. Designed to be copy-pasted into Discord, GitHub issues, or Telegram when asking for support — no ANSI colors, no special…",
+      "detail": "Outputs a compact, plain-text summary of your entire Hermes setup. Designed to be copy-pasted into Discord, GitHub issues, or Telegram when asking for support — no ANSI colors, no special formatting, just data.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-dump",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-when-to-use",
+      "title": "When to use",
+      "summary": "hermes dump is specifically designed for sharing. For interactive diagnostics, use hermes doctor. For a visual overview, use hermes status.",
+      "detail": "hermes dump is specifically designed for sharing. For interactive diagnostics, use hermes doctor. For a visual overview, use hermes status.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#when-to-use",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-debug",
+      "title": "hermes debug",
+      "summary": "Upload a debug report (system info + recent logs) to a paste service and get a shareable URL. Useful for quick support requests — includes everything a helper needs to diagnose your issue.",
+      "detail": "Upload a debug report (system info + recent logs) to a paste service and get a shareable URL. Useful for quick support requests — includes everything a helper needs to diagnose your issue.\n\nThe report includes system info (OS, Python version, Hermes version), recent agent, gateway, GUI/dashboard, and desktop logs (512 KB limit per file), and redacted API key status. By default, uploads are redacted so secrets are not included.\n\nDefault uploads use public paste services tried in order: paste.rs, dpaste.com. --nous uploads the same debug bundle to private Nous diagnostics storage instead; the returned viewer link is for the Nous team and auto-deletes after 14 days.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-debug",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-backup",
+      "title": "hermes backup",
+      "summary": "Create a zip archive of your Hermes configuration, skills, sessions, and data. The backup excludes the hermes-agent codebase itself, and it does not nest earlier backup artifacts (backups…",
+      "detail": "Create a zip archive of your Hermes configuration, skills, sessions, and data. The backup excludes the hermes-agent codebase itself, and it does not nest earlier backup artifacts (backups/, state-snapshots/) — each of those already contains its own copy of state.db.\n\nThe backup uses SQLite's backup() API for safe copying, so it works correctly even when Hermes is running (WAL-mode safe).\n\nExit status: 0 only when every selected file landed in the archive. If some files could not be added (Backup incomplete: …), the zip is kept so the rest can still be restored, but the command exits 1 — a cron or systemd timer will not report a partial archive as success, and --keep pruning is skipped so older complete archives survive. 2 means another backup was already running.\n\nWhat's excluded from the zip:\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-backup",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-checkpoints",
+      "title": "hermes checkpoints",
+      "summary": "Inspect and manage the shadow git store at ~/.hermes/checkpoints/ — the storage layer behind the in-session /rollback command. Safe to run any time; does not require the agent to be running.",
+      "detail": "Inspect and manage the shadow git store at ~/.hermes/checkpoints/ — the storage layer behind the in-session /rollback command. Safe to run any time; does not require the agent to be running.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-checkpoints",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-examples",
+      "title": "Examples",
+      "summary": "See Checkpoints and /rollback for the full architecture and the in-session commands.",
+      "detail": "See Checkpoints and /rollback for the full architecture and the in-session commands.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#examples",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-import",
+      "title": "hermes import",
+      "summary": "Restore a previously created Hermes backup into your Hermes home directory. All files in the archive overwrite existing files in your Hermes home; --force only skips the confirmation prom…",
+      "detail": "Restore a previously created Hermes backup into your Hermes home directory. All files in the archive overwrite existing files in your Hermes home; --force only skips the confirmation prompt that fires when the target already has a Hermes installation.\n\nStop the gateway before importing to avoid conflicts with running processes.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-import",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-sqlite-databases",
+      "title": "SQLite databases",
+      "summary": ".db members (state.db, kanban.db, response_store.db, …) are not published with a rename like ordinary files. Renaming would replace the file's inode while a gateway, dashboard, or WebUI p…",
+      "detail": ".db members (state.db, kanban.db, response_store.db, …) are not published with a rename like ordinary files. Renaming would replace the file's inode while a gateway, dashboard, or WebUI process still holds the old one open: that process would keep reading pre-import pages and keep writing sessions nobody else can see, and those sessions would simply be absent from the database everyone opens next — with nothing logged. Instead the imported pages are written into the existing database file, the same way /snapshot restore does it, so every open connection converges on the imported data.\n\nIf the live database cannot be replaced safely — the page copy failed and another process still holds the file open — the import leaves that database untouched and lists it under Warnings (N files skipped). Stop the holding processes and re-run.\n\nImporting an older backup over newer work is still allowed, but it is no longer silent. When the imported state.db holds fewer messages than the one it replaced, the summary reports it:\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#sqlite-databases",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-logs",
+      "title": "hermes logs",
+      "summary": "View, tail, and filter Hermes log files. All logs are stored in ~/.hermes/logs/ (or <profile>/logs/ for non-default profiles).",
+      "detail": "View, tail, and filter Hermes log files. All logs are stored in ~/.hermes/logs/ (or <profile>/logs/ for non-default profiles).\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-logs",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-filtering",
+      "title": "Filtering",
+      "summary": "Filters can be combined. When multiple filters are active, a log line must pass all of them to be shown:",
+      "detail": "Filters can be combined. When multiple filters are active, a log line must pass all of them to be shown:\n\nLines without a parseable timestamp are included when --since is active (they may be continuation lines from a multi-line log entry). Lines without a detectable level are included when --level is active.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#filtering",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-log-rotation",
+      "title": "Log rotation",
+      "summary": "Hermes uses Python's RotatingFileHandler. Old logs are rotated automatically — look for agent.log.1, agent.log.2, etc. The hermes logs list subcommand shows all log files including rotate…",
+      "detail": "Hermes uses Python's RotatingFileHandler. Old logs are rotated automatically — look for agent.log.1, agent.log.2, etc. The hermes logs list subcommand shows all log files including rotated ones.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#log-rotation",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-prompt-size",
+      "title": "hermes prompt-size",
+      "summary": "Reports the fixed prompt budget for a fresh session — what gets sent on every API call before any conversation content. Useful when a downstream adapter or proxy has a tighter prompt budg…",
+      "detail": "Reports the fixed prompt budget for a fresh session — what gets sent on every API call before any conversation content. Useful when a downstream adapter or proxy has a tighter prompt budget than the model's context window, or when you want to see which block (skills index, memory, profile) dominates.\n\nIt builds the same system prompt the agent would, then breaks it down:\n\nRuns entirely offline — no API call, works with no credentials configured.\n\nThe skills index and tool schemas scale with how many skills and tools you have enabled. To shrink the prompt, disable unused toolsets (hermes tools) or uninstall skills you don't need (hermes skills). Context files (AGENTS.md, .cursorrules) in your current directory also count toward the total.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-prompt-size",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-bundles",
+      "title": "hermes bundles",
+      "summary": "Skill bundles group several skills under one /<bundle-name> slash command. Invoking the bundle loads every referenced skill into a single combined user message. Storage: ~/.hermes/skill-b…",
+      "detail": "Skill bundles group several skills under one /<bundle-name> slash command. Invoking the bundle loads every referenced skill into a single combined user message. Storage: ~/.hermes/skill-bundles/<slug>.yaml. See Skill Bundles for the YAML schema and behavior.\n\nSubcommands:\n\nExamples:\n\nIn a chat session, /bundles lists installed bundles and /<bundle-name> loads one.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-bundles",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-curator",
+      "title": "hermes curator",
+      "summary": "The curator is an auxiliary-model background task that periodically reviews agent-created skills, prunes stale ones, consolidates overlaps, and archives obsolete skills. Bundled and hub-i…",
+      "detail": "The curator is an auxiliary-model background task that periodically reviews agent-created skills, prunes stale ones, consolidates overlaps, and archives obsolete skills. Bundled and hub-installed skills are never touched. Archives are recoverable; auto-deletion never happens.\n\nOn a fresh install the first scheduled pass is deferred by one full interval_hours (7 days by default) — the gateway will not curate immediately on the first tick after hermes update. Use hermes curator run --dry-run to preview before that happens.\n\nSee Curator for behavior and config.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-curator",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-moa",
+      "title": "hermes moa",
+      "summary": "Configure named Mixture of Agents presets. Presets appear as selectable models under a Mixture of Agents provider in every model picker; /moa <prompt> runs one prompt through the default…",
+      "detail": "Configure named Mixture of Agents presets. Presets appear as selectable models under a Mixture of Agents provider in every model picker; /moa <prompt> runs one prompt through the default preset.\n\nhermes moa configure reuses Hermes' provider → model picker for each reference model and the aggregator. A preset is an execution-mode configuration, not a primary model or provider.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-moa",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-fallback",
+      "title": "hermes fallback",
+      "summary": "Manage the fallback provider chain. Fallback providers are tried in order when the primary model fails with rate-limit, overload, or connection errors.",
+      "detail": "Manage the fallback provider chain. Fallback providers are tried in order when the primary model fails with rate-limit, overload, or connection errors.\n\nSee Fallback Providers.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-fallback",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-hooks",
+      "title": "hermes hooks",
+      "summary": "Inspect shell-script hooks declared in ~/.hermes/config.yaml, test them against synthetic payloads, and manage the first-use consent allowlist at ~/.hermes/shell-hooks-allowlist.json.",
+      "detail": "Inspect shell-script hooks declared in ~/.hermes/config.yaml, test them against synthetic payloads, and manage the first-use consent allowlist at ~/.hermes/shell-hooks-allowlist.json.\n\nSee Hooks for event signatures and payload shapes.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-hooks",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-memory",
+      "title": "hermes memory",
+      "summary": "Set up and manage external memory provider plugins. Bundled providers: honcho, openviking, mem0, holographic, retaindb, byterover, supermemory; hindsight (plugin catalog) after hermes plu…",
+      "detail": "Set up and manage external memory provider plugins. Bundled providers: honcho, openviking, mem0, holographic, retaindb, byterover, supermemory; hindsight (plugin catalog) after hermes plugins install hindsight. Only one external provider can be active at a time. Built-in memory (MEMORY.md/USER.md) is always active.\n\nSubcommands:\n\nWhen an external memory provider is active, it may register its own top-level hermes <provider> command for provider-specific management (e.g. hermes honcho when Honcho is active). Inactive providers do not expose their subcommands. Run hermes --help to see what's currently wired in.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-memory",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-acp",
+      "title": "hermes acp",
+      "summary": "Starts Hermes as an ACP (Agent Client Protocol) stdio server for editor integration.",
+      "detail": "Starts Hermes as an ACP (Agent Client Protocol) stdio server for editor integration.\n\nRelated entrypoints:\n\nInstall support first:\n\nSee ACP Editor Integration and ACP Internals.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-acp",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-mcp",
+      "title": "hermes mcp",
+      "summary": "Manage MCP (Model Context Protocol) server configurations and run Hermes as an MCP server.",
+      "detail": "Manage MCP (Model Context Protocol) server configurations and run Hermes as an MCP server.\n\nSee MCP Config Reference, Use MCP with Hermes, and MCP Server Mode.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-mcp",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-plugins",
+      "title": "hermes plugins",
+      "summary": "Unified plugin management — general plugins, memory providers, and context engines in one place. Running hermes plugins with no subcommand opens a composite interactive screen with two se…",
+      "detail": "Unified plugin management — general plugins, memory providers, and context engines in one place. Running hermes plugins with no subcommand opens a composite interactive screen with two sections:\n\nProvider plugin selections are saved to config.yaml:\n\nGeneral plugin disabled list is stored in config.yaml under plugins.disabled. Git installs also record only their canonical source, exact installed revision, and pin status in the profile-local plugins/.install-metadata.json sidecar. It does not contain plugin config, environment values, secrets, or capability grants.\n\nSee Plugins and Build a Hermes Plugin.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-plugins",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-tools",
+      "title": "hermes tools",
+      "summary": "Without --summary, this launches the interactive per-platform tool configuration UI.",
+      "detail": "Without --summary, this launches the interactive per-platform tool configuration UI.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-tools",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-pets",
+      "title": "hermes pets",
+      "summary": "Petdex is a public gallery of animated sprite pets for coding agents. Install one and Hermes shows it reacting to agent activity across the CLI, TUI, and desktop app.",
+      "detail": "Petdex is a public gallery of animated sprite pets for coding agents. Install one and Hermes shows it reacting to agent activity across the CLI, TUI, and desktop app.\n\nYou can also generate a brand-new pet from a text description with the /hatch slash command. See Pets.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-pets",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-claw",
+      "title": "hermes claw",
+      "summary": "Migrate your OpenClaw setup to Hermes. Reads from ~/.openclaw (or a custom path) and writes to ~/.hermes. Automatically detects legacy directory names (~/.clawdbot, ~/.moltbot) and config…",
+      "detail": "Migrate your OpenClaw setup to Hermes. Reads from ~/.openclaw (or a custom path) and writes to ~/.hermes. Automatically detects legacy directory names (~/.clawdbot, ~/.moltbot) and config filenames (clawdbot.json, moltbot.json).\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-claw",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-import-agent",
+      "title": "hermes import-agent",
+      "summary": "Import a Claude Code (~/.claude) or OpenAI Codex CLI (~/.codex) setup into Hermes. Maps CLAUDE.md/AGENTS.md instructions to memory entries, Bash(...) permission allow/deny rules to comman…",
+      "detail": "Import a Claude Code (~/.claude) or OpenAI Codex CLI (~/.codex) setup into Hermes. Maps CLAUDE.md/AGENTS.md instructions to memory entries, Bash(...) permission allow/deny rules to command_allowlist/approvals.deny, MCP servers to mcp_servers in config.yaml, and skill directories into ~/.hermes/skills/. Always previews before applying; API keys and credentials are never imported.\n\nEvery successful import registers its source in ~/.hermes/import-sync.json; hermes import-agent --sync then re-imports any registered source whose files changed (a cron-friendly way to keep an imported Claude Code / Codex setup current). See the import guide for the full mapping tables.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-import-agent",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-serve",
+      "title": "hermes serve",
+      "summary": "Start the Hermes backend server — the JSON-RPC/WebSocket gateway the desktop app and remote clients connect to. It is the same server hermes dashboard runs, but headless: it never opens a…",
+      "detail": "Start the Hermes backend server — the JSON-RPC/WebSocket gateway the desktop app and remote clients connect to. It is the same server hermes dashboard runs, but headless: it never opens a browser UI. The desktop app launches its own hermes serve backend; use this command directly when you want a headless backend on a remote host. Accepts the same --host / --port / --insecure / --skip-build / --stop / --status options as hermes dashboard below (a non-loopback bind engages the same auth gate). Requires the [web] extra; the embedded Chat socket additionally needs [pty] on a POSIX host.\n\nPort conflicts: if the requested port (default 9119) is already held by another process (e.g. a second hermes serve or the gateway), the command prints a machine-readable sentinel line BACKEND_PORT_IN_USE port=<port> to stdout, a human hint naming the likely holder, and exits with code 75 (EX_TEMPFAIL) instead of a generic error — so scripts and the desktop app can tell \"port occupied\" apart from \"backend broken\". Pass --port 0 to bind a free ephemeral port (the successful boot announces the chosen port via HERMES_BACKEND_READY port=<port>).\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-serve",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-dashboard",
+      "title": "hermes dashboard",
+      "summary": "Launch the web dashboard — a browser-based UI for managing configuration, API keys, and monitoring sessions. (For a headless backend with no browser UI — e.g. what the desktop app spawns…",
+      "detail": "Launch the web dashboard — a browser-based UI for managing configuration, API keys, and monitoring sessions. (For a headless backend with no browser UI — e.g. what the desktop app spawns — use hermes serve above.) Requires cd ~/.hermes/hermes-agent && uv pip install -e \".[web]\" (FastAPI + Uvicorn). The embedded browser Chat tab is always available and additionally needs the pty extra (cd ~/.hermes/hermes-agent && uv pip install -e \".[web,pty]\") plus a POSIX PTY environment such as Linux, macOS, or WSL2. See Web Dashboard for full documentation.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-dashboard",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-dashboard-register",
+      "title": "hermes dashboard register",
+      "summary": "Register this install as a self-hosted dashboard with your Nous Portal account. Creates an OAuth client, writes HERMES_DASHBOARD_OAUTH_CLIENT_ID into ~/.hermes/.env, and prints how to eng…",
+      "detail": "Register this install as a self-hosted dashboard with your Nous Portal account. Creates an OAuth client, writes HERMES_DASHBOARD_OAUTH_CLIENT_ID into ~/.hermes/.env, and prints how to engage the login gate. Requires being logged in (hermes setup).\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-dashboard-register",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-profile",
+      "title": "hermes profile",
+      "summary": "Manage profiles — multiple isolated Hermes instances, each with its own config, sessions, skills, and home directory.",
+      "detail": "Manage profiles — multiple isolated Hermes instances, each with its own config, sessions, skills, and home directory.\n\nExamples:\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-profile",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-completion",
+      "title": "hermes completion",
+      "summary": "Print a shell completion script to stdout. Source the output in your shell profile for tab-completion of Hermes commands, subcommands, and profile names.",
+      "detail": "Print a shell completion script to stdout. Source the output in your shell profile for tab-completion of Hermes commands, subcommands, and profile names.\n\nExamples:\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-completion",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-hermes-update",
+      "title": "hermes update",
+      "summary": "Pulls the latest hermes-agent code and reinstalls dependencies in the managed venv, then re-runs the post-install hooks (MCP servers, skills sync, completion install). Safe to run on a li…",
+      "detail": "Pulls the latest hermes-agent code and reinstalls dependencies in the managed venv, then re-runs the post-install hooks (MCP servers, skills sync, completion install). Safe to run on a live install. Use --check to see whether your checkout is behind origin/main without installing.\n\nhermes update pulls the configured update branch (default: main). If your checkout is on another branch, Hermes may check out the update branch before pulling. Commit branch work before updating when you want to keep it outside the update autostash flow.\n\nAdditional behavior:\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-update",
+      "date": "2026-09-24"
+    }
+  ]
 }
