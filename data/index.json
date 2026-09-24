@@ -8,6 +8,14 @@
   },
   "sections": [
     {
+      "id": "dashboard",
+      "label": "Dashboard",
+      "icon": "▤",
+      "kind": "dashboard",
+      "title": "WHAT IS IN THE ARCHIVE",
+      "blurb": "Counted live from what is loaded right now — nothing here is stored, and nothing is estimated."
+    },
+    {
       "id": "use-cases",
       "label": "Use Cases",
       "icon": "◈",

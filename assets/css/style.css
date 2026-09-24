@@ -342,6 +342,89 @@ code{font-family:var(--mono);font-size:.92em}
 .trow-note{font-family:var(--mono);font-size:8px;letter-spacing:.12em;color:var(--ink-mute)}
 .foot-warn{color:var(--hn)}
 
+/* ---------- dashboard ---------- */
+.dash{display:flex;flex-direction:column;gap:22px}
+
+.dash-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:12px}
+.dash-tiles-sm{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+.tile{
+  display:flex;flex-direction:column;gap:3px;padding:14px;border-radius:var(--r-lg);
+  background:linear-gradient(168deg,#1c1c26 0%,#14141c 46%,#0d0d13 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 1px 2px rgba(0,0,0,.5),0 6px 14px rgba(0,0,0,.45);
+}
+.tile-k{font-family:var(--sans);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute)}
+.tile-v{font-family:var(--mono);font-size:23px;font-weight:700;color:var(--accent);line-height:1.15}
+.tile-note{font-family:var(--sans);font-size:10px;color:var(--ink-mute)}
+
+.dash-block h3{
+  margin:0 0 3px;display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;
+  font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.14em;color:var(--ink);
+}
+.dash-hint{font-family:var(--sans);font-size:9.5px;letter-spacing:.08em;color:var(--ink-mute);text-transform:none}
+.dash-sub{margin:0 0 12px;font-family:var(--body);font-size:11.5px;color:var(--ink-mute);max-width:70ch}
+.dash-block h3 + .bars{margin-top:11px}
+.dash-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px}
+.dash-none{margin:8px 0 0;font-family:var(--body);font-size:12px;color:var(--ink-mute)}
+
+.bars{display:flex;flex-direction:column;gap:5px}
+.bar-row{
+  display:grid;grid-template-columns:minmax(84px,1.1fr) minmax(60px,3fr) auto;
+  align-items:center;gap:10px;padding:3px 6px;border-radius:var(--r-sm);
+}
+.bar-click{cursor:pointer;transition:background .14s}
+.bar-click:hover{background:var(--panel-2)}
+.bar-click:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.bar-label{
+  font-family:var(--sans);font-size:11px;color:var(--ink-dim);
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.bar-click:hover .bar-label{color:var(--accent)}
+.bar-track{position:relative;height:8px;border-radius:4px;background:var(--panel-3);overflow:hidden}
+/* Recessive quarter gridlines behind every bar, so lengths can be compared. */
+.bar-track::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(90deg,transparent 0 calc(25% - 1px),rgba(255,255,255,.05) calc(25% - 1px) 25%);
+}
+.bar-fill{
+  display:block;height:100%;border-radius:0 4px 4px 0;
+  background:linear-gradient(90deg,#e08a10,var(--accent));
+  transition:filter .14s;
+}
+.bar-click:hover .bar-fill{filter:brightness(1.15)}
+.bar-n{font-family:var(--mono);font-size:10.5px;color:var(--ink-mute);min-width:3.2em;text-align:right}
+
+.dash-fresh{
+  margin:0;padding-top:14px;border-top:1px solid var(--line);
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.04em;color:var(--ink-mute);
+}
+
+@media (max-width:640px){
+  .bar-row{grid-template-columns:minmax(70px,1.2fr) minmax(40px,2fr) auto;gap:7px}
+  .tile-v{font-size:20px}
+}
+
+/* charts */
+.area-chart{width:100%;height:auto;display:block;margin-top:12px;overflow:visible}
+.area-line{fill:none;stroke:var(--accent);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.gridline{stroke:var(--line);stroke-width:1}
+.axis-y,.axis-x{
+  font-family:var(--mono);font-size:9px;fill:var(--ink-mute);
+}
+.axis-y{text-anchor:end}
+.axis-x{text-anchor:middle}
+.peak-dot{fill:var(--accent);stroke:var(--panel);stroke-width:2}
+.peak-label{font-family:var(--mono);font-size:10px;font-weight:700;fill:var(--accent);text-anchor:middle}
+.hit{fill:transparent;cursor:crosshair}
+.hit:hover{fill:var(--accent);fill-opacity:.16}
+
+.chart-tip{
+  position:fixed;z-index:60;pointer-events:none;
+  padding:6px 10px;border-radius:var(--r-sm);
+  background:#06060a;border:1px solid var(--line-2);
+  box-shadow:0 8px 22px rgba(0,0,0,.6);
+  font-family:var(--sans);font-size:11px;color:var(--ink);white-space:nowrap;
+}
+
 /* ---------- drawer ---------- */
 .drawer-scrim{position:fixed;inset:0;z-index:50;background:rgba(2,4,7,.72);backdrop-filter:blur(3px);animation:fade .18s ease}
 @keyframes fade{from{opacity:0}to{opacity:1}}
@@ -399,6 +482,11 @@ code{font-family:var(--mono);font-size:.92em}
   :root{--side-w:0px}
   #menuBtn{display:grid}
   .shell{grid-template-columns:1fr}
+  /* Between 640 and 960 the bar used to keep one row and overlap itself.
+     Let it wrap here, not only on phones. */
+  .topbar{flex-wrap:wrap;height:auto;padding:8px 12px;gap:8px}
+  .search{order:5;flex-basis:100%}
+  .brand{flex:1 1 auto;min-width:0}
   .sidebar{
     position:fixed;top:var(--top-h);left:0;z-index:38;width:250px;
     transform:translateX(-100%);transition:transform .2s ease;background:var(--bg);
@@ -409,9 +497,7 @@ code{font-family:var(--mono);font-size:.92em}
   .main{padding:14px 16px 50px}
 }
 @media (max-width:640px){
-  .topbar{flex-wrap:wrap;height:auto;padding:8px 12px;gap:8px}
   .sidebar{top:0;height:100vh}
-  .search{order:5;flex-basis:100%}
   .select{max-width:calc(50% - 4px);flex:1}
   .hero h1{font-size:18px}
   .grid{grid-template-columns:1fr}

@@ -19,7 +19,8 @@ const state = {
   range: 'all',
   sort: 'talked',
   q: '',
-  tag: null
+  tag: null,
+  author: null
 };
 
 /* ---------------------------------------------------------------- utils */
@@ -52,7 +53,8 @@ async function load() {
   state.cfg = await getJSON('data/index.json');
 
   const sections = await Promise.all(
-    state.cfg.sections.map(s => getJSON(`data/${s.file}`).catch(() => ({ items: [] })))
+    // A computed section has no file; asking for data/undefined would 404.
+    state.cfg.sections.map(s => s.file ? getJSON(`data/${s.file}`).catch(() => ({ items: [] })) : { items: [] })
   );
   state.cfg.sections.forEach((s, i) => { state.data[s.id] = sections[i].items || []; });
 
@@ -148,6 +150,7 @@ function matches(item) {
   if (state.source !== 'all' && item.source !== state.source) return false;
   if (!inRange(item)) return false;
   if (state.tag && !(item.tags || []).includes(state.tag)) return false;
+  if (state.author && item.author !== state.author) return false;
   if (state.q) {
     const hay = [item.title, item.summary, item.detail, item.snippet, item.author, ...(item.tags || [])]
       .join(' ').toLowerCase();
@@ -205,7 +208,7 @@ function card(item, rank) {
 function renderNav() {
   $('#nav').innerHTML = state.cfg.sections.map(s => `
     <a href="#${s.id}" class="${s.id === state.section ? 'on' : ''}" data-section="${s.id}">
-      <span class="nav-ico">${s.icon}</span>${esc(s.label)}<span class="nav-n">${visible(s.id).length}</span>
+      <span class="nav-ico">${s.icon}</span>${esc(s.label)}<span class="nav-n">${s.file ? visible(s.id).length : ''}</span>
     </a>`).join('');
 }
 
@@ -226,6 +229,7 @@ function renderFilters() {
   const bits = [];
   if (state.q)                  bits.push(['q',      `SEARCH: ${state.q}`]);
   if (state.tag)                bits.push(['tag',    `TAG: ${state.tag}`]);
+  if (state.author)             bits.push(['author', `AUTHOR: ${state.author}`]);
   if (state.source !== 'all')   bits.push(['source', `SOURCE: ${SOURCE_LABEL[state.source] || state.source}`]);
   if (state.range !== 'all')    bits.push(['range',  (state.cfg.ranges.find(r => r.id === state.range) || {}).label?.toUpperCase()]);
 
@@ -236,11 +240,24 @@ function renderFilters() {
 
 function render() {
   const sec = state.cfg.sections.find(s => s.id === state.section) || state.cfg.sections[0];
-  const items = sortItems(visible(sec.id));
 
   $('#heroIcon').textContent  = sec.icon;
   $('#heroTitle').textContent = sec.title;
   $('#heroBlurb').textContent = sec.blurb;
+  document.title = `${sec.label} · Hermes Agent Archive`;
+
+  const isDash = sec.kind === 'dashboard';
+  $('#dashboard').hidden = !isDash;
+  $('#listbar').hidden   = isDash;
+  $('#grid').hidden      = isDash;
+  if (isDash) {
+    $('#empty').hidden = true;
+    renderDashboard();
+    renderNav(); renderTags(); renderFilters();
+    return;
+  }
+
+  const items = sortItems(visible(sec.id));
   $('#listTitle').innerHTML   = `${esc(sec.label.toUpperCase())} &middot; <span>${items.length}</span>`;
   $('#listSub').textContent   = state.sort === 'talked'
     ? 'Ranked by public reach where a real number exists, then by recency.'
@@ -248,11 +265,229 @@ function render() {
 
   $('#grid').innerHTML = items.map((it, i) => card(it, i + 1)).join('');
   $('#empty').hidden = items.length > 0;
-  document.title = `${sec.label} · Hermes Agent Archive`;
 
   renderNav();
   renderTags();
   renderFilters();
+}
+
+
+/* ------------------------------------------------------------- dashboard */
+
+/* Every figure below is counted from what is loaded in this page right now, or is a
+   sum of values fetched from a public API. Metric kinds are never added together:
+   a star, an upvote and an impression measure different things, so one combined
+   "engagement" number would be a number nobody ever measured. */
+function dashboardStats() {
+  const sections = state.cfg.sections.filter(s => s.file);
+  const all = sections.flatMap(s => state.data[s.id] || []);
+
+  const byShelf  = sections.map(s => [s.label, (state.data[s.id] || []).length]);
+  const bySource = new Map();
+  const byAuthor = new Map();
+  const byMetric = new Map();       // kind -> { total, items }
+
+  for (const it of all) {
+    bySource.set(it.source, (bySource.get(it.source) || 0) + 1);
+    if (it.author) byAuthor.set(it.author, (byAuthor.get(it.author) || 0) + 1);
+    for (const m of [it.metric, it.metric2]) {
+      if (!m || !Number.isFinite(m.value)) continue;
+      const row = byMetric.get(m.kind) || { total: 0, items: 0 };
+      row.total += m.value; row.items++;
+      byMetric.set(m.kind, row);
+    }
+  }
+
+  return {
+    total: all.length,
+    withMetric: all.filter(i => i.metric).length,
+    authors: byAuthor.size,
+    sources: bySource.size,
+    byShelf:  byShelf.sort((a, b) => b[1] - a[1]),
+    bySource: [...bySource].sort((a, b) => b[1] - a[1]),
+    byAuthor: [...byAuthor].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, 25),
+    byMetric: [...byMetric].sort((a, b) => b[1].total - a[1].total)
+  };
+}
+
+/* One shared tooltip for every chart — created once, moved on hover. */
+function chartTip() {
+  let el = document.getElementById('chartTip');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'chartTip';
+    el.className = 'chart-tip';
+    el.hidden = true;
+    document.body.appendChild(el);
+  }
+  return el;
+}
+
+/* Horizontal bars: one series, one hue, magnitude by category.
+   Rounded data-end, recessive gridlines, value direct-labelled. */
+function barChart(rows, { action, total } = {}) {
+  if (!rows.length) return '<p class="dash-none">Nothing to count yet.</p>';
+  const max = Math.max(...rows.map(r => r[1])) || 1;
+  const sum = total ?? rows.reduce((n, r) => n + r[1], 0);
+
+  return `<div class="bars">${rows.map(([label, n]) => {
+    const pct = Math.max(1.2, (n / max) * 100);
+    const share = sum ? ((n / sum) * 100).toFixed(n / sum < 0.1 ? 1 : 0) : '0';
+    const attr = action
+      ? ` data-${action}="${esc(label)}" role="button" tabindex="0" aria-label="${esc(label)}, ${n} entries — filter the archive"`
+      : '';
+    return `<div class="bar-row${action ? ' bar-click' : ''}"${attr}
+        data-tip="${esc(label)} · ${num(n)} ${n === 1 ? 'entry' : 'entries'} · ${share}% of ${num(sum)}">
+      <span class="bar-label" title="${esc(label)}">${esc(label)}</span>
+      <span class="bar-track"><span class="bar-fill" style="width:${pct.toFixed(1)}%"></span></span>
+      <span class="bar-n">${num(n)}</span>
+    </div>`;
+  }).join('')}</div>`;
+}
+
+/* Area chart of when the archived material was actually published.
+   Reference docs are excluded: their date is the day they were imported, not
+   the day anything happened, and charting that would invent a spike. */
+function timelineSeries() {
+  const months = new Map();
+  for (const s of state.cfg.sections.filter(s => s.file))
+    for (const it of state.data[s.id] || []) {
+      if (!it.date || it.source === 'docs') continue;
+      const m = String(it.date).slice(0, 7);
+      if (!/^\d{4}-\d{2}$/.test(m)) continue;
+      months.set(m, (months.get(m) || 0) + 1);
+    }
+  if (months.size < 2) return [];
+
+  const keys = [...months.keys()].sort();
+  const out = [];
+  const [y0, m0] = keys[0].split('-').map(Number);
+  const [y1, m1] = keys[keys.length - 1].split('-').map(Number);
+  for (let y = y0, m = m0; y < y1 || (y === y1 && m <= m1); m === 12 ? (m = 1, y++) : m++) {
+    const k = `${y}-${String(m).padStart(2, '0')}`;
+    out.push([k, months.get(k) || 0]);
+  }
+  return out.slice(-24);
+}
+
+function areaChart(series) {
+  if (series.length < 2) return '';
+  const W = 720, H = 190, PAD = { t: 14, r: 12, b: 26, l: 34 };
+  const iw = W - PAD.l - PAD.r, ih = H - PAD.t - PAD.b;
+  const max = Math.max(...series.map(s => s[1]));
+  const nice = max <= 5 ? 5 : Math.ceil(max / 10) * 10;
+
+  const x = i => PAD.l + (series.length === 1 ? iw / 2 : (i / (series.length - 1)) * iw);
+  const y = v => PAD.t + ih - (v / nice) * ih;
+
+  const line = series.map(([, v], i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(' ');
+  const area = `${line} L${x(series.length - 1).toFixed(1)},${(PAD.t + ih).toFixed(1)} L${x(0).toFixed(1)},${(PAD.t + ih).toFixed(1)} Z`;
+
+  const ticks = [0, nice / 2, nice].map(v =>
+    `<line x1="${PAD.l}" x2="${W - PAD.r}" y1="${y(v).toFixed(1)}" y2="${y(v).toFixed(1)}" class="gridline"/>
+     <text x="${PAD.l - 7}" y="${(y(v) + 3.5).toFixed(1)}" class="axis-y">${v}</text>`).join('');
+
+  const step = Math.ceil(series.length / 6);
+  const xLabels = series.map(([k], i) =>
+    (i % step === 0 || i === series.length - 1)
+      ? `<text x="${x(i).toFixed(1)}" y="${H - 8}" class="axis-x">${k.slice(2)}</text>` : '').join('');
+
+  const dots = series.map(([k, v], i) =>
+    `<circle cx="${x(i).toFixed(1)}" cy="${y(v).toFixed(1)}" r="9" class="hit"
+       data-tip="${k} · ${num(v)} ${v === 1 ? 'entry' : 'entries'}"/>`).join('');
+
+  const peak = series.reduce((b, s, i) => s[1] > series[b][1] ? i : b, 0);
+
+  return `<svg class="area-chart" viewBox="0 0 ${W} ${H}" role="img"
+      aria-label="Entries published per month, ${series[0][0]} to ${series[series.length - 1][0]}">
+    <defs><linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="var(--accent)" stop-opacity=".34"/>
+      <stop offset="1" stop-color="var(--accent)" stop-opacity="0"/>
+    </linearGradient></defs>
+    ${ticks}
+    <path d="${area}" fill="url(#areaFill)"/>
+    <path d="${line}" class="area-line"/>
+    <circle cx="${x(peak).toFixed(1)}" cy="${y(series[peak][1]).toFixed(1)}" r="3.5" class="peak-dot"/>
+    <text x="${x(peak).toFixed(1)}" y="${(y(series[peak][1]) - 9).toFixed(1)}" class="peak-label">${num(series[peak][1])}</text>
+    ${xLabels}${dots}
+  </svg>`;
+}
+
+function renderDashboard() {
+  const st = dashboardStats();
+  const live = state.live || {};
+  const stale = (live.github || []).filter(g => g.stale).length;
+  const warnings = (live.warnings || []).length;
+  const series = timelineSeries();
+
+  const tile = (k, v, note) =>
+    `<div class="tile"><span class="tile-k">${esc(k)}</span><span class="tile-v">${v}</span>${note ? `<span class="tile-note">${esc(note)}</span>` : ''}</div>`;
+
+  const metricTiles = st.byMetric.length
+    ? st.byMetric.map(([kind, r]) =>
+        tile(kind, num(r.total), `across ${num(r.items)} ${r.items === 1 ? 'entry' : 'entries'}`)).join('')
+    : '<p class="dash-none">No fetched metrics loaded.</p>';
+
+  $('#dashboard').innerHTML = `
+    <div class="dash-tiles">
+      ${tile('items in the archive', num(st.total))}
+      ${tile('carry a real metric', num(st.withMetric), `${Math.round(st.withMetric / (st.total || 1) * 100)}% of the archive`)}
+      ${tile('credited authors', num(st.authors))}
+      ${tile('distinct sources', num(st.sources))}
+    </div>
+
+    <section class="dash-block">
+      <h3>COUNTED TOTALS</h3>
+      <p class="dash-sub">Each kind on its own. Stars, points, impressions and upvotes measure
+      different things, so they are never added together.</p>
+      <div class="dash-tiles dash-tiles-sm">${metricTiles}</div>
+    </section>
+
+    ${series.length ? `<section class="dash-block">
+      <h3>PUBLISHED PER MONTH <span class="dash-hint">${series[0][0]} → ${series[series.length - 1][0]}</span></h3>
+      <p class="dash-sub">When the archived material was published. Reference documentation is
+      left out — its date is the day it was imported, not the day anything happened.</p>
+      ${areaChart(series)}
+    </section>` : ''}
+
+    <div class="dash-cols">
+      <section class="dash-block"><h3>BY SHELF</h3>${barChart(st.byShelf, { total: st.total })}</section>
+      <section class="dash-block"><h3>BY SOURCE</h3>
+        ${barChart(st.bySource.map(([s, n]) => [SOURCE_LABEL[s] || s, n]), { total: st.total })}</section>
+    </div>
+
+    <section class="dash-block">
+      <h3>BY AUTHOR <span class="dash-hint">top ${st.byAuthor.length} &middot; click to filter the archive</span></h3>
+      ${barChart(st.byAuthor, { action: 'author' })}
+    </section>
+
+    <p class="dash-fresh">
+      ${live.generatedAt ? `Metrics fetched ${esc(new Date(live.generatedAt).toLocaleString())}.` : 'No metrics fetched yet.'}
+      ${live.routedBy ? ` Sourced items shelved by ${live.routedBy === 'jev' ? 'Jev' : 'keyword rules'}.` : ''}
+      ${stale ? ` ${stale} repo${stale === 1 ? '' : 's'} carried over from an earlier fetch.` : ''}
+      ${warnings ? ` ${warnings} source${warnings === 1 ? ' was' : 's were'} unavailable at the last fetch.` : ''}
+    </p>`;
+
+  wireTips();
+}
+
+/* Hover layer: every mark carrying data-tip gets the shared tooltip. */
+function wireTips() {
+  const tip = chartTip();
+  const dash = $('#dashboard');
+  const show = e => {
+    const el = e.target.closest('[data-tip]');
+    if (!el) return;
+    tip.textContent = el.dataset.tip;
+    tip.hidden = false;
+    const r = el.getBoundingClientRect();
+    tip.style.left = `${Math.min(window.innerWidth - tip.offsetWidth - 10, Math.max(8, r.left + r.width / 2 - tip.offsetWidth / 2))}px`;
+    tip.style.top  = `${Math.max(8, r.top - tip.offsetHeight - 8)}px`;
+  };
+  dash.onmouseover = show;
+  dash.onfocusin = show;
+  dash.onmouseout = e => { if (!e.relatedTarget || !dash.contains(e.relatedTarget)) tip.hidden = true; };
+  dash.onfocusout = () => { tip.hidden = true; };
 }
 
 /* --------------------------------------------------------------- drawer */
@@ -314,7 +549,7 @@ function fillSelect(el, options, selected) {
 }
 
 function clearFilters() {
-  state.q = ''; state.tag = null; state.source = 'all'; state.range = 'all';
+  state.q = ''; state.tag = null; state.author = null; state.source = 'all'; state.range = 'all';
   $('#search').value = '';
   $('#sourceSel').value = 'all';
   $('#rangeSel').value = 'all';
@@ -370,6 +605,13 @@ function wire() {
   });
 
   document.addEventListener('click', e => {
+    const authorBtn = e.target.closest('[data-author]');
+    if (authorBtn) {
+      state.author = state.author === authorBtn.dataset.author ? null : authorBtn.dataset.author;
+      state.section = state.cfg.sections.find(s => s.id === 'use-cases') ? 'use-cases' : state.section;
+      render();
+      return;
+    }
     const tagBtn = e.target.closest('[data-tag]');
     if (tagBtn) {
       state.tag = state.tag === tagBtn.dataset.tag ? null : tagBtn.dataset.tag;
@@ -380,6 +622,7 @@ function wire() {
       const k = drop.dataset.drop;
       if (k === 'q')      { state.q = ''; $('#search').value = ''; }
       if (k === 'tag')    state.tag = null;
+      if (k === 'author') state.author = null;
       if (k === 'source') { state.source = 'all'; $('#sourceSel').value = 'all'; }
       if (k === 'range')  { state.range  = 'all'; $('#rangeSel').value  = 'all'; }
       render(); return;
@@ -396,6 +639,10 @@ function wire() {
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') { closeDrawer(); $('#sidebar').classList.remove('open'); }
     if (e.key === '/' && document.activeElement !== $('#search')) { e.preventDefault(); $('#search').focus(); }
+    if ((e.key === 'Enter' || e.key === ' ') && document.activeElement?.hasAttribute?.('data-author')) {
+      e.preventDefault();
+      document.activeElement.click();
+    }
   });
 
   window.addEventListener('hashchange', () => { routeFromHash(); render(); });

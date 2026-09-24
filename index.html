@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hermes Agent Archive</title>
 <meta name="description" content="The most viewed, talked about and actually-used agent craft — use cases, skills, prompts, settings, commands and hidden tricks, curated in public.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23f7c452'/%3E%3Cstop offset='.55' stop-color='%23f5a524'/%3E%3Cstop offset='1' stop-color='%23e08a10'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='%230a0a0f'/%3E%3Cg transform='rotate(-19 32 32)' fill='url(%23a)'%3E%3Crect x='13' y='19' width='38' height='7.5' rx='3.75'/%3E%3Crect x='13' y='30' width='27' height='7.5' rx='3.75'/%3E%3Crect x='13' y='41' width='16' height='7.5' rx='3.75'/%3E%3C/g%3E%3Ccircle cx='45.5' cy='45' r='4' fill='%232dd4bf'/%3E%3C/svg%3E"><text y='.9em' font-size='90'>&#9670;</text></svg>">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23f7c452'/%3E%3Cstop offset='.55' stop-color='%23f5a524'/%3E%3Cstop offset='1' stop-color='%23e08a10'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='%230a0a0f'/%3E%3Cg transform='rotate(-19 32 32)' fill='url(%23a)'%3E%3Crect x='13' y='19' width='38' height='7.5' rx='3.75'/%3E%3Crect x='13' y='30' width='27' height='7.5' rx='3.75'/%3E%3Crect x='13' y='41' width='16' height='7.5' rx='3.75'/%3E%3C/g%3E%3Ccircle cx='45.5' cy='45' r='4' fill='%232dd4bf'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -88,7 +88,7 @@
       </div>
     </section>
 
-    <div class="listbar">
+    <div class="listbar" id="listbar">
       <div>
         <h2 id="listTitle">POPULAR &middot; <span id="listCount">0</span></h2>
         <p id="listSub">Ranked by reach where a real number exists, then by curation.</p>
@@ -102,6 +102,8 @@
     </div>
 
     <div id="activeFilters" class="active-filters" hidden></div>
+
+    <section id="dashboard" class="dash" hidden aria-label="Archive overview"></section>
 
     <div id="grid" class="grid" role="list"></div>
 
