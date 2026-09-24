@@ -291,3 +291,10 @@ non-positive growth are excluded. The ordinary Jev sorting remains date independ
 The fetcher records observation timestamps and prior star counts on each refresh.
 To bootstrap history from a committed API snapshot (without changing counts), run
 `node scripts/backfill-trends.mjs <snapshot-commit-sha>`.
+
+### Private access
+
+As of 2026-09-24, this archive is private to its owner through Vercel Authentication
+with **All Deployments** selected. The production domain, preview URLs and historical
+deployment URLs require authorized Vercel sign-in. Keep this setting when deploying
+new releases; only change it when the owner explicitly asks to make the site public.

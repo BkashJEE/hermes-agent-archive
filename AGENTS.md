@@ -171,3 +171,12 @@ Rank by usefulness and observed public popularity, never by date. Missing public
 engagement is unknown, not zero popularity. Model scores are internal editorial
 judgments and must never be rendered as public engagement metrics. Keep cache keys
 sensitive to content and fetched evidence; stale entries are unclassified.
+
+## Deployment privacy
+
+The owner requested private access on 2026-09-24. Keep Vercel Authentication set
+to All Deployments (`ssoProtection.deploymentType = all`), including production
+domains. Do not disable protection, add public exceptions, or generate/share access
+links unless the owner explicitly requests a change. Deploying or promoting a release
+does not authorize making it public. Anonymous requests to pages and data must
+remain blocked. The current team has only the owner's account.
