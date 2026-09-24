@@ -10,8 +10,10 @@
     "fetch": "node scripts/fetch-signals.mjs",
     "route": "node scripts/route-signals.mjs",
     "sync": "npm run fetch && npm run route",
-    "rank": "node scripts/rank-with-jev.mjs",
-    "check": "node scripts/check-data.mjs"
+    "rank": "node scripts/rank-archive.mjs",
+    "check": "node scripts/check-data.mjs",
+    "rank:ideas": "node scripts/rank-with-jev.mjs",
+    "test": "node --test scripts/ranking.test.mjs"
   },
   "engines": {
     "node": ">=20"

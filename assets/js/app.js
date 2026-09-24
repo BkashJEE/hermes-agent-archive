@@ -1,6 +1,8 @@
 /* Use-Case Archive — data loading, filtering, rendering. No framework, no build step. */
 
 import { sectionIcon } from './icons.js';
+import { mergeLive } from './archive.js';
+import { attachRankings, compareRankings, usefulnessLabel, popularityLabel } from './ranking.js';
 
 const $  = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -18,8 +20,7 @@ const state = {
   live: null,
   section: 'use-cases',
   source: 'all',
-  range: 'all',
-  sort: 'talked',
+  sort: 'recommended',
   q: '',
   tag: null,
   tagQuery: '',
@@ -38,17 +39,6 @@ const esc = s => String(s ?? '').replace(/[&<>"']/g, c =>
 
 const num = n => n >= 1000 ? n.toLocaleString('en-US') : String(n);
 
-function ago(iso) {
-  if (!iso) return '';
-  const d = (Date.now() - new Date(iso).getTime()) / 86400000;
-  if (!isFinite(d)) return '';
-  if (d < 1)  return 'today';
-  if (d < 2)  return 'yesterday';
-  if (d < 30) return `${Math.round(d)}d ago`;
-  if (d < 365) return `${Math.round(d / 30)}mo ago`;
-  return `${Math.round(d / 365)}y ago`;
-}
-
 async function getJSON(path) {
   const res = await fetch(path, { cache: 'no-store' });
   if (!res.ok) throw new Error(`${path}: ${res.status}`);
@@ -66,92 +56,17 @@ async function load() {
   state.cfg.sections.forEach((s, i) => { state.data[s.id] = sections[i].items || []; });
 
   state.live = await getJSON('data/live.json').catch(() => null);
-  applyLive();
-}
-
-/* Merge fetched public metrics onto curated entries, then shelve everything the
-   sourcing pipeline found. Every value here came from a public API — nothing is
-   hand-written, and nothing is estimated. */
-function applyLive() {
-  const live = state.live;
-  if (!live) return;
-  const builds = state.data.builds || [];
-
-  // GitHub: attach real stars/forks to seeded repos; drop seeds that never resolved.
-  const byRepo = new Map((live.github || []).map(g => [g.repo.toLowerCase(), g]));
-  state.data.builds = builds.filter(item => {
-    if (!item.repo) return true;
-    const g = byRepo.get(item.repo.toLowerCase());
-    if (!g) { item.unresolved = true; return false; }
-    item.title   = g.repo;                       // follow renames/transfers
-    item.summary = g.description || item.summary;
-    item.metric  = { kind: 'stars', value: g.stars };
-    item.metric2 = { kind: 'forks', value: g.forks };
-    item.lang    = g.language;
-    item.url     = g.url;
-    item.date    = g.pushedAt || item.date;
-    return true;
-  });
-
-  const shelve = (sectionId, raw) => {
-    if (!state.data[sectionId]) return;
-    state.data[sectionId].push({
-      id: raw.id,
-      title: raw.title,
-      summary: raw.summary,
-      source: raw.source,
-      url: raw.url,
-      author: raw.author,
-      date: raw.date,
-      lang: raw.lang,
-      metric: raw.metric,
-      metric2: raw.metric2,
-      sourced: raw.routedBy || 'auto',
-      tags: ['sourced', ...(raw.topics || []).slice(0, 2)]
-    });
-  };
-
-  if (live.routed) {
-    // Routed by scripts/route-signals.mjs — each signal on the shelf it belongs to.
-    for (const [sectionId, items] of Object.entries(live.routed))
-      for (const raw of items) shelve(sectionId, raw);
-    return;
-  }
-
-  // Not routed yet: everything fetched still belongs somewhere, so it goes to builds.
-  for (const g of (live.github || []).filter(g => g.discovered))
-    shelve('builds', {
-      id: `gh-${g.repo.replace(/[^\w]+/g, '-').toLowerCase()}`, title: g.repo,
-      summary: g.description || 'No project description supplied.', source: 'github',
-      url: g.url, date: g.pushedAt, lang: g.language, topics: g.topics,
-      metric: { kind: 'stars', value: g.stars }, metric2: { kind: 'forks', value: g.forks }
-    });
-  for (const h of live.hn || [])
-    shelve('builds', {
-      id: `hn-${h.id}`, title: h.title, summary: h.summary, source: 'hn', url: h.url,
-      author: h.author, date: h.date,
-      metric: { kind: 'points', value: h.points }, metric2: { kind: 'comments', value: h.comments }
-    });
-  for (const r of live.reddit || [])
-    shelve('builds', {
-      id: `rd-${r.id}`, title: r.title, summary: r.summary, source: 'reddit', url: r.url,
-      author: r.author, date: r.date,
-      metric: { kind: 'upvotes', value: r.upvotes }, metric2: { kind: 'comments', value: r.comments }
-    });
+  // Only live API data can supply engagement metrics.
+  for (const items of Object.values(state.data)) for (const item of items) { delete item.metric; delete item.metric2; }
+  mergeLive(state.data, state.live);
+  const rankings = await getJSON('data/rankings.json').catch(() => null);
+  await attachRankings(Object.values(state.data).flat(), rankings);
 }
 
 /* -------------------------------------------------------------- filters */
 
-function inRange(item) {
-  const days = (state.cfg.ranges.find(r => r.id === state.range) || {}).days || 0;
-  if (!days) return true;
-  if (!item.date) return false;
-  return (Date.now() - new Date(item.date).getTime()) / 86400000 <= days;
-}
-
 function matches(item) {
   if (state.source !== 'all' && item.source !== state.source) return false;
-  if (!inRange(item)) return false;
   if (state.tag && !(item.tags || []).includes(state.tag)) return false;
   if (state.q) {
     const hay = [item.title, item.summary, item.detail, item.snippet, item.author, ...(item.tags || [])]
@@ -162,15 +77,8 @@ function matches(item) {
 }
 
 function sortItems(items) {
-  const arr = [...items];
-  if (state.sort === 'az')     return arr.sort((a, b) => a.title.localeCompare(b.title));
-  if (state.sort === 'recent') return arr.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
-  // "most talked about": real public numbers first, then curated by recency
-  return arr.sort((a, b) => {
-    const av = a.metric?.value ?? -1, bv = b.metric?.value ?? -1;
-    if (av !== bv) return bv - av;
-    return (b.date || '').localeCompare(a.date || '');
-  });
+  return [...items].sort((a, b) => state.sort === 'az'
+    ? a.title.localeCompare(b.title) : compareRankings(a, b, state.sort));
 }
 
 const visible = id => (state.data[id] || []).filter(matches);
@@ -201,12 +109,12 @@ function metricBlock(item) {
 
 function card(item, rank, iconName) {
   return `<li><button class="card" data-id="${esc(item.id)}">
-    <div class="card-top"><span class="card-index"><span class="card-tab">${sectionIcon(iconName)}</span><span class="rank">#${rank}</span></span>
+    <div class="card-top"><span class="card-index"><span class="card-tab">${sectionIcon(iconName)}</span><span class="rank">${state.sort === 'az' ? 'A–Z' : item.ranking ? `#${rank}` : 'UNCLASSIFIED'}</span></span>
       ${item.sourced ? '<span class="pill pill-sourced" title="Found by the sourcing pipeline, not written by hand">SOURCED</span>' : ''}${pill(item.source)}</div>
     <h3>${esc(item.title)}</h3>
     <p class="sum">${esc(item.summary)}</p>
     ${metricBlock(item)}
-    <div class="card-foot"><span>Open ${item.url ? '&#8599;' : '&rarr;'}</span><span class="when">${esc(ago(item.date))}</span></div>
+    <div class="card-foot"><span>Open ${item.url ? '&#8599;' : '&rarr;'}</span><span class="when">${item.ranking ? 'Jev classified' : 'Awaiting Jev'}</span></div>
   </button></li>`;
 }
 
@@ -236,7 +144,6 @@ function renderFilters() {
   if (state.q)                  bits.push(['q',      `SEARCH: ${state.q}`]);
   if (state.tag)                bits.push(['tag',    `TAG: ${state.tag}`]);
   if (state.source !== 'all')   bits.push(['source', `SOURCE: ${SOURCE_LABEL[state.source] || state.source}`]);
-  if (state.range !== 'all')    bits.push(['range',  (state.cfg.ranges.find(r => r.id === state.range) || {}).label?.toUpperCase()]);
 
   const box = $('#activeFilters');
   box.hidden = !bits.length;
@@ -254,9 +161,15 @@ function render() {
   $('#heroTitle').textContent = sec.title;
   $('#heroBlurb').textContent = sec.blurb;
   $('#listTitle').innerHTML   = `${esc(sec.label.toUpperCase())} &middot; <span>${items.length}</span>`;
-  $('#listSub').textContent   = state.sort === 'talked'
-    ? 'Ranked by public reach where a real number exists, then by recency.'
-    : state.sort === 'recent' ? 'Newest first.' : 'Alphabetical.';
+  const classified = items.filter(item => item.ranking).length;
+  $('#listSub').textContent = !items.length ? 'No entries to rank in this view.'
+    : state.sort === 'az' ? 'Alphabetical.'
+    : !classified ? 'Awaiting Jev classification. Unclassified entries are alphabetical; dates never affect the order.'
+    : state.sort === 'popular' && !items.some(item => item.ranking && item.ranking.popularity !== 'unknown')
+      ? 'Popularity is unknown on this shelf: no fetched engagement evidence. Ordered by Jev usefulness instead.'
+    : `${classified} of ${items.length} classified by Jev. ${state.sort === 'popular'
+      ? 'Public popularity first; unknown popularity last.'
+      : 'Usefulness first; public popularity breaks ties.'} Dates never affect the order.`;
 
   $('#grid').innerHTML = items.map((it, i) => card(it, i + 1, sec.icon)).join('');
   $('#grid').dataset.density = state.density;
@@ -270,7 +183,7 @@ function render() {
        <span>We're collecting ${esc(sec.label.toLowerCase())} worth keeping. Every entry needs a real source before it earns a place here.</span>
        <a class="ghost-btn empty-link" href="#use-cases" data-browse>Explore the user stories &rarr;</a>`
     : `<strong>Nothing matches those filters.</strong>
-       <span>This shelf has entries. Widen the time range, choose All Sources, or clear your filters to see them.</span>
+       <span>This shelf has entries. Choose All Sources or clear your filters to see them.</span>
        <button class="ghost-btn" data-clear>Clear filters</button>`;
   document.title = `${sec.label} · Hermes Agent Archive`;
 
@@ -310,6 +223,9 @@ function openDrawer(id, trigger) {
 
   $('#drawerBody').innerHTML = `
     <div class="d-kicker">${pill(it.source)}${it.lang ? `<span class="pill pill-curated">${esc(it.lang)}</span>` : ''}</div>
+    <p class="d-attribution">${it.ranking
+      ? `Jev assessment: ${esc(usefulnessLabel(it.ranking.usefulness))} · ${esc(popularityLabel(it.ranking.popularity))}`
+      : 'Awaiting Jev classification; no date-based ranking.'}</p>
     <h3 id="drawerTitle">${esc(it.title)}</h3>
     ${story ? `<figure class="d-story"><blockquote class="d-body" cite="${esc(it.url)}">${body}</blockquote>
       <figcaption class="d-attribution"><span class="attribution-rule" aria-hidden="true"></span>${esc(credit)}</figcaption></figure>`
@@ -360,10 +276,9 @@ function fillSelect(el, options, selected) {
 }
 
 function clearFilters() {
-  state.q = ''; state.tag = null; state.source = 'all'; state.range = 'all';
+  state.q = ''; state.tag = null; state.source = 'all';
   $('#search').value = '';
   $('#sourceSel').value = 'all';
-  $('#rangeSel').value = 'all';
   render();
 }
 
@@ -396,7 +311,6 @@ function wire() {
     render();
   }));
   fillSelect($('#sourceSel'), state.cfg.sources, state.source);
-  fillSelect($('#rangeSel'),  state.cfg.ranges,  state.range);
   fillSelect($('#sortSel'),   state.cfg.sorts,   state.sort);
 
   $('#curator').textContent     = state.cfg.site.curator;
@@ -423,7 +337,6 @@ function wire() {
   });
 
   $('#sourceSel').addEventListener('change', e => { state.source = e.target.value; render(); });
-  $('#rangeSel').addEventListener('change',  e => { state.range  = e.target.value; render(); });
   $('#sortSel').addEventListener('change',   e => { state.sort   = e.target.value; render(); });
   $('#clearBtn').addEventListener('click', clearFilters);
   $('#refreshBtn').addEventListener('click', async () => { await load(); render(); });
@@ -454,7 +367,6 @@ function wire() {
       if (k === 'q')      { state.q = ''; $('#search').value = ''; }
       if (k === 'tag')    state.tag = null;
       if (k === 'source') { state.source = 'all'; $('#sourceSel').value = 'all'; }
-      if (k === 'range')  { state.range  = 'all'; $('#rangeSel').value  = 'all'; }
       render(); $('#clearBtn').focus(); return;
     }
     if (e.target.closest('[data-browse]')) {

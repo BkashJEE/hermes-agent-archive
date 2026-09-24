@@ -10,7 +10,7 @@ Static site. No build step, no framework, no dependencies. Content is plain JSON
 index.html              the page
 assets/css/style.css    the newsroom-console theme
 assets/js/app.js        loading, filtering, ranking, detail drawer
-data/index.json         sections, sources, ranges, sort options
+data/index.json         sections, sources, sort options
 data/*.json             one file per section — this is the content
 data/live.json          generated: real numbers from public APIs
 scripts/fetch-signals.mjs   pulls GitHub / HN / Reddit metrics
@@ -77,7 +77,7 @@ loads it automatically; anything exported in your shell still wins over the file
 
 | Key | What it unlocks | Without it |
 | --- | --- | --- |
-| `TYPESAFE_API_KEY` | Jev routing and feature ranking | keyword rules route; ranking is unavailable |
+| `TYPESAFE_API_KEY` | Jev routing and archive classification | keyword rules route; ranking is unavailable |
 | `GITHUB_TOKEN` | 5000 API requests/hour instead of 60 | fine for one run, rate-limits on repeats |
 | `REDDIT_CLIENT_ID` / `_SECRET` | the Reddit section | stays empty — Reddit refuses anonymous reads |
 
@@ -219,3 +219,25 @@ there so underscore-prefixed paths are served as-is.
 
 `.github/workflows/refresh.yml` keeps working either way — a private repo can still
 fetch and commit updated numbers on its weekly schedule.
+
+## Rank the archive with Jev
+
+Run `npm run rank` with `TYPESAFE_API_KEY` configured. It classifies the actual
+curated and sourced entries and writes `data/rankings.json` atomically only after
+every required classification succeeds. Existing results survive an API or auth
+failure; unchanged inputs reuse their classifications. Use `npm run rank -- --force`
+only when intentionally reassessing the whole archive. Run this after importing
+content or refreshing public metrics. The browser marks changed or new entries as
+unclassified until the job succeeds, instead of reusing stale assessments.
+
+The default order is Jev usefulness band, observed popularity tier, fine usefulness
+score, then title/id for stable ties. The popularity option reverses the first two
+criteria. Dates are attribution only, never ranking inputs or tie-breakers. Unknown
+popularity is distinct from limited traction and sorts after known popularity.
+
+Popularity evidence comes only from `data/live.json` public API fetches, never
+hand-written metrics or engagement claims in quotes. Jev assesses usefulness from
+the write-up. The UI exposes assessment labels, not model scores disguised as
+public metrics. The old feature-idea experiment remains `npm run rank:ideas`.
+
+Run `npm test` for ranking policy and cache regression checks.

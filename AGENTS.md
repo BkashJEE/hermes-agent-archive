@@ -45,7 +45,7 @@ If you cannot source a number, leave the shelf thinner. That is the product.
 index.html              the page
 assets/css/style.css    theme; colors are tokens on :root
 assets/js/app.js        load, filter, rank, drawer
-data/index.json         sections, sources, ranges, sorts
+data/index.json         sections, sources, sorts
 data/<section>.json     the curated content
 data/live.json          GENERATED — never hand-edit
 data/research/          inputs and outputs for ranking work
@@ -113,3 +113,12 @@ CSS and JS edits with a real reload (`?v=<timestamp>`), not a hash navigation.
 `.empty`, `.active-filters` and `.drawer` set `display` on a class, which outranks the
 browser's `[hidden]` rule. The global `[hidden]{display:none!important}` in the
 stylesheet is load-bearing — do not remove it.
+
+## Archive ranking
+
+`npm run rank` classifies actual archive entries with Jev and writes
+`data/rankings.json`. The old feature-idea experiment is `npm run rank:ideas`.
+Rank by usefulness and observed public popularity, never by date. Missing public
+engagement is unknown, not zero popularity. Model scores are internal editorial
+judgments and must never be rendered as public engagement metrics. Keep cache keys
+sensitive to content and fetched evidence; stale entries are unclassified.

@@ -122,41 +122,14 @@
       "label": "Community"
     }
   ],
-  "ranges": [
-    {
-      "id": "all",
-      "label": "All time",
-      "days": 0
-    },
-    {
-      "id": "1",
-      "label": "Past 24 hours",
-      "days": 1
-    },
-    {
-      "id": "7",
-      "label": "Past 7 days",
-      "days": 7
-    },
-    {
-      "id": "30",
-      "label": "Past 30 days",
-      "days": 30
-    },
-    {
-      "id": "90",
-      "label": "Past 90 days",
-      "days": 90
-    }
-  ],
   "sorts": [
     {
-      "id": "talked",
-      "label": "Most talked about"
+      "id": "recommended",
+      "label": "Most useful · Jev"
     },
     {
-      "id": "recent",
-      "label": "Most recent"
+      "id": "popular",
+      "label": "Most popular · Jev"
     },
     {
       "id": "az",

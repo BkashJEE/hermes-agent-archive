@@ -3,6 +3,7 @@
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { MODEL, RANKING_VERSION, validAssessment } from '../assets/js/ranking.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const read = async f => JSON.parse(await readFile(join(ROOT, 'data', f), 'utf8'));
@@ -31,6 +32,15 @@ for (const section of cfg.sections) {
 }
 
 await read('live.json');
+try {
+  const rankings = await read('rankings.json');
+  if (rankings.version !== RANKING_VERSION || rankings.model !== MODEL || !rankings.results || typeof rankings.results !== 'object')
+    errors.push('rankings.json: unsupported or malformed classification file');
+  else for (const [id, result] of Object.entries(rankings.results))
+    if (!validAssessment(result)) errors.push(`rankings.json → ${id}: invalid classification`);
+} catch (error) {
+  if (error.code !== 'ENOENT') errors.push(`rankings.json: ${error.message}`);
+}
 console.log(`\n${total} items across ${cfg.sections.length} sections.`);
 if (errors.length) { console.error(`\n${errors.length} problem(s):`); for (const e of errors) console.error('  · ' + e); process.exit(1); }
 console.log('All data files valid.');
