@@ -590,9 +590,12 @@ code{font-family:var(--mono);font-size:.92em}
 
 /* The shelf header and its controls stay put; only the grid scrolls beneath.
    With 326 cards on a shelf, losing the filters off the top makes them useless. */
-.hero{position:sticky;top:var(--top-h);z-index:20}
+/* The description card scrolls away; only the controls row stays. Pinning both
+   held ~200px of screen permanently, and the description is read once while the
+   filters are needed the whole way down. */
+.hero{position:static}
 .listbar{
-  position:sticky;top:calc(var(--top-h) + 84px);z-index:19;
+  position:sticky;top:var(--top-h);z-index:19;
   padding:10px 0 12px;margin-bottom:0;
   background:linear-gradient(var(--bg) 78%,transparent);
 }
