@@ -1,3 +1,5 @@
+![Hermes Agent Archive — one dot for every entry](assets/hero.png)
+
 # Hermes Agent Archive
 
 An independent community archive of Hermes Agent workflows, prompts, skills and projects. Entries link to their sources and credit their authors. Original site code is MIT licensed; third-party content retains its source rights. This is not an official Nous Research product.
