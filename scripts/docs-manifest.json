@@ -1,0 +1,52 @@
+{
+  "note": "Which documentation page feeds which shelf. Routing is declared here and reviewed by a person, never guessed by the importer. Hidden Tricks and Prompts are absent on purpose: calling something a non-obvious trick, or a prompt quoted verbatim, asserts something no parser can establish, so those shelves are filled only by reviewed extraction. See AGENTS.md and scripts/route-signals.mjs.",
+  "source": "https://hermes-agent.nousresearch.com/docs/",
+  "reviewedAt": "2026-09-25",
+
+  "selection": "This archive indexes the documentation; it does not mirror it. Importing every page that parses cleanly yields about 616 entries and turns Settings into the largest shelf, most of it option-by-option reference that reads better upstream and would bury 326 community stories. The pages below are the ones that fill a genuine hole in a shelf.",
+
+  "pages": [
+    { "path": "user-guide/features/skills",        "shelf": "skills",    "tags": ["skills"],                          "why": "Skills held four entries. This is the page that explains what a skill is and how to install, write and scope one." },
+
+    { "path": "getting-started/quickstart",        "shelf": "commands",  "tags": ["quickstart", "getting-started"],   "why": "The first commands anyone runs; nothing in the archive covered getting started." },
+    { "path": "getting-started/installation",      "shelf": "commands",  "tags": ["install", "getting-started"],      "why": "Install paths per platform, which the CLI reference does not carry." },
+    { "path": "user-guide/cli",                    "shelf": "commands",  "tags": ["cli"],                             "why": "Working in the CLI day to day, as opposed to the flag-by-flag reference already imported." },
+
+    { "path": "getting-started/learning-path",     "shelf": "use-cases", "tags": ["learning-path", "getting-started"], "why": "An ordered route through Hermes for someone starting out." },
+    { "path": "user-guide/features/overview",      "shelf": "use-cases", "tags": ["features"],                        "why": "What the agent can actually do, in one place." },
+    { "path": "guides/use-voice-mode-with-hermes", "shelf": "use-cases", "tags": ["voice-mode", "guide"],             "why": "A complete worked workflow, which is exactly what this shelf is for." },
+    { "path": "guides/run-nemotron-3-ultra-free",  "shelf": "use-cases", "tags": ["nemotron", "models", "guide"],     "why": "A worked setup for running a specific model, end to end." },
+    { "path": "developer-guide/architecture",      "shelf": "use-cases", "tags": ["architecture", "developer"],       "why": "How the thing is built, for people extending it." },
+
+    { "path": "getting-started/platform-support",  "shelf": "settings",  "tags": ["platform", "getting-started"],     "why": "What runs where; short and load-bearing when something will not start." },
+    { "path": "getting-started/termux",            "shelf": "settings",  "tags": ["android", "termux"],               "why": "Android setup is genuinely non-obvious and is not covered anywhere else in the archive." }
+  ],
+
+  "skipped": {
+    "skills": "The Skills Hub is client-rendered: the page ships about 16KB with one heading and no server-rendered content, and the catalogue has no public JSON endpoint. There is nothing to parse without executing its bundle, and scraping a JS bundle is not a source anyone can re-verify.",
+    "plugins": "Client-rendered for the same reason, with no headings at all in the served HTML.",
+
+    "user-guide/configuration": "123 sections of option-by-option reference. It belongs upstream, where it is searchable and current.",
+    "user-guide/security": "42 sections of policy reference. Linking to it beats copying it, and a stale security page in an archive is worse than none.",
+    "user-guide/features/mcp": "47 sections of per-server reference.",
+    "user-guide/features/memory": "26 sections of reference detail.",
+    "user-guide/features/context-files": "Reference detail already summarised by existing Settings entries.",
+    "user-guide/features/personality": "Reference detail.",
+    "user-guide/features/tools": "Per-tool reference.",
+    "user-guide/features/voice-mode": "Reference counterpart to the voice-mode guide, which is imported instead.",
+    "user-guide/messaging/": "44 sections of per-platform setup reference.",
+    "user-guide/bot-mode": "Per-platform bot configuration reference.",
+    "integrations/nous-portal": "Account and portal reference rather than a workflow.",
+    "reference/faq": "50 short answers; an archive card per FAQ entry adds nothing over the FAQ itself.",
+
+    "developer-guide/contributing": "Contribution process for Hermes Agent itself, not a workflow anyone runs here.",
+    "reference/cli-commands": "Already imported by scripts/import-hermes-cli.mjs, which reads its reference table.",
+    "guides/tips": "Already mined for Prompts and Settings by reviewed extraction.",
+    "guides/delegation-patterns": "Already mined for Prompts by reviewed extraction.",
+    "guides/daily-briefing-bot": "Already mined for Prompts by reviewed extraction.",
+    "guides/github-pr-review-agent": "Already mined for Prompts by reviewed extraction.",
+    "guides/use-mcp-with-hermes": "Already mined for Prompts by reviewed extraction.",
+    "guides/work-with-skills": "Already mined for Prompts by reviewed extraction.",
+    "user-stories": "Imported by scripts/import-hermes-stories.mjs."
+  }
+}
