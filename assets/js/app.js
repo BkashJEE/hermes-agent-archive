@@ -900,6 +900,11 @@ function setSidebar(open) {
 }
 
 function wire() {
+  $('.skip-link').addEventListener('click', e => {
+    e.preventDefault();
+    setSidebar(false);
+    $('#main').focus();
+  });
   const archiveIcon = sectionIcon('archive');
   $('#brandMark').innerHTML = archiveIcon;
   $('#archiveMark').innerHTML = archiveIcon;
@@ -947,7 +952,7 @@ function wire() {
 
   $('#sourceSel').addEventListener('change', e => { state.source = e.target.value; render(); });
   $('#sortSel').addEventListener('change',   e => { state.sort   = e.target.value; render(); });
-  $('#clearBtn').addEventListener('click', clearFilters);
+  $('#clearBtn').addEventListener('click', () => { clearFilters(); afterClearFocus(); });
   $('#refreshBtn').addEventListener('click', async () => {
     try { await load(); renderSourceStatus(); render(); }
     catch { $('#footGen').textContent = 'Could not reload the archive. Please try again.'; }

@@ -770,7 +770,7 @@ code{font-family:var(--mono);font-size:.92em}
 .skip-link{
   position:absolute; left:8px; top:-64px; z-index:60;
   padding:10px 16px; border-radius:10px;
-  background:var(--accent); color:#151007;
+  background:var(--accent); color:var(--accent-ink);
   font:700 12px/1 var(--mono); letter-spacing:.12em; text-transform:uppercase;
   text-decoration:none; transition:top .12s ease
 }
