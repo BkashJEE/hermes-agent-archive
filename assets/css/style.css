@@ -44,7 +44,12 @@
    browser's [hidden] rule — without this they stay visible when hidden is set. */
 [hidden]{display:none!important}
 
-html,body{height:100%}
+/* body must not be a fixed 100% tall: a sticky element can only travel inside
+   its containing block, so a body capped at one viewport lets the sticky header
+   scroll away the moment the page is longer than the screen. min-height keeps
+   the full-height background without capping the box. */
+html{height:100%}
+body{min-height:100%}
 body{
   margin:0;
   background:
@@ -570,29 +575,6 @@ code{font-family:var(--mono);font-size:.92em}
   .cta{padding:0 10px}
   .main{padding:14px 16px 50px}
 }
-@media (max-width:640px){
-  .topbar{flex-wrap:wrap;height:auto;padding:8px 16px;gap:8px}
-  .brand{flex:1 0 calc(100% - 80px)}
-  .topbar>.select{order:2;flex:1 1 90px;min-width:0;max-width:none}
-  .topbar>.cta{order:2}
-  .brand-text strong{font-size:12px;letter-spacing:.025em}
-  .cta{font-size:9px;height:30px}
-  .hero{align-items:flex-start;padding:14px 12px;gap:10px}
-  .hero-icon{width:32px;height:32px}
-  .listbar-right{gap:10px;width:100%}
-  .density{width:100%}
-  .density button{flex:1}
-  .listbar-label{display:none}
-  .listbar-right .select{max-width:none}
-  .drawer h3{font-size:21px}
-  .drawer-close{width:36px;height:36px}
-  .grid[data-density="compact"] .sum{display:none}
-  .sidebar{top:var(--top-h);height:calc(100dvh - var(--top-h));width:min(290px,calc(100vw - 32px))}
-  .search{order:5;flex-basis:100%}
-  .select{max-width:calc(50% - 4px);flex:1}
-  .hero h1{font-size:18px}
-  .grid{grid-template-columns:1fr}
-}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -614,8 +596,10 @@ code{font-family:var(--mono);font-size:.92em}
   padding:10px 0 12px;margin-bottom:0;
   background:linear-gradient(var(--bg) 78%,transparent);
 }
-@media (max-width:960px){
-  .hero,.listbar{position:static}   /* a phone has no height to spare for it */
+@media (min-width:641px) and (max-width:960px){
+  /* Between tablet and desktop the header is short enough to scroll away, and
+     the filters follow it. Phones get the sticky treatment above instead. */
+  .hero,.listbar{position:static}
 }
 
 
@@ -675,3 +659,43 @@ code{font-family:var(--mono);font-size:.92em}
 .donut-key li{display:flex;align-items:center;gap:9px;font-family:var(--sans);font-size:11.5px;color:var(--ink-dim)}
 .donut-key i{width:9px;height:9px;border-radius:2px;flex:none}
 .donut-key b{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--ink)}
+
+/* ---------- phone layout (last: these must win on source order) ---------- */
+
+@media (max-width:640px){
+  /* One compact row that stays put. The old header wrapped to three rows and
+     scrolled away, so a phone lost a third of the screen and then lost the
+     search with it. Brand, search and menu stay; everything else moves down
+     into the filter row or the sidebar. */
+  .topbar{
+    position:sticky;top:0;z-index:40;
+    flex-wrap:nowrap;height:auto;min-height:52px;padding:7px 12px;gap:8px;
+  }
+  .brand{flex:0 1 auto;min-width:0}
+  .brand-text{display:none}          /* the mark alone identifies it at this size */
+  .search{order:0;flex:1 1 auto;min-width:0;height:36px}
+  .search kbd{display:none}
+  .topbar>.select,.topbar>.cta,#jumpBtn,#refreshBtn,#themeBtn{display:none}
+
+  /* Filters ride just under the bar and stay reachable while the grid scrolls. */
+  .listbar{
+    position:sticky;top:52px;z-index:30;
+    padding:8px 0;margin:0 0 8px;
+    background:linear-gradient(var(--bg) 82%,transparent);
+  }
+  .listbar-right{gap:8px;width:100%;flex-wrap:nowrap}
+  .listbar-right .select{flex:1 1 0;min-width:0;max-width:none}
+  .listbar-label{display:none}
+  .density{flex:0 0 auto}
+  .density button{padding:0 9px}
+
+  .hero{align-items:flex-start;padding:12px;gap:10px}
+  .hero-icon{width:30px;height:30px}
+  .hero h1{font-size:17px}
+  .hero p{font-size:12px}
+  .drawer h3{font-size:21px}
+  .drawer-close{width:36px;height:36px}
+  .grid{grid-template-columns:1fr}
+  .grid[data-density="compact"] .sum{display:none}
+  .sidebar{top:52px;height:calc(100dvh - 52px);width:min(290px,calc(100vw - 32px))}
+}
