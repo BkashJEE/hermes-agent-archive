@@ -1,6 +1,7 @@
 /* Use-Case Archive — data loading, filtering, rendering. No framework, no build step. */
 
 import { githubStarFloor } from './github-policy.js';
+import { archiveField } from './archive-field.js';
 import { sectionIcon } from './icons.js?v=launch-10';
 import { mergeLive, trendingItems } from './archive.js?v=hermes-50k';
 import { cardPoints, cardCategory } from './card-preview.js?v=launch-10';
@@ -64,6 +65,13 @@ async function load() {
 
   state.live = await getJSON('data/live.json').catch(() => null);
   mergeLive(state.data, state.live);
+  const bannerItems = [];
+  for (const section of state.cfg.sections) {
+    if (!section.file) continue;
+    bannerItems.push(...state.data[section.id]);
+  }
+  $('#archiveField').innerHTML = archiveField(bannerItems);
+  $('#archiveFieldCount').textContent = num(bannerItems.length);
   $('#githubFloor').textContent = num(githubStarFloor(state.live?.githubMinStars));
   const rankings = await getJSON('data/rankings.json').catch(() => null);
   await attachRankings(Object.values(state.data).flat(), rankings);
@@ -227,6 +235,7 @@ function render() {
     : focused?.dataset.section ? ['section', focused.dataset.section] : null;
   const sec = state.cfg.sections.find(s => s.id === state.section) || state.cfg.sections[0];
   const isDash = sec.kind === 'dashboard';
+  $('#archiveBanner').hidden = !isDash && sec.id !== 'use-cases';
   const key = JSON.stringify([state.section, state.q, state.source, state.tag, state.author, activeSort()]);
   if (key !== state.viewKey) { state.limit = 24; state.viewKey = key; }
   $('#sortSel').disabled = sec.kind === 'trending';
@@ -434,7 +443,7 @@ function barChart(rows, { action, total, limit = 0, unit = 'entries' } = {}) {
    sources are folded into families first. Ten thin wedges would be a worse
    version of the bar chart beside it. */
 const SOURCE_FAMILY = {
-  docs: 'Official docs', github: 'Official docs',
+  docs: 'Docs & repositories', github: 'Docs & repositories',
   x: 'Social', reddit: 'Social', discord: 'Social', linkedin: 'Social', fb: 'Social',
   hn: 'Forums', producthunt: 'Forums',
   blog: 'Long form', podcast: 'Long form', youtube: 'Long form',
@@ -445,10 +454,10 @@ const SOURCE_FAMILY = {
    under colour-vision deficiency — categorical hues must be distinguishable,
    not merely different. */
 const FAMILY_HUE = {
-  'Official docs': 'var(--accent)',   // amber
+  'Docs & repositories': 'var(--accent)',   // amber
   Social: 'var(--violet)',
   'Long form': 'var(--teal)',
-  Forums: '#dcdce6',                  // light neutral: smallest slice, still legible
+  Forums: 'var(--ink)',                  // light neutral: smallest slice, still legible
   Other: 'var(--ink-mute)'
 };
 

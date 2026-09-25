@@ -1,5 +1,4 @@
-/* ==========================================================================
-   Hermes Agent Archive — newsroom-style dark console
+/* ===================================================================   Hermes Agent Archive — newsroom-style dark console
    ========================================================================== */
 
 :root{
@@ -720,6 +719,40 @@ code{font-family:var(--mono);font-size:.92em}
 /* A filtered count keeps the shelf's real size beside it. */
 .nav-n-filtered i{font-style:normal;opacity:.55}
 
+/* On-page introduction: the archive's live entry field, not a baked-in total. */
+.archive-banner{display:grid;grid-template-columns:1.2fr 1fr;align-items:center;position:relative;isolation:isolate;overflow:hidden;margin-bottom:20px;border:1px solid var(--line-2);border-radius:var(--r-lg);background:radial-gradient(ellipse at 85% 55%,var(--wash-violet),transparent 60%),linear-gradient(125deg,var(--accent-soft),transparent 56%),var(--panel)}
+.archive-banner::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:linear-gradient(var(--accent),var(--teal))}
+.archive-banner-copy{padding:30px 12px 30px 32px;z-index:1}
+.archive-eyebrow{display:flex;align-items:center;gap:8px;margin:0 0 16px;color:var(--ink-dim);font:500 9px/1.6 var(--mono);letter-spacing:.12em}
+.archive-status{width:6px;height:6px;border-radius:50%;background:var(--teal);flex:none}
+.archive-banner h2{margin:0;font:600 clamp(28px,3.1vw,44px)/1.08 var(--sans);letter-spacing:-.045em;color:var(--ink)}
+.archive-banner h2 em{font-style:normal;color:var(--accent)}
+.archive-intro{margin:15px 0 20px;color:var(--ink-dim);font:400 13px/1.65 var(--sans);max-width:44ch}
+.archive-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.archive-actions a{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:42px;font:600 11px/1.4 var(--sans);text-decoration:none;border-radius:var(--r-sm)}
+.archive-primary{padding:10px 15px;color:var(--accent-ink);background:var(--accent);border:1px solid var(--accent)}
+.archive-secondary{padding:10px 0;color:var(--ink)}
+.archive-primary:hover{box-shadow:0 0 0 3px var(--accent-soft)}
+.archive-secondary:hover{color:var(--accent)}
+.archive-actions a:focus-visible{outline:2px solid var(--teal);outline-offset:4px}
+.archive-banner-figure{margin:0;padding:4px 20px 20px 0;min-width:0;position:relative}
+.archive-field{display:block;width:100%;max-height:290px;overflow:visible}
+.archive-field circle{opacity:.83}
+.field-docs{fill:var(--accent)}
+.field-github{fill:var(--teal)}
+.field-community{fill:var(--violet)}
+.archive-banner figcaption{margin-top:-8px;text-align:center;color:var(--ink-mute);font:400 9px/1.6 var(--mono)}
+#archiveFieldCount{color:var(--ink)}
+:root[data-theme="broadsheet"] .archive-banner{border-radius:0;border-bottom:3px double var(--line-2)}
+@media(min-width:1600px){.archive-banner-copy{padding-left:44px}.archive-banner{grid-template-columns:1.3fr 1fr}}
+@media(max-width:900px){.archive-banner{grid-template-columns:1.25fr 1fr}.archive-banner-copy{padding:24px}.archive-eyebrow{font-size:8px;letter-spacing:.05em}.field-caption-detail{display:none}.archive-actions{gap:14px}}
+@media(max-width:640px){.archive-banner{grid-template-columns:1fr;margin-bottom:16px}.archive-banner-copy{padding:24px 22px 4px}.archive-banner h2{font-size:32px}.archive-intro{font-size:12px}.archive-eyebrow{font-size:8px}.archive-actions{gap:18px}.archive-actions a{min-height:44px}.archive-banner-figure{padding:0 18px 16px}.archive-field{height:150px;margin-top:0}.archive-banner figcaption{margin-top:-4px}.field-caption-detail{display:inline}.wide-only{display:none}}
+/* The introduction already explains the archive; keep the shelf heading compact. */
+.archive-banner:not([hidden]) + .hero{padding:0 0 14px;border:0;background:none;margin-bottom:0}
+.archive-banner:not([hidden]) + .hero h1{font-size:16px}
+.archive-banner:not([hidden]) + .hero p{display:none}
+.archive-banner:not([hidden]) + .hero .hero-icon{width:30px;height:30px}
+@media(max-width:640px){.archive-banner-copy{padding-top:20px}.archive-banner h2{font-size:30px}.archive-field{height:110px}.archive-banner:not([hidden]) + .hero h1{font-size:14px}}
 
 /* Source link: an open archive should say so where people can see it. */
 .repo-link{display:grid;place-items:center;color:var(--ink-dim);text-decoration:none}
