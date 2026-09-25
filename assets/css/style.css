@@ -716,3 +716,6 @@ code{font-family:var(--mono);font-size:.92em}
   .grid[data-density="compact"] .sum{display:none}
   .sidebar{top:52px;height:calc(100dvh - 52px);width:min(290px,calc(100vw - 32px))}
 }
+
+/* A filtered count keeps the shelf's real size beside it. */
+.nav-n-filtered i{font-style:normal;opacity:.55}

@@ -165,10 +165,32 @@ function card(item, rank, iconName) {
   </button></li>`;
 }
 
+/* A shelf that is filtered to nothing looks exactly like a shelf that holds
+   nothing. The counts must say which it is, or a reader concludes the site is
+   broken — which is precisely what happened when a source filter was left on. */
+function filtersActive() {
+  // state.range is undefined when the config ships no ranges, and undefined is
+  // not 'all' — comparing carelessly marked every shelf as filtered.
+  const ranged = state.range && state.range !== 'all';
+  return !!(state.q || state.tag || state.author || state.source !== 'all' || ranged);
+}
+
+/* Shown as "12 / 326" while a filter is on, so the shelf's real size stays
+   visible beside what the filter left. */
+function countFor(section) {
+  if (!section.file && section.kind !== 'trending') return '<span class="nav-n"></span>';
+  const shown = visible(section.id).length;
+  if (!filtersActive()) return `<span class="nav-n">${num(shown)}</span>`;
+  const total = (state.data[section.id] || []).length;
+  if (shown === total) return `<span class="nav-n">${num(shown)}</span>`;
+  return `<span class="nav-n nav-n-filtered" title="${num(shown)} of ${num(total)} match the current filters">
+    ${num(shown)}<i>/${num(total)}</i></span>`;
+}
+
 function renderNav() {
   $('#nav').innerHTML = state.cfg.sections.map(s => `
     <a href="#${s.id}" class="${s.id === state.section ? 'on' : ''}" data-section="${s.id}" ${s.id === state.section ? 'aria-current="page"' : ''}>
-      <span class="nav-ico">${sectionIcon(s.icon)}</span>${esc(s.label)}<span class="nav-n">${s.file || s.kind === 'trending' ? visible(s.id).length : ''}</span>
+      <span class="nav-ico">${sectionIcon(s.icon)}</span>${esc(s.label)}${countFor(s)}
     </a>`).join('');
 }
 
@@ -247,6 +269,23 @@ function render() {
   $$('button[data-density]').forEach(button => button.setAttribute('aria-pressed', button.dataset.density === state.density));
   const emptyShelf = !shelfItems(sec.id).length && sec.kind !== 'trending';
   $('#empty').hidden = items.length > 0;
+  /* When a filter is what emptied the shelf, name the filter — an empty grid
+     with no explanation reads as a broken site. */
+  if (!emptyShelf && filtersActive() && !items.length) {
+    const bits = [];
+    if (state.source !== 'all') bits.push(`source <b>${esc(SOURCE_LABEL[state.source] || state.source)}</b>`);
+    if (state.tag)    bits.push(`tag <b>${esc(state.tag)}</b>`);
+    if (state.author) bits.push(`author <b>${esc(state.author)}</b>`);
+    if (state.q)      bits.push(`search <b>${esc(state.q)}</b>`);
+    if (state.range && state.range !== 'all') bits.push('a time range');
+    $('#empty').innerHTML = `<strong>This shelf has ${num((state.data[sec.id] || []).length)} entries, but none match your filters.</strong>
+      <span>Hiding them: ${bits.join(', ')}.</span>
+      <button class="ghost-btn" data-clear>Clear filters</button>`;
+    $('#empty').hidden = false;
+    renderNav(); renderTags(); renderFilters();
+    return;
+  }
+
   $('#empty').innerHTML = emptyShelf
     ? `<div class="empty-icon">${sectionIcon(sec.icon)}</div>
        <span class="empty-kicker">ROOM FOR THE NEXT GOOD FIND</span>
