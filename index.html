@@ -25,6 +25,7 @@
 <link rel="stylesheet" href="assets/css/style.css?v=launch-10">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to the archive</a>
 
 <header class="topbar">
   <button class="icon-btn" id="menuBtn" aria-label="Toggle navigation" aria-controls="sidebar" aria-expanded="false">&#9776;</button>
@@ -70,7 +71,7 @@
     <nav id="nav" class="nav" aria-label="Sections"></nav>
 
     <div class="side-block">
-      <h4>TAG WATCHLIST</h4>
+      <h2 class="side-title">TAG WATCHLIST</h2>
       <label class="sr-only" for="tagSearch">Find a tag</label>
       <input id="tagSearch" class="tag-search" type="search" placeholder="Find a tag…" autocomplete="off">
       <ul id="tagList" class="taglist"></ul>
@@ -88,7 +89,7 @@
     <section class="archive-banner" id="archiveBanner" aria-labelledby="archiveIntro" hidden>
       <div class="archive-banner-copy">
         <p class="archive-eyebrow"><span class="archive-status" aria-hidden="true"></span> OPEN SOURCE · COMMUNITY ARCHIVE</p>
-        <h2 id="archiveIntro">Find your next<br><em>Hermes workflow.</em></h2>
+        <p class="archive-headline" id="archiveIntro">Find your next<br><em>Hermes workflow.</em></p>
         <p class="archive-intro">Explore workflows, prompts, skills and projects.<br class="wide-only"> Follow the source. Make an idea your own.</p>
         <div class="archive-actions">
           <a class="archive-primary" href="#prompts">Explore prompts <span aria-hidden="true">↗</span></a>
@@ -156,6 +157,6 @@
   <div id="drawerBody"></div>
 </aside>
 
-<script type="module" src="assets/js/app.js?v=mobile-1"></script>
+<script type="module" src="assets/js/app.js?v=a11y-1"></script>
 </body>
 </html>

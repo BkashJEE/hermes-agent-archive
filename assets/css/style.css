@@ -188,7 +188,7 @@ code{font-family:var(--mono);font-size:.92em}
 .nav a.on{background:var(--accent-soft);color:var(--accent);border-left-color:var(--accent)}
 .nav a.on .nav-ico,.nav a.on .nav-n{color:var(--accent)}
 
-.side-block h4{
+.side-block .side-title{
   margin:0 0 8px;padding:0 10px;
   font-family:var(--mono);font-size:8.5px;letter-spacing:.18em;color:var(--ink-mute);font-weight:500;
 }
@@ -354,7 +354,7 @@ code{font-family:var(--mono);font-size:.92em}
   padding:2px 7px;border:1px solid var(--line-2);border-radius:999px;
   font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;color:var(--ink-dim);
 }
-.trow-note{font-family:var(--mono);font-size:8px;letter-spacing:.12em;color:var(--ink-mute)}
+.trow-note{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--ink-mute)}
 .foot-warn{color:var(--accent)}
 
 /* ---------- dashboard ---------- */
@@ -685,8 +685,11 @@ code{font-family:var(--mono);font-size:.92em}
     padding:8px 0;margin:0 0 8px;
     background:linear-gradient(var(--bg) 82%,transparent);
   }
-  .listbar-right{gap:8px;width:100%;flex-wrap:nowrap}
-  .listbar-right .select{flex:1 1 0;min-width:0;max-width:none}
+  .listbar-right{gap:8px;width:100%;flex-wrap:wrap}
+  /* The sort control held "Most useful \u00b7 Jev" in 71px and clipped it, so the phone
+     could not tell which ranking was applied \u2014 on a page whose whole claim is the
+     order. Let it take the width it needs and wrap to its own row. */
+  .listbar-right .select{flex:1 1 100%;min-width:0;max-width:none;order:1}
   .listbar-label{display:none}
   .density{flex:0 0 auto}
   .density button{padding:0 9px}
@@ -725,8 +728,8 @@ code{font-family:var(--mono);font-size:.92em}
 .archive-banner-copy{padding:30px 12px 30px 32px;z-index:1}
 .archive-eyebrow{display:flex;align-items:center;gap:8px;margin:0 0 16px;color:var(--ink-dim);font:500 9px/1.6 var(--mono);letter-spacing:.12em}
 .archive-status{width:6px;height:6px;border-radius:50%;background:var(--teal);flex:none}
-.archive-banner h2{margin:0;font:600 clamp(28px,3.1vw,44px)/1.08 var(--sans);letter-spacing:-.045em;color:var(--ink)}
-.archive-banner h2 em{font-style:normal;color:var(--accent)}
+.archive-headline{margin:0;font:600 clamp(28px,3.1vw,44px)/1.08 var(--sans);letter-spacing:-.045em;color:var(--ink)}
+.archive-headline em{font-style:normal;color:var(--accent)}
 .archive-intro{margin:15px 0 20px;color:var(--ink-dim);font:400 13px/1.65 var(--sans);max-width:44ch}
 .archive-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
 .archive-actions a{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:42px;font:600 11px/1.4 var(--sans);text-decoration:none;border-radius:var(--r-sm)}
@@ -746,16 +749,30 @@ code{font-family:var(--mono);font-size:.92em}
 :root[data-theme="broadsheet"] .archive-banner{border-radius:0;border-bottom:3px double var(--line-2)}
 @media(min-width:1600px){.archive-banner-copy{padding-left:44px}.archive-banner{grid-template-columns:1.3fr 1fr}}
 @media(max-width:900px){.archive-banner{grid-template-columns:1.25fr 1fr}.archive-banner-copy{padding:24px}.archive-eyebrow{font-size:8px;letter-spacing:.05em}.field-caption-detail{display:none}.archive-actions{gap:14px}}
-@media(max-width:640px){.archive-banner{grid-template-columns:1fr;margin-bottom:16px}.archive-banner-copy{padding:24px 22px 4px}.archive-banner h2{font-size:32px}.archive-intro{font-size:12px}.archive-eyebrow{font-size:8px}.archive-actions{gap:18px}.archive-actions a{min-height:44px}.archive-banner-figure{padding:0 18px 16px}.archive-field{height:150px;margin-top:0}.archive-banner figcaption{margin-top:-4px}.field-caption-detail{display:inline}.wide-only{display:none}}
+@media(max-width:640px){.archive-banner{grid-template-columns:1fr;margin-bottom:16px}.archive-banner-copy{padding:24px 22px 4px}.archive-headline{font-size:32px}.archive-intro{font-size:12px}.archive-eyebrow{font-size:8px}.archive-actions{gap:18px}.archive-actions a{min-height:44px}.archive-banner-figure{padding:0 18px 16px}.archive-field{height:150px;margin-top:0}.archive-banner figcaption{margin-top:-4px}.field-caption-detail{display:inline}.wide-only{display:none}}
 /* The introduction already explains the archive; keep the shelf heading compact. */
 .archive-banner:not([hidden]) + .hero{padding:0 0 14px;border:0;background:none;margin-bottom:0}
 .archive-banner:not([hidden]) + .hero h1{font-size:16px}
 .archive-banner:not([hidden]) + .hero p{display:none}
 .archive-banner:not([hidden]) + .hero .hero-icon{width:30px;height:30px}
-@media(max-width:640px){.archive-banner-copy{padding-top:20px}.archive-banner h2{font-size:30px}.archive-field{height:110px}.archive-banner:not([hidden]) + .hero h1{font-size:14px}}
+@media(max-width:640px){.archive-banner-copy{padding-top:20px}.archive-headline{font-size:30px}.archive-field{height:110px}.archive-banner:not([hidden]) + .hero h1{font-size:14px}}
 
 /* Source link: an open archive should say so where people can see it. */
 .repo-link{display:grid;place-items:center;color:var(--ink-dim);text-decoration:none}
 .repo-link svg{width:16px;height:16px;display:block}
 .repo-link:hover{color:var(--accent)}
 @media (max-width:640px){ .repo-link{display:none} }  /* the footer carries it on phones */
+
+
+/* Sixty-two tab stops sat between the top of the page and the archive itself: the
+   whole shelf nav, then every tag in the watchlist. Keyboard and switch users had to
+   walk all of it on every page. The link is off-screen until it takes focus. */
+.skip-link{
+  position:absolute; left:8px; top:-64px; z-index:60;
+  padding:10px 16px; border-radius:10px;
+  background:var(--accent); color:#151007;
+  font:700 12px/1 var(--mono); letter-spacing:.12em; text-transform:uppercase;
+  text-decoration:none; transition:top .12s ease
+}
+.skip-link:focus{ top:8px }
+@media (prefers-reduced-motion:reduce){ .skip-link{transition:none} }
