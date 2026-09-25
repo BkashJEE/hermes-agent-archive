@@ -19,7 +19,8 @@
       ],
       "source": "github",
       "url": "https://github.com/obra/superpowers",
-      "date": "2026-09-25"
+      "date": "2026-09-25",
+      "author": "obra"
     },
     {
       "id": "skill-ponytail",
@@ -39,7 +40,8 @@
       ],
       "source": "github",
       "url": "https://github.com/DietrichGebert/ponytail",
-      "date": "2026-09-25"
+      "date": "2026-09-25",
+      "author": "DietrichGebert"
     },
     {
       "id": "skill-impeccable",
@@ -59,7 +61,8 @@
       ],
       "source": "github",
       "url": "https://github.com/pbakaus/impeccable",
-      "date": "2026-09-25"
+      "date": "2026-09-25",
+      "author": "pbakaus"
     },
     {
       "id": "skill-cli-anything",
@@ -79,7 +82,8 @@
       ],
       "source": "github",
       "url": "https://github.com/HKUDS/CLI-Anything",
-      "date": "2026-09-25"
+      "date": "2026-09-25",
+      "author": "HKUDS"
     }
   ]
 }

@@ -15,7 +15,8 @@
     "rank:ideas": "node scripts/rank-with-jev.mjs",
     "test": "node --test scripts/*.test.mjs",
     "hero": "node scripts/make-hero.mjs",
-    "prompts": "node scripts/extract-prompts.mjs"
+    "prompts": "node scripts/extract-prompts.mjs",
+    "links": "node scripts/check-links.mjs"
   },
   "engines": {
     "node": ">=20"
