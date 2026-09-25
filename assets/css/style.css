@@ -599,7 +599,7 @@ code{font-family:var(--mono);font-size:.92em}
   .card:hover,.card:active{transform:none}
 }
 
-.trend-note{margin:10px 0 0;font-family:var(--mono);font-size:10px;line-height:1.6;color:var(--teal);overflow-wrap:anywhere}
+
 /* A figure whose source is not a public API names that source on the card. */
 .m-credit{
   display:block;margin-top:6px;font-family:var(--sans);font-size:9px;
@@ -617,3 +617,22 @@ code{font-family:var(--mono);font-size:.92em}
 @media (max-width:960px){
   .hero,.listbar{position:static}   /* a phone has no height to spare for it */
 }
+
+
+/* Trending badge: the gain leads, the rate qualifies it, the window sizes it.
+   Exact snapshot times live in the tooltip. */
+.trend-note{
+  display:inline-flex;align-items:baseline;gap:7px;flex-wrap:wrap;
+  margin:10px 0 0;padding:4px 9px;border-radius:999px;
+  background:color-mix(in srgb,var(--teal) 12%,transparent);
+  border:1px solid color-mix(in srgb,var(--teal) 30%,transparent);
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.02em;color:var(--ink-dim);
+  cursor:default;
+}
+.trend-arrow{color:var(--teal);font-size:11px;line-height:1}
+.trend-note b{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--teal)}
+.trend-rate{
+  font-family:var(--mono);font-size:9.5px;color:var(--teal);
+  padding-left:7px;border-left:1px solid color-mix(in srgb,var(--teal) 28%,transparent);
+}
+.trend-span{font-size:9.5px;color:var(--ink-mute)}

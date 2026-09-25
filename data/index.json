@@ -29,7 +29,7 @@
       "icon": "trending",
       "kind": "trending",
       "title": "GITHUB PROJECTS GAINING STARS",
-      "blurb": "Hermes-related repositories across the archive meeting the verified star floor shown below, with measured growth. Ordered by star gain per day, not publication date."
+      "blurb": "Documented Hermes integrations with more than 50,000 verified stars and measured growth. Ordered by star gain per day. New additions appear here once a second public snapshot confirms growth."
     },
     {
       "id": "skills",

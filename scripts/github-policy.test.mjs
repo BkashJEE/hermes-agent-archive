@@ -17,10 +17,10 @@ test('rendering and Trending follow the fetched policy rather than a second floo
   const now=Date.now();
   const live={githubMinStars:499,github:[{repo:'org/tool',stars:500,forks:1,url:'https://github.com/org/tool',observedAt:new Date(now-1000).toISOString(),previousStars:{value:400,at:new Date(now-86400000).toISOString()}}]};
   const data={builds:[{id:'tool',repo:'org/tool',title:'Tool'}]};
-  mergeLive(data,live);
+  mergeLive(data,live,{'org/tool':{url:'https://github.com/org/tool',note:'Fixture support'}});
   assert.equal(data.builds.length,1);
   assert.equal(trendingItems(data,live.githubMinStars).length,1);
   const strict={builds:[{id:'tool',repo:'org/tool',title:'Tool'}]};
-  mergeLive(strict,{...live,githubMinStars:1000});
+  mergeLive(strict,{...live,githubMinStars:1000},{'org/tool':{url:'https://github.com/org/tool',note:'Fixture support'}});
   assert.equal(strict.builds.length,0);
 });

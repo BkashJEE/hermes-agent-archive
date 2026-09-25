@@ -4,7 +4,7 @@ Conventions for any agent working in this repo (Codex, Claude Code, or a human).
 
 ## What this is
 
-A private static site cataloguing **Hermes Agent** craft — user stories, skills, prompts,
+A community static site cataloguing **Hermes Agent** craft — user stories, skills, prompts,
 settings, commands, hidden tricks and community builds — for the owner's followers, and
 as a content bank the owner mines for posts.
 
@@ -31,7 +31,7 @@ npm run key    # paste API keys into a gitignored .env
 estimate, not a placeholder that looks real.
 
 - Metrics come from public APIs via `scripts/fetch-signals.mjs`, or carry a `credit` field naming their source. Credited analytics must be labelled on cards and excluded from public-popularity evidence.
-- A repo that fails to resolve retains its stored write-up, but is hidden unless more than 50,000 stars can be verified.
+- A repo that fails to resolve retains its stored write-up, but is hidden until more than 50,000 stars can be verified.
 - An item with no public metric renders its tags and `no public metric`.
 - A source that failed at fetch time is named in the page footer.
 - X and Facebook have no free API. Entries from there are hand-curated **with a real
@@ -77,7 +77,7 @@ unknown sources, malformed dates and non-http URLs.
 Hacker News points, and Reddit upvotes. `route-signals.mjs` decides which section each
 signal belongs on — via Jev when `TYPESAFE_API_KEY` is set, via keyword rules otherwise.
 
-Discovery floors default to 50,000 GitHub stars, 300 HN points and 200 Reddit upvotes;
+Discovery floors require more than 50,000 GitHub stars, 300 HN points and 200 Reddit upvotes;
 Jev judges relevance and quality.
 Section limits are configurable in the sourcing scripts. Sourced cards are marked `SOURCED`; a fetched
 duplicate of a curated URL is dropped, because hand-written entries win.
@@ -145,10 +145,15 @@ keyframes with offsets instead, and leave the fill mode alone.
 Before deployment, run `vercel deploy --dry --json` and verify every runtime asset
 and configured JSON file is included. Directory exceptions in `.vercelignore`
 must not end in `/`: that excluded all assets and data in a previous deployment.
-Deploy with `--prod --skip-domain`, verify the staged URL, then promote it.
+For owner review, use `vercel deploy` to create a protected preview. Only after
+owner approval use `--prod --skip-domain`, verify the deployment, then promote it.
+`--skip-domain` may still assign the generated team/project alias: check every
+production alias, not only the canonical URL. Never use a production-target deploy
+as an unpublished review preview.
 
-The local server caches aggressively — a hash change does not reload the page, so verify
-CSS and JS edits with a real reload (`?v=<timestamp>`), not a hash navigation.
+The local server sends no-store headers and binds to loopback. Verify CSS and JS
+edits with a real reload, not a hash navigation. Serve only configured public
+files; never expose dotfiles, maintenance scripts or symlink targets.
 
 `.empty`, `.active-filters` and `.drawer` set `display` on a class, which outranks the
 browser's `[hidden]` rule. The global `[hidden]{display:none!important}` in the
@@ -157,7 +162,9 @@ stylesheet is load-bearing — do not remove it.
 ## GitHub visibility cutoff
 
 Require more than 50,000 fetched public stars for every GitHub repository on every
-shelf, including URL-only entries. Unknown counts are excluded. Apply the same
+shelf, including URL-only entries. Require upstream documentation of Hermes
+support in `assets/js/github-policy.js`; a keyword mention or Jev assessment alone
+is not evidence of integration. Unknown counts are excluded. Apply the same
 threshold to discovery and routing. Keep stored content so a later qualifying count
 can restore it. Non-GitHub stories without public metrics remain eligible.
 
@@ -182,13 +189,21 @@ sensitive to content and fetched evidence; stale entries are unclassified.
 The owner authorized public website access on 2026-09-24. Keep the production
 site public and preview deployments protected with Standard Protection
 (`ssoProtection.deploymentType = prod_deployment_urls_and_all_previews`).
-The GitHub repository remains private. Visitors may browse and copy but cannot
+The owner authorized a public GitHub repository on 2026-09-25. Require owner
+review before publishing changes; contributors propose via issues and pull requests.
+Do not merge or promote a pending change without the owner's approval. Automated
+refreshes open pull requests rather than pushing to main. Visitors may browse and copy but cannot
 edit or publish. Do not grant collaborators editing access, change other projects,
 or enable public submissions without the owner's approval.
 
-The GitHub floor defaults to 50,000 in `assets/js/github-policy.js`. `MIN_STARS` may
-raise or lower it; non-negative integers are accepted and invalid values fail
-before writes. Fetches record `githubMinStars` so rendering and routing use the
-same policy. Use `npm run fetch -- --github-only` to update GitHub independently
-when other source credentials are unavailable. Failed fetches preserve the last
-good snapshot and exit non-zero.
+## Open-source release
+
+Keep the independent-project notice and ranking limitations visible. The site code
+license does not relicense third-party quotes or data. Preserve NOTICE.md and
+source notices. Criticism of curation is welcome; route corrections through issues
+and security reports privately. Never claim a security audit or complete importer
+coverage based only on passing tests.
+
+The shared cutoff defaults to strictly more than 50,000 stars. MIN_STARS accepts
+non-negative integer overrides, and the fetched githubMinStars value controls
+routing, rendering and Trending. Invalid values fail before writes.

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-09-25T07:55:50.338Z",
+  "classifiedAt": "2026-09-25T08:06:36.407Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -4199,8 +4199,8 @@
       "confidence": 0.59
     },
     "kit-codegraph": {
-      "input": "9186d086283e54046ffb82a0dd78a7a7e01d05a83f214c5a3be87002b37bfa61",
-      "usefulness": 2.41,
+      "input": "e07c57561807155f40496b21eb1550ce07912f927b4199eff18fdd51d780d809",
+      "usefulness": 2.89,
       "popularity": "widespread",
       "confidence": 0.5
     },
@@ -4419,6 +4419,48 @@
       "usefulness": 0.59,
       "popularity": "unknown",
       "confidence": 0.63
+    },
+    "skill-superpowers": {
+      "input": "721ac0cbbd48c1143c23ad56197eaa4036227c0f5447e55536e59fd1add3adfa",
+      "usefulness": 1.81,
+      "popularity": "widespread",
+      "confidence": 0.53
+    },
+    "skill-ponytail": {
+      "input": "9c56ca8ef61d897a3340c94c710faada84cca6df44357b96266b293a58cf22a3",
+      "usefulness": 2.14,
+      "popularity": "widespread",
+      "confidence": 0.59
+    },
+    "skill-impeccable": {
+      "input": "7cc224b14140d3e147784f3d7458d65bc8b67448b95032ef530de6cf48fd71bb",
+      "usefulness": 2.18,
+      "popularity": "widespread",
+      "confidence": 0.65
+    },
+    "skill-cli-anything": {
+      "input": "4a87f08685db4791665af330e84baa7f99f0ff44320920dc9b7eeb38f129b5df",
+      "usefulness": 1.96,
+      "popularity": "widespread",
+      "confidence": 0.33
+    },
+    "kit-caveman": {
+      "input": "607cde186afaad734c9e85b191481b82d51f28d3e8e61aacd7a4b7028a854192",
+      "usefulness": 2.31,
+      "popularity": "widespread",
+      "confidence": 0.45
+    },
+    "kit-open-design": {
+      "input": "bb959186473d09d6e32c26f77e75e81467afd06e03d8fbafe8444af3e84ffd7c",
+      "usefulness": 1.67,
+      "popularity": "widespread",
+      "confidence": 0.53
+    },
+    "kit-unsloth": {
+      "input": "951b24bf6df23c2d1356655cc1a0488e6eefb68e224456a626fe7e1e8c146900",
+      "usefulness": 1.28,
+      "popularity": "widespread",
+      "confidence": 0.65
     },
     "gh-internet-court-internet-court-skill": {
       "input": "a323123cc389079ff27879d48f0a63f5cef12c2f053697293ac4d11598ad4fcc",

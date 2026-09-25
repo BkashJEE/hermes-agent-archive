@@ -1,0 +1,50 @@
+name: Suggest an archive entry
+description: Propose a sourced Hermes workflow, tip, prompt, skill or integration.
+title: "[Entry]: "
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Entry title
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Original public URL
+      description: Link directly to the post, documentation or repository.
+    validations:
+      required: true
+  - type: input
+    id: author
+    attributes:
+      label: Author or repository owner
+      description: Use the recorded credit; write unknown if it is unavailable.
+    validations:
+      required: true
+  - type: textarea
+    id: usecase
+    attributes:
+      label: What can someone do with this in Hermes?
+      description: Describe the workflow, setup requirements and limitations.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Hermes integration evidence for repository submissions
+      description: Link to upstream Hermes installation or usage documentation. Repository cards require more than 50,000 GitHub stars, verified by the maintainer through the public API.
+  - type: textarea
+    id: connection
+    attributes:
+      label: Your connection and content rights
+      description: Disclose authorship, employment or sponsorship and identify third-party material or its license.
+  - type: checkboxes
+    id: review
+    attributes:
+      label: Submission agreement
+      options:
+        - label: This is a proposal for owner review, and contains only material I can share publicly.
+          required: true
+        - label: I have linked the original source and have not invented engagement numbers.
+          required: true

@@ -1,8 +1,8 @@
 /* Use-Case Archive — data loading, filtering, rendering. No framework, no build step. */
 
-import { sectionIcon } from './icons.js?v=launch-10';
 import { githubStarFloor } from './github-policy.js';
-import { mergeLive, trendingItems } from './archive.js?v=shared-floor-1';
+import { sectionIcon } from './icons.js?v=launch-10';
+import { mergeLive, trendingItems } from './archive.js?v=hermes-50k';
 import { cardPoints, cardCategory } from './card-preview.js?v=launch-10';
 import { formatDetails } from './details.js';
 import { creditFor } from './credits.js?v=launch-10';
@@ -64,6 +64,7 @@ async function load() {
 
   state.live = await getJSON('data/live.json').catch(() => null);
   mergeLive(state.data, state.live);
+  $('#githubFloor').textContent = num(githubStarFloor(state.live?.githubMinStars));
   const rankings = await getJSON('data/rankings.json').catch(() => null);
   await attachRankings(Object.values(state.data).flat(), rankings);
 }
@@ -105,6 +106,28 @@ function pill(source) {
   return `<span class="pill pill-${key}"><span class="source-mark" aria-hidden="true">${marks[source] || '—'}</span>${esc(SOURCE_LABEL[source] || 'CURATED')}</span>`;
 }
 
+/* Growth per day is what Trending actually ranks by, so the badge leads with the
+   gain and states the rate. The two raw timestamps it used to print were exact
+   but unreadable — they move to the tooltip, where precision costs nothing. */
+function trendBadge(trend) {
+  const from = new Date(trend.from), to = new Date(trend.to);
+  const hours = Math.max(0.5, (to - from) / 3600000);
+  const perDay = trend.gain / (hours / 24);
+
+  const span = hours < 24
+    ? `${hours < 2 ? hours.toFixed(1) : Math.round(hours)}h`
+    : `${Math.round(hours / 24)}d`;
+  const rate = perDay >= 1 ? `${num(Math.round(perDay))}/day` : `${perDay.toFixed(1)}/day`;
+  const exact = `${from.toLocaleString()} → ${to.toLocaleString()}`;
+
+  return `<p class="trend-note" data-tip="Measured between two public snapshots: ${esc(exact)}">
+    <span class="trend-arrow" aria-hidden="true">↗</span>
+    <b>+${num(trend.gain)}</b> stars
+    <span class="trend-rate">${esc(rate)}</span>
+    <span class="trend-span">over ${esc(span)}</span>
+  </p>`;
+}
+
 function metricBlock(item) {
   if (item.metric) {
     // A figure that did not come from a public API must say where it came from.
@@ -137,7 +160,7 @@ function card(item, rank, iconName) {
       <ul class="card-points">${cardPoints(item).map(point => `<li>${esc(point)}</li>`).join('')}</ul>
     </div>
     <div class="card-tags">${(item.tags || []).filter(t => t !== 'user-story').slice(0, 2).map(t => `<span class="trow-tag">${esc(t)}</span>`).join('')}${order ? `<span class="rank" title="Position in the selected sort">${order}</span>` : ''}</div>
-    ${item.trend ? `<p class="trend-note">↗ +${num(item.trend.gain)} stars · ${esc(new Date(item.trend.from).toLocaleString())} – ${esc(new Date(item.trend.to).toLocaleString())}</p>` : ''}
+    ${item.trend ? trendBadge(item.trend) : ''}
     <div class="card-foot"><span class="card-evidence">${esc(metric)}${item.credit ? `<span class="m-credit">${esc(item.credit)}</span>` : ''}</span><span class="card-action">${action} <span aria-hidden="true">→</span></span></div>
   </button></li>`;
 }
@@ -610,6 +633,7 @@ function openDrawer(id, trigger, updateUrl = true) {
     ${story ? `<figure class="d-story"><blockquote class="d-body" cite="${esc(it.url)}">${body}</blockquote>
       <figcaption class="d-attribution"><span class="attribution-rule" aria-hidden="true"></span>${esc(credit)}</figcaption></figure>`
       : `<p class="d-attribution">${esc(credit)}</p><div class="d-body">${body}</div>`}
+    ${it.hermesSupport ? `<div class="d-body"><p><a href="${esc(it.hermesSupport.url)}" target="_blank" rel="noopener noreferrer">Hermes support documented ↗</a><br>${esc(it.hermesSupport.note)}</p></div>` : ''}
     ${it.snippet ? `<div class="d-snip">
         <button class="copy-btn" id="copyBtn">${copyLabel}</button>
         <pre><code>${esc(it.snippet)}</code></pre></div>` : ''}
@@ -697,7 +721,6 @@ function restoreRoute() {
 }
 
 function renderSourceStatus() {
-  $('#githubFloor').textContent = num(githubStarFloor(state.live?.githubMinStars));
   $('#updatedAt').textContent = state.live?.generatedAt
     ? new Date(state.live.generatedAt).toLocaleDateString() : 'Not fetched';
   $('#footGen').textContent = state.live?.generatedAt

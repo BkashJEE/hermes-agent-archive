@@ -1,19 +1,23 @@
 name: Refresh live signals
 
 on:
-  schedule:
-    - cron: "17 6 * * 1"   # every Monday, 06:17 UTC
+  # Daily research is handled by the archive updater agent; this is the manual fallback.
   workflow_dispatch:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   refresh:
+    if: github.repository == 'BkashJEE/hermes-agent-archive'
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: main
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with: { node-version: "20" }
       - name: Fetch public metrics
         env:
@@ -35,10 +39,26 @@ jobs:
           else
             echo "Jev key unavailable; changed entries will be marked unclassified."
           fi
-      - name: Commit if changed
+      - name: Validate proposed update
+        run: |
+          npm run check
+          npm test
+      - name: Propose update for owner review
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/live.json data/rankings.json
-          git diff --staged --quiet || git commit -m "chore: refresh live signals"
-          git push
+          if git diff --staged --quiet; then exit 0; fi
+          branch="automation/refresh-signals-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          git switch -c "$branch"
+          git commit -m "Refresh public signals for review"
+          git push origin "$branch"
+          cat > "$RUNNER_TEMP/refresh-pr.md" <<'BODY'
+          Refresh public API snapshots and the associated archive classifications.
+
+          Validation: npm run check and npm test passed. Review eligibility,
+          freshness and any source warnings before approving publication.
+          BODY
+          gh pr create --base main --head "$branch" --title "Refresh public signals" --body-file "$RUNNER_TEMP/refresh-pr.md"
