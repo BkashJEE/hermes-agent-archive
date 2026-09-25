@@ -135,6 +135,11 @@ nobody measured, which is the one thing this site must not show.
 Use the Web Animations API for widths and strokes (the resting style stays correct),
 `document.hidden` and `prefers-reduced-motion` as early exits.
 
+Never use `fill: 'backwards'` for this. It pins the element at the 0% frame until the
+animation starts, so an animation that never advances — a headless render, a paused
+compositor — leaves an empty bar where a real figure belongs. Bake any stagger into the
+keyframes with offsets instead, and leave the fill mode alone.
+
 ## Browser gotchas
 
 Before deployment, run `vercel deploy --dry --json` and verify every runtime asset

@@ -256,9 +256,18 @@ function countUp(el, value) { el.textContent = num(value); }
 function growTo(el, target, delay = 0) {
   el.style.width = target;
   if (REDUCED || document.hidden || typeof el.animate !== 'function') return;
-  el.animate([{ width: '0%' }, { width: target }], {
-    duration: 620, delay, easing: 'cubic-bezier(.22,.7,.3,1)', fill: 'backwards'
-  });
+  /* The stagger is baked into the keyframes rather than expressed as `delay`
+     with `fill: backwards`. That fill mode pins the element at the 0% frame for
+     as long as the animation has not started — and an animation that never
+     advances (a headless render, a paused compositor) then leaves an empty bar
+     where a real figure should be. With no fill, the inline width above always
+     wins if the animation does not play. */
+  const total = 620 + delay;
+  const hold = total ? delay / total : 0;
+  el.animate(
+    [{ width: '0%', offset: 0 }, { width: '0%', offset: hold }, { width: target, offset: 1 }],
+    { duration: total, easing: 'cubic-bezier(.22,.7,.3,1)' }
+  );
 }
 
 function growBars(root) {
