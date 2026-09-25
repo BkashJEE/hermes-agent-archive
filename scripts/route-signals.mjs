@@ -44,8 +44,8 @@ const SECTIONS = {
   'use-cases': 'A workflow somebody runs to get work done — onboarding onto a repo, test-first loops, refactors, debugging, CI automation. The subject is a way of working.',
   skills:      'A packaged, reusable capability: a SKILL.md, a plugin, a subagent definition, a marketplace of them. The subject is something you install.',
   prompts:     'Specific prompt wording somebody uses and others could copy. The subject is the text you type.',
-  settings:    'Configuration: settings.json keys, permissions, hooks, environment variables, model pinning, MCP server config. The subject is a file you edit.',
-  commands:    'A command you invoke: a slash command, a CLI flag or invocation, a custom command definition. The subject is something you run.',
+  settings:    'All documented CLI flags belong here, along with configuration: settings.json keys, permissions, hooks, environment variables, model pinning, MCP server config. The subject is a file you edit.',
+  commands:    'A command you invoke: a slash command or invocation (CLI flags belong in settings), a custom command definition. The subject is something you run.',
   tricks:      'A non-obvious move most people miss — a keystroke, a prefix character, an escape hatch, an undocumented-feeling behaviour.',
   builds:      'A project somebody built and published: a repo, a tool, an app, a wrapper. The subject is software you could go use.'
 };
@@ -53,11 +53,10 @@ const SECTIONS = {
 /* ------------------------------------------------------------ keyword router */
 
 const RULES = [
+  [/(?:^|\s)--[a-z][a-z-]*/i, 'settings'],
   [/\bskill|SKILL\.md|plugin|subagent|marketplace\b/i, 'skills'],
   [/\bsettings\.json|\bhooks?\b|permission|config|environment variable|statusline/i, 'settings'],
-  [/\bslash command\b|\bCLI\b|\s--[a-z-]{3,}|\bclaude -[a-z]\b|(^|\s)\/[a-z-]{3,}\b/i, 'commands'],
-  [/\bprompt|prompting|system prompt|CLAUDE\.md\b/i, 'prompts'],
-  [/\btrick|shortcut|keyboard|hidden|undocumented|hack\b/i, 'tricks'],
+  [/\bslash command\b|\bCLI\b|\bclaude -[a-z]\b|(^|\s)\/[a-z-]{3,}\b/i, 'commands'],
   [/\bworkflow|pipeline|how i use|using claude code to|automat/i, 'use-cases']
 ];
 
@@ -142,7 +141,7 @@ async function routeWithJev(items) {
         console.error('Set TYPESAFE_API_KEY to a real key, or unset it to use the keyword router.');
         process.exit(1);
       }
-      process.stdout.write(`  ✗ ${item.title.slice(0, 40)} — ${err.message}\n`);
+      throw err; // A partial failed run must leave the previous archive untouched.
     }
   }
   out.judged = judged;
@@ -193,7 +192,13 @@ if (dropped) console.log(`${dropped} of ${beforeFloor} fetched signals fell belo
 console.log(`\nRouting ${popular.length} signals with ${KEY ? 'Jev' : 'keyword rules (no TYPESAFE_API_KEY)'}\n`);
 
 const routed = {};
-const add = (section, item) => { (routed[section] ||= []).push(item); };
+// A classifier cannot establish verbatim provenance or absence from official docs.
+// These shelves are populated only by reviewed extraction, never model/keyword guesses.
+const add = (section, item) => {
+  if (section === 'tricks' || section === 'prompts') section = 'use-cases';
+  if (/^--/.test(item.title.trim())) section = 'settings';
+  (routed[section] ||= []).push(item);
+};
 
 let decided = 0;
 if (KEY) {
@@ -239,7 +244,21 @@ if (total === 0 && popular.length > 0) {
   process.exit(1);
 }
 
-live.routed = routed;
+// Preserve every archived signal, including those below today's floor/cap.
+// Re-scope existing guesses without deleting their IDs.
+const merged = {};
+for (const [section, items] of Object.entries(live.routed || {})) {
+  for (const item of items) {
+    const target = /^--/.test(item.title.trim()) ? 'settings'
+      : ['tricks', 'prompts'].includes(section) ? 'use-cases' : section;
+    (merged[target] ||= new Map()).set(item.id, item);
+  }
+}
+for (const [section, items] of Object.entries(routed)) for (const item of items) {
+  for (const shelf of Object.values(merged)) shelf.delete(item.id);
+  (merged[section] ||= new Map()).set(item.id, item);
+}
+live.routed = Object.fromEntries(Object.entries(merged).map(([s, items]) => [s, [...items.values()]]));
 live.routedAt = new Date().toISOString();
 live.routedBy = KEY ? 'jev' : 'keyword';
 await writeFile(join(ROOT, 'data/live.json'), JSON.stringify(live, null, 2) + '\n');

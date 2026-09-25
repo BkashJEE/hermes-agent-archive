@@ -3,8 +3,10 @@
   "configurations": [
     {
       "name": "archive",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "4179"],
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "scripts/serve.mjs"
+      ],
       "port": 4179
     }
   ]

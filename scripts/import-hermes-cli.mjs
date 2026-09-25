@@ -32,15 +32,12 @@ const strip = h => h
 
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 54);
 
-/* Which shelf an entry belongs on. Deliberately conservative: anything that is
-   plainly a command goes to commands, configuration to settings, and only the
-   non-obvious in-session moves to tricks. */
+/* Official reference material never belongs in Hidden Tricks. */
 function shelfFor(title, body) {
-  const t = `${title} ${body}`;
-  if (/^\/|slash command|mid-session|shortcut|press |keybinding/i.test(title)) return 'tricks';
+  if (/^--/.test(title.trim())) return 'settings';
+  if (/^\/|slash command|mid-session|shortcut|press |keybinding/i.test(title)) return 'commands';
   if (/^hermes[- ]|^hermes$/i.test(title.trim())) return 'commands';
-  if (/\boption|config|environment variable|\.toml|settings|credential|auth\b/i.test(t)) return 'settings';
-  if (/^--/.test(title.trim())) return 'tricks';
+  if (/\boption|config|environment variable|\.toml|settings|credential|auth\b/i.test(`${title} ${body}`)) return 'settings';
   return 'commands';
 }
 
@@ -111,7 +108,7 @@ for (let i = 0; i < parts.length; i += 2) {
 
 /* ---- merge onto shelves, never replacing ---- */
 const counts = {};
-for (const shelf of ['commands', 'settings', 'tricks']) {
+for (const shelf of ['commands', 'settings']) {
   const file = join(ROOT, `data/${shelf}.json`);
   const current = JSON.parse(await readFile(file, 'utf8').catch(() => '{"items":[]}'));
   const byId = new Map((current.items || []).map(i => [i.id, i]));

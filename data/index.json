@@ -10,7 +10,7 @@
     {
       "id": "dashboard",
       "label": "Dashboard",
-      "icon": "▤",
+      "icon": "dashboard",
       "kind": "dashboard",
       "title": "WHAT IS IN THE ARCHIVE",
       "blurb": "Counted live from what is loaded right now — nothing here is stored, and nothing is estimated."
@@ -37,7 +37,7 @@
       "icon": "prompts",
       "file": "prompts.json",
       "title": "PROMPTS PEOPLE STEAL",
-      "blurb": "Prompt wording with a track record on Hermes Agent."
+      "blurb": "Exact prompt excerpts from Hermes Agent user stories. Examples, reported uses and failures keep their original attribution."
     },
     {
       "id": "settings",
@@ -45,7 +45,7 @@
       "icon": "settings",
       "file": "settings.json",
       "title": "SETTINGS THAT CHANGE THE RUN",
-      "blurb": "Hermes Agent configuration that materially changes how a run behaves."
+      "blurb": "Documented Hermes Agent CLI flags and configuration options, linked to the official reference."
     },
     {
       "id": "commands",
@@ -60,13 +60,13 @@
       "label": "Hidden Tricks",
       "icon": "tricks",
       "file": "tricks.json",
-      "title": "HIDDEN TRICKS",
-      "blurb": "Non-obvious Hermes Agent moves most people never find."
+      "title": "COMMUNITY-DISCOVERED TRICKS",
+      "blurb": "Undocumented Hermes Agent discoveries, quoted from their authors. Empty until a discovery is verified against the official docs."
     },
     {
       "id": "toolkit",
       "label": "Works With",
-      "icon": "⚒",
+      "icon": "toolkit",
       "file": "toolkit.json",
       "title": "WHAT WORKS WITH HERMES",
       "blurb": "Repos worth pairing with Hermes Agent — why it helps, how to wire it up, and the job it actually does. Each one was read before it was listed."

@@ -3493,6 +3493,32 @@
       "source": "docs",
       "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-update",
       "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-model-slash-command-mid-session",
+      "title": "/model slash command (mid-session)",
+      "summary": "Switch between already-configured models without leaving a session:",
+      "detail": "Switch between already-configured models without leaving a session:\n\nBy default, /model changes apply to the current session only. Add --global to persist the change to config.yaml (or set model.persist_switch_by_default: true to make every switch persist):\n\nIf you've only configured OpenRouter, /model will only show OpenRouter models. To add another provider (Anthropic, DeepSeek, Copilot, etc.), exit your session and run hermes model from the terminal.\n\nOn a --global switch, provider and base URL changes are persisted to config.yaml alongside the model. When switching away from a custom endpoint, the stale base URL is cleared to prevent it leaking into other providers.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#model-slash-command-mid-session",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "cli-sec-diagnostic-shortcuts",
+      "title": "Diagnostic shortcuts",
+      "summary": "Common failure modes + recovery are covered in Egress proxy → Troubleshooting.",
+      "detail": "Common failure modes + recovery are covered in Egress proxy → Troubleshooting.\n\nFrom the official Hermes Agent CLI reference.",
+      "tags": [
+        "cli",
+        "reference"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#diagnostic-shortcuts",
+      "date": "2026-09-24"
     }
   ]
 }

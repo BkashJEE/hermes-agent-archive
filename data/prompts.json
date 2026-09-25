@@ -1,4 +1,233 @@
 {
-  "note": "Cleared during the pivot to Hermes Agent. The previous entries documented Claude Code and did not belong here. Refill from the Hermes Agent docs and the sourcing pipeline \u2014 never from memory.",
-  "items": []
+  "note": "Exact quoted wording from imported Hermes user stories. Examples, reported uses and failures are labelled; no wording is reconstructed.",
+  "items": [
+    {
+      "id": "prompt-story-every-weekday-at-9am-summarize-my-inbox-and-post-to-slack-1",
+      "title": "'Every weekday at 9am, summarize my inbox and post to Slack' — excerpt 1",
+      "summary": "every weekday at 9am, summarize my inbox and post to Slack.",
+      "detail": "Author-provided example wording; not a verified success claim.\n\nAn agent that grows with you — not marketing fluff; it literally writes markdown skill files when it solves hard problems. Natural-language cron: 'every weekday at 9am, summarize my inbox and post to Slack.'\n\n— Anthony Maio (Substack), 2026-03-30, via Blog.",
+      "snippet": "every weekday at 9am, summarize my inbox and post to Slack.",
+      "author": "Anthony Maio (Substack)",
+      "source": "blog",
+      "url": "https://anthonymaio.substack.com/p/getting-started-with-hermes-agent",
+      "date": "2026-03-30",
+      "tags": [
+        "quoted-prompt",
+        "example"
+      ],
+      "provenance": {
+        "storyId": "story-every-weekday-at-9am-summarize-my-inbox-and-post-to-slack",
+        "start": 147,
+        "end": 206,
+        "sha256": "0952320e915feaecd29d66c485de45618606815e4027927ae06be62c0f2a5fa9"
+      }
+    },
+    {
+      "id": "prompt-story-weekly-cron-top-3-trending-ai-tools-for-my-next-video-1",
+      "title": "Weekly cron: top 3 trending AI tools for my next video — excerpt 1",
+      "summary": "Research the top trending AI tools right now and come back with the top three that would make for an interesting tutorial video. Create a new skill based on your approach and call it YouTube-video-research. Can you set up a weekly job that runs every Monday at 9:00 AM using that skill?",
+      "detail": "Author-provided example wording; not a verified success claim.\n\n'Research the top trending AI tools right now and come back with the top three that would make for an interesting tutorial video. Create a new skill based on your approach and call it YouTube-video-research. Can you set up a weekly job that runs every Monday at 9:00 AM using that skill?'\n\n— Metics Media (YouTube), 2026, via YouTube.",
+      "snippet": "Research the top trending AI tools right now and come back with the top three that would make for an interesting tutorial video. Create a new skill based on your approach and call it YouTube-video-research. Can you set up a weekly job that runs every Monday at 9:00 AM using that skill?",
+      "author": "Metics Media (YouTube)",
+      "source": "youtube",
+      "url": "https://www.youtube.com/watch?v=CwPUOVUdApE",
+      "tags": [
+        "quoted-prompt",
+        "example"
+      ],
+      "provenance": {
+        "storyId": "story-weekly-cron-top-3-trending-ai-tools-for-my-next-video",
+        "start": 1,
+        "end": 287,
+        "sha256": "c49edf2d5225493bb96414f5599d5c5ef1e2495408e50fbe7acc19c4cd239a72"
+      }
+    },
+    {
+      "id": "prompt-story-daily-journaling-into-obsidian-learning-to-use-oss-models-1",
+      "title": "Daily journaling into Obsidian, learning to use OSS models — excerpt 1",
+      "summary": "This is my log for last Thursday. Log it in Obsidian,",
+      "detail": "The author reports that this wording did not trigger the intended skill.\n\nI do a really simple journal and log at the end of every day. I tried using Kimi 2.5 just like I would a Sonnet 4.6 but it messed all sorts of things up. When I said 'This is my log for last Thursday. Log it in Obsidian,' it didn't kick off my journaling skill call.\n\n— @jezza2463, 2026-03-29, via Discord.",
+      "snippet": "This is my log for last Thursday. Log it in Obsidian,",
+      "author": "@jezza2463",
+      "source": "discord",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent.txt",
+      "date": "2026-03-29",
+      "tags": [
+        "quoted-prompt",
+        "reported-failure"
+      ],
+      "provenance": {
+        "storyId": "story-daily-journaling-into-obsidian-learning-to-use-oss-models",
+        "start": 167,
+        "end": 220,
+        "sha256": "e8226366b2019068b2df5051a58baf37e78a759915a4fa5635257fd48edd1430"
+      }
+    },
+    {
+      "id": "prompt-story-hermes-manages-my-tasks-across-obsidian-apple-calendar-and-s-1",
+      "title": "Hermes manages my tasks across Obsidian, Apple Calendar and Signal — excerpt 1",
+      "summary": "now i want you to use obsidian to manage my tasks and other stuff. and cross-check with my apple calendar",
+      "detail": "The author reports using this wording; see the original story for the outcome.\n\nI speak Turkish with it... initially said him to 'now i want you to use obsidian to manage my tasks and other stuff. and cross-check with my apple calendar'. later while working on another task today i said 'okay looks good. you know how you will manage tasks and events apple calendars + obsidian + cron/signal' and it confirmed the workflow.\n\n— @kouff, 2026-04-11, via Discord.",
+      "snippet": "now i want you to use obsidian to manage my tasks and other stuff. and cross-check with my apple calendar",
+      "author": "@kouff",
+      "source": "discord",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent/",
+      "date": "2026-04-11",
+      "tags": [
+        "quoted-prompt",
+        "reported-use"
+      ],
+      "provenance": {
+        "storyId": "story-hermes-manages-my-tasks-across-obsidian-apple-calendar-and-s",
+        "start": 50,
+        "end": 155,
+        "sha256": "382e4823cfb4adb78b9f71d5ae805eac0d63dad4f4b32f9bc548074bccd2cc5e"
+      }
+    },
+    {
+      "id": "prompt-story-hermes-manages-my-tasks-across-obsidian-apple-calendar-and-s-2",
+      "title": "Hermes manages my tasks across Obsidian, Apple Calendar and Signal — excerpt 2",
+      "summary": "okay looks good. you know how you will manage tasks and events apple calendars + obsidian + cron/signal",
+      "detail": "The author reports using this wording; see the original story for the outcome.\n\nI speak Turkish with it... initially said him to 'now i want you to use obsidian to manage my tasks and other stuff. and cross-check with my apple calendar'. later while working on another task today i said 'okay looks good. you know how you will manage tasks and events apple calendars + obsidian + cron/signal' and it confirmed the workflow.\n\n— @kouff, 2026-04-11, via Discord.",
+      "snippet": "okay looks good. you know how you will manage tasks and events apple calendars + obsidian + cron/signal",
+      "author": "@kouff",
+      "source": "discord",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent/",
+      "date": "2026-04-11",
+      "tags": [
+        "quoted-prompt",
+        "reported-use"
+      ],
+      "provenance": {
+        "storyId": "story-hermes-manages-my-tasks-across-obsidian-apple-calendar-and-s",
+        "start": 208,
+        "end": 311,
+        "sha256": "382e4823cfb4adb78b9f71d5ae805eac0d63dad4f4b32f9bc548074bccd2cc5e"
+      }
+    },
+    {
+      "id": "prompt-story-under-20-mo-total-no-mac-mini-no-opus-1",
+      "title": "Under $20/mo total — no Mac Mini, no Opus — excerpt 1",
+      "summary": "check the top 5 trending GitHub repos right now and send me a summary.",
+      "detail": "Author-provided example wording; not a verified success claim.\n\nOpenClaw setup: Mac Mini M4 ($599) + Opus 4.6 = ~$80–150/mo. Hermes on VPS: under $20/mo total using Minimax M2.7. Example first task: 'check the top 5 trending GitHub repos right now and send me a summary.'\n\n— Alex P. (Medium), 2026-03-30, via Blog.",
+      "snippet": "check the top 5 trending GitHub repos right now and send me a summary.",
+      "author": "Alex P. (Medium)",
+      "source": "blog",
+      "url": "https://medium.com/@0xmega/hermes-agent-the-complete-setup-guide-telegram-discord-vps-no-mac-mini-required-dda315a702d3",
+      "date": "2026-03-30",
+      "tags": [
+        "quoted-prompt",
+        "example"
+      ],
+      "provenance": {
+        "storyId": "story-under-20-mo-total-no-mac-mini-no-opus",
+        "start": 136,
+        "end": 206,
+        "sha256": "fae2deba6b5e9e5f51a64c4482427c71f5ee10c27f6a72f94c6bdfcf00fe9d70"
+      }
+    },
+    {
+      "id": "prompt-story-giving-my-agent-ios-sensors-health-location-voice-1",
+      "title": "Giving my agent iOS sensors: health, location, voice — excerpt 1",
+      "summary": "How many steps did I walk yesterday?",
+      "detail": "Author-provided example wording; not a verified success claim.\n\nBuilding a Hermes iOS app + desktop companion to give my agent some extra iOS tools. Sensor pipeline for health, location services. Can now ask agent health or location specific questions. 'How many steps did I walk yesterday?' 'What's a good coffee shop nearby?'\n\n— @djbuck, via Discord.",
+      "snippet": "How many steps did I walk yesterday?",
+      "author": "@djbuck",
+      "source": "discord",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/community-projects-showcase/1490473436085223657-Hermes-iOS-App.txt",
+      "tags": [
+        "quoted-prompt",
+        "example"
+      ],
+      "provenance": {
+        "storyId": "story-giving-my-agent-ios-sensors-health-location-voice",
+        "start": 190,
+        "end": 226,
+        "sha256": "366de7847ad53e8a691d9e8edbb59a3a2e33d86fcf711939f69b52343e425255"
+      }
+    },
+    {
+      "id": "prompt-story-giving-my-agent-ios-sensors-health-location-voice-2",
+      "title": "Giving my agent iOS sensors: health, location, voice — excerpt 2",
+      "summary": "What's a good coffee shop nearby?",
+      "detail": "Author-provided example wording; not a verified success claim.\n\nBuilding a Hermes iOS app + desktop companion to give my agent some extra iOS tools. Sensor pipeline for health, location services. Can now ask agent health or location specific questions. 'How many steps did I walk yesterday?' 'What's a good coffee shop nearby?'\n\n— @djbuck, via Discord.",
+      "snippet": "What's a good coffee shop nearby?",
+      "author": "@djbuck",
+      "source": "discord",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/community-projects-showcase/1490473436085223657-Hermes-iOS-App.txt",
+      "tags": [
+        "quoted-prompt",
+        "example"
+      ],
+      "provenance": {
+        "storyId": "story-giving-my-agent-ios-sensors-health-location-voice",
+        "start": 229,
+        "end": 262,
+        "sha256": "366de7847ad53e8a691d9e8edbb59a3a2e33d86fcf711939f69b52343e425255"
+      }
+    },
+    {
+      "id": "prompt-story-a-standing-md-plugin-so-my-agent-stops-guessing-1",
+      "title": "A STANDING.md plugin so my agent stops guessing — excerpt 1",
+      "summary": "always verify first",
+      "detail": "The author reports limitations with retaining this instruction in memory.\n\nMy agent keeps confidently guessing instead of checking its own docs. I put 'always verify first' in memory but it has a hard char limit and entries get compressed/replaced over time. Fix: a tiny plugin that reads a STANDING.md file and injects it into the system prompt every turn via pre_llm_call.\n\n— @jezza2463, 2026-04-03, via Discord.",
+      "snippet": "always verify first",
+      "author": "@jezza2463",
+      "source": "discord",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent.txt",
+      "date": "2026-04-03",
+      "tags": [
+        "quoted-prompt",
+        "reported-limitation"
+      ],
+      "provenance": {
+        "storyId": "story-a-standing-md-plugin-so-my-agent-stops-guessing",
+        "start": 77,
+        "end": 96,
+        "sha256": "3c63791d506268e287756e48a22ce902b967b8a25bcf602eb1abe5c574d27746"
+      }
+    },
+    {
+      "id": "prompt-story-the-anatomy-of-the-hermes-folder-one-folder-controls-everyth-1",
+      "title": "The anatomy of the ~/.hermes folder — one folder controls everything — excerpt 1",
+      "summary": "what did we discuss three weeks ago?",
+      "detail": "Author-provided example wording; not a verified success claim.\n\nOne folder controls everything your hermes agent knows, remembers, and can do. SOUL.md occupies slot #1 in the system prompt. state.db with FTS5 is what makes 'what did we discuss three weeks ago?' actually work across CLI and messaging.\n\n— @akshay_pachaar, 2026-05-16, via X · Twitter.",
+      "snippet": "what did we discuss three weeks ago?",
+      "author": "@akshay_pachaar",
+      "source": "x",
+      "url": "https://x.com/akshay_pachaar/status/2055629943891988719",
+      "date": "2026-05-16",
+      "tags": [
+        "quoted-prompt",
+        "example"
+      ],
+      "provenance": {
+        "storyId": "story-the-anatomy-of-the-hermes-folder-one-folder-controls-everyth",
+        "start": 160,
+        "end": 196,
+        "sha256": "bebe77637e3630fdc5e7ece01a6afa9d1a5628a755bdb0512e2cac4aea51e50e"
+      }
+    },
+    {
+      "id": "prompt-story-telegram-assistant-recalled-japan-trip-preferences-while-pla-1",
+      "title": "Telegram assistant recalled Japan-trip preferences while planning a France trip — excerpt 1",
+      "summary": "help me plan a trip to France",
+      "detail": "The author reports using this wording; see the original story for the outcome.\n\nIn a new Telegram conversation I said 'help me plan a trip to France' and the agent referenced the past Japan conversation, recalling my preferences — nature, history, mid-range budget. That's the difference between a chatbot and a personal assistant.\n\n— Vivek Shetye (YouTube), 2026-05-04, via YouTube.",
+      "snippet": "help me plan a trip to France",
+      "author": "Vivek Shetye (YouTube)",
+      "source": "youtube",
+      "url": "https://www.youtube.com/watch?v=PuNVmPGcffg",
+      "date": "2026-05-04",
+      "tags": [
+        "quoted-prompt",
+        "reported-use"
+      ],
+      "provenance": {
+        "storyId": "story-telegram-assistant-recalled-japan-trip-preferences-while-pla",
+        "start": 39,
+        "end": 68,
+        "sha256": "34d4f113761244ca3aa39a988ef59a9a80b6e3c950c228a6039db3f64a75acf6"
+      }
+    }
+  ]
 }

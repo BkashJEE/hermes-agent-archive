@@ -1,6 +1,9 @@
 /* Use-Case Archive — data loading, filtering, rendering. No framework, no build step. */
 
-import { sectionIcon } from './icons.js';
+/* The ?v is a cache escape hatch, not decoration. A browser that has memoised
+   this URL will not revalidate it even under no-store; bump the number when an
+   icon changes and the stale entry is bypassed by URL. */
+import { sectionIcon } from './icons.js?v=2';
 
 const $  = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -192,7 +195,7 @@ function pill(source) {
   return `<span class="pill pill-${key}"><span class="source-mark" aria-hidden="true">${marks[source] || '—'}</span>${esc(SOURCE_LABEL[source] || 'CURATED')}</span>`;
 }
 
-function metricBlock(item) {
+function metricBlock(item, { note = true } = {}) {
   if (item.metric) {
     const m2 = item.metric2
       ? `<div class="metric"><span class="m-k">${esc(item.metric2.kind.toUpperCase())}</span><span class="m-v">${num(item.metric2.value)}</span></div>`
@@ -203,17 +206,65 @@ function metricBlock(item) {
   }
   const tags = (item.tags || []).slice(0, 3);
   return `<div class="tagrow">${tags.map(t => `<span class="trow-tag">${esc(t)}</span>`).join('')}
-    <span class="trow-note">no public metric</span></div>`;
+    ${note ? '<span class="trow-note">no public metric</span>' : ''}</div>`;
+}
+
+/* Provenance under the title. Where a source implies a person — a post, a video,
+   a thread — and no author was captured, say so rather than quietly dropping the
+   field: an unknown creator is information too. */
+const CREDITED = new Set(['x', 'reddit', 'discord', 'hn', 'youtube', 'blog', 'podcast', 'linkedin', 'producthunt', 'fb']);
+
+function provenance(item) {
+  const src = SOURCE_LABEL[item.source] || 'CURATED';
+  if (item.author) return `${src} · ${esc(item.author)}`;
+  if (CREDITED.has(item.source)) return `${src} · author not credited`;
+  return src;
+}
+
+/* What it does, as points rather than a paragraph. A curated entry written with
+   WHY / HOW / USE CASE headings gives up its lead sentences; everything else
+   falls back to its own summary. Nothing is generated — this only re-cuts text
+   that is already in the entry. */
+function cardPoints(item) {
+  const lead = s => {
+    const first = s.split(/(?<=[.!?])\s/)[0].trim();
+    return first.length > 132 ? first.slice(0, 129).trimEnd() + '…' : first;
+  };
+
+  if (item.detail && /^WHY\b/m.test(item.detail)) {
+    const part = h => {
+      const m = item.detail.match(new RegExp(`^${h}\\n([\\s\\S]*?)(?=\\n[A-Z ]{3,}\\n|$)`, 'm'));
+      return m ? lead(m[1]) : null;
+    };
+    const points = [part('WHY'), part('USE CASE')].filter(Boolean);
+    if (points.length) return points;
+  }
+  return [lead(item.summary)];
+}
+
+/* A short, honest note on what this entry costs a reader before they open it. */
+function cardStatus(item) {
+  if (item.snippet)  return 'copy-paste ready';
+  if (item.sourced)  return 'found by sourcing';
+  if (!item.metric)  return 'no public metric';
+  return '';
 }
 
 function card(item, rank, iconName) {
+  const points = cardPoints(item);
+  const status = cardStatus(item);
   return `<li><button class="card" data-id="${esc(item.id)}">
     <div class="card-top"><span class="card-index"><span class="card-tab">${sectionIcon(iconName)}</span><span class="rank">#${rank}</span></span>
       ${item.sourced ? '<span class="pill pill-sourced" title="Found by the sourcing pipeline, not written by hand">SOURCED</span>' : ''}${pill(item.source)}</div>
     <h3>${esc(item.title)}</h3>
-    <p class="sum">${esc(item.summary)}</p>
-    ${metricBlock(item)}
-    <div class="card-foot"><span>Open ${item.url ? '&#8599;' : '&rarr;'}</span><span class="when">${esc(ago(item.date))}</span></div>
+    <p class="card-by">${provenance(item)}</p>
+    <span class="card-label">What it does</span>
+    <ul class="card-points">${points.map(t => `<li>${esc(t)}</li>`).join('')}</ul>
+    ${metricBlock(item, { note: false })}
+    <div class="card-foot">
+      <span class="card-status">${esc(status)}</span>
+      <span class="card-end"><span class="when">${esc(ago(item.date))}</span><span class="card-open">Open ${item.url ? '&#8599;' : '&rarr;'}</span></span>
+    </div>
   </button></li>`;
 }
 
