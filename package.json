@@ -13,7 +13,7 @@
     "rank": "node scripts/rank-archive.mjs",
     "check": "node scripts/check-data.mjs",
     "rank:ideas": "node scripts/rank-with-jev.mjs",
-    "test": "node --test scripts/ranking.test.mjs"
+    "test": "node --test scripts/*.test.mjs"
   },
   "engines": {
     "node": ">=20"

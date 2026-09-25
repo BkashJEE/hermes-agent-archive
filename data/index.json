@@ -1,7 +1,7 @@
 {
   "site": {
     "name": "HERMES AGENT ARCHIVE",
-    "tagline": "The most viewed, talked about and actually-used Hermes Agent craft — curated in public.",
+    "tagline": "Sourced Hermes Agent workflows, prompts and projects \u2014 curated by usefulness.",
     "curator": "@BkashJosi",
     "quote": "Ship the trick, not the hype.",
     "quoteAuthor": "— HERMES AGENT ARCHIVE"
@@ -22,6 +22,14 @@
       "file": "use-cases.json",
       "title": "WHAT PEOPLE ACTUALLY BUILD",
       "blurb": "Real Hermes Agent user stories — every one quoted and linked to the original post on X, Reddit, Discord, GitHub, YouTube or a blog."
+    },
+    {
+      "id": "trending",
+      "label": "Trending GitHub",
+      "icon": "trending",
+      "kind": "trending",
+      "title": "GITHUB PROJECTS GAINING STARS",
+      "blurb": "Hermes-related repositories across the archive with 5,000+ verified stars and measured growth. Ordered by star gain per day, not publication date."
     },
     {
       "id": "skills",

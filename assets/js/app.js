@@ -1,9 +1,10 @@
 /* Use-Case Archive — data loading, filtering, rendering. No framework, no build step. */
 
-import { sectionIcon } from './icons.js?v=badge-3';
-import { mergeLive } from './archive.js?v=trends-5';
+import { sectionIcon } from './icons.js?v=launch-10';
+import { mergeLive, trendingItems } from './archive.js?v=launch-10';
+import { cardPoints, cardCategory } from './card-preview.js?v=launch-10';
 import { formatDetails } from './details.js';
-import { creditFor } from './credits.js';
+import { creditFor } from './credits.js?v=launch-10';
 import { attachRankings, compareRankings, usefulnessLabel, popularityLabel } from './ranking.js';
 
 const $  = (s, r = document) => r.querySelector(s);
@@ -27,7 +28,9 @@ const state = {
   tag: null,
   author: null,
   tagQuery: '',
-  density: 'comfortable'
+  density: 'comfortable',
+  limit: 24,
+  viewKey: ''
 };
 
 // Storage is optional: denied access must never prevent browsing.
@@ -66,8 +69,11 @@ async function load() {
 
 /* -------------------------------------------------------------- filters */
 
-function matches(item) {
-  if (state.sort === 'trending' && !item.trend) return false;
+const activeSort = () => state.section === 'trending' ? 'trending' : state.sort;
+const shelfItems = id => id === 'trending' ? trendingItems(state.data) : (state.data[id] || []);
+
+function matches(item, sort = state.sort) {
+  if (sort === 'trending' && !item.trend) return false;
   if (state.author && creditFor(item).name !== state.author) return false;
   if (state.source !== 'all' && item.source !== state.source) return false;
   if (state.tag && !(item.tags || []).includes(state.tag)) return false;
@@ -80,13 +86,13 @@ function matches(item) {
 }
 
 function sortItems(items) {
-  return [...items].sort((a, b) => state.sort === 'trending'
+  return [...items].sort((a, b) => activeSort() === 'trending'
     ? (b.trend.perDay - a.trend.perDay || a.title.localeCompare(b.title))
     : state.sort === 'az'
     ? a.title.localeCompare(b.title) : compareRankings(a, b, state.sort));
 }
 
-const visible = id => (state.data[id] || []).filter(matches);
+const visible = id => shelfItems(id).filter(item => matches(item, id === 'trending' ? 'trending' : state.sort));
 
 /* ------------------------------------------------------------- renderers */
 
@@ -117,22 +123,28 @@ function metricBlock(item) {
 
 function card(item, rank, iconName) {
   const credit = creditFor(item);
-  return `<li><button class="card" data-id="${esc(item.id)}">
-    <div class="card-top"><span class="card-index"><span class="card-tab">${sectionIcon(iconName)}</span><span class="rank">${state.sort === 'az' ? 'A–Z' : (item.ranking || state.sort === 'trending') ? `#${rank}` : 'UNCLASSIFIED'}</span></span>
-      ${item.sourced ? '<span class="pill pill-sourced" title="Found by the sourcing pipeline, not written by hand">SOURCED</span>' : ''}${pill(item.source)}</div>
-    <h3>${esc(item.title)}</h3>
-    <p class="card-byline"><span>${esc(credit.label)}</span> <strong>${esc(credit.name)}</strong></p>
-    <p class="sum">${esc(item.summary)}</p>
-    ${metricBlock(item)}
+  const category = cardCategory(item, iconName);
+  const order = activeSort() === 'az' ? 'A–Z' : (item.ranking || activeSort() === 'trending') ? `#${rank}` : '';
+  const action = iconName === 'stories' ? 'Read workflow' : iconName === 'prompts' ? 'View prompt' : 'View details';
+  const metric = item.metric ? `${num(item.metric.value)} ${item.metric.kind}` : 'no public metric';
+  return `<li><button class="card card-${category.tone}" data-id="${esc(item.id)}" aria-label="${esc(`${action}: ${item.title}`)}">
+    <div class="card-heading"><span class="card-icon">${sectionIcon(category.icon)}</span><div class="card-heading-text">
+      <h3>${esc(item.title)}</h3>
+      <p class="card-byline">${esc(credit.label)} <strong>${esc(credit.name)}</strong><span class="card-source">${esc(SOURCE_LABEL[item.source] || 'CURATED')}${item.sourced ? ' · SOURCED' : ''}</span></p>
+    </div></div>
+    <div class="card-preview"><p class="card-label">${item.cardPoints?.length || !(item.tags || []).includes('user-story') ? 'What it does' : 'From the source'}</p>
+      <ul class="card-points">${cardPoints(item).map(point => `<li>${esc(point)}</li>`).join('')}</ul>
+    </div>
+    <div class="card-tags">${(item.tags || []).filter(t => t !== 'user-story').slice(0, 2).map(t => `<span class="trow-tag">${esc(t)}</span>`).join('')}${order ? `<span class="rank" title="Position in the selected sort">${order}</span>` : ''}</div>
     ${item.trend ? `<p class="trend-note">↗ +${num(item.trend.gain)} stars · ${esc(new Date(item.trend.from).toLocaleString())} – ${esc(new Date(item.trend.to).toLocaleString())}</p>` : ''}
-    <div class="card-foot"><span>Open ${item.url ? '&#8599;' : '&rarr;'}</span><span class="when">${item.ranking ? 'Jev classified' : 'Awaiting Jev'}</span></div>
+    <div class="card-foot"><span class="card-evidence">${esc(metric)}</span><span class="card-action">${action} <span aria-hidden="true">→</span></span></div>
   </button></li>`;
 }
 
 function renderNav() {
   $('#nav').innerHTML = state.cfg.sections.map(s => `
     <a href="#${s.id}" class="${s.id === state.section ? 'on' : ''}" data-section="${s.id}" ${s.id === state.section ? 'aria-current="page"' : ''}>
-      <span class="nav-ico">${sectionIcon(s.icon)}</span>${esc(s.label)}<span class="nav-n">${s.file ? visible(s.id).length : ''}</span>
+      <span class="nav-ico">${sectionIcon(s.icon)}</span>${esc(s.label)}<span class="nav-n">${s.file || s.kind === 'trending' ? visible(s.id).length : ''}</span>
     </a>`).join('');
 }
 
@@ -152,7 +164,7 @@ function renderTags() {
 
 function renderFilters() {
   const bits = [];
-  if (state.sort === 'trending') bits.push(['trending', 'TRENDING: MEASURED STAR GROWTH']);
+  if (state.sort === 'trending' && state.section !== 'trending') bits.push(['trending', 'TRENDING: MEASURED STAR GROWTH']);
   if (state.q)                  bits.push(['q',      `SEARCH: ${state.q}`]);
   if (state.author)             bits.push(['author', `AUTHOR: ${state.author}`]);
   if (state.tag)                bits.push(['tag',    `TAG: ${state.tag}`]);
@@ -169,6 +181,11 @@ function render() {
     : focused?.dataset.section ? ['section', focused.dataset.section] : null;
   const sec = state.cfg.sections.find(s => s.id === state.section) || state.cfg.sections[0];
   const isDash = sec.kind === 'dashboard';
+  const key = JSON.stringify([state.section, state.q, state.source, state.tag, state.author, activeSort()]);
+  if (key !== state.viewKey) { state.limit = 24; state.viewKey = key; }
+  $('#sortSel').disabled = sec.kind === 'trending';
+  $('#sortSel').value = activeSort();
+  $('#loadMoreRow').hidden = true;
   $('#dashboard').hidden = !isDash;
   $('#listbar').hidden = isDash;
   $('#grid').hidden = isDash;
@@ -189,19 +206,22 @@ function render() {
   $('#listTitle').innerHTML   = `${esc(sec.label.toUpperCase())} &middot; <span>${items.length}</span>`;
   const classified = items.filter(item => item.ranking).length;
   $('#listSub').textContent = !items.length ? 'No entries to rank in this view.'
-    : state.sort === 'trending' ? 'Positive GitHub star growth, fastest per day first. Two API measurements 1 hour–14 days apart; latest measurement within 14 days. Publication dates do not affect rank.'
+    : activeSort() === 'trending' ? 'Positive GitHub star growth, fastest per day first. Two API measurements 1 hour–14 days apart; latest measurement within 14 days. Publication dates do not affect rank.'
     : state.sort === 'az' ? 'Alphabetical.'
     : !classified ? 'Awaiting Jev classification. Unclassified entries are alphabetical; dates never affect the order.'
     : state.sort === 'popular' && !items.some(item => item.ranking && item.ranking.popularity !== 'unknown')
       ? 'Popularity is unknown on this shelf: no fetched engagement evidence. Ordered by Jev usefulness instead.'
-    : `${classified} of ${items.length} classified by Jev. ${state.sort === 'popular'
+    : `${classified} of ${items.length} assessed by Jev (editorial ranking). ${state.sort === 'popular'
       ? 'Public popularity first; unknown popularity last.'
       : 'Usefulness first; public popularity breaks ties.'} Dates never affect the order.`;
 
-  $('#grid').innerHTML = items.map((it, i) => card(it, i + 1, sec.icon)).join('');
+  $('#grid').innerHTML = items.slice(0, state.limit).map((it, i) => card(it, i + 1, sec.icon)).join('');
+  $('#loadMoreRow').hidden = !items.length;
+  $('#shownCount').textContent = `Showing ${Math.min(state.limit, items.length)} of ${items.length}`;
+  $('#loadMoreBtn').hidden = items.length <= state.limit;
   $('#grid').dataset.density = state.density;
   $$('button[data-density]').forEach(button => button.setAttribute('aria-pressed', button.dataset.density === state.density));
-  const emptyShelf = !(state.data[sec.id] || []).length;
+  const emptyShelf = !shelfItems(sec.id).length && sec.kind !== 'trending';
   $('#empty').hidden = items.length > 0;
   $('#empty').innerHTML = emptyShelf
     ? `<div class="empty-icon">${sectionIcon(sec.icon)}</div>
@@ -209,7 +229,7 @@ function render() {
        <strong>This shelf isn't stocked yet.</strong>
        <span>We're collecting ${esc(sec.label.toLowerCase())} worth keeping. Every entry needs a real source before it earns a place here.</span>
        <a class="ghost-btn empty-link" href="#use-cases" data-browse>Browse ${(state.data['use-cases'] || []).length} user stories &rarr;</a>`
-    : state.sort === 'trending' ? `<strong>No measured trends in this view yet.</strong>
+    : activeSort() === 'trending' ? `<strong>No measured trends in this view yet.</strong>
        <span>Trending needs positive star growth between two recent API snapshots. Repositories without enough history are excluded. Try another shelf or clear filters.</span>
        <button class="ghost-btn" data-clear>Clear filters</button>`
     : `<strong>Nothing matches those filters.</strong>
@@ -552,11 +572,12 @@ function findItem(id) {
 
 let drawerTrigger = null;
 
-function openDrawer(id, trigger) {
+function openDrawer(id, trigger, updateUrl = true) {
   const it = findItem(id);
   if (!it) return;
 
-  drawerTrigger = trigger || document.activeElement;
+  drawerTrigger = trigger || (document.activeElement === document.body ? null : document.activeElement);
+  if (updateUrl) history.pushState(null, '', `#${state.section}?item=${encodeURIComponent(id)}`);
   const story = (it.tags || []).includes('user-story');
   const copyLabel = (it.tags || []).includes('prompt') ? 'COPY PROMPT' : 'COPY';
   const paragraphs = (it.detail || it.summary || '').split('\n\n');
@@ -568,7 +589,7 @@ function openDrawer(id, trigger) {
   const date = it.date ? new Date(`${it.date.slice(0, 10)}T12:00:00Z`).toLocaleDateString('en-US',
     { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }) : '';
   const author = creditFor(it);
-  const credit = attribution || [`${author.label} ${author.name}`, SOURCE_LABEL[it.source], date].filter(Boolean).join(' · ');
+  const credit = (author.label === 'Author' ? null : attribution) || [`${author.label} ${author.name}`, SOURCE_LABEL[it.source], date].filter(Boolean).join(' · ');
 
   $('#drawerBody').innerHTML = `
     <div class="d-kicker">${pill(it.source)}${it.lang ? `<span class="pill pill-curated">${esc(it.lang)}</span>` : ''}</div>
@@ -583,7 +604,8 @@ function openDrawer(id, trigger) {
         <button class="copy-btn" id="copyBtn">${copyLabel}</button>
         <pre><code>${esc(it.snippet)}</code></pre></div>` : ''}
     ${(it.tags || []).length ? `<div class="d-tags">${it.tags.map(t => `<button class="d-tag" data-tag="${esc(t)}">#${esc(t)}</button>`).join('')}</div>` : ''}
-    ${it.url ? `<a class="d-link" href="${esc(it.url)}" target="_blank" rel="noopener noreferrer">READ THE ORIGINAL &#8599;</a>` : ''}
+    <div class="d-actions">${it.url ? `<a class="d-link" href="${esc(it.url)}" target="_blank" rel="noopener noreferrer">READ THE ORIGINAL &#8599;</a>` : ''}<button class="ghost-btn" id="shareCardBtn">Copy card link</button><span id="shareStatus" role="status"></span></div>
+    <input class="d-share" id="shareCardUrl" aria-label="Link to this card" readonly hidden>
     <div class="d-meta">${it.metric ? metricBlock(it) : '<span class="trow-note">no public metric</span>'}</div>`;
 
   $('#drawer').hidden = false;
@@ -594,6 +616,19 @@ function openDrawer(id, trigger) {
   $('#drawer').scrollTop = 0;
   $('#drawerClose').focus();
 
+  $('#shareCardBtn').onclick = async () => {
+    const url = new URL(location.href);
+    url.search = '';
+    url.hash = `${state.section}?item=${encodeURIComponent(id)}`;
+    try {
+      await navigator.clipboard.writeText(url.href);
+      $('#shareStatus').textContent = 'Link copied';
+    } catch {
+      const field = $('#shareCardUrl');
+      field.hidden = false; field.value = url.href; field.focus(); field.select();
+      $('#shareStatus').textContent = 'Copy the selected link';
+    }
+  };
   const copy = $('#copyBtn');
   if (copy) copy.onclick = async () => {
     try {
@@ -607,9 +642,10 @@ function openDrawer(id, trigger) {
   };
 }
 
-function closeDrawer() {
+function closeDrawer(updateUrl = true) {
   if ($('#drawer').hidden) return;
   $('#drawer').hidden = true;
+  if (updateUrl) history.replaceState(null, '', `#${state.section}`);
   $('#scrim').hidden = true;
   $('.topbar').inert = false;
   $('.shell').inert = false;
@@ -639,8 +675,32 @@ function filterAuthor(name) {
 }
 
 function routeFromHash() {
-  const id = location.hash.replace('#', '');
+  const [id] = location.hash.slice(1).split('?');
   if (state.cfg.sections.some(s => s.id === id)) state.section = id;
+}
+
+function restoreRoute() {
+  closeDrawer(false);
+  routeFromHash(); render();
+  const id = new URLSearchParams(location.hash.split('?')[1] || '').get('item');
+  if (id && findItem(id)) openDrawer(id, document.querySelector(`[data-id="${CSS.escape(id)}"]`), false);
+}
+
+function renderSourceStatus() {
+  $('#updatedAt').textContent = state.live?.generatedAt
+    ? new Date(state.live.generatedAt).toLocaleDateString() : 'Not fetched';
+  $('#footGen').textContent = state.live?.generatedAt
+    ? `Public metrics last fetched ${new Date(state.live.generatedAt).toLocaleString()}.`
+    : 'Public metrics have not been fetched yet.';
+  $('.foot-warn')?.remove();
+  const warn = state.live?.warnings || [];
+  if (warn.length) {
+    const names = [...new Set(warn.map(w => /reddit/i.test(w) ? 'Reddit' : /github/i.test(w) ? 'GitHub' : /hacker|\bhn\b/i.test(w) ? 'Hacker News' : 'A source'))];
+    const el = document.createElement('p');
+    el.className = 'foot-gen foot-warn';
+    el.textContent = `${names.join(', ')} metrics unavailable at the last fetch. Previously fetched data is retained where available.`;
+    $('#footGen').after(el);
+  }
 }
 
 const mobile = matchMedia('(max-width:960px)');
@@ -692,19 +752,7 @@ function wire() {
   $('#curator').textContent     = state.cfg.site.curator;
   $('#siteQuote').textContent   = `“${state.cfg.site.quote}”`;
   $('#siteQuoteBy').textContent = state.cfg.site.quoteAuthor;
-  $('#updatedAt').textContent   = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
-  $('#footGen').textContent     = state.live?.generatedAt
-    ? `Live signals last fetched ${new Date(state.live.generatedAt).toLocaleString()}`
-      + (state.live.routedAt ? `, shelved by ${state.live.routedBy === 'jev' ? 'Jev' : 'keyword rules'}.` : '.')
-    : 'Live signals not fetched yet — run `npm run fetch` to pull real GitHub, Hacker News and Reddit numbers.';
-
-  const warn = state.live?.warnings || [];
-  if (warn.length) {
-    const el = document.createElement('p');
-    el.className = 'foot-gen foot-warn';
-    el.textContent = `Unavailable at last fetch: ${warn.join(' · ')}`;
-    $('#footGen').after(el);
-  }
+  renderSourceStatus();
 
   let t;
   $('#search').addEventListener('input', e => {
@@ -715,7 +763,15 @@ function wire() {
   $('#sourceSel').addEventListener('change', e => { state.source = e.target.value; render(); });
   $('#sortSel').addEventListener('change',   e => { state.sort   = e.target.value; render(); });
   $('#clearBtn').addEventListener('click', clearFilters);
-  $('#refreshBtn').addEventListener('click', async () => { await load(); render(); });
+  $('#refreshBtn').addEventListener('click', async () => {
+    try { await load(); renderSourceStatus(); render(); }
+    catch { $('#footGen').textContent = 'Could not reload the archive. Please try again.'; }
+  });
+  $('#loadMoreBtn').addEventListener('click', () => {
+    const nextIndex = state.limit;
+    state.limit += 24; render();
+    $$('#grid .card')[nextIndex]?.focus({ preventScroll: true });
+  });
   $('#menuBtn').addEventListener('click', () => setSidebar(!$('#sidebar').classList.contains('open')));
   $('#sidebarScrim').addEventListener('click', () => { setSidebar(false); $('#menuBtn').focus(); });
 
@@ -760,14 +816,14 @@ function wire() {
     if (c) openDrawer(c.dataset.id, c);
   });
 
-  $('#drawerClose').addEventListener('click', closeDrawer);
-  $('#scrim').addEventListener('click', closeDrawer);
+  $('#drawerClose').addEventListener('click', () => closeDrawer());
+  $('#scrim').addEventListener('click', () => closeDrawer());
 
   document.addEventListener('keydown', e => {
     if (!$('#drawer').hidden) {
       if (e.key === 'Escape') { e.preventDefault(); closeDrawer(); }
       if (e.key === 'Tab') {
-        const controls = $$('button, a[href], input, select, [tabindex="0"]', $('#drawer'));
+        const controls = $$('button, a[href], input, select, [tabindex="0"]', $('#drawer')).filter(el => !el.hidden && !el.disabled);
         const first = controls[0], last = controls.at(-1);
         if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
         else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
@@ -785,13 +841,14 @@ function wire() {
     }
   });
 
-  window.addEventListener('hashchange', () => { routeFromHash(); render(); });
+  window.addEventListener('hashchange', restoreRoute);
+  window.addEventListener('popstate', restoreRoute);
 }
 
 /* ------------------------------------------------------------------ boot */
 
 load()
-  .then(() => { routeFromHash(); wire(); render(); })
+  .then(() => { routeFromHash(); wire(); restoreRoute(); })
   .catch(err => {
     $('#grid').innerHTML =
       `<li class="empty"><strong>COULD NOT LOAD DATA</strong>

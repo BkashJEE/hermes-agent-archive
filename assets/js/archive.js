@@ -46,10 +46,10 @@ export function mergeLive(data, live) {
       item.trend = githubTrend(observation);
       // A credited entry never took part in the qualification above, so there is
       // no fetched observation to attach — leave it exactly as written.
-      if (!item.repo || item.credit) return true;
-      const g = byRepo.get(item.repo.toLowerCase());
+      if (!repo || item.credit) return true;
+      const g = byRepo.get(repo);
       // Qualification above guarantees a fetched observation for this seed.
-      item.title   = g.repo;                       // follow renames/transfers
+      if (item.repo) item.title = g.repo;                       // follow renames/transfers
       // A curated write-up outranks the repo's own one-liner.
       if (!item.detail) item.summary = g.description || item.summary;
       item.metric  = { kind: 'stars', value: g.stars };
@@ -115,4 +115,15 @@ export function mergeLive(data, live) {
       author: r.author, date: r.date,
       metric: { kind: 'upvotes', value: r.upvotes }, metric2: { kind: 'comments', value: r.comments }
     });
+}
+
+// A computed shelf: references existing entries without duplicating archive totals.
+export function trendingItems(data) {
+  const repos = new Map();
+  for (const item of Object.values(data).flat()) {
+    const repo = githubRepo(item);
+    if (repo && item.trend && item.metric?.kind === 'stars' && qualifies(item.metric.value) && !repos.has(repo))
+      repos.set(repo, item);
+  }
+  return [...repos.values()].sort((a, b) => b.trend.perDay - a.trend.perDay || a.title.localeCompare(b.title));
 }
