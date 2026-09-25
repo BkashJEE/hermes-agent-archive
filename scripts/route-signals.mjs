@@ -32,7 +32,7 @@ const KEY = process.env.TYPESAFE_API_KEY;
 const FLOOR = {
   // Must match the fetcher's floor — two defaults drifting apart silently cut
   // candidates the fetcher deliberately collected. Substance is Jev's call.
-  stars:   Number(process.env.MIN_STARS          ?? 1000),
+  stars:   Math.max(5000, Number(process.env.MIN_STARS          ?? 5000)),
   points:  Number(process.env.MIN_HN_POINTS      ?? 300),
   upvotes: Number(process.env.MIN_REDDIT_UPVOTES ?? 200)
 };

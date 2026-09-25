@@ -1,233 +1,239 @@
 {
-  "note": "Exact quoted wording from imported Hermes user stories. Examples, reported uses and failures are labelled; no wording is reconstructed.",
+  "note": "Exact prompt examples from the official Hermes Agent documentation. Original wording is MIT-licensed by Nous Research; editorial descriptions and usage notes explain customization. Source revision is recorded on each item.",
+  "license": {
+    "name": "MIT",
+    "copyright": "Copyright (c) 2025 Nous Research",
+    "notice": "assets/licenses/hermes-agent.txt"
+  },
   "items": [
     {
-      "id": "prompt-story-every-weekday-at-9am-summarize-my-inbox-and-post-to-slack-1",
-      "title": "'Every weekday at 9am, summarize my inbox and post to Slack' — excerpt 1",
-      "summary": "every weekday at 9am, summarize my inbox and post to Slack.",
-      "detail": "Author-provided example wording; not a verified success claim.\n\nAn agent that grows with you — not marketing fluff; it literally writes markdown skill files when it solves hard problems. Natural-language cron: 'every weekday at 9am, summarize my inbox and post to Slack.'\n\n— Anthony Maio (Substack), 2026-03-30, via Blog.",
-      "snippet": "every weekday at 9am, summarize my inbox and post to Slack.",
-      "author": "Anthony Maio (Substack)",
-      "source": "blog",
-      "url": "https://anthonymaio.substack.com/p/getting-started-with-hermes-agent",
-      "date": "2026-03-30",
+      "id": "prompt-parallel-research",
+      "title": "Research three topics in parallel",
+      "summary": "Run independent research tasks and combine their findings into a briefing.",
+      "detail": "Official documentation example from Nous Research. The copyable prompt below preserves the source wording.\n\n- How to use: Replace the three topics and the example year with your own research questions. Hermes needs web tools for current sources.\n- Customize example names, paths and topics before running it.\n- This is a documented example, not a claim of measured popularity.",
+      "snippet": "Research these three topics in parallel:\n1. Current state of WebAssembly outside the browser\n2. RISC-V server chip adoption in 2025\n3. Practical quantum computing applications\n\nFocus on recent developments and key players.",
       "tags": [
-        "quoted-prompt",
-        "example"
+        "prompt",
+        "official-example",
+        "research",
+        "agents"
       ],
-      "provenance": {
-        "storyId": "story-every-weekday-at-9am-summarize-my-inbox-and-post-to-slack",
-        "start": 147,
-        "end": 206,
-        "sha256": "0952320e915feaecd29d66c485de45618606815e4027927ae06be62c0f2a5fa9"
-      }
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/delegation-patterns#pattern-parallel-research",
+      "sourceRevision": "130b8f2c5dbca93a81aa396dd2ba44420d78f6f0",
+      "sourceFile": "website/docs/guides/delegation-patterns.md",
+      "verifiedAt": "2026-09-24"
     },
     {
-      "id": "prompt-story-weekly-cron-top-3-trending-ai-tools-for-my-next-video-1",
-      "title": "Weekly cron: top 3 trending AI tools for my next video — excerpt 1",
-      "summary": "Research the top trending AI tools right now and come back with the top three that would make for an interesting tutorial video. Create a new skill based on your approach and call it YouTube-video-research. Can you set up a weekly job that runs every Monday at 9:00 AM using that skill?",
-      "detail": "Author-provided example wording; not a verified success claim.\n\n'Research the top trending AI tools right now and come back with the top three that would make for an interesting tutorial video. Create a new skill based on your approach and call it YouTube-video-research. Can you set up a weekly job that runs every Monday at 9:00 AM using that skill?'\n\n— Metics Media (YouTube), 2026, via YouTube.",
-      "snippet": "Research the top trending AI tools right now and come back with the top three that would make for an interesting tutorial video. Create a new skill based on your approach and call it YouTube-video-research. Can you set up a weekly job that runs every Monday at 9:00 AM using that skill?",
-      "author": "Metics Media (YouTube)",
-      "source": "youtube",
-      "url": "https://www.youtube.com/watch?v=CwPUOVUdApE",
+      "id": "prompt-auth-review",
+      "title": "Review and repair an authentication module",
+      "summary": "Inspect authentication code for security problems, fix findings and run tests.",
+      "detail": "Official documentation example from Nous Research. The copyable prompt below preserves the source wording.\n\n- How to use: Replace src/auth/ with your authentication directory. Give Hermes the project path and test command; this prompt authorizes code changes.\n- Customize example names, paths and topics before running it.\n- This is a documented example, not a claim of measured popularity.",
+      "snippet": "Review the authentication module at src/auth/ for security issues.\nCheck for SQL injection, JWT validation problems, password handling,\nand session management. Fix anything you find and run the tests.",
       "tags": [
-        "quoted-prompt",
-        "example"
+        "prompt",
+        "official-example",
+        "dev-workflow",
+        "security"
       ],
-      "provenance": {
-        "storyId": "story-weekly-cron-top-3-trending-ai-tools-for-my-next-video",
-        "start": 1,
-        "end": 287,
-        "sha256": "c49edf2d5225493bb96414f5599d5c5ef1e2495408e50fbe7acc19c4cd239a72"
-      }
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/delegation-patterns#pattern-code-review",
+      "sourceRevision": "130b8f2c5dbca93a81aa396dd2ba44420d78f6f0",
+      "sourceFile": "website/docs/guides/delegation-patterns.md",
+      "verifiedAt": "2026-09-24"
     },
     {
-      "id": "prompt-story-daily-journaling-into-obsidian-learning-to-use-oss-models-1",
-      "title": "Daily journaling into Obsidian, learning to use OSS models — excerpt 1",
-      "summary": "This is my log for last Thursday. Log it in Obsidian,",
-      "detail": "The author reports that this wording did not trigger the intended skill.\n\nI do a really simple journal and log at the end of every day. I tried using Kimi 2.5 just like I would a Sonnet 4.6 but it messed all sorts of things up. When I said 'This is my log for last Thursday. Log it in Obsidian,' it didn't kick off my journaling skill call.\n\n— @jezza2463, 2026-03-29, via Discord.",
-      "snippet": "This is my log for last Thursday. Log it in Obsidian,",
-      "author": "@jezza2463",
-      "source": "discord",
-      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent.txt",
-      "date": "2026-03-29",
+      "id": "prompt-compare-search",
+      "title": "Compare three full-text search approaches",
+      "summary": "Evaluate search options by setup effort, capabilities, resources and maintenance.",
+      "detail": "Official documentation example from Nous Research. The copyable prompt below preserves the source wording.\n\n- How to use: Replace Django and the three search products with your stack and alternatives. Provide project constraints before using the comparison.\n- Customize example names, paths and topics before running it.\n- This is a documented example, not a claim of measured popularity.",
+      "snippet": "I need to add full-text search to our Django app. Evaluate three approaches\nin parallel:\n1. PostgreSQL tsvector (built-in)\n2. Elasticsearch via django-elasticsearch-dsl\n3. Meilisearch via meilisearch-python\n\nFor each: setup complexity, query capabilities, resource requirements,\nand maintenance overhead. Compare them and recommend one.",
       "tags": [
-        "quoted-prompt",
-        "reported-failure"
+        "prompt",
+        "official-example",
+        "research",
+        "dev-workflow"
       ],
-      "provenance": {
-        "storyId": "story-daily-journaling-into-obsidian-learning-to-use-oss-models",
-        "start": 167,
-        "end": 220,
-        "sha256": "e8226366b2019068b2df5051a58baf37e78a759915a4fa5635257fd48edd1430"
-      }
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/delegation-patterns#pattern-compare-alternatives",
+      "sourceRevision": "130b8f2c5dbca93a81aa396dd2ba44420d78f6f0",
+      "sourceFile": "website/docs/guides/delegation-patterns.md",
+      "verifiedAt": "2026-09-24"
     },
     {
-      "id": "prompt-story-hermes-manages-my-tasks-across-obsidian-apple-calendar-and-s-1",
-      "title": "Hermes manages my tasks across Obsidian, Apple Calendar and Signal — excerpt 1",
-      "summary": "now i want you to use obsidian to manage my tasks and other stuff. and cross-check with my apple calendar",
-      "detail": "The author reports using this wording; see the original story for the outcome.\n\nI speak Turkish with it... initially said him to 'now i want you to use obsidian to manage my tasks and other stuff. and cross-check with my apple calendar'. later while working on another task today i said 'okay looks good. you know how you will manage tasks and events apple calendars + obsidian + cron/signal' and it confirmed the workflow.\n\n— @kouff, 2026-04-11, via Discord.",
-      "snippet": "now i want you to use obsidian to manage my tasks and other stuff. and cross-check with my apple calendar",
-      "author": "@kouff",
-      "source": "discord",
-      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent/",
-      "date": "2026-04-11",
+      "id": "prompt-scheduled-briefing",
+      "title": "Schedule an AI news briefing for Telegram",
+      "summary": "Ask Hermes to schedule a morning briefing and deliver source links to Telegram.",
+      "detail": "Official documentation example from Nous Research. The copyable prompt below preserves the source wording.\n\n- How to use: Connect the Telegram gateway first. Replace the topic, delivery channel and 8am schedule; specify your timezone. This prompt creates a recurring job.\n- Customize example names, paths and topics before running it.\n- This is a documented example, not a claim of measured popularity.",
+      "snippet": "Every morning at 8am, search the web for the latest news about AI agents\nand open source LLMs. Summarize the top 3 stories in a concise briefing\nwith links. Use a friendly, professional tone. Deliver to telegram.",
       "tags": [
-        "quoted-prompt",
-        "reported-use"
+        "prompt",
+        "official-example",
+        "automation",
+        "research",
+        "messaging"
       ],
-      "provenance": {
-        "storyId": "story-hermes-manages-my-tasks-across-obsidian-apple-calendar-and-s",
-        "start": 50,
-        "end": 155,
-        "sha256": "382e4823cfb4adb78b9f71d5ae805eac0d63dad4f4b32f9bc548074bccd2cc5e"
-      }
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/daily-briefing-bot#option-a-natural-language-in-chat",
+      "sourceRevision": "130b8f2c5dbca93a81aa396dd2ba44420d78f6f0",
+      "sourceFile": "website/docs/guides/daily-briefing-bot.md",
+      "verifiedAt": "2026-09-24"
     },
     {
-      "id": "prompt-story-hermes-manages-my-tasks-across-obsidian-apple-calendar-and-s-2",
-      "title": "Hermes manages my tasks across Obsidian, Apple Calendar and Signal — excerpt 2",
-      "summary": "okay looks good. you know how you will manage tasks and events apple calendars + obsidian + cron/signal",
-      "detail": "The author reports using this wording; see the original story for the outcome.\n\nI speak Turkish with it... initially said him to 'now i want you to use obsidian to manage my tasks and other stuff. and cross-check with my apple calendar'. later while working on another task today i said 'okay looks good. you know how you will manage tasks and events apple calendars + obsidian + cron/signal' and it confirmed the workflow.\n\n— @kouff, 2026-04-11, via Discord.",
-      "snippet": "okay looks good. you know how you will manage tasks and events apple calendars + obsidian + cron/signal",
-      "author": "@kouff",
-      "source": "discord",
-      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent/",
-      "date": "2026-04-11",
+      "id": "prompt-sourced-briefing",
+      "title": "Write a concise briefing with source URLs",
+      "summary": "Turn recent articles into three short news summaries with links.",
+      "detail": "Official documentation example from Nous Research. The copyable prompt below preserves the source wording.\n\n- How to use: Paste as a one-off task, or use the text as a scheduled job body. It requires web search and does not create a schedule by itself.\n- Customize example names, paths and topics before running it.\n- This is a documented example, not a claim of measured popularity.",
+      "snippet": "Search the web for the latest news about AI agents and open source LLMs.\nFind at least 5 recent articles from the past 24 hours. Summarize the\ntop 3 most important stories in a concise daily briefing format. For each\nstory include: a clear headline, a 2-sentence summary, and the source URL.\nUse a friendly, professional tone. Format with emoji bullet points.",
       "tags": [
-        "quoted-prompt",
-        "reported-use"
+        "prompt",
+        "official-example",
+        "research",
+        "content-creation"
       ],
-      "provenance": {
-        "storyId": "story-hermes-manages-my-tasks-across-obsidian-apple-calendar-and-s",
-        "start": 208,
-        "end": 311,
-        "sha256": "382e4823cfb4adb78b9f71d5ae805eac0d63dad4f4b32f9bc548074bccd2cc5e"
-      }
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/daily-briefing-bot#the-golden-rule-self-contained-prompts",
+      "sourceRevision": "130b8f2c5dbca93a81aa396dd2ba44420d78f6f0",
+      "sourceFile": "website/docs/guides/daily-briefing-bot.md",
+      "verifiedAt": "2026-09-24"
     },
     {
-      "id": "prompt-story-under-20-mo-total-no-mac-mini-no-opus-1",
-      "title": "Under $20/mo total — no Mac Mini, no Opus — excerpt 1",
-      "summary": "check the top 5 trending GitHub repos right now and send me a summary.",
-      "detail": "Author-provided example wording; not a verified success claim.\n\nOpenClaw setup: Mac Mini M4 ($599) + Opus 4.6 = ~$80–150/mo. Hermes on VPS: under $20/mo total using Minimax M2.7. Example first task: 'check the top 5 trending GitHub repos right now and send me a summary.'\n\n— Alex P. (Medium), 2026-03-30, via Blog.",
-      "snippet": "check the top 5 trending GitHub repos right now and send me a summary.",
-      "author": "Alex P. (Medium)",
-      "source": "blog",
-      "url": "https://medium.com/@0xmega/hermes-agent-the-complete-setup-guide-telegram-discord-vps-no-mac-mini-required-dda315a702d3",
-      "date": "2026-03-30",
+      "id": "prompt-manual-pr-review",
+      "title": "Review a pull request with exact code references",
+      "summary": "Review a PR diff for bugs, security and code quality with precise line references.",
+      "detail": "Official documentation example from Nous Research. The copyable prompt below preserves the source wording.\n\n- How to use: Replace the example repository and PR number 3888 with your target. Install and authenticate the gh CLI as needed. The wording requests a review, not posting or merging it.\n- Customize example names, paths and topics before running it.\n- This is a documented example, not a claim of measured popularity.",
+      "snippet": "Review this pull request. Read the diff, check for bugs, security issues,\nand code quality. Be specific about line numbers and quote problematic code.\n\nRun: gh pr diff 3888 --repo NousResearch/hermes-agent",
       "tags": [
-        "quoted-prompt",
-        "example"
+        "prompt",
+        "official-example",
+        "dev-workflow",
+        "code-review"
       ],
-      "provenance": {
-        "storyId": "story-under-20-mo-total-no-mac-mini-no-opus",
-        "start": 136,
-        "end": 206,
-        "sha256": "fae2deba6b5e9e5f51a64c4482427c71f5ee10c27f6a72f94c6bdfcf00fe9d70"
-      }
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/github-pr-review-agent#step-2-try-a-manual-review",
+      "sourceRevision": "130b8f2c5dbca93a81aa396dd2ba44420d78f6f0",
+      "sourceFile": "website/docs/guides/github-pr-review-agent.md",
+      "verifiedAt": "2026-09-24"
     },
     {
-      "id": "prompt-story-giving-my-agent-ios-sensors-health-location-voice-1",
-      "title": "Giving my agent iOS sensors: health, location, voice — excerpt 1",
-      "summary": "How many steps did I walk yesterday?",
-      "detail": "Author-provided example wording; not a verified success claim.\n\nBuilding a Hermes iOS app + desktop companion to give my agent some extra iOS tools. Sensor pipeline for health, location services. Can now ask agent health or location specific questions. 'How many steps did I walk yesterday?' 'What's a good coffee shop nearby?'\n\n— @djbuck, via Discord.",
-      "snippet": "How many steps did I walk yesterday?",
-      "author": "@djbuck",
-      "source": "discord",
-      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/community-projects-showcase/1490473436085223657-Hermes-iOS-App.txt",
+      "id": "prompt-remember-backend",
+      "title": "Remember backend review conventions",
+      "summary": "Teach Hermes persistent conventions for a Python and FastAPI backend.",
+      "detail": "Official documentation example from Nous Research. The copyable prompt below preserves the source wording.\n\n- How to use: Replace the example stack, ORM and test conventions with your project rules. The prompt explicitly asks Hermes to remember them.\n- Customize example names, paths and topics before running it.\n- This is a documented example, not a claim of measured popularity.",
+      "snippet": "Remember: In our backend repo, we use Python with FastAPI.\nAll endpoints must have type annotations and Pydantic models.\nWe don't allow raw SQL — only SQLAlchemy ORM.\nTest files go in tests/ and must use pytest fixtures.",
       "tags": [
-        "quoted-prompt",
-        "example"
+        "prompt",
+        "official-example",
+        "memory",
+        "dev-workflow"
       ],
-      "provenance": {
-        "storyId": "story-giving-my-agent-ios-sensors-health-location-voice",
-        "start": 190,
-        "end": 226,
-        "sha256": "366de7847ad53e8a691d9e8edbb59a3a2e33d86fcf711939f69b52343e425255"
-      }
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/github-pr-review-agent#step-4-teach-it-your-conventions",
+      "sourceRevision": "130b8f2c5dbca93a81aa396dd2ba44420d78f6f0",
+      "sourceFile": "website/docs/guides/github-pr-review-agent.md",
+      "verifiedAt": "2026-09-24"
     },
     {
-      "id": "prompt-story-giving-my-agent-ios-sensors-health-location-voice-2",
-      "title": "Giving my agent iOS sensors: health, location, voice — excerpt 2",
-      "summary": "What's a good coffee shop nearby?",
-      "detail": "Author-provided example wording; not a verified success claim.\n\nBuilding a Hermes iOS app + desktop companion to give my agent some extra iOS tools. Sensor pipeline for health, location services. Can now ask agent health or location specific questions. 'How many steps did I walk yesterday?' 'What's a good coffee shop nearby?'\n\n— @djbuck, via Discord.",
-      "snippet": "What's a good coffee shop nearby?",
-      "author": "@djbuck",
-      "source": "discord",
-      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/community-projects-showcase/1490473436085223657-Hermes-iOS-App.txt",
+      "id": "prompt-local-git-summary",
+      "title": "Summarize the current Git working state",
+      "summary": "Get a concise account of local Git changes using the connected project tools.",
+      "detail": "Official documentation example from Nous Research. The copyable prompt below preserves the source wording.\n\n- How to use: Connect the local Git or filesystem MCP server described in the source and scope it to your project.\n- Customize example names, paths and topics before running it.\n- This is a documented example, not a claim of measured popularity.",
+      "snippet": "Check the local git state and summarize what changed recently.",
       "tags": [
-        "quoted-prompt",
-        "example"
+        "prompt",
+        "official-example",
+        "dev-workflow",
+        "integrations"
       ],
-      "provenance": {
-        "storyId": "story-giving-my-agent-ios-sensors-health-location-voice",
-        "start": 229,
-        "end": 262,
-        "sha256": "366de7847ad53e8a691d9e8edbb59a3a2e33d86fcf711939f69b52343e425255"
-      }
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/use-mcp-with-hermes#pattern-1-local-project-assistant",
+      "sourceRevision": "130b8f2c5dbca93a81aa396dd2ba44420d78f6f0",
+      "sourceFile": "website/docs/guides/use-mcp-with-hermes.md",
+      "verifiedAt": "2026-09-24"
     },
     {
-      "id": "prompt-story-a-standing-md-plugin-so-my-agent-stops-guessing-1",
-      "title": "A STANDING.md plugin so my agent stops guessing — excerpt 1",
-      "summary": "always verify first",
-      "detail": "The author reports limitations with retaining this instruction in memory.\n\nMy agent keeps confidently guessing instead of checking its own docs. I put 'always verify first' in memory but it has a hard char limit and entries get compressed/replaced over time. Fix: a tiny plugin that reads a STANDING.md file and injects it into the system prompt every turn via pre_llm_call.\n\n— @jezza2463, 2026-04-03, via Discord.",
-      "snippet": "always verify first",
-      "author": "@jezza2463",
-      "source": "discord",
-      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent.txt",
-      "date": "2026-04-03",
+      "id": "prompt-triage-mcp-issues",
+      "title": "Group MCP issues and draft a bug report",
+      "summary": "Cluster related GitHub issues and draft a report for the most common problem.",
+      "detail": "Official documentation example from Nous Research. The copyable prompt below preserves the source wording.\n\n- How to use: Connect the GitHub MCP server with issue-listing access and tell Hermes which repository to inspect. The prompt asks for a draft, not publication.\n- Customize example names, paths and topics before running it.\n- This is a documented example, not a claim of measured popularity.",
+      "snippet": "List open issues about MCP, cluster them by theme, and draft a high-quality issue for the most common bug.",
       "tags": [
-        "quoted-prompt",
-        "reported-limitation"
+        "prompt",
+        "official-example",
+        "dev-workflow",
+        "integrations"
       ],
-      "provenance": {
-        "storyId": "story-a-standing-md-plugin-so-my-agent-stops-guessing",
-        "start": 77,
-        "end": 96,
-        "sha256": "3c63791d506268e287756e48a22ce902b967b8a25bcf602eb1abe5c574d27746"
-      }
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/use-mcp-with-hermes#pattern-3-github-triage-assistant",
+      "sourceRevision": "130b8f2c5dbca93a81aa396dd2ba44420d78f6f0",
+      "sourceFile": "website/docs/guides/use-mcp-with-hermes.md",
+      "verifiedAt": "2026-09-24"
     },
     {
-      "id": "prompt-story-the-anatomy-of-the-hermes-folder-one-folder-controls-everyth-1",
-      "title": "The anatomy of the ~/.hermes folder — one folder controls everything — excerpt 1",
-      "summary": "what did we discuss three weeks ago?",
-      "detail": "Author-provided example wording; not a verified success claim.\n\nOne folder controls everything your hermes agent knows, remembers, and can do. SOUL.md occupies slot #1 in the system prompt. state.db with FTS5 is what makes 'what did we discuss three weeks ago?' actually work across CLI and messaging.\n\n— @akshay_pachaar, 2026-05-16, via X · Twitter.",
-      "snippet": "what did we discuss three weeks ago?",
-      "author": "@akshay_pachaar",
-      "source": "x",
-      "url": "https://x.com/akshay_pachaar/status/2055629943891988719",
-      "date": "2026-05-16",
+      "id": "prompt-onboarding-summary",
+      "title": "Read and summarize an MCP onboarding guide",
+      "summary": "Discover documentation resources and summarize the onboarding guide.",
+      "detail": "Official documentation example from Nous Research. The copyable prompt below preserves the source wording.\n\n- How to use: Connect a documentation MCP server with resources enabled. Replace the guide name if your server uses a different one.\n- Customize example names, paths and topics before running it.\n- This is a documented example, not a claim of measured popularity.",
+      "snippet": "List available MCP resources from the docs server, then read the onboarding guide and summarize it.",
       "tags": [
-        "quoted-prompt",
-        "example"
+        "prompt",
+        "official-example",
+        "integrations",
+        "personal-assistant"
       ],
-      "provenance": {
-        "storyId": "story-the-anatomy-of-the-hermes-folder-one-folder-controls-everyth",
-        "start": 160,
-        "end": 196,
-        "sha256": "bebe77637e3630fdc5e7ece01a6afa9d1a5628a755bdb0512e2cac4aea51e50e"
-      }
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/use-mcp-with-hermes#pattern-4-documentation--knowledge-servers",
+      "sourceRevision": "130b8f2c5dbca93a81aa396dd2ba44420d78f6f0",
+      "sourceFile": "website/docs/guides/use-mcp-with-hermes.md",
+      "verifiedAt": "2026-09-24"
     },
     {
-      "id": "prompt-story-telegram-assistant-recalled-japan-trip-preferences-while-pla-1",
-      "title": "Telegram assistant recalled Japan-trip preferences while planning a France trip — excerpt 1",
-      "summary": "help me plan a trip to France",
-      "detail": "The author reports using this wording; see the original story for the outcome.\n\nIn a new Telegram conversation I said 'help me plan a trip to France' and the agent referenced the past Japan conversation, recalling my preferences — nature, history, mid-range budget. That's the difference between a chatbot and a personal assistant.\n\n— Vivek Shetye (YouTube), 2026-05-04, via YouTube.",
-      "snippet": "help me plan a trip to France",
-      "author": "Vivek Shetye (YouTube)",
-      "source": "youtube",
-      "url": "https://www.youtube.com/watch?v=PuNVmPGcffg",
-      "date": "2026-05-04",
+      "id": "prompt-plan-rest-api",
+      "title": "Plan a REST API with the plan skill",
+      "summary": "Invoke the installed plan skill with a concrete API design task.",
+      "detail": "Official documentation example from Nous Research. The copyable prompt below preserves the source wording.\n\n- How to use: Confirm the plan skill is installed. Replace the todo app with the service you want to design.\n- Customize example names, paths and topics before running it.\n- This is a documented example, not a claim of measured popularity.",
+      "snippet": "/plan Design a REST API for a todo app",
       "tags": [
-        "quoted-prompt",
-        "reported-use"
+        "prompt",
+        "official-example",
+        "dev-workflow",
+        "planning"
       ],
-      "provenance": {
-        "storyId": "story-telegram-assistant-recalled-japan-trip-preferences-while-pla",
-        "start": 39,
-        "end": 68,
-        "sha256": "34d4f113761244ca3aa39a988ef59a9a80b6e3c950c228a6039db3f64a75acf6"
-      }
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/work-with-skills#using-a-skill",
+      "sourceRevision": "130b8f2c5dbca93a81aa396dd2ba44420d78f6f0",
+      "sourceFile": "website/docs/guides/work-with-skills.md",
+      "verifiedAt": "2026-09-24"
+    },
+    {
+      "id": "prompt-save-workflow",
+      "title": "Save a successful workflow as a reusable skill",
+      "summary": "Capture a completed procedure so you can invoke it again in a later session.",
+      "detail": "Official documentation example from Nous Research. The copyable prompt below preserves the source wording.\n\n- How to use: Use after Hermes has completed a workflow in the current conversation. Replace deploy-staging with a descriptive skill name, then review the saved procedure.\n- Customize example names, paths and topics before running it.\n- This is a documented example, not a claim of measured popularity.",
+      "snippet": "save what you just did as a skill called `deploy-staging`.",
+      "tags": [
+        "prompt",
+        "official-example",
+        "agent-skills",
+        "dev-workflow"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/tips#when-to-create-skills",
+      "sourceRevision": "130b8f2c5dbca93a81aa396dd2ba44420d78f6f0",
+      "sourceFile": "website/docs/guides/tips.md",
+      "verifiedAt": "2026-09-24"
     }
   ]
 }

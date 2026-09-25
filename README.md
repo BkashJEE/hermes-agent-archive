@@ -10,7 +10,7 @@ Static site. No build step, no framework, no dependencies. Content is plain JSON
 index.html              the page
 assets/css/style.css    the newsroom-console theme
 assets/js/app.js        loading, filtering, ranking, detail drawer
-data/index.json         sections, sources, ranges, sort options
+data/index.json         sections, sources, sort options
 data/*.json             one file per section — this is the content
 data/live.json          generated: real numbers from public APIs
 scripts/fetch-signals.mjs   pulls GitHub / HN / Reddit metrics
@@ -85,7 +85,7 @@ loads it automatically; anything exported in your shell still wins over the file
 
 | Key | What it unlocks | Without it |
 | --- | --- | --- |
-| `TYPESAFE_API_KEY` | Jev routing and feature ranking | keyword rules route; ranking is unavailable |
+| `TYPESAFE_API_KEY` | Jev routing and archive classification | keyword rules route; ranking is unavailable |
 | `GITHUB_TOKEN` | 5000 API requests/hour instead of 60 | fine for one run, rate-limits on repeats |
 | `REDDIT_CLIENT_ID` / `_SECRET` | the Reddit section | stays empty — Reddit refuses anonymous reads |
 
@@ -111,9 +111,8 @@ Pulls the Hermes-related entries out of <https://www.jev-use-cases.com> — it r
 tiles but ships all ~700 records in its flight payload, so one fetch gets the set. Only
 entries that mention Hermes are kept; at the last run that was 3 of 699.
 
-X impressions are the directory's own published figures, carried over as-is and credited
-to it. We do not measure impressions and never estimate them — this is the only place an
-X number on this site comes from.
+Imported directory figures remain in the source records but are not displayed or used
+as popularity evidence. Only the public API snapshot supplies engagement metrics.
 
 ## Only popular things get sourced
 
@@ -124,7 +123,7 @@ settings is caught.
 
 | Source | Floor | Override |
 | --- | --- | --- |
-| GitHub | 25,000 stars | `MIN_STARS=50000` |
+| GitHub | 5,000 stars | `MIN_STARS=50000` |
 | Hacker News | 300 points | `MIN_HN_POINTS=500` |
 | Reddit | 200 upvotes | `MIN_REDDIT_UPVOTES=400` |
 
@@ -212,7 +211,33 @@ npm run check
 
 It fails on duplicate ids, unknown sources, malformed dates and non-http URLs.
 
-## Status: private
+## Deployment
+
+Production is https://hermes-agent-archive.vercel.app. The repository stays private.
+Vercel serves plain static files with no build or install step. `.vercelignore`
+allows only the HTML, assets, and runtime JSON; update it when adding a data file.
+Secrets, maintenance scripts, and research inputs are excluded from the upload.
+
+After merging a reviewed PR into `main`, deploy from a clean checkout:
+
+```bash
+npm test
+npm run check
+npx vercel@60.0.0 link --project hermes-agent-archive --scope bkashjee-2377s-projects
+npx vercel@60.0.0 deploy --dry --json
+npx vercel@60.0.0 deploy --prod --skip-domain --scope bkashjee-2377s-projects
+# Verify the returned deployment URL, then promote that exact release:
+npx vercel@60.0.0 promote <deployment-url> --scope bkashjee-2377s-projects
+```
+
+Check the dry-run manifest includes every asset and configured data file, and excludes
+secrets, scripts, and research files. Vercel's include patterns use `!assets` and
+`!data` without trailing slashes so it traverses those directories.
+
+Deployment is manual; a repository push does not publish automatically.
+The weekly refresh job updates Jev classifications when its key is configured.
+
+## Repository visibility
 
 This repo is private for now, and it's a content source as much as a site — the sections
 are the shelves you pull posts from.
@@ -227,3 +252,49 @@ there so underscore-prefixed paths are served as-is.
 
 `.github/workflows/refresh.yml` keeps working either way — a private repo can still
 fetch and commit updated numbers on its weekly schedule.
+
+## Rank the archive with Jev
+
+Run `npm run rank` with `TYPESAFE_API_KEY` configured. It classifies the actual
+curated and sourced entries and writes `data/rankings.json` atomically only after
+every required classification succeeds. Existing results survive an API or auth
+failure; unchanged inputs reuse their classifications. Use `npm run rank -- --force`
+only when intentionally reassessing the whole archive. Run this after importing
+content or refreshing public metrics. The browser marks changed or new entries as
+unclassified until the job succeeds, instead of reusing stale assessments.
+
+The default order is Jev usefulness band, observed popularity tier, fine usefulness
+score, then title/id for stable ties. The popularity option reverses the first two
+criteria. Dates are attribution only, never ranking inputs or tie-breakers. Unknown
+popularity is distinct from limited traction and sorts after known popularity.
+
+Popularity evidence comes only from `data/live.json` public API fetches, never
+hand-written metrics or engagement claims in quotes. Jev assesses usefulness from
+the write-up. The UI exposes assessment labels, not model scores disguised as
+public metrics. The old feature-idea experiment remains `npm run rank:ideas`.
+
+Run `npm test` for ranking policy and cache regression checks.
+
+### Repository eligibility and Trending
+
+Repository entries need at least 5,000 stars in a fetched public API snapshot.
+Missing counts do not qualify. The same rule applies to curated and discovered
+repositories; stored content is retained. Discussions and community stories mirrored
+on GitHub are not repository entries and do not inherit the hosting repo's stars.
+
+Choose **Trending · star growth** under Rank by to filter to repositories with
+positive measured growth. Two snapshots must be 1 hour–14 days apart, with the
+latest within 14 days. Results are ordered by stars gained per day, and each card
+shows the actual gain and measurement interval. Missing history, stale fetches and
+non-positive growth are excluded. The ordinary Jev sorting remains date independent.
+
+The fetcher records observation timestamps and prior star counts on each refresh.
+To bootstrap history from a committed API snapshot (without changing counts), run
+`node scripts/backfill-trends.mjs <snapshot-commit-sha>`.
+
+### Private access
+
+As of 2026-09-24, this archive is private to its owner through Vercel Authentication
+with **All Deployments** selected. The production domain, preview URLs and historical
+deployment URLs require authorized Vercel sign-in. Keep this setting when deploying
+new releases; only change it when the owner explicitly asks to make the site public.

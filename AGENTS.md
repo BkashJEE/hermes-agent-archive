@@ -31,7 +31,7 @@ npm run key    # paste API keys into a gitignored .env
 estimate, not a placeholder that looks real.
 
 - Metrics come from public APIs via `scripts/fetch-signals.mjs`, or they don't exist.
-- A repo that fails to resolve is **hidden**, never shown with a guessed figure.
+- A repo that fails to resolve retains its stored write-up, but is hidden until 5,000 stars can be verified.
 - An item with no public metric renders its tags and `no public metric`.
 - A source that failed at fetch time is named in the page footer.
 - X and Facebook have no free API. Entries from there are hand-curated **with a real
@@ -45,7 +45,7 @@ If you cannot source a number, leave the shelf thinner. That is the product.
 index.html              the page
 assets/css/style.css    theme; colors are tokens on :root
 assets/js/app.js        load, filter, rank, drawer
-data/index.json         sections, sources, ranges, sorts
+data/index.json         sections, sources, sorts
 data/<section>.json     the curated content
 data/live.json          GENERATED — never hand-edit
 data/research/          inputs and outputs for ranking work
@@ -77,29 +77,19 @@ unknown sources, malformed dates and non-http URLs.
 Hacker News points, and Reddit upvotes. `route-signals.mjs` decides which section each
 signal belongs on — via Jev when `TYPESAFE_API_KEY` is set, via keyword rules otherwise.
 
-Popularity floors (25,000 stars · 300 HN points · 200 upvotes) apply at both stages, and
-each section caps at 10 sourced items. Sourced cards are marked `SOURCED`; a fetched
+Discovery floors default to 5,000 GitHub stars, 300 HN points and 200 Reddit upvotes;
+Jev judges relevance and quality.
+Section limits are configurable in the sourcing scripts. Sourced cards are marked `SOURCED`; a fetched
 duplicate of a curated URL is dropped, because hand-written entries win.
 
 **Known weakness:** the keyword fallback cannot tell a use case from ecosystem news, so
 fetched stories can land on the wrong shelf. The Jev router's `none` option
 and `worth_keeping` check fix this. Do not try to fix it with more regexes.
 
-## Typography
+## Typography and colour
 
-Anthropic brand standard, not the portfolio's pairing:
-
-- `--sans` **Poppins** (Arial fallback) — headings, labels, pills, buttons, nav
-- `--body` **Lora** (Georgia fallback) — card summaries and drawer prose
-- `--mono` **JetBrains Mono** — code snippets and figures only, where alignment matters
-
-Colours still come from the portfolio (amber on near-black); only the fonts follow the
-brand standard. Do not swap either back to Inter.
-
-**Broadsheet theme** (`:root[data-theme="broadsheet"]`) is the one exception: it adds
-`--display` (Anton) for mastheads and figures, because a letterpress broadsheet needs a
-condensed display face. It overrides tokens only — no component is rewritten for it, so
-anything built against the tokens follows both themes for free.
+Keep Inter and JetBrains Mono and the portfolio colour tokens. The optional
+broadsheet layout changes structure, not the approved fonts or palette.
 
 ## Secrets
 
@@ -115,8 +105,8 @@ The archive accumulates. No pipeline stage may remove an entry that is already i
   known value marked `stale` rather than dropping it.
 - `import-hermes-stories.mjs` merges by id; an entry pulled from the source page keeps
   its place in the archive even if it later disappears upstream.
-- A seeded repo that does not resolve stays on its shelf **without** a metric. The
-  write-up is the value; the star count is decoration.
+- A seeded repo that does not resolve stays in stored data. The rendered archive
+  requires a verified count of at least 5,000 stars.
 
 This rule exists because a single GitHub rate-limit once wiped a shelf and a 248k-star
 repo out of `live.json`. Recovery was `git show <sha>:data/live.json`.
@@ -147,9 +137,46 @@ Use the Web Animations API for widths and strokes (the resting style stays corre
 
 ## Browser gotchas
 
+Before deployment, run `vercel deploy --dry --json` and verify every runtime asset
+and configured JSON file is included. Directory exceptions in `.vercelignore`
+must not end in `/`: that excluded all assets and data in a previous deployment.
+Deploy with `--prod --skip-domain`, verify the staged URL, then promote it.
+
 The local server caches aggressively — a hash change does not reload the page, so verify
 CSS and JS edits with a real reload (`?v=<timestamp>`), not a hash navigation.
 
 `.empty`, `.active-filters` and `.drawer` set `display` on a class, which outranks the
 browser's `[hidden]` rule. The global `[hidden]{display:none!important}` in the
 stylesheet is load-bearing — do not remove it.
+
+## GitHub visibility cutoff
+
+Require at least 5,000 fetched public stars for every GitHub repository on every
+shelf, including URL-only entries. Unknown counts are excluded. Apply the same
+threshold to discovery and routing. Keep stored content so a later qualifying count
+can restore it. Non-GitHub stories without public metrics remain eligible.
+
+Trending means positive GitHub star growth between two public measurements, 1 hour
+to 14 days apart, with the latest no older than 14 days. Sort by measured growth
+per day; never use publication dates, total stars alone, or Jev opinion as growth.
+Missing history, stale fetches and non-positive growth do not qualify. The fetcher
+records observation times and previous counts. Historical API snapshots can seed
+this with `node scripts/backfill-trends.mjs <commit-sha>`; never invent baselines.
+
+## Archive ranking
+
+`npm run rank` classifies actual archive entries with Jev and writes
+`data/rankings.json`. The old feature-idea experiment is `npm run rank:ideas`.
+Rank by usefulness and observed public popularity, never by date. Missing public
+engagement is unknown, not zero popularity. Model scores are internal editorial
+judgments and must never be rendered as public engagement metrics. Keep cache keys
+sensitive to content and fetched evidence; stale entries are unclassified.
+
+## Deployment privacy
+
+The owner requested private access on 2026-09-24. Keep Vercel Authentication set
+to All Deployments (`ssoProtection.deploymentType = all`), including production
+domains. Do not disable protection, add public exceptions, or generate/share access
+links unless the owner explicitly requests a change. Deploying or promoting a release
+does not authorize making it public. Anonymous requests to pages and data must
+remain blocked. The current team has only the owner's account.

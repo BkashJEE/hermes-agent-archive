@@ -26,10 +26,19 @@ jobs:
         env:
           TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
         run: node scripts/route-signals.mjs
+      - name: Update archive classifications
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: |
+          if [ -n "$TYPESAFE_API_KEY" ]; then
+            npm run rank
+          else
+            echo "Jev key unavailable; changed entries will be marked unclassified."
+          fi
       - name: Commit if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/live.json
+          git add data/live.json data/rankings.json
           git diff --staged --quiet || git commit -m "chore: refresh live signals"
           git push

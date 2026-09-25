@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hermes Agent Archive</title>
 <meta name="description" content="The most viewed, talked about and actually-used agent craft — use cases, skills, prompts, settings, commands and hidden tricks, curated in public.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23f7c452'/%3E%3Cstop offset='.55' stop-color='%23f5a524'/%3E%3Cstop offset='1' stop-color='%23e08a10'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='%230a0a0f'/%3E%3Cg transform='rotate(-19 32 32)' fill='url(%23a)'%3E%3Crect x='13' y='19' width='38' height='7.5' rx='3.75'/%3E%3Crect x='13' y='30' width='27' height='7.5' rx='3.75'/%3E%3Crect x='13' y='41' width='16' height='7.5' rx='3.75'/%3E%3C/g%3E%3Ccircle cx='45.5' cy='45' r='4' fill='%232dd4bf'/%3E%3C/svg%3E">
+<link rel="icon" id="favicon" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css?v=brand-7">
 </head>
 <body>
 
@@ -17,16 +17,7 @@
   <button class="icon-btn" id="menuBtn" aria-label="Toggle navigation" aria-controls="sidebar" aria-expanded="false">&#9776;</button>
 
   <a class="brand" href="#use-cases">
-    <span class="brand-mark" aria-hidden="true">
-      <svg viewBox="0 0 64 64"><defs><linearGradient id="bm" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" class="brand-light"/><stop offset=".55" class="brand-accent"/><stop offset="1" class="brand-shade"/>
-      </linearGradient></defs>
-      <g transform="rotate(-19 32 32)" fill="url(#bm)">
-        <rect x="13" y="19" width="38" height="7.5" rx="3.75"/>
-        <rect x="13" y="30" width="27" height="7.5" rx="3.75"/>
-        <rect x="13" y="41" width="16" height="7.5" rx="3.75"/>
-      </g><circle cx="45.5" cy="45" r="4" class="brand-dot"/></svg>
-    </span>
+    <span class="brand-mark" id="brandMark" aria-hidden="true"></span>
     <span class="brand-text">
       <strong>HERMES AGENT <em>ARCHIVE</em></strong>
       <small>THE CRAFT PEOPLE ACTUALLY USE &middot; CURATED BY <b id="curator">@BkashJosi</b></small>
@@ -43,11 +34,8 @@
 
   <label class="sr-only" for="sourceSel">Source</label>
   <select id="sourceSel" class="select" title="Filter by where it was shown"></select>
-
-  <label class="sr-only" for="rangeSel">Time range</label>
-  <select id="rangeSel" class="select" title="Filter by date"></select>
-
-  <button class="icon-btn" id="themeBtn" title="Switch between console and broadsheet" aria-label="Switch theme">&#9635;</button>
+  <button class="icon-btn" id="jumpBtn" aria-label="Jump to a shelf or entry" title="Jump to (Ctrl/⌘ K)">⌘K</button>
+  <button class="icon-btn" id="themeBtn" aria-label="Broadsheet layout" aria-pressed="false" title="Toggle broadsheet layout">▤</button>
   <button class="icon-btn" id="refreshBtn" title="Reload data" aria-label="Reload data">&#8635;</button>
   <span class="updated">UPDATED <b id="updatedAt">&mdash;</b></span>
   <a class="cta" href="#submit" id="submitBtn">&#9670; SUBMIT A TRICK</a>
@@ -57,13 +45,7 @@
   <div class="sidebar-scrim" id="sidebarScrim" hidden></div>
   <aside class="sidebar" id="sidebar">
     <div class="side-card">
-      <span class="side-card-mark">
-        <svg viewBox="0 0 64 64" aria-hidden="true"><g transform="rotate(-19 32 32)" fill="currentColor">
-          <rect x="13" y="19" width="38" height="7.5" rx="3.75"/>
-          <rect x="13" y="30" width="27" height="7.5" rx="3.75"/>
-          <rect x="13" y="41" width="16" height="7.5" rx="3.75"/>
-        </g></svg>
-      </span>
+      <span class="side-card-mark" id="archiveMark" aria-hidden="true"></span>
       <p>CURATED<br>SHARED<br>STOLEN</p>
     </div>
 
@@ -88,7 +70,7 @@
     <section class="hero">
       <div class="hero-icon" id="heroIcon" aria-hidden="true">&#9670;</div>
       <div class="hero-text">
-        <h1><span id="heroTitle">USE CASES THAT STICK</span><span class="badge" id="heroBadge">ARCHIVE</span></h1>
+        <h1><span id="heroTitle" tabindex="-1">USE CASES THAT STICK</span><span class="badge" id="heroBadge">ARCHIVE</span></h1>
         <p id="heroBlurb">Workflows people run every day.</p>
       </div>
     </section>
@@ -96,7 +78,7 @@
     <div class="listbar" id="listbar">
       <div>
         <h2 id="listTitle" tabindex="-1" aria-live="polite">POPULAR &middot; <span id="listCount">0</span></h2>
-        <p id="listSub">Ranked by reach where a real number exists, then by curation.</p>
+        <p id="listSub">Ranked by Jev usefulness and public popularity.</p>
       </div>
       <div class="listbar-right">
         <div class="density" role="group" aria-label="Card density">
@@ -113,17 +95,17 @@
     <div id="activeFilters" class="active-filters" hidden></div>
 
     <section id="dashboard" class="dash" hidden aria-label="Archive overview"></section>
-
     <ul id="grid" class="grid" aria-label="Archive items"></ul>
 
     <div id="empty" class="empty" hidden>
       <strong>Nothing matches those filters.</strong>
-      <span>Widen the time range, switch the source back to <em>All Sources</em>, or clear the search.</span>
+      <span>Switch the source back to <em>All Sources</em>, or clear the search.</span>
       <button class="ghost-btn" data-clear>Clear filters</button>
     </div>
 
     <footer class="foot">
-      <p><b>How the numbers work.</b> GitHub stars, Hacker News points and Reddit upvotes are fetched live from public APIs by <code>scripts/fetch-signals.mjs</code>. Items with no public metric show their tags and <span class="trow-note">no public metric</span> &mdash; nothing on this page is a guessed number.</p>
+      <p><b>How ranking works.</b> Jev classifies usefulness and observed popularity. Usefulness bands lead; public popularity breaks ties. Missing engagement means unknown popularity. These are editorial assessments, not measured engagement. Publication dates never determine rank.</p>
+      <p><b>How the numbers work.</b> GitHub stars, Hacker News points and Reddit upvotes are fetched live from public APIs by <code>scripts/fetch-signals.mjs</code>. Items with no public metric show their tags and <span class="trow-note">no public metric</span> &mdash; nothing on this page is a guessed number. GitHub repositories require at least 5,000 verified stars; unknown counts are excluded. Trending shows positive GitHub star growth between two public API snapshots, ordered by growth per day. It does not use publication dates.</p>
       <p id="footGen" class="foot-gen"></p>
     </footer>
   </main>
@@ -135,6 +117,6 @@
   <div id="drawerBody"></div>
 </aside>
 
-<script type="module" src="assets/js/app.js?v=2"></script>
+<script type="module" src="assets/js/app.js?v=brand-8"></script>
 </body>
 </html>

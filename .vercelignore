@@ -1,0 +1,17 @@
+*
+!index.html
+!vercel.json
+!assets
+!assets/**
+!data
+!data/index.json
+!data/use-cases.json
+!data/skills.json
+!data/prompts.json
+!data/settings.json
+!data/commands.json
+!data/tricks.json
+!data/toolkit.json
+!data/builds.json
+!data/live.json
+!data/rankings.json

@@ -1,27 +1,19 @@
-/* Section family: one 24px grid, 1.5px strokes, rounded ends.
-   Each shelf gets a distinct metaphor — a repeated glyph tells a reader nothing.
-   Names are referenced by data/index.json; nav, hero and empty states share this. */
+/* Section family: 24px grid, 1.75px strokes, rounded ends and angular details.
+   Distinct silhouettes stay readable at menu size. Names live in data/index.json;
+   navigation, cards, hero and empty states all use this single set. */
 const paths = {
-  // panel grid — a view assembled from parts
-  dashboard: '<path d="M4 4h6v7H4Z M14 4h6v4h-6Z M14 12h6v8h-6Z M4 15h6v5H4Z"/>',
-  // speech bubble with lines — somebody telling you what they did
-  stories:   '<path d="M4 5h16v11H10l-6 4Z M8 9h8 M8 12.5h5"/>',
-  // chip with pins — a capability you install
-  skills:    '<path d="M8.5 8.5h7v7h-7Z M12 4v4.5 M12 15.5V20 M4 12h4.5 M15.5 12H20"/>',
-  // quotation marks — the wording itself
-  prompts:   '<path d="M6 15c0-4.5 1.8-6.8 5-7.6 M6 13.5h3.6V19H6Z M14 15c0-4.5 1.8-6.8 5-7.6 M14 13.5h3.6V19H14Z"/>',
-  // sliders — values you set
-  settings:  '<path d="M3 7h6 M13 7h8 M3 13h11 M18 13h3 M3 19h5 M12 19h9"/><circle cx="11" cy="7" r="2"/><circle cx="16" cy="13" r="2"/><circle cx="10" cy="19" r="2"/>',
-  // terminal window with a caret — something you run
-  commands:  '<path d="M3.5 5h17v14h-17Z M7.5 10.5l2.5 2-2.5 2 M13 14.5h4"/>',
-  // sparkle — the move you would not have found
-  tricks:    '<path d="m12 3 2.4 6.1L21 11.5l-6.6 2.4L12 20l-2.4-6.1L3 11.5l6.6-2.4Z M18.5 3.5v2.6 M17.2 4.8h2.6"/>',
-  // chain link — a thing that pairs with Hermes
-  toolkit:   '<path d="M10.5 13.5a4.5 4.5 0 0 0 6.4 0l2.4-2.4a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2 M13.5 10.5a4.5 4.5 0 0 0-6.4 0l-2.4 2.4a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/>',
-  // cube — something built and shipped
-  builds:    '<path d="m4 8 8-4.5 8 4.5v8l-8 4.5L4 16Z M4 8l8 4.5 8-4.5 M12 12.5V21"/>'
+  archive: '<rect x="3" y="3" width="18" height="5" rx="1"/><path d="M5 8v12h14V8 M9 12h6 M10 16h4"/>',
+  dashboard: '<rect x="3" y="3" width="7" height="10" rx="1.5"/><rect x="14" y="3" width="7" height="6" rx="1.5"/><rect x="3" y="17" width="7" height="4" rx="1.5"/><rect x="14" y="13" width="7" height="8" rx="1.5"/>',
+  stories: '<path d="M12 6 3 3v15l9 3 9-3V3l-9 3v15 M6 8l3 1 M6 12l3 1 M15 9l3-1 M15 13l3-1"/>',
+  skills: '<path d="m12 2 8 4.5v11L12 22l-8-4.5v-11Z M13 6l-5 7h4l-1 5 5-7h-4Z"/>',
+  prompts: '<path d="M6 18H3V4h18v14H11l-5 4Z M7 8l3 3-3 3 M13 14h4"/>',
+  settings: '<path d="M3 6h4 M11 6h10 M3 12h10 M17 12h4 M3 18h4 M11 18h10"/><rect x="7" y="3" width="4" height="6" rx="1"/><rect x="13" y="9" width="4" height="6" rx="1"/><rect x="7" y="15" width="4" height="6" rx="1"/>',
+  commands: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 3 3-3 3 M13 15h4"/>',
+  tricks: '<path d="m3 18 11-11 3 3L6 21Z M11 10l3 3 M18 2v4 M16 4h4 M20 14v4 M18 16h4 M6 3v4 M4 5h4"/>',
+  toolkit: '<path d="M8 3v5 M16 3v5 M5 8h14v3a7 7 0 0 1-14 0Z M12 18v3"/>',
+  builds: '<path d="m12 2 5 3-5 3-5-3Z M7 5v6l5 3 5-3V5 M12 8v6 M7 11l-5 3 5 3 5-3 5 3 5-3-5-3 M2 14v5l5 3 5-3 5 3 5-3v-5 M7 17v5 M12 14v5 M17 17v5"/>'
 };
 
 export function sectionIcon(name) {
-  return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${paths[name] || paths.stories}</svg>`;
+  return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${paths[name] || paths.stories}</svg>`;
 }

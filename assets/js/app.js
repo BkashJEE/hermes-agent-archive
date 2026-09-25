@@ -1,9 +1,10 @@
 /* Use-Case Archive — data loading, filtering, rendering. No framework, no build step. */
 
-/* The ?v is a cache escape hatch, not decoration. A browser that has memoised
-   this URL will not revalidate it even under no-store; bump the number when an
-   icon changes and the stale entry is bypassed by URL. */
-import { sectionIcon } from './icons.js?v=2';
+import { sectionIcon } from './icons.js?v=badge-3';
+import { mergeLive } from './archive.js?v=trends-5';
+import { formatDetails } from './details.js';
+import { creditFor } from './credits.js';
+import { attachRankings, compareRankings, usefulnessLabel, popularityLabel } from './ranking.js';
 
 const $  = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -21,8 +22,7 @@ const state = {
   live: null,
   section: 'use-cases',
   source: 'all',
-  range: 'all',
-  sort: 'talked',
+  sort: 'recommended',
   q: '',
   tag: null,
   author: null,
@@ -42,17 +42,6 @@ const esc = s => String(s ?? '').replace(/[&<>"']/g, c =>
 
 const num = n => n >= 1000 ? n.toLocaleString('en-US') : String(n);
 
-function ago(iso) {
-  if (!iso) return '';
-  const d = (Date.now() - new Date(iso).getTime()) / 86400000;
-  if (!isFinite(d)) return '';
-  if (d < 1)  return 'today';
-  if (d < 2)  return 'yesterday';
-  if (d < 30) return `${Math.round(d)}d ago`;
-  if (d < 365) return `${Math.round(d / 30)}mo ago`;
-  return `${Math.round(d / 365)}y ago`;
-}
-
 async function getJSON(path) {
   const res = await fetch(path, { cache: 'no-store' });
   if (!res.ok) throw new Error(`${path}: ${res.status}`);
@@ -65,104 +54,23 @@ async function load() {
   state.cfg = await getJSON('data/index.json');
 
   const sections = await Promise.all(
-    // A computed section has no file; asking for data/undefined would 404.
     state.cfg.sections.map(s => s.file ? getJSON(`data/${s.file}`).catch(() => ({ items: [] })) : { items: [] })
   );
   state.cfg.sections.forEach((s, i) => { state.data[s.id] = sections[i].items || []; });
 
   state.live = await getJSON('data/live.json').catch(() => null);
-  applyLive();
-}
-
-/* Merge fetched public metrics onto curated entries, then shelve everything the
-   sourcing pipeline found. Every value here came from a public API — nothing is
-   hand-written, and nothing is estimated. */
-function applyLive() {
-  const live = state.live;
-  if (!live) return;
-  // GitHub: attach real stars/forks to any seeded repo, on any shelf.
-  // A seed that never resolved is hidden rather than shown with a guess.
-  const byRepo = new Map((live.github || []).map(g => [g.repo.toLowerCase(), g]));
-  for (const [sectionId, items] of Object.entries(state.data)) {
-    state.data[sectionId] = items.filter(item => {
-      if (!item.repo) return true;
-      const g = byRepo.get(item.repo.toLowerCase());
-      // Nothing is removed because a lookup failed — the write-up is the value,
-      // the star count is decoration. It simply shows no metric.
-      if (!g) return true;
-      item.title   = g.repo;                       // follow renames/transfers
-      // A curated write-up outranks the repo's own one-liner.
-      if (!item.detail) item.summary = g.description || item.summary;
-      item.metric  = { kind: 'stars', value: g.stars };
-      item.metric2 = { kind: 'forks', value: g.forks };
-      item.lang    = g.language;
-      item.url     = g.url;
-      item.date    = g.pushedAt || item.date;
-      return true;
-    });
-  }
-
-  const shelve = (sectionId, raw) => {
-    if (!state.data[sectionId]) return;
-    state.data[sectionId].push({
-      id: raw.id,
-      title: raw.title,
-      summary: raw.summary,
-      source: raw.source,
-      url: raw.url,
-      author: raw.author,
-      date: raw.date,
-      lang: raw.lang,
-      metric: raw.metric,
-      metric2: raw.metric2,
-      sourced: raw.routedBy || 'auto',
-      tags: ['sourced', ...(raw.topics || []).slice(0, 2)]
-    });
-  };
-
-  if (live.routed) {
-    // Routed by scripts/route-signals.mjs — each signal on the shelf it belongs to.
-    for (const [sectionId, items] of Object.entries(live.routed))
-      for (const raw of items) shelve(sectionId, raw);
-    return;
-  }
-
-  // Not routed yet: everything fetched still belongs somewhere, so it goes to builds.
-  for (const g of (live.github || []).filter(g => g.discovered))
-    shelve('builds', {
-      id: `gh-${g.repo.replace(/[^\w]+/g, '-').toLowerCase()}`, title: g.repo,
-      summary: g.description || 'No project description supplied.', source: 'github',
-      url: g.url, date: g.pushedAt, lang: g.language, topics: g.topics,
-      metric: { kind: 'stars', value: g.stars }, metric2: { kind: 'forks', value: g.forks }
-    });
-  for (const h of live.hn || [])
-    shelve('builds', {
-      id: `hn-${h.id}`, title: h.title, summary: h.summary, source: 'hn', url: h.url,
-      author: h.author, date: h.date,
-      metric: { kind: 'points', value: h.points }, metric2: { kind: 'comments', value: h.comments }
-    });
-  for (const r of live.reddit || [])
-    shelve('builds', {
-      id: `rd-${r.id}`, title: r.title, summary: r.summary, source: 'reddit', url: r.url,
-      author: r.author, date: r.date,
-      metric: { kind: 'upvotes', value: r.upvotes }, metric2: { kind: 'comments', value: r.comments }
-    });
+  mergeLive(state.data, state.live);
+  const rankings = await getJSON('data/rankings.json').catch(() => null);
+  await attachRankings(Object.values(state.data).flat(), rankings);
 }
 
 /* -------------------------------------------------------------- filters */
 
-function inRange(item) {
-  const days = (state.cfg.ranges.find(r => r.id === state.range) || {}).days || 0;
-  if (!days) return true;
-  if (!item.date) return false;
-  return (Date.now() - new Date(item.date).getTime()) / 86400000 <= days;
-}
-
 function matches(item) {
+  if (state.sort === 'trending' && !item.trend) return false;
+  if (state.author && creditFor(item).name !== state.author) return false;
   if (state.source !== 'all' && item.source !== state.source) return false;
-  if (!inRange(item)) return false;
   if (state.tag && !(item.tags || []).includes(state.tag)) return false;
-  if (state.author && item.author !== state.author) return false;
   if (state.q) {
     const hay = [item.title, item.summary, item.detail, item.snippet, item.author, ...(item.tags || [])]
       .join(' ').toLowerCase();
@@ -172,15 +80,10 @@ function matches(item) {
 }
 
 function sortItems(items) {
-  const arr = [...items];
-  if (state.sort === 'az')     return arr.sort((a, b) => a.title.localeCompare(b.title));
-  if (state.sort === 'recent') return arr.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
-  // "most talked about": real public numbers first, then curated by recency
-  return arr.sort((a, b) => {
-    const av = a.metric?.value ?? -1, bv = b.metric?.value ?? -1;
-    if (av !== bv) return bv - av;
-    return (b.date || '').localeCompare(a.date || '');
-  });
+  return [...items].sort((a, b) => state.sort === 'trending'
+    ? (b.trend.perDay - a.trend.perDay || a.title.localeCompare(b.title))
+    : state.sort === 'az'
+    ? a.title.localeCompare(b.title) : compareRankings(a, b, state.sort));
 }
 
 const visible = id => (state.data[id] || []).filter(matches);
@@ -195,7 +98,7 @@ function pill(source) {
   return `<span class="pill pill-${key}"><span class="source-mark" aria-hidden="true">${marks[source] || '—'}</span>${esc(SOURCE_LABEL[source] || 'CURATED')}</span>`;
 }
 
-function metricBlock(item, { note = true } = {}) {
+function metricBlock(item) {
   if (item.metric) {
     const m2 = item.metric2
       ? `<div class="metric"><span class="m-k">${esc(item.metric2.kind.toUpperCase())}</span><span class="m-v">${num(item.metric2.value)}</span></div>`
@@ -206,65 +109,20 @@ function metricBlock(item, { note = true } = {}) {
   }
   const tags = (item.tags || []).slice(0, 3);
   return `<div class="tagrow">${tags.map(t => `<span class="trow-tag">${esc(t)}</span>`).join('')}
-    ${note ? '<span class="trow-note">no public metric</span>' : ''}</div>`;
-}
-
-/* Provenance under the title. Where a source implies a person — a post, a video,
-   a thread — and no author was captured, say so rather than quietly dropping the
-   field: an unknown creator is information too. */
-const CREDITED = new Set(['x', 'reddit', 'discord', 'hn', 'youtube', 'blog', 'podcast', 'linkedin', 'producthunt', 'fb']);
-
-function provenance(item) {
-  const src = SOURCE_LABEL[item.source] || 'CURATED';
-  if (item.author) return `${src} · ${esc(item.author)}`;
-  if (CREDITED.has(item.source)) return `${src} · author not credited`;
-  return src;
-}
-
-/* What it does, as points rather than a paragraph. A curated entry written with
-   WHY / HOW / USE CASE headings gives up its lead sentences; everything else
-   falls back to its own summary. Nothing is generated — this only re-cuts text
-   that is already in the entry. */
-function cardPoints(item) {
-  const lead = s => {
-    const first = s.split(/(?<=[.!?])\s/)[0].trim();
-    return first.length > 132 ? first.slice(0, 129).trimEnd() + '…' : first;
-  };
-
-  if (item.detail && /^WHY\b/m.test(item.detail)) {
-    const part = h => {
-      const m = item.detail.match(new RegExp(`^${h}\\n([\\s\\S]*?)(?=\\n[A-Z ]{3,}\\n|$)`, 'm'));
-      return m ? lead(m[1]) : null;
-    };
-    const points = [part('WHY'), part('USE CASE')].filter(Boolean);
-    if (points.length) return points;
-  }
-  return [lead(item.summary)];
-}
-
-/* A short, honest note on what this entry costs a reader before they open it. */
-function cardStatus(item) {
-  if (item.snippet)  return 'copy-paste ready';
-  if (item.sourced)  return 'found by sourcing';
-  if (!item.metric)  return 'no public metric';
-  return '';
+    <span class="trow-note">no public metric</span></div>`;
 }
 
 function card(item, rank, iconName) {
-  const points = cardPoints(item);
-  const status = cardStatus(item);
+  const credit = creditFor(item);
   return `<li><button class="card" data-id="${esc(item.id)}">
-    <div class="card-top"><span class="card-index"><span class="card-tab">${sectionIcon(iconName)}</span><span class="rank">#${rank}</span></span>
+    <div class="card-top"><span class="card-index"><span class="card-tab">${sectionIcon(iconName)}</span><span class="rank">${state.sort === 'az' ? 'A–Z' : (item.ranking || state.sort === 'trending') ? `#${rank}` : 'UNCLASSIFIED'}</span></span>
       ${item.sourced ? '<span class="pill pill-sourced" title="Found by the sourcing pipeline, not written by hand">SOURCED</span>' : ''}${pill(item.source)}</div>
     <h3>${esc(item.title)}</h3>
-    <p class="card-by">${provenance(item)}</p>
-    <span class="card-label">What it does</span>
-    <ul class="card-points">${points.map(t => `<li>${esc(t)}</li>`).join('')}</ul>
-    ${metricBlock(item, { note: false })}
-    <div class="card-foot">
-      <span class="card-status">${esc(status)}</span>
-      <span class="card-end"><span class="when">${esc(ago(item.date))}</span><span class="card-open">Open ${item.url ? '&#8599;' : '&rarr;'}</span></span>
-    </div>
+    <p class="card-byline"><span>${esc(credit.label)}</span> <strong>${esc(credit.name)}</strong></p>
+    <p class="sum">${esc(item.summary)}</p>
+    ${metricBlock(item)}
+    ${item.trend ? `<p class="trend-note">↗ +${num(item.trend.gain)} stars · ${esc(new Date(item.trend.from).toLocaleString())} – ${esc(new Date(item.trend.to).toLocaleString())}</p>` : ''}
+    <div class="card-foot"><span>Open ${item.url ? '&#8599;' : '&rarr;'}</span><span class="when">${item.ranking ? 'Jev classified' : 'Awaiting Jev'}</span></div>
   </button></li>`;
 }
 
@@ -291,11 +149,11 @@ function renderTags() {
 
 function renderFilters() {
   const bits = [];
+  if (state.sort === 'trending') bits.push(['trending', 'TRENDING: MEASURED STAR GROWTH']);
   if (state.q)                  bits.push(['q',      `SEARCH: ${state.q}`]);
-  if (state.tag)                bits.push(['tag',    `TAG: ${state.tag}`]);
   if (state.author)             bits.push(['author', `AUTHOR: ${state.author}`]);
+  if (state.tag)                bits.push(['tag',    `TAG: ${state.tag}`]);
   if (state.source !== 'all')   bits.push(['source', `SOURCE: ${SOURCE_LABEL[state.source] || state.source}`]);
-  if (state.range !== 'all')    bits.push(['range',  (state.cfg.ranges.find(r => r.id === state.range) || {}).label?.toUpperCase()]);
 
   const box = $('#activeFilters');
   box.hidden = !bits.length;
@@ -307,28 +165,35 @@ function render() {
   const focusKey = focused?.dataset.tag ? ['tag', focused.dataset.tag]
     : focused?.dataset.section ? ['section', focused.dataset.section] : null;
   const sec = state.cfg.sections.find(s => s.id === state.section) || state.cfg.sections[0];
+  const isDash = sec.kind === 'dashboard';
+  $('#dashboard').hidden = !isDash;
+  $('#listbar').hidden = isDash;
+  $('#grid').hidden = isDash;
+  if (isDash) {
+    $('#heroIcon').innerHTML = sectionIcon(sec.icon);
+    $('#heroTitle').textContent = sec.title;
+    $('#heroBlurb').textContent = sec.blurb;
+    $('#empty').hidden = true;
+    document.title = `${sec.label} · Hermes Agent Archive`;
+    renderDashboard(); renderNav(); renderTags(); renderFilters();
+    return;
+  }
+  const items = sortItems(visible(sec.id));
 
   $('#heroIcon').innerHTML    = sectionIcon(sec.icon);
   $('#heroTitle').textContent = sec.title;
   $('#heroBlurb').textContent = sec.blurb;
-  document.title = `${sec.label} · Hermes Agent Archive`;
-
-  const isDash = sec.kind === 'dashboard';
-  $('#dashboard').hidden = !isDash;
-  $('#listbar').hidden   = isDash;
-  $('#grid').hidden      = isDash;
-  if (isDash) {
-    $('#empty').hidden = true;
-    renderDashboard();
-    renderNav(); renderTags(); renderFilters();
-    return;
-  }
-
-  const items = sortItems(visible(sec.id));
   $('#listTitle').innerHTML   = `${esc(sec.label.toUpperCase())} &middot; <span>${items.length}</span>`;
-  $('#listSub').textContent   = state.sort === 'talked'
-    ? 'Ranked by public reach where a real number exists, then by recency.'
-    : state.sort === 'recent' ? 'Newest first.' : 'Alphabetical.';
+  const classified = items.filter(item => item.ranking).length;
+  $('#listSub').textContent = !items.length ? 'No entries to rank in this view.'
+    : state.sort === 'trending' ? 'Positive GitHub star growth, fastest per day first. Two API measurements 1 hour–14 days apart; latest measurement within 14 days. Publication dates do not affect rank.'
+    : state.sort === 'az' ? 'Alphabetical.'
+    : !classified ? 'Awaiting Jev classification. Unclassified entries are alphabetical; dates never affect the order.'
+    : state.sort === 'popular' && !items.some(item => item.ranking && item.ranking.popularity !== 'unknown')
+      ? 'Popularity is unknown on this shelf: no fetched engagement evidence. Ordered by Jev usefulness instead.'
+    : `${classified} of ${items.length} classified by Jev. ${state.sort === 'popular'
+      ? 'Public popularity first; unknown popularity last.'
+      : 'Usefulness first; public popularity breaks ties.'} Dates never affect the order.`;
 
   $('#grid').innerHTML = items.map((it, i) => card(it, i + 1, sec.icon)).join('');
   $('#grid').dataset.density = state.density;
@@ -340,11 +205,14 @@ function render() {
        <span class="empty-kicker">ROOM FOR THE NEXT GOOD FIND</span>
        <strong>This shelf isn't stocked yet.</strong>
        <span>We're collecting ${esc(sec.label.toLowerCase())} worth keeping. Every entry needs a real source before it earns a place here.</span>
-       <a class="ghost-btn empty-link" href="#use-cases" data-browse>Explore the user stories &rarr;</a>`
+       <a class="ghost-btn empty-link" href="#use-cases" data-browse>Browse ${(state.data['use-cases'] || []).length} user stories &rarr;</a>`
+    : state.sort === 'trending' ? `<strong>No measured trends in this view yet.</strong>
+       <span>Trending needs positive star growth between two recent API snapshots. Repositories without enough history are excluded. Try another shelf or clear filters.</span>
+       <button class="ghost-btn" data-clear>Clear filters</button>`
     : `<strong>Nothing matches those filters.</strong>
-       <span>This shelf has entries. Widen the time range, choose All Sources, or clear your filters to see them.</span>
+       <span>This shelf has entries. Choose All Sources or clear your filters to see them.</span>
        <button class="ghost-btn" data-clear>Clear filters</button>`;
-
+  document.title = `${sec.label} · Hermes Agent Archive`;
 
   renderNav();
   renderTags();
@@ -352,27 +220,12 @@ function render() {
   if (focusKey) $$('[data-' + focusKey[0] + ']').find(el => el.dataset[focusKey[0]] === focusKey[1])?.focus({ preventScroll: true });
 }
 
-
 /* ------------------------------------------------------- motion helpers */
 
 const REDUCED = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
 
-/* Ease a figure up to its real value. The real value is written FIRST, so if the
-   animation never runs — a hidden tab throttles rAF to nothing — what is on screen
-   is still the truth rather than a zero. */
-function countUp(el, value, ms = 750) {
-  el.textContent = num(value);
-  if (REDUCED || document.hidden || value < 2) return;
-  const start = performance.now();
-  const step = now => {
-    const p = Math.min(1, (now - start) / ms);
-    const eased = 1 - Math.pow(1 - p, 3);
-    el.textContent = num(Math.round(value * eased));
-    if (p < 1) requestAnimationFrame(step);
-    else el.textContent = num(value);
-  };
-  requestAnimationFrame(step);
-}
+/* Display counted values directly; animation must never invent intermediate figures. */
+function countUp(el, value) { el.textContent = num(value); }
 
 /* Grow a bar to its real width. Same rule as the figures: the final width is set
    straight away and the animation plays over the top, so a throttled tab shows a
@@ -407,7 +260,8 @@ function dashboardStats() {
 
   for (const it of all) {
     bySource.set(it.source, (bySource.get(it.source) || 0) + 1);
-    if (it.author) byAuthor.set(it.author, (byAuthor.get(it.author) || 0) + 1);
+    const credit = creditFor(it);
+    if (credit.label !== 'Author') byAuthor.set(credit.name, (byAuthor.get(credit.name) || 0) + 1);
     for (const m of [it.metric, it.metric2]) {
       if (!m || !Number.isFinite(m.value)) continue;
       const row = byMetric.get(m.kind) || { total: 0, items: 0 };
@@ -423,7 +277,7 @@ function dashboardStats() {
     sources: bySource.size,
     byShelf:  byShelf.sort((a, b) => b[1] - a[1]),
     bySource: [...bySource].sort((a, b) => b[1] - a[1]),
-    byAuthor: [...byAuthor].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, 25),
+    byAuthor: [...byAuthor].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])),
     byMetric: [...byMetric].sort((a, b) => b[1].total - a[1].total)
   };
 }
@@ -452,83 +306,15 @@ function barChart(rows, { action, total } = {}) {
     const pct = Math.max(1.2, (n / max) * 100);
     const share = sum ? ((n / sum) * 100).toFixed(n / sum < 0.1 ? 1 : 0) : '0';
     const attr = action
-      ? ` data-${action}="${esc(label)}" role="button" tabindex="0" aria-label="${esc(label)}, ${n} entries — filter the archive"`
+      ? ` data-${action}="${esc(label)}" aria-label="${esc(label)}, ${n} entries — filter the archive"`
       : '';
-    return `<div class="bar-row${action ? ' bar-click' : ''}"${attr}
+    return `<${action ? 'button type="button"' : 'div'} class="bar-row${action ? ' bar-click' : ''}"${attr}
         data-tip="${esc(label)} · ${num(n)} ${n === 1 ? 'entry' : 'entries'} · ${share}% of ${num(sum)}">
       <span class="bar-label" title="${esc(label)}">${esc(label)}</span>
       <span class="bar-track"><span class="bar-fill" data-w="${pct.toFixed(1)}%"></span></span>
       <span class="bar-n">${num(n)}</span>
-    </div>`;
+    </${action ? 'button' : 'div'}>`;
   }).join('')}</div>`;
-}
-
-/* Area chart of when the archived material was actually published.
-   Reference docs are excluded: their date is the day they were imported, not
-   the day anything happened, and charting that would invent a spike. */
-function timelineSeries() {
-  const months = new Map();
-  for (const s of state.cfg.sections.filter(s => s.file))
-    for (const it of state.data[s.id] || []) {
-      if (!it.date || it.source === 'docs') continue;
-      const m = String(it.date).slice(0, 7);
-      if (!/^\d{4}-\d{2}$/.test(m)) continue;
-      months.set(m, (months.get(m) || 0) + 1);
-    }
-  if (months.size < 2) return [];
-
-  const keys = [...months.keys()].sort();
-  const out = [];
-  const [y0, m0] = keys[0].split('-').map(Number);
-  const [y1, m1] = keys[keys.length - 1].split('-').map(Number);
-  for (let y = y0, m = m0; y < y1 || (y === y1 && m <= m1); m === 12 ? (m = 1, y++) : m++) {
-    const k = `${y}-${String(m).padStart(2, '0')}`;
-    out.push([k, months.get(k) || 0]);
-  }
-  return out.slice(-24);
-}
-
-function areaChart(series) {
-  if (series.length < 2) return '';
-  const W = 720, H = 190, PAD = { t: 14, r: 12, b: 26, l: 34 };
-  const iw = W - PAD.l - PAD.r, ih = H - PAD.t - PAD.b;
-  const max = Math.max(...series.map(s => s[1]));
-  const nice = max <= 5 ? 5 : Math.ceil(max / 10) * 10;
-
-  const x = i => PAD.l + (series.length === 1 ? iw / 2 : (i / (series.length - 1)) * iw);
-  const y = v => PAD.t + ih - (v / nice) * ih;
-
-  const line = series.map(([, v], i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(' ');
-  const area = `${line} L${x(series.length - 1).toFixed(1)},${(PAD.t + ih).toFixed(1)} L${x(0).toFixed(1)},${(PAD.t + ih).toFixed(1)} Z`;
-
-  const ticks = [0, nice / 2, nice].map(v =>
-    `<line x1="${PAD.l}" x2="${W - PAD.r}" y1="${y(v).toFixed(1)}" y2="${y(v).toFixed(1)}" class="gridline"/>
-     <text x="${PAD.l - 7}" y="${(y(v) + 3.5).toFixed(1)}" class="axis-y">${v}</text>`).join('');
-
-  const step = Math.ceil(series.length / 6);
-  const xLabels = series.map(([k], i) =>
-    (i % step === 0 || i === series.length - 1)
-      ? `<text x="${x(i).toFixed(1)}" y="${H - 8}" class="axis-x">${k.slice(2)}</text>` : '').join('');
-
-  const dots = series.map(([k, v], i) =>
-    `<circle cx="${x(i).toFixed(1)}" cy="${y(v).toFixed(1)}" r="9" class="hit"
-       data-tip="${k} · ${num(v)} ${v === 1 ? 'entry' : 'entries'}"/>`).join('');
-
-  const peak = series.reduce((b, s, i) => s[1] > series[b][1] ? i : b, 0);
-
-  return `<svg class="area-chart" viewBox="0 0 ${W} ${H}" role="img"
-      aria-label="Entries published per month, ${series[0][0]} to ${series[series.length - 1][0]}">
-    <defs><linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="var(--accent)" stop-opacity=".34"/>
-      <stop offset="1" stop-color="var(--accent)" stop-opacity="0"/>
-    </linearGradient></defs>
-    ${ticks}
-    <path d="${area}" fill="url(#areaFill)"/>
-    <path d="${line}" class="area-line"/>
-    <circle cx="${x(peak).toFixed(1)}" cy="${y(series[peak][1]).toFixed(1)}" r="3.5" class="peak-dot"/>
-    <text x="${x(peak).toFixed(1)}" y="${(y(series[peak][1]) - 9).toFixed(1)}" class="peak-label">${num(series[peak][1])}</text>
-    ${xLabels}${dots}
-  </svg>`;
 }
 
 function renderDashboard() {
@@ -536,7 +322,6 @@ function renderDashboard() {
   const live = state.live || {};
   const stale = (live.github || []).filter(g => g.stale).length;
   const warnings = (live.warnings || []).length;
-  const series = timelineSeries();
 
   /* A tile may carry a share track — the progress-stat idea: a big numeral with a
      thin rail underneath showing what fraction of the whole it represents. */
@@ -557,23 +342,16 @@ function renderDashboard() {
     <div class="dash-tiles">
       ${tile('items in the archive', st.total)}
       ${tile('carry a real metric', st.withMetric, `${Math.round(st.withMetric / (st.total || 1) * 100)}% of the archive`, st.withMetric / (st.total || 1))}
-      ${tile('credited authors', st.authors)}
+      ${tile('authors / owners', st.authors)}
       ${tile('distinct sources', st.sources)}
     </div>
 
     <section class="dash-block">
       <h3>COUNTED TOTALS</h3>
-      <p class="dash-sub">Each kind on its own. Stars, points, impressions and upvotes measure
+      <p class="dash-sub">Each kind on its own. Stars, points and upvotes measure
       different things, so they are never added together.</p>
       <div class="dash-tiles dash-tiles-sm">${metricTiles}</div>
     </section>
-
-    ${series.length ? `<section class="dash-block">
-      <h3>PUBLISHED PER MONTH <span class="dash-hint">${series[0][0]} → ${series[series.length - 1][0]}</span></h3>
-      <p class="dash-sub">When the archived material was published. Reference documentation is
-      left out — its date is the day it was imported, not the day anything happened.</p>
-      ${areaChart(series)}
-    </section>` : ''}
 
     <div class="dash-cols">
       <section class="dash-block"><h3>BY SHELF</h3>${barChart(st.byShelf, { total: st.total })}</section>
@@ -582,7 +360,7 @@ function renderDashboard() {
     </div>
 
     <section class="dash-block">
-      <h3>BY AUTHOR <span class="dash-hint">click to filter the archive</span></h3>
+      <h3>BY AUTHOR / OWNER <span class="dash-hint">click to filter the archive</span></h3>
       <div id="authorBars" data-expanded="0">${barChart(st.byAuthor.slice(0, 10), { action: 'author' })}</div>
       ${st.byAuthor.length > 10
         ? `<button class="ghost-btn dash-more" id="authorMore">Show all ${st.byAuthor.length} &#8595;</button>` : ''}
@@ -608,17 +386,6 @@ function revealDashboard(st) {
   }
   for (const rail of root.querySelectorAll('.tile-rail-fill')) growTo(rail, rail.dataset.w, 150);
   growBars(root);
-
-  /* The line is drawn in full and the draw-on plays over it, never leaving a blank
-     chart behind if the animation is dropped. */
-  const line = root.querySelector('.area-line');
-  if (line && !REDUCED && !document.hidden && typeof line.animate === 'function') {
-    const len = line.getTotalLength();
-    line.animate(
-      [{ strokeDasharray: len, strokeDashoffset: len }, { strokeDasharray: len, strokeDashoffset: 0 }],
-      { duration: 1100, easing: 'cubic-bezier(.22,.7,.3,1)' }
-    );
-  }
 
   const more = $('#authorMore');
   if (more) more.onclick = () => {
@@ -648,6 +415,128 @@ function wireTips() {
   dash.onfocusout = () => { tip.hidden = true; };
 }
 
+
+/* ---------------------------------------------------------- command palette */
+
+/* 700 items is past the point where scrolling is a navigation strategy.
+   Cmd/Ctrl-K opens one field that reaches every shelf, author, tag and entry. */
+const palette = { open: false, rows: [], active: 0, trigger: null };
+
+function paletteRows(q) {
+  const hits = [];
+  const needle = q.trim().toLowerCase();
+  const ok = s => !needle || String(s).toLowerCase().includes(needle);
+
+  for (const sec of state.cfg.sections)
+    if (ok(sec.label)) hits.push({ kind: 'Shelf', label: sec.label, meta: sec.file ? `${(state.data[sec.id] || []).length} entries` : 'computed', act: () => { state.section = sec.id; location.hash = sec.id; render(); } });
+
+  const authors = new Map(), tags = new Map();
+  for (const sec of state.cfg.sections.filter(s => s.file))
+    for (const it of state.data[sec.id] || []) {
+      const credit = creditFor(it);
+      if (credit.label !== 'Author') authors.set(credit.name, (authors.get(credit.name) || 0) + 1);
+      for (const t of it.tags || []) tags.set(t, (tags.get(t) || 0) + 1);
+    }
+
+  for (const [name, n] of [...authors].sort((a, b) => b[1] - a[1]))
+    if (ok(name) && hits.length < 60) hits.push({ kind: 'Author', label: name, meta: `${n} ${n === 1 ? 'entry' : 'entries'}`, act: () => { filterAuthor(name); } });
+
+  for (const [name, n] of [...tags].sort((a, b) => b[1] - a[1]))
+    if (ok(name) && hits.length < 80) hits.push({ kind: 'Tag', label: name, meta: `${n}`, act: () => { clearFilters(); state.tag = name; state.section = state.cfg.sections.find(s => (state.data[s.id] || []).some(it => it.tags?.includes(name)))?.id || 'use-cases'; location.hash = state.section; render(); } });
+
+  if (needle)
+    for (const sec of state.cfg.sections.filter(s => s.file))
+      for (const it of state.data[sec.id] || []) {
+        if (hits.length >= 120) break;
+        if (ok(it.title)) hits.push({ kind: sec.label, label: it.title, meta: SOURCE_LABEL[it.source] || '', act: () => { clearFilters(); state.section = sec.id; location.hash = sec.id; render(); openDrawer(it.id, document.querySelector(`[data-id="${CSS.escape(it.id)}"]`)); } });
+      }
+
+  return hits.slice(0, 60);
+}
+
+function paletteRender(q) {
+  palette.rows = paletteRows(q);
+  palette.active = 0;
+  const list = $('#palList');
+  list.innerHTML = palette.rows.length
+    ? palette.rows.map((r, i) => `<li id="pal-option-${i}" class="pal-row${i ? '' : ' on'}" role="option" aria-selected="${!i}" data-i="${i}">
+        <span class="pal-kind">${esc(r.kind)}</span>
+        <span class="pal-label">${esc(r.label)}</span>
+        <span class="pal-meta">${esc(r.meta || '')}</span></li>`).join('')
+    : '<li class="pal-none">Nothing matches.</li>';
+  $('#palInput').setAttribute('aria-activedescendant', palette.rows.length ? 'pal-option-0' : '');
+  list.firstElementChild?.scrollIntoView?.({ block: 'nearest' });
+}
+
+function paletteMove(d) {
+  if (!palette.rows.length) return;
+  palette.active = (palette.active + d + palette.rows.length) % palette.rows.length;
+  const rows = $$('#palList .pal-row');
+  rows.forEach((el, i) => { el.classList.toggle('on', i === palette.active); el.setAttribute('aria-selected', i === palette.active); });
+  $('#palInput').setAttribute('aria-activedescendant', `pal-option-${palette.active}`);
+  rows[palette.active]?.scrollIntoView({ block: 'nearest' });
+}
+
+function paletteRun() {
+  const row = palette.rows[palette.active];
+  if (!row) return;
+  paletteClose();
+  row.act();
+}
+
+function paletteOpen() {
+  if (palette.open) return;
+  palette.trigger = document.activeElement;
+  setSidebar(false);
+  palette.open = true;
+  $('.topbar').inert = true; $('.shell').inert = true;
+  document.body.classList.add('modal-open');
+  $('#palette').hidden = false;
+  const input = $('#palInput');
+  input.value = '';
+  paletteRender('');
+  input.focus();
+}
+
+function paletteClose() {
+  if (!palette.open) return;
+  palette.open = false;
+  $('.topbar').inert = false; $('.shell').inert = false;
+  document.body.classList.remove('modal-open');
+  $('#palette').hidden = true;
+  if (palette.trigger?.isConnected) palette.trigger.focus();
+}
+
+function wirePalette() {
+  if ($('#palette')) return;
+  const el = document.createElement('div');
+  el.id = 'palette';
+  el.className = 'pal';
+  el.hidden = true;
+  el.innerHTML = `<div class="pal-scrim" data-pal-close></div>
+    <div class="pal-box" role="dialog" aria-modal="true" aria-label="Jump to">
+      <input id="palInput" class="pal-input" type="text" placeholder="Jump to a shelf, author, tag or entry…"
+             autocomplete="off" spellcheck="false" aria-label="Jump to a shelf, author, tag or entry" role="combobox" aria-expanded="true" aria-controls="palList">
+      <ul id="palList" class="pal-list" role="listbox" aria-label="Results"></ul>
+      <div class="pal-foot"><kbd>&#8593;</kbd><kbd>&#8595;</kbd> move <kbd>&#8629;</kbd> open <kbd>esc</kbd> close</div>
+    </div>`;
+  document.body.appendChild(el);
+
+  $('#palInput').addEventListener('input', e => paletteRender(e.target.value));
+  el.addEventListener('click', e => {
+    if (e.target.closest('[data-pal-close]')) return paletteClose();
+    const row = e.target.closest('.pal-row');
+    if (row) { palette.active = +row.dataset.i; paletteRun(); }
+  });
+  el.addEventListener('keydown', e => {
+    if (e.key === 'Tab') { e.preventDefault(); $('#palInput').focus(); }
+    if (e.key === 'ArrowDown') { e.preventDefault(); paletteMove(1); }
+    if (e.key === 'ArrowUp')   { e.preventDefault(); paletteMove(-1); }
+    if (e.key === 'Enter')     { e.preventDefault(); paletteRun(); }
+  });
+}
+
+
 /* --------------------------------------------------------------- drawer */
 
 function findItem(id) {
@@ -666,24 +555,29 @@ function openDrawer(id, trigger) {
 
   drawerTrigger = trigger || document.activeElement;
   const story = (it.tags || []).includes('user-story');
+  const copyLabel = (it.tags || []).includes('prompt') ? 'COPY PROMPT' : 'COPY';
   const paragraphs = (it.detail || it.summary || '').split('\n\n');
   // Imported stories already end with attribution. Move that exact line into the
   // caption, preserving its wording rather than quoting the author twice.
   const attribution = story && paragraphs.at(-1)?.startsWith(`— ${it.author},`)
     ? paragraphs.pop().replace(/^— /, '') : null;
-  const body = paragraphs.map(p => `<p>${esc(p).replace(/\n/g, '<br>')}</p>`).join('');
+  const body = formatDetails(paragraphs);
   const date = it.date ? new Date(`${it.date.slice(0, 10)}T12:00:00Z`).toLocaleDateString('en-US',
     { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }) : '';
-  const credit = attribution || [it.author, SOURCE_LABEL[it.source], date].filter(Boolean).join(' · ');
+  const author = creditFor(it);
+  const credit = attribution || [`${author.label} ${author.name}`, SOURCE_LABEL[it.source], date].filter(Boolean).join(' · ');
 
   $('#drawerBody').innerHTML = `
     <div class="d-kicker">${pill(it.source)}${it.lang ? `<span class="pill pill-curated">${esc(it.lang)}</span>` : ''}</div>
+    <p class="d-attribution">${it.ranking
+      ? `Jev assessment: ${esc(usefulnessLabel(it.ranking.usefulness))} · ${esc(popularityLabel(it.ranking.popularity))}`
+      : 'Awaiting Jev classification; no date-based ranking.'}</p>
     <h3 id="drawerTitle">${esc(it.title)}</h3>
     ${story ? `<figure class="d-story"><blockquote class="d-body" cite="${esc(it.url)}">${body}</blockquote>
       <figcaption class="d-attribution"><span class="attribution-rule" aria-hidden="true"></span>${esc(credit)}</figcaption></figure>`
       : `<p class="d-attribution">${esc(credit)}</p><div class="d-body">${body}</div>`}
     ${it.snippet ? `<div class="d-snip">
-        <button class="copy-btn" id="copyBtn">COPY</button>
+        <button class="copy-btn" id="copyBtn">${copyLabel}</button>
         <pre><code>${esc(it.snippet)}</code></pre></div>` : ''}
     ${(it.tags || []).length ? `<div class="d-tags">${it.tags.map(t => `<button class="d-tag" data-tag="${esc(t)}">#${esc(t)}</button>`).join('')}</div>` : ''}
     ${it.url ? `<a class="d-link" href="${esc(it.url)}" target="_blank" rel="noopener noreferrer">READ THE ORIGINAL &#8599;</a>` : ''}
@@ -703,7 +597,7 @@ function openDrawer(id, trigger) {
       await navigator.clipboard.writeText(it.snippet);
       copy.textContent = 'COPIED';
       copy.classList.add('done');
-      setTimeout(() => { copy.textContent = 'COPY'; copy.classList.remove('done'); }, 1400);
+      setTimeout(() => { copy.textContent = copyLabel; copy.classList.remove('done'); }, 1400);
     } catch {
       copy.textContent = 'SELECT IT';
     }
@@ -721,114 +615,6 @@ function closeDrawer() {
   else $('#listTitle').focus();
 }
 
-/* ---------------------------------------------------------- command palette */
-
-/* 700 items is past the point where scrolling is a navigation strategy.
-   Cmd/Ctrl-K opens one field that reaches every shelf, author, tag and entry. */
-const palette = { open: false, rows: [], active: 0 };
-
-function paletteRows(q) {
-  const hits = [];
-  const needle = q.trim().toLowerCase();
-  const ok = s => !needle || String(s).toLowerCase().includes(needle);
-
-  for (const sec of state.cfg.sections)
-    if (ok(sec.label)) hits.push({ kind: 'Shelf', label: sec.label, meta: sec.file ? `${(state.data[sec.id] || []).length} entries` : 'computed', act: () => { state.section = sec.id; render(); } });
-
-  const authors = new Map(), tags = new Map();
-  for (const sec of state.cfg.sections.filter(s => s.file))
-    for (const it of state.data[sec.id] || []) {
-      if (it.author) authors.set(it.author, (authors.get(it.author) || 0) + 1);
-      for (const t of it.tags || []) tags.set(t, (tags.get(t) || 0) + 1);
-    }
-
-  for (const [name, n] of [...authors].sort((a, b) => b[1] - a[1]))
-    if (ok(name) && hits.length < 60) hits.push({ kind: 'Author', label: name, meta: `${n} ${n === 1 ? 'entry' : 'entries'}`, act: () => { state.author = name; state.section = 'use-cases'; render(); } });
-
-  for (const [name, n] of [...tags].sort((a, b) => b[1] - a[1]))
-    if (ok(name) && hits.length < 80) hits.push({ kind: 'Tag', label: name, meta: `${n}`, act: () => { state.tag = name; render(); } });
-
-  if (needle)
-    for (const sec of state.cfg.sections.filter(s => s.file))
-      for (const it of state.data[sec.id] || []) {
-        if (hits.length >= 120) break;
-        if (ok(it.title)) hits.push({ kind: sec.label, label: it.title, meta: SOURCE_LABEL[it.source] || '', act: () => { state.section = sec.id; render(); openDrawer(it.id); } });
-      }
-
-  return hits.slice(0, 60);
-}
-
-function paletteRender(q) {
-  palette.rows = paletteRows(q);
-  palette.active = 0;
-  const list = $('#palList');
-  list.innerHTML = palette.rows.length
-    ? palette.rows.map((r, i) => `<li class="pal-row${i ? '' : ' on'}" role="option" aria-selected="${!i}" data-i="${i}">
-        <span class="pal-kind">${esc(r.kind)}</span>
-        <span class="pal-label">${esc(r.label)}</span>
-        <span class="pal-meta">${esc(r.meta || '')}</span></li>`).join('')
-    : '<li class="pal-none">Nothing matches.</li>';
-  list.firstElementChild?.scrollIntoView?.({ block: 'nearest' });
-}
-
-function paletteMove(d) {
-  if (!palette.rows.length) return;
-  palette.active = (palette.active + d + palette.rows.length) % palette.rows.length;
-  const rows = $$('#palList .pal-row');
-  rows.forEach((el, i) => { el.classList.toggle('on', i === palette.active); el.setAttribute('aria-selected', i === palette.active); });
-  rows[palette.active]?.scrollIntoView({ block: 'nearest' });
-}
-
-function paletteRun() {
-  const row = palette.rows[palette.active];
-  if (!row) return;
-  paletteClose();
-  row.act();
-}
-
-function paletteOpen() {
-  if (palette.open) return;
-  palette.open = true;
-  $('#palette').hidden = false;
-  const input = $('#palInput');
-  input.value = '';
-  paletteRender('');
-  input.focus();
-}
-
-function paletteClose() {
-  palette.open = false;
-  $('#palette').hidden = true;
-}
-
-function wirePalette() {
-  if ($('#palette')) return;
-  const el = document.createElement('div');
-  el.id = 'palette';
-  el.className = 'pal';
-  el.hidden = true;
-  el.innerHTML = `<div class="pal-scrim" data-pal-close></div>
-    <div class="pal-box" role="dialog" aria-modal="true" aria-label="Jump to">
-      <input id="palInput" class="pal-input" type="text" placeholder="Jump to a shelf, author, tag or entry…"
-             autocomplete="off" spellcheck="false" role="combobox" aria-expanded="true" aria-controls="palList">
-      <ul id="palList" class="pal-list" role="listbox" aria-label="Results"></ul>
-      <div class="pal-foot"><kbd>&#8593;</kbd><kbd>&#8595;</kbd> move <kbd>&#8629;</kbd> open <kbd>esc</kbd> close</div>
-    </div>`;
-  document.body.appendChild(el);
-
-  $('#palInput').addEventListener('input', e => paletteRender(e.target.value));
-  el.addEventListener('click', e => {
-    if (e.target.closest('[data-pal-close]')) return paletteClose();
-    const row = e.target.closest('.pal-row');
-    if (row) { palette.active = +row.dataset.i; paletteRun(); }
-  });
-  el.addEventListener('keydown', e => {
-    if (e.key === 'ArrowDown') { e.preventDefault(); paletteMove(1); }
-    if (e.key === 'ArrowUp')   { e.preventDefault(); paletteMove(-1); }
-    if (e.key === 'Enter')     { e.preventDefault(); paletteRun(); }
-  });
-}
-
 /* ---------------------------------------------------------------- wiring */
 
 function fillSelect(el, options, selected) {
@@ -836,11 +622,17 @@ function fillSelect(el, options, selected) {
 }
 
 function clearFilters() {
-  state.q = ''; state.tag = null; state.author = null; state.source = 'all'; state.range = 'all';
+  if (state.sort === 'trending') { state.sort = 'recommended'; $('#sortSel').value = state.sort; }
+  state.q = ''; state.tag = null; state.author = null; state.source = 'all';
   $('#search').value = '';
   $('#sourceSel').value = 'all';
-  $('#rangeSel').value = 'all';
   render();
+}
+
+function filterAuthor(name) {
+  clearFilters(); state.author = name;
+  state.section = state.cfg.sections.find(s => (state.data[s.id] || []).some(it => creditFor(it).name === name))?.id || 'use-cases';
+  location.hash = state.section; render(); $('#listTitle').focus();
 }
 
 function routeFromHash() {
@@ -860,6 +652,26 @@ function setSidebar(open) {
 }
 
 function wire() {
+  const archiveIcon = sectionIcon('archive');
+  $('#brandMark').innerHTML = archiveIcon;
+  $('#archiveMark').innerHTML = archiveIcon;
+  // The tab icon shares the same geometry and reads its colour from the theme.
+  const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
+  const favicon = archiveIcon.replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" ')
+    .replace('currentColor', accent);
+  $('#favicon').href = `data:image/svg+xml,${encodeURIComponent(favicon)}`;
+  wirePalette();
+  $('#jumpBtn').addEventListener('click', paletteOpen);
+  const applyTheme = theme => {
+    document.documentElement.dataset.theme = theme === 'broadsheet' ? theme : 'dark';
+    $('#themeBtn').setAttribute('aria-pressed', theme === 'broadsheet');
+  };
+  try { applyTheme(localStorage.getItem('ha-theme')); } catch { applyTheme('dark'); }
+  $('#themeBtn').addEventListener('click', () => {
+    const next = document.documentElement.dataset.theme === 'broadsheet' ? 'dark' : 'broadsheet';
+    applyTheme(next);
+    try { localStorage.setItem('ha-theme', next); } catch {}
+  });
   setSidebar(false);
   mobile.addEventListener('change', () => setSidebar(false));
   new ResizeObserver(([entry]) => {
@@ -872,7 +684,6 @@ function wire() {
     render();
   }));
   fillSelect($('#sourceSel'), state.cfg.sources, state.source);
-  fillSelect($('#rangeSel'),  state.cfg.ranges,  state.range);
   fillSelect($('#sortSel'),   state.cfg.sorts,   state.sort);
 
   $('#curator').textContent     = state.cfg.site.curator;
@@ -899,27 +710,9 @@ function wire() {
   });
 
   $('#sourceSel').addEventListener('change', e => { state.source = e.target.value; render(); });
-  $('#rangeSel').addEventListener('change',  e => { state.range  = e.target.value; render(); });
   $('#sortSel').addEventListener('change',   e => { state.sort   = e.target.value; render(); });
   $('#clearBtn').addEventListener('click', clearFilters);
   $('#refreshBtn').addEventListener('click', async () => { await load(); render(); });
-
-  /* Theme is a per-reader preference, so it lives in their browser only.
-     Storage can throw in a private window, so every touch is guarded. */
-  const applyTheme = t => {
-    document.documentElement.dataset.theme = t;
-    $('#themeBtn').textContent = t === 'broadsheet' ? '\u25a4' : '\u25a3';
-    $('#themeBtn').title = t === 'broadsheet' ? 'Switch to console' : 'Switch to broadsheet';
-    if (state.section === 'dashboard') render();
-  };
-  let saved = 'dark';
-  try { saved = localStorage.getItem('ha-theme') || 'dark'; } catch {}
-  applyTheme(saved);
-  $('#themeBtn').addEventListener('click', () => {
-    const next = document.documentElement.dataset.theme === 'broadsheet' ? 'dark' : 'broadsheet';
-    applyTheme(next);
-    try { localStorage.setItem('ha-theme', next); } catch {}
-  });
   $('#menuBtn').addEventListener('click', () => setSidebar(!$('#sidebar').classList.contains('open')));
   $('#sidebarScrim').addEventListener('click', () => { setSidebar(false); $('#menuBtn').focus(); });
 
@@ -929,17 +722,12 @@ function wire() {
     state.section = a.dataset.section;
     setSidebar(false);
     render();
-    $('#listTitle').focus({ preventScroll: true });
+    (state.section === 'dashboard' ? $('#heroTitle') : $('#listTitle')).focus({ preventScroll: true });
   });
 
   document.addEventListener('click', e => {
     const authorBtn = e.target.closest('[data-author]');
-    if (authorBtn) {
-      state.author = state.author === authorBtn.dataset.author ? null : authorBtn.dataset.author;
-      state.section = state.cfg.sections.find(s => s.id === 'use-cases') ? 'use-cases' : state.section;
-      render();
-      return;
-    }
+    if (authorBtn) { filterAuthor(authorBtn.dataset.author); return; }
     const tagBtn = e.target.closest('[data-tag]');
     if (tagBtn) {
       state.tag = state.tag === tagBtn.dataset.tag ? null : tagBtn.dataset.tag;
@@ -951,11 +739,11 @@ function wire() {
     const drop = e.target.closest('[data-drop]');
     if (drop) {
       const k = drop.dataset.drop;
+      if (k === 'trending') { state.sort = 'recommended'; $('#sortSel').value = state.sort; }
       if (k === 'q')      { state.q = ''; $('#search').value = ''; }
       if (k === 'tag')    state.tag = null;
       if (k === 'author') state.author = null;
       if (k === 'source') { state.source = 'all'; $('#sourceSel').value = 'all'; }
-      if (k === 'range')  { state.range  = 'all'; $('#rangeSel').value  = 'all'; }
       render(); $('#clearBtn').focus(); return;
     }
     if (e.target.closest('[data-browse]')) {
@@ -972,16 +760,7 @@ function wire() {
   $('#drawerClose').addEventListener('click', closeDrawer);
   $('#scrim').addEventListener('click', closeDrawer);
 
-  wirePalette();
-
   document.addEventListener('keydown', e => {
-    /* The palette is a dialog in its own right and owns the keyboard while open. */
-    if (palette.open) {
-      if (e.key === 'Escape') { e.preventDefault(); paletteClose(); }
-      return;
-    }
-    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); paletteOpen(); return; }
-
     if (!$('#drawer').hidden) {
       if (e.key === 'Escape') { e.preventDefault(); closeDrawer(); }
       if (e.key === 'Tab') {
@@ -992,17 +771,14 @@ function wire() {
       }
       return; // Global search shortcuts must never escape the dialog.
     }
-
+    if (palette.open) { if (e.key === 'Escape') { e.preventDefault(); paletteClose(); } return; }
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); paletteOpen(); return; }
     if (e.key === 'Escape' && $('#sidebar').classList.contains('open')) {
       setSidebar(false); $('#menuBtn').focus();
     }
     if (e.key === '/' && !e.ctrlKey && !e.metaKey && !e.altKey &&
         !e.target.closest('input, textarea, select, [contenteditable="true"]')) {
       e.preventDefault(); $('#search').focus();
-    }
-    if ((e.key === 'Enter' || e.key === ' ') && document.activeElement?.hasAttribute?.('data-author')) {
-      e.preventDefault();
-      document.activeElement.click();
     }
   });
 
