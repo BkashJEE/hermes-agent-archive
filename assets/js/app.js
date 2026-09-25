@@ -2,6 +2,7 @@
 
 import { sectionIcon } from './icons.js?v=badge-3';
 import { mergeLive } from './archive.js?v=trends-5';
+import { cardPoints, cardCategory } from './card-preview.js?v=cards-8';
 import { formatDetails } from './details.js';
 import { creditFor } from './credits.js';
 import { attachRankings, compareRankings, usefulnessLabel, popularityLabel } from './ranking.js';
@@ -114,15 +115,21 @@ function metricBlock(item) {
 
 function card(item, rank, iconName) {
   const credit = creditFor(item);
-  return `<li><button class="card" data-id="${esc(item.id)}">
-    <div class="card-top"><span class="card-index"><span class="card-tab">${sectionIcon(iconName)}</span><span class="rank">${state.sort === 'az' ? 'A–Z' : (item.ranking || state.sort === 'trending') ? `#${rank}` : 'UNCLASSIFIED'}</span></span>
-      ${item.sourced ? '<span class="pill pill-sourced" title="Found by the sourcing pipeline, not written by hand">SOURCED</span>' : ''}${pill(item.source)}</div>
-    <h3>${esc(item.title)}</h3>
-    <p class="card-byline"><span>${esc(credit.label)}</span> <strong>${esc(credit.name)}</strong></p>
-    <p class="sum">${esc(item.summary)}</p>
-    ${metricBlock(item)}
+  const category = cardCategory(item, iconName);
+  const order = state.sort === 'az' ? 'A–Z' : (item.ranking || state.sort === 'trending') ? `#${rank}` : '';
+  const action = iconName === 'stories' ? 'Read workflow' : iconName === 'prompts' ? 'View prompt' : 'View details';
+  const metric = item.metric ? `${num(item.metric.value)} ${item.metric.kind}` : 'no public metric';
+  return `<li><button class="card card-${category.tone}" data-id="${esc(item.id)}" aria-label="${esc(`${action}: ${item.title}`)}">
+    <div class="card-heading"><span class="card-icon">${sectionIcon(category.icon)}</span><div class="card-heading-text">
+      <h3>${esc(item.title)}</h3>
+      <p class="card-byline">${esc(credit.label)} <strong>${esc(credit.name)}</strong><span class="card-source">${esc(SOURCE_LABEL[item.source] || 'CURATED')}${item.sourced ? ' · SOURCED' : ''}</span></p>
+    </div></div>
+    <div class="card-preview"><p class="card-label">What it does</p>
+      <ul class="card-points">${cardPoints(item).map(point => `<li>${esc(point)}</li>`).join('')}</ul>
+    </div>
+    <div class="card-tags">${(item.tags || []).filter(t => t !== 'user-story').slice(0, 2).map(t => `<span class="trow-tag">${esc(t)}</span>`).join('')}${order ? `<span class="rank" title="Position in the selected sort">${order}</span>` : ''}</div>
     ${item.trend ? `<p class="trend-note">↗ +${num(item.trend.gain)} stars · ${esc(new Date(item.trend.from).toLocaleString())} – ${esc(new Date(item.trend.to).toLocaleString())}</p>` : ''}
-    <div class="card-foot"><span>Open ${item.url ? '&#8599;' : '&rarr;'}</span><span class="when">${item.ranking ? 'Jev classified' : 'Awaiting Jev'}</span></div>
+    <div class="card-foot"><span class="card-evidence">${esc(metric)}</span><span class="card-action">${action} <span aria-hidden="true">→</span></span></div>
   </button></li>`;
 }
 
