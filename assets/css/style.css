@@ -719,3 +719,10 @@ code{font-family:var(--mono);font-size:.92em}
 
 /* A filtered count keeps the shelf's real size beside it. */
 .nav-n-filtered i{font-style:normal;opacity:.55}
+
+
+/* Source link: an open archive should say so where people can see it. */
+.repo-link{display:grid;place-items:center;color:var(--ink-dim);text-decoration:none}
+.repo-link svg{width:16px;height:16px;display:block}
+.repo-link:hover{color:var(--accent)}
+@media (max-width:640px){ .repo-link{display:none} }  /* the footer carries it on phones */
