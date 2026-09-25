@@ -19,6 +19,8 @@
  */
 
 import './env.mjs';
+import { MIN_GITHUB_STARS, qualifiesRepository } from '../assets/js/github-policy.js';
+import { githubRepo } from '../assets/js/archive.js';
 import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
@@ -32,7 +34,7 @@ const KEY = process.env.TYPESAFE_API_KEY;
 const FLOOR = {
   // Must match the fetcher's floor — two defaults drifting apart silently cut
   // candidates the fetcher deliberately collected. Substance is Jev's call.
-  stars:   Math.max(5000, Number(process.env.MIN_STARS          ?? 5000)),
+  stars:   Math.max(MIN_GITHUB_STARS, Number(process.env.MIN_STARS ?? MIN_GITHUB_STARS)),
   points:  Number(process.env.MIN_HN_POINTS      ?? 300),
   upvotes: Number(process.env.MIN_REDDIT_UPVOTES ?? 200)
 };
@@ -182,6 +184,8 @@ const candidates = [
 
 const beforeFloor = candidates.length;
 const popular = candidates.filter(c => {
+  if (c.metric?.kind === 'stars')
+    return qualifiesRepository(githubRepo(c), c.metric.value) && c.metric.value > FLOOR.stars;
   const floor = FLOOR[c.metric?.kind];
   return floor === undefined ? false : c.metric.value >= floor;
 });

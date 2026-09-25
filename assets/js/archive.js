@@ -3,8 +3,8 @@
    hand-written, and nothing is estimated. */
 import { githubTrend } from './trends.js';
 
-export const MIN_GITHUB_STARS = 5000;
-const qualifies = stars => Number.isFinite(stars) && stars >= MIN_GITHUB_STARS;
+import { HERMES_REPOSITORIES, qualifiesStars, qualifiesRepository, hermesSupport } from './github-policy.js';
+export { MIN_GITHUB_STARS } from './github-policy.js';
 
 export function githubRepo(item) {
   // An entry carrying its own credit is a post, not a repository listing, even
@@ -19,15 +19,15 @@ export function githubRepo(item) {
   } catch { /* No repository identity can be inferred from an invalid URL. */ }
 }
 
-export function mergeLive(data, live) {
+export function mergeLive(data, live, reviews = HERMES_REPOSITORIES) {
   /* A fetched snapshot is the only thing that may supply engagement, with one
      exception: an entry that names where its figure came from. The rule is that
      every number states its source, not that every number comes from an API —
      an author's own analytics export is real, it simply is not public, so the
      card says so rather than the archive pretending the figure does not exist. */
   for (const items of Object.values(data)) for (const item of items) {
-    if (item.credit) { delete item.trend; continue; }
-    delete item.metric; delete item.metric2; delete item.trend;
+    if (item.credit) { delete item.trend; delete item.hermesSupport; continue; }
+    delete item.metric; delete item.metric2; delete item.trend; delete item.hermesSupport;
   }
   if (!live) {
     for (const [id, items] of Object.entries(data))
@@ -35,19 +35,20 @@ export function mergeLive(data, live) {
     return;
   }
   // GitHub: attach real stars/forks to any seeded repo, on any shelf.
-  // Repository write-ups stay on disk; only verified 5k+ repos enter the view.
+  // Repository write-ups stay on disk; only documented Hermes repos with more than 50k stars enter the view.
   const byRepo = new Map((live.github || []).map(g => [g.repo.toLowerCase(), g]));
   for (const [sectionId, items] of Object.entries(data)) {
     data[sectionId] = items.filter(item => {
       // The visibility rule applies to every shelf, including URL-only entries.
       // Stored content is retained so a later public count can qualify it again.
       const repo = githubRepo(item), observation = byRepo.get(repo);
-      if (repo && !qualifies(observation?.stars)) return false;
+      if (repo && !qualifiesRepository(repo, observation?.stars, reviews)) return false;
       item.trend = githubTrend(observation);
       // A credited entry never took part in the qualification above, so there is
       // no fetched observation to attach — leave it exactly as written.
       if (!repo || item.credit) return true;
       const g = byRepo.get(repo);
+      item.hermesSupport = hermesSupport(repo, reviews);
       // Qualification above guarantees a fetched observation for this seed.
       if (item.repo) item.title = g.repo;                       // follow renames/transfers
       // A curated write-up outranks the repo's own one-liner.
@@ -66,8 +67,8 @@ export function mergeLive(data, live) {
   const shelve = (sectionId, raw) => {
     const repo = githubRepo(raw);
     const observation = byRepo.get(repo);
-    const stars = observation?.stars ?? (raw.metric?.kind === 'stars' ? raw.metric.value : undefined);
-    if ((repo || raw.metric?.kind === 'stars') && !qualifies(stars)) return;
+    const stars = observation?.stars;
+    if ((repo || raw.metric?.kind === 'stars') && !qualifiesRepository(repo, stars, reviews)) return;
     if (seenIds.has(raw.id) || (raw.url && seenUrls.has(raw.url))) return;
     if (!data[sectionId]) return;
     seenIds.add(raw.id); if (raw.url) seenUrls.add(raw.url);
@@ -83,6 +84,7 @@ export function mergeLive(data, live) {
       metric: observation ? { kind: 'stars', value: observation.stars } : raw.metric,
       metric2: observation ? { kind: 'forks', value: observation.forks } : raw.metric2,
       trend: githubTrend(observation),
+      hermesSupport: hermesSupport(repo, reviews),
       sourced: raw.routedBy || 'auto',
       tags: ['sourced', ...(raw.topics || []).slice(0, 2)]
     });
@@ -122,7 +124,7 @@ export function trendingItems(data) {
   const repos = new Map();
   for (const item of Object.values(data).flat()) {
     const repo = githubRepo(item);
-    if (repo && item.trend && item.metric?.kind === 'stars' && qualifies(item.metric.value) && !repos.has(repo))
+    if (repo && item.trend && item.metric?.kind === 'stars' && qualifiesStars(item.metric.value) && !repos.has(repo))
       repos.set(repo, item);
   }
   return [...repos.values()].sort((a, b) => b.trend.perDay - a.trend.perDay || a.title.localeCompare(b.title));

@@ -6,8 +6,11 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { githubTrend, recordGithubObservations } from '../assets/js/trends.js';
-import { mergeLive } from '../assets/js/archive.js';
+import { mergeLive as mergeArchive } from '../assets/js/archive.js';
 import { MODEL, RANKING_VERSION, attachRankings, compareRankings, inputKey, validAssessment } from '../assets/js/ranking.js';
+
+const fixtureReviews = Object.fromEntries(['tool','zero','low','qualifies','unknown','repo-0','repo-50000','repo-50001'].map(name => [`org/${name}`, {url:'https://github.com/org/' + name, note:'Fixture Hermes support'}]));
+const mergeLive = (data, live) => mergeArchive(data, live, fixtureReviews);
 
 const item = (id, usefulness, popularity = 'unknown') => ({ id, title: id, source: 'reddit',
   ranking: { usefulness, popularity } });
@@ -15,14 +18,14 @@ const item = (id, usefulness, popularity = 'unknown') => ({ id, title: id, sourc
 test('API merging preserves seeded write-ups across all shelves, excluding unresolved repos', () => {
   const data = { toolkit: [{ id: 'tool', repo: 'org/tool', title: 'Tool', summary: 'Curated explanation', detail: 'Setup steps', url: 'https://github.com/org/tool' }],
     builds: [{ id: 'missing', repo: 'org/missing', title: 'Unresolved tool', metric: { kind: 'stars', value: 999 } }] };
-  mergeLive(data, { github: [{ repo: 'org/tool', description: 'API one-liner', stars: 5000, forks: 2, url: 'https://github.com/org/tool' }],
+  mergeLive(data, { github: [{ repo: 'org/tool', description: 'API one-liner', stars: 50001, forks: 2, url: 'https://github.com/org/tool' }],
     routed: { builds: [{ id: 'duplicate', url: 'https://github.com/org/tool' }] } });
   assert.equal(data.toolkit[0].summary, 'Curated explanation');
-  assert.equal(data.toolkit[0].metric.value, 5000);
+  assert.equal(data.toolkit[0].metric.value, 50001);
   assert.equal(data.builds.length, 0);
 });
 
-test('GitHub requires 5000 verified stars across all shelves and hides unknown counts', () => {
+test('GitHub requires more than 50000 verified stars across all shelves and hides unknown counts', () => {
   const data = { builds: [], toolkit: [
     { id: 'zero', repo: 'org/zero' }, { id: 'low', repo: 'org/low' },
     { id: 'url-only', url: 'https://github.com/ORG/low/' },
@@ -31,11 +34,11 @@ test('GitHub requires 5000 verified stars across all shelves and hides unknown c
     { id: 'discord-archive', source:'discord', url:'https://github.com/org/low/blob/main/messages.txt' }
   ] };
   const live = { github: [
-    { repo: 'org/zero', stars: 0 }, { repo: 'org/low', stars: 4999 },
-    { repo: 'org/qualifies', stars: 5000 }
+    { repo: 'org/zero', stars: 0 }, { repo: 'org/low', stars: 50000 },
+    { repo: 'org/qualifies', stars: 50001 }
   ], routed: { builds: [
-    { id: 'routed-low', source: 'github', metric: { kind: 'stars', value: 4999 } },
-    { id: 'routed-high', source: 'github', metric: { kind: 'stars', value: 5000 } },
+    { id: 'routed-low', source: 'github', metric: { kind: 'stars', value: 50000 } },
+    { id: 'routed-high', source: 'github', metric: { kind: 'stars', value: 50001 } },
     { id: 'routed-unknown', source: 'github', url:'https://github.com/org/unknown' },
     { id: 'routed-null', source: 'github', metric: { kind: 'stars', value: null } },
     { id: 'reddit', source: 'reddit', metric: { kind: 'upvotes', value: 5 } }
@@ -43,35 +46,47 @@ test('GitHub requires 5000 verified stars across all shelves and hides unknown c
   const stored = structuredClone(data), snapshot = structuredClone(live);
   mergeLive(data, live);
   assert.deepEqual(data.toolkit.map(x => x.id), ['qualifies', 'discussion', 'discord-archive']);
-  assert.deepEqual(data.builds.map(x => x.id), ['routed-high', 'reddit']);
+  assert.deepEqual(data.builds.map(x => x.id), ['reddit']);
   assert.deepEqual(live, snapshot);
-  live.github.find(x => x.repo === 'org/low').stars = 5000;
+  live.github.find(x => x.repo === 'org/low').stars = 50001;
   mergeLive(stored, live);
   assert.ok(stored.toolkit.some(x => x.id === 'low'));
   assert.ok(stored.toolkit.some(x => x.id === 'url-only'));
 });
 
-test('unrouted discoveries and unavailable snapshots obey the 5000-star rule', () => {
+test('unrouted discoveries and unavailable snapshots obey the strict 50000-star rule', () => {
   const data = { builds: [] };
-  mergeLive(data, { github: [0, 4999, 5000].map(stars => ({
+  mergeLive(data, { github: [0, 50000, 50001].map(stars => ({
     repo: `org/repo-${stars}`, stars, discovered: true, url: `https://github.com/org/repo-${stars}`
   })) });
-  assert.deepEqual(data.builds.map(x => x.metric.value), [5000]);
+  assert.deepEqual(data.builds.map(x => x.metric.value), [50001]);
   const missing = { builds: [{id:'repo', repo:'org/tool'}, {id:'post', source:'reddit'}] };
   mergeLive(missing, null);
   assert.deepEqual(missing.builds.map(x => x.id), ['post']);
 });
 
 test('latest API counts override old routed star figures in either direction', () => {
-  const live = { github: [{repo:'org/tool',stars:6000,forks:20}], routed: { builds: [
+  const live = { github: [{repo:'org/tool',stars:60000,forks:20}], routed: { builds: [
     {id:'tool',source:'github',url:'https://github.com/org/tool',metric:{kind:'stars',value:4000}}
   ] } };
   const data = {builds:[]}; mergeLive(data,live);
-  assert.equal(data.builds[0].metric.value,6000);
-  live.github[0].stars=4999;
-  live.routed.builds[0].metric.value=6000;
+  assert.equal(data.builds[0].metric.value,60000);
+  live.github[0].stars=50000;
+  live.routed.builds[0].metric.value=60000;
   const next = {builds:[]}; mergeLive(next,live);
   assert.equal(next.builds.length,0);
+});
+
+test('repository stars alone cannot establish Hermes support or replace a public snapshot', () => {
+  const live = {github:[{repo:'other/unrelated',stars:900000,url:'https://github.com/other/unrelated'}],
+    routed:{builds:[{id:'unsupported',url:'https://github.com/other/unrelated',metric:{kind:'stars',value:900000}},
+      {id:'missing-api',url:'https://github.com/org/tool',metric:{kind:'stars',value:900000}}]}};
+  const data = {builds:[],toolkit:[{id:'curated',repo:'other/unrelated'}]};
+  mergeLive(data, live);
+  assert.deepEqual(data, {builds:[],toolkit:[]});
+  const discoveries={builds:[]};
+  mergeLive(discoveries,{github:[{...live.github[0],discovered:true}]});
+  assert.equal(discoveries.builds.length,0);
 });
 
 test('trending requires two recent real measurements and positive growth', () => {
@@ -149,7 +164,8 @@ test('every shipped classification matches the rendered archive and its public e
     data[section.id] = (await read(section.file)).items;
     for (const entry of data[section.id]) { delete entry.metric; delete entry.metric2; }
   }
-  mergeLive(data, await read('live.json'));
+  mergeArchive(data, await read('live.json'));
+  assert.ok(data.skills.length >= 4, 'Reviewed skill repos must be included in classification checks');
   const entries = Object.values(data).flat();
   await attachRankings(entries, await read('rankings.json'));
   assert.ok(entries.length > 0);
@@ -175,4 +191,20 @@ test('auth failures and malformed API responses preserve the last good rankings'
       assert.equal(await readFile(file, 'utf8'), before);
     }
   } finally { await rm(temp, { recursive: true, force: true }); }
+});
+
+test('GitHub authentication failure aborts at the first request and preserves the snapshot', async () => {
+  const target = new URL('../data/live.json', import.meta.url);
+  const before = await readFile(target, 'utf8');
+  const dir = await mkdtemp(join(tmpdir(), 'hermes-fetch-auth-'));
+  try {
+    const mock = join(dir, 'mock.mjs');
+    await writeFile(mock, `let requests=0; globalThis.fetch=async()=>{console.log('PUBLIC_REQUEST',++requests); return new Response('',{status:401});};`);
+    const result = spawnSync(process.execPath, ['--import', pathToFileURL(mock).href, 'scripts/fetch-signals.mjs'], {
+      cwd: new URL('..', import.meta.url), env: {...process.env, GITHUB_TOKEN:'test-only-placeholder'}, encoding:'utf8'
+    });
+    assert.notEqual(result.status,0);
+    assert.equal((result.stdout.match(/PUBLIC_REQUEST/g)||[]).length,1);
+    assert.equal(await readFile(target,'utf8'),before);
+  } finally { await rm(dir,{recursive:true,force:true}); }
 });

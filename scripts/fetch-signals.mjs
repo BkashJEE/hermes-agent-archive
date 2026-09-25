@@ -6,8 +6,8 @@
  *   HN      — top stories via the public Algolia search API
  *   Reddit  — top posts from the configured subreddits via the public .json endpoints
  *
- * Nothing here invents a number. A source that fails is reported and left empty,
- * and a repo that doesn't resolve is dropped rather than shown with a guess.
+ * Nothing here invents a number. Failed sources retain prior snapshots as stale;
+ * authentication failures abort without writing.
  *
  *   node scripts/fetch-signals.mjs
  *   GITHUB_TOKEN=ghp_... node scripts/fetch-signals.mjs        # 60/hr -> 5000/hr
@@ -18,6 +18,7 @@
  */
 
 import './env.mjs';
+import { MIN_GITHUB_STARS, HERMES_REPOSITORIES, hermesSupport } from '../assets/js/github-policy.js';
 import { recordGithubObservations } from '../assets/js/trends.js';
 import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
@@ -27,10 +28,9 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 const CONFIG = {
   // GitHub *discovery*: finds projects nobody has seeded yet, the way a search feed does.
-  discoverQuery: 'hermes-agent in:name,description,topics',
-  discoverWindowDays: 30,
+  discoverQuery: '"hermes-agent" in:name,description,readme',
   discoverMax: 60,
-  discoverPages: 3,          // 100 per page; the query matches thousands
+  discoverPages: 3,          // Up to 100 candidates per page
   hnQueries:  ['hermes agent', 'nous research hermes'],
   subreddits: ['NousResearch', 'HermesAgent'],
   redditWindow: 'month',   // hour | day | week | month | year | all
@@ -39,9 +39,9 @@ const CONFIG = {
 
   // Popularity floors. This archive is a "most viewed, most talked about" shelf,
   // so something nobody engaged with does not belong on it regardless of topic.
-  // Override per run: MIN_STARS=50000 node scripts/fetch-signals.mjs
-  // Jev judges relevance after the owner's minimum of 5,000 verified stars.
-  minStars:         Math.max(5000, Number(process.env.MIN_STARS         ?? 5000)),
+  // Override per run: MIN_STARS=100000 node scripts/fetch-signals.mjs
+  // Jev judges relevance after the owner's minimum of more than 50,000 verified stars.
+  minStars:         Math.max(MIN_GITHUB_STARS, Number(process.env.MIN_STARS ?? MIN_GITHUB_STARS)),
   minHnPoints:      Number(process.env.MIN_HN_POINTS     ?? 300),
   minRedditUpvotes: Number(process.env.MIN_REDDIT_UPVOTES ?? 200)
 };
@@ -70,6 +70,10 @@ async function json(url, headers = {}, attempt = 0) {
     }
     return res.json();
   } catch (err) {
+    if (url.startsWith('https://api.github.com/') && [401, 403].includes(err.status)) {
+      err.fatal = true;
+      throw err;
+    }
     if (attempt < 1 && (RETRY_STATUS.has(err.status) || err.name === 'TimeoutError')) {
       await sleep(2500);
       return json(url, headers, attempt + 1);
@@ -88,6 +92,7 @@ async function github(repos) {
   for (const repo of repos) {
     try {
       const r = await json(`https://api.github.com/repos/${repo}`, headers);
+      if (r.private) throw new Error('Repository is not public');
       out.push({
         repo: r.full_name,
         description: r.description || '',
@@ -99,6 +104,7 @@ async function github(repos) {
       });
       process.stdout.write(`  ✓ ${r.full_name} — ${r.stargazers_count.toLocaleString()} stars\n`);
     } catch (err) {
+      if (err.fatal) throw err; // Abort before replacing any snapshot.
       warnings.push(`GitHub ${repo}: ${err.message}`);
       process.stdout.write(`  ✗ ${repo} — ${err.message}\n`);
     }
@@ -114,7 +120,6 @@ const SLUG = /^[\w.-]+\/[\w.-]+$/;
    search-backed feed needs: no forks, no archived, no dead repos, and a relevance
    re-check because GitHub's matcher is looser than the query implies. */
 async function discover(seeded) {
-  const since = new Date(Date.now() - CONFIG.discoverWindowDays * 86400000).toISOString().slice(0, 10);
   const headers = { accept: 'application/vnd.github+json' };
   if (process.env.GITHUB_TOKEN) headers.authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
 
@@ -123,7 +128,7 @@ async function discover(seeded) {
   let total = 0, incomplete = false;
   for (let page = 1; page <= CONFIG.discoverPages; page++) {
     const params = new URLSearchParams({
-      q: `${CONFIG.discoverQuery} fork:false archived:false is:public pushed:>=${since}`,
+      q: `${CONFIG.discoverQuery} fork:false archived:false is:public stars:>${CONFIG.minStars}`,
       sort: 'stars', order: 'desc', per_page: '100', page: String(page)
     });
     try {
@@ -134,6 +139,7 @@ async function discover(seeded) {
       pool.push(...items);
       if (items.length < 100) break;              // no further pages
     } catch (err) {
+      if (err.fatal) throw err; // Abort before replacing any snapshot.
       warnings.push(`GitHub discovery page ${page}: ${err.message}`);
       process.stdout.write(`  ✗ discovery page ${page} — ${err.message}\n`);
       break;
@@ -153,9 +159,12 @@ async function discover(seeded) {
 
     if (!SLUG.test(name) || seen.has(name.toLowerCase())) continue;
     if (r.private || r.fork || r.archived || r.disabled) continue;
-    if (!Number.isFinite(r.stargazers_count) || r.stargazers_count < CONFIG.minStars) { belowBar++; continue; }
-    // GitHub matches loosely; require the subject to actually be named.
-    if (!/\bhermes\b/i.test(`${name} ${desc}`) && !topics.includes('hermes-agent')) continue;
+    if (!Number.isFinite(r.stargazers_count) || r.stargazers_count <= CONFIG.minStars) { belowBar++; continue; }
+    // A search mention is not integration evidence; review upstream docs first.
+    if (!hermesSupport(name)) {
+      process.stdout.write(`  · needs Hermes documentation review: ${name}\n`);
+      continue;
+    }
 
     seen.add(name.toLowerCase());
     out.push({
@@ -278,11 +287,11 @@ async function reddit() {
 /* -------------------------------------------------------------------- main */
 
 const index = JSON.parse(await readFile(join(ROOT, 'data/index.json'), 'utf8'));
-const repos = [];
+const repos = Object.keys(HERMES_REPOSITORIES);
 for (const section of index.sections) {
   if (!section.file) continue;           // a computed section has nothing on disk
   const { items } = JSON.parse(await readFile(join(ROOT, 'data', section.file), 'utf8'));
-  for (const item of items) if (item.repo && !repos.includes(item.repo)) repos.push(item.repo);
+  for (const item of items) if (item.repo && hermesSupport(item.repo) && !repos.includes(item.repo.toLowerCase())) repos.push(item.repo.toLowerCase());
 }
 
 console.log(`\nGitHub (${repos.length} seeded repos)${process.env.GITHUB_TOKEN ? ` · authenticated via ${process.env.GITHUB_TOKEN_SOURCE || 'GITHUB_TOKEN'}` : ' · unauthenticated, 60 requests/hour'}`);
@@ -328,5 +337,5 @@ console.log(`\nWrote data/live.json — ${gh.length} repos (${seededData.length}
 if (warnings.length) {
   console.log(`\n${warnings.length} warning(s):`);
   for (const w of warnings) console.log(`  · ${w}`);
-  console.log('\nThose sources were left empty rather than filled with estimates.');
+  console.log('\nUnavailable sources retain their previous snapshots; no estimates were added.');
 }

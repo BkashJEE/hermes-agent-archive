@@ -1,9 +1,7 @@
 name: Deploy to GitHub Pages
 
-# The repo is private, and GitHub Pages doesn't serve private repos on a free plan.
-# Deploy is manual-only until it goes public — then put the push trigger back:
-#   push:
-#     branches: [main]
+# Historical workflow, disabled in GitHub Actions. This site publishes only to Vercel.
+# Do not enable or add a push trigger without owner approval.
 on:
   workflow_dispatch:
 
