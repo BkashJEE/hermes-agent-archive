@@ -19,7 +19,7 @@
  */
 
 import './env.mjs';
-import { githubStarFloor } from '../assets/js/github-policy.js';
+import { githubStarFloor, qualifiesStars } from '../assets/js/github-policy.js';
 import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
@@ -186,7 +186,7 @@ const candidates = [
 const beforeFloor = candidates.length;
 const popular = candidates.filter(c => {
   const floor = FLOOR[c.metric?.kind];
-  return floor === undefined ? false : c.metric.value >= floor;
+  return floor === undefined ? false : c.metric.kind === 'stars' ? qualifiesStars(c.metric.value, floor) : c.metric.value >= floor;
 });
 const dropped = beforeFloor - popular.length;
 

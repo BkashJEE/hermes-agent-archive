@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-09-25T07:48:33.191Z",
+  "classifiedAt": "2026-09-25T07:55:50.338Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -1985,10 +1985,10 @@
       "confidence": 0.55
     },
     "gh-hermes-agent": {
-      "input": "ee366103fc9f22b71766bf713ac1f9e0da2488e87f3b40dcd171f18ca1c538d0",
+      "input": "6890e39e4e8a57cf3693c54ccf62722aa47c7e75127fda718145668dcde77274",
       "usefulness": 0,
       "popularity": "widespread",
-      "confidence": 0.89
+      "confidence": 0.91
     },
     "jev-hermes-newsroom-with-jev-omarchy": {
       "input": "f33df236fb350388c648db1635e94c18475cdccd8e67074b11857c9d7ed37604",
@@ -4193,10 +4193,10 @@
       "confidence": 0.95
     },
     "kit-cc-switch": {
-      "input": "82827704151616e724fd14f95d11b0b09d5d9f937763c1b0bd581a61fa8f2012",
-      "usefulness": 2.21,
+      "input": "543ce06462dc1db487cc1132ba1e678cb147e260b63fa0b751089bdd9c612eef",
+      "usefulness": 2.19,
       "popularity": "widespread",
-      "confidence": 0.6
+      "confidence": 0.59
     },
     "kit-codegraph": {
       "input": "9186d086283e54046ffb82a0dd78a7a7e01d05a83f214c5a3be87002b37bfa61",
@@ -4211,16 +4211,16 @@
       "confidence": 0.52
     },
     "kit-claude-mem": {
-      "input": "d861db8d0807bbb3eb96e9a7329ec15f9f8fe2738ec432427ee06ba03ad888f4",
+      "input": "7cae01887896d8f7c80dd0f45407edc951557beadaad41a9581f5c44eafbd758",
       "usefulness": 2.25,
       "popularity": "widespread",
-      "confidence": 0.62
+      "confidence": 0.66
     },
     "kit-ruflo": {
-      "input": "736bc04777e16d67e2473dd227e620c4666fa3d1d685df8e7a345933d9129768",
-      "usefulness": 1.89,
+      "input": "b6b00f83ca62cb50b867dddbec5a6d311711e413077041e0c15d3e31dda865a2",
+      "usefulness": 2,
       "popularity": "widespread",
-      "confidence": 0.48
+      "confidence": 0.49
     },
     "gh-screenpipe-screenpipe": {
       "input": "0d535e585f51155637921d35fb2ffdc544a52ee037137eaa59c335b73ae22f9b",

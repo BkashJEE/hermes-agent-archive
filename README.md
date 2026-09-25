@@ -132,7 +132,7 @@ settings is caught.
 
 | Source | Floor | Override |
 | --- | --- | --- |
-| GitHub | 1,000 stars | `MIN_STARS=50000` |
+| GitHub | 50,000 stars | `MIN_STARS=100000` |
 | Hacker News | 300 points | `MIN_HN_POINTS=500` |
 | Reddit | 200 upvotes | `MIN_REDDIT_UPVOTES=400` |
 
@@ -140,7 +140,7 @@ Each shelf also caps at 10 sourced items, keeping the most popular — one fetch
 never bury what you wrote by hand. Override with `MAX_PER_SECTION`.
 
 ```bash
-MIN_STARS=50000 npm run sync     # a harsher bar for one run
+MIN_STARS=100000 npm run sync     # a harsher bar for one run
 ```
 
 ## Sourcing feeds every section, not just builds
@@ -299,7 +299,7 @@ Run `npm test` for ranking policy and cache regression checks.
 
 ### Repository eligibility and Trending
 
-Repository entries need at least 1,000 stars in a fetched public API snapshot.
+Repository entries need more than 50,000 stars in a fetched public API snapshot.
 Missing counts do not qualify. The same rule applies to curated and discovered
 repositories; stored content is retained. Discussions and community stories mirrored
 on GitHub are not repository entries and do not inherit the hosting repo's stars.
@@ -321,7 +321,7 @@ with **All Deployments** selected. The production domain, preview URLs and histo
 deployment URLs require authorized Vercel sign-in. Keep this setting when deploying
 new releases; only change it when the owner explicitly asks to make the site public.
 
-The GitHub floor defaults to 1,000 in `assets/js/github-policy.js`. `MIN_STARS` may
+The GitHub floor defaults to 50,000 in `assets/js/github-policy.js`. `MIN_STARS` may
 raise or lower it; non-negative integers are accepted and invalid values fail
 before writes. Fetches record `githubMinStars` so rendering and routing use the
 same policy. Use `npm run fetch -- --github-only` to update GitHub independently

@@ -18,7 +18,7 @@
  */
 
 import './env.mjs';
-import { githubStarFloor } from '../assets/js/github-policy.js';
+import { githubStarFloor, qualifiesStars } from '../assets/js/github-policy.js';
 import { recordGithubObservations } from '../assets/js/trends.js';
 import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
@@ -39,8 +39,8 @@ const CONFIG = {
 
   // Popularity floors. This archive is a "most viewed, most talked about" shelf,
   // so something nobody engaged with does not belong on it regardless of topic.
-  // Override per run: MIN_STARS=50000 node scripts/fetch-signals.mjs
-  // Jev judges relevance after the owner's default of 1,000 verified stars (MIN_STARS can raise or lower it).
+  // Override per run: MIN_STARS=100000 node scripts/fetch-signals.mjs
+  // Jev judges relevance after the owner's default of 50,000 verified stars (MIN_STARS can raise or lower it).
   minStars:         githubStarFloor(process.env.MIN_STARS),
   minHnPoints:      Number(process.env.MIN_HN_POINTS     ?? 300),
   minRedditUpvotes: Number(process.env.MIN_REDDIT_UPVOTES ?? 200)
@@ -124,7 +124,7 @@ async function discover(seeded) {
   let total = 0, incomplete = false;
   for (let page = 1; page <= CONFIG.discoverPages; page++) {
     const params = new URLSearchParams({
-      q: `${CONFIG.discoverQuery} fork:false archived:false is:public stars:>=${CONFIG.minStars}`,
+      q: `${CONFIG.discoverQuery} fork:false archived:false is:public stars:>${CONFIG.minStars}`,
       sort: 'stars', order: 'desc', per_page: '100', page: String(page)
     });
     try {
@@ -155,7 +155,7 @@ async function discover(seeded) {
 
     if (!SLUG.test(name) || seen.has(name.toLowerCase())) continue;
     if (r.private || r.fork || r.archived || r.disabled) continue;
-    if (!Number.isFinite(r.stargazers_count) || r.stargazers_count < CONFIG.minStars) { belowBar++; continue; }
+    if (!qualifiesStars(r.stargazers_count, CONFIG.minStars)) { belowBar++; continue; }
     // GitHub matches loosely; require the subject to actually be named.
     if (!/\bhermes\b/i.test(`${name} ${desc}`) && !topics.includes('hermes-agent')) continue;
 
