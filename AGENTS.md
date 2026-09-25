@@ -203,3 +203,7 @@ license does not relicense third-party quotes or data. Preserve NOTICE.md and
 source notices. Criticism of curation is welcome; route corrections through issues
 and security reports privately. Never claim a security audit or complete importer
 coverage based only on passing tests.
+
+The shared cutoff defaults to strictly more than 50,000 stars. MIN_STARS accepts
+non-negative integer overrides, and the fetched githubMinStars value controls
+routing, rendering and Trending. Invalid values fail before writes.

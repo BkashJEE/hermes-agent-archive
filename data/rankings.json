@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-09-25T07:51:00.929Z",
+  "classifiedAt": "2026-09-25T08:06:36.407Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -1253,10 +1253,10 @@
       "confidence": 1
     },
     "story-awesome-hermes-agent-community-curated-skills-list": {
-      "input": "937af5eaf5e9f72dc4afead7f136b730b8c26a7168785baad6bd316cfca67139",
-      "usefulness": 0.61,
+      "input": "9362dc318c059dff6b6149a023ff6efc12f99aaf9634a32f61dc00b4bff8ea25",
+      "usefulness": 0.65,
       "popularity": "strong",
-      "confidence": 0.49
+      "confidence": 0.46
     },
     "story-hermes-over-imessage-on-my-always-on-mac-studio": {
       "input": "5bf1c46e7e681845b2ec9ffd71eaff0343976ce4c212eb237e4c20a75ae94494",
@@ -1985,10 +1985,10 @@
       "confidence": 0.55
     },
     "gh-hermes-agent": {
-      "input": "089505f0266125cf7247de317bbe3922626a8d1b481b642f23ecca6d3f4a90c4",
+      "input": "6890e39e4e8a57cf3693c54ccf62722aa47c7e75127fda718145668dcde77274",
       "usefulness": 0,
       "popularity": "widespread",
-      "confidence": 0.92
+      "confidence": 0.91
     },
     "jev-hermes-newsroom-with-jev-omarchy": {
       "input": "f33df236fb350388c648db1635e94c18475cdccd8e67074b11857c9d7ed37604",
@@ -2051,10 +2051,10 @@
       "confidence": 0.34
     },
     "gh-jnmetacode-superpowers-zh": {
-      "input": "eabacc4a0324ff9ef1f4ce45f0e5c995756fd6c581ef8d80332f3efef0a4ea8b",
-      "usefulness": 0.2,
+      "input": "333710a4eddd7824349b39a58ce38fc32101cf40d7acf8810293b9c740f8dba9",
+      "usefulness": 0.19,
       "popularity": "strong",
-      "confidence": 0.43
+      "confidence": 0.39
     },
     "gh-conorbronsdon-avoid-ai-writing": {
       "input": "1473f9162ede2fb477f4e242070c711fcfa1e41563721c9755ef274749be8ee0",
@@ -2274,9 +2274,9 @@
     },
     "cli-hermes-model": {
       "input": "d574bede9f45ce4f386b8abb892ba2ec3f2fa8320323d80f40dc1ebbe8da2abb",
-      "usefulness": 1.83,
+      "usefulness": 1.92,
       "popularity": "unknown",
-      "confidence": 0.36
+      "confidence": 0.41
     },
     "cli-hermes-moa": {
       "input": "da286b65ebe2ee5810fa00febc9b4b575851ee4e3531ec078959fa5b13ddbf9b",
@@ -2286,9 +2286,9 @@
     },
     "cli-hermes-fallback": {
       "input": "0ce017e4e68316fbe707d0b2aad7ed85b5b7c67c826cab974bb64c0866efc745",
-      "usefulness": 0.88,
+      "usefulness": 0.87,
       "popularity": "unknown",
-      "confidence": 0.71
+      "confidence": 0.7
     },
     "cli-hermes-gateway": {
       "input": "825721e46f3f76171b7b20b922b57cbb4d303868ad20e4952275db704a9f5230",
@@ -2298,9 +2298,9 @@
     },
     "cli-hermes-proxy": {
       "input": "5895c204d710c8a482400fa1070ba7bdd90c98a798227fd4016e188492794b1b",
-      "usefulness": 1.75,
+      "usefulness": 1.62,
       "popularity": "unknown",
-      "confidence": 0.52
+      "confidence": 0.44
     },
     "cli-hermes-egress": {
       "input": "3ed65f53a89a0ff74f08e71c7d091544bbc4e426571ff983f0633dea99f3840b",
@@ -2316,15 +2316,15 @@
     },
     "cli-hermes-setup": {
       "input": "7a6609a629a62b37a652f1e129d51ad11624ca470ccec978d0f2c37e159018ad",
-      "usefulness": 1.87,
+      "usefulness": 1.76,
       "popularity": "unknown",
-      "confidence": 0.47
+      "confidence": 0.46
     },
     "cli-hermes-whatsapp": {
       "input": "b8123b814bdbed2ef5fb26efef8aad27f89990f43e08b5fe3be203e1edd752c7",
-      "usefulness": 0.83,
+      "usefulness": 0.79,
       "popularity": "unknown",
-      "confidence": 0.68
+      "confidence": 0.66
     },
     "cli-hermes-whatsapp-cloud": {
       "input": "11647963b8a1ebd9eff3e759347f4d5114cebaf6f1b53110d98b836a1ddca71c",
@@ -2340,9 +2340,9 @@
     },
     "cli-hermes-auth": {
       "input": "7c1abccf21e8f42acbbf2768cd4434a18c9ed0271ab4056343c7c606321e8c01",
-      "usefulness": 1.49,
+      "usefulness": 1.39,
       "popularity": "unknown",
-      "confidence": 0.43
+      "confidence": 0.47
     },
     "cli-hermes-send": {
       "input": "8103c417eaa1ff23f998184b77ec46af4bd5278a123c1872172a79c6fc8c230a",
@@ -2354,25 +2354,25 @@
       "input": "b344b8dd8b3e930cad317f6a95ddfd69d9129af156ad9dd31cc5baa001050e87",
       "usefulness": 2.8,
       "popularity": "unknown",
-      "confidence": 0.67
+      "confidence": 0.65
     },
     "cli-hermes-secrets": {
       "input": "c712f4b1e8ef6a049414ae45394fd6a287a2e47207cec6914c5dadacff25d561",
-      "usefulness": 1.49,
+      "usefulness": 1.52,
       "popularity": "unknown",
-      "confidence": 0.54
+      "confidence": 0.52
     },
     "cli-hermes-migrate": {
       "input": "ebebc136c001ad80eca59cbe8c509e01f6a14b07f253134942a0d910f14c3c6b",
-      "usefulness": 2.15,
+      "usefulness": 2.17,
       "popularity": "unknown",
-      "confidence": 0.55
+      "confidence": 0.54
     },
     "cli-hermes-codex-runtime": {
       "input": "738c7e5f25e5b3c6b37bbf73080cd68be269fdbd8afedb8cdca8a114d4915efa",
-      "usefulness": 2.85,
+      "usefulness": 2.89,
       "popularity": "unknown",
-      "confidence": 0.67
+      "confidence": 0.69
     },
     "cli-hermes-status": {
       "input": "f8566bd5e15294c432d228fca481fa83c0996b93bce11d580cbcaf6274546deb",
@@ -2382,27 +2382,27 @@
     },
     "cli-hermes-usage": {
       "input": "fe5717b6c4a8c6931190493a96ddff256d62e391a37939d8bc22fcce1f1ba634",
-      "usefulness": 3.19,
+      "usefulness": 3.11,
       "popularity": "unknown",
-      "confidence": 0.52
+      "confidence": 0.56
     },
     "cli-hermes-cron": {
       "input": "0eb038cc76ca65138f951fcef81779aa26afaeb1eaadab4d24e1365b5cf93887",
-      "usefulness": 1.76,
+      "usefulness": 1.75,
       "popularity": "unknown",
-      "confidence": 0.4
+      "confidence": 0.39
     },
     "cli-hermes-kanban": {
       "input": "5e80e413509d4e435b7c59c90e21bcb2ad42a4781a851be0adf81bbafed4304b",
-      "usefulness": 2.2,
+      "usefulness": 2.22,
       "popularity": "unknown",
-      "confidence": 0.26
+      "confidence": 0.28
     },
     "cli-hermes-project": {
       "input": "0e00ec3b0624e10e012a38eb48fd07ea7f715e9286523a073add1f06b16381cd",
-      "usefulness": 1.44,
+      "usefulness": 1.45,
       "popularity": "unknown",
-      "confidence": 0.58
+      "confidence": 0.57
     },
     "cli-hermes-webhook": {
       "input": "6f2644c5ccdc4a01dba221c1fd67216d00793885af6efb01ed5b31922f71a03a",
@@ -2412,15 +2412,15 @@
     },
     "cli-hermes-hooks": {
       "input": "73ebb9b29fa31c839316ecb343426dae59ca23a7ae7a03d5f1a8d85439cd1c82",
-      "usefulness": 1.87,
+      "usefulness": 1.8,
       "popularity": "unknown",
-      "confidence": 0.58
+      "confidence": 0.56
     },
     "cli-hermes-doctor": {
       "input": "70c3ef2988e2f1e8b715d405582c93e13a077fa146283833c662f8b0be7faf04",
-      "usefulness": 3.15,
+      "usefulness": 3.17,
       "popularity": "unknown",
-      "confidence": 0.65
+      "confidence": 0.63
     },
     "cli-hermes-security-audit": {
       "input": "29991403da394810ea5f30d4c9dd000784f5f13e3da43d2e1e647a992534a0e7",
@@ -2436,45 +2436,45 @@
     },
     "cli-hermes-dump": {
       "input": "2d8eff36f6dde27770c7cda1d99a2dab34c1bc954e2d6b0be678d87a040f968a",
-      "usefulness": 1.41,
+      "usefulness": 1.43,
       "popularity": "unknown",
-      "confidence": 0.45
+      "confidence": 0.44
     },
     "cli-hermes-prompt-size": {
       "input": "29a359d91e74f92e3d914720ce8fcd6a2d6ecaf493b6b4b3a8f557d1b78c07b2",
-      "usefulness": 2.9,
-      "popularity": "unknown",
-      "confidence": 0.68
-    },
-    "cli-hermes-debug": {
-      "input": "ccfb71798b7e2a74d01f5053fabb6675d4287ca5a2e3e89d65af0f3402b6bbae",
-      "usefulness": 3.05,
-      "popularity": "unknown",
-      "confidence": 0.74
-    },
-    "cli-hermes-backup": {
-      "input": "9ac4feb0da6d8db127037b5f9c441d899e67a866830cbdc6dafdc8996ea743be",
-      "usefulness": 3.13,
+      "usefulness": 2.94,
       "popularity": "unknown",
       "confidence": 0.66
     },
+    "cli-hermes-debug": {
+      "input": "ccfb71798b7e2a74d01f5053fabb6675d4287ca5a2e3e89d65af0f3402b6bbae",
+      "usefulness": 3.01,
+      "popularity": "unknown",
+      "confidence": 0.75
+    },
+    "cli-hermes-backup": {
+      "input": "9ac4feb0da6d8db127037b5f9c441d899e67a866830cbdc6dafdc8996ea743be",
+      "usefulness": 3.16,
+      "popularity": "unknown",
+      "confidence": 0.63
+    },
     "cli-hermes-checkpoints": {
       "input": "7d21194add9ffb33b6f2d50ef4281f427de852f8e729f7099962e46e763c7bbc",
-      "usefulness": 1.45,
+      "usefulness": 1.41,
       "popularity": "unknown",
-      "confidence": 0.54
+      "confidence": 0.57
     },
     "cli-hermes-import": {
       "input": "ee50b9df48c1c21b015ab562f96e4cb68b35ce2d55dadc045da03ee968d9db07",
-      "usefulness": 2.01,
+      "usefulness": 1.99,
       "popularity": "unknown",
       "confidence": 0.5
     },
     "cli-hermes-logs": {
       "input": "ee4c181f0439e9d23641f34bdcb9fdb3e5efa1cfaafff73347f6b4fa170d5eed",
-      "usefulness": 1.23,
+      "usefulness": 1.41,
       "popularity": "unknown",
-      "confidence": 0.58
+      "confidence": 0.49
     },
     "cli-hermes-config": {
       "input": "00bc4fd106d1630445f01b3e354ffad7be6cee7eb517325ce15a49d45fa24a00",
@@ -2514,43 +2514,43 @@
     },
     "cli-hermes-curator": {
       "input": "e6c29fd545d2c136821ba0e7c3a20e0f20b9073eb3871a516a7b83f9d7758f93",
-      "usefulness": 2.11,
+      "usefulness": 2.04,
       "popularity": "unknown",
-      "confidence": 0.48
+      "confidence": 0.47
     },
     "cli-hermes-memory": {
       "input": "a9cdad6826c8df5a0b94823e264fc786b696d92588440861649f4ce26616ea8d",
-      "usefulness": 1.38,
+      "usefulness": 1.42,
       "popularity": "unknown",
-      "confidence": 0.53
+      "confidence": 0.51
     },
     "cli-hermes-acp": {
       "input": "068cd8563e291811631dfcedeb69d6eff08bcf85409203c49d5c1980aec0f7b7",
-      "usefulness": 0.82,
+      "usefulness": 0.73,
       "popularity": "unknown",
-      "confidence": 0.68
+      "confidence": 0.65
     },
     "cli-hermes-mcp": {
       "input": "07eafc5eba0e988533cbce3e3a542b62c8fe9dbe408b8a551812a5655b78b7d0",
-      "usefulness": 0.41,
+      "usefulness": 0.44,
       "popularity": "unknown",
-      "confidence": 0.66
+      "confidence": 0.64
     },
     "cli-hermes-plugins": {
       "input": "48ecc825a621bd94ecd3ff68b143a6720cb8dc06d9051d44890e394e075cc377",
-      "usefulness": 1.94,
+      "usefulness": 1.96,
       "popularity": "unknown",
-      "confidence": 0.56
+      "confidence": 0.53
     },
     "cli-hermes-portal": {
       "input": "c30aa4d804729ce5b93e4278c3dd9e713fa464275c8a2ff75dabf2b06ae564d9",
-      "usefulness": 0.3,
+      "usefulness": 0.26,
       "popularity": "unknown",
-      "confidence": 0.75
+      "confidence": 0.78
     },
     "cli-hermes-tools": {
       "input": "812ee5ba3e6bf0c02be7530f14066894167cfeba28acaf5766040d49fb1de930",
-      "usefulness": 0.57,
+      "usefulness": 0.56,
       "popularity": "unknown",
       "confidence": 0.53
     },
@@ -2562,9 +2562,9 @@
     },
     "cli-hermes-pets": {
       "input": "931b32b5f5dbaa87655d41e9ebe0380eab778b64963148c5dd4ab9bc4d7744c3",
-      "usefulness": 0.83,
+      "usefulness": 0.82,
       "popularity": "unknown",
-      "confidence": 0.68
+      "confidence": 0.67
     },
     "cli-hermes-sessions": {
       "input": "743dea84a7b1d8638652f09109b8a14337f571e6a7cb574b6dbaa3ab658d1513",
@@ -2580,21 +2580,21 @@
     },
     "cli-hermes-claw": {
       "input": "5e88927cebee88035191e247ff7b3a4441f27344750260df335cc4ee7ac7da3a",
-      "usefulness": 1.83,
+      "usefulness": 1.85,
       "popularity": "unknown",
       "confidence": 0.53
     },
     "cli-hermes-import-agent": {
       "input": "95076feb6d0ff2857f1b7b4a190416dcfe8f8240be095d37c3c92acf24723e07",
-      "usefulness": 3.04,
+      "usefulness": 3.02,
       "popularity": "unknown",
       "confidence": 0.77
     },
     "cli-hermes-dashboard": {
       "input": "c1eda2ea12ff640fc6f0ddc0b53b1f59ea7cf71da8ea7c645dc90e153e4fa2fc",
-      "usefulness": 2.2,
+      "usefulness": 2.28,
       "popularity": "unknown",
-      "confidence": 0.29
+      "confidence": 0.35
     },
     "cli-hermes-serve": {
       "input": "07963689a30167d29607ea587661e19474e4cf6d6a9f4cca1dd1413f8662eb47",
@@ -2610,9 +2610,9 @@
     },
     "cli-hermes-completion": {
       "input": "51dd753f6e008d4a65fda6adf29e3955060335fd15ca9d918addbdb1bf3bd7b4",
-      "usefulness": 1.37,
+      "usefulness": 1.42,
       "popularity": "unknown",
-      "confidence": 0.47
+      "confidence": 0.48
     },
     "cli-hermes-version": {
       "input": "33533f47f2cf8518d48ec39e1e077e3c40048b8e211f0410624bcf6512a90d2e",
@@ -4193,46 +4193,46 @@
       "confidence": 0.95
     },
     "kit-cc-switch": {
-      "input": "0305de50b5d32213205746d341b20178bd8b0420a57ca83d48ef82f915058008",
-      "usefulness": 2.2,
+      "input": "543ce06462dc1db487cc1132ba1e678cb147e260b63fa0b751089bdd9c612eef",
+      "usefulness": 2.19,
       "popularity": "widespread",
-      "confidence": 0.55
+      "confidence": 0.59
     },
     "kit-codegraph": {
-      "input": "8a0399cbaa713565417d24f7ca8fdab044017b459e05159f7e4ea663cedfc26c",
+      "input": "e07c57561807155f40496b21eb1550ce07912f927b4199eff18fdd51d780d809",
       "usefulness": 2.89,
       "popularity": "widespread",
-      "confidence": 0.47
+      "confidence": 0.5
     },
     "kit-gbrain": {
-      "input": "fd6bd5ea637b54160436f4181bd3763b842e51331f90dbce0ba5d048d45c6455",
-      "usefulness": 2.19,
+      "input": "0b0eb6d783a7a4f50b6bc6224a85facf138bcd015874e712a84b2a4cb0c1a9d5",
+      "usefulness": 2.23,
       "popularity": "strong",
-      "confidence": 0.51
+      "confidence": 0.52
     },
     "kit-claude-mem": {
-      "input": "1a8971695b4e07dee171df1d12700dc58899d7a56c4cd88482d62faa559b554e",
-      "usefulness": 2.22,
+      "input": "7cae01887896d8f7c80dd0f45407edc951557beadaad41a9581f5c44eafbd758",
+      "usefulness": 2.25,
       "popularity": "widespread",
-      "confidence": 0.61
+      "confidence": 0.66
     },
     "kit-ruflo": {
-      "input": "1ef100d88bbd4b54cd8661a1991fb00cb17aa6f2d61a1755e79f9e1a42e587cb",
-      "usefulness": 1.91,
+      "input": "b6b00f83ca62cb50b867dddbec5a6d311711e413077041e0c15d3e31dda865a2",
+      "usefulness": 2,
       "popularity": "widespread",
-      "confidence": 0.48
+      "confidence": 0.49
     },
     "gh-screenpipe-screenpipe": {
-      "input": "d8c73174b4cf57f5142ef45564b470e1fdbae6af4fa23818824abbc285d4a927",
-      "usefulness": 0.89,
+      "input": "0d535e585f51155637921d35fb2ffdc544a52ee037137eaa59c335b73ae22f9b",
+      "usefulness": 0.88,
       "popularity": "strong",
       "confidence": 0.62
     },
     "gh-jnmetacode-agency-agents-zh": {
-      "input": "ced0afee16fdcd5283e5bb0dfa329048938749874d2690b0f9c119a8a387e290",
-      "usefulness": 1.42,
+      "input": "60223472e5f2a2a0ad734f893b6071c28cf5e48aaca636ad1dd4393482588a76",
+      "usefulness": 1.41,
       "popularity": "strong",
-      "confidence": 0.34
+      "confidence": 0.37
     },
     "gh-waishnav-devspace": {
       "input": "91442dba686ed77adc65155b037c06de0367e5b679a2a890cebbff08b6b014b7",
@@ -4241,22 +4241,22 @@
       "confidence": 0.74
     },
     "gh-liustack-modlens": {
-      "input": "29ae9571bdf0a3ae0edf1837352319da834fa89534fa86b9a2ddbc48c7087a15",
-      "usefulness": 1.24,
+      "input": "417631b0cc7e11885b63283aee4ec8eea00d4565a3eb9457d0366423ae526ec0",
+      "usefulness": 1.29,
       "popularity": "strong",
-      "confidence": 0.5
+      "confidence": 0.49
     },
     "gh-mnemosyne-oss-mnemosyne": {
-      "input": "2b81555f063bdd8950d2f80d2e456313b9b756e8b2bc8a63e556ee4245cef0cb",
-      "usefulness": 0.48,
+      "input": "844a87258a7cff5be6d296831c9883e549b2d8c17226c5cf882d330a94fd1ed6",
+      "usefulness": 0.46,
       "popularity": "strong",
-      "confidence": 0.4
+      "confidence": 0.52
     },
     "gh-liaohch3-claude-tap": {
-      "input": "140e5da1a6283ff6f60378ccb0421526fb7fceb2e7e745ca305600f377a9df25",
-      "usefulness": 1.65,
+      "input": "d3941ce312c203ca49eb40fbbc4d5e4fa52a339d5c39f72f59648ba0d4525b78",
+      "usefulness": 1.63,
       "popularity": "strong",
-      "confidence": 0.55
+      "confidence": 0.54
     },
     "gh-harnessrouter-harnessrouter": {
       "input": "8d89c11f7db4c43069c527e4db3dce5828cccfa7426dd44d0734adb4709de482",
@@ -4277,10 +4277,10 @@
       "confidence": 0.48
     },
     "gh-lennney-stop-that-shit": {
-      "input": "2b7d0eb8a12917f10f6dbe9745410d49c0f5bbd7a3cfbda224a6b69559c485d5",
-      "usefulness": 1.35,
+      "input": "e5f0cd651f13f8bd79373db30f54e20f5e0d5dc6a8321203b584547d6140926a",
+      "usefulness": 1.4,
       "popularity": "strong",
-      "confidence": 0.51
+      "confidence": 0.55
     },
     "prompt-parallel-research": {
       "input": "b41bb3a982e727c41754513bb9c02e9be1641c40776380f3cd36bfc809c9d4b5",
@@ -4451,16 +4451,52 @@
       "confidence": 0.45
     },
     "kit-open-design": {
-      "input": "813e98fb3e6e95aeaa818e3b56ecff43c89bd08c8f26fb502b685d4e78d6de04",
-      "usefulness": 1.7,
+      "input": "bb959186473d09d6e32c26f77e75e81467afd06e03d8fbafe8444af3e84ffd7c",
+      "usefulness": 1.67,
       "popularity": "widespread",
-      "confidence": 0.55
+      "confidence": 0.53
     },
     "kit-unsloth": {
       "input": "951b24bf6df23c2d1356655cc1a0488e6eefb68e224456a626fe7e1e8c146900",
       "usefulness": 1.28,
       "popularity": "widespread",
       "confidence": 0.65
+    },
+    "gh-internet-court-internet-court-skill": {
+      "input": "a323123cc389079ff27879d48f0a63f5cef12c2f053697293ac4d11598ad4fcc",
+      "usefulness": 0.57,
+      "popularity": "strong",
+      "confidence": 0.53
+    },
+    "gh-ksimback-hermes-ecosystem": {
+      "input": "7f62b3640308b1a68b62ca69af8303b6404b717ab7d5814a321bc33d29411c67",
+      "usefulness": 0.84,
+      "popularity": "established",
+      "confidence": 0.39
+    },
+    "gh-prompt-security-clawsec": {
+      "input": "0906d3176e4b0f792339ff226241e01050c47e2f1d2bedde6b158c600862641e",
+      "usefulness": 0.84,
+      "popularity": "strong",
+      "confidence": 0.3
+    },
+    "gh-citrolabs-ego-lite": {
+      "input": "a7c82860c6436b957bece1de86df7d791750c719c4be2a91ec18480c0a3b0a1b",
+      "usefulness": 0.7,
+      "popularity": "strong",
+      "confidence": 0.42
+    },
+    "gh-nousresearch-hermes-agent-self-evolution": {
+      "input": "cef703b77788569734fccc2ad014b76921195d36c88bde3af196ed8c4c73a789",
+      "usefulness": 0.69,
+      "popularity": "strong",
+      "confidence": 0.6
+    },
+    "gh-alchaincyf-hermes-agent-orange-book": {
+      "input": "7a876844bf65eee9678e1ff6d185ef72c10a1d3f1c1cf15bcc32d984614ee80c",
+      "usefulness": 0.07,
+      "popularity": "strong",
+      "confidence": 0.74
     }
   }
 }

@@ -64,7 +64,7 @@ npm test
 
 `GITHUB_TOKEN` supports authenticated GitHub requests. Reddit fetching uses `REDDIT_CLIENT_ID` and `REDDIT_CLIENT_SECRET`; refreshes may fail without them. `TYPESAFE_API_KEY` enables Jev. Configured shell variables take precedence over `.env`. Never use source-refresh jobs as a deployment trigger.
 
-`MIN_STARS`, `MIN_HN_POINTS`, `MIN_REDDIT_UPVOTES` and `MAX_PER_SECTION` configure sourcing. The hosted default remains more than 50,000 GitHub stars; see the shared policy module and pending policy PR for override behavior. Existing stored records are retained when excluded from display. Failed runs must preserve the previous data and exit nonzero.
+`MIN_STARS`, `MIN_HN_POINTS`, `MIN_REDDIT_UPVOTES` and `MAX_PER_SECTION` configure sourcing. The hosted default remains more than 50,000 GitHub stars; the shared policy module accepts explicit non-negative integer overrides in either direction. Fetches record the effective cutoff so routing, rendering and Trending agree. Use `npm run fetch -- --github-only` to refresh GitHub separately. Existing stored records are retained when excluded from display. Failed runs must preserve the previous data and exit nonzero.
 
 Existing import commands:
 

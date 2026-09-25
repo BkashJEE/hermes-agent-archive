@@ -1,5 +1,6 @@
 /* Use-Case Archive — data loading, filtering, rendering. No framework, no build step. */
 
+import { githubStarFloor } from './github-policy.js';
 import { sectionIcon } from './icons.js?v=launch-10';
 import { mergeLive, trendingItems } from './archive.js?v=hermes-50k';
 import { cardPoints, cardCategory } from './card-preview.js?v=launch-10';
@@ -63,6 +64,7 @@ async function load() {
 
   state.live = await getJSON('data/live.json').catch(() => null);
   mergeLive(state.data, state.live);
+  $('#githubFloor').textContent = num(githubStarFloor(state.live?.githubMinStars));
   const rankings = await getJSON('data/rankings.json').catch(() => null);
   await attachRankings(Object.values(state.data).flat(), rankings);
 }
@@ -70,7 +72,7 @@ async function load() {
 /* -------------------------------------------------------------- filters */
 
 const activeSort = () => state.section === 'trending' ? 'trending' : state.sort;
-const shelfItems = id => id === 'trending' ? trendingItems(state.data) : (state.data[id] || []);
+const shelfItems = id => id === 'trending' ? trendingItems(state.data, state.live?.githubMinStars) : (state.data[id] || []);
 
 function matches(item, sort = state.sort) {
   if (sort === 'trending' && !item.trend) return false;

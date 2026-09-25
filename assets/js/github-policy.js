@@ -54,7 +54,15 @@ export const HERMES_REPOSITORIES = {
   }
 };
 
-export const qualifiesStars = stars => Number.isFinite(stars) && stars > MIN_GITHUB_STARS;
+export function githubStarFloor(value = MIN_GITHUB_STARS) {
+  if (value === null || !['string','number'].includes(typeof value)) throw new Error('MIN_STARS must be a non-negative integer');
+  if (typeof value === 'string' && !value.trim()) return MIN_GITHUB_STARS;
+  const floor = Number(value);
+  if (!Number.isSafeInteger(floor) || floor < 0) throw new Error('MIN_STARS must be a non-negative integer');
+  return floor;
+}
+export const qualifiesStars = (stars, floor = MIN_GITHUB_STARS) =>
+  Number.isFinite(stars) && stars > githubStarFloor(floor);
 export const hermesSupport = (repo, reviews = HERMES_REPOSITORIES) => reviews[repo?.toLowerCase()] || null;
-export const qualifiesRepository = (repo, stars, reviews = HERMES_REPOSITORIES) =>
-  qualifiesStars(stars) && !!hermesSupport(repo, reviews);
+export const qualifiesRepository = (repo, stars, reviews = HERMES_REPOSITORIES, floor = MIN_GITHUB_STARS) =>
+  qualifiesStars(stars, floor) && !!hermesSupport(repo, reviews);

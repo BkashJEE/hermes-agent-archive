@@ -3,7 +3,7 @@
    hand-written, and nothing is estimated. */
 import { githubTrend } from './trends.js';
 
-import { HERMES_REPOSITORIES, qualifiesStars, qualifiesRepository, hermesSupport } from './github-policy.js';
+import { githubStarFloor, HERMES_REPOSITORIES, qualifiesStars, qualifiesRepository, hermesSupport } from './github-policy.js';
 export { MIN_GITHUB_STARS } from './github-policy.js';
 
 export function githubRepo(item) {
@@ -20,6 +20,7 @@ export function githubRepo(item) {
 }
 
 export function mergeLive(data, live, reviews = HERMES_REPOSITORIES) {
+  const floor = githubStarFloor(live?.githubMinStars);
   /* A fetched snapshot is the only thing that may supply engagement, with one
      exception: an entry that names where its figure came from. The rule is that
      every number states its source, not that every number comes from an API —
@@ -42,7 +43,7 @@ export function mergeLive(data, live, reviews = HERMES_REPOSITORIES) {
       // The visibility rule applies to every shelf, including URL-only entries.
       // Stored content is retained so a later public count can qualify it again.
       const repo = githubRepo(item), observation = byRepo.get(repo);
-      if (repo && !qualifiesRepository(repo, observation?.stars, reviews)) return false;
+      if (repo && !qualifiesRepository(repo, observation?.stars, reviews, floor)) return false;
       item.trend = githubTrend(observation);
       // A credited entry never took part in the qualification above, so there is
       // no fetched observation to attach — leave it exactly as written.
@@ -68,7 +69,7 @@ export function mergeLive(data, live, reviews = HERMES_REPOSITORIES) {
     const repo = githubRepo(raw);
     const observation = byRepo.get(repo);
     const stars = observation?.stars;
-    if ((repo || raw.metric?.kind === 'stars') && !qualifiesRepository(repo, stars, reviews)) return;
+    if ((repo || raw.metric?.kind === 'stars') && !qualifiesRepository(repo, stars, reviews, floor)) return;
     if (seenIds.has(raw.id) || (raw.url && seenUrls.has(raw.url))) return;
     if (!data[sectionId]) return;
     seenIds.add(raw.id); if (raw.url) seenUrls.add(raw.url);
@@ -120,11 +121,11 @@ export function mergeLive(data, live, reviews = HERMES_REPOSITORIES) {
 }
 
 // A computed shelf: references existing entries without duplicating archive totals.
-export function trendingItems(data) {
+export function trendingItems(data, floor) {
   const repos = new Map();
   for (const item of Object.values(data).flat()) {
     const repo = githubRepo(item);
-    if (repo && item.trend && item.metric?.kind === 'stars' && qualifiesStars(item.metric.value) && !repos.has(repo))
+    if (repo && item.trend && item.metric?.kind === 'stars' && qualifiesStars(item.metric.value, floor) && !repos.has(repo))
       repos.set(repo, item);
   }
   return [...repos.values()].sort((a, b) => b.trend.perDay - a.trend.perDay || a.title.localeCompare(b.title));

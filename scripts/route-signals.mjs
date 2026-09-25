@@ -19,7 +19,7 @@
  */
 
 import './env.mjs';
-import { MIN_GITHUB_STARS, qualifiesRepository } from '../assets/js/github-policy.js';
+import { githubStarFloor, qualifiesRepository } from '../assets/js/github-policy.js';
 import { githubRepo } from '../assets/js/archive.js';
 import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
@@ -34,7 +34,7 @@ const KEY = process.env.TYPESAFE_API_KEY;
 const FLOOR = {
   // Must match the fetcher's floor — two defaults drifting apart silently cut
   // candidates the fetcher deliberately collected. Substance is Jev's call.
-  stars:   Math.max(MIN_GITHUB_STARS, Number(process.env.MIN_STARS ?? MIN_GITHUB_STARS)),
+  stars:   githubStarFloor(process.env.MIN_STARS),
   points:  Number(process.env.MIN_HN_POINTS      ?? 300),
   upvotes: Number(process.env.MIN_REDDIT_UPVOTES ?? 200)
 };
@@ -153,6 +153,8 @@ async function routeWithJev(items) {
 /* --------------------------------------------------------------------- main */
 
 const live = JSON.parse(await readFile(join(ROOT, 'data/live.json'), 'utf8'));
+FLOOR.stars = githubStarFloor(process.env.MIN_STARS ?? live.githubMinStars);
+live.githubMinStars = FLOOR.stars;
 
 // Everything already curated by hand wins; a fetched duplicate is dropped.
 const curatedUrls = new Set();
@@ -185,7 +187,7 @@ const candidates = [
 const beforeFloor = candidates.length;
 const popular = candidates.filter(c => {
   if (c.metric?.kind === 'stars')
-    return qualifiesRepository(githubRepo(c), c.metric.value) && c.metric.value > FLOOR.stars;
+    return qualifiesRepository(githubRepo(c), c.metric.value, undefined, FLOOR.stars);
   const floor = FLOOR[c.metric?.kind];
   return floor === undefined ? false : c.metric.value >= floor;
 });
