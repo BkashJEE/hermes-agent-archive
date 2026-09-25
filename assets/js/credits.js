@@ -1,7 +1,7 @@
 /* Credit recorded authors; a GitHub account identifies the repository owner,
    not necessarily the person who wrote every contribution. */
 export function creditFor(item) {
-  if (item.author?.trim()) return { label: 'By', name: item.author.trim() };
+  if (item.author?.trim() && !/^r\//i.test(item.author.trim())) return { label: 'By', name: item.author.trim() };
   if (item.source === 'docs' && item.url) {
     try {
       if (new URL(item.url).hostname === 'hermes-agent.nousresearch.com')
@@ -16,5 +16,5 @@ export function creditFor(item) {
         return { label: 'Repository owner', name: parts[0] };
     } catch { /* An invalid link cannot establish ownership. */ }
   }
-  return { label: 'Author', name: 'not provided by source' };
+  return { label: 'Author', name: 'not recorded' };
 }

@@ -71,12 +71,12 @@ code{font-family:var(--mono);font-size:.92em}
 .topbar{
   position:sticky;top:0;z-index:40;
   display:flex;align-items:center;gap:12px;
-  height:var(--top-h);padding:0 14px;
+  min-height:56px;padding:8px 16px;
   background:var(--top-glass);
   backdrop-filter:blur(14px);
   border-bottom:1px solid var(--line);
 }
-.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand{display:flex;align-items:center;gap:10px;min-width:0;flex:none}
 .brand-mark{
   display:grid;place-items:center;width:28px;height:28px;flex:none;
   border:1px solid var(--accent-line);border-radius:7px;
@@ -542,10 +542,20 @@ code{font-family:var(--mono);font-size:.92em}
 
 .sidebar-scrim{position:fixed;inset:var(--top-h) 0 0;z-index:35;background:var(--scrim)}
 
+.load-more{display:flex;align-items:center;justify-content:center;gap:16px;margin:24px 0;color:var(--ink-dim);font-size:12px}
+.load-more p{margin:0}
+.d-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:18px}
+.d-share{width:100%;margin-top:12px;padding:10px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--panel);font-family:var(--mono);font-size:11px}
 /* ---------- responsive ---------- */
 @media (max-width:1180px){
   .brand-text small{display:none}
   .updated{display:none}
+}
+@media (min-width:641px) and (max-width:960px){
+  .topbar{flex-wrap:wrap;gap:8px}
+  .brand{margin-right:auto}
+  .topbar .search{order:2;flex:1 1 60%}
+  .topbar>#sourceSel{order:2;max-width:200px}
 }
 @media (max-width:960px){
   :root{--side-w:0px}
