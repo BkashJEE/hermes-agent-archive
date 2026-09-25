@@ -176,6 +176,15 @@ function card(item, rank, iconName) {
 /* A shelf that is filtered to nothing looks exactly like a shelf that holds
    nothing. The counts must say which it is, or a reader concludes the site is
    broken — which is precisely what happened when a source filter was left on. */
+/* Clearing the filters hides the button that did it, so send focus to the shelf
+   heading instead of letting it fall back to <body> and lose the reader's place. */
+function afterClearFocus() {
+  const btn = $('#clearBtn');
+  if (btn && !btn.hidden) { btn.focus(); return; }
+  const title = $('#heroTitle');
+  if (title) title.focus();
+}
+
 function filtersActive() {
   // state.range is undefined when the config ships no ranges, and undefined is
   // not 'all' — comparing carelessly marked every shelf as filtered.
@@ -224,6 +233,11 @@ function renderFilters() {
   if (state.tag)                bits.push(['tag',    `TAG: ${state.tag}`]);
   if (state.source !== 'all')   bits.push(['source', `SOURCE: ${SOURCE_LABEL[state.source] || state.source}`]);
 
+  /* A live "Clear filters" with nothing to clear reads as though something is being
+     hidden. On an empty shelf that is exactly the wrong message, and it is the misread
+     that once had a full archive reported as missing data. */
+  $('#clearBtn').hidden = !filtersActive();
+
   const box = $('#activeFilters');
   box.hidden = !bits.length;
   box.innerHTML = bits.map(([k, label]) => `<button class="chip" data-drop="${k}">${esc(label)} &#10005;</button>`).join('');
@@ -260,7 +274,10 @@ function render() {
   $('#heroBlurb').textContent = sec.blurb;
   $('#listTitle').innerHTML   = `${esc(sec.label.toUpperCase())} &middot; <span>${items.length}</span>`;
   const classified = items.filter(item => item.ranking).length;
-  $('#listSub').textContent = !items.length ? 'No entries to rank in this view.'
+  const unstocked = !(state.data[sec.id] || []).length;
+  $('#listSub').textContent = !items.length
+    ? (unstocked ? 'Nothing here yet. Entries arrive with a source attached.'
+                 : 'No entries match the current filters.')
     : activeSort() === 'trending' ? 'Positive GitHub star growth, fastest per day first. Two API measurements 1 hour–14 days apart; latest measurement within 14 days. Publication dates do not affect rank.'
     : state.sort === 'az' ? 'Alphabetical.'
     : !classified ? 'Awaiting Jev classification. Unclassified entries are alphabetical; dates never affect the order.'
@@ -883,6 +900,11 @@ function setSidebar(open) {
 }
 
 function wire() {
+  $('.skip-link').addEventListener('click', e => {
+    e.preventDefault();
+    setSidebar(false);
+    $('#main').focus();
+  });
   const archiveIcon = sectionIcon('archive');
   $('#brandMark').innerHTML = archiveIcon;
   $('#archiveMark').innerHTML = archiveIcon;
@@ -930,7 +952,7 @@ function wire() {
 
   $('#sourceSel').addEventListener('change', e => { state.source = e.target.value; render(); });
   $('#sortSel').addEventListener('change',   e => { state.sort   = e.target.value; render(); });
-  $('#clearBtn').addEventListener('click', clearFilters);
+  $('#clearBtn').addEventListener('click', () => { clearFilters(); afterClearFocus(); });
   $('#refreshBtn').addEventListener('click', async () => {
     try { await load(); renderSourceStatus(); render(); }
     catch { $('#footGen').textContent = 'Could not reload the archive. Please try again.'; }
@@ -971,14 +993,14 @@ function wire() {
       if (k === 'tag')    state.tag = null;
       if (k === 'author') state.author = null;
       if (k === 'source') { state.source = 'all'; $('#sourceSel').value = 'all'; }
-      render(); $('#clearBtn').focus(); return;
+      render(); afterClearFocus(); return;
     }
     if (e.target.closest('[data-browse]')) {
       e.preventDefault();
       state.section = 'use-cases'; location.hash = 'use-cases';
       clearFilters(); setSidebar(false); $('#listTitle').focus(); return;
     }
-    if (e.target.closest('[data-clear]')) { clearFilters(); $('#clearBtn').focus(); return; }
+    if (e.target.closest('[data-clear]')) { clearFilters(); afterClearFocus(); return; }
 
     const c = e.target.closest('.card');
     if (c) openDrawer(c.dataset.id, c);

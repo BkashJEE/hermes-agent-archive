@@ -135,7 +135,7 @@ if (!prompts?.length) throw new Error('data/prompts.json holds no entries — no
 
 /* One fetch per page, however many prompts quote it. */
 const pages = [...new Set(prompts.map(p => pageOf(p.url)))].sort();
-const stored = await readFile(RECORD, 'utf8').then(t => (t.trim() ? JSON.parse(t) : null)).catch(() => null);
+const stored = await readFile(RECORD, 'utf8').then(t => (t.trim() ? JSON.parse(t) : null)).catch(error => { if (error.code === 'ENOENT') return null; throw error; });
 
 const record = { generatedAt: new Date().toISOString(), source: 'hermes-agent.nousresearch.com', pages: {} };
 const unreachable = [];
@@ -214,15 +214,15 @@ if (REPORT) {
 console.log(`\n${prompts.length} prompts across ${pages.length} pages — ${JSON.stringify(tally)}`);
 for (const [page, why] of unreachable) console.log(`unreachable: ${page} — ${why}`);
 
+if (unreachable.length || bad.length) {
+  console.error(`\n${bad.length} prompt(s) unverified, ${unreachable.length} page(s) unreadable.`);
+  process.exit(1);
+}
+
 if (!REPORT && !OFFLINE) {
   const tmp = `${RECORD}.tmp`;
   await writeFile(tmp, JSON.stringify(record, null, 2) + '\n');
   await rename(tmp, RECORD);
   console.log(`wrote ${RECORD.replace(ROOT + '/', '')}`);
-}
-
-if (unreachable.length || bad.length) {
-  console.error(`\n${bad.length} prompt(s) unverified, ${unreachable.length} page(s) unreadable.`);
-  process.exit(1);
 }
 }
