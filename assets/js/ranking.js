@@ -11,7 +11,7 @@ export function rankingInput(item) {
   const detail = (item.detail || '').split('\n\n').filter(p => !p.startsWith(`— ${item.author},`)).join('\n\n');
   return { id: item.id, title: item.title, summary: item.summary || '', detail,
     snippet: item.snippet || '', tags: item.tags || [], source: item.source,
-    evidence: [item.metric, item.metric2].filter(m => m && Number.isFinite(m.value) && m.value >= 0) };
+    evidence: (item.credit ? [] : [item.metric, item.metric2]).filter(m => m && Number.isFinite(m.value) && m.value >= 0) };
 }
 export async function inputKey(item) {
   const bytes = new TextEncoder().encode(JSON.stringify(rankingInput(item)));

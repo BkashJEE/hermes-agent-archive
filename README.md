@@ -1,21 +1,30 @@
+![Hermes Agent Archive](assets/social-preview.png)
+
 # Hermes Agent Archive
 
-A private archive of the Hermes Agent craft people actually use — **user stories, skills,
-prompts, settings, commands, hidden tricks** and **community builds** — filterable by
-where it showed up (X, Reddit, Discord, Hacker News, GitHub, YouTube, blogs, podcasts).
+**Sourced entries, counted from the loaded archive. Public metrics or explicitly credited figures — never guessed.**
 
-Static site. No build step, no framework, no dependencies. Content is plain JSON.
+What people actually build with Hermes Agent — quoted, credited, and linked to the post
+it came from. Zero dependencies, no build step, content in plain JSON.
 
-```
-index.html              the page
-assets/css/style.css    the newsroom-console theme
-assets/js/app.js        loading, filtering, ranking, detail drawer
-data/index.json         sections, sources, sort options
-data/*.json             one file per section — this is the content
-data/live.json          generated: real numbers from public APIs
-scripts/fetch-signals.mjs   pulls GitHub / HN / Reddit metrics
-scripts/check-data.mjs      validates every data file
-```
+## What it looks like
+
+### The archive
+Filter by source, tag, author or time. `Cmd/Ctrl+K` searches every entry.
+
+![Use cases shelf](docs/images/use-cases.png)
+
+### The dashboard
+Counted live from what is loaded. Each metric kind stays on its own row — stars, points,
+impressions and upvotes measure different things and are never summed into one figure.
+
+![Dashboard](docs/images/dashboard.png)
+
+### My Work
+The author's own posts, with impression counts credited to their X analytics exports.
+Every figure on the site states where it came from.
+
+![My Work shelf](docs/images/my-work.png)
 
 ## Run it locally
 
@@ -170,6 +179,19 @@ node scripts/rank-with-jev.mjs --weights 0.5,0.4,0.1   # re-weight fit,value,eff
 Candidates live in `data/research/jev-use-cases.json` (top posts from the public Jev
 builder directory); results are written to `data/research/jev-ranking.json`. The key
 stays in your shell and is never written to the repo.
+
+## Images
+
+```bash
+node scripts/make-og.mjs      # regenerate assets/social-preview.png from real counts
+```
+
+The social card states how many entries and credited people the archive holds, so it is
+generated from the data rather than maintained by hand — a card showing a number the site
+no longer has is the same failure as inventing one. Needs `chromium` on PATH, because
+Inter and JetBrains Mono are loaded from Google Fonts and would otherwise be substituted.
+
+Screenshots in `docs/images/` are captured the same way, against a local server.
 
 ## The honesty rule
 

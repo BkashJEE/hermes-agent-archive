@@ -4,7 +4,7 @@
     "tagline": "Sourced Hermes Agent workflows, prompts and projects \u2014 curated by usefulness.",
     "curator": "@BkashJosi",
     "quote": "Ship the trick, not the hype.",
-    "quoteAuthor": "\u2014 HERMES AGENT ARCHIVE"
+    "quoteAuthor": "— HERMES AGENT ARCHIVE"
   },
   "sections": [
     {
@@ -13,7 +13,7 @@
       "icon": "dashboard",
       "kind": "dashboard",
       "title": "WHAT IS IN THE ARCHIVE",
-      "blurb": "Counted live from what is loaded right now \u2014 nothing here is stored, and nothing is estimated."
+      "blurb": "Counted live from what is loaded right now — nothing here is stored, and nothing is estimated."
     },
     {
       "id": "use-cases",
@@ -21,7 +21,7 @@
       "icon": "stories",
       "file": "use-cases.json",
       "title": "WHAT PEOPLE ACTUALLY BUILD",
-      "blurb": "Real Hermes Agent user stories \u2014 every one quoted and linked to the original post on X, Reddit, Discord, GitHub, YouTube or a blog."
+      "blurb": "Real Hermes Agent user stories — every one quoted and linked to the original post on X, Reddit, Discord, GitHub, YouTube or a blog."
     },
     {
       "id": "trending",
@@ -37,7 +37,7 @@
       "icon": "skills",
       "file": "skills.json",
       "title": "SKILLS WORTH INSTALLING",
-      "blurb": "Hermes Agent skills \u2014 packaged capabilities you install rather than re-prompt."
+      "blurb": "Hermes Agent skills — packaged capabilities you install rather than re-prompt."
     },
     {
       "id": "prompts",
@@ -77,7 +77,7 @@
       "icon": "toolkit",
       "file": "toolkit.json",
       "title": "WHAT WORKS WITH HERMES",
-      "blurb": "Repos worth pairing with Hermes Agent \u2014 why it helps, how to wire it up, and the job it actually does. Each one was read before it was listed."
+      "blurb": "Repos worth pairing with Hermes Agent — why it helps, how to wire it up, and the job it actually does. Each one was read before it was listed."
     },
     {
       "id": "builds",
@@ -86,6 +86,14 @@
       "file": "builds.json",
       "title": "WHAT PEOPLE ARE BUILDING",
       "blurb": "Projects built on Hermes Agent, shown off on X, Reddit, Discord, Hacker News and GitHub. Numbers are fetched live, never guessed."
+    },
+    {
+      "id": "my-work",
+      "label": "My Work",
+      "icon": "builds",
+      "file": "my-work.json",
+      "title": "WHAT I HAVE BUILT AND POSTED",
+      "blurb": "The archive author’s own Hermes work. Impression counts come from their X analytics exports, carried over as published — everywhere else on this site the numbers are fetched from public APIs."
     }
   ],
   "sources": [
@@ -149,19 +157,19 @@
   "sorts": [
     {
       "id": "recommended",
-      "label": "Most useful \u00b7 Jev"
+      "label": "Most useful · Jev"
     },
     {
       "id": "popular",
-      "label": "Most popular \u00b7 Jev"
+      "label": "Most popular · Jev"
     },
     {
       "id": "trending",
-      "label": "Trending \u00b7 star growth"
+      "label": "Trending · star growth"
     },
     {
       "id": "az",
-      "label": "A \u2192 Z"
+      "label": "A → Z"
     }
   ]
 }

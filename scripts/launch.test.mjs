@@ -22,3 +22,11 @@ test('card preview keeps parenthetical comparisons in a single sentence',()=>{
   const points=cardPoints({tags:['user-story'],detail:'Compare treatments (Charcoal vs. Intralipids) in a spreadsheet. Check the result before use.'});
   assert.equal(points[0],'Compare treatments (Charcoal vs. Intralipids) in a spreadsheet.');
 });
+
+test('credited analytics retain their source and never become public popularity evidence', async () => {
+  const {rankingInput}=await import('../assets/js/ranking.js');
+  const post={id:'mine',title:'Post',source:'x',repo:'org/tool',credit:'author analytics export',metric:{kind:'impressions',value:123}};
+  const data={work:[post]}; mergeLive(data,null);
+  assert.equal(data.work[0].metric.value,123);
+  assert.deepEqual(rankingInput(data.work[0]).evidence,[]);
+});
