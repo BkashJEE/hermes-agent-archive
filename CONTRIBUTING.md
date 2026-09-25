@@ -27,7 +27,7 @@ to copying long passages.
 4. Include the source, credit, useful details and a concise card preview. For a
    GitHub repo, add reviewed upstream evidence to `assets/js/github-policy.js`.
 5. Run `npm run check` and `npm test` with Node.js 20 or newer. `npm run links`
-   additionally confirms every source link and documentation anchor resolves; it
+   additionally checks source attribution and live documentation anchors; it
    reaches the network, so it is not part of the required checks.
 6. Open a pull request explaining what changed and linking to the source.
 
@@ -53,10 +53,11 @@ open an issue or a pull request.
 3. **The owner reviews.** `main` requires an approving review from the code owner
    and a passing `validate` check. Nobody else can write to it, and force pushes
    are refused.
-4. **It publishes.** Merging to `main` is what puts an entry on the live site.
+4. **The owner publishes.** Merging accepts the change into `main`. Updating the
+   live Vercel site requires a separate owner-approved deployment.
 
 Once merged, an entry stays. No pipeline stage removes one: the metric fetcher
-writes only `data/live.json` and `data/rankings.json`, and the automated refresh
+updates `data/live.json` and the ranking script updates `data/rankings.json`, and the automated refresh
 opens a pull request for review rather than committing to `main`. A repository
 that later drops below the star floor keeps its stored write-up and stops being
 displayed — stored and shown are deliberately different numbers.
