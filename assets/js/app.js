@@ -122,7 +122,7 @@ function card(item, rank, iconName) {
   return `<li><button class="card card-${category.tone}" data-id="${esc(item.id)}" aria-label="${esc(`${action}: ${item.title}`)}">
     <div class="card-heading"><span class="card-icon">${sectionIcon(category.icon)}</span><div class="card-heading-text">
       <h3>${esc(item.title)}</h3>
-      <p class="card-byline">${esc(credit.label)} <strong>${esc(credit.name)}</strong><span class="card-source">${esc(SOURCE_LABEL[item.source] || 'CURATED')}</span></p>
+      <p class="card-byline">${esc(credit.label)} <strong>${esc(credit.name)}</strong><span class="card-source">${esc(SOURCE_LABEL[item.source] || 'CURATED')}${item.sourced ? ' · SOURCED' : ''}</span></p>
     </div></div>
     <div class="card-preview"><p class="card-label">What it does</p>
       <ul class="card-points">${cardPoints(item).map(point => `<li>${esc(point)}</li>`).join('')}</ul>
