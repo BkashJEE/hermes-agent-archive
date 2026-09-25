@@ -12,7 +12,7 @@
  *   node scripts/make-hero.mjs
  */
 
-import { readFile, writeFile, mkdtemp, rename } from 'node:fs/promises';
+import { readFile, writeFile, mkdtemp, rename, copyFile, unlink } from 'node:fs/promises';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
@@ -113,9 +113,22 @@ try {
                          '--window-size=1200,630', `--screenshot=${rendered}`, `file://${page}`]);
   const png = await readFile(rendered);
   if (png.length < 1000 || png.readUInt32BE(16) !== 1200 || png.readUInt32BE(20) !== 630) throw new Error('Invalid rendered PNG');
-  await rename(rendered, OUT);
+  /* The render happens in the system temp directory, which on this machine is a tmpfs
+     and therefore a different filesystem from the repository. rename() cannot cross one,
+     so it fails with EXDEV and the image silently never updates. Copy, then remove. */
+  await moveInto(rendered, OUT);
 } catch (err) {
   console.error('Could not render; existing hero is unchanged:', err.message);
   process.exit(1);
 }
 console.log(`\nWrote assets/hero.png — ${entries.length} dots, ${order.length} families, ${authors.size} credited\n`);
+
+/** Move a file that may be on another filesystem: rename when possible, copy when not. */
+async function moveInto(from, to) {
+  try { await rename(from, to); }
+  catch (error) {
+    if (error.code !== 'EXDEV') throw error;
+    await copyFile(from, to);
+    await unlink(from).catch(() => {});
+  }
+}
