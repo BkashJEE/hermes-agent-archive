@@ -1,4 +1,4 @@
-![Hermes Agent Archive](assets/social-preview.png)
+![Hermes Agent Archive — one dot for every entry](assets/hero.png)
 
 # Hermes Agent Archive
 
@@ -211,6 +211,7 @@ stays in your shell and is never written to the repo.
 
 ```bash
 node scripts/make-og.mjs      # regenerate assets/social-preview.png from real counts
+node scripts/make-hero.mjs    # regenerate assets/hero.png — one dot per entry
 ```
 
 The social card states how many entries and credited people the archive holds, so it is
