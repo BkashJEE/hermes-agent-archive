@@ -2901,7 +2901,7 @@
         "reference"
       ],
       "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-z-prompt-scripted-one-shot",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes--z-prompt--scripted-one-shot",
       "date": "2026-09-24"
     },
     {
@@ -2940,7 +2940,7 @@
         "reference"
       ],
       "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-login-hermes-logout-deprecated",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-login--hermes-logout-deprecated",
       "date": "2026-09-24"
     },
     {

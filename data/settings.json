@@ -415,7 +415,7 @@
         "reference"
       ],
       "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#format-stream-json-structured-jsonl-output",
+      "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#--format-stream-json--structured-jsonl-output",
       "date": "2026-09-24"
     },
     {
