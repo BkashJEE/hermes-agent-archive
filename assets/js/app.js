@@ -443,7 +443,7 @@ function barChart(rows, { action, total, limit = 0, unit = 'entries' } = {}) {
    sources are folded into families first. Ten thin wedges would be a worse
    version of the bar chart beside it. */
 const SOURCE_FAMILY = {
-  docs: 'Official docs', github: 'Official docs',
+  docs: 'Docs & repositories', github: 'Docs & repositories',
   x: 'Social', reddit: 'Social', discord: 'Social', linkedin: 'Social', fb: 'Social',
   hn: 'Forums', producthunt: 'Forums',
   blog: 'Long form', podcast: 'Long form', youtube: 'Long form',
@@ -454,10 +454,10 @@ const SOURCE_FAMILY = {
    under colour-vision deficiency — categorical hues must be distinguishable,
    not merely different. */
 const FAMILY_HUE = {
-  'Official docs': 'var(--accent)',   // amber
+  'Docs & repositories': 'var(--accent)',   // amber
   Social: 'var(--violet)',
   'Long form': 'var(--teal)',
-  Forums: '#dcdce6',                  // light neutral: smallest slice, still legible
+  Forums: 'var(--ink)',                  // light neutral: smallest slice, still legible
   Other: 'var(--ink-mute)'
 };
 
