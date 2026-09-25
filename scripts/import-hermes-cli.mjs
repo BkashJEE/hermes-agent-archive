@@ -92,6 +92,22 @@ for (let i = 0; i < parts.length; i += 2) {
     : undefined;
 
   sections++;
+
+  /* A documented section usually describes a command the reference table has
+     already listed. Fold it into that entry instead of shelving a second card
+     for the same subject: the table gives the better one-line purpose, the
+     section gives the detail and the example. */
+  const existing = items.find(i => i.id === `cli-${slug(title)}`);
+  if (existing) {
+    const extra = prose.slice(0, 4).join('\n\n');
+    if (extra && !existing.detail.includes(extra.slice(0, 40))) {
+      existing.detail = `${existing.summary}\n\n${extra}\n\nFrom the official Hermes Agent CLI reference.`;
+    }
+    if (code && !existing.snippet) existing.snippet = code;
+    existing.url = `${SRC}#${slug(title)}`;          // deep-link to the section
+    continue;
+  }
+
   push({
     id: `cli-sec-${slug(title)}`,
     title,
