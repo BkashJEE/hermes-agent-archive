@@ -6,13 +6,15 @@
  * has to be regenerated rather than hand-maintained — a social card showing a
  * number the site no longer has is the same failure as inventing one.
  *
- * Needs chromium on PATH (for the real Poppins/Lora, which are not installed
+ * Needs chromium on PATH (for the approved Inter/JetBrains Mono, which are not installed
  * locally and would otherwise be substituted).
  *
  *   node scripts/make-og.mjs
  */
 
-import { readFile, writeFile, mkdtemp } from 'node:fs/promises';
+import { mergeLive } from '../assets/js/archive.js';
+import { creditFor } from '../assets/js/credits.js';
+import { readFile, writeFile, mkdtemp, rename } from 'node:fs/promises';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
@@ -25,20 +27,21 @@ const OUT = join(ROOT, 'assets/social-preview.png');
 
 const read = async f => JSON.parse(await readFile(join(ROOT, 'data', f), 'utf8'));
 const cfg = await read('index.json');
-const live = await read('live.json').catch(() => ({}));
-const routed = live.routed || {};
-
-let entries = 0;
-const sources = new Set(), authors = new Set();
-for (const s of cfg.sections) {
-  if (!s.file) continue;
-  const items = [...(await read(s.file)).items, ...(routed[s.id] || [])];
-  entries += items.length;
-  for (const i of items) { if (i.source) sources.add(i.source); if (i.author) authors.add(i.author); }
+const live = await read('live.json');
+const data = {};
+for (const section of cfg.sections) {
+  if (!section.file) continue;
+  data[section.id] = (await read(section.file)).items;
 }
+mergeLive(data, live);
+const items = Object.values(data).flat();
+const entries = items.length;
+const sources = new Set(items.map(i => i.source));
+const authors = new Set(items.map(creditFor).filter(c => c.label !== 'Author').map(c => c.name));
 
 const stat = (v, k) => `<div><div class="s-v">${v.toLocaleString()}</div><div class="s-k">${k}</div></div>`;
 const html = (await readFile(join(ROOT, 'assets/og-template.html'), 'utf8'))
+  .replace('<!--TOKENS-->', (await readFile(join(ROOT, 'assets/css/style.css'), 'utf8')).match(/:root\s*\{[\s\S]*?\}/)[0])
   .replace('<!--STATS-->', [
     stat(entries, 'entries'),
     stat(authors.size, 'people credited'),
@@ -48,10 +51,15 @@ const html = (await readFile(join(ROOT, 'assets/og-template.html'), 'utf8'))
 const dir = await mkdtemp(join(tmpdir(), 'og-'));
 const page = join(dir, 'og.html');
 await writeFile(page, html);
+if (process.argv.includes('--html-only')) { console.log(page); process.exit(0); }
+const rendered = join(dir, 'social-preview.png');
 
 try {
   await run('chromium', ['--headless=new', '--disable-gpu', '--hide-scrollbars',
-                         '--window-size=1200,630', `--screenshot=${OUT}`, `file://${page}`]);
+                         '--window-size=1200,630', `--screenshot=${rendered}`, `file://${page}`]);
+  const png = await readFile(rendered);
+  if (png.length < 1000 || png.readUInt32BE(16) !== 1200 || png.readUInt32BE(20) !== 630) throw new Error('Invalid rendered PNG');
+  await rename(rendered, OUT);
 } catch (err) {
   console.error('chromium could not render the card:', err.message);
   console.error('The existing assets/social-preview.png is left untouched.');

@@ -30,7 +30,7 @@ npm run key    # paste API keys into a gitignored .env
 **No number on this site may be invented.** Not a star count, not a view count, not an
 estimate, not a placeholder that looks real.
 
-- Metrics come from public APIs via `scripts/fetch-signals.mjs`, or they don't exist.
+- Metrics come from public APIs via `scripts/fetch-signals.mjs`, or carry a `credit` field naming their source. Credited analytics must be labelled on cards and excluded from public-popularity evidence.
 - A repo that fails to resolve retains its stored write-up, but is hidden until 5,000 stars can be verified.
 - An item with no public metric renders its tags and `no public metric`.
 - A source that failed at fetch time is named in the page footer.

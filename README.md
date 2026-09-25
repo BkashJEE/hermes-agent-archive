@@ -2,7 +2,7 @@
 
 # Hermes Agent Archive
 
-**679 entries. Every number fetched from a public source, never guessed.**
+**Sourced entries, counted from the loaded archive. Public metrics or explicitly credited figures — never guessed.**
 
 What people actually build with Hermes Agent — quoted, credited, and linked to the post
 it came from. Zero dependencies, no build step, content in plain JSON.
@@ -189,7 +189,7 @@ node scripts/make-og.mjs      # regenerate assets/social-preview.png from real c
 The social card states how many entries and credited people the archive holds, so it is
 generated from the data rather than maintained by hand — a card showing a number the site
 no longer has is the same failure as inventing one. Needs `chromium` on PATH, because
-Poppins and Lora are loaded from Google Fonts and would otherwise be substituted.
+Inter and JetBrains Mono are loaded from Google Fonts and would otherwise be substituted.
 
 Screenshots in `docs/images/` are captured the same way, against a local server.
 
