@@ -600,3 +600,41 @@ code{font-family:var(--mono);font-size:.92em}
 }
 
 .trend-note{margin:10px 0 0;font-family:var(--mono);font-size:10px;line-height:1.6;color:var(--teal);overflow-wrap:anywhere}
+
+
+/* ---------- dashboard charts ---------- */
+
+.bar-scale{
+  display:flex;justify-content:space-between;margin:0 0 6px;
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--ink-mute);
+}
+.bar-n{display:flex;align-items:baseline;gap:7px;justify-content:flex-end}
+.bar-share{font-style:normal;font-size:9px;color:var(--ink-mute);min-width:2.6em;text-align:right}
+.bar-tail{
+  margin:9px 0 0;font-family:var(--body);font-size:11.5px;color:var(--ink-mute);
+}
+.dash-sub-h{
+  margin:18px 0 8px;font-family:var(--sans);font-size:9px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-mute);font-weight:600;
+}
+/* labels get room; a truncated category name is a missing data point */
+.bar-row{grid-template-columns:minmax(120px,1.3fr) minmax(60px,3fr) auto}
+@media (max-width:640px){ .bar-row{grid-template-columns:minmax(84px,1.2fr) minmax(40px,2fr) auto} }
+
+.donut-wrap{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:12px}
+.donut{width:140px;height:140px;flex:none}
+.donut-arc{transition:opacity .15s}
+.donut:hover .donut-arc{opacity:.45}
+.donut .donut-arc:hover{opacity:1}
+.donut-total{
+  font-family:var(--mono);font-size:21px;font-weight:700;fill:var(--ink);
+  text-anchor:middle;
+}
+.donut-cap{
+  font-family:var(--sans);font-size:8px;letter-spacing:.18em;fill:var(--ink-mute);
+  text-anchor:middle;text-transform:uppercase;
+}
+.donut-key{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px;min-width:150px}
+.donut-key li{display:flex;align-items:center;gap:9px;font-family:var(--sans);font-size:11.5px;color:var(--ink-dim)}
+.donut-key i{width:9px;height:9px;border-radius:2px;flex:none}
+.donut-key b{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--ink)}

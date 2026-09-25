@@ -297,6 +297,14 @@ function dashboardStats() {
     sources: bySource.size,
     byShelf:  byShelf.sort((a, b) => b[1] - a[1]),
     bySource: [...bySource].sort((a, b) => b[1] - a[1]),
+    byFamily: (() => {
+      const f = new Map();
+      for (const [src, n] of bySource) {
+        const fam = SOURCE_FAMILY[src] || 'Other';
+        f.set(fam, (f.get(fam) || 0) + n);
+      }
+      return [...f].sort((a, b) => b[1] - a[1]);
+    })(),
     byAuthor: [...byAuthor].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])),
     byMetric: [...byMetric].sort((a, b) => b[1].total - a[1].total)
   };
@@ -317,24 +325,86 @@ function chartTip() {
 
 /* Horizontal bars: one series, one hue, magnitude by category.
    Rounded data-end, recessive gridlines, value direct-labelled. */
-function barChart(rows, { action, total } = {}) {
+/* Bars carry a labelled scale and a share, and the long tail is named rather
+   than dumped into a 300-row list. A chart nobody can read is not a chart. */
+function barChart(rows, { action, total, limit = 0, unit = 'entries' } = {}) {
   if (!rows.length) return '<p class="dash-none">Nothing to count yet.</p>';
-  const max = Math.max(...rows.map(r => r[1])) || 1;
-  const sum = total ?? rows.reduce((n, r) => n + r[1], 0);
 
-  return `<div class="bars">${rows.map(([label, n]) => {
+  const sum = total ?? rows.reduce((n, r) => n + r[1], 0);
+  let shown = rows, tail = [];
+  if (limit && rows.length > limit) { shown = rows.slice(0, limit); tail = rows.slice(limit); }
+
+  const max = Math.max(...shown.map(r => r[1])) || 1;
+  const tailCount = tail.reduce((n, r) => n + r[1], 0);
+
+  const row = ([label, n]) => {
     const pct = Math.max(1.2, (n / max) * 100);
     const share = sum ? ((n / sum) * 100).toFixed(n / sum < 0.1 ? 1 : 0) : '0';
     const attr = action
-      ? ` data-${action}="${esc(label)}" aria-label="${esc(label)}, ${n} entries — filter the archive"`
-      : '';
+      ? ` data-${action}="${esc(label)}" aria-label="${esc(label)}, ${n} ${unit} — filter the archive"` : '';
     return `<${action ? 'button type="button"' : 'div'} class="bar-row${action ? ' bar-click' : ''}"${attr}
-        data-tip="${esc(label)} · ${num(n)} ${n === 1 ? 'entry' : 'entries'} · ${share}% of ${num(sum)}">
+        data-tip="${esc(label)} · ${num(n)} ${n === 1 ? unit.replace(/s$/, '') : unit} · ${share}% of ${num(sum)}">
       <span class="bar-label" title="${esc(label)}">${esc(label)}</span>
       <span class="bar-track"><span class="bar-fill" data-w="${pct.toFixed(1)}%"></span></span>
-      <span class="bar-n">${num(n)}</span>
+      <span class="bar-n">${num(n)}<i class="bar-share">${share}%</i></span>
     </${action ? 'button' : 'div'}>`;
-  }).join('')}</div>`;
+  };
+
+  return `<div class="bar-scale"><span>0</span><span>max ${num(max)}</span></div>
+    <div class="bars">${shown.map(row).join('')}</div>
+    ${tail.length ? `<p class="bar-tail">+ ${num(tail.length)} more, ${num(tailCount)} ${unit} between them</p>` : ''}`;
+}
+
+/* A donut is only honest for a genuine part-to-whole with few slices, so the
+   sources are folded into families first. Ten thin wedges would be a worse
+   version of the bar chart beside it. */
+const SOURCE_FAMILY = {
+  docs: 'Official docs', github: 'Official docs',
+  x: 'Social', reddit: 'Social', discord: 'Social', linkedin: 'Social', fb: 'Social',
+  hn: 'Forums', producthunt: 'Forums',
+  blog: 'Long form', podcast: 'Long form', youtube: 'Long form',
+  community: 'Other'
+};
+/* Four families, four separable hues. The first pass gave docs and long form
+   two shades of the same amber, which is unreadable side by side and worse
+   under colour-vision deficiency — categorical hues must be distinguishable,
+   not merely different. */
+const FAMILY_HUE = {
+  'Official docs': 'var(--accent)',   // amber
+  Social: 'var(--violet)',
+  'Long form': 'var(--teal)',
+  Forums: '#dcdce6',                  // light neutral: smallest slice, still legible
+  Other: 'var(--ink-mute)'
+};
+
+function donutChart(rows, sum) {
+  if (!rows.length || !sum) return '';
+  const R = 52, C = 2 * Math.PI * R;
+  let at = 0;
+
+  const arcs = rows.map(([family, n]) => {
+    const frac = n / sum;
+    const arc = `<circle class="donut-arc" cx="70" cy="70" r="${R}" fill="none"
+        stroke="${FAMILY_HUE[family] || 'var(--ink-mute)'}" stroke-width="15"
+        stroke-dasharray="${(frac * C - 2).toFixed(2)} ${(C - frac * C + 2).toFixed(2)}"
+        stroke-dashoffset="${(-at * C).toFixed(2)}" stroke-linecap="butt"
+        data-tip="${esc(family)} · ${num(n)} entries · ${(frac * 100).toFixed(0)}% of ${num(sum)}"><title>${esc(family)}</title></circle>`;
+    at += frac;
+    return arc;
+  }).join('');
+
+  return `<div class="donut-wrap">
+    <svg class="donut" viewBox="0 0 140 140" role="img" aria-label="Entries by source family">
+      <circle cx="70" cy="70" r="${R}" fill="none" stroke="var(--panel-3)" stroke-width="15"/>
+      <g transform="rotate(-90 70 70)">${arcs}</g>
+      <text x="70" y="66" class="donut-total">${num(sum)}</text>
+      <text x="70" y="84" class="donut-cap">entries</text>
+    </svg>
+    <ul class="donut-key">${rows.map(([family, n]) => `
+      <li><i style="background:${FAMILY_HUE[family] || 'var(--ink-mute)'}"></i>
+        <span>${esc(family)}</span><b>${((n / sum) * 100).toFixed(0)}%</b></li>`).join('')}
+    </ul>
+  </div>`;
 }
 
 function renderDashboard() {
@@ -375,16 +445,32 @@ function renderDashboard() {
 
     <div class="dash-cols">
       <section class="dash-block"><h3>BY SHELF</h3>${barChart(st.byShelf, { total: st.total })}</section>
+      <section class="dash-block"><h3>WHERE IT COMES FROM
+          <span class="dash-hint">grouped into families; the list beside it is every source</span></h3>
+        ${donutChart(st.byFamily, st.total)}</section>
       <section class="dash-block"><h3>BY SOURCE</h3>
-        ${barChart(st.bySource.map(([s, n]) => [SOURCE_LABEL[s] || s, n]), { total: st.total })}</section>
+        ${barChart(st.bySource.map(([s, n]) => [SOURCE_LABEL[s] || s, n]), { total: st.total, limit: 8 })}</section>
     </div>
 
-    <section class="dash-block">
-      <h3>BY AUTHOR / OWNER <span class="dash-hint">click to filter the archive</span></h3>
-      <div id="authorBars" data-expanded="0">${barChart(st.byAuthor.slice(0, 10), { action: 'author' })}</div>
-      ${st.byAuthor.length > 10
-        ? `<button class="ghost-btn dash-more" id="authorMore">Show all ${st.byAuthor.length} &#8595;</button>` : ''}
-    </section>
+    ${(() => {
+      /* One bulk import can hold more entries than every individual combined.
+         Charting them together makes 300 real contributors invisible slivers,
+         and treats an importing organisation as if it were a person. */
+      const BULK = 40;
+      const bulk = st.byAuthor.filter(([, n]) => n >= BULK);
+      const people = st.byAuthor.filter(([, n]) => n < BULK);
+      return `<section class="dash-block">
+        <h3>WHO IT CAME FROM <span class="dash-hint">click a name to filter the archive</span></h3>
+        ${bulk.length ? `<p class="dash-sub">${bulk.map(([nm, n]) =>
+            `<b>${esc(nm)}</b> contributed ${num(n)} entries in one import, and is charted separately
+             so individual contributors stay readable.`).join(' ')}</p>
+          ${barChart(bulk, { action: 'author', total: st.total })}` : ''}
+        <h4 class="dash-sub-h">Individual contributors</h4>
+        <div id="authorBars">${barChart(people.slice(0, 10), { action: 'author', total: st.total })}</div>
+        ${people.length > 10
+          ? `<button class="ghost-btn dash-more" id="authorMore">Show all ${num(people.length)} &#8595;</button>` : ''}
+      </section>`;
+    })()}
 
     <p class="dash-fresh">
       ${live.generatedAt ? `Metrics fetched ${esc(new Date(live.generatedAt).toLocaleString())}.` : 'No metrics fetched yet.'}
@@ -410,7 +496,7 @@ function revealDashboard(st) {
   const more = $('#authorMore');
   if (more) more.onclick = () => {
     const box = $('#authorBars');
-    box.innerHTML = barChart(st.byAuthor, { action: 'author' });
+    box.innerHTML = barChart(st.byAuthor.filter(([, n]) => n < 40), { action: 'author', total: st.total });
     growBars(box);
     more.remove();
   };
