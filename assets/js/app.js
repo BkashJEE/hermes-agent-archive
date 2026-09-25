@@ -137,7 +137,7 @@ function card(item, rank, iconName) {
     </div>
     <div class="card-tags">${(item.tags || []).filter(t => t !== 'user-story').slice(0, 2).map(t => `<span class="trow-tag">${esc(t)}</span>`).join('')}${order ? `<span class="rank" title="Position in the selected sort">${order}</span>` : ''}</div>
     ${item.trend ? `<p class="trend-note">↗ +${num(item.trend.gain)} stars · ${esc(new Date(item.trend.from).toLocaleString())} – ${esc(new Date(item.trend.to).toLocaleString())}</p>` : ''}
-    <div class="card-foot"><span class="card-evidence">${esc(metric)}</span><span class="card-action">${action} <span aria-hidden="true">→</span></span></div>
+    <div class="card-foot"><span class="card-evidence">${esc(metric)}${item.credit ? `<span class="m-credit">${esc(item.credit)}</span>` : ''}</span><span class="card-action">${action} <span aria-hidden="true">→</span></span></div>
   </button></li>`;
 }
 
@@ -295,7 +295,7 @@ function dashboardStats() {
     const credit = creditFor(it);
     if (credit.label !== 'Author') byAuthor.set(credit.name, (byAuthor.get(credit.name) || 0) + 1);
     for (const m of [it.metric, it.metric2]) {
-      if (!m || !Number.isFinite(m.value)) continue;
+      if (!m || !Number.isFinite(m.value) || it.credit) continue;
       const row = byMetric.get(m.kind) || { total: 0, items: 0 };
       row.total += m.value; row.items++;
       byMetric.set(m.kind, row);
@@ -381,7 +381,7 @@ function renderDashboard() {
     <section class="dash-block">
       <h3>COUNTED TOTALS</h3>
       <p class="dash-sub">Each kind on its own. Stars, points and upvotes measure
-      different things, so they are never added together.</p>
+      different things, so they are never added together. These totals include public API figures only; credited analytics remain on their individual cards.</p>
       <div class="dash-tiles dash-tiles-sm">${metricTiles}</div>
     </section>
 

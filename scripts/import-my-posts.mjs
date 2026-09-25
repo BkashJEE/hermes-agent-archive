@@ -30,7 +30,7 @@ try {
   raw = await readFile(SRC, 'utf8');
 } catch {
   console.log(`No portfolio at ${SRC} — nothing imported, existing entries untouched.`);
-  process.exit(0);
+  process.exit(1);
 }
 
 /* The source is a TypeScript module, so read the object literals directly
