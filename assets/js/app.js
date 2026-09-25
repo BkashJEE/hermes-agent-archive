@@ -652,7 +652,14 @@ function setSidebar(open) {
 }
 
 function wire() {
-  $('#archiveMark').innerHTML = sectionIcon('archive');
+  const archiveIcon = sectionIcon('archive');
+  $('#brandMark').innerHTML = archiveIcon;
+  $('#archiveMark').innerHTML = archiveIcon;
+  // The tab icon shares the same geometry and reads its colour from the theme.
+  const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
+  const favicon = archiveIcon.replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" ')
+    .replace('currentColor', accent);
+  $('#favicon').href = `data:image/svg+xml,${encodeURIComponent(favicon)}`;
   wirePalette();
   $('#jumpBtn').addEventListener('click', paletteOpen);
   const applyTheme = theme => {
