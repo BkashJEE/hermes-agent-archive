@@ -1,7 +1,8 @@
 /* Use-Case Archive — data loading, filtering, rendering. No framework, no build step. */
 
 import { sectionIcon } from './icons.js?v=launch-10';
-import { mergeLive, trendingItems } from './archive.js?v=launch-10';
+import { githubStarFloor } from './github-policy.js';
+import { mergeLive, trendingItems } from './archive.js?v=shared-floor-1';
 import { cardPoints, cardCategory } from './card-preview.js?v=launch-10';
 import { formatDetails } from './details.js';
 import { creditFor } from './credits.js?v=launch-10';
@@ -70,7 +71,7 @@ async function load() {
 /* -------------------------------------------------------------- filters */
 
 const activeSort = () => state.section === 'trending' ? 'trending' : state.sort;
-const shelfItems = id => id === 'trending' ? trendingItems(state.data) : (state.data[id] || []);
+const shelfItems = id => id === 'trending' ? trendingItems(state.data, state.live?.githubMinStars) : (state.data[id] || []);
 
 function matches(item, sort = state.sort) {
   if (sort === 'trending' && !item.trend) return false;
@@ -696,6 +697,7 @@ function restoreRoute() {
 }
 
 function renderSourceStatus() {
+  $('#githubFloor').textContent = num(githubStarFloor(state.live?.githubMinStars));
   $('#updatedAt').textContent = state.live?.generatedAt
     ? new Date(state.live.generatedAt).toLocaleDateString() : 'Not fetched';
   $('#footGen').textContent = state.live?.generatedAt

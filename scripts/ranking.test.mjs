@@ -15,14 +15,14 @@ const item = (id, usefulness, popularity = 'unknown') => ({ id, title: id, sourc
 test('API merging preserves seeded write-ups across all shelves, excluding unresolved repos', () => {
   const data = { toolkit: [{ id: 'tool', repo: 'org/tool', title: 'Tool', summary: 'Curated explanation', detail: 'Setup steps', url: 'https://github.com/org/tool' }],
     builds: [{ id: 'missing', repo: 'org/missing', title: 'Unresolved tool', metric: { kind: 'stars', value: 999 } }] };
-  mergeLive(data, { github: [{ repo: 'org/tool', description: 'API one-liner', stars: 5000, forks: 2, url: 'https://github.com/org/tool' }],
+  mergeLive(data, { github: [{ repo: 'org/tool', description: 'API one-liner', stars: 1000, forks: 2, url: 'https://github.com/org/tool' }],
     routed: { builds: [{ id: 'duplicate', url: 'https://github.com/org/tool' }] } });
   assert.equal(data.toolkit[0].summary, 'Curated explanation');
-  assert.equal(data.toolkit[0].metric.value, 5000);
+  assert.equal(data.toolkit[0].metric.value, 1000);
   assert.equal(data.builds.length, 0);
 });
 
-test('GitHub requires 5000 verified stars across all shelves and hides unknown counts', () => {
+test('GitHub requires 1000 verified stars across all shelves and hides unknown counts', () => {
   const data = { builds: [], toolkit: [
     { id: 'zero', repo: 'org/zero' }, { id: 'low', repo: 'org/low' },
     { id: 'url-only', url: 'https://github.com/ORG/low/' },
@@ -31,11 +31,11 @@ test('GitHub requires 5000 verified stars across all shelves and hides unknown c
     { id: 'discord-archive', source:'discord', url:'https://github.com/org/low/blob/main/messages.txt' }
   ] };
   const live = { github: [
-    { repo: 'org/zero', stars: 0 }, { repo: 'org/low', stars: 4999 },
-    { repo: 'org/qualifies', stars: 5000 }
+    { repo: 'org/zero', stars: 0 }, { repo: 'org/low', stars: 999 },
+    { repo: 'org/qualifies', stars: 1000 }
   ], routed: { builds: [
-    { id: 'routed-low', source: 'github', metric: { kind: 'stars', value: 4999 } },
-    { id: 'routed-high', source: 'github', metric: { kind: 'stars', value: 5000 } },
+    { id: 'routed-low', source: 'github', metric: { kind: 'stars', value: 999 } },
+    { id: 'routed-high', source: 'github', metric: { kind: 'stars', value: 1000 } },
     { id: 'routed-unknown', source: 'github', url:'https://github.com/org/unknown' },
     { id: 'routed-null', source: 'github', metric: { kind: 'stars', value: null } },
     { id: 'reddit', source: 'reddit', metric: { kind: 'upvotes', value: 5 } }
@@ -45,18 +45,18 @@ test('GitHub requires 5000 verified stars across all shelves and hides unknown c
   assert.deepEqual(data.toolkit.map(x => x.id), ['qualifies', 'discussion', 'discord-archive']);
   assert.deepEqual(data.builds.map(x => x.id), ['routed-high', 'reddit']);
   assert.deepEqual(live, snapshot);
-  live.github.find(x => x.repo === 'org/low').stars = 5000;
+  live.github.find(x => x.repo === 'org/low').stars = 1000;
   mergeLive(stored, live);
   assert.ok(stored.toolkit.some(x => x.id === 'low'));
   assert.ok(stored.toolkit.some(x => x.id === 'url-only'));
 });
 
-test('unrouted discoveries and unavailable snapshots obey the 5000-star rule', () => {
+test('unrouted discoveries and unavailable snapshots obey the 1000-star rule', () => {
   const data = { builds: [] };
-  mergeLive(data, { github: [0, 4999, 5000].map(stars => ({
+  mergeLive(data, { github: [0, 999, 1000].map(stars => ({
     repo: `org/repo-${stars}`, stars, discovered: true, url: `https://github.com/org/repo-${stars}`
   })) });
-  assert.deepEqual(data.builds.map(x => x.metric.value), [5000]);
+  assert.deepEqual(data.builds.map(x => x.metric.value), [1000]);
   const missing = { builds: [{id:'repo', repo:'org/tool'}, {id:'post', source:'reddit'}] };
   mergeLive(missing, null);
   assert.deepEqual(missing.builds.map(x => x.id), ['post']);
@@ -68,7 +68,7 @@ test('latest API counts override old routed star figures in either direction', (
   ] } };
   const data = {builds:[]}; mergeLive(data,live);
   assert.equal(data.builds[0].metric.value,6000);
-  live.github[0].stars=4999;
+  live.github[0].stars=999;
   live.routed.builds[0].metric.value=6000;
   const next = {builds:[]}; mergeLive(next,live);
   assert.equal(next.builds.length,0);

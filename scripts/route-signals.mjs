@@ -19,6 +19,7 @@
  */
 
 import './env.mjs';
+import { githubStarFloor } from '../assets/js/github-policy.js';
 import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
@@ -32,7 +33,7 @@ const KEY = process.env.TYPESAFE_API_KEY;
 const FLOOR = {
   // Must match the fetcher's floor — two defaults drifting apart silently cut
   // candidates the fetcher deliberately collected. Substance is Jev's call.
-  stars:   Math.max(5000, Number(process.env.MIN_STARS          ?? 5000)),
+  stars:   githubStarFloor(process.env.MIN_STARS),
   points:  Number(process.env.MIN_HN_POINTS      ?? 300),
   upvotes: Number(process.env.MIN_REDDIT_UPVOTES ?? 200)
 };
@@ -151,6 +152,8 @@ async function routeWithJev(items) {
 /* --------------------------------------------------------------------- main */
 
 const live = JSON.parse(await readFile(join(ROOT, 'data/live.json'), 'utf8'));
+FLOOR.stars = githubStarFloor(process.env.MIN_STARS ?? live.githubMinStars);
+live.githubMinStars = FLOOR.stars;
 
 // Everything already curated by hand wins; a fetched duplicate is dropped.
 const curatedUrls = new Set();

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-09-25T07:42:20.575Z",
+  "classifiedAt": "2026-09-25T07:48:33.191Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -1253,10 +1253,10 @@
       "confidence": 1
     },
     "story-awesome-hermes-agent-community-curated-skills-list": {
-      "input": "937af5eaf5e9f72dc4afead7f136b730b8c26a7168785baad6bd316cfca67139",
-      "usefulness": 0.61,
+      "input": "9362dc318c059dff6b6149a023ff6efc12f99aaf9634a32f61dc00b4bff8ea25",
+      "usefulness": 0.65,
       "popularity": "strong",
-      "confidence": 0.49
+      "confidence": 0.46
     },
     "story-hermes-over-imessage-on-my-always-on-mac-studio": {
       "input": "5bf1c46e7e681845b2ec9ffd71eaff0343976ce4c212eb237e4c20a75ae94494",
@@ -1985,7 +1985,7 @@
       "confidence": 0.55
     },
     "gh-hermes-agent": {
-      "input": "9788b79c0883d4de9c0d3f91e946e657bdc6b0851b84c9c2b3ed68b407b59160",
+      "input": "ee366103fc9f22b71766bf713ac1f9e0da2488e87f3b40dcd171f18ca1c538d0",
       "usefulness": 0,
       "popularity": "widespread",
       "confidence": 0.89
@@ -2051,10 +2051,10 @@
       "confidence": 0.34
     },
     "gh-jnmetacode-superpowers-zh": {
-      "input": "eabacc4a0324ff9ef1f4ce45f0e5c995756fd6c581ef8d80332f3efef0a4ea8b",
-      "usefulness": 0.2,
+      "input": "333710a4eddd7824349b39a58ce38fc32101cf40d7acf8810293b9c740f8dba9",
+      "usefulness": 0.19,
       "popularity": "strong",
-      "confidence": 0.43
+      "confidence": 0.39
     },
     "gh-conorbronsdon-avoid-ai-writing": {
       "input": "1473f9162ede2fb477f4e242070c711fcfa1e41563721c9755ef274749be8ee0",
@@ -4193,46 +4193,46 @@
       "confidence": 0.95
     },
     "kit-cc-switch": {
-      "input": "c6785904ee569a192a51cee14ae6794863444e6e01bd2f1b22f1c5bf376ea335",
-      "usefulness": 2.15,
+      "input": "82827704151616e724fd14f95d11b0b09d5d9f937763c1b0bd581a61fa8f2012",
+      "usefulness": 2.21,
       "popularity": "widespread",
-      "confidence": 0.59
+      "confidence": 0.6
     },
     "kit-codegraph": {
-      "input": "bd3b6a850f599a40361c57a2cd6a5daf613065750daa7fd0ac928e42e8c76889",
-      "usefulness": 2.46,
+      "input": "9186d086283e54046ffb82a0dd78a7a7e01d05a83f214c5a3be87002b37bfa61",
+      "usefulness": 2.41,
       "popularity": "widespread",
-      "confidence": 0.51
+      "confidence": 0.5
     },
     "kit-gbrain": {
-      "input": "fd6bd5ea637b54160436f4181bd3763b842e51331f90dbce0ba5d048d45c6455",
-      "usefulness": 2.19,
+      "input": "0b0eb6d783a7a4f50b6bc6224a85facf138bcd015874e712a84b2a4cb0c1a9d5",
+      "usefulness": 2.23,
       "popularity": "strong",
-      "confidence": 0.51
+      "confidence": 0.52
     },
     "kit-claude-mem": {
-      "input": "1a8971695b4e07dee171df1d12700dc58899d7a56c4cd88482d62faa559b554e",
-      "usefulness": 2.22,
+      "input": "d861db8d0807bbb3eb96e9a7329ec15f9f8fe2738ec432427ee06ba03ad888f4",
+      "usefulness": 2.25,
       "popularity": "widespread",
-      "confidence": 0.61
+      "confidence": 0.62
     },
     "kit-ruflo": {
-      "input": "1ef100d88bbd4b54cd8661a1991fb00cb17aa6f2d61a1755e79f9e1a42e587cb",
-      "usefulness": 1.91,
+      "input": "736bc04777e16d67e2473dd227e620c4666fa3d1d685df8e7a345933d9129768",
+      "usefulness": 1.89,
       "popularity": "widespread",
       "confidence": 0.48
     },
     "gh-screenpipe-screenpipe": {
-      "input": "d8c73174b4cf57f5142ef45564b470e1fdbae6af4fa23818824abbc285d4a927",
-      "usefulness": 0.89,
+      "input": "0d535e585f51155637921d35fb2ffdc544a52ee037137eaa59c335b73ae22f9b",
+      "usefulness": 0.88,
       "popularity": "strong",
       "confidence": 0.62
     },
     "gh-jnmetacode-agency-agents-zh": {
-      "input": "ced0afee16fdcd5283e5bb0dfa329048938749874d2690b0f9c119a8a387e290",
-      "usefulness": 1.42,
+      "input": "60223472e5f2a2a0ad734f893b6071c28cf5e48aaca636ad1dd4393482588a76",
+      "usefulness": 1.41,
       "popularity": "strong",
-      "confidence": 0.34
+      "confidence": 0.37
     },
     "gh-waishnav-devspace": {
       "input": "91442dba686ed77adc65155b037c06de0367e5b679a2a890cebbff08b6b014b7",
@@ -4241,22 +4241,22 @@
       "confidence": 0.74
     },
     "gh-liustack-modlens": {
-      "input": "29ae9571bdf0a3ae0edf1837352319da834fa89534fa86b9a2ddbc48c7087a15",
-      "usefulness": 1.24,
+      "input": "417631b0cc7e11885b63283aee4ec8eea00d4565a3eb9457d0366423ae526ec0",
+      "usefulness": 1.29,
       "popularity": "strong",
-      "confidence": 0.5
+      "confidence": 0.49
     },
     "gh-mnemosyne-oss-mnemosyne": {
-      "input": "2b81555f063bdd8950d2f80d2e456313b9b756e8b2bc8a63e556ee4245cef0cb",
-      "usefulness": 0.48,
+      "input": "844a87258a7cff5be6d296831c9883e549b2d8c17226c5cf882d330a94fd1ed6",
+      "usefulness": 0.46,
       "popularity": "strong",
-      "confidence": 0.4
+      "confidence": 0.52
     },
     "gh-liaohch3-claude-tap": {
-      "input": "140e5da1a6283ff6f60378ccb0421526fb7fceb2e7e745ca305600f377a9df25",
-      "usefulness": 1.65,
+      "input": "d3941ce312c203ca49eb40fbbc4d5e4fa52a339d5c39f72f59648ba0d4525b78",
+      "usefulness": 1.63,
       "popularity": "strong",
-      "confidence": 0.55
+      "confidence": 0.54
     },
     "gh-harnessrouter-harnessrouter": {
       "input": "8d89c11f7db4c43069c527e4db3dce5828cccfa7426dd44d0734adb4709de482",
@@ -4277,10 +4277,10 @@
       "confidence": 0.48
     },
     "gh-lennney-stop-that-shit": {
-      "input": "2b7d0eb8a12917f10f6dbe9745410d49c0f5bbd7a3cfbda224a6b69559c485d5",
-      "usefulness": 1.35,
+      "input": "e5f0cd651f13f8bd79373db30f54e20f5e0d5dc6a8321203b584547d6140926a",
+      "usefulness": 1.4,
       "popularity": "strong",
-      "confidence": 0.51
+      "confidence": 0.55
     },
     "prompt-parallel-research": {
       "input": "b41bb3a982e727c41754513bb9c02e9be1641c40776380f3cd36bfc809c9d4b5",
@@ -4419,6 +4419,42 @@
       "usefulness": 0.59,
       "popularity": "unknown",
       "confidence": 0.63
+    },
+    "gh-internet-court-internet-court-skill": {
+      "input": "a323123cc389079ff27879d48f0a63f5cef12c2f053697293ac4d11598ad4fcc",
+      "usefulness": 0.57,
+      "popularity": "strong",
+      "confidence": 0.53
+    },
+    "gh-ksimback-hermes-ecosystem": {
+      "input": "7f62b3640308b1a68b62ca69af8303b6404b717ab7d5814a321bc33d29411c67",
+      "usefulness": 0.84,
+      "popularity": "established",
+      "confidence": 0.39
+    },
+    "gh-prompt-security-clawsec": {
+      "input": "0906d3176e4b0f792339ff226241e01050c47e2f1d2bedde6b158c600862641e",
+      "usefulness": 0.84,
+      "popularity": "strong",
+      "confidence": 0.3
+    },
+    "gh-citrolabs-ego-lite": {
+      "input": "a7c82860c6436b957bece1de86df7d791750c719c4be2a91ec18480c0a3b0a1b",
+      "usefulness": 0.7,
+      "popularity": "strong",
+      "confidence": 0.42
+    },
+    "gh-nousresearch-hermes-agent-self-evolution": {
+      "input": "cef703b77788569734fccc2ad014b76921195d36c88bde3af196ed8c4c73a789",
+      "usefulness": 0.69,
+      "popularity": "strong",
+      "confidence": 0.6
+    },
+    "gh-alchaincyf-hermes-agent-orange-book": {
+      "input": "7a876844bf65eee9678e1ff6d185ef72c10a1d3f1c1cf15bcc32d984614ee80c",
+      "usefulness": 0.07,
+      "popularity": "strong",
+      "confidence": 0.74
     }
   }
 }

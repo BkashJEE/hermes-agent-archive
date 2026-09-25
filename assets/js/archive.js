@@ -3,8 +3,8 @@
    hand-written, and nothing is estimated. */
 import { githubTrend } from './trends.js';
 
-export const MIN_GITHUB_STARS = 5000;
-const qualifies = stars => Number.isFinite(stars) && stars >= MIN_GITHUB_STARS;
+import { githubStarFloor, qualifiesStars } from './github-policy.js';
+export { MIN_GITHUB_STARS } from './github-policy.js';
 
 export function githubRepo(item) {
   // An entry carrying its own credit is a post, not a repository listing, even
@@ -20,6 +20,7 @@ export function githubRepo(item) {
 }
 
 export function mergeLive(data, live) {
+  const qualifies = stars => qualifiesStars(stars, githubStarFloor(live?.githubMinStars));
   /* A fetched snapshot is the only thing that may supply engagement, with one
      exception: an entry that names where its figure came from. The rule is that
      every number states its source, not that every number comes from an API —
@@ -35,7 +36,7 @@ export function mergeLive(data, live) {
     return;
   }
   // GitHub: attach real stars/forks to any seeded repo, on any shelf.
-  // Repository write-ups stay on disk; only verified 5k+ repos enter the view.
+  // Repository write-ups stay on disk; only repos meeting the snapshot’s shared star floor enter the view.
   const byRepo = new Map((live.github || []).map(g => [g.repo.toLowerCase(), g]));
   for (const [sectionId, items] of Object.entries(data)) {
     data[sectionId] = items.filter(item => {
@@ -118,7 +119,8 @@ export function mergeLive(data, live) {
 }
 
 // A computed shelf: references existing entries without duplicating archive totals.
-export function trendingItems(data) {
+export function trendingItems(data, floor) {
+  const qualifies = stars => qualifiesStars(stars, githubStarFloor(floor));
   const repos = new Map();
   for (const item of Object.values(data).flat()) {
     const repo = githubRepo(item);

@@ -10,7 +10,7 @@ test('trending shelf combines shelves, deduplicates repositories and enforces pu
     observedAt: new Date(now - 1000).toISOString(), previousStars: {value: before, at:new Date(now - 86400000).toISOString()}});
   const item = (id, repo) => ({id,repo,title:repo,source:'github',url:`https://github.com/${repo}`});
   const data = { toolkit:[item('a','one/fast'),item('b','two/small')],builds:[item('dup','one/fast'),{...item('c','three/slow'),repo:undefined},item('d','four/stale'),item('e','five/falling')] };
-  mergeLive(data,{github:[record('one/fast',6000,5900),record('two/small',4999,4000),record('three/slow',8000,7980),record('four/stale',9000,8000,true),record('five/falling',10000,10100)]});
+  mergeLive(data,{github:[record('one/fast',6000,5900),record('two/small',999,900),record('three/slow',8000,7980),record('four/stale',9000,8000,true),record('five/falling',10000,10100)]});
   assert.deepEqual(trendingItems(data).map(i=>i.title),['one/fast','three/slow']);
   assert.equal(data.builds.length,4); // Computed shelf does not mutate stored shelves.
 });

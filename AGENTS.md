@@ -31,7 +31,7 @@ npm run key    # paste API keys into a gitignored .env
 estimate, not a placeholder that looks real.
 
 - Metrics come from public APIs via `scripts/fetch-signals.mjs`, or carry a `credit` field naming their source. Credited analytics must be labelled on cards and excluded from public-popularity evidence.
-- A repo that fails to resolve retains its stored write-up, but is hidden until 5,000 stars can be verified.
+- A repo that fails to resolve retains its stored write-up, but is hidden until 1,000 stars can be verified.
 - An item with no public metric renders its tags and `no public metric`.
 - A source that failed at fetch time is named in the page footer.
 - X and Facebook have no free API. Entries from there are hand-curated **with a real
@@ -77,7 +77,7 @@ unknown sources, malformed dates and non-http URLs.
 Hacker News points, and Reddit upvotes. `route-signals.mjs` decides which section each
 signal belongs on — via Jev when `TYPESAFE_API_KEY` is set, via keyword rules otherwise.
 
-Discovery floors default to 5,000 GitHub stars, 300 HN points and 200 Reddit upvotes;
+Discovery floors default to 1,000 GitHub stars, 300 HN points and 200 Reddit upvotes;
 Jev judges relevance and quality.
 Section limits are configurable in the sourcing scripts. Sourced cards are marked `SOURCED`; a fetched
 duplicate of a curated URL is dropped, because hand-written entries win.
@@ -106,7 +106,7 @@ The archive accumulates. No pipeline stage may remove an entry that is already i
 - `import-hermes-stories.mjs` merges by id; an entry pulled from the source page keeps
   its place in the archive even if it later disappears upstream.
 - A seeded repo that does not resolve stays in stored data. The rendered archive
-  requires a verified count of at least 5,000 stars.
+  requires a verified count of at least 1,000 stars.
 
 This rule exists because a single GitHub rate-limit once wiped a shelf and a 248k-star
 repo out of `live.json`. Recovery was `git show <sha>:data/live.json`.
@@ -156,7 +156,7 @@ stylesheet is load-bearing — do not remove it.
 
 ## GitHub visibility cutoff
 
-Require at least 5,000 fetched public stars for every GitHub repository on every
+Require at least 1,000 fetched public stars for every GitHub repository on every
 shelf, including URL-only entries. Unknown counts are excluded. Apply the same
 threshold to discovery and routing. Keep stored content so a later qualifying count
 can restore it. Non-GitHub stories without public metrics remain eligible.
@@ -185,3 +185,10 @@ site public and preview deployments protected with Standard Protection
 The GitHub repository remains private. Visitors may browse and copy but cannot
 edit or publish. Do not grant collaborators editing access, change other projects,
 or enable public submissions without the owner's approval.
+
+The GitHub floor defaults to 1,000 in `assets/js/github-policy.js`. `MIN_STARS` may
+raise or lower it; non-negative integers are accepted and invalid values fail
+before writes. Fetches record `githubMinStars` so rendering and routing use the
+same policy. Use `npm run fetch -- --github-only` to update GitHub independently
+when other source credentials are unavailable. Failed fetches preserve the last
+good snapshot and exit non-zero.
