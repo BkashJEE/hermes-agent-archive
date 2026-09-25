@@ -573,7 +573,7 @@ function wirePalette() {
 
 function findItem(id) {
   for (const s of state.cfg.sections) {
-    const hit = (state.data[s.id] || []).find(i => i.id === id);
+    const hit = (state.data[s.id] || []).find(i => i.id === id || i.aliases?.includes(id));
     if (hit) return hit;
   }
   return null;
