@@ -140,7 +140,11 @@ Use the Web Animations API for widths and strokes (the resting style stays corre
 Before deployment, run `vercel deploy --dry --json` and verify every runtime asset
 and configured JSON file is included. Directory exceptions in `.vercelignore`
 must not end in `/`: that excluded all assets and data in a previous deployment.
-Deploy with `--prod --skip-domain`, verify the staged URL, then promote it.
+For owner review, use `vercel deploy` to create a protected preview. Only after
+owner approval use `--prod --skip-domain`, verify the deployment, then promote it.
+`--skip-domain` may still assign the generated team/project alias: check every
+production alias, not only the canonical URL. Never use a production-target deploy
+as an unpublished review preview.
 
 The local server caches aggressively — a hash change does not reload the page, so verify
 CSS and JS edits with a real reload (`?v=<timestamp>`), not a hash navigation.

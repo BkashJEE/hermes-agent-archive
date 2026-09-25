@@ -241,7 +241,11 @@ Vercel serves plain static files with no build or install step. `.vercelignore`
 allows only the HTML, assets, and runtime JSON; update it when adding a data file.
 Secrets, maintenance scripts, and research inputs are excluded from the upload.
 
-After merging a reviewed PR into `main`, deploy from a clean checkout:
+For a review build, run `npx vercel@60.0.0 deploy` without `--prod`; Standard
+Protection keeps the preview private. Do not use a production-target deployment
+for unapproved review: `--skip-domain` can still update a generated project alias.
+
+After owner approval and merging the reviewed PR into `main`, deploy from a clean checkout:
 
 ```bash
 npm test
