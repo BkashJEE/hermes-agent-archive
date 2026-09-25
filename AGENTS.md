@@ -4,7 +4,7 @@ Conventions for any agent working in this repo (Codex, Claude Code, or a human).
 
 ## What this is
 
-A private static site cataloguing **Hermes Agent** craft — user stories, skills, prompts,
+A community static site cataloguing **Hermes Agent** craft — user stories, skills, prompts,
 settings, commands, hidden tricks and community builds — for the owner's followers, and
 as a content bank the owner mines for posts.
 
@@ -31,7 +31,7 @@ npm run key    # paste API keys into a gitignored .env
 estimate, not a placeholder that looks real.
 
 - Metrics come from public APIs via `scripts/fetch-signals.mjs`, or they don't exist.
-- A repo that fails to resolve retains its stored write-up, but is hidden until 5,000 stars can be verified.
+- A repo that fails to resolve retains its stored write-up, but is hidden until more than 50,000 stars can be verified.
 - An item with no public metric renders its tags and `no public metric`.
 - A source that failed at fetch time is named in the page footer.
 - X and Facebook have no free API. Entries from there are hand-curated **with a real
@@ -77,7 +77,7 @@ unknown sources, malformed dates and non-http URLs.
 Hacker News points, and Reddit upvotes. `route-signals.mjs` decides which section each
 signal belongs on — via Jev when `TYPESAFE_API_KEY` is set, via keyword rules otherwise.
 
-Discovery floors default to 5,000 GitHub stars, 300 HN points and 200 Reddit upvotes;
+Discovery floors require more than 50,000 GitHub stars, 300 HN points and 200 Reddit upvotes;
 Jev judges relevance and quality.
 Section limits are configurable in the sourcing scripts. Sourced cards are marked `SOURCED`; a fetched
 duplicate of a curated URL is dropped, because hand-written entries win.
@@ -106,7 +106,7 @@ The archive accumulates. No pipeline stage may remove an entry that is already i
 - `import-hermes-stories.mjs` merges by id; an entry pulled from the source page keeps
   its place in the archive even if it later disappears upstream.
 - A seeded repo that does not resolve stays in stored data. The rendered archive
-  requires a verified count of at least 5,000 stars.
+  requires a verified count of more than 50,000 stars.
 
 This rule exists because a single GitHub rate-limit once wiped a shelf and a 248k-star
 repo out of `live.json`. Recovery was `git show <sha>:data/live.json`.
@@ -151,8 +151,10 @@ stylesheet is load-bearing — do not remove it.
 
 ## GitHub visibility cutoff
 
-Require at least 5,000 fetched public stars for every GitHub repository on every
-shelf, including URL-only entries. Unknown counts are excluded. Apply the same
+Require more than 50,000 fetched public stars for every GitHub repository on every
+shelf, including URL-only entries. Require upstream documentation of Hermes
+support in `assets/js/github-policy.js`; a keyword mention or Jev assessment alone
+is not evidence of integration. Unknown counts are excluded. Apply the same
 threshold to discovery and routing. Keep stored content so a later qualifying count
 can restore it. Non-GitHub stories without public metrics remain eligible.
 
@@ -177,6 +179,9 @@ sensitive to content and fetched evidence; stale entries are unclassified.
 The owner authorized public website access on 2026-09-24. Keep the production
 site public and preview deployments protected with Standard Protection
 (`ssoProtection.deploymentType = prod_deployment_urls_and_all_previews`).
-The GitHub repository remains private. Visitors may browse and copy but cannot
+The owner authorized a public GitHub repository on 2026-09-25. Require owner
+review before publishing changes; contributors propose via issues and pull requests.
+Do not merge or promote a pending change without the owner's approval. Automated
+refreshes open pull requests rather than pushing to main. Visitors may browse and copy but cannot
 edit or publish. Do not grant collaborators editing access, change other projects,
 or enable public submissions without the owner's approval.

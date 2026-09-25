@@ -1,6 +1,6 @@
 # Hermes Agent Archive
 
-A private archive of the Hermes Agent craft people actually use — **user stories, skills,
+A community archive of the Hermes Agent craft people actually use — **user stories, skills,
 prompts, settings, commands, hidden tricks** and **community builds** — filterable by
 where it showed up (X, Reddit, Discord, Hacker News, GitHub, YouTube, blogs, podcasts).
 
@@ -19,9 +19,36 @@ scripts/check-data.mjs      validates every data file
 
 ## Run it locally
 
+Anyone can run their own copy. Install Git and Python 3; Node.js 20+ is only needed
+for the npm shortcuts, validation and optional data-refresh scripts.
+
 ```bash
-npm start          # http://localhost:4179
+git clone https://github.com/BkashJEE/hermes-agent-archive.git
+cd hermes-agent-archive
+python3 -m http.server 4179 --bind 127.0.0.1
 ```
+
+Open http://localhost:4179. On Windows, use `py -3` instead of `python3`.
+If Node.js is installed, `npm start` runs the same local server.
+No `npm install`, API keys, Vercel account or build step is needed to browse the
+included archive. A local copy has its own browser preferences; edits there cannot
+change the public site.
+
+## Contribute
+
+[Suggest an entry](https://github.com/BkashJEE/hermes-agent-archive/issues/new?template=submit-entry.yml)
+or fork the repository and open a pull request. Include the original source,
+author or repository owner, and a concrete Hermes use case. Repository cards need
+more than 50,000 fetched stars and documented Hermes support.
+
+[Contribution guide](CONTRIBUTING.md) · [Live dashboard](https://hermes-agent-archive.vercel.app)
+
+Submissions are proposals. The owner reviews changes before publishing to the
+shared dashboard. Contributors do not receive access to the Vercel account.
+
+Original site code is available under the [MIT license](LICENSE). Third-party
+quotes, imported documentation and project branding retain their source rights;
+they are not relicensed by the site's code license.
 
 The page reads its JSON over `fetch()`, so it needs a server — opening `index.html`
 straight off disk will show a load error with this reminder.
@@ -34,8 +61,10 @@ GITHUB_TOKEN=ghp_xxx npm run fetch     # 5000/hour
 ```
 
 This writes `data/live.json` with real stars, forks and Hacker News points. Re-run it
-whenever you want the rankings to move — `.github/workflows/refresh.yml` already does it
-weekly and commits the result.
+whenever you want the rankings to move. The owner’s daily updater researches new
+entries and proposes changes for review; `.github/workflows/refresh.yml` is a
+manual fallback that also opens a pull request. Forks do not inherit the owner’s
+updater or API credentials.
 
 **GitHub and Hacker News work with no credentials.** Reddit does not: its anonymous
 `.json` endpoints now redirect to a login page from most networks, so the script needs
@@ -51,19 +80,13 @@ REDDIT_CLIENT_ID=xxx REDDIT_CLIENT_SECRET=yyy npm run fetch
 Until then the Reddit section stays empty and the page says so in the footer — it will
 never show an invented number in its place.
 
-## How "People Build" fills itself
+## How repository discovery works
 
-Two passes, both against the public GitHub API:
-
-1. **Seeded** — the repos named in `data/builds.json`, resolved by full name so a renamed
-   or transferred project follows its new slug instead of 404ing.
-2. **Discovered** — a search for `claude-code in:name,description,topics` with
-   `fork:false archived:false is:public pushed:>=<today-30d>`, `sort=stars`, 60 candidates.
-   That's what surfaces projects nobody has curated yet.
-
-Discovered results are deduped against the seeds, and dropped if they're private, a fork,
-archived, disabled, or don't actually name Claude in the slug/description or carry the
-`claude-code` topic — GitHub's matcher is looser than the query implies.
+The fetcher checks reviewed repositories in `assets/js/github-policy.js` using
+the public GitHub API. It also searches for `"hermes-agent"` in repository names,
+descriptions and READMEs with more than 50,000 stars, excluding forks and archives.
+There is no publication-date filter. Unreviewed matches are logged for upstream
+Hermes documentation review; a search match does not automatically add a card.
 
 ## Keys
 
@@ -123,7 +146,7 @@ settings is caught.
 
 | Source | Floor | Override |
 | --- | --- | --- |
-| GitHub | 5,000 stars | `MIN_STARS=50000` |
+| GitHub | More than 50,000 stars + documented Hermes support | `MIN_STARS=100000` |
 | Hacker News | 300 points | `MIN_HN_POINTS=500` |
 | Reddit | 200 upvotes | `MIN_REDDIT_UPVOTES=400` |
 
@@ -131,7 +154,7 @@ Each shelf also caps at 10 sourced items, keeping the most popular — one fetch
 never bury what you wrote by hand. Override with `MAX_PER_SECTION`.
 
 ```bash
-MIN_STARS=50000 npm run sync     # a harsher bar for one run
+MIN_STARS=100000 npm run sync     # a harsher bar for one run
 ```
 
 ## Sourcing feeds every section, not just builds
@@ -213,7 +236,7 @@ It fails on duplicate ids, unknown sources, malformed dates and non-http URLs.
 
 ## Deployment
 
-Production is https://hermes-agent-archive.vercel.app. The repository stays private.
+Production is https://hermes-agent-archive.vercel.app. The repository is public; publishing remains owner-controlled.
 Vercel serves plain static files with no build or install step. `.vercelignore`
 allows only the HTML, assets, and runtime JSON; update it when adding a data file.
 Secrets, maintenance scripts, and research inputs are excluded from the upload.
@@ -234,24 +257,19 @@ Check the dry-run manifest includes every asset and configured data file, and ex
 secrets, scripts, and research files. Vercel's include patterns use `!assets` and
 `!data` without trailing slashes so it traverses those directories.
 
-Deployment is manual; a repository push does not publish automatically.
-The weekly refresh job updates Jev classifications when its key is configured.
+Deployment is manual; a repository push does not publish automatically. The
+daily updater prepares a PR and never merges or promotes it. The manual refresh
+workflow also proposes changes; enable it in Actions if that fallback is needed.
+The former weekly refresh and GitHub Pages workflows are disabled.
 
-## Repository visibility
+## Repository visibility and contribution access
 
-This repo is private for now, and it's a content source as much as a site — the sections
-are the shelves you pull posts from.
-
-GitHub Pages does not serve private repos on a free plan, so
-`.github/workflows/pages.yml` is set to `workflow_dispatch` only. Read it locally with
-`npm start`.
-
-When you want it public: flip the repo to public, uncomment the `push` trigger in that
-workflow, and it deploys to Pages from the `main` branch root. `.nojekyll` is already
-there so underscore-prefixed paths are served as-is.
-
-`.github/workflows/refresh.yml` keeps working either way — a private repo can still
-fetch and commit updated numbers on its weekly schedule.
+The owner authorized public repository access on 2026-09-25. Anyone can clone or
+fork it, file issues and propose pull requests. Only the owner currently has write
+access. Main requires review and the `validate` check, with administrator control
+retained by the owner. Code-owner review routes proposed changes to BkashJEE once
+this contribution setup is merged. Vercel account access is separate and is not
+granted to contributors. This project publishes only to Vercel.
 
 ## Rank the archive with Jev
 
@@ -277,7 +295,7 @@ Run `npm test` for ranking policy and cache regression checks.
 
 ### Repository eligibility and Trending
 
-Repository entries need at least 5,000 stars in a fetched public API snapshot.
+Repository entries need more than 50,000 stars in a fetched public API snapshot.
 Missing counts do not qualify. The same rule applies to curated and discovered
 repositories; stored content is retained. Discussions and community stories mirrored
 on GitHub are not repository entries and do not inherit the hosting repo's stars.
@@ -292,9 +310,13 @@ The fetcher records observation timestamps and prior star counts on each refresh
 To bootstrap history from a committed API snapshot (without changing counts), run
 `node scripts/backfill-trends.mjs <snapshot-commit-sha>`.
 
-### Private access
+### Public site, protected previews
 
-As of 2026-09-24, this archive is private to its owner through Vercel Authentication
-with **All Deployments** selected. The production domain, preview URLs and historical
-deployment URLs require authorized Vercel sign-in. Keep this setting when deploying
-new releases; only change it when the owner explicitly asks to make the site public.
+The canonical production URL is public. Vercel Standard Protection remains
+`prod_deployment_urls_and_all_previews`: previews and deployment-specific URLs
+require authorized access. Keep fork protection enabled and do not create public
+bypass links or grant contributors team access.
+
+Repository eligibility also requires reviewed upstream Hermes documentation in
+`assets/js/github-policy.js`. Search results alone are not proof of support.
+New repos need a second real public observation before they can appear as trending.
