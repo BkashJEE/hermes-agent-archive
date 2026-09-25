@@ -1,6 +1,6 @@
 {
-  "note": "Imported from https://hermes-agent.nousresearch.com/docs/user-stories by scripts/import-hermes-stories.mjs. Every entry is a real post quoted and attributed on that page; the headline, quote, author and link are as published. Re-run to refresh.",
-  "importedAt": "2026-09-24T04:32:23.777Z",
+  "note": "Imported from https://hermes-agent.nousresearch.com/docs/user-stories by scripts/import-hermes-stories.mjs. Every entry is a real post quoted and attributed on that page; the headline, quote, author and link are as published. Entries are merged, never replaced — nothing already archived is removed by a re-import.",
+  "importedAt": "2026-09-25T17:48:26.000Z",
   "items": [
     {
       "id": "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t",
@@ -2350,9 +2350,9 @@
     },
     {
       "id": "story-obsidian-as-the-long-term-memory-backbone-for-hermes-794-upv",
-      "title": "Obsidian as the long-term memory backbone for Hermes",
-      "summary": "How I use Obsidian as the long-term memory backbone for my AI assistant. (Diagram showing Hermes Agent writing structured markdown notes back into a synced Obsidian v…",
-      "detail": "How I use Obsidian as the long-term memory backbone for my AI assistant. (Diagram showing Hermes Agent writing structured markdown notes back into a synced Obsidian vault, treating the vault as the durable memory layer that survives context resets and cross-machine moves.)\n\n— u/Jonathan_Rivera, 2026-04-23, via Reddit.",
+      "title": "Obsidian as the long-term memory backbone for Hermes (794 upvotes)",
+      "summary": "How I use Obsidian as the long-term memory backbone for my AI assistant. (794-upvote diagram showing Hermes Agent writing structured markdown notes back into a synced Obsidian v…",
+      "detail": "How I use Obsidian as the long-term memory backbone for my AI assistant. (794-upvote diagram showing Hermes Agent writing structured markdown notes back into a synced Obsidian vault, treating the vault as the durable memory layer that survives context resets and cross-machine moves.)\n\n— u/Jonathan_Rivera, 2026-04-23, via Reddit.",
       "tags": [
         "user-story",
         "personal-assistant"
@@ -2360,7 +2360,8 @@
       "source": "reddit",
       "url": "https://www.reddit.com/r/hermesagent/comments/1stz6gd/how_i_use_obsidian_as_the_longterm_memory/",
       "author": "u/Jonathan_Rivera",
-      "date": "2026-04-23"
+      "date": "2026-04-23",
+      "credit": "Engagement claim quoted from Nous Research user stories; not verified via API."
     },
     {
       "id": "story-fat-agent-thin-tool-provider-via-hermes-mcp-serve",
