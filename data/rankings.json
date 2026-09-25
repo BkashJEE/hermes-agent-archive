@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-09-24T18:15:40.925Z",
+  "classifiedAt": "2026-09-25T06:59:41.176Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -1019,10 +1019,10 @@
       "confidence": 0.87
     },
     "story-obsidian-as-the-long-term-memory-backbone-for-hermes-794-upv": {
-      "input": "2d129c2409f8e6420c4821cd9fac6d7c30a54a1811c05ae43f42f6946cb13270",
-      "usefulness": 1.49,
+      "input": "a57cd6049f922024055e9d611bd14bd2f12b67035cab12269e8c58302143b8b0",
+      "usefulness": 1.25,
       "popularity": "unknown",
-      "confidence": 0.49
+      "confidence": 0.66
     },
     "story-fat-agent-thin-tool-provider-via-hermes-mcp-serve": {
       "input": "6a45f40cb42c7c609cffa07f7d78b4fd9a69a66305662b9fd563cf699321e75f",
@@ -1253,10 +1253,10 @@
       "confidence": 1
     },
     "story-awesome-hermes-agent-community-curated-skills-list": {
-      "input": "ad8d8f8c22471007b743d5424e634130b8aa39fec78c8d6162b1f3935457e335",
-      "usefulness": 0.29,
-      "popularity": "unknown",
-      "confidence": 0.76
+      "input": "937af5eaf5e9f72dc4afead7f136b730b8c26a7168785baad6bd316cfca67139",
+      "usefulness": 0.61,
+      "popularity": "strong",
+      "confidence": 0.49
     },
     "story-hermes-over-imessage-on-my-always-on-mac-studio": {
       "input": "5bf1c46e7e681845b2ec9ffd71eaff0343976ce4c212eb237e4c20a75ae94494",

@@ -1,0 +1,24 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { mergeLive, trendingItems } from '../assets/js/archive.js';
+import { creditFor } from '../assets/js/credits.js';
+import { cardPoints } from '../assets/js/card-preview.js';
+
+test('trending shelf combines shelves, deduplicates repositories and enforces public evidence', () => {
+  const now = Date.now();
+  const record = (repo, stars, before, stale = false) => ({repo, stars, forks: 0, url: `https://github.com/${repo}`, stale,
+    observedAt: new Date(now - 1000).toISOString(), previousStars: {value: before, at:new Date(now - 86400000).toISOString()}});
+  const item = (id, repo) => ({id,repo,title:repo,source:'github',url:`https://github.com/${repo}`});
+  const data = { toolkit:[item('a','one/fast'),item('b','two/small')],builds:[item('dup','one/fast'),{...item('c','three/slow'),repo:undefined},item('d','four/stale'),item('e','five/falling')] };
+  mergeLive(data,{github:[record('one/fast',6000,5900),record('two/small',4999,4000),record('three/slow',8000,7980),record('four/stale',9000,8000,true),record('five/falling',10000,10100)]});
+  assert.deepEqual(trendingItems(data).map(i=>i.title),['one/fast','three/slow']);
+  assert.equal(data.builds.length,4); // Computed shelf does not mutate stored shelves.
+});
+test('community names cannot masquerade as author credits',()=>{
+  assert.deepEqual(creditFor({author:'r/SideProject',source:'reddit'}),{label:'Author',name:'not recorded'});
+  assert.deepEqual(creditFor({author:'u/example',source:'reddit'}),{label:'By',name:'u/example'});
+});
+test('card preview keeps parenthetical comparisons in a single sentence',()=>{
+  const points=cardPoints({tags:['user-story'],detail:'Compare treatments (Charcoal vs. Intralipids) in a spreadsheet. Check the result before use.'});
+  assert.equal(points[0],'Compare treatments (Charcoal vs. Intralipids) in a spreadsheet.');
+});

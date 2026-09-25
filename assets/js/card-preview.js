@@ -13,7 +13,19 @@ export function cardPoints(item) {
   const blocks = hasSteps
     ? numbered.map((m, i) => text.slice(m.index + m[0].length, numbered[i + 1]?.index).trim())
     : text.split(/\n+|\s+[*•]\s+/).map(line => line.replace(/^\s*[-*•]\s+/, '').trim());
-  const candidates = blocks.flatMap(block => [...sentences.segment(block.split(/\s+…\s+/)[0])].map(part => part.segment.trim()))
+  const candidates = blocks.flatMap(block => {
+    const parts = [];
+    for (const { segment } of sentences.segment(block.split(/\s+…\s+/)[0])) {
+      const previous = parts.at(-1) || '';
+      // Sentence segmentation treats abbreviations such as “vs.” as a boundary.
+      // Keep open parentheses and abbreviated comparisons with their continuation.
+      if (parts.length && (/(?:\bvs|\be\.g|\bi\.e)\.$/i.test(previous)
+          || (previous.match(/\(/g) || []).length > (previous.match(/\)/g) || []).length))
+        parts[parts.length - 1] += ' ' + segment.trim();
+      else parts.push(segment.trim());
+    }
+    return parts;
+  })
     .filter(line => line && !/^— |^\.{3}$|^…$/.test(line));
   // Long reference enumerations can use their introductory clause (e.g. provider lists).
   const brief = candidates.map(line => line.length > 220 && line.includes(':')

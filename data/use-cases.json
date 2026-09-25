@@ -140,7 +140,11 @@
       "source": "reddit",
       "url": "https://www.reddit.com/r/hermesagent/comments/1umvy8k/",
       "author": "u/kenmazaika",
-      "date": "2026-07-04"
+      "date": "2026-07-04",
+      "cardPoints": [
+        "Runs Hermes continuously on a used Linux desktop, controlled through Telegram.",
+        "Emails rental listings filtered by school district, commute, bedrooms and budget."
+      ]
     },
     {
       "id": "story-a-dfir-analyst-runs-work-coaching-and-homelab-as-three-separ",
@@ -400,7 +404,11 @@
       "source": "reddit",
       "url": "https://www.reddit.com/r/hermesagent/comments/1u5dcnj/",
       "author": "u/Elaphe21",
-      "date": "2026-06-14"
+      "date": "2026-06-14",
+      "cardPoints": [
+        "Compiles a pet-toxicology reference spreadsheet in an Obsidian vault.",
+        "The author reports checking the generated treatment information."
+      ]
     },
     {
       "id": "story-a-synthetic-hippocampus-that-forgets-on-purpose",
@@ -764,7 +772,11 @@
       "source": "x",
       "url": "https://x.com/akshay_pachaar/status/2071227474227482690",
       "author": "@akshay_pachaar",
-      "date": "2026-06-28"
+      "date": "2026-06-28",
+      "cardPoints": [
+        "Consults several models, then uses one model to write the final answer.",
+        "Saves the model combination as a reusable preset."
+      ]
     },
     {
       "id": "story-how-a-specialist-agent-gets-crafted-run-it-4-to-10-times-and",
@@ -1455,7 +1467,11 @@
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent.txt",
       "author": "@buray",
-      "date": "2026-02-26"
+      "date": "2026-02-26",
+      "cardPoints": [
+        "Exposes Hermes tools through an MCP server for Claude Desktop, Cursor and other clients.",
+        "Makes terminal, file, search, memory and agent tools available through MCP."
+      ]
     },
     {
       "id": "story-building-a-roofing-lead-gen-app-for-my-friend-with-hermes",
@@ -1495,7 +1511,11 @@
       ],
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/community-projects-showcase/1492347479805530182-Email-Checker-State-Machine.txt",
-      "author": "@mayuronx"
+      "author": "@mayuronx",
+      "cardPoints": [
+        "Checks the inbox and manages state with a Python script.",
+        "Starts an LLM session only when new email arrives."
+      ]
     },
     {
       "id": "story-sometimes-hermes-agent-melts-my-heart",
@@ -1904,7 +1924,11 @@
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent.txt",
       "author": "@lauratom",
-      "date": "2026-04-04"
+      "date": "2026-04-04",
+      "cardPoints": [
+        "Stores evolving context in a temporal graph inside SQLite.",
+        "Demotes outdated information instead of adding everything to the prompt."
+      ]
     },
     {
       "id": "story-i-ported-the-whole-python-weather-stack-to-rust-for-my-herme",
@@ -2326,9 +2350,9 @@
     },
     {
       "id": "story-obsidian-as-the-long-term-memory-backbone-for-hermes-794-upv",
-      "title": "Obsidian as the long-term memory backbone for Hermes (794 upvotes)",
-      "summary": "How I use Obsidian as the long-term memory backbone for my AI assistant. (794-upvote diagram showing Hermes Agent writing structured markdown notes back into a synced Obsidian v…",
-      "detail": "How I use Obsidian as the long-term memory backbone for my AI assistant. (794-upvote diagram showing Hermes Agent writing structured markdown notes back into a synced Obsidian vault, treating the vault as the durable memory layer that survives context resets and cross-machine moves.)\n\n— u/Jonathan_Rivera, 2026-04-23, via Reddit.",
+      "title": "Obsidian as the long-term memory backbone for Hermes",
+      "summary": "How I use Obsidian as the long-term memory backbone for my AI assistant. (Diagram showing Hermes Agent writing structured markdown notes back into a synced Obsidian v…",
+      "detail": "How I use Obsidian as the long-term memory backbone for my AI assistant. (Diagram showing Hermes Agent writing structured markdown notes back into a synced Obsidian vault, treating the vault as the durable memory layer that survives context resets and cross-machine moves.)\n\n— u/Jonathan_Rivera, 2026-04-23, via Reddit.",
       "tags": [
         "user-story",
         "personal-assistant"
@@ -2680,7 +2704,11 @@
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent/",
       "author": "@0xajpanda",
-      "date": "2026-03-24"
+      "date": "2026-03-24",
+      "cardPoints": [
+        "Monitors blockchain validator endpoints with a Hermes skill.",
+        "Sends Telegram alerts only when an endpoint changes between up and down."
+      ]
     },
     {
       "id": "story-speech-to-speech-with-hermes-plus-generated-background-music",
@@ -2707,7 +2735,11 @@
       ],
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/community-projects-showcase/1496117910287024159-Running-Hermes-as-a-Hardcore-Project-Operating-System.txt",
-      "author": "@ogiberstein"
+      "author": "@ogiberstein",
+      "cardPoints": [
+        "Keeps a coordinating agent and separate agent profiles for Slack projects.",
+        "Runs on a VPS with nightly backups and daily WhatsApp reports."
+      ]
     },
     {
       "id": "story-one-hermes-for-the-whole-family-on-whatsapp",
@@ -3064,7 +3096,11 @@
       ],
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/community-projects-showcase/1477982563099349036-AI-translater-NVDA-addon-with-Nous-research.txt",
-      "author": "@denis_skripnik"
+      "author": "@denis_skripnik",
+      "cardPoints": [
+        "Translates selected text or clipboard content through a screen-reader add-on.",
+        "Uses keyboard shortcuts to trigger each translation."
+      ]
     },
     {
       "id": "story-telegram-modal-serverless-40-faster-on-research-tasks",
@@ -3078,7 +3114,11 @@
       "source": "blog",
       "url": "https://kisztof.medium.com/hermes-agent-review-nous-researchs-self-improving-ai-agent-e72bc244435a",
       "author": "Krzysztof Słomka (Medium)",
-      "date": "2026-04-20"
+      "date": "2026-04-20",
+      "cardPoints": [
+        "Uses Telegram to control execution on Modal serverless.",
+        "Describes VPS and SSH backends for persistent or private-network work."
+      ]
     },
     {
       "id": "story-every-openclaw-update-breaks-something-hermes-just-runs",
@@ -3175,7 +3215,11 @@
       ],
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/plugins-skills-and-skins/1494297717420199996-Tidal-Music-Player-Skills.txt",
-      "author": "@splosh123"
+      "author": "@splosh123",
+      "cardPoints": [
+        "Searches tracks and manages Tidal playlists through a base skill.",
+        "Curates morning and evening playlists with time-of-day matching and no duplicates."
+      ]
     },
     {
       "id": "story-wired-boltai-v2-into-hermes-with-full-markdown-and-slash-com",
@@ -3540,7 +3584,11 @@
       ],
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/community-projects-showcase/1499716570878840882-Hermes-Multi-Agent-Setup---4-Agents-on-a-Laptop.txt",
-      "author": "@ones_07389"
+      "author": "@ones_07389",
+      "cardPoints": [
+        "Runs project, development, operations and content agents on an Ubuntu laptop.",
+        "Uses systemd and a watchdog to keep the agents running."
+      ]
     },
     {
       "id": "story-using-skill-md-as-my-notion-outlook-sharepoint-tool-router",
