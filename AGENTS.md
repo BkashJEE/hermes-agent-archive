@@ -151,8 +151,9 @@ owner approval use `--prod --skip-domain`, verify the deployment, then promote i
 production alias, not only the canonical URL. Never use a production-target deploy
 as an unpublished review preview.
 
-The local server caches aggressively — a hash change does not reload the page, so verify
-CSS and JS edits with a real reload (`?v=<timestamp>`), not a hash navigation.
+The local server sends no-store headers and binds to loopback. Verify CSS and JS
+edits with a real reload, not a hash navigation. Serve only configured public
+files; never expose dotfiles, maintenance scripts or symlink targets.
 
 `.empty`, `.active-filters` and `.drawer` set `display` on a class, which outranks the
 browser's `[hidden]` rule. The global `[hidden]{display:none!important}` in the
@@ -194,3 +195,11 @@ Do not merge or promote a pending change without the owner's approval. Automated
 refreshes open pull requests rather than pushing to main. Visitors may browse and copy but cannot
 edit or publish. Do not grant collaborators editing access, change other projects,
 or enable public submissions without the owner's approval.
+
+## Open-source release
+
+Keep the independent-project notice and ranking limitations visible. The site code
+license does not relicense third-party quotes or data. Preserve NOTICE.md and
+source notices. Criticism of curation is welcome; route corrections through issues
+and security reports privately. Never claim a security audit or complete importer
+coverage based only on passing tests.
