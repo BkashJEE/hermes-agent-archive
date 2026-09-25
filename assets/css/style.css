@@ -689,7 +689,21 @@ code{font-family:var(--mono);font-size:.92em}
   .density{flex:0 0 auto}
   .density button{padding:0 9px}
 
-  .hero{align-items:flex-start;padding:12px;gap:10px}
+  /* The hero is descriptive, so it scrolls away on a phone; the filter row is
+     the one that has to stay. Pinning both put them on the same 52px line. */
+  .hero{position:static;align-items:flex-start;padding:12px;gap:10px}
+
+  /* Thumb-sized controls. 29px targets are a desktop habit; 44px is the
+     documented minimum for touch and these are the only way to navigate. */
+  .icon-btn,.ghost-btn,.density button,.select,.search{min-height:42px}
+  .nav a{min-height:44px}
+  .taglist button{min-height:40px}
+  .card-foot a,.card-foot button{min-height:40px}
+  /* Footer and inline links sit at 14px, which is a 14px tap target. Padding
+     gives them a thumb-sized hit area without changing how they look. */
+  .foot a,.dash-fresh a,.d-tag{display:inline-block;padding:10px 2px;min-height:40px}
+  .brand{min-height:42px;align-items:center}
+  .tag-search,.search input{min-height:40px}
   .hero-icon{width:30px;height:30px}
   .hero h1{font-size:17px}
   .hero p{font-size:12px}
