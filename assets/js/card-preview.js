@@ -1,8 +1,10 @@
-/* Short, verbatim source statements for the grid. Full quotes stay in the drawer.
-   Prefer explicit steps, then complete sentences; never generate outcome claims. */
+/* Prefer reviewed card summaries stored with the item; otherwise extract short
+   source statements. Full quotes stay in the drawer, without generated claims. */
 const sentences = new Intl.Segmenter('en', { granularity: 'sentence' });
 
 export function cardPoints(item) {
+  if (Array.isArray(item.cardPoints) && item.cardPoints.length)
+    return item.cardPoints.filter(point => typeof point === 'string' && point.trim()).slice(0, 3);
   const summary = (item.summary || '').trim();
   const story = (item.tags || []).includes('user-story');
   const text = (story ? item.detail || summary : summary).split(/\n\s*\n— /)[0].trim();
