@@ -26,7 +26,9 @@ to copying long passages.
 3. Append content to the appropriate `data/<section>.json`; retain existing IDs.
 4. Include the source, credit, useful details and a concise card preview. For a
    GitHub repo, add reviewed upstream evidence to `assets/js/github-policy.js`.
-5. Run `npm run check` and `npm test` with Node.js 20 or newer.
+5. Run `npm run check` and `npm test` with Node.js 20 or newer. `npm run links`
+   additionally confirms every source link and documentation anchor resolves; it
+   reaches the network, so it is not part of the required checks.
 6. Open a pull request explaining what changed and linking to the source.
 
 Do not hand-edit `data/live.json`, invent engagement, or present editorial scores
@@ -36,6 +38,31 @@ missing classifications appear as unclassified until refreshed.
 
 Trending requires two real public observations, at least an hour apart. A high
 star count alone is not evidence of growth. Do not create synthetic baselines.
+
+## What happens to your submission
+
+Nothing you send edits the live site directly. The path is the same whether you
+open an issue or a pull request.
+
+1. **You propose.** An issue form, or a pull request that appends to
+   `data/<section>.json`. Either way it is a proposal.
+2. **Validation runs.** Every pull request runs `npm run check` and `npm test`.
+   These reject a missing field, a bad URL, an unknown source, a duplicate id or
+   title, an entry with no source link, and an entry that credits nobody. You see
+   the same failures locally before you push.
+3. **The owner reviews.** `main` requires an approving review from the code owner
+   and a passing `validate` check. Nobody else can write to it, and force pushes
+   are refused.
+4. **It publishes.** Merging to `main` is what puts an entry on the live site.
+
+Once merged, an entry stays. No pipeline stage removes one: the metric fetcher
+writes only `data/live.json` and `data/rankings.json`, and the automated refresh
+opens a pull request for review rather than committing to `main`. A repository
+that later drops below the star floor keeps its stored write-up and stops being
+displayed — stored and shown are deliberately different numbers.
+
+If you need a change reversed after it is published, say so in an issue. Rights
+and privacy removals are handled explicitly and recorded, not quietly dropped.
 
 ## Review and publishing
 

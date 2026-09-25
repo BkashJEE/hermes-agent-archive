@@ -39,6 +39,19 @@ for (const section of cfg.sections) {
     if (!okSources.has(it.source))    errors.push(`${where}: unknown source "${it.source}"`);
     if (it.date && Number.isNaN(Date.parse(it.date))) errors.push(`${where}: bad date "${it.date}"`);
     if (it.url && !/^https?:\/\//.test(it.url))       errors.push(`${where}: bad url "${it.url}"`);
+
+    /* The archive's promise is that every entry links to its source and credits whoever
+       made it. Both halves are checkable here, where a contributor sees the failure
+       before opening a pull request rather than after review.
+
+       A GitHub entry stores `repo` instead of `url`; either is a source link. Official
+       documentation is exempt from the credit rule on purpose — the source label already
+       says where it came from, and attaching a person's name to it would be worse than
+       leaving it off. `credit` carries a stated provenance for a figure the author
+       supplied themselves. */
+    if (!it.url && !it.repo)          errors.push(`${where}: no source link (needs url or repo)`);
+    if (it.source !== 'docs' && !it.author && !it.credit)
+      errors.push(`${where}: no author — name whoever made it, or use "credit" to state the provenance`);
   }
   console.log(`  ✓ ${section.file.padEnd(16)} ${items.length} items`);
 }
