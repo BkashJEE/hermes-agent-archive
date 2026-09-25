@@ -44,7 +44,12 @@
    browser's [hidden] rule — without this they stay visible when hidden is set. */
 [hidden]{display:none!important}
 
-html,body{height:100%}
+/* body must not be a fixed 100% tall: a sticky element can only travel inside
+   its containing block, so a body capped at one viewport lets the sticky header
+   scroll away the moment the page is longer than the screen. min-height keeps
+   the full-height background without capping the box. */
+html{height:100%}
+body{min-height:100%}
 body{
   margin:0;
   background:
@@ -570,29 +575,6 @@ code{font-family:var(--mono);font-size:.92em}
   .cta{padding:0 10px}
   .main{padding:14px 16px 50px}
 }
-@media (max-width:640px){
-  .topbar{flex-wrap:wrap;height:auto;padding:8px 16px;gap:8px}
-  .brand{flex:1 0 calc(100% - 80px)}
-  .topbar>.select{order:2;flex:1 1 90px;min-width:0;max-width:none}
-  .topbar>.cta{order:2}
-  .brand-text strong{font-size:12px;letter-spacing:.025em}
-  .cta{font-size:9px;height:30px}
-  .hero{align-items:flex-start;padding:14px 12px;gap:10px}
-  .hero-icon{width:32px;height:32px}
-  .listbar-right{gap:10px;width:100%}
-  .density{width:100%}
-  .density button{flex:1}
-  .listbar-label{display:none}
-  .listbar-right .select{max-width:none}
-  .drawer h3{font-size:21px}
-  .drawer-close{width:36px;height:36px}
-  .grid[data-density="compact"] .sum{display:none}
-  .sidebar{top:var(--top-h);height:calc(100dvh - var(--top-h));width:min(290px,calc(100vw - 32px))}
-  .search{order:5;flex-basis:100%}
-  .select{max-width:calc(50% - 4px);flex:1}
-  .hero h1{font-size:18px}
-  .grid{grid-template-columns:1fr}
-}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -608,14 +590,19 @@ code{font-family:var(--mono);font-size:.92em}
 
 /* The shelf header and its controls stay put; only the grid scrolls beneath.
    With 326 cards on a shelf, losing the filters off the top makes them useless. */
-.hero{position:sticky;top:var(--top-h);z-index:20}
+/* The description card scrolls away; only the controls row stays. Pinning both
+   held ~200px of screen permanently, and the description is read once while the
+   filters are needed the whole way down. */
+.hero{position:static}
 .listbar{
-  position:sticky;top:calc(var(--top-h) + 84px);z-index:19;
+  position:sticky;top:var(--top-h);z-index:19;
   padding:10px 0 12px;margin-bottom:0;
   background:linear-gradient(var(--bg) 78%,transparent);
 }
-@media (max-width:960px){
-  .hero,.listbar{position:static}   /* a phone has no height to spare for it */
+@media (min-width:641px) and (max-width:960px){
+  /* Between tablet and desktop the header is short enough to scroll away, and
+     the filters follow it. Phones get the sticky treatment above instead. */
+  .hero,.listbar{position:static}
 }
 
 
@@ -636,3 +623,106 @@ code{font-family:var(--mono);font-size:.92em}
   padding-left:7px;border-left:1px solid color-mix(in srgb,var(--teal) 28%,transparent);
 }
 .trend-span{font-size:9.5px;color:var(--ink-mute)}
+.trend-note{margin:10px 0 0;font-family:var(--mono);font-size:10px;line-height:1.6;color:var(--teal);overflow-wrap:anywhere}
+
+
+/* ---------- dashboard charts ---------- */
+
+.bar-scale{
+  display:flex;justify-content:space-between;margin:0 0 6px;
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--ink-mute);
+}
+.bar-n{display:flex;align-items:baseline;gap:7px;justify-content:flex-end}
+.bar-share{font-style:normal;font-size:9px;color:var(--ink-mute);min-width:2.6em;text-align:right}
+.bar-tail{
+  margin:9px 0 0;font-family:var(--body);font-size:11.5px;color:var(--ink-mute);
+}
+.dash-sub-h{
+  margin:18px 0 8px;font-family:var(--sans);font-size:9px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-mute);font-weight:600;
+}
+/* labels get room; a truncated category name is a missing data point */
+.bar-row{grid-template-columns:minmax(120px,1.3fr) minmax(60px,3fr) auto}
+@media (max-width:640px){ .bar-row{grid-template-columns:minmax(84px,1.2fr) minmax(40px,2fr) auto} }
+
+.donut-wrap{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:12px}
+.donut{width:140px;height:140px;flex:none}
+.donut-arc{transition:opacity .15s}
+.donut:hover .donut-arc{opacity:.45}
+.donut .donut-arc:hover{opacity:1}
+.donut-total{
+  font-family:var(--mono);font-size:21px;font-weight:700;fill:var(--ink);
+  text-anchor:middle;
+}
+.donut-cap{
+  font-family:var(--sans);font-size:8px;letter-spacing:.18em;fill:var(--ink-mute);
+  text-anchor:middle;text-transform:uppercase;
+}
+.donut-key{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px;min-width:150px}
+.donut-key li{display:flex;align-items:center;gap:9px;font-family:var(--sans);font-size:11.5px;color:var(--ink-dim)}
+.donut-key i{width:9px;height:9px;border-radius:2px;flex:none}
+.donut-key b{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--ink)}
+
+/* ---------- phone layout (last: these must win on source order) ---------- */
+
+@media (max-width:640px){
+  /* One compact row that stays put. The old header wrapped to three rows and
+     scrolled away, so a phone lost a third of the screen and then lost the
+     search with it. Brand, search and menu stay; everything else moves down
+     into the filter row or the sidebar. */
+  .topbar{
+    position:sticky;top:0;z-index:40;
+    flex-wrap:nowrap;height:auto;min-height:52px;padding:7px 12px;gap:8px;
+  }
+  .brand{flex:0 1 auto;min-width:0}
+  .brand-text{display:none}          /* the mark alone identifies it at this size */
+  .search{order:0;flex:1 1 auto;min-width:0;height:36px}
+  .search kbd{display:none}
+  .topbar>.select,.topbar>.cta,#jumpBtn,#refreshBtn,#themeBtn{display:none}
+
+  /* Filters ride just under the bar and stay reachable while the grid scrolls. */
+  .listbar{
+    position:sticky;top:52px;z-index:30;
+    padding:8px 0;margin:0 0 8px;
+    background:linear-gradient(var(--bg) 82%,transparent);
+  }
+  .listbar-right{gap:8px;width:100%;flex-wrap:nowrap}
+  .listbar-right .select{flex:1 1 0;min-width:0;max-width:none}
+  .listbar-label{display:none}
+  .density{flex:0 0 auto}
+  .density button{padding:0 9px}
+
+  /* The hero is descriptive, so it scrolls away on a phone; the filter row is
+     the one that has to stay. Pinning both put them on the same 52px line. */
+  .hero{position:static;align-items:flex-start;padding:12px;gap:10px}
+
+  /* Thumb-sized controls. 29px targets are a desktop habit; 44px is the
+     documented minimum for touch and these are the only way to navigate. */
+  .icon-btn,.ghost-btn,.density button,.select,.search{min-height:42px}
+  .nav a{min-height:44px}
+  .taglist button{min-height:40px}
+  .card-foot a,.card-foot button{min-height:40px}
+  /* Footer and inline links sit at 14px, which is a 14px tap target. Padding
+     gives them a thumb-sized hit area without changing how they look. */
+  .foot a,.dash-fresh a,.d-tag{display:inline-block;padding:10px 2px;min-height:40px}
+  .brand{min-height:42px;align-items:center}
+  .tag-search,.search input{min-height:40px}
+  .hero-icon{width:30px;height:30px}
+  .hero h1{font-size:17px}
+  .hero p{font-size:12px}
+  .drawer h3{font-size:21px}
+  .drawer-close{width:36px;height:36px}
+  .grid{grid-template-columns:1fr}
+  .grid[data-density="compact"] .sum{display:none}
+  .sidebar{top:52px;height:calc(100dvh - 52px);width:min(290px,calc(100vw - 32px))}
+}
+
+/* A filtered count keeps the shelf's real size beside it. */
+.nav-n-filtered i{font-style:normal;opacity:.55}
+
+
+/* Source link: an open archive should say so where people can see it. */
+.repo-link{display:grid;place-items:center;color:var(--ink-dim);text-decoration:none}
+.repo-link svg{width:16px;height:16px;display:block}
+.repo-link:hover{color:var(--accent)}
+@media (max-width:640px){ .repo-link{display:none} }  /* the footer carries it on phones */

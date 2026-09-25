@@ -1,4 +1,11 @@
+![Hermes Agent Archive — one dot for every entry](assets/hero.png)
+
 # Hermes Agent Archive
+
+[![Validate](https://github.com/BkashJEE/hermes-agent-archive/actions/workflows/validate.yml/badge.svg)](https://github.com/BkashJEE/hermes-agent-archive/actions/workflows/validate.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-f5a524)](LICENSE)
+[![Live site](https://img.shields.io/badge/live-hermes--agent--archive.vercel.app-2dd4bf)](https://hermes-agent-archive.vercel.app)
+[![Contributions welcome](https://img.shields.io/badge/contributions-welcome-8b7cf6)](CONTRIBUTING.md)
 
 An independent community archive of Hermes Agent workflows, prompts, skills and projects. Entries link to their sources and credit their authors. Original site code is MIT licensed; third-party content retains its source rights. This is not an official Nous Research product.
 
