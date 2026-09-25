@@ -1,4 +1,85 @@
 {
-  "note": "Cleared during the pivot to Hermes Agent. The previous entries documented Claude Code and did not belong here. Refill from the Hermes Agent docs and the sourcing pipeline \u2014 never from memory.",
-  "items": []
+  "note": "Curated from upstream documentation with explicit Hermes support. Eligibility requires more than 50,000 fetched public stars and a reviewed entry in assets/js/github-policy.js. Older ineligible write-ups remain stored but hidden. Examples and summaries are archive-authored; installation commands are documented upstream.",
+  "items": [
+    {
+      "id": "skill-superpowers",
+      "repo": "obra/superpowers",
+      "title": "obra/superpowers",
+      "summary": "Development skills with a native Hermes plugin installer.",
+      "cardPoints": [
+        "Plan implementation before changing code.",
+        "Use structured testing, debugging and review skills."
+      ],
+      "detail": "WHAT IT DOES\nA development workflow built from reusable skills. The project documents a native Hermes plugin, so its coding practices can be used inside Hermes sessions.\n\nHOW TO USE IT\nInstall the plugin with the command below, then restart active Hermes sessions. Start with a feature or bug and use the planning, testing and review workflow.\n\nUSE CASE\nTurn a loosely described feature into an implementation plan, then work through changes and verification. This is an archive-authored example, not a quoted user report.\n\nLIMITATION\nThe README notes that Hermes has no post-compaction hook for this plugin. Restart the session if skills stop triggering after a long conversation.",
+      "snippet": "hermes plugins install obra/superpowers --enable",
+      "tags": [
+        "skills",
+        "plugin",
+        "development"
+      ],
+      "source": "github",
+      "url": "https://github.com/obra/superpowers",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "skill-ponytail",
+      "repo": "DietrichGebert/ponytail",
+      "title": "DietrichGebert/ponytail",
+      "summary": "A Hermes plugin for focused implementation, review and technical-debt work.",
+      "cardPoints": [
+        "Run code review and audit commands inside Hermes.",
+        "Use explicit modes for debt reduction and focused changes."
+      ],
+      "detail": "WHAT IT DOES\nPonytail documents a Hermes plugin that supplies the active mode before each model turn and exposes its own review, audit and debt commands.\n\nHOW TO USE IT\nInstall the plugin, restart Hermes, then invoke /ponytail-help to inspect the available commands. /ponytail-review and /ponytail-debt provide starting points for review and cleanup.\n\nUSE CASE\nReview a working feature for unnecessary code, then identify a small cleanup you can verify independently. This is an archive-authored example.\n\nLIMITATION\nThe active runtime mode is process-local; do not assume it persists across a Hermes restart.",
+      "snippet": "hermes plugins install DietrichGebert/ponytail --enable",
+      "tags": [
+        "skills",
+        "plugin",
+        "code-review"
+      ],
+      "source": "github",
+      "url": "https://github.com/DietrichGebert/ponytail",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "skill-impeccable",
+      "repo": "pbakaus/impeccable",
+      "title": "pbakaus/impeccable",
+      "summary": "Design guidance and critique skills packaged for Hermes.",
+      "cardPoints": [
+        "Audit a page and turn design feedback into specific changes.",
+        "Install the Hermes skill package with the provider selector."
+      ],
+      "detail": "WHAT IT DOES\nImpeccable packages design guidance and commands for auditing, critiquing and polishing interfaces. Its README documents a Hermes distribution and command routing through /impeccable.\n\nHOW TO USE IT\nUse the installer below for a global Hermes installation, then reload Hermes. For project-local installation instead, the README requires running hermes skills trust from the project root.\n\nUSE CASE\nAsk Hermes to audit a settings screen, prioritize readability problems, and apply a focused polish pass. This is an archive-authored example.\n\nLIMITATION\nThe skill works in Hermes, but the project’s automatic design edit hook does not run there.",
+      "snippet": "npx impeccable install --providers=hermes --scope=global",
+      "tags": [
+        "skills",
+        "design",
+        "audit"
+      ],
+      "source": "github",
+      "url": "https://github.com/pbakaus/impeccable",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "skill-cli-anything",
+      "repo": "HKUDS/CLI-Anything",
+      "title": "HKUDS/CLI-Anything",
+      "summary": "An experimental community Hermes skill for building CLI harnesses around software.",
+      "cardPoints": [
+        "Ask Hermes to build or refine a command-line harness.",
+        "Use the documented community Hermes skill installer."
+      ],
+      "detail": "WHAT IT DOES\nCLI-Anything documents a community Hermes skill that adapts its harness-building workflow to Hermes tools, including file operations and terminal execution.\n\nHOW TO USE IT\nClone the repository and run its Hermes installer, then restart Hermes. The installer uses the active HERMES_HOME skills directory, falling back to ~/.hermes/skills.\n\nUSE CASE\nWith a local checkout of the target application, ask Hermes to build a CLI harness for that application or refine an existing harness for a specific workflow. This is an archive-authored example.\n\nSTATUS\nThe upstream project labels this Hermes integration experimental and community-maintained.",
+      "snippet": "git clone https://github.com/HKUDS/CLI-Anything.git\nbash CLI-Anything/hermes-skill/scripts/install.sh",
+      "tags": [
+        "skills",
+        "automation",
+        "experimental"
+      ],
+      "source": "github",
+      "url": "https://github.com/HKUDS/CLI-Anything",
+      "date": "2026-09-25"
+    }
+  ]
 }

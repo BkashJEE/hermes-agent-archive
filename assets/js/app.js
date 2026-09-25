@@ -1,7 +1,7 @@
 /* Use-Case Archive — data loading, filtering, rendering. No framework, no build step. */
 
 import { sectionIcon } from './icons.js?v=launch-10';
-import { mergeLive, trendingItems } from './archive.js?v=launch-10';
+import { mergeLive, trendingItems } from './archive.js?v=hermes-50k';
 import { cardPoints, cardCategory } from './card-preview.js?v=launch-10';
 import { formatDetails } from './details.js';
 import { creditFor } from './credits.js?v=launch-10';
@@ -597,6 +597,7 @@ function openDrawer(id, trigger, updateUrl = true) {
     ${story ? `<figure class="d-story"><blockquote class="d-body" cite="${esc(it.url)}">${body}</blockquote>
       <figcaption class="d-attribution"><span class="attribution-rule" aria-hidden="true"></span>${esc(credit)}</figcaption></figure>`
       : `<p class="d-attribution">${esc(credit)}</p><div class="d-body">${body}</div>`}
+    ${it.hermesSupport ? `<div class="d-body"><p><a href="${esc(it.hermesSupport.url)}" target="_blank" rel="noopener noreferrer">Hermes support documented ↗</a><br>${esc(it.hermesSupport.note)}</p></div>` : ''}
     ${it.snippet ? `<div class="d-snip">
         <button class="copy-btn" id="copyBtn">${copyLabel}</button>
         <pre><code>${esc(it.snippet)}</code></pre></div>` : ''}
