@@ -57,3 +57,16 @@ Original site code is MIT licensed. The license does not grant rights to
 third-party excerpts, imported documentation, names or branding. Preserve source
 notices and the licenses in `assets/licenses/`. Submit original contributions
 under the applicable site code license, and identify any third-party material.
+
+## Review standards
+
+Read [the methodology](docs/METHODOLOGY.md), [rights notices](NOTICE.md),
+[security policy](SECURITY.md) and [community conduct](CODE_OF_CONDUCT.md).
+Disclose your connection to a submitted project. Explain corrections with evidence;
+critical feedback is welcome. No contribution is guaranteed acceptance or a response
+by a particular deadline. Do not claim that a listed project was tested unless you
+record exactly what you tested.
+
+Only the hosted archive requires owner approval. The MIT license permits use and
+modification of the original code in independent forks; it does not require the
+owner to approve your own copy. Third-party content keeps its original rights.

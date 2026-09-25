@@ -34,6 +34,11 @@ body:
     attributes:
       label: Hermes integration evidence for repository submissions
       description: Link to upstream Hermes installation or usage documentation. Repository cards require more than 50,000 GitHub stars, verified by the maintainer through the public API.
+  - type: textarea
+    id: connection
+    attributes:
+      label: Your connection and content rights
+      description: Disclose authorship, employment or sponsorship and identify third-party material or its license.
   - type: checkboxes
     id: review
     attributes:

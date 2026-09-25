@@ -1,0 +1,20 @@
+name: Correction or rights concern
+description: Report inaccurate content, attribution, ranking, or a rights concern.
+title: "[Correction]: "
+body:
+  - type: markdown
+    attributes:
+      value: "Keep this report public-safe. For a vulnerability use the Security tab. For sensitive rights or conduct concerns request a private contact without posting private details."
+  - type: input
+    id: entry
+    attributes:
+      label: Entry URL or ID
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: What should change, and why?
+      description: Include source evidence and disclose your connection to the entry if relevant.
+    validations:
+      required: true

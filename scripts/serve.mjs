@@ -1,59 +1,58 @@
 #!/usr/bin/env node
-/**
- * Development server for the archive. Zero dependencies.
- *
- * Exists for one reason: `python3 -m http.server` sends no cache headers, so
- * browsers apply heuristic caching to ES modules and keep serving a stale
- * app.js or icons.js after an edit. That produced several false verifications —
- * the page under review was not the code on disk. Everything here is sent
- * `Cache-Control: no-store`, so what you reload is what you wrote.
- *
- *   node scripts/serve.mjs [port]
- */
-
+/** Local preview only: serve public assets without caching or exposing project files. */
 import { createServer } from 'node:http';
-import { readFile, stat } from 'node:fs/promises';
+import { readFile, realpath } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
-import { dirname, join, normalize, extname } from 'node:path';
+import { dirname, resolve, extname, sep } from 'node:path';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const PORT = Number(process.argv[2] || process.env.PORT || 4179);
-
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const TYPES = {
-  '.html': 'text/html; charset=utf-8',
-  '.js':   'text/javascript; charset=utf-8',
-  '.mjs':  'text/javascript; charset=utf-8',
-  '.css':  'text/css; charset=utf-8',
-  '.json': 'application/json; charset=utf-8',
-  '.svg':  'image/svg+xml',
-  '.png':  'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp',
-  '.woff2': 'font/woff2', '.ico': 'image/x-icon'
+  '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8',
+  '.mjs': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8',
+  '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml',
+  '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp',
+  '.woff2': 'font/woff2', '.ico': 'image/x-icon', '.txt': 'text/plain; charset=utf-8'
 };
 
-createServer(async (req, res) => {
-  try {
-    const url = new URL(req.url, 'http://localhost');
-    let path = decodeURIComponent(url.pathname);
-    if (path.endsWith('/')) path += 'index.html';
-
-    // Never serve outside the project, whatever the request says.
-    const file = join(ROOT, normalize(path).replace(/^(\.\.[/\\])+/, ''));
-    if (!file.startsWith(ROOT)) { res.writeHead(403).end('Forbidden'); return; }
-
-    const info = await stat(file);
-    if (!info.isFile()) { res.writeHead(404).end('Not found'); return; }
-
-    res.writeHead(200, {
-      'content-type': TYPES[extname(file)] || 'application/octet-stream',
-      'content-length': info.size,
-      'cache-control': 'no-store, must-revalidate',
-      pragma: 'no-cache'
-    });
-    res.end(await readFile(file));
-  } catch {
-    res.writeHead(404, { 'content-type': 'text/plain', 'cache-control': 'no-store' }).end('Not found');
+export async function createArchiveServer(root = ROOT) {
+  root = await realpath(root);
+  const cfg = JSON.parse(await readFile(resolve(root, 'data/index.json'), 'utf8'));
+  const publicFiles = new Set(['index.html', 'data/index.json', 'data/live.json', 'data/rankings.json']);
+  for (const section of cfg.sections) {
+    if (!section.file) continue;
+    if (!/^[a-z0-9-]+\.json$/i.test(section.file)) throw new Error('Invalid section file');
+    publicFiles.add(`data/${section.file}`);
   }
-}).listen(PORT, () => {
-  console.log(`\n  Hermes Agent Archive  →  http://localhost:${PORT}/`);
-  console.log(`  Nothing is cached; a reload always shows the code on disk.\n`);
-});
+  return createServer(async (req, res) => {
+    res.setHeader('Cache-Control', 'no-store, must-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    if (!['GET', 'HEAD'].includes(req.method)) {
+      res.writeHead(405, { Allow: 'GET, HEAD' }).end(); return;
+    }
+    try {
+      const url = new URL(req.url, 'http://localhost');
+      const path = decodeURIComponent(url.pathname).replace(/^\//, '') || 'index.html';
+      const segments = path.split('/');
+      if (path.includes('\\') || segments.some(s => !s || s.startsWith('.'))) throw new Error('Invalid path');
+      const asset = path.startsWith('assets/') && TYPES[extname(path)];
+      if (!publicFiles.has(path) && !asset) throw new Error('Not public');
+      const file = resolve(root, path);
+      // Reject symlinks too: a public-looking filename must not alias a secret.
+      if (!file.startsWith(root + sep) || await realpath(file) !== file) throw new Error('Invalid target');
+      const body = await readFile(file);
+      res.writeHead(200, { 'Content-Type': TYPES[extname(file)], 'Content-Length': body.length });
+      res.end(req.method === 'HEAD' ? undefined : body);
+    } catch {
+      res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' }).end('Not found');
+    }
+  });
+}
+
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  const port = Number(process.argv[2] || process.env.PORT || 4179);
+  if (!Number.isInteger(port) || port < 1 || port > 65535) throw new Error('Invalid port');
+  (await createArchiveServer()).listen(port, '127.0.0.1', () => {
+    console.log(`\n  Hermes Agent Archive → http://127.0.0.1:${port}/\n  Local only. Public assets only. No caching.\n`);
+  });
+}
