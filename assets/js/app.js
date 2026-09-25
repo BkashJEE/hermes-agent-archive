@@ -106,12 +106,15 @@ function pill(source) {
 
 function metricBlock(item) {
   if (item.metric) {
+    // A figure that did not come from a public API must say where it came from.
+    const credit = item.credit
+      ? `<span class="m-credit" title="Not a public API figure">${esc(item.credit)}</span>` : '';
     const m2 = item.metric2
       ? `<div class="metric"><span class="m-k">${esc(item.metric2.kind.toUpperCase())}</span><span class="m-v">${num(item.metric2.value)}</span></div>`
       : '';
     return `<div class="metrics">
       <div class="metric"><span class="m-k">${esc(item.metric.kind.toUpperCase())}</span><span class="m-v">${num(item.metric.value)}</span></div>${m2}
-    </div>`;
+    </div>${credit}`;
   }
   const tags = (item.tags || []).slice(0, 3);
   return `<div class="tagrow">${tags.map(t => `<span class="trow-tag">${esc(t)}</span>`).join('')}
@@ -134,7 +137,7 @@ function card(item, rank, iconName) {
     </div>
     <div class="card-tags">${(item.tags || []).filter(t => t !== 'user-story').slice(0, 2).map(t => `<span class="trow-tag">${esc(t)}</span>`).join('')}${order ? `<span class="rank" title="Position in the selected sort">${order}</span>` : ''}</div>
     ${item.trend ? `<p class="trend-note">↗ +${num(item.trend.gain)} stars · ${esc(new Date(item.trend.from).toLocaleString())} – ${esc(new Date(item.trend.to).toLocaleString())}</p>` : ''}
-    <div class="card-foot"><span class="card-evidence">${esc(metric)}</span><span class="card-action">${action} <span aria-hidden="true">→</span></span></div>
+    <div class="card-foot"><span class="card-evidence">${esc(metric)}${item.credit ? `<span class="m-credit">${esc(item.credit)}</span>` : ''}</span><span class="card-action">${action} <span aria-hidden="true">→</span></span></div>
   </button></li>`;
 }
 
@@ -253,9 +256,18 @@ function countUp(el, value) { el.textContent = num(value); }
 function growTo(el, target, delay = 0) {
   el.style.width = target;
   if (REDUCED || document.hidden || typeof el.animate !== 'function') return;
-  el.animate([{ width: '0%' }, { width: target }], {
-    duration: 620, delay, easing: 'cubic-bezier(.22,.7,.3,1)', fill: 'backwards'
-  });
+  /* The stagger is baked into the keyframes rather than expressed as `delay`
+     with `fill: backwards`. That fill mode pins the element at the 0% frame for
+     as long as the animation has not started — and an animation that never
+     advances (a headless render, a paused compositor) then leaves an empty bar
+     where a real figure should be. With no fill, the inline width above always
+     wins if the animation does not play. */
+  const total = 620 + delay;
+  const hold = total ? delay / total : 0;
+  el.animate(
+    [{ width: '0%', offset: 0 }, { width: '0%', offset: hold }, { width: target, offset: 1 }],
+    { duration: total, easing: 'cubic-bezier(.22,.7,.3,1)' }
+  );
 }
 
 function growBars(root) {
@@ -283,7 +295,7 @@ function dashboardStats() {
     const credit = creditFor(it);
     if (credit.label !== 'Author') byAuthor.set(credit.name, (byAuthor.get(credit.name) || 0) + 1);
     for (const m of [it.metric, it.metric2]) {
-      if (!m || !Number.isFinite(m.value)) continue;
+      if (!m || !Number.isFinite(m.value) || it.credit) continue;
       const row = byMetric.get(m.kind) || { total: 0, items: 0 };
       row.total += m.value; row.items++;
       byMetric.set(m.kind, row);
@@ -369,7 +381,7 @@ function renderDashboard() {
     <section class="dash-block">
       <h3>COUNTED TOTALS</h3>
       <p class="dash-sub">Each kind on its own. Stars, points and upvotes measure
-      different things, so they are never added together.</p>
+      different things, so they are never added together. These totals include public API figures only; credited analytics remain on their individual cards.</p>
       <div class="dash-tiles dash-tiles-sm">${metricTiles}</div>
     </section>
 
@@ -561,7 +573,7 @@ function wirePalette() {
 
 function findItem(id) {
   for (const s of state.cfg.sections) {
-    const hit = (state.data[s.id] || []).find(i => i.id === id);
+    const hit = (state.data[s.id] || []).find(i => i.id === id || i.aliases?.includes(id));
     if (hit) return hit;
   }
   return null;

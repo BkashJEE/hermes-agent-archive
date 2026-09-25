@@ -600,3 +600,20 @@ code{font-family:var(--mono);font-size:.92em}
 }
 
 .trend-note{margin:10px 0 0;font-family:var(--mono);font-size:10px;line-height:1.6;color:var(--teal);overflow-wrap:anywhere}
+/* A figure whose source is not a public API names that source on the card. */
+.m-credit{
+  display:block;margin-top:6px;font-family:var(--sans);font-size:9px;
+  letter-spacing:.06em;color:var(--ink-mute);
+}
+
+/* The shelf header and its controls stay put; only the grid scrolls beneath.
+   With 326 cards on a shelf, losing the filters off the top makes them useless. */
+.hero{position:sticky;top:var(--top-h);z-index:20}
+.listbar{
+  position:sticky;top:calc(var(--top-h) + 84px);z-index:19;
+  padding:10px 0 12px;margin-bottom:0;
+  background:linear-gradient(var(--bg) 78%,transparent);
+}
+@media (max-width:960px){
+  .hero,.listbar{position:static}   /* a phone has no height to spare for it */
+}

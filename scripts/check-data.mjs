@@ -11,12 +11,14 @@ const read = async f => JSON.parse(await readFile(join(ROOT, 'data', f), 'utf8')
 const cfg = await read('index.json');
 const okSources = new Set(cfg.sources.map(s => s.id).concat('community'));
 const ids = new Set();
+let titles = new Map();
 const errors = [];
 let total = 0;
 
 for (const section of cfg.sections) {
   // A computed section (the dashboard) has no data file and nothing to validate.
   if (!section.file) { console.log(`  · ${section.id.padEnd(16)} computed, no data file`); continue; }
+  titles = new Map();   // titles must be unique within a shelf, not across them
   const { items } = await read(section.file);
   for (const it of items) {
     total++;
@@ -25,6 +27,14 @@ for (const section of cfg.sections) {
     else if (ids.has(it.id))          errors.push(`${where}: duplicate id`);
     else ids.add(it.id);
     if (!it.title)                    errors.push(`${where}: missing title`);
+    else {
+      // Two entries about the same subject with different ids read as a bug to a
+      // visitor even though every id is unique. The importer once shelved both a
+      // reference row and its documented section for 46 commands.
+      const t = it.title.trim().toLowerCase();
+      if (titles.has(t)) errors.push(`${where}: duplicate title "${it.title}" (also ${titles.get(t)})`);
+      else titles.set(t, it.id);
+    }
     if (!it.summary)                  errors.push(`${where}: missing summary`);
     if (!okSources.has(it.source))    errors.push(`${where}: unknown source "${it.source}"`);
     if (it.date && Number.isNaN(Date.parse(it.date))) errors.push(`${where}: bad date "${it.date}"`);

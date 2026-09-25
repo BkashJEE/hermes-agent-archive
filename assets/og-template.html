@@ -1,0 +1,61 @@
+<!doctype html><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+<!--TOKENS-->
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    width:1200px;height:630px;overflow:hidden;position:relative;
+    background:
+      radial-gradient(760px 420px at 88% -12%,var(--accent-soft),transparent 62%),
+      radial-gradient(620px 380px at 2% 105%,var(--wash-violet),transparent 60%),
+      var(--bg);
+    color:var(--ink);font-family:var(--sans);
+  }
+  .edge{position:absolute;left:0;top:0;width:6px;height:100%;background:linear-gradient(var(--accent),var(--brand-shade) 55%,var(--teal))}
+  .wrap{position:absolute;inset:0;padding:62px 66px;display:flex;flex-direction:column;justify-content:space-between}
+  .top{display:flex;align-items:center;gap:15px}
+  .mark{width:46px;height:46px;border-radius:11px;background:linear-gradient(150deg,var(--panel-2),var(--panel));
+        border:1px solid var(--line-2);display:grid;place-items:center}
+  .mark svg{width:30px;height:30px}
+  .kick{font-family:var(--mono);font-size:14px;letter-spacing:.28em;color:var(--accent);font-weight:700}
+  h1{font-size:74px;line-height:.98;font-weight:600;letter-spacing:-.03em;max-width:15ch}
+  h1 em{font-style:normal;color:var(--accent)}
+  .sub{font-family:var(--sans);font-style:italic;font-size:23px;line-height:1.45;color:var(--ink-dim);max-width:30ch;margin-top:20px}
+  .stats{position:absolute;right:66px;top:150px;display:flex;flex-direction:column;gap:22px;text-align:right}
+  .s-v{font-family:var(--mono);font-size:46px;font-weight:700;color:var(--accent);line-height:1}
+  .s-k{font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mute);margin-top:5px}
+  .foot{display:flex;align-items:flex-end;justify-content:space-between}
+  .srcs{font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;color:var(--ink-mute)}
+  .srcs b{color:var(--teal);font-weight:400}
+  .by{font-family:var(--mono);font-size:13px;letter-spacing:.14em;color:var(--ink-dim)}
+  .rule{width:34px;height:2px;background:var(--accent);margin-bottom:16px}
+</style>
+<div class="edge"></div>
+<div class="wrap">
+  <div>
+    <div class="top">
+      <span class="mark"><svg viewBox="0 0 64 64">
+        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="var(--accent)"/><stop offset=".55" stop-color="var(--accent)"/><stop offset="1" stop-color="var(--brand-shade)"/>
+        </linearGradient></defs>
+        <g transform="rotate(-19 32 32)" fill="url(#g)">
+          <rect x="13" y="19" width="38" height="7.5" rx="3.75"/>
+          <rect x="13" y="30" width="27" height="7.5" rx="3.75"/>
+          <rect x="13" y="41" width="16" height="7.5" rx="3.75"/>
+        </g><circle cx="45.5" cy="45" r="4" fill="var(--teal)"/></svg></span>
+      <span class="kick">HERMES AGENT ARCHIVE</span>
+    </div>
+    <div style="margin-top:54px">
+      <h1>Ideas worth <em>keeping.</em></h1>
+      <p class="sub">What people actually build with Hermes Agent — quoted, credited and linked to the post it came from.</p>
+    </div>
+  </div>
+  <div class="foot">
+    <div>
+      <div class="rule"></div>
+      <div class="srcs">X · REDDIT · DISCORD · HACKER NEWS · GITHUB · YOUTUBE · BLOGS<br><b>public figures or explicitly credited sources — never guessed</b></div>
+    </div>
+    <div class="by">CURATED BY @BkashJosi</div>
+  </div>
+</div>
+<div class="stats"><!--STATS--></div>

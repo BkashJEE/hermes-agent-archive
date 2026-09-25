@@ -7,6 +7,9 @@ import { HERMES_REPOSITORIES, qualifiesStars, qualifiesRepository, hermesSupport
 export { MIN_GITHUB_STARS } from './github-policy.js';
 
 export function githubRepo(item) {
+  // An entry carrying its own credit is a post, not a repository listing, even
+  // when it links to one. The star threshold does not apply to it.
+  if (item.credit) return undefined;
   if (item.repo) return item.repo.toLowerCase();
   try {
     const url = new URL(item.url);
@@ -17,8 +20,13 @@ export function githubRepo(item) {
 }
 
 export function mergeLive(data, live, reviews = HERMES_REPOSITORIES) {
-  // Only the public API snapshot can supply engagement, including in the CLI job.
+  /* A fetched snapshot is the only thing that may supply engagement, with one
+     exception: an entry that names where its figure came from. The rule is that
+     every number states its source, not that every number comes from an API —
+     an author's own analytics export is real, it simply is not public, so the
+     card says so rather than the archive pretending the figure does not exist. */
   for (const items of Object.values(data)) for (const item of items) {
+    if (item.credit) { delete item.trend; delete item.hermesSupport; continue; }
     delete item.metric; delete item.metric2; delete item.trend; delete item.hermesSupport;
   }
   if (!live) {
@@ -36,7 +44,9 @@ export function mergeLive(data, live, reviews = HERMES_REPOSITORIES) {
       const repo = githubRepo(item), observation = byRepo.get(repo);
       if (repo && !qualifiesRepository(repo, observation?.stars, reviews)) return false;
       item.trend = githubTrend(observation);
-      if (!repo) return true;
+      // A credited entry never took part in the qualification above, so there is
+      // no fetched observation to attach — leave it exactly as written.
+      if (!repo || item.credit) return true;
       const g = byRepo.get(repo);
       item.hermesSupport = hermesSupport(repo, reviews);
       // Qualification above guarantees a fetched observation for this seed.

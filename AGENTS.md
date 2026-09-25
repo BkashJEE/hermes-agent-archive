@@ -30,7 +30,7 @@ npm run key    # paste API keys into a gitignored .env
 **No number on this site may be invented.** Not a star count, not a view count, not an
 estimate, not a placeholder that looks real.
 
-- Metrics come from public APIs via `scripts/fetch-signals.mjs`, or they don't exist.
+- Metrics come from public APIs via `scripts/fetch-signals.mjs`, or carry a `credit` field naming their source. Credited analytics must be labelled on cards and excluded from public-popularity evidence.
 - A repo that fails to resolve retains its stored write-up, but is hidden until more than 50,000 stars can be verified.
 - An item with no public metric renders its tags and `no public metric`.
 - A source that failed at fetch time is named in the page footer.
@@ -134,6 +134,11 @@ nobody measured, which is the one thing this site must not show.
 
 Use the Web Animations API for widths and strokes (the resting style stays correct),
 `document.hidden` and `prefers-reduced-motion` as early exits.
+
+Never use `fill: 'backwards'` for this. It pins the element at the 0% frame until the
+animation starts, so an animation that never advances — a headless render, a paused
+compositor — leaves an empty bar where a real figure belongs. Bake any stagger into the
+keyframes with offsets instead, and leave the fill mode alone.
 
 ## Browser gotchas
 
