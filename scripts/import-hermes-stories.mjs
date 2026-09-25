@@ -16,7 +16,7 @@
  */
 
 import './env.mjs';
-import { writeFile } from 'node:fs/promises';
+import { readFile, writeFile, rename } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -80,16 +80,26 @@ for (const tile of tiles) {
     detail: `${text}\n\n— ${author || 'anonymous'}${date ? `, ${date}` : ''}, via ${source || 'the Hermes Agent user stories'}.`,
     tags: ['user-story', slug(decode(category || 'general'))],
     source: SOURCE[source] || 'community',
+    // A quoted engagement claim is source text, never public API evidence.
+    ...(/\b\d[\d,.]*(?:[kKmM])?[- ](?:upvotes?|stars?|views?|likes?|impressions?|points?)\b/i.test(`${title} ${text}`)
+      ? { credit: 'Engagement claim quoted from Nous Research user stories; not verified via API.' } : {}),
     url: href,
     author: author || undefined,
     date: /^\d{4}-\d{2}-\d{2}$/.test(date || '') ? date : undefined
   });
 }
 
+if (skipped || !items.length) throw new Error(`Source shape changed: ${skipped} unparseable tiles; archive untouched.`);
+
 /* Additive by design: an entry that has since been taken off the source page stays
    in the archive rather than vanishing from it. Re-imports refresh in place. */
 const target = join(ROOT, 'data/use-cases.json');
-const existing = JSON.parse(await readFile(target, 'utf8').catch(() => '{"items":[]}')).items || [];
+const prior = JSON.parse(await readFile(target, 'utf8').catch(error => {
+  if (error.code === 'ENOENT') return '{"items":[]}';
+  throw error;
+}));
+if (!Array.isArray(prior.items)) throw new Error('Existing archive has no items array; archive untouched.');
+const existing = prior.items;
 const byId = new Map(existing.map(i => [i.id, i]));
 let added = 0, refreshed = 0;
 for (const item of items) {
@@ -104,7 +114,8 @@ const payload = {
   items: [...byId.values()]
 };
 
-await writeFile(target, JSON.stringify(payload, null, 2) + '\n');
+await writeFile(`${target}.tmp`, JSON.stringify(payload, null, 2) + '\n');
+await rename(`${target}.tmp`, target);
 console.log(`\n${added} new · ${refreshed} refreshed · ${kept} kept from earlier imports.`);
 
 const byCat = items.reduce((m, i) => (m[i.tags[1]] = (m[i.tags[1]] || 0) + 1, m), {});
