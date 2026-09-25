@@ -1,0 +1,263 @@
+{
+  "note": "Imported from /home/bkash86/bkashjee.github.io/src/content/mostViewed.ts by scripts/import-my-posts.mjs. These are the archive author's own posts. Impression and engagement figures come from their X analytics exports and are carried over as published, not measured here.",
+  "importedAt": "2026-09-25T05:11:30.364Z",
+  "items": [
+    {
+      "id": "mine-jev-connect-skill",
+      "title": "Connect the Jev skill and let Hermes decide faster",
+      "summary": "The setup, end to end: get a TypeSafe API key, put it in .env, add the skill with one npx command, then ask Hermes to use it. My most-viewed and most-saved post: 1,092 bookmarks.",
+      "detail": "“Your Hermes can get 100x faster if you connect it to the Jev skill. 🚀🪽 👉Login to Typesafe console get the api key. Set in the .env file. Then in terminal 👉npx skills add typesafe-ai/skills -…”\n\nThe setup, end to end: get a TypeSafe API key, put it in .env, add the skill with one npx command, then ask Hermes to use it. My most-viewed and most-saved post: 1,092 bookmarks.\n\nPosted by the archive’s author. Impression and engagement counts come from their own X analytics exports, carried over as published.",
+      "tags": [
+        "my-work",
+        "jev"
+      ],
+      "source": "x",
+      "url": "https://x.com/BkashJosi/status/2101057981861552342",
+      "author": "@BkashJosi",
+      "date": "2026-09-18",
+      "metric": {
+        "kind": "impressions",
+        "value": 56553
+      },
+      "metric2": {
+        "kind": "engagements",
+        "value": 1711
+      },
+      "credit": "author’s own X analytics exports"
+    },
+    {
+      "id": "mine-jev-setup-walkthrough",
+      "title": "Setting up Jev with Hermes, start to finish",
+      "summary": "A walkthrough of wiring TypeSafe’s Jev into a running Hermes Agent, for people who had seen the idea and wanted the steps.",
+      "detail": "“🚀Hermes Agent with Jev is a rocket landing to Mars!! Here is how you setup your Jev easily !!👇”\n\nA walkthrough of wiring TypeSafe’s Jev into a running Hermes Agent, for people who had seen the idea and wanted the steps.\n\nPosted by the archive’s author. Impression and engagement counts come from their own X analytics exports, carried over as published.",
+      "tags": [
+        "my-work",
+        "jev"
+      ],
+      "source": "x",
+      "url": "https://x.com/BkashJosi/status/2101022269623701558",
+      "author": "@BkashJosi",
+      "date": "2026-09-18",
+      "metric": {
+        "kind": "impressions",
+        "value": 39672
+      },
+      "metric2": {
+        "kind": "engagements",
+        "value": 763
+      },
+      "credit": "author’s own X analytics exports"
+    },
+    {
+      "id": "mine-hermes-mobile-codex-claude",
+      "title": "One mobile app that brings Codex and Claude together",
+      "summary": "Asked what a Hermes mobile app could be if it carried Codex and Claude side by side. The response pushed me to start Hermes Mobile as an open community project; it is an early phone web preview today.",
+      "detail": "“What if your Hermes Mobile App can bring Codex and Claude Agent together.🚀”\n\nAsked what a Hermes mobile app could be if it carried Codex and Claude side by side. The response pushed me to start Hermes Mobile as an open community project; it is an early phone web preview today.\n\nRepository: https://github.com/BkashJEE/hermes-mobile\n\nPosted by the archive’s author. Impression and engagement counts come from their own X analytics exports, carried over as published.",
+      "tags": [
+        "my-work",
+        "hermes"
+      ],
+      "source": "x",
+      "url": "https://x.com/BkashJosi/status/2098522662268195175",
+      "author": "@BkashJosi",
+      "date": "2026-09-11",
+      "metric": {
+        "kind": "impressions",
+        "value": 33104
+      },
+      "metric2": {
+        "kind": "engagements",
+        "value": 291
+      },
+      "repo": "BkashJEE/hermes-mobile",
+      "credit": "author’s own X analytics exports"
+    },
+    {
+      "id": "mine-hermes-start-somewhere",
+      "title": "“Installed Hermes Agent. Now what?”",
+      "summary": "The most common question from new Hermes users. I pointed at a page that collects what people are actually building, so a newcomer can copy a starting point instead of staring at an empty agent.",
+      "detail": "“Installed Hermes Agent. Now what?🚀 Not sure where to start—or what to build with it? There’s a page showcasing what people are building with Hermes Agent. Explore their projects, see what sp…”\n\nThe most common question from new Hermes users. I pointed at a page that collects what people are actually building, so a newcomer can copy a starting point instead of staring at an empty agent.\n\nPosted by the archive’s author. Impression and engagement counts come from their own X analytics exports, carried over as published.",
+      "tags": [
+        "my-work",
+        "hermes"
+      ],
+      "source": "x",
+      "url": "https://x.com/BkashJosi/status/2100136800044163148",
+      "author": "@BkashJosi",
+      "date": "2026-09-16",
+      "metric": {
+        "kind": "impressions",
+        "value": 15528
+      },
+      "metric2": {
+        "kind": "engagements",
+        "value": 258
+      },
+      "credit": "author’s own X analytics exports"
+    },
+    {
+      "id": "mine-hermes-plugin-chooser",
+      "title": "Too many plugins: choosing by category instead of guessing",
+      "summary": "Hermes has more plugins than anyone can evaluate. Browsing them by category, with a plain description of each, turns plugin choice into a decision rather than a search.",
+      "detail": "“Hermes Agent has too many plugins. No idea which ones your agent needs?🥸 👉Hermes Agent makes choosing easier: explore plugins by category, understand what they do, and find the right fit for…”\n\nHermes has more plugins than anyone can evaluate. Browsing them by category, with a plain description of each, turns plugin choice into a decision rather than a search.\n\nRepository: https://github.com/BkashJEE/hermes-skills-library\n\nPosted by the archive’s author. Impression and engagement counts come from their own X analytics exports, carried over as published.",
+      "tags": [
+        "my-work",
+        "hermes"
+      ],
+      "source": "x",
+      "url": "https://x.com/BkashJosi/status/2101607087541469491",
+      "author": "@BkashJosi",
+      "date": "2026-09-20",
+      "metric": {
+        "kind": "impressions",
+        "value": 14388
+      },
+      "metric2": {
+        "kind": "engagements",
+        "value": 243
+      },
+      "repo": "BkashJEE/hermes-skills-library",
+      "credit": "author’s own X analytics exports"
+    },
+    {
+      "id": "mine-jev-what-people-build",
+      "title": "What people are actually building with Jev",
+      "summary": "Five projects and resources worth a look: browser agents, search tools, a driving simulation, and experiments bringing the same structured decisions to open models.",
+      "detail": "“What are people building with Jev? And what your Hermes Agent can do with Jev ?🚀🪽 Browser agents, search tools, driving simulations—and experiments that bring similar decision-making to open…”\n\nFive projects and resources worth a look: browser agents, search tools, a driving simulation, and experiments bringing the same structured decisions to open models.\n\nPosted by the archive’s author. Impression and engagement counts come from their own X analytics exports, carried over as published.",
+      "tags": [
+        "my-work",
+        "jev"
+      ],
+      "source": "x",
+      "url": "https://x.com/BkashJosi/status/2101386077294805241",
+      "author": "@BkashJosi",
+      "date": "2026-09-19",
+      "metric": {
+        "kind": "impressions",
+        "value": 12680
+      },
+      "metric2": {
+        "kind": "engagements",
+        "value": 221
+      },
+      "credit": "author’s own X analytics exports"
+    },
+    {
+      "id": "mine-jev-prove-done",
+      "title": "“Hermes said done. I gave Jev the evidence.”",
+      "summary": "Agents declare success too easily. This is the prompt I use to have Jev judge the evidence behind a finished task instead of taking the agent’s word for it — the same idea I later used to fact-check my own portfolio.",
+      "detail": "“Hermes said ‘done.’ I gave Jev the evidence.🚀🪽 👉If you want to test your Hermes Agent with Jev then use the below prompt.”\n\nAgents declare success too easily. This is the prompt I use to have Jev judge the evidence behind a finished task instead of taking the agent’s word for it — the same idea I later used to fact-check my own portfolio.\n\nPosted by the archive’s author. Impression and engagement counts come from their own X analytics exports, carried over as published.",
+      "tags": [
+        "my-work",
+        "jev"
+      ],
+      "source": "x",
+      "url": "https://x.com/BkashJosi/status/2101254844506050596",
+      "author": "@BkashJosi",
+      "date": "2026-09-19",
+      "metric": {
+        "kind": "impressions",
+        "value": 10899
+      },
+      "metric2": {
+        "kind": "engagements",
+        "value": 202
+      },
+      "credit": "author’s own X analytics exports"
+    },
+    {
+      "id": "mine-hermes-bot-that-builds-bots",
+      "title": "A bot that builds bots, open-sourced",
+      "summary": "One sentence to my orchestrator agent and it hires a new teammate: name and face, soul, memory, skills, tools, its own chat, routines and gateway — tested as it goes, rolled back if a step fails. This became Bot Forge, now in the official Hermes plugin catalog.",
+      "detail": "“Grok has a bot that builds bots. I built the same thing for @NousResearch Hermes Agent, and I'm open-sourcing it. One sentence to my CEO agent → it hires a new teammate: • name + face • soul…”\n\nOne sentence to my orchestrator agent and it hires a new teammate: name and face, soul, memory, skills, tools, its own chat, routines and gateway — tested as it goes, rolled back if a step fails. This became Bot Forge, now in the official Hermes plugin catalog.\n\nRepository: https://github.com/BkashJEE/hermes-bot-forge\n\nPosted by the archive’s author. Impression and engagement counts come from their own X analytics exports, carried over as published.",
+      "tags": [
+        "my-work",
+        "hermes"
+      ],
+      "source": "x",
+      "url": "https://x.com/BkashJosi/status/2100528442752323623",
+      "author": "@BkashJosi",
+      "date": "2026-09-17",
+      "metric": {
+        "kind": "impressions",
+        "value": 10209
+      },
+      "metric2": {
+        "kind": "engagements",
+        "value": 336
+      },
+      "repo": "BkashJEE/hermes-bot-forge",
+      "credit": "author’s own X analytics exports"
+    },
+    {
+      "id": "mine-hermes-library-of-books",
+      "title": "A library of Hermes guides, skills and plugins",
+      "summary": "Stuck? Pick a book. A shelf that holds the Hermes guide, skills you can install straight from the page, and plugins you can activate with a click. It grew into the Hermes Skills Library.",
+      "detail": "“What if your Hermes Agent has a complete Library of all the things related to Hermes Agent ? 🚀🪽 You got stuck need help. Pick a book. 📕. It has : 1. Complete Hermes Agent Guide 2. Skills Boo…”\n\nStuck? Pick a book. A shelf that holds the Hermes guide, skills you can install straight from the page, and plugins you can activate with a click. It grew into the Hermes Skills Library.\n\nRepository: https://github.com/BkashJEE/hermes-skills-library\n\nPosted by the archive’s author. Impression and engagement counts come from their own X analytics exports, carried over as published.",
+      "tags": [
+        "my-work",
+        "hermes"
+      ],
+      "source": "x",
+      "url": "https://x.com/BkashJosi/status/2099926011303625207",
+      "author": "@BkashJosi",
+      "date": "2026-09-15",
+      "metric": {
+        "kind": "impressions",
+        "value": 9347
+      },
+      "metric2": {
+        "kind": "engagements",
+        "value": 268
+      },
+      "repo": "BkashJEE/hermes-skills-library",
+      "credit": "author’s own X analytics exports"
+    },
+    {
+      "id": "mine-jev-decision-layer",
+      "title": "Jev as the decision layer in an agent harness",
+      "summary": "TypeSafe’s founder sketched a leaner harness: rebuild context per task, route the cheap judgments to a fast typed model, keep the expensive model for real reasoning. My read on what that means for Hermes.",
+      "detail": "“Jev Could Rebuild your Hermes Agent’s Harness 🚀🪽 Jev isn’t replacing Hermes, Codex or Claude Code. It could become the decision layer that makes them leaner, cheaper and smarter. TypeSafe fo…”\n\nTypeSafe’s founder sketched a leaner harness: rebuild context per task, route the cheap judgments to a fast typed model, keep the expensive model for real reasoning. My read on what that means for Hermes.\n\nPosted by the archive’s author. Impression and engagement counts come from their own X analytics exports, carried over as published.",
+      "tags": [
+        "my-work",
+        "jev"
+      ],
+      "source": "x",
+      "url": "https://x.com/BkashJosi/status/2102170466849063290",
+      "author": "@BkashJosi",
+      "date": "2026-09-21",
+      "metric": {
+        "kind": "impressions",
+        "value": 5809
+      },
+      "metric2": {
+        "kind": "engagements",
+        "value": 113
+      },
+      "credit": "author’s own X analytics exports"
+    },
+    {
+      "id": "mine-jev-hermes-newsroom",
+      "title": "Hermes Newsroom: one place to follow the ecosystem",
+      "summary": "Omarchy plus Hermes plus Jev, pointed at my own work: a live wire that collects GitHub releases and Hacker News stories and turns them into a newspaper inside my desktop command center. In development.",
+      "detail": "“Omarchy + Hermes + Jev = AGI 😂🚀 👉I wanted one place to follow what’s happening around Hermes Agent—and turn my own work into a newspaper. So I’m building Hermes Newsroom inside my Hermes+Oma…”\n\nOmarchy plus Hermes plus Jev, pointed at my own work: a live wire that collects GitHub releases and Hacker News stories and turns them into a newspaper inside my desktop command center. In development.\n\nPosted by the archive’s author. Impression and engagement counts come from their own X analytics exports, carried over as published.",
+      "tags": [
+        "my-work",
+        "jev"
+      ],
+      "source": "x",
+      "url": "https://x.com/BkashJosi/status/2102354216144822581",
+      "author": "@BkashJosi",
+      "date": "2026-09-22",
+      "metric": {
+        "kind": "impressions",
+        "value": 3003
+      },
+      "metric2": {
+        "kind": "engagements",
+        "value": 79
+      },
+      "credit": "author’s own X analytics exports"
+    }
+  ]
+}

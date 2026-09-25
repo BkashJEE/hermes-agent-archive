@@ -100,12 +100,15 @@ function pill(source) {
 
 function metricBlock(item) {
   if (item.metric) {
+    // A figure that did not come from a public API must say where it came from.
+    const credit = item.credit
+      ? `<span class="m-credit" title="Not a public API figure">${esc(item.credit)}</span>` : '';
     const m2 = item.metric2
       ? `<div class="metric"><span class="m-k">${esc(item.metric2.kind.toUpperCase())}</span><span class="m-v">${num(item.metric2.value)}</span></div>`
       : '';
     return `<div class="metrics">
       <div class="metric"><span class="m-k">${esc(item.metric.kind.toUpperCase())}</span><span class="m-v">${num(item.metric.value)}</span></div>${m2}
-    </div>`;
+    </div>${credit}`;
   }
   const tags = (item.tags || []).slice(0, 3);
   return `<div class="tagrow">${tags.map(t => `<span class="trow-tag">${esc(t)}</span>`).join('')}
