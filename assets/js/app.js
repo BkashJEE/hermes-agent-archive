@@ -1,5 +1,6 @@
 /* Use-Case Archive — data loading, filtering, rendering. No framework, no build step. */
 
+import { installDesktopBridge } from './desktop-bridge.js';
 import { githubStarFloor } from './github-policy.js';
 import { archiveField } from './archive-field.js';
 import { sectionIcon } from './icons.js?v=launch-10';
@@ -1037,6 +1038,7 @@ function wire() {
 
 /* ------------------------------------------------------------------ boot */
 
+installDesktopBridge();
 load()
   .then(() => { routeFromHash(); wire(); restoreRoute(); })
   .catch(err => {

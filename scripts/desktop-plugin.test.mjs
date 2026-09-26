@@ -85,17 +85,17 @@ test('the framed page is sandboxed and cannot navigate the host away', () => {
   assert.ok(sandbox.includes('allow-scripts'), 'the archive needs scripts to fetch its JSON');
   assert.ok(!sandbox.includes('allow-top-navigation'), 'a framed page must not move the host');
   assert.ok(!sandbox.includes('allow-downloads'), 'a read-only catalogue has nothing to download');
-  /* Following a source to the original post is the point of the archive, and every one of
-     those links is target="_blank". Without both of these they are simply dead. */
-  assert.ok(sandbox.includes('allow-popups'), 'source links would not open at all');
+  /* Preserve the existing sandbox; Hermes' separate popup policy remains in force.
+     Source links now go through its host API after visible confirmation. */
+  assert.ok(sandbox.includes('allow-popups'), 'existing sandbox permission changed');
   assert.ok(sandbox.includes('allow-popups-to-escape-sandbox'),
-    'source links would open still sandboxed instead of as ordinary pages');
+    'existing sandbox permission changed');
   assert.equal(frame.props.referrerPolicy, 'no-referrer');
 });
 
 test('a failed load stops framing the page and hands over to the explanation', () => {
   const failed = plugin.ArchivePage({ url: 'http://127.0.0.1:4179/', failed: true });
-  const child = failed.children[0];
+  const child = failed.children.find(c => c.type === plugin.Unreachable);
   assert.equal(child.type, plugin.Unreachable, 'a failed load should not still render an iframe');
 });
 
@@ -109,4 +109,30 @@ test('an unreachable remote address names the setting to clear', () => {
   const text = JSON.stringify(plugin.Unreachable({ url: ARCHIVE_URL, onReload() {} }));
   assert.ok(text.includes(SETTING), 'the reader is not told which setting sent them there');
   assert.ok(!text.includes('npm start'), 'a published address should not tell people to run a server');
+});
+
+test('frame source requests require the exact window, origin and a web URL', () => {
+  const frame = {}, origin = new URL(ARCHIVE_URL).origin;
+  const event = { source: frame, origin, data: { type: 'hermes-archive:open-source', url: 'https://github.com/NousResearch/hermes-agent' } };
+  assert.equal(plugin.requestedSource(event, frame, origin), event.data.url);
+  assert.equal(plugin.requestedSource({ ...event, source: {} }, frame, origin), null);
+  assert.equal(plugin.requestedSource({ ...event, origin: 'https://other.test' }, frame, origin), null);
+  for (const url of ['javascript:alert(1)', 'file:///tmp/file', 'https://user:password@example.com', 'invalid'])
+    assert.equal(plugin.requestedSource({ ...event, data: { ...event.data, url } }, frame, origin), null);
+});
+
+test('external opening reports missing, refused and throwing host APIs honestly', async () => {
+  assert.equal(await plugin.openSource('https://example.com', undefined), false);
+  assert.equal(await plugin.openSource('https://example.com', async () => false), false);
+  assert.equal(await plugin.openSource('https://example.com', async () => { throw Error('unavailable'); }), false);
+  let opened;
+  assert.equal(await plugin.openSource('https://example.com', async url => { opened = url; return true; }), true);
+  assert.equal(opened, 'https://example.com');
+});
+
+test('suggest-entry palette action uses the host API, not a denied popup', async () => {
+  let entries, opened;
+  plugin.default.register({ registerMany: list => { entries = list; }, os: { openExternal: async url => { opened = url; return true; } } });
+  await entries.find(c => c.id === 'submit').data.run();
+  assert.equal(opened, 'https://github.com/BkashJEE/hermes-agent-archive/issues/new?template=submit-entry.yml');
 });

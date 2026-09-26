@@ -75,10 +75,49 @@ export function Unreachable({ url, onReload }) {
     h(Button, { variant: 'outline', size: 'sm', onClick: onReload }, 'Reload'));
 }
 
-export function ArchivePage({ url = archiveUrl(), failed: initiallyFailed = false }) {
+/** Messages can propose an HTTP(S) link; only the host's visible button opens it. */
+export function requestedSource(event, source, origin) {
+  if (!source || event.source !== source || event.origin !== origin ||
+      event.data?.type !== 'hermes-archive:open-source' || typeof event.data.url !== 'string' ||
+      event.data.url.length > 4096) return null;
+  try {
+    const url = new URL(event.data.url);
+    return ['https:', 'http:'].includes(url.protocol) && !url.username && !url.password ? url.href : null;
+  } catch { return null; }
+}
+
+export async function openSource(url, openExternal) {
+  try { return typeof openExternal === 'function' && await openExternal(url) === true; }
+  catch { return false; }
+}
+
+export function ArchivePage({ url = archiveUrl(), failed: initiallyFailed = false, openExternal }) {
   const [nonce, setNonce] = useState(0);
   const [failed, setFailed] = useState(initiallyFailed);
   const frame = useRef(null);
+  const [pendingSource, setPendingSource] = useState(null);
+  const [linkError, setLinkError] = useState('');
+  const sourceBusy = useRef(false);
+  const origin = new URL(url).origin;
+  const ready = () => frame.current?.contentWindow?.postMessage({ type: 'hermes-archive:host-ready' }, origin);
+  useEffect(() => {
+    const receive = event => {
+      if (event.source !== frame.current?.contentWindow || event.origin !== origin) return;
+      if (event.data?.type === 'hermes-archive:frame-ready') { ready(); return; }
+      const requested = requestedSource(event, frame.current?.contentWindow, origin);
+      if (requested && !sourceBusy.current) {
+        sourceBusy.current = true; // Later frame messages cannot swap the displayed destination.
+        setLinkError(''); setPendingSource(requested);
+      }
+    };
+    globalThis.addEventListener?.('message', receive);
+    return () => globalThis.removeEventListener?.('message', receive);
+  }, [origin]);
+  const dismissSource = () => { sourceBusy.current = false; setPendingSource(null); setLinkError(''); };
+  const confirmSource = async () => {
+    if (await openSource(pendingSource, openExternal)) dismissSource();
+    else setLinkError('Hermes could not open the browser. Copy the address below into your browser.');
+  };
 
   const reload = useCallback(() => { setFailed(false); setNonce(n => n + 1); }, []);
 
@@ -99,6 +138,17 @@ export function ArchivePage({ url = archiveUrl(), failed: initiallyFailed = fals
   }, [reload, url]);
 
   return h('div', { style: { display: 'flex', flexDirection: 'column', height: '100%', minHeight: 0, background: 'var(--ui-bg-base)' } },
+    h('div', { style: { padding: '8px 12px', color: 'var(--ui-text-primary)' } },
+      h(Button, { variant: 'outline', size: 'sm', onClick: async () => {
+        setLinkError('');
+        if (!await openSource(url, openExternal)) setLinkError(`Hermes could not open the browser. Copy this address into your browser: ${url}`);
+      } }, 'Open archive in browser'),
+      pendingSource ? h('div', { role: 'region', 'aria-label': 'Open original source', style: { paddingTop: '8px' } },
+        h('p', null, 'Open this source in your browser?'),
+        h('input', { 'aria-label': 'Source address', readOnly: true, value: pendingSource, style: { width: '100%', color: 'var(--ui-text-primary)', background: 'var(--ui-bg-base)' } }),
+        h(Button, { autoFocus: true, onClick: confirmSource }, 'Open source'),
+        h(Button, { onClick: dismissSource }, 'Cancel')) : null,
+      linkError ? h('p', { role: 'status' }, linkError) : null),
     failed
       ? h(Unreachable, { url, onReload: reload })
       : h('iframe', {
@@ -107,14 +157,12 @@ export function ArchivePage({ url = archiveUrl(), failed: initiallyFailed = fals
           src: url,
           title: 'Hermes Agent Archive',
           onError: () => setFailed(true),
+          onLoad: ready,
           referrerPolicy: 'no-referrer',
-          /* A read-only catalogue. It needs scripts and its own origin to fetch its JSON,
-             and it needs to open links: following a source to the original post is the
-             entire point of the archive, and every one of those is target="_blank".
-             allow-popups on its own would open them still sandboxed, so the escape clause
-             hands them to the real browser as ordinary pages. Downloads and top-level
-             navigation stay refused, so a framed page cannot move the host or drop a file
-             on the reader. */
+          /* Scripts and the page's own origin are needed to fetch archive JSON.
+             Keep the existing sandbox permissions; Hermes separately denies popups.
+             Source links use the confirmed host API above, never that popup path.
+             Downloads and top-level navigation remain refused. */
           sandbox: 'allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox',
           style: { flex: 1, width: '100%', border: 0, background: 'var(--ui-bg-base)' }
         }));
@@ -150,7 +198,7 @@ export default {
   description: 'Sourced Hermes Agent workflows, prompts, skills and commands, inside Hermes Desktop.',
   register(ctx) {
     const contributions = [
-      { id: 'page', area: ROUTES_AREA, data: { path: PAGE_PATH }, render: () => h(ArchivePage, {}) },
+      { id: 'page', area: ROUTES_AREA, data: { path: PAGE_PATH }, render: () => h(ArchivePage, { openExternal: link => ctx.os?.openExternal?.(link) }) },
       { id: 'nav', area: SIDEBAR_NAV_AREA, order: 56, data: { codicon: 'archive', label: 'Archive', path: PAGE_PATH } },
       { id: 'status', area: 'statusBar.left', render: () => h(ArchiveStatus, {}) },
       { id: 'open', area: PALETTE_AREA, data: {
@@ -167,9 +215,10 @@ export default {
       { id: 'submit', area: PALETTE_AREA, data: {
           id: 'hermes-archive.submit', label: 'Archive: Suggest an entry',
           keywords: ['archive', 'submit', 'contribute', 'suggest', 'add'],
-          run: () => globalThis.open?.(
-            'https://github.com/BkashJEE/hermes-agent-archive/issues/new?template=submit-entry.yml',
-            '_blank', 'noopener,noreferrer')
+          run: async () => {
+            const opened = await openSource('https://github.com/BkashJEE/hermes-agent-archive/issues/new?template=submit-entry.yml', link => ctx.os?.openExternal?.(link));
+            if (!opened) host.notify?.({ kind: 'error', message: 'Could not open your browser. Visit the archive repository to suggest an entry.' });
+          }
         } },
       ...SHELVES.map(([shelf, label, keywords]) => ({
         id: `shelf-${shelf}`, area: PALETTE_AREA, data: {
