@@ -18,7 +18,8 @@
     "prompts": "node scripts/extract-prompts.mjs",
     "links": "node scripts/check-links.mjs",
     "shots": "node scripts/make-shots.mjs",
-    "docs": "node scripts/import-hermes-docs.mjs"
+    "docs": "node scripts/import-hermes-docs.mjs",
+    "icons": "node scripts/make-icons.mjs"
   },
   "engines": {
     "node": ">=20"

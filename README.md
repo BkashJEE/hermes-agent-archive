@@ -81,6 +81,12 @@ router refuses to place anything there, in code.
 ### Dashboard
 ![The Dashboard](docs/images/dashboard.png)
 
+### Prompts
+![The Prompts shelf](docs/images/prompts.png)
+
+### Settings
+![The Settings shelf](docs/images/settings.png)
+
 ### Trending GitHub
 ![The Trending shelf](docs/images/trending.png)
 
