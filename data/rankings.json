@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-09-25T22:02:58.950Z",
+  "classifiedAt": "2026-09-26T08:28:13.837Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -5469,6 +5469,30 @@
       "usefulness": 0.51,
       "popularity": "unknown",
       "confidence": 0.58
+    },
+    "trick-audit-the-skill-auditor": {
+      "input": "2f865b7b61a0c6b7f9b8952c990a452d825d2612008a53bc94bb9d0c1ce792ae",
+      "usefulness": 1.07,
+      "popularity": "unknown",
+      "confidence": 0.87
+    },
+    "trick-generate-a-read-only-memory-vault": {
+      "input": "eb84047a17358a5eb90928bfd9ddd93cbb858294a3c0688a76a882344cd84bc7",
+      "usefulness": 1.54,
+      "popularity": "unknown",
+      "confidence": 0.54
+    },
+    "trick-navigate-document-structure-before-retrieval": {
+      "input": "1a1fd8f309c364c0cea7de470680ad9d41c1c89bfbfe9e32f6401b31e3999e0a",
+      "usefulness": 1.51,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "trick-bridge-a-serial-terminal-through-a-login-shell": {
+      "input": "127ebdd7e5b4752284861d8134b36e74f0b6ea5ba620b012160def47392b3c5e",
+      "usefulness": 1.32,
+      "popularity": "unknown",
+      "confidence": 0.71
     }
   }
 }

@@ -1,4 +1,61 @@
 {
-  "note": "Community discoveries only: verbatim quotations with attribution and evidence of absence from official documentation. No qualifying discoveries verified yet. Official reference entries moved intact to Settings and Commands.",
-  "items": []
+  "note": "Reviewed community techniques with verbatim attribution and a bounded official-documentation absence check. Reproduce with npm run tricks; offline evidence in scripts/trick-evidence.json. Historical entries are preserved.",
+  "items": [
+    {
+      "id": "trick-audit-the-skill-auditor",
+      "title": "Use a skill auditor as its own test subject",
+      "summary": "An experimental loop tests another skill to evaluate and improve the auditor itself.",
+      "detail": "but if i run the skill-audit on the skill-audit skill itself then it just picks a random skill to improve\n\n— @.salt555, 2026-04-23, via the public Nous Discord archive.\n\nThe contributor describes running a custom audit skill against itself. It chooses another skill as a test case, executes that skill in a sandbox, and uses the outcome to revise both the tested skill and the auditor. They schedule the experiment with cron.\n\nLimitations: A community experiment, not a demonstrated guarantee of improvement. The source does not supply a complete implementation. Review proposed skill edits before using them; this is distinct from the built-in security audit command.\n\nDocumentation check: this specific community technique was not found in the official English reference snapshot (d0288be) or the cached prompt guides. Related built-in features are documented. This is a bounded source review, not a claim about every document or independent execution testing.",
+      "tags": [
+        "dev-workflow",
+        "automation"
+      ],
+      "source": "discord",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/00e34c284fc9ec2571acc43d6f3e9b8ef1fe2c8a/archives/hermes-agent.txt#L482775-L482776",
+      "author": "@.salt555",
+      "date": "2026-04-23"
+    },
+    {
+      "id": "trick-generate-a-read-only-memory-vault",
+      "title": "Generate the memory vault from a database instead of letting the agent edit it",
+      "summary": "Use structured model output as input to a deterministic store, then render a read-only Obsidian view.",
+      "detail": "I just have my DB auto-generate a read-only Markdown vault\n\n— @lauratom, 2026-04-04, via the public Nous Discord archive.\n\nThe contributor uses the model to extract structured semantic signals. A Python backend turns those signals into typed nodes and edges in SQLite FTS5, handles memory changes in SQL, and generates Markdown for viewing in Obsidian. The generated vault is an output, not the writable source of truth.\n\nLimitations: Requires a custom memory backend; no complete implementation is supplied in the message. Read-only generated files alone do not establish a security boundary. Built-in Hermes session search already uses SQLite; that alone is not the trick.\n\nDocumentation check: this specific community technique was not found in the official English reference snapshot (d0288be) or the cached prompt guides. Related built-in features are documented. This is a bounded source review, not a claim about every document or independent execution testing.",
+      "tags": [
+        "memory",
+        "dev-workflow"
+      ],
+      "source": "discord",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/00e34c284fc9ec2571acc43d6f3e9b8ef1fe2c8a/archives/hermes-agent.txt#L162913-L162925",
+      "author": "@lauratom",
+      "date": "2026-04-04"
+    },
+    {
+      "id": "trick-navigate-document-structure-before-retrieval",
+      "title": "Let Hermes choose document sections before retrieving pages",
+      "summary": "A community demo uses a document hierarchy and targeted tools instead of nearest-vector chunks.",
+      "detail": "The agent first understands how the document is organized, then decides which pages to inspect before answering.\n\n— @lemoussel, 2026-05-06, via the public Nous Discord archive.\n\nThe contributor indexes a PDF with PageIndex, waits for indexing, then gives Hermes a toolset dedicated to that document. The agent inspects the hierarchy and chooses relevant pages before answering. This records the retrieval technique, not a recommendation or popularity claim for the project.\n\nLimitations: A custom demonstration, not a built-in Hermes feature or a benchmark against other retrieval systems. It requires indexing and document-specific tools; the workflow has not been execution-tested here.\n\nDocumentation check: this specific community technique was not found in the official English reference snapshot (d0288be) or the cached prompt guides. Related built-in features are documented. This is a bounded source review, not a claim about every document or independent execution testing.",
+      "tags": [
+        "research",
+        "dev-workflow"
+      ],
+      "source": "discord",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/00e34c284fc9ec2571acc43d6f3e9b8ef1fe2c8a/archives/community-projects-showcase/1501565023359598754-Vectorless-RAG-with-PageIndex-and-Hermes-Agent.txt#L5-L32",
+      "author": "@lemoussel",
+      "date": "2026-05-06"
+    },
+    {
+      "id": "trick-bridge-a-serial-terminal-through-a-login-shell",
+      "title": "Bridge a serial terminal to Hermes with a minimal login shell",
+      "summary": "A community hardware experiment connects a serial getty to a shell backed by Hermes.",
+      "detail": "Hooked the shell up to an autologin getty on a serial port.\n\n— @hugh1979, 2026-04-23, via the public Nous Discord archive.\n\nThe contributor built a minimal login shell that talks to Hermes through the gateway web service or hermes chat, then connected that shell to a serial getty. This let a physical teletype act as the input/output device without using the normal terminal interface.\n\nLimitations: A niche hardware experiment requiring a custom shell and serial setup. Autologin grants access to the attached session, so use a dedicated restricted account and control physical access. The standard CLI and API are documented; the serial-terminal bridge is the discovery.\n\nDocumentation check: this specific community technique was not found in the official English reference snapshot (d0288be) or the cached prompt guides. Related built-in features are documented. This is a bounded source review, not a claim about every document or independent execution testing.",
+      "tags": [
+        "creative",
+        "dev-workflow"
+      ],
+      "source": "discord",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/00e34c284fc9ec2571acc43d6f3e9b8ef1fe2c8a/archives/community-projects-showcase/1496700201526759494-Hardcopy-TUI.txt#L5-L7",
+      "author": "@hugh1979",
+      "date": "2026-04-23"
+    }
+  ]
 }
