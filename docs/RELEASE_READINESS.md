@@ -15,11 +15,11 @@ Last reviewed 2026-09-25 after merging PRs #25 and #26. These changes are on mai
 
 At the preparation check, the repository was already public, GitHub secret scanning and push protection were enabled, and no open secret-scanning alerts were returned. Private vulnerability reporting was enabled. This does not prove that the entire repository history contains no secrets or that the application has received a comprehensive security audit.
 
-## Addressed since the previous review
+## Released
 
 The items below are merged into main. They require a separate owner-approved deployment before they appear on the live site.
 
-- **Merged — open PRs integrated.** #17, #20, #22, #23 and #24 are merged and #19 was closed as a duplicate of #22. No implementation replaced another, and the strict 50,000-star default survived: `MIN_GITHUB_STARS` is `50000`, the comparison is strictly greater, and the ranking tests assert both that 50,000 fails and that 50,001 passes.
+- **Open PRs integrated.** #17, #20, #22, #23 and #24 are merged and #19 was closed as a duplicate of #22. No implementation replaced another, and the strict 50,000-star default survived: `MIN_GITHUB_STARS` is `50000`, the comparison is strictly greater, and the ranking tests assert both that 50,000 fails and that 50,001 passes.
 
 - **Merged in PR #25 — the prompt extractor exists and has been run.** It was previously a zero-byte file, as was its excerpt record, so nothing had ever checked that shelf. All twelve prompts verify against the pages they cite: ten exact code-block matches, one substring, one quoted in prose rather than fenced. `scripts/prompt-excerpts.json` stores the text of every block read, so `--offline` re-checks the same claims and an upstream edit appears as a diff. Corrupting a snippet or an anchor makes the run exit non-zero without replacing the last good excerpt record. A regression test also covers failed network requests.
 
@@ -33,27 +33,46 @@ The items below are merged into main. They require a separate owner-approved dep
 
 - **Merged in PR #25 — two scripts rewrote data merely by being imported.** A test run had silently added five entries to two shelves. Both now act only when invoked as a command.
 
-## Still required before describing the archive as complete
+## Still open
 
-- **Skills coverage and Hidden Tricks.** Skills holds four entries and Hidden Tricks holds none. The shelf now says so plainly rather than implying a filter is hiding something, but an empty shelf is still an empty shelf. Populate only with verified, attributed discoveries.
+- **Entry-by-entry provenance and rights review.** Not started, and the most consequential
+gap on this list. The archive republishes 840 pieces of other people's work. Source credit
+alone is not blanket redistribution permission. The automated checks confirm that a link
+exists and that an author is named; they say nothing about whether republishing the quoted
+text is permitted. A correction form is linked from the footer so a complaint has somewhere
+to go, which is mitigation, not resolution.
 
-- **Remaining official documentation imports.** Messaging, CLI, quickstart, architecture, integrations, features overview and the Nemotron guide are outstanding. The CLI importer currently finds five entries not yet in the archive; they were deliberately kept out of the anchor repair so that change stayed reviewable.
+- **Documentation coverage is deliberately partial.** `scripts/docs-manifest.json` records
+every page imported and every page skipped, each with a reason. The reference-dense pages —
+configuration, security, MCP, messaging — are left upstream on purpose: importing them
+yields roughly 616 entries, makes Settings the largest shelf, and buries the community
+stories the archive exists for. The Skills Hub and Plugins pages cannot be imported at all,
+being client-rendered with no public JSON behind them.
 
-- **Entry-by-entry provenance and rights review.** Not started. Source credit alone is not blanket redistribution permission. Resolve reported attribution, quote or permission concerns before promoting affected content. The automated checks confirm that a link exists and that an author is named; they say nothing about whether republishing the quoted text is permitted.
+- **Hidden Tricks stays small by design.** Four entries, each carrying evidence of its own
+absence from the documentation in `scripts/trick-evidence.json`. The router refuses to
+place anything on this shelf, in code. Growth here should come from reviewed extraction or
+community submission, never from loosening that rule.
 
-- **Deployment verification.** Confirm a fresh clone works without credentials, verify public deployment contents and links, and publish only the owner-approved release. Regenerate any social image carrying archive counts from that release's data.
+- **Publishing remains manual.** The Vercel project has no Git integration, so merging to
+`main` does not deploy. That is a deliberate owner-only step, and it is also why eight
+merged pull requests were invisible until 2026-09-26. Whoever deploys must remember that
+merging is not publishing.
 
 ## Current counts
 
-674 stored entries across nine content shelves, plus Dashboard and Trending, which are computed:
-Use Cases 326, Commands 220, Settings 89, Prompts 12, My Work 11, Works With 8, Skills 4,
-People Build 4, Hidden Tricks 0.
+840 stored entries across nine content shelves, plus Dashboard and Trending, which are
+computed: Use Cases 372, Commands 272, Settings 98, Skills 59, Prompts 12, My Work 11,
+Works With 8, People Build 4, Hidden Tricks 4.
 
-670 were eligible to display at the last release. Stored and displayed are not the same number
-and should not be reconciled by changing either: an entry is stored permanently and shown only
-while it still qualifies, so a repository that drops below the star floor keeps its write-up and
+836 are eligible to display. Stored and displayed are not the same number and should not
+be reconciled by changing either: an entry is stored permanently and shown only while it
+still qualifies, so a repository that drops below the star floor keeps its write-up and
 leaves the shelf.
 
-Combined verification: `npm run check` passes for 674 stored entries and `npm test` passes all 43 tests. `npm run links` checks attribution and 76 documentation anchors across seven pages; it does not test social-site reachability. All 12 prompts pass both live verification (`npm run prompts -- --report`) and the offline check. Browser checks at 375px and 1920px confirm no horizontal overflow, 16px phone gutters, working skip/filter focus and drawer focus trapping/restoration.
+`npm run check` — 840 valid · `npm test` — 77 tests · `npm run links` — every entry links
+to its source and credits its author, and all 238 anchored documentation links across 18
+pages resolve · `npm run prompts` — all 12 verified against the pages they cite.
+
 
 Normal pipeline operations remain additive. Handle exceptional rights or privacy redactions explicitly, with the maintainer's decision recorded and protection against automatic re-import; do not silently erase an archive or automatically restore disputed material.
