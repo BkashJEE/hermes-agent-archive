@@ -18,6 +18,8 @@ export const PAGE_PATH = '/archive';
 export const ARCHIVE_URL = 'https://hermes-agent-archive.vercel.app';
 export const SETTING = 'hermes-archive:url';
 
+let requestedShelf = null;
+
 const LOOPBACK = new Set(['127.0.0.1', 'localhost', '[::1]', '::1']);
 
 /**
@@ -29,9 +31,10 @@ const LOOPBACK = new Set(['127.0.0.1', 'localhost', '[::1]', '::1']);
  * http only on loopback, because that is the local preview server and `npm start` does not
  * offer TLS. A javascript:, data: or file: setting is discarded rather than honoured.
  */
-export function archiveUrl(store = globalThis.localStorage) {
+export function archiveUrl(store) {
   let raw;
   try {
+    if (store === undefined) store = globalThis.localStorage;
     raw = typeof store?.getItem === 'function' ? store.getItem(SETTING) : store?.[SETTING];
   } catch {
     return ARCHIVE_URL;                        // private mode, or storage blocked
@@ -75,7 +78,7 @@ export function Unreachable({ url, onReload }) {
     h(Button, { variant: 'outline', size: 'sm', onClick: onReload }, 'Reload'));
 }
 
-export function ArchivePage({ url = archiveUrl(), failed: initiallyFailed = false }) {
+export function ArchivePage({ url = shelfUrl(requestedShelf), failed: initiallyFailed = false }) {
   const [nonce, setNonce] = useState(0);
   const [failed, setFailed] = useState(initiallyFailed);
   const frame = useRef(null);
@@ -135,10 +138,16 @@ export const SHELVES = [
   ['prompts', 'Prompts', ['prompt', 'copy', 'example']],
   ['commands', 'Commands', ['command', 'cli', 'slash']],
   ['settings', 'Settings', ['setting', 'config', 'option']],
+  ['tricks', 'Hidden Tricks', ['tricks', 'discoveries']],
+  ['toolkit', 'Works With', ['integrations', 'tools']],
+  ['builds', 'People Build', ['projects', 'builds']],
+  ['my-work', 'My Work', ['posts', 'maintainer']],
   ['trending', 'Trending GitHub', ['trending', 'stars', 'growth']]
 ];
 
 const openShelf = shelf => {
+  // Retain the selection before navigation: the route may not be mounted yet.
+  requestedShelf = shelf;
   host.navigate(PAGE_PATH);
   globalThis.dispatchEvent?.(new CustomEvent('hermes-archive:shelf', { detail: shelf }));
 };
