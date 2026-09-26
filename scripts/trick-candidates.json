@@ -1,0 +1,303 @@
+{
+  "version": 1,
+  "accepted": [
+    {
+      "id": "trick-audit-the-skill-auditor",
+      "storyId": "story-a-skill-audit-skill-that-improves-itself-on-a-cron-job",
+      "title": "Use a skill auditor as its own test subject",
+      "summary": "An experimental loop tests another skill to evaluate and improve the auditor itself.",
+      "author": "@.salt555",
+      "date": "2026-04-23",
+      "quote": "but if i run the skill-audit on the skill-audit skill itself then it just picks a random skill to improve",
+      "explanation": "The contributor describes running a custom audit skill against itself. It chooses another skill as a test case, executes that skill in a sandbox, and uses the outcome to revise both the tested skill and the auditor. They schedule the experiment with cron.",
+      "limitations": "A community experiment, not a demonstrated guarantee of improvement. The source does not supply a complete implementation. Review proposed skill edits before using them; this is distinct from the built-in security audit command.",
+      "tags": [
+        "dev-workflow",
+        "automation"
+      ],
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/00e34c284fc9ec2571acc43d6f3e9b8ef1fe2c8a/archives/hermes-agent.txt#L482775-L482776",
+      "source": {
+        "repo": "teknium1/nous-discord-archive",
+        "commit": "00e34c284fc9ec2571acc43d6f3e9b8ef1fe2c8a",
+        "path": "archives/hermes-agent.txt",
+        "messageId": "1496876279084089404"
+      },
+      "searches": [
+        [
+          "skill-audit"
+        ],
+        [
+          "audit skill",
+          "itself"
+        ],
+        [
+          "auditor",
+          "own test"
+        ]
+      ],
+      "review": {
+        "commit": "d0288be5b3330d2442e3907185b8e9d0958297bb",
+        "reason": "The distinctive step is recursive evaluation of the auditor using a different skill as its test case. Documentation describes security scans, normal skill testing and automatic skill updates, but not that feedback experiment.",
+        "closestDocs": [
+          {
+            "path": "website/docs/user-guide/features/skills.md",
+            "excerpt": "hermes skills audit                               # Re-scan all hub skills for security",
+            "distinction": "This scans installed skills for security; it does not evaluate an auditor by running it against itself."
+          },
+          {
+            "path": "website/docs/guides/work-with-skills.md",
+            "excerpt": "Start a new session and try your skill:",
+            "distinction": "Normal skill testing is documented. The recursive auditor/test-subject relationship is the community discovery."
+          }
+        ]
+      }
+    },
+    {
+      "id": "trick-generate-a-read-only-memory-vault",
+      "storyId": "story-i-built-a-custom-kernel-the-llm-never-touches-the-disk",
+      "title": "Generate the memory vault from a database instead of letting the agent edit it",
+      "summary": "Use structured model output as input to a deterministic store, then render a read-only Obsidian view.",
+      "author": "@lauratom",
+      "date": "2026-04-04",
+      "quote": "I just have my DB auto-generate a read-only Markdown vault",
+      "explanation": "The contributor uses the model to extract structured semantic signals. A Python backend turns those signals into typed nodes and edges in SQLite FTS5, handles memory changes in SQL, and generates Markdown for viewing in Obsidian. The generated vault is an output, not the writable source of truth.",
+      "limitations": "Requires a custom memory backend; no complete implementation is supplied in the message. Read-only generated files alone do not establish a security boundary. Built-in Hermes session search already uses SQLite; that alone is not the trick.",
+      "tags": [
+        "memory",
+        "dev-workflow"
+      ],
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/00e34c284fc9ec2571acc43d6f3e9b8ef1fe2c8a/archives/hermes-agent.txt#L162913-L162925",
+      "source": {
+        "repo": "teknium1/nous-discord-archive",
+        "commit": "00e34c284fc9ec2571acc43d6f3e9b8ef1fe2c8a",
+        "path": "archives/hermes-agent.txt",
+        "messageId": "1490122023220023439"
+      },
+      "searches": [
+        [
+          "read-only Markdown vault"
+        ],
+        [
+          "auto-generate",
+          "vault"
+        ],
+        [
+          "typed nodes",
+          "Obsidian"
+        ]
+      ],
+      "review": {
+        "commit": "d0288be5b3330d2442e3907185b8e9d0958297bb",
+        "reason": "The unusual inversion is a database-owned memory graph generating a read-only Obsidian view. SQLite session search and memory provider extensibility are documented, but not this specific separation of model output, SQL mutation and a generated vault.",
+        "closestDocs": [
+          {
+            "path": "website/docs/user-guide/features/memory.md",
+            "excerpt": "All CLI and messaging sessions are stored in SQLite (`~/.hermes/state.db`) with FTS5 full-text search",
+            "distinction": "Built-in transcript storage is not a structured memory graph that generates an Obsidian vault."
+          },
+          {
+            "path": "website/docs/developer-guide/memory-provider-plugin.md",
+            "excerpt": "Memory provider plugins give Hermes Agent persistent, cross-session knowledge beyond the built-in MEMORY.md and USER.md.",
+            "distinction": "Documents an extension interface, not the database-to-read-only-vault design."
+          }
+        ]
+      }
+    },
+    {
+      "id": "trick-navigate-document-structure-before-retrieval",
+      "storyId": "story-built-a-vectorless-rag-workflow-with-pageindex-and-hermes",
+      "title": "Let Hermes choose document sections before retrieving pages",
+      "summary": "A community demo uses a document hierarchy and targeted tools instead of nearest-vector chunks.",
+      "author": "@lemoussel",
+      "date": "2026-05-06",
+      "quote": "The agent first understands how the document is organized, then decides which pages to inspect before answering.",
+      "explanation": "The contributor indexes a PDF with PageIndex, waits for indexing, then gives Hermes a toolset dedicated to that document. The agent inspects the hierarchy and chooses relevant pages before answering. This records the retrieval technique, not a recommendation or popularity claim for the project.",
+      "limitations": "A custom demonstration, not a built-in Hermes feature or a benchmark against other retrieval systems. It requires indexing and document-specific tools; the workflow has not been execution-tested here.",
+      "tags": [
+        "research",
+        "dev-workflow"
+      ],
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/00e34c284fc9ec2571acc43d6f3e9b8ef1fe2c8a/archives/community-projects-showcase/1501565023359598754-Vectorless-RAG-with-PageIndex-and-Hermes-Agent.txt#L5-L32",
+      "source": {
+        "repo": "teknium1/nous-discord-archive",
+        "commit": "00e34c284fc9ec2571acc43d6f3e9b8ef1fe2c8a",
+        "path": "archives/community-projects-showcase/1501565023359598754-Vectorless-RAG-with-PageIndex-and-Hermes-Agent.txt",
+        "messageId": "1501565023359598754"
+      },
+      "searches": [
+        [
+          "PageIndex"
+        ],
+        [
+          "vectorless"
+        ],
+        [
+          "hierarchical document"
+        ]
+      ],
+      "review": {
+        "commit": "d0288be5b3330d2442e3907185b8e9d0958297bb",
+        "reason": "Generic tool calls and document reading are documented; choosing pages through an explicit document hierarchy instead of vector-nearest chunks is the distinct reviewed mechanism.",
+        "closestDocs": [
+          {
+            "path": "website/docs/user-guide/features/code-execution.md",
+            "excerpt": "The `execute_code` tool lets the agent write Python scripts that call Hermes tools programmatically, collapsing multi-step workflows into a single LLM turn.",
+            "distinction": "This explains tool composition but does not describe hierarchical PDF retrieval or PageIndex."
+          }
+        ]
+      }
+    },
+    {
+      "id": "trick-bridge-a-serial-terminal-through-a-login-shell",
+      "storyId": "story-chatting-with-hermes-on-a-1969-teletype-model-33-at-110-baud",
+      "title": "Bridge a serial terminal to Hermes with a minimal login shell",
+      "summary": "A community hardware experiment connects a serial getty to a shell backed by Hermes.",
+      "author": "@hugh1979",
+      "date": "2026-04-23",
+      "quote": "Hooked the shell up to an autologin getty on a serial port.",
+      "explanation": "The contributor built a minimal login shell that talks to Hermes through the gateway web service or hermes chat, then connected that shell to a serial getty. This let a physical teletype act as the input/output device without using the normal terminal interface.",
+      "limitations": "A niche hardware experiment requiring a custom shell and serial setup. Autologin grants access to the attached session, so use a dedicated restricted account and control physical access. The standard CLI and API are documented; the serial-terminal bridge is the discovery.",
+      "tags": [
+        "creative",
+        "dev-workflow"
+      ],
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/00e34c284fc9ec2571acc43d6f3e9b8ef1fe2c8a/archives/community-projects-showcase/1496700201526759494-Hardcopy-TUI.txt#L5-L7",
+      "source": {
+        "repo": "teknium1/nous-discord-archive",
+        "commit": "00e34c284fc9ec2571acc43d6f3e9b8ef1fe2c8a",
+        "path": "archives/community-projects-showcase/1496700201526759494-Hardcopy-TUI.txt",
+        "messageId": "1496700201526759494"
+      },
+      "searches": [
+        [
+          "teletype"
+        ],
+        [
+          "getty"
+        ],
+        [
+          "serial port",
+          "login shell"
+        ]
+      ],
+      "review": {
+        "commit": "d0288be5b3330d2442e3907185b8e9d0958297bb",
+        "reason": "Official docs cover CLI and HTTP frontends but do not describe a serial getty connected to a custom Hermes login shell.",
+        "closestDocs": [
+          {
+            "path": "website/docs/user-guide/features/api-server.md",
+            "excerpt": "The API server exposes hermes-agent as an OpenAI-compatible HTTP endpoint.",
+            "distinction": "A generic HTTP frontend capability does not document the serial getty/login-shell bridge."
+          }
+        ]
+      }
+    }
+  ],
+  "rejected": [
+    {
+      "storyId": "story-found-the-cron-mode-that-costs-zero-tokens",
+      "title": "Found the cron mode that costs zero tokens",
+      "url": "https://www.reddit.com/r/hermesagent/comments/1uxwlyj/",
+      "reason": "documented",
+      "detail": "Script-only cron and --no-agent are documented in guides/cron-script-only.md."
+    },
+    {
+      "storyId": "story-steer-change-the-instructions-without-stopping-the-run",
+      "title": "/steer: change the instructions without stopping the run",
+      "url": "https://x.com/iamlukethedev/status/2072711102656389369",
+      "reason": "documented",
+      "detail": "/steer is documented in the CLI and slash-command reference."
+    },
+    {
+      "storyId": "story-watched-an-agent-delete-a-codebase-then-typed-rollback-1",
+      "title": "Watched an agent delete a codebase, then typed /rollback 1",
+      "url": "https://x.com/iamlukethedev/status/2079686197761237430",
+      "reason": "documented",
+      "detail": "Rollback is documented in user-guide/checkpoints-and-rollback.md."
+    },
+    {
+      "storyId": "story-how-a-specialist-agent-gets-crafted-run-it-4-to-10-times-and",
+      "title": "How a specialist agent gets crafted: run it 4 to 10 times and let skills emerge",
+      "url": "https://x.com/shannholmberg/status/2056043898804539405",
+      "reason": "insufficient-detail",
+      "detail": "The stored quotation gives general advice to iterate, not an independently checkable technique."
+    },
+    {
+      "storyId": "story-sharing-a-local-searxng-container-across-my-hermes-agents",
+      "title": "Sharing a local SearXNG container across my Hermes agents",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent.txt",
+      "reason": "documented",
+      "detail": "SearXNG is covered by the optional research skill reference; sharing a container does not establish an undocumented Hermes behaviour."
+    },
+    {
+      "storyId": "story-two-tier-email-pipeline-so-the-llm-only-fires-when-needed",
+      "title": "Two-tier email pipeline so the LLM only fires when needed",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/community-projects-showcase/1492347479805530182-Email-Checker-State-Machine.txt",
+      "reason": "documented",
+      "detail": "Conditional script-first monitoring that wakes an agent only for changes is documented in cron and automation guides."
+    },
+    {
+      "storyId": "story-hooks-that-swap-in-better-tools-every-time-the-agent-runs",
+      "title": "Hooks that swap in better tools every time the agent runs",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent/",
+      "reason": "insufficient-provenance",
+      "detail": "Story links to a directory rather than a specific attributed message; generic hooks and middleware are already documented."
+    },
+    {
+      "storyId": "story-i-back-up-my-hermes-config-and-db-to-github-nightly",
+      "title": "I back up my Hermes config and DB to GitHub nightly",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/community-projects-showcase/1491933536423510117-Backup-Manage-Hermes-Config-via-your-Github-repo.txt",
+      "reason": "documented",
+      "detail": "Backups, snapshots and profile distributions are documented. No sufficiently distinct undocumented behaviour established."
+    },
+    {
+      "storyId": "story-local-gitea-fork-watchtower-auto-restarts-my-hermes-in-10-mi",
+      "title": "Local Gitea fork + watchtower auto-restarts my Hermes in 10 minutes",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent.txt",
+      "reason": "unverified-source",
+      "detail": "Could not recover the quoted Gitea/watchtower statement under its claimed author in the current archived channel export."
+    },
+    {
+      "storyId": "story-tailscale-serve-for-secure-remote-access-no-exposed-ports",
+      "title": "Tailscale serve for secure remote access, no exposed ports",
+      "url": "https://github.com/NousResearch/hermes-agent/issues/9269",
+      "reason": "documented",
+      "detail": "Tailscale remote access is described in the API server documentation."
+    },
+    {
+      "storyId": "story-i-now-compile-skills-into-code-only-invoking-ai-at-necessary",
+      "title": "I now compile skills into code, only invoking AI at necessary steps",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent.txt",
+      "reason": "documented",
+      "detail": "Moving deterministic work into scripts and reserving model calls for reasoning overlaps documented code execution and script-first automation."
+    },
+    {
+      "storyId": "story-kubernetes-pod-hop-handoff-across-restarts",
+      "title": "Kubernetes pod-hop handoff across restarts",
+      "url": "https://github.com/NousResearch/hermes-agent/issues/11248",
+      "reason": "proposal-not-demonstration",
+      "detail": "The story describes a proposed pod-hop mechanism, not a verified working discovery."
+    },
+    {
+      "storyId": "story-shadow-to-live-migration-from-openclaw",
+      "title": "Shadow-to-live migration from OpenClaw",
+      "url": "https://github.com/NousResearch/hermes-agent/issues/16134",
+      "reason": "proposal-not-demonstration",
+      "detail": "The story describes a proposed migration path rather than an implemented technique."
+    },
+    {
+      "storyId": "story-5-vps-playbook-so-the-defaults-don-t-eat-your-openrouter-bud",
+      "title": "$5 VPS playbook — so the defaults don't eat your OpenRouter budget",
+      "url": "https://medium.com/@anup.karanjkar08/how-to-run-hermes-agent-on-a-5-vps-the-self-evolving-agent-that-ate-last-weeks-trending-chart-cbe94a82d094",
+      "reason": "insufficient-detail",
+      "detail": "The stored excerpt is a cost claim without the concrete mechanism and direct verbatim instructions needed here."
+    },
+    {
+      "storyId": "story-deployed-hermes-on-railway-with-telegram-the-10-undocumented",
+      "title": "Deployed Hermes on Railway with Telegram — the 10 undocumented gotchas",
+      "url": "https://tessakriesel.com/how-i-deployed-hermes-agent-on-railway-with-telegram-and-every-gotcha-i-hit-along-the-way/",
+      "reason": "documented-or-outdated",
+      "detail": "Reviewed the linked Railway article. Gateway run, persistent home mounts, MCP keys and tini now have official coverage; other claims need current-version verification. An old claim that something is undocumented is insufficient."
+    }
+  ]
+}
