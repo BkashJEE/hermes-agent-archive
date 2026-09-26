@@ -110,3 +110,24 @@ test('an unreachable remote address names the setting to clear', () => {
   assert.ok(text.includes(SETTING), 'the reader is not told which setting sent them there');
   assert.ok(!text.includes('npm start'), 'a published address should not tell people to run a server');
 });
+
+test('a throwing localStorage getter is caught before reading a preference', () => {
+  const descriptor = Object.getOwnPropertyDescriptor(globalThis, 'localStorage');
+  try {
+    Object.defineProperty(globalThis, 'localStorage', { configurable: true, get() { throw Error('blocked'); } });
+    assert.equal(archiveUrl(), ARCHIVE_URL);
+  } finally {
+    if (descriptor) Object.defineProperty(globalThis, 'localStorage', descriptor);
+    else delete globalThis.localStorage;
+  }
+});
+
+test('a palette selection survives navigation before the archive page mounts', () => {
+  let entries;
+  plugin.default.register({ registerMany: list => { entries = list; } });
+  entries.find(c => c.id === 'shelf-tricks').data.run();
+  const route = entries.find(c => c.id === 'page').render();
+  const page = route.type(route.props);
+  const frame = page.children.find(c => c.type === 'iframe');
+  assert.equal(frame.props.src, `${ARCHIVE_URL}#tricks`);
+});
