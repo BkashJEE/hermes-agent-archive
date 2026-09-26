@@ -3059,6 +3059,737 @@
       "source": "docs",
       "url": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands#diagnostic-shortcuts",
       "date": "2026-09-24"
+    },
+    {
+      "id": "doc-getting-started-quickstart-prefer-to-watch",
+      "title": "Prefer to watch?",
+      "summary": "Onchain AI Garage put together a Masterclass walkthrough of installation, setup, and basic commands - a good companion to this page if you'd rather follow along on video.",
+      "detail": "Onchain AI Garage put together a Masterclass walkthrough of installation, setup, and basic commands - a good companion to this page if you'd rather follow along on video. For more, see the full Hermes Agent Tutorials & Use Cases playlist.\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "quickstart",
+        "getting-started",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#prefer-to-watch",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-getting-started-quickstart-who-this-is-for",
+      "title": "Who this is for",
+      "summary": "Brand new and want the shortest path to a working setup Switching providers and don't want to lose time to config mistakes Setting up Hermes for a team, bot, or always-on workflow Tired o\u2026",
+      "detail": "Brand new and want the shortest path to a working setup Switching providers and don't want to lose time to config mistakes Setting up Hermes for a team, bot, or always-on workflow Tired of \"it installed, but it still does nothing\"\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "quickstart",
+        "getting-started",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#who-this-is-for",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-getting-started-quickstart-the-fastest-path",
+      "title": "The fastest path",
+      "summary": "Pick the row that matches your goal: Goal Do this first Then do this I just want Hermes working on my machine hermes setup Run a real chat and verify it responds I already know my provide\u2026",
+      "detail": "Pick the row that matches your goal: Goal Do this first Then do this I just want Hermes working on my machine hermes setup Run a real chat and verify it responds I already know my provider hermes model Save the config, then start chatting I want a bot or always-on setup hermes gateway setup after CLI works Connect Telegram, Discord, Slack, or another platform I want a local or self-hosted model hermes model \u2192 custom endpoint Verify the endpoint, model name, and context length I want multi-provider fallback hermes model first Add routing and fallback only after the base chat works Rule of thumb: if Hermes cannot complete a normal chat, do not add more features yet. Get one clean conversation working first, then layer on gateway, cron, skills, voice, or routing.\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "quickstart",
+        "getting-started",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#the-fastest-path",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-getting-started-quickstart-windows-native",
+      "title": "Windows (native)",
+      "summary": "Run in powershell: After it finishes, reload your shell: For detailed installation options, prerequisites, and troubleshooting, see the Installation guide .",
+      "detail": "Run in powershell: After it finishes, reload your shell: For detailed installation options, prerequisites, and troubleshooting, see the Installation guide .\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "iex (irm https://hermes-agent.nousresearch.com/install.ps1)",
+      "tags": [
+        "quickstart",
+        "getting-started",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#windows-native",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-getting-started-quickstart-2-choose-a-provider",
+      "title": "2. Choose a Provider",
+      "summary": "The single most important setup step.",
+      "detail": "The single most important setup step. Use hermes model to walk through the choice interactively: Easiest path: Nous Portal One subscription covers 300+ models plus the Tool Gateway (web search, image generation, TTS, cloud browser). On a fresh install: That logs you in, sets Nous as your provider, and turns on the Tool Gateway in one command. Setup modes On a fresh install, hermes setup offers three modes: Quick Setup (Nous Portal) - OAuth login, no API keys to manage; sets up a model plus the Tool Gateway tools, billed to your Nous Portal subscription . The recommended fast path. Full Setup - walk through every provider, tool, and option yourself (bring your own keys). Blank Slate - everything starts off except the bare minimum needed to run an agent: provider & model, the File Operations toolset, and the Terminal toolset . No web, browser, code execution, vision, memory, delegation, cron, skills, plugins, or MCP servers - and compression, checkpoints, smart routing, and memory capture are all disabled. After the minimal baseline is applied, you choose one of two paths: start with everything disabled (finish now with the minimal agent), or walk through all configurations (opt in t\u2026\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "hermes model",
+      "tags": [
+        "quickstart",
+        "getting-started",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#2-choose-a-provider",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-getting-started-quickstart-how-settings-are-stored",
+      "title": "How settings are stored",
+      "summary": "Hermes separates secrets from normal config: Secrets and tokens \u2192 ~/.hermes/.env Non-secret settings \u2192 ~/.hermes/config.yaml The easiest way to set values correctly is through the CLI: Th\u2026",
+      "detail": "Hermes separates secrets from normal config: Secrets and tokens \u2192 ~/.hermes/.env Non-secret settings \u2192 ~/.hermes/config.yaml The easiest way to set values correctly is through the CLI: The right value goes to the right file automatically.\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "hermes config set model anthropic/claude-opus-4.6\nhermes config set terminal.backend docker\nhermes config set OPENROUTER_API_KEY sk-or-...",
+      "tags": [
+        "quickstart",
+        "getting-started",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#how-settings-are-stored",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-getting-started-quickstart-3-run-your-first-chat",
+      "title": "3. Run Your First Chat",
+      "summary": "You'll see a welcome banner with your model, available tools, and skills.",
+      "detail": "You'll see a welcome banner with your model, available tools, and skills. Use a prompt that's specific and easy to verify: Pick your interface Hermes ships with two terminal interfaces: the classic prompt_toolkit CLI and a newer TUI with modal overlays, mouse selection, and non-blocking input. Both share the same sessions, slash commands, and config - try each with hermes vs hermes --tui . What success looks like: The banner shows your chosen model/provider Hermes replies without error It can use a tool if needed (terminal, file read, web search) The conversation continues normally for more than one turn If that works, you're past the hardest part.\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "hermes            # classic CLI\nhermes --tui      # modern TUI (recommended)",
+      "tags": [
+        "quickstart",
+        "getting-started",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#3-run-your-first-chat",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-getting-started-quickstart-4-verify-sessions-work",
+      "title": "4. Verify Sessions Work",
+      "summary": "Before moving on, make sure resume works: That should bring you back to the session you just had.",
+      "detail": "Before moving on, make sure resume works: That should bring you back to the session you just had. If it doesn't, check whether you're in the same profile and whether the session actually saved. This matters later when you're juggling multiple setups or machines.\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "hermes --continue    # Resume the most recent session\nhermes -c            # Short form",
+      "tags": [
+        "quickstart",
+        "getting-started",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#4-verify-sessions-work",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-getting-started-quickstart-slash-commands",
+      "title": "Slash commands",
+      "summary": "Type / to see an autocomplete dropdown of all commands: Command What it does /help Show all available commands /tools List available tools /model Switch models interactively /personality\u2026",
+      "detail": "Type / to see an autocomplete dropdown of all commands: Command What it does /help Show all available commands /tools List available tools /model Switch models interactively /personality pirate Try a fun personality /save Save the conversation\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "quickstart",
+        "getting-started",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#slash-commands",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-getting-started-quickstart-multi-line-input",
+      "title": "Multi-line input",
+      "summary": "Press Alt+Enter , Ctrl+J , or Shift+Enter to add a new line.",
+      "detail": "Press Alt+Enter , Ctrl+J , or Shift+Enter to add a new line. Shift+Enter requires a terminal that sends it as a distinct sequence (Kitty / foot / WezTerm / Ghostty by default; iTerm2 / Alacritty / VS Code terminal once the Kitty keyboard protocol is enabled). Alt+Enter and Ctrl+J work in every terminal.\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "quickstart",
+        "getting-started",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#multi-line-input",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-getting-started-quickstart-bot-or-shared-assistant",
+      "title": "Bot or shared assistant",
+      "summary": "Connect Telegram , Discord , Slack , WhatsApp , Signal , Email , or Home Assistant , or Microsoft Teams .",
+      "detail": "Connect Telegram , Discord , Slack , WhatsApp , Signal , Email , or Home Assistant , or Microsoft Teams .\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "hermes gateway setup    # Interactive platform configuration",
+      "tags": [
+        "quickstart",
+        "getting-started",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#bot-or-shared-assistant",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-getting-started-quickstart-sandboxed-terminal",
+      "title": "Sandboxed terminal",
+      "summary": "For safety, run the agent in a Docker container or on a remote server: For Docker sandboxes, you can also enable the egress credential-injection proxy so the sandbox never sees your real\u2026",
+      "detail": "For safety, run the agent in a Docker container or on a remote server: For Docker sandboxes, you can also enable the egress credential-injection proxy so the sandbox never sees your real API keys - only opaque proxy tokens that work exclusively from behind a local TLS-intercepting daemon. See Egress proxy . Setup is hermes egress setup && hermes egress start ; hermes setup terminal also points Docker users at it. Modal, SSH, Daytona, and Singularity are not wired yet.\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "hermes config set terminal.backend docker    # Docker isolation\nhermes config set terminal.backend ssh       # Remote server",
+      "tags": [
+        "quickstart",
+        "getting-started",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#sandboxed-terminal",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-getting-started-quickstart-voice-mode",
+      "title": "Voice mode",
+      "summary": "Run hermes tools and configure the Voice providers.",
+      "detail": "Run hermes tools and configure the Voice providers. Then enable /voice on in the CLI and press Ctrl+B to record. PM handles missing supported requirements; a dependency change can require a restart. Local Faster-Whisper is not available on every architecture. See Voice Mode .\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "quickstart",
+        "getting-started",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#voice-mode",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-getting-started-quickstart-skills",
+      "title": "Skills",
+      "summary": "Skills are on-demand instruction documents that teach Hermes how to do a specific task - deploy to Kubernetes, open a GitHub PR, fine-tune a model, search for GIFs.",
+      "detail": "Skills are on-demand instruction documents that teach Hermes how to do a specific task - deploy to Kubernetes, open a GitHub PR, fine-tune a model, search for GIFs. Each is a SKILL.md file with a name, a description, and a step-by-step procedure. The agent reads the short descriptions for free and only loads a skill's full content when a task actually calls for it, so adding skills doesn't bloat every request. Hermes ships with a catalog of bundled skills already installed in ~/.hermes/skills/ . You can add more from the Skills Hub, or write your own. Browse and install from the hub: The install argument is a source/path slug from the hub - openai/skills/k8s means the k8s skill from OpenAI's catalog. hermes skills browse shows the exact slugs to use. Use a skill - every installed skill becomes a slash command automatically: This works in the CLI and in any connected messaging platform. You don't have to install everything up front - the agent picks the right bundled skill on its own during normal conversation when a task matches one. See Skills System for writing your own, external skill directories, and the full hub source list.\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "hermes skills browse                      # list everything available\nhermes skills search kubernetes           # find skills by keyword\nhermes skills install openai/skills/k8s   # install one (runs a security scan first)",
+      "tags": [
+        "quickstart",
+        "getting-started",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#skills",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-getting-started-quickstart-editor-integration-acp",
+      "title": "Editor integration (ACP)",
+      "summary": "ACP support ships with the standard [all] extras, so the curl installer already includes it.",
+      "detail": "ACP support ships with the standard [all] extras, so the curl installer already includes it. Just run: (If you installed without [all] , run cd ~/.hermes/hermes-agent && python -c \"import pm; pm.sync_venv(['acp'], explicit=True)\" first.) See ACP Editor Integration .\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "hermes acp",
+      "tags": [
+        "quickstart",
+        "getting-started",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#editor-integration-acp",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-getting-started-quickstart-common-failure-modes",
+      "title": "Common Failure Modes",
+      "summary": "These are the problems that waste the most time: Symptom Likely cause Fix Hermes opens but gives empty or broken replies Provider auth or model selection is wrong Run hermes model again a\u2026",
+      "detail": "These are the problems that waste the most time: Symptom Likely cause Fix Hermes opens but gives empty or broken replies Provider auth or model selection is wrong Run hermes model again and confirm provider, model, and auth Custom endpoint \"works\" but returns garbage Wrong base URL, model name, or not actually OpenAI-compatible Verify the endpoint in a separate client first Gateway starts but nobody can message it Bot token, allowlist, or platform setup is incomplete Re-run hermes gateway setup and check hermes gateway status hermes --continue can't find old session Switched profiles or session never saved Check hermes sessions list and confirm you're in the right profile Model unavailable or odd fallback behavior Provider routing or fallback settings are too aggressive Keep routing off until the base provider is stable hermes doctor flags config problems Config values are missing or stale Fix the config, retest a plain chat before adding features\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "quickstart",
+        "getting-started",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#common-failure-modes",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-getting-started-quickstart-recovery-toolkit",
+      "title": "Recovery Toolkit",
+      "summary": "When something feels off, use this order: hermes doctor hermes model hermes setup hermes sessions list hermes --continue hermes gateway status That sequence gets you from \"broken vibes\" b\u2026",
+      "detail": "When something feels off, use this order: hermes doctor hermes model hermes setup hermes sessions list hermes --continue hermes gateway status That sequence gets you from \"broken vibes\" back to a known state fast.\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "quickstart",
+        "getting-started",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#recovery-toolkit",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-getting-started-quickstart-quick-reference",
+      "title": "Quick Reference",
+      "summary": "Command Description hermes Start chatting hermes model Choose your LLM provider and model hermes tools Configure which tools are enabled per platform hermes setup Full setup wizard (confi\u2026",
+      "detail": "Command Description hermes Start chatting hermes model Choose your LLM provider and model hermes tools Configure which tools are enabled per platform hermes setup Full setup wizard (configures everything at once) hermes doctor Diagnose issues hermes update Update to latest version hermes gateway Start the messaging gateway hermes --continue Resume last session\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "quickstart",
+        "getting-started",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#quick-reference",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-getting-started-installation-desktop-packages-on-macos-or-windows",
+      "title": "Desktop packages on macOS or Windows",
+      "summary": "Download the package for your platform from the Hermes website .",
+      "detail": "Download the package for your platform from the Hermes website . Windows: open the .appinstaller download with Windows App Installer. It installs the signed MSIX bundle and records its update source. Microsoft Store packages have separate Store ownership. macOS: open the DMG, then copy Hermes.app to Applications. The ZIP artifact carries the signed app used by the automatic updater. Bundled packages contain the agent, Python, supported dependencies, and prebuilt interfaces. First launch does not build that base runtime. Provider access and optional integrations can still require network access. A Hermes-Setup bootstrap installer is different: it downloads a source installation and builds the desktop app. Light is a remote-only build variant, not a bundled local runtime. See Hermes Desktop . note The macOS installer is Apple Silicon only . macOS on x86 (Intel) processors is not a supported platform .\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "install",
+        "getting-started",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/installation#desktop-packages-on-macos-or-windows",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-getting-started-installation-what-the-source-installer-does",
+      "title": "What the source installer does",
+      "summary": "The scripts clone the source, bootstrap uv, and delegate dependency preparation to PM.",
+      "detail": "The scripts clone the source, bootstrap uv, and delegate dependency preparation to PM. PM provides pinned Python, Node.js, npm, ripgrep, and FFmpeg. The source installation selects the all Python extra, not every optional extra. PM also installs the browser tools ( agent-browser and its pinned Chromium) by default. If that download fails, the install still completes and prints the command to retry. Other optional tools use their feature-specific installation paths. To leave the browser tools out, pass --skip-browser on POSIX or -SkipBrowser on Windows. Hermes remembers this choice: later installs and hermes update do not add them back. Run hermes pm install agent-browser to install them and undo the choice. The scripts create a launcher and prepare the data directory. Interactive runs also invoke setup and gateway configuration. --non-interactive on POSIX, or -NonInteractive on Windows, skips stages that need input. The optional --include-desktop / -IncludeDesktop stage builds the desktop from source. On a terminal the scripts show one status line per step and write the output of git, uv and the builds to logs/install.log under the Hermes data directory; a failed step prints its la\u2026\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "install",
+        "getting-started",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/installation#what-the-source-installer-does",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-getting-started-installation-install-layout",
+      "title": "Install layout",
+      "summary": "Method Code CLI entry point Default user data POSIX source script ~/.hermes/hermes-agent/ ~/.local/bin/hermes wrapper ~/.hermes/ Windows source script %LOCALAPPDATA%\\hermes\\hermes-agent\\\u2026",
+      "detail": "Method Code CLI entry point Default user data POSIX source script ~/.hermes/hermes-agent/ ~/.local/bin/hermes wrapper ~/.hermes/ Windows source script %LOCALAPPDATA%\\hermes\\hermes-agent\\ %LOCALAPPDATA%\\hermes\\bin\\ %LOCALAPPDATA%\\hermes\\ Desktop bundle Inside the installed app package Packaged launchers; Windows execution aliases Platform default Hermes data directory Docker /opt/hermes/ Image entrypoint and hermes shim Mounted /opt/data/ Termux APT $PREFIX/lib/hermes-agent/ Symlinks in $PREFIX/bin/ ~/.hermes/ HERMES_HOME selects user data. The POSIX script's --dir selects its source checkout independently. Windows provides -HermesHome and -InstallDir . Running the POSIX script as root does not select an automatic FHS layout: it uses root's home unless you provide an explicit source path. PM's tool store and per-install Python generations have separate lifetimes. See Package management for their locations. Do not remove the data root to repair an application installation.\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "install",
+        "getting-started",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/installation#install-layout",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-getting-started-installation-after-installation",
+      "title": "After Installation",
+      "summary": "Reload your shell and start chatting: To reconfigure individual settings later, use the dedicated commands: Fastest path: Nous Portal One subscription covers 300+ models plus the Tool Gat\u2026",
+      "detail": "Reload your shell and start chatting: To reconfigure individual settings later, use the dedicated commands: Fastest path: Nous Portal One subscription covers 300+ models plus the Tool Gateway (web search, image generation, TTS, cloud browser). Skip the per-tool key juggling: That logs you in, sets Nous as your provider, and turns on the Tool Gateway in one command. Already running Hermes on another machine? You don't need to rebuild your setup from scratch. Restore a full backup with hermes import (see Exporting Hermes to another machine ), or bring over a single agent with hermes profile import (see Moving a single profile to another machine ). Note that a profile export excludes credentials by design, so an export alone is not a full backup - hermes backup vs hermes profile export explains which to use.\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "source ~/.bashrc   # or: source ~/.zshrc\nhermes             # Start chatting!",
+      "tags": [
+        "install",
+        "getting-started",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/installation#after-installation",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-getting-started-installation-manual-developer-installation",
+      "title": "Manual / Developer Installation",
+      "summary": "For a source checkout, start with the PM developer workflow .",
+      "detail": "For a source checkout, start with the PM developer workflow . It covers activation, daily commands, dependency refresh, and current bootstrap limits. Development Setup covers the separate test environment and checks.\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "install",
+        "getting-started",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/installation#manual--developer-installation",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-getting-started-installation-non-sudo-system-service-user-installs",
+      "title": "Non-Sudo / System Service User Installs",
+      "summary": "Run the source installer as the intended service user.",
+      "detail": "Run the source installer as the intended service user. Its home, tool store, configuration, and launcher must belong to that user. As an administrator, install the source-build prerequisites and any Linux libraries needed by the selected browser backend. As the service user, run the regular installer: Add the actual launcher directory to the service user's shell environment: Run hermes doctor from that account. Use the installed wrapper, not a hardcoded venv/bin/hermes path. For a Linux user service that must survive logout, enable lingering as an administrator: The current source installer does not run Playwright's --with-deps step or provide a package-manager-specific sudo fallback. PM manages tool binaries; the administrator supplies system libraries. See Browser automation and Messaging Gateway .\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash",
+      "tags": [
+        "install",
+        "getting-started",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/installation#non-sudo--system-service-user-installs",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-getting-started-installation-symlinked-home-directories-and-external-storage",
+      "title": "Symlinked home directories and external storage",
+      "summary": "Hermes supports a symlinked HERMES_HOME and symlinked home subdirectories, including hooks , skills , sessions , and logs .",
+      "detail": "Hermes supports a symlinked HERMES_HOME and symlinked home subdirectories, including hooks , skills , sessions , and logs . During home initialization, existing directory links are preserved, and permissions on linked directories (and descendants such as logs/curator ) are left to their owner. If a link target is missing, inaccessible, or not a directory, initialization stops with a storage error naming the path and link target. Hermes does not replace the link or create its missing target: doing so could write data onto the local disk while an external or NAS volume is unmounted. Check the reported link, restore the mount or correct its target, and verify access permissions before retrying. For a deliberately new dotfiles target, create it yourself only after confirming the intended storage is available. hermes doctor reports these failures as storage problems, not invalid YAML. Keep your existing config.yaml ; running hermes setup is not the repair for an unavailable directory. This is a directory-availability check, not a mount monitor: an existing directory cannot establish that the intended volume is mounted.\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "install",
+        "getting-started",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/installation#symlinked-home-directories-and-external-storage",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-getting-started-installation-install-method-auto-detection",
+      "title": "Install method auto-detection",
+      "summary": "The update owner depends on the running installation, not only its data home.",
+      "detail": "The update owner depends on the running installation, not only its data home. Source checkouts use the managed Git update path. Desktop bundles, Docker, Nix, and Termux packages retain their package owner's update mechanism. hermes doctor reports installation provenance. See Updating & Uninstalling before changing package-owned files. Quick Install Desktop packages on macOS or Windows Without Hermes Desktop: Android / Termux What the source installer does After Installation Prerequisites Manual / Developer Installation Non-Sudo / System Service User Installs Troubleshooting Symlinked home directories and external storage Install method auto-detection\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "install",
+        "getting-started",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/installation#install-method-auto-detection",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-cli-worktree-cleanup",
+      "title": "Worktree cleanup",
+      "summary": "hermes -w sessions create disposable worktrees under <repo>/.worktrees/ .",
+      "detail": "hermes -w sessions create disposable worktrees under <repo>/.worktrees/ . A conservative pruner runs automatically at startup (it only removes clean, fully-merged scratch trees past an age threshold), but preserved trees and merged local branches still accumulate on busy machines. Reclaim them explicitly: Worktrees registered outside .worktrees/ (created by hand or by another tool) are reported read-only in list output and are never removed. The one exception is metadata: registrations whose directory no longer exists are dropped via git worktree prune (no files are touched). --older-than DAYS only ever narrows what gets reaped - a tree carrying real work is kept at any age regardless of the flag. Inside a session, /worktree prune [--dry-run] does the same (and never touches the tree the session is running in). Safety guarantees (all modes, any age): Uncommitted tracked changes are never deleted. Unique unpushed commits are never deleted - commits that were rebase/squash-merged upstream are detected via git cherry patch-equivalence and count as merged, which is what lets the dominant \"merged PR, tree preserved forever\" leak finally reclaim. Repositories without a remote are judged\u2026\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "hermes worktree list              # audit: age, size, verdict, reason per tree\nhermes worktree list --json       # machine-readable audit (trees, external trees, branches)\nhermes worktree prune             # remove safe trees + delete merged branches\nhermes worktree prune --dry-run   # show the plan without changing anything\nhermes worktree prune --older-than 7   # only reap trees idle for 7+ days\nhermes worktree prune --trees-only     # leave local branches alone\nhermes worktree prune --branches-only  # leave worktrees alone",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#worktree-cleanup",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-cli-plugin-management",
+      "title": "Plugin management",
+      "summary": "The hermes plugins commands manage native Hermes plugins and portable Agent Plugins v1 packages through the same opt-in workflow: Portable packages remain disabled until explicitly enabled.",
+      "detail": "The hermes plugins commands manage native Hermes plugins and portable Agent Plugins v1 packages through the same opt-in workflow: Portable packages remain disabled until explicitly enabled. Hermes currently loads portable Agent Skills and stdio MCP entries. See the plugin developer guide for the exact supported subset and trust boundary.\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "hermes plugins install owner/repository --no-enable\nhermes plugins list\nhermes plugins enable <plugin-name>\nhermes plugins disable <plugin-name>\nhermes plugins update <plugin-name>\nhermes plugins remove <plugin-name>",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#plugin-management",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-cli-interface-layout",
+      "title": "Interface Layout",
+      "summary": "The Hermes CLI banner, conversation stream, and fixed input prompt rendered as a stable docs figure instead of fragile text art.",
+      "detail": "The Hermes CLI banner, conversation stream, and fixed input prompt rendered as a stable docs figure instead of fragile text art. The welcome banner shows your model, terminal backend, working directory, available tools, and installed skills at a glance.\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#interface-layout",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-cli-status-bar",
+      "title": "Status Bar",
+      "summary": "A persistent status bar sits above the input area, updating in real time: Element Description Model name Current model (truncated if longer than 26 chars) Token count Context tokens used\u2026",
+      "detail": "A persistent status bar sits above the input area, updating in real time: Element Description Model name Current model (truncated if longer than 26 chars) Token count Context tokens used / max context window; ~ marks an estimate Context bar Visual fill indicator with color-coded thresholds Cost Estimated session cost (or n/a for unknown/zero-priced models). Rates come from Hermes' bundled official price table, then the provider's /models listing; on a direct first-party API (OpenAI, xAI, Anthropic, Google, DeepSeek, Xiaomi) a model missing from both is priced at the vendor's list price from models.dev. Proxies, relays and custom endpoints serving the same model id stay n/a rather than inherit that price. \ud83d\udddc\ufe0f N Context compression count - how many times the running session has been auto-compressed. Appears once the first compression fires. \u25b6 N Active background tasks - how many /bg prompts are still running in the current session. Appears whenever at least one task is in flight. Duration Elapsed session time Session title Once the session has a title, it appears as a gold badge pinned to the far-right edge. Long titles truncate before displacing the essential model and context field\u2026\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "\u2624 claude-sonnet-4-20250514 \u2502 12.4K/200K \u2502 [\u2588\u2588\u2588\u2588\u2588\u2588\u2591\u2591\u2591\u2591] 6% \u2502 $0.06 \u2502 15m",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#status-bar",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-cli-session-resume-display",
+      "title": "Session Resume Display",
+      "summary": "When resuming a previous session ( hermes -c or hermes --resume <id> ), a \"Previous Conversation\" panel appears between the banner and the input prompt, showing a compact recap of the con\u2026",
+      "detail": "When resuming a previous session ( hermes -c or hermes --resume <id> ), a \"Previous Conversation\" panel appears between the banner and the input prompt, showing a compact recap of the conversation history. See Sessions - Conversation Recap on Resume for details and configuration.\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#session-resume-display",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-cli-keybindings",
+      "title": "Keybindings",
+      "summary": "On macOS, F6 / F7 mean the physical function keys, not the media/system controls shown on the top row.",
+      "detail": "On macOS, F6 / F7 mean the physical function keys, not the media/system controls shown on the top row. Hold Fn (the globe key on newer keyboards) while pressing the function key, or enable Use F1, F2, etc. keys as standard function keys in System Settings \u2192 Keyboard \u2192 Keyboard Shortcuts \u2192 Function Keys . The reliable terminal fallbacks are Ctrl+T for F6 and Ctrl+R for F7 . Key Action Enter Send message Alt+Enter , Ctrl+J , or Shift+Enter New line (multi-line input). Shift+Enter requires a terminal that distinguishes it from Enter - see below. On Windows Terminal, Alt+Enter is captured by the terminal (fullscreen toggle); use Ctrl+Enter or Ctrl+J instead. Alt+V Paste an image from the clipboard when supported by the terminal Ctrl+V Paste text and opportunistically attach clipboard images Ctrl+B Start/stop voice recording when voice mode is enabled ( voice.record_key , default: ctrl+b ) Ctrl+G Open the current input buffer in $EDITOR (vim/nvim/nano/VS Code/etc.). Save and quit to send the edited text as the next prompt - ideal for long, multi-paragraph prompts. Ctrl+X Ctrl+E Emacs-style alternate binding for the external editor (same behavior as Ctrl+G ). Ctrl+S Stash the prompt. Par\u2026\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#keybindings",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-cli-shell-mode",
+      "title": "! Shell Mode",
+      "summary": "to run it as a shell command instead of sending it to the agent: Zero cost.",
+      "detail": "Start a line with ! to run it as a shell command instead of sending it to the agent: Zero cost. The model is never invoked - no API call, no tokens, no latency. Nothing enters the conversation. The command and its output are not added to history, so your context stays clean and the prompt cache is untouched. Runs on your machine, in the session working directory. With the default local terminal backend !pwd matches what the agent would see. A remote or sandboxed terminal.backend ( ssh , docker , \u2026) is not used for ! commands - they always run on the host where Hermes itself runs, so !hostname names your machine while the agent's terminal tool names the backend. Ask the agent (or open a shell on the target) to run something inside the backend. Path completion in the composer, by contrast, does follow the configured backend and lists the target's filesystem. Approvals still apply. A dangerous command ( rm -rf , writes to ~/.hermes/config.yaml , etc.) goes through the same approval prompt the agent's terminal tool uses. ! is a cost/latency shortcut, not a security bypass. Non-zero exits are shown. A failing command prints ! exited <code> after its output. ! on its own prints a one-lin\u2026\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "> !git status\n> !ls -la\n> !pytest -x tests/hermes_cli",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#-shell-mode",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-cli-quick-commands",
+      "title": "Quick Commands",
+      "summary": "You can define custom commands that run shell commands instantly without invoking the LLM.",
+      "detail": "You can define custom commands that run shell commands instantly without invoking the LLM. These work in both the CLI and messaging platforms (Telegram, Discord, etc.). Then type /status , /gpu , or /restart in any chat. See the Configuration guide for more examples.\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "# ~/.hermes/config.yaml\nquick_commands:\n  status:\n    type: exec\n    command: systemctl status hermes-agent\n  gpu:\n    type: exec\n    command: nvidia-smi --query-gpu=utilization.gpu,memory.used --format=csv,noheader\n  restart:\n    type: alias\n    target: /gateway restart",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#quick-commands",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-cli-preloading-skills-at-launch",
+      "title": "Preloading Skills at Launch",
+      "summary": "If you already know which skills you want active for the session, pass them at launch time: Hermes loads each named skill into the session prompt before the first turn.",
+      "detail": "If you already know which skills you want active for the session, pass them at launch time: Hermes loads each named skill into the session prompt before the first turn. The same flag works in interactive mode and single-query mode.\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "hermes -s hermes-agent-dev,github-auth\nhermes chat -s github-pr-workflow -s github-auth",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#preloading-skills-at-launch",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-cli-persistent-auto-load-via-config",
+      "title": "Persistent auto-load via config",
+      "summary": "To have the same skills active at the start of every new session - CLI, TUI, gateway, cron and API sessions alike - set skills.auto_load in config.yaml : Each entry is a skill name.",
+      "detail": "To have the same skills active at the start of every new session - CLI, TUI, gateway, cron and API sessions alike - set skills.auto_load in config.yaml : Each entry is a skill name. The list is resolved once when a session's system prompt is first built and the rendered bytes are reused for the life of the conversation (model switches, compression), so prompt caching stays intact; config edits take effect in the next session. Missing or disabled skills log a warning and are skipped. -s names that overlap the list are loaded once. --ignore-rules (equivalently HERMES_IGNORE_RULES=1 ) skips auto-load together with AGENTS.md, SOUL.md, .cursorrules and memory injection; explicit -s skills still load. The setting is profile-scoped: each profile's config.yaml controls its own list.\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "skills:\n  auto_load:\n    - hermes-agent-dev\n    - github-pr-workflow",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#persistent-auto-load-via-config",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-cli-skill-slash-commands",
+      "title": "Skill Slash Commands",
+      "summary": "Every installed skill in ~/.hermes/skills/ is automatically registered as a slash command.",
+      "detail": "Every installed skill in ~/.hermes/skills/ is automatically registered as a slash command. The skill name becomes the command:\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "/gif-search funny cats\n/axolotl help me fine-tune Llama 3 on my dataset\n/github-pr-workflow create a PR for the auth refactor\n\n# Just the skill name loads it and lets the agent ask what you need:\n/excalidraw",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#skill-slash-commands",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-cli-personalities",
+      "title": "Personalities",
+      "summary": "Set a predefined personality to change the agent's tone: Built-in personalities include: helpful , concise , technical , creative , teacher , kawaii , catgirl , pirate , shakespeare , sur\u2026",
+      "detail": "Set a predefined personality to change the agent's tone: Built-in personalities include: helpful , concise , technical , creative , teacher , kawaii , catgirl , pirate , shakespeare , surfer , noir , uwu , philosopher , hype . To go back to the default (no overlay), use /personality none - default and neutral work too. You can also define custom personalities in ~/.hermes/config.yaml :\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "/personality pirate\n/personality kawaii\n/personality concise",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#personalities",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-cli-shift-enter-compatibility",
+      "title": "Shift+Enter compatibility",
+      "summary": "Most terminals send the same byte sequence for Enter and Shift+Enter by default, so applications cannot distinguish them.",
+      "detail": "Most terminals send the same byte sequence for Enter and Shift+Enter by default, so applications cannot distinguish them. Hermes recognises Shift+Enter only when the terminal sends a distinct sequence via the Kitty keyboard protocol or xterm's modifyOtherKeys mode. Terminal Status Kitty, foot, WezTerm, Ghostty Distinct Shift+Enter enabled by default iTerm2 (recent), Alacritty, VS Code terminal, Warp Supported once the Kitty protocol is enabled in settings Windows Terminal Preview 1.25+ Supported once the Kitty protocol is enabled in settings macOS Terminal.app, stock Windows Terminal (stable) Not supported - Shift+Enter is indistinguishable from Enter Where the terminal cannot distinguish them, Alt+Enter and Ctrl+J continue to work by default. On Windows Terminal specifically, Alt+Enter is captured by the terminal (toggles fullscreen) and never reaches Hermes - use Ctrl+Enter (delivered as Ctrl+J ) or Ctrl+J directly for a newline.\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#shiftenter-compatibility",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-cli-redirecting-the-agent-mid-turn",
+      "title": "Redirecting the Agent Mid-Turn",
+      "summary": "While the agent is working, you can send a correction without starting a new turn: Type a new message + Enter - redirects the active turn using your correction Ctrl+C - interrupt the curr\u2026",
+      "detail": "While the agent is working, you can send a correction without starting a new turn: Type a new message + Enter - redirects the active turn using your correction Ctrl+C - interrupt the current operation (press twice within 2s to force exit) Completed tool work and reasoning already shown stay in context A running tool reaches its safe boundary before the correction is applied\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#redirecting-the-agent-mid-turn",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-cli-busy-input-mode",
+      "title": "Busy Input Mode",
+      "summary": "The display.busy_input_mode config key controls what happens when you press Enter while the agent is working: Mode Behavior \"interrupt\" (default) Your message redirects the active turn.",
+      "detail": "The display.busy_input_mode config key controls what happens when you press Enter while the agent is working: Mode Behavior \"interrupt\" (default) Your message redirects the active turn. Model generation restarts with displayed reasoning and completed work preserved. A running foreground terminal command is moved to the background (not killed - you get a completion notification) so your message is read immediately; other running tools finish first \"queue\" Your message is silently queued and sent as the next turn after the agent finishes \"steer\" Your message is injected into the current run via /steer , arriving at the agent after the next tool call - no interrupt, no new turn \"queue\" mode prepares a separate follow-up turn. \"steer\" always waits for the next tool-result boundary. The default \"interrupt\" mode responds sooner during model generation while avoiding cancellation of a running tool; a long foreground terminal command (a build, a poller) is handed to the background so the agent sees your message right away instead of after the command exits. Use /stop when you want to cancel the turn and its foreground work. Unknown values fall back to \"interrupt\" . \"steer\" has two automati\u2026\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "# ~/.hermes/config.yaml\ndisplay:\n  busy_input_mode: \"steer\"   # or \"queue\" or \"interrupt\" (default)",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#busy-input-mode",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-cli-suspending-to-background",
+      "title": "Suspending to Background",
+      "summary": "On Unix systems, press Ctrl+Z to suspend Hermes to the background - just like any terminal process.",
+      "detail": "On Unix systems, press Ctrl+Z to suspend Hermes to the background - just like any terminal process. The shell prints a confirmation: Type fg in your shell to resume the session exactly where you left off. This is not supported on Windows.\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "Hermes Agent has been suspended. Run `fg` to bring Hermes Agent back.",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#suspending-to-background",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-cli-tool-progress-display",
+      "title": "Tool Progress Display",
+      "summary": "The CLI shows animated feedback as the agent works: Thinking animation (during API calls): Tool execution feed: Cycle through display modes with /verbose : off \u2192 new \u2192 all \u2192 verbose .",
+      "detail": "The CLI shows animated feedback as the agent works: Thinking animation (during API calls): Tool execution feed: Cycle through display modes with /verbose : off \u2192 new \u2192 all \u2192 verbose . This command can also be enabled for messaging platforms - see configuration .\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "\u25dc (\uff61\u2022\u0301\ufe3f\u2022\u0300\uff61) pondering... (1.2s)\n  \u25e0 (\u2299_\u2299) contemplating... (2.4s)\n  \u2727\u0669(\u02ca\u15dc\u02cb*)\u0648\u2727 got it! (3.1s)",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#tool-progress-display",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-cli-tool-preview-length",
+      "title": "Tool Preview Length",
+      "summary": "The display.tool_preview_length config key controls the maximum number of characters shown in tool call preview lines (e.g.",
+      "detail": "The display.tool_preview_length config key controls the maximum number of characters shown in tool call preview lines (e.g. file paths, terminal commands). The default is 0 , which means no limit - full paths and commands are shown. This is useful on narrow terminals or when tool arguments contain very long file paths.\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "# ~/.hermes/config.yaml\ndisplay:\n  tool_preview_length: 80   # Truncate tool previews to 80 chars (0 = no limit)",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#tool-preview-length",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-cli-resuming-sessions",
+      "title": "Resuming Sessions",
+      "summary": "When you exit a CLI session, a resume command is printed: Resume options: Resuming restores the full conversation history from SQLite.",
+      "detail": "When you exit a CLI session, a resume command is printed: Resume options: Resuming restores the full conversation history from SQLite. The agent sees all previous messages, tool calls, and responses - just as if you never left. Use /title My Session Name inside a chat to name the current session, or hermes sessions rename <id> <title> from the command line. Use hermes sessions list to browse past sessions.\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "Resume this session with:\n  hermes --resume 20260225_143052_a1b2c3\n\nSession:        20260225_143052_a1b2c3\nDuration:       12m 34s\nMessages:       28 (5 user, 18 tool calls)",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#resuming-sessions",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-cli-session-storage",
+      "title": "Session Storage",
+      "summary": "CLI sessions are stored in Hermes's SQLite state database under ~/.hermes/state.db .",
+      "detail": "CLI sessions are stored in Hermes's SQLite state database under ~/.hermes/state.db . The database keeps: session metadata (ID, title, timestamps, token counters) message history lineage across compressed/resumed sessions full-text search indexes used by session_search Some messaging adapters also keep per-platform transcript files alongside the database, but the CLI itself resumes from the SQLite session store.\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#session-storage",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-cli-context-compression",
+      "title": "Context Compression",
+      "summary": "Long conversations are automatically summarized when approaching context limits: When compression triggers, middle turns are summarized while the first 3 and last 20 turns are always pres\u2026",
+      "detail": "Long conversations are automatically summarized when approaching context limits: When compression triggers, middle turns are summarized while the first 3 and last 20 turns are always preserved.\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "# In ~/.hermes/config.yaml\ncompression:\n  enabled: true\n  threshold: 0.50    # Compress at 50% of context limit by default\n\n# Summarization model configured under auxiliary:\nauxiliary:\n  compression:\n    model: \"\"  # Leave empty to use the main chat model (default). Or pin a cheap fast model, e.g. \"google/gemini-3-flash-preview\".",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#context-compression",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-cli-background-sessions",
+      "title": "Background Sessions",
+      "summary": "Run a prompt in a separate background session while continuing to use the CLI for other work: Hermes immediately confirms the task and gives you back the prompt:",
+      "detail": "Run a prompt in a separate background session while continuing to use the CLI for other work: Hermes immediately confirms the task and gives you back the prompt:\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "/bg Analyze the logs in /var/log and summarize any errors from today",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#background-sessions",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-cli-how-it-works",
+      "title": "How It Works",
+      "summary": "Each /bg prompt spawns a completely separate agent session in a daemon thread: Isolated conversation - the background agent has no knowledge of your current session's history.",
+      "detail": "Each /bg prompt spawns a completely separate agent session in a daemon thread: Isolated conversation - the background agent has no knowledge of your current session's history. It receives only the prompt you provide. Same configuration - the background agent inherits your model, provider, toolsets, reasoning settings, and fallback model from the current session. Non-blocking - your foreground session stays fully interactive. You can chat, run commands, or even start more background tasks. Multiple tasks - you can run several background tasks simultaneously. Each gets a numbered ID.\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#how-it-works",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-cli-results",
+      "title": "Results",
+      "summary": "When a background task finishes, the result appears as a panel in your terminal: If the task fails, you'll see an error notification instead.",
+      "detail": "When a background task finishes, the result appears as a panel in your terminal: If the task fails, you'll see an error notification instead. If display.bell_on_complete is enabled in your config, the terminal bell rings when the task finishes.\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "\u256d\u2500 \u2624 Hermes (background #1) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256e\n\u2502 Found 3 errors in syslog from today:                         \u2502\n\u2502 1. OOM killer invoked at 03:22 \u2014 killed process nginx        \u2502\n\u2502 2. Disk I/O error on /dev/sda1 at 07:15                      \u2502\n\u2502 3. Failed SSH login attempts from 192.168.1.50 at 14:30      \u2502\n\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#results",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-cli-use-cases",
+      "title": "Use Cases",
+      "summary": "Long-running research - \"/bg research the latest developments in quantum error correction\" while you work on code File processing - \"/bg analyze all Python files in this repo and list any\u2026",
+      "detail": "Long-running research - \"/bg research the latest developments in quantum error correction\" while you work on code File processing - \"/bg analyze all Python files in this repo and list any security issues\" while you continue a conversation Parallel investigations - start multiple background tasks to explore different angles simultaneously info Background sessions do not appear in your main conversation history. They are standalone sessions with their own task ID (e.g., bg_143022_a1b2c3 ).\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#use-cases",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-cli-quiet-mode",
+      "title": "Quiet Mode",
+      "summary": "By default, the CLI runs in quiet mode which: Suppresses verbose logging from tools Enables kawaii-style animated feedback Keeps output clean and user-friendly For debug output: Running t\u2026",
+      "detail": "By default, the CLI runs in quiet mode which: Suppresses verbose logging from tools Enables kawaii-style animated feedback Keeps output clean and user-friendly For debug output: Running the CLI Worktree cleanup Plugin management Interface Layout Status Bar Session Resume Display Keybindings ! Shell Mode Slash Commands Quick Commands Preloading Skills at Launch Persistent auto-load via config Skill Slash Commands Personalities Multi-line Input Shift+Enter compatibility Redirecting the Agent Mid-Turn Busy Input Mode Suspending to Background Tool Progress Display Tool Preview Length Session Management Resuming Sessions Session Storage Context Compression Background Sessions How It Works Results Use Cases Quiet Mode\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "hermes chat --verbose",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#quiet-mode",
+      "date": "2026-09-25"
     }
   ]
 }

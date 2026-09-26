@@ -26,9 +26,13 @@ npm start
 Open **http://127.0.0.1:4179**. No `npm install`, build, API key, account or Vercel access is needed to browse the included data. The dependency-free preview server binds to your machine's loopback interface, serves public assets only, and disables caching. Opening `index.html` as a file will not work because the page fetches JSON.
 
 ```bash
-npm run check   # validate archive data, including duplicate IDs and shelf titles
-npm test        # rendering, ranking, data and local-server regression tests
+npm run check   # validate archive data: fields, duplicate IDs and titles, source links, credits
+npm test        # rendering, ranking, parsing, data and local-server regression tests
+npm run links   # confirm every source link and documentation anchor still resolves
+npm run prompts # re-verify every stored prompt against the page it cites
 ```
+
+The last two reach the network, so they are not part of the required checks.
 
 Use a recent browser with JavaScript enabled. Inter and JetBrains Mono load from Google Fonts; fallback fonts work when offline. Search and preferences work locally. Changes to your clone cannot change the shared website. `private: true` in package.json prevents accidental npm publication; it does not make the source repository private.
 
@@ -41,6 +45,49 @@ Use a recent browser with JavaScript enabled. Inter and JetBrains Mono load from
 - My Work contains the maintainer's posts with explicitly credited analytics, separate from public-popularity evidence.
 
 The star cutoff is an editorial preference. It excludes smaller and newer projects and does not prove quality, safety or Hermes relevance. Jev's usefulness labels are automated editorial assessments, not votes or independently verified results. Missing metrics remain unknown. Read the [methodology and limitations](docs/METHODOLOGY.md) before interpreting the rankings.
+
+## The shelves
+
+| Shelf | Holds | Now |
+| --- | --- | --- |
+| **Dashboard** | Counted live from what is loaded, never stored or estimated. | computed |
+| **Use Cases** | Real user stories, each quoted and linked to the original post. | 372 |
+| **Trending GitHub** | Documented integrations with measured star growth per day. | computed |
+| **Skills** | Packaged capabilities you install rather than re-prompt. | 59 |
+| **Prompts** | Copyable examples, each verified against the page it cites. | 12 |
+| **Settings** | Configuration that materially changes how a run behaves. | 98 |
+| **Commands** | Commands and invocations, by how often they earn their keystrokes. | 272 |
+| **Hidden Tricks** | Non-obvious moves most people never find. | 0 |
+| **Works With** | Repositories worth pairing with Hermes, each read before listing. | 8 |
+| **People Build** | Projects built on Hermes and shown off publicly. | 4 |
+| **My Work** | The maintainer's own posts, with analytics explicitly credited. | 11 |
+
+Hidden Tricks is empty on purpose rather than by neglect. Claiming something is a
+non-obvious trick asserts that it is absent from the documentation, which no classifier
+can establish, so that shelf and Prompts are filled only by reviewed extraction. The
+router refuses to place anything there, in code.
+
+![The Use Cases shelf](docs/images/use-cases.png)
+
+<details>
+<summary><b>More shelves</b></summary>
+
+### Skills
+![The Skills shelf](docs/images/skills.png)
+
+### Commands
+![The Commands shelf](docs/images/commands.png)
+
+### Dashboard
+![The Dashboard](docs/images/dashboard.png)
+
+### Trending GitHub
+![The Trending shelf](docs/images/trending.png)
+
+### My Work
+![The My Work shelf](docs/images/my-work.png)
+
+</details>
 
 ## Contribute or correct something
 
@@ -76,12 +123,14 @@ npm test
 Existing import commands:
 
 ```bash
+npm run docs                            # official documentation, per scripts/docs-manifest.json
+npm run docs -- --dry                   # report what would land, write nothing
 node scripts/import-hermes-stories.mjs  # Nous Research's community stories
 node scripts/import-hermes-cli.mjs      # official CLI reference
 node scripts/import-jev-hermes.mjs      # Hermes entries in the Jev directory
 ```
 
-Sources change, and not every shelf is yet reproducible from an importer. Do not overwrite a failed import with an empty result. The pending prompt extractor and remaining source coverage are tracked in [release readiness](docs/RELEASE_READINESS.md).
+Sources change, and not every shelf is reproducible from an importer: Hidden Tricks has no extractor yet, and the Skills Hub and Plugins pages are client-rendered with no public JSON behind them, so neither can be imported honestly. `scripts/docs-manifest.json` records every documentation page that is imported, and every page that is not, with the reason. Do not overwrite a failed import with an empty result. Remaining coverage is tracked in [release readiness](docs/RELEASE_READINESS.md).
 
 Maintenance can incur external API usage under the account where it runs. No credentials or scheduled jobs are inherited by cloning or forking. Ranking results may change when evidence or the classifier changes. Stale classifications should be shown as unclassified, never silently reused as current.
 

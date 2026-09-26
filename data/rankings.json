@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-09-25T17:47:26.367Z",
+  "classifiedAt": "2026-09-25T22:02:58.950Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -4497,6 +4497,978 @@
       "usefulness": 0.07,
       "popularity": "strong",
       "confidence": 0.74
+    },
+    "doc-getting-started-learning-path-how-to-use-this-page": {
+      "input": "389276c0eb4aee23640128332ec7eb128225214e26035eb402618d784f355d3f",
+      "usefulness": 0,
+      "popularity": "unknown",
+      "confidence": 1
+    },
+    "doc-getting-started-learning-path-by-experience-level": {
+      "input": "6f16a774ab23d5b3c14ac47d24412894ab53e899e20988ef4769dd034f354dd9",
+      "usefulness": 1.18,
+      "popularity": "unknown",
+      "confidence": 0.45
+    },
+    "doc-getting-started-learning-path-i-want-a-cli-coding-assistant": {
+      "input": "7967015f139f6bbee65dfc0047d3ef929421bc1b940e665bfff237badb78d813",
+      "usefulness": 0.64,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "doc-getting-started-learning-path-i-want-a-telegram-discord-bot": {
+      "input": "d39f95957d10956255dce2c41c936c5f077226ed4ab9d6dd24f750a3185d1d7f",
+      "usefulness": 0.53,
+      "popularity": "unknown",
+      "confidence": 0.56
+    },
+    "doc-getting-started-learning-path-i-want-to-automate-tasks": {
+      "input": "3000826ec5324d21462e40b2532a69e17c4f7298ea6757efd783778e9b624d30",
+      "usefulness": 0.55,
+      "popularity": "unknown",
+      "confidence": 0.55
+    },
+    "doc-getting-started-learning-path-i-want-a-team-of-specialist-bots": {
+      "input": "64065c85af203562e3b01bfdef5c40fe23bcd0948859ab66bdada52e8fc17eef",
+      "usefulness": 0.59,
+      "popularity": "unknown",
+      "confidence": 0.63
+    },
+    "doc-getting-started-learning-path-i-want-to-build-custom-tools-skills": {
+      "input": "0efb1dbb52d260201312b5b45b553efb8e4fd910526b5827f23045304f463add",
+      "usefulness": 0.76,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "doc-getting-started-learning-path-i-want-to-train-models": {
+      "input": "c23b4f7b2802c4af1b2932443d8444a82eae08015330519314bc415fdef9645e",
+      "usefulness": 0.41,
+      "popularity": "unknown",
+      "confidence": 0.66
+    },
+    "doc-getting-started-learning-path-key-features-at-a-glance": {
+      "input": "b503cdbc2369a54a2acca89a9ad052f76d7f6690602b0613c05c54cd23cb1df5",
+      "usefulness": 0.03,
+      "popularity": "unknown",
+      "confidence": 0.98
+    },
+    "doc-getting-started-learning-path-what-to-read-next": {
+      "input": "ec4a19da3b23af98bd317bffc8321bbfb9890b1c08bd673c305ba62df4cc526d",
+      "usefulness": 0.24,
+      "popularity": "unknown",
+      "confidence": 0.8
+    },
+    "doc-user-guide-features-overview-core": {
+      "input": "a57bc41287d51193da9dd4ca850024a9f9fdae5fdbd12a0821568578da592f46",
+      "usefulness": 0.51,
+      "popularity": "unknown",
+      "confidence": 0.58
+    },
+    "doc-user-guide-features-overview-automation": {
+      "input": "cddbc37909263479965b697f889bfb66692667fe1002d6b2d9c0100652c31cad",
+      "usefulness": 1.16,
+      "popularity": "unknown",
+      "confidence": 0.43
+    },
+    "doc-user-guide-features-overview-media-web": {
+      "input": "34f26ed3d9a2f2c85496c02dcda6dc7b80fcae576412d9a6566ee78d3ae43035",
+      "usefulness": 0.31,
+      "popularity": "unknown",
+      "confidence": 0.74
+    },
+    "doc-user-guide-features-overview-integrations": {
+      "input": "c4bb407dbf5291ae47daebd0ce240c89fca0035be55011690389012ff382ea67",
+      "usefulness": 0.95,
+      "popularity": "unknown",
+      "confidence": 0.43
+    },
+    "doc-user-guide-features-overview-customization": {
+      "input": "d8b29d3372a66ca19be39423b08b2f949e3642305d6c038e9fa17b358d75db04",
+      "usefulness": 0.82,
+      "popularity": "unknown",
+      "confidence": 0.61
+    },
+    "doc-guides-use-voice-mode-with-hermes-what-voice-mode-is-good-for": {
+      "input": "eb2048312add5fedb2dffb3f5c62643c49ee84f83e6a1f779cfe153ae39c55d6",
+      "usefulness": 0.92,
+      "popularity": "unknown",
+      "confidence": 0.65
+    },
+    "doc-guides-use-voice-mode-with-hermes-choose-your-voice-mode-setup": {
+      "input": "7619173ee023918dcc76e0a97426d26f0bb5f3376ec426d67d0de8186aadbc5f",
+      "usefulness": 1.75,
+      "popularity": "unknown",
+      "confidence": 0.48
+    },
+    "doc-guides-use-voice-mode-with-hermes-step-1-make-sure-normal-hermes-works-first": {
+      "input": "e7350100e09b97eafe8b20de616561966ddae4b7a442a463184be7db32a27d33",
+      "usefulness": 1.36,
+      "popularity": "unknown",
+      "confidence": 0.61
+    },
+    "doc-guides-use-voice-mode-with-hermes-local-neutts-optional": {
+      "input": "47caaa73c0ba2692c0e3d169c6a01edd7c8f17796d3019ca392399008e8df16d",
+      "usefulness": 1.29,
+      "popularity": "unknown",
+      "confidence": 0.59
+    },
+    "doc-guides-use-voice-mode-with-hermes-combined-voice-and-messaging-setup": {
+      "input": "3dc7663453703c43decade0d4f4c2531f3c8993917bb3fe94a2792aaf95bc5b1",
+      "usefulness": 1.56,
+      "popularity": "unknown",
+      "confidence": 0.41
+    },
+    "doc-guides-use-voice-mode-with-hermes-ubuntu-debian": {
+      "input": "7e1e21a85abf4e3e7c1f29029027070b74550ea69880519499a58d1c1bb1cd83",
+      "usefulness": 2.21,
+      "popularity": "unknown",
+      "confidence": 0.56
+    },
+    "doc-guides-use-voice-mode-with-hermes-if-you-use-hermes-setup": {
+      "input": "d5c55c0ac2a97108b2fdda57b5a680c6de0fa1c9b2724c63b5dfd8d3a841dc5b",
+      "usefulness": 1.34,
+      "popularity": "unknown",
+      "confidence": 0.52
+    },
+    "doc-guides-use-voice-mode-with-hermes-step-5-recommended-config": {
+      "input": "3360a9750e74851519c677be5e6359f322ceb1631a8feab3e719c08688d2a09a",
+      "usefulness": 2.82,
+      "popularity": "unknown",
+      "confidence": 0.65
+    },
+    "doc-guides-use-voice-mode-with-hermes-recording-flow": {
+      "input": "4854be8f5fe896bd29ef40e5e35d0e9f274b180c0b2a3138f6af02fac897fd37",
+      "usefulness": 2.52,
+      "popularity": "unknown",
+      "confidence": 0.58
+    },
+    "doc-guides-use-voice-mode-with-hermes-walk-up-debugging": {
+      "input": "9ce58e07372c53a80b1603c843097a2e4f2e90bad4da7f0fb1c7e69177cef532",
+      "usefulness": 1.85,
+      "popularity": "unknown",
+      "confidence": 0.51
+    },
+    "doc-guides-use-voice-mode-with-hermes-silence-threshold": {
+      "input": "3769dbe66bebf1b0df09dae9075e89faf91f61537d99e56cc408481fb50d004a",
+      "usefulness": 1.57,
+      "popularity": "unknown",
+      "confidence": 0.5
+    },
+    "doc-guides-use-voice-mode-with-hermes-required-discord-permissions": {
+      "input": "3974a2a9d132186de71542ca5c21270ac92651b180cbf3206aacaea60f8dffb9",
+      "usefulness": 1.63,
+      "popularity": "unknown",
+      "confidence": 0.4
+    },
+    "doc-guides-use-voice-mode-with-hermes-suggested-first-week-setup": {
+      "input": "288804cfa3bc7bcfa3a66c5b8158c93398db0cc8d568bb535e2d1015a9cfc42b",
+      "usefulness": 2.63,
+      "popularity": "unknown",
+      "confidence": 0.66
+    },
+    "doc-guides-use-voice-mode-with-hermes-where-to-read-next": {
+      "input": "cf9962b14afac3fe9f43e009a0b2ed6513078a23b2912d7c428ae93e69915ee4",
+      "usefulness": 2.5,
+      "popularity": "unknown",
+      "confidence": 0.34
+    },
+    "doc-guides-run-nemotron-3-ultra-free-2-connect-nous-portal": {
+      "input": "e9967e8ccde4096af871f052f20086ef455f7cba867e769fba1cd2fdf889001e",
+      "usefulness": 1.07,
+      "popularity": "unknown",
+      "confidence": 0.45
+    },
+    "doc-guides-run-nemotron-3-ultra-free-3-pick-the-free-nemotron-3-ultra-model": {
+      "input": "cbc685333108dbdab692b6962d8ef60785b80887e616a17ae624b85c74473ea0",
+      "usefulness": 1.79,
+      "popularity": "unknown",
+      "confidence": 0.49
+    },
+    "doc-guides-run-nemotron-3-ultra-free-1-install-hermes-agent": {
+      "input": "ca94c2332dc7c201027d6fd00d4222a0cb36f706ed4dde3e01457deadc6cffd6",
+      "usefulness": 1.01,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "doc-guides-run-nemotron-3-ultra-free-2-run-quick-setup": {
+      "input": "1ce6fa82986ed0f6891a103e051afca578231bd43dcd9070a417bacc30058e0c",
+      "usefulness": 0.13,
+      "popularity": "unknown",
+      "confidence": 0.89
+    },
+    "doc-guides-run-nemotron-3-ultra-free-5-select-the-free-nemotron-3-ultra-model": {
+      "input": "eaa6373c008d92746dc641337f5456ebf14b879c0ab0a4429c67e734fee16d5b",
+      "usefulness": 0.75,
+      "popularity": "unknown",
+      "confidence": 0.68
+    },
+    "doc-guides-run-nemotron-3-ultra-free-6-start-chatting": {
+      "input": "7063ab4400ea477249d853085ded4b6895d8c1d941d262398ab3644bbe694787",
+      "usefulness": 0.01,
+      "popularity": "unknown",
+      "confidence": 0.99
+    },
+    "doc-guides-run-nemotron-3-ultra-free-switching-to-it-later": {
+      "input": "121284a0b4a38398dd833a7400ab8aab9593882f1f6a4c869cbbe6b08de66b60",
+      "usefulness": 1.85,
+      "popularity": "unknown",
+      "confidence": 0.46
+    },
+    "doc-developer-guide-architecture-recommended-reading-order": {
+      "input": "97e2bd8862dd1980faceb52549a967e0dbb064e9bf3c91cc8830c8fcf85addb1",
+      "usefulness": 0.48,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "doc-developer-guide-architecture-agent-loop": {
+      "input": "d126a470aa3758c17f5464ba1b0465923b9a49302d0dd0ac8d2432714263f3a2",
+      "usefulness": 0.97,
+      "popularity": "unknown",
+      "confidence": 0.61
+    },
+    "doc-developer-guide-architecture-prompt-system": {
+      "input": "637b7769a1bfb6e90ac92389e22bb4e157f93c2151e15b2d0095c2156c6f4579",
+      "usefulness": 2.17,
+      "popularity": "unknown",
+      "confidence": 0.53
+    },
+    "doc-developer-guide-architecture-provider-resolution": {
+      "input": "a78de5661fe508652ce2d66080edcc7e85d340f61782ceb723cd7d464f6d4aa2",
+      "usefulness": 1.06,
+      "popularity": "unknown",
+      "confidence": 0.65
+    },
+    "doc-developer-guide-architecture-tool-system": {
+      "input": "20a448c3093fa20972b0c40da90312387b06062db757c6d70661359b64776dd1",
+      "usefulness": 1.19,
+      "popularity": "unknown",
+      "confidence": 0.61
+    },
+    "doc-developer-guide-architecture-session-persistence": {
+      "input": "29d27edb01b3e7d29df26dacc8695f09d91a097fc3ead13e8ef04887c83ff84b",
+      "usefulness": 1.37,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "doc-developer-guide-architecture-messaging-gateway": {
+      "input": "3dcc952aa50dbb15895aab3c536cf88493ee8be996d4b4f71973742dac94197f",
+      "usefulness": 0.42,
+      "popularity": "unknown",
+      "confidence": 0.65
+    },
+    "doc-developer-guide-architecture-plugin-system": {
+      "input": "d276832e2a39096198b6d52aa2aedbcd2b2a9f33d1f432ff0caddca7dd88bed1",
+      "usefulness": 1.57,
+      "popularity": "unknown",
+      "confidence": 0.48
+    },
+    "doc-developer-guide-architecture-design-principles": {
+      "input": "1d24c8177d7db498bbb70608895d7f4266206b28a68a8cca3327db6a06e83a5b",
+      "usefulness": 1.46,
+      "popularity": "unknown",
+      "confidence": 0.42
+    },
+    "doc-developer-guide-architecture-file-dependency-chain": {
+      "input": "333f86cc4d58533d0eca81c293fecc4f994c984bf0068b648ecf270ffd19e999",
+      "usefulness": 2.14,
+      "popularity": "unknown",
+      "confidence": 0.49
+    },
+    "doc-user-guide-features-skills-browse-and-install-in-desktop": {
+      "input": "cd445069c6c88d01de4d82c39c27456e8a0d78bc781806e753be33d43ed76f76",
+      "usefulness": 1.72,
+      "popularity": "unknown",
+      "confidence": 0.39
+    },
+    "doc-user-guide-features-skills-install-from-the-website": {
+      "input": "e9d1ce180846e41eba4877db055fff0d85c54ebdffa39a38b6103f328534f1a3",
+      "usefulness": 2.81,
+      "popularity": "unknown",
+      "confidence": 0.55
+    },
+    "doc-user-guide-features-skills-starting-with-a-blank-slate": {
+      "input": "40a57b802cec28a95bbbcc3dc256dd0c2ae102e7e10ff9e3d905b90b2b580ea6",
+      "usefulness": 2.73,
+      "popularity": "unknown",
+      "confidence": 0.53
+    },
+    "doc-user-guide-features-skills-stacking-multiple-skills-in-one-command": {
+      "input": "e3869a7211523fda5b64dbb919441498598af3894cf5269a6ec7b015e235f8e8",
+      "usefulness": 2.98,
+      "popularity": "unknown",
+      "confidence": 0.71
+    },
+    "doc-user-guide-features-skills-learning-a-skill-from-sources-learn": {
+      "input": "5679ad70e11b98beb311ef5725c46e3d33ac98338b9a05a5530d80409e080e42",
+      "usefulness": 3.15,
+      "popularity": "unknown",
+      "confidence": 0.77
+    },
+    "doc-user-guide-features-skills-large-sources-become-knowledge-base-skills": {
+      "input": "45341c29683ea170ba1569db1875e0783a01a037fe3ef7dddfca0c3a88aac16a",
+      "usefulness": 3.13,
+      "popularity": "unknown",
+      "confidence": 0.7
+    },
+    "doc-user-guide-features-skills-progressive-disclosure": {
+      "input": "6915342f9318d6f95e331b85a7762b533d65a5251cf5a97a200cb66b264b1464",
+      "usefulness": 2.29,
+      "popularity": "unknown",
+      "confidence": 0.49
+    },
+    "doc-user-guide-features-skills-platform-specific-skills": {
+      "input": "383e60ae13560cab083554f73d000ebdcfacae3bda1b69a6d23d0229bbfc8426",
+      "usefulness": 2,
+      "popularity": "unknown",
+      "confidence": 0.45
+    },
+    "doc-user-guide-features-skills-skill-output-and-media-delivery": {
+      "input": "44387b84e6491b6b0bb267e70d6e7a2ed5b2395a20233d53a778a714efc53689",
+      "usefulness": 2.28,
+      "popularity": "unknown",
+      "confidence": 0.46
+    },
+    "doc-user-guide-features-skills-forcing-document-style-delivery-as-document": {
+      "input": "f64891d60b84255005dbb941b436806e4ecfee26c861dd31a20edd18f8af075a",
+      "usefulness": 3.64,
+      "popularity": "unknown",
+      "confidence": 0.7
+    },
+    "doc-user-guide-features-skills-conditional-activation-fallback-skills": {
+      "input": "dc14ea72d933c6e8928330ff82f784b93422c57e23c5d175c0750256537b9b80",
+      "usefulness": 3.37,
+      "popularity": "unknown",
+      "confidence": 0.59
+    },
+    "doc-user-guide-features-skills-secure-setup-on-load": {
+      "input": "4db3ba76a6b54a2661501ab08d2dda47bf3f74a362bbf86632796b8160dcf370",
+      "usefulness": 3.06,
+      "popularity": "unknown",
+      "confidence": 0.76
+    },
+    "doc-user-guide-features-skills-skill-config-settings": {
+      "input": "c8beac54f2081dc2de3c177745282ed3ebf822874cce49ad20aca2158f01b612",
+      "usefulness": 2.39,
+      "popularity": "unknown",
+      "confidence": 0.51
+    },
+    "doc-user-guide-features-skills-skill-directory-structure": {
+      "input": "e12928a83dfb95076b2c2945352fb5cbaf96a90cd2c90e96af6be4293838edd3",
+      "usefulness": 2.52,
+      "popularity": "unknown",
+      "confidence": 0.47
+    },
+    "doc-user-guide-features-skills-advisory-skillevaluator-scan": {
+      "input": "b92460fbb71efc90c7b18cea3776f9fbe4de058da618461ad5cdd222321219d4",
+      "usefulness": 3,
+      "popularity": "unknown",
+      "confidence": 0.75
+    },
+    "doc-user-guide-features-skills-external-skill-directories": {
+      "input": "3f0f39ba62054c5a3e1a3926fb00d66b3f673508fbe60f7ba22364a2b6187b22",
+      "usefulness": 2.81,
+      "popularity": "unknown",
+      "confidence": 0.72
+    },
+    "doc-user-guide-features-skills-how-it-works": {
+      "input": "3eae553b9d001ba0d0a2d6849a7fc4b453a16b6587693a09134e83ed367d33f7",
+      "usefulness": 2.64,
+      "popularity": "unknown",
+      "confidence": 0.51
+    },
+    "doc-user-guide-features-skills-redirecting-skill-creation-skills-create-dir": {
+      "input": "7f0ab819db26cd1042c45407feb11ce9eaf168287c006cc2e7003b97883e4677",
+      "usefulness": 3.28,
+      "popularity": "unknown",
+      "confidence": 0.64
+    },
+    "doc-user-guide-features-skills-project-local-skills": {
+      "input": "7a895c130806a25421167804edf8a9d6a415134b93b85e6c4934ef12b586e696",
+      "usefulness": 2.16,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "doc-user-guide-features-skills-trusting-a-project": {
+      "input": "e0b9b55408105f4d8e7b20a8d88d188fdfc10479d0bb57fc80c26f44ce190eb9",
+      "usefulness": 2.53,
+      "popularity": "unknown",
+      "confidence": 0.55
+    },
+    "doc-user-guide-features-skills-precedence": {
+      "input": "98f3b39bbe07963c4e704b4405427249013ccd258d759520281fdefef4624506",
+      "usefulness": 2.07,
+      "popularity": "unknown",
+      "confidence": 0.44
+    },
+    "doc-user-guide-features-skills-scan-time-quarantine": {
+      "input": "0a623847a64a1d12b6bf25168bc2c2db10e2efd514cfd248afd84980061ffaac",
+      "usefulness": 2.95,
+      "popularity": "unknown",
+      "confidence": 0.7
+    },
+    "doc-user-guide-features-skills-non-interactive-surfaces-cron-api-acp": {
+      "input": "5aa3a45438feb30ebfabcebf4d4194b989a7203bb92894438066e6733c42ab77",
+      "usefulness": 1.98,
+      "popularity": "unknown",
+      "confidence": 0.54
+    },
+    "doc-user-guide-features-skills-skill-bundles": {
+      "input": "ae40f10c66f956a32b6f8704a3f030637b7ccb49af42fa6dacd578112b649a42",
+      "usefulness": 1.55,
+      "popularity": "unknown",
+      "confidence": 0.51
+    },
+    "doc-user-guide-features-skills-quick-example": {
+      "input": "3595553efda941d9c6a2c907426b8f472cf03aee2fe93cc266f75ece73c559ca",
+      "usefulness": 1.86,
+      "popularity": "unknown",
+      "confidence": 0.58
+    },
+    "doc-user-guide-features-skills-yaml-schema": {
+      "input": "49390c4c38675edd2c614560dc8f6fbf91762ff7e9af2763c9b257b5b9ad8d46",
+      "usefulness": 2.88,
+      "popularity": "unknown",
+      "confidence": 0.66
+    },
+    "doc-user-guide-features-skills-managing-bundles": {
+      "input": "2c0df92c8a5f8d52fa2fde4783fbca01d61d1a8c4053eadd3f438a866dea04f4",
+      "usefulness": 2.25,
+      "popularity": "unknown",
+      "confidence": 0.49
+    },
+    "doc-user-guide-features-skills-behavior": {
+      "input": "3d7120679fc3bceafe3e3ebc0b6dd1ee8c30e12220910ec9da6abb7234547c49",
+      "usefulness": 1.8,
+      "popularity": "unknown",
+      "confidence": 0.37
+    },
+    "doc-user-guide-features-skills-when-bundles-beat-installing-each-skill-manually": {
+      "input": "774dfec5fe44cdf041e79255a76c9ca5898379677ab223864846d4c0f7a8945f",
+      "usefulness": 3.22,
+      "popularity": "unknown",
+      "confidence": 0.7
+    },
+    "doc-user-guide-features-skills-agent-managed-skills-skill-manage-tool": {
+      "input": "034cbb4f271690502abf71d4500abf2fccd9b1f572b2f3b9dc4b96ee4831a3a1",
+      "usefulness": 1.06,
+      "popularity": "unknown",
+      "confidence": 0.7
+    },
+    "doc-user-guide-features-skills-when-the-agent-creates-skills": {
+      "input": "c9d914644333734da1609bf2be29bfb5a90211f07c7ffc6be37195629a2c1d4a",
+      "usefulness": 0.55,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "doc-user-guide-features-skills-what-a-skill-entry-looks-like": {
+      "input": "9caa9bb56e2b26ce01d91ca8b0eb4d169cd313aa86c6c83efba09601a86f9238",
+      "usefulness": 2.44,
+      "popularity": "unknown",
+      "confidence": 0.38
+    },
+    "doc-user-guide-features-skills-actions": {
+      "input": "0ad0e867606f36deaff801582f2c2dc4f1e1aa3dedbd42bbdebb0a0dcf88cf1e",
+      "usefulness": 2.7,
+      "popularity": "unknown",
+      "confidence": 0.41
+    },
+    "doc-user-guide-features-skills-gating-agent-skill-writes-skills-write-approval": {
+      "input": "3bd2a95e2f05bf39b672ecf55019cb0a86325a0ed5a87aa58c86a98f6cf3a315",
+      "usefulness": 3.28,
+      "popularity": "unknown",
+      "confidence": 0.69
+    },
+    "doc-user-guide-features-skills-skills-hub": {
+      "input": "30414008b275b54b1379e52ec833ef8388dce860632790268d590d301a064037",
+      "usefulness": 2.17,
+      "popularity": "unknown",
+      "confidence": 0.44
+    },
+    "doc-user-guide-features-skills-supported-hub-sources": {
+      "input": "018927a81290acade66d84a12270cdf93b1da47e7c33c384a3db3380273a24b8",
+      "usefulness": 1.19,
+      "popularity": "unknown",
+      "confidence": 0.44
+    },
+    "doc-user-guide-features-skills-1-official-optional-skills-official": {
+      "input": "9647e6fb9df2a0ab5da63f578e9fe881cd3ac21fb7ed17376df5aabc042b80fd",
+      "usefulness": 1.07,
+      "popularity": "unknown",
+      "confidence": 0.66
+    },
+    "doc-user-guide-features-skills-2-skills-sh-skills-sh": {
+      "input": "5f50bcfda56c87c8215b219230b22b377e170204f0534e838807a8eb4ef98dfb",
+      "usefulness": 1.95,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "doc-user-guide-features-skills-3-well-known-skill-endpoints-well-known": {
+      "input": "01e83aa9442399be16f6ae127a57a62a1f318f55c78af6159fdd94fca8882f0d",
+      "usefulness": 2.28,
+      "popularity": "unknown",
+      "confidence": 0.56
+    },
+    "doc-user-guide-features-skills-4-direct-github-skills-github": {
+      "input": "1abeb27a110822dbab6e84e858086ad4f62e28d9c692aac252fcf8a6ac01a678",
+      "usefulness": 2.79,
+      "popularity": "unknown",
+      "confidence": 0.64
+    },
+    "doc-user-guide-features-skills-6-lobehub-lobehub": {
+      "input": "639c9d59b79b1e3abbe252ba16e624bd9a8d02d9be993ec6e424777be113fda3",
+      "usefulness": 1.15,
+      "popularity": "unknown",
+      "confidence": 0.69
+    },
+    "doc-user-guide-features-skills-7-browse-sh-browse-sh": {
+      "input": "894786277c2c956cfafaaa5a6a3c01c828cdfa91f0a0b733bf8c2b41de25df2f",
+      "usefulness": 2.28,
+      "popularity": "unknown",
+      "confidence": 0.49
+    },
+    "doc-user-guide-features-skills-8-direct-url-url": {
+      "input": "4062e78a3246b2aa9f4dbaca008978dec52d57a8d321e7ebef32427413a8fbea",
+      "usefulness": 3.48,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "doc-user-guide-features-skills-security-scanning-and-force": {
+      "input": "2c4c0c9473da6822b7e40578e2d44d11b7c0e538ae95e712406443d302df7b34",
+      "usefulness": 2.03,
+      "popularity": "unknown",
+      "confidence": 0.54
+    },
+    "doc-user-guide-features-skills-trust-levels": {
+      "input": "8c25fab87e4c56f6afab92841e70d1450c445e345e2c196f6010cbc1fb7d4d3a",
+      "usefulness": 1.13,
+      "popularity": "unknown",
+      "confidence": 0.55
+    },
+    "doc-user-guide-features-skills-update-lifecycle": {
+      "input": "170f4043cb09b96a088edb261ade1db9438b5d9c39aced83a86d421cd8878df9",
+      "usefulness": 3.16,
+      "popularity": "unknown",
+      "confidence": 0.75
+    },
+    "doc-user-guide-features-skills-publishing-a-custom-skill-tap": {
+      "input": "3236383da8aa01245effe32ce892449aa46c89f59f6fa520132e309e9942f0dc",
+      "usefulness": 1.83,
+      "popularity": "unknown",
+      "confidence": 0.54
+    },
+    "doc-user-guide-features-skills-repo-layout": {
+      "input": "c362f424094e955a7a70ca1ca1cfcbdefc305bd4281496888db70c72a9aee5fa",
+      "usefulness": 2.61,
+      "popularity": "unknown",
+      "confidence": 0.4
+    },
+    "doc-user-guide-features-skills-minimal-tap-example": {
+      "input": "c60c74bab567a31989a8b4bae1fbfac978fd560762f8d8f0b7fef58c16e3e7d9",
+      "usefulness": 0.27,
+      "popularity": "unknown",
+      "confidence": 0.77
+    },
+    "doc-user-guide-features-skills-non-default-paths": {
+      "input": "8292b3c8e04c5c924b2180257bd996852850a0cbfda8ab31fe935cbcfd740786",
+      "usefulness": 2.6,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "doc-user-guide-features-skills-installing-individual-skills-directly-without-add": {
+      "input": "4f10d32d9b0cd0a202e886d545e3532be94f924c0882cf1c6176369eff91fa2f",
+      "usefulness": 1.84,
+      "popularity": "unknown",
+      "confidence": 0.59
+    },
+    "doc-user-guide-features-skills-trust-levels-for-taps": {
+      "input": "a74a3628aecf1752fb2fb15297c54381bc0abd2adce5b33cc3f2eb434eec8a61",
+      "usefulness": 1.75,
+      "popularity": "unknown",
+      "confidence": 0.53
+    },
+    "doc-user-guide-features-skills-tap-management": {
+      "input": "14681ac1c43a86707a1f220e7169952be50c3739a29bfc946c2477df10ffbdb3",
+      "usefulness": 1.75,
+      "popularity": "unknown",
+      "confidence": 0.61
+    },
+    "doc-user-guide-features-skills-bundled-skill-updates-hermes-skills-reset": {
+      "input": "b927328f6ae33c6c34262540135d62ebdcc533da3d0b782ca349a7ff77d908cf",
+      "usefulness": 3.51,
+      "popularity": "unknown",
+      "confidence": 0.59
+    },
+    "doc-user-guide-features-skills-slash-commands-inside-chat": {
+      "input": "f4610309c9c531523c638093b503be62e9ad8b397138b99d560a5fca47af16ca",
+      "usefulness": 2.37,
+      "popularity": "unknown",
+      "confidence": 0.33
+    },
+    "doc-getting-started-platform-support-tier-1": {
+      "input": "f63f5c28c2dce1031f7328765d40514e885c91e3d11ce81ce3b451cc040cb001",
+      "usefulness": 1.03,
+      "popularity": "unknown",
+      "confidence": 0.46
+    },
+    "doc-getting-started-platform-support-tier-2": {
+      "input": "46767d8f6b1729b84db1faa5e223692947a1f576aa7d84411d24dc44d0809d7d",
+      "usefulness": 0.81,
+      "popularity": "unknown",
+      "confidence": 0.52
+    },
+    "doc-getting-started-platform-support-build-targets-and-support-priority": {
+      "input": "273e641ccd63f3254f92019d852d7250294524e2afc9d2b7b3f878413d91124b",
+      "usefulness": 1.03,
+      "popularity": "unknown",
+      "confidence": 0.68
+    },
+    "doc-getting-started-platform-support-unsupported": {
+      "input": "644a73dffb4afb57aaabfd947dc7a5f3e6698b5c0b7431e9eb849620c84b220b",
+      "usefulness": 0.04,
+      "popularity": "unknown",
+      "confidence": 0.97
+    },
+    "doc-getting-started-termux-install": {
+      "input": "454c1fd5429cb0fd3e0f04a756477eac0bcb2a081d2c4918da16c86b3c4d78b9",
+      "usefulness": 2.3,
+      "popularity": "unknown",
+      "confidence": 0.37
+    },
+    "doc-getting-started-termux-files-and-updates": {
+      "input": "4a62bae198500385aeaf0354f6ae4a1b3a2b1f3832fa9c04ec097671ea460922",
+      "usefulness": 2.03,
+      "popularity": "unknown",
+      "confidence": 0.53
+    },
+    "doc-getting-started-termux-gateway": {
+      "input": "92c1cae4ef65839f255be35cf9b0f747360da5a4cc51821ec0e8cd91ed33cccb",
+      "usefulness": 1.4,
+      "popularity": "unknown",
+      "confidence": 0.55
+    },
+    "doc-getting-started-termux-limits": {
+      "input": "c0ac55b8eda5b34c62bb10f10f48da2e4e27787446aed962ac7790c2faa1f374",
+      "usefulness": 0.18,
+      "popularity": "unknown",
+      "confidence": 0.85
+    },
+    "doc-getting-started-termux-uninstall": {
+      "input": "bb69dca93c0c74cc6c8eb857dbaca44f3e8a02787cf93f17c15aae8fede62619",
+      "usefulness": 0.82,
+      "popularity": "unknown",
+      "confidence": 0.65
+    },
+    "doc-getting-started-quickstart-prefer-to-watch": {
+      "input": "f16e134d497905a332587a011b8c617064b6881da61e900a7ae9c854dec1316b",
+      "usefulness": 0.01,
+      "popularity": "unknown",
+      "confidence": 0.99
+    },
+    "doc-getting-started-quickstart-who-this-is-for": {
+      "input": "cdfd1b5328f813aa9e415979fd843747300e6ec511130a3934553c46883888c2",
+      "usefulness": 0.01,
+      "popularity": "unknown",
+      "confidence": 0.99
+    },
+    "doc-getting-started-quickstart-the-fastest-path": {
+      "input": "42dbe8966f4cb8f1d65a818d2cd503b9ecdce3c3d4c548c7c202db2b76afd9d5",
+      "usefulness": 2.53,
+      "popularity": "unknown",
+      "confidence": 0.55
+    },
+    "doc-getting-started-quickstart-windows-native": {
+      "input": "96d26822723c5a45b891d5194bdea0be659d905ce8affe292352f8bf88a81442",
+      "usefulness": 0.53,
+      "popularity": "unknown",
+      "confidence": 0.56
+    },
+    "doc-getting-started-quickstart-2-choose-a-provider": {
+      "input": "361dfbd28f3c4f425bd294eccd3f5dae3a407e0cc4ca64a7720ed95f4507100a",
+      "usefulness": 1.71,
+      "popularity": "unknown",
+      "confidence": 0.2
+    },
+    "doc-getting-started-quickstart-how-settings-are-stored": {
+      "input": "517577a1b6c6c4ca80838487a992ffaa497e0f873ba1cd76089e4d3912d58499",
+      "usefulness": 2.21,
+      "popularity": "unknown",
+      "confidence": 0.53
+    },
+    "doc-getting-started-quickstart-3-run-your-first-chat": {
+      "input": "844e35a3155b9d495ade2931c598f2354a2574183476e86ca7fbcff5907c7b6b",
+      "usefulness": 1.88,
+      "popularity": "unknown",
+      "confidence": 0.43
+    },
+    "doc-getting-started-quickstart-4-verify-sessions-work": {
+      "input": "3372fac58ac582d5c17f9e1465ac7b046e34aa866eab76ef431f94f191342435",
+      "usefulness": 1.53,
+      "popularity": "unknown",
+      "confidence": 0.49
+    },
+    "doc-getting-started-quickstart-slash-commands": {
+      "input": "6d69a0a38955eaee4af942417d8abc966a63a14f698deacf61ad2eabcb471798",
+      "usefulness": 0.39,
+      "popularity": "unknown",
+      "confidence": 0.68
+    },
+    "doc-getting-started-quickstart-multi-line-input": {
+      "input": "6785b1d8e29d8726aba8c2b38ee9f9bdaf3704809e9f7fdbfc72daf95751bd6b",
+      "usefulness": 1.06,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "doc-getting-started-quickstart-bot-or-shared-assistant": {
+      "input": "8347a4c89fc9696897440d2a4bb36fecb7f39336b30ecfe75250cd38851f96ee",
+      "usefulness": 0.17,
+      "popularity": "unknown",
+      "confidence": 0.86
+    },
+    "doc-getting-started-quickstart-sandboxed-terminal": {
+      "input": "e7e80190b21d8a151ec9c8c9389234e3ba0d9c00212bf19bc3fc03cfa0ce24b1",
+      "usefulness": 2.43,
+      "popularity": "unknown",
+      "confidence": 0.49
+    },
+    "doc-getting-started-quickstart-voice-mode": {
+      "input": "0ce8828ea8116d5fc5fbc42cb9846326ee17d5cf3ea7ce1dcd25ea3b56a6c003",
+      "usefulness": 1.37,
+      "popularity": "unknown",
+      "confidence": 0.54
+    },
+    "doc-getting-started-quickstart-skills": {
+      "input": "39b63743dd0195f30e8b9e155b09a3134db366a3fe4668c38cd321644ef5fbdc",
+      "usefulness": 2.64,
+      "popularity": "unknown",
+      "confidence": 0.61
+    },
+    "doc-getting-started-quickstart-editor-integration-acp": {
+      "input": "3aa207a5bf3d2ce2395ad3f1927fb31bfb8876e258079ddd9191c3369b838d1c",
+      "usefulness": 1.15,
+      "popularity": "unknown",
+      "confidence": 0.58
+    },
+    "doc-getting-started-quickstart-common-failure-modes": {
+      "input": "411c143fc2494c3931db45d98ea43ed7f4bbf38c485de9659123d4eab64f2bca",
+      "usefulness": 2.52,
+      "popularity": "unknown",
+      "confidence": 0.5
+    },
+    "doc-getting-started-quickstart-recovery-toolkit": {
+      "input": "14dce0797346218c0a4d2476f395a0d1fe48f91c45a03654ed3ac8bf910fa421",
+      "usefulness": 2.11,
+      "popularity": "unknown",
+      "confidence": 0.25
+    },
+    "doc-getting-started-quickstart-quick-reference": {
+      "input": "fa6b196bf371e414cc88a63be8b54fed385504b2c50d442b6232681dcc39fcfe",
+      "usefulness": 0.42,
+      "popularity": "unknown",
+      "confidence": 0.65
+    },
+    "doc-getting-started-installation-desktop-packages-on-macos-or-windows": {
+      "input": "5d6bd5cd0c994ac3020079c4c76028785cab7db3872afee7083f920403581627",
+      "usefulness": 1.3,
+      "popularity": "unknown",
+      "confidence": 0.37
+    },
+    "doc-getting-started-installation-what-the-source-installer-does": {
+      "input": "cc2f5a72c297e092c8d4948e7d9bf90ab836c4df00c8cf1972b865ad91d75f3a",
+      "usefulness": 2.56,
+      "popularity": "unknown",
+      "confidence": 0.49
+    },
+    "doc-getting-started-installation-install-layout": {
+      "input": "db26bdf2802f38775ca0b114a29be779cbc92c68b98b6acb4973fa315ebefda0",
+      "usefulness": 1.02,
+      "popularity": "unknown",
+      "confidence": 0.43
+    },
+    "doc-getting-started-installation-after-installation": {
+      "input": "565fbb4eeebb47d07afb1f2de6778866a6a9859d2b8f85f211f0398c52bf1c39",
+      "usefulness": 2.39,
+      "popularity": "unknown",
+      "confidence": 0.42
+    },
+    "doc-getting-started-installation-manual-developer-installation": {
+      "input": "6cff464805f0f1e1566cfbae51d9a55049f94a0bb85bb0c8cfe2786de82868d6",
+      "usefulness": 0.4,
+      "popularity": "unknown",
+      "confidence": 0.67
+    },
+    "doc-getting-started-installation-non-sudo-system-service-user-installs": {
+      "input": "0d5f54bd356c6485583a4a759f3efafa2c1095e06cf0c9beed9cfe9285b3df67",
+      "usefulness": 2.84,
+      "popularity": "unknown",
+      "confidence": 0.74
+    },
+    "doc-getting-started-installation-symlinked-home-directories-and-external-storage": {
+      "input": "b8fabafcfe7f99b3da36f1e03ef2599ffc05098e0c6a9b74ae2d5e7b5f3d4f36",
+      "usefulness": 2.86,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "doc-getting-started-installation-install-method-auto-detection": {
+      "input": "0016ee81fc7aec32b54ceb3fcc93b7c4f20c75ebd8fa4fa97c152e62bcd75203",
+      "usefulness": 0.91,
+      "popularity": "unknown",
+      "confidence": 0.63
+    },
+    "doc-user-guide-cli-worktree-cleanup": {
+      "input": "c7e2c297b2d8562cc86f53ecfaf7a7ce4caff613d2c51226639793a454048559",
+      "usefulness": 3.72,
+      "popularity": "unknown",
+      "confidence": 0.76
+    },
+    "doc-user-guide-cli-plugin-management": {
+      "input": "a51f1d438a44f1bdb24d1f14e8985d58fbe1c279104f9a9ae1a17c1015767e84",
+      "usefulness": 2.41,
+      "popularity": "unknown",
+      "confidence": 0.5
+    },
+    "doc-user-guide-cli-interface-layout": {
+      "input": "ab097ec625700c734e21d3d4c6342f74ffeafc95a961552b6ee33d133a7156d5",
+      "usefulness": 0.32,
+      "popularity": "unknown",
+      "confidence": 0.73
+    },
+    "doc-user-guide-cli-status-bar": {
+      "input": "7f42faa8d030b8d1f6011337054a22b3722f99138a174f4dfb03b5af5a152efd",
+      "usefulness": 0.67,
+      "popularity": "unknown",
+      "confidence": 0.44
+    },
+    "doc-user-guide-cli-session-resume-display": {
+      "input": "449033a0a9e55ac7416a7bc23acd60a1737872b0af8dd1dca4db92d75f06a81d",
+      "usefulness": 1.06,
+      "popularity": "unknown",
+      "confidence": 0.68
+    },
+    "doc-user-guide-cli-keybindings": {
+      "input": "e6d24beb20e62f8fcce8d1b5c467ddc3c3cbb0f0a96786dc31692658d8cfac0f",
+      "usefulness": 2.62,
+      "popularity": "unknown",
+      "confidence": 0.26
+    },
+    "doc-user-guide-cli-shell-mode": {
+      "input": "8c9c885233d508f5a54e2803de45fabe95b5edf7fcd594f155eda8ad5ee09042",
+      "usefulness": 3.64,
+      "popularity": "unknown",
+      "confidence": 0.7
+    },
+    "doc-user-guide-cli-quick-commands": {
+      "input": "8063702bd003ba2aa90fbb57e2a2bb0d7dee4da7dc7d9c9b36c99274de52fffe",
+      "usefulness": 3.02,
+      "popularity": "unknown",
+      "confidence": 0.73
+    },
+    "doc-user-guide-cli-preloading-skills-at-launch": {
+      "input": "748782f912d8b68cfb039fb96c9153f5f5c1ae83c18f49e335c8b9aebdbc018d",
+      "usefulness": 2.36,
+      "popularity": "unknown",
+      "confidence": 0.54
+    },
+    "doc-user-guide-cli-persistent-auto-load-via-config": {
+      "input": "1e729f89f701f81e0d17cadf6fac9479914bebd0a146e0d2166f98b57222acf0",
+      "usefulness": 3.52,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "doc-user-guide-cli-skill-slash-commands": {
+      "input": "710318692cdf194dbcecb99342bb520fa23872455b6f6f85382597d9eb00b634",
+      "usefulness": 1.41,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "doc-user-guide-cli-personalities": {
+      "input": "92d38214031303d4e2cb7866052b258195f7228b6063bcea43394b633a0408c5",
+      "usefulness": 1.68,
+      "popularity": "unknown",
+      "confidence": 0.49
+    },
+    "doc-user-guide-cli-shift-enter-compatibility": {
+      "input": "d018d9c1ced68a186cee5f7160ce3800c7ea1c036fcbf69b6ec8e46a5c1e244a",
+      "usefulness": 2.72,
+      "popularity": "unknown",
+      "confidence": 0.4
+    },
+    "doc-user-guide-cli-redirecting-the-agent-mid-turn": {
+      "input": "6c7e80cef14e5fdd1b58af3b84d4864fba3a5e0ff2fdb9ce9a9eb69a65d08d27",
+      "usefulness": 2.5,
+      "popularity": "unknown",
+      "confidence": 0.5
+    },
+    "doc-user-guide-cli-busy-input-mode": {
+      "input": "799e7da996d2ccb2e4b7e963d1bfa833f92d127fdaebcdb265a8914b78c8e6c1",
+      "usefulness": 2.88,
+      "popularity": "unknown",
+      "confidence": 0.52
+    },
+    "doc-user-guide-cli-suspending-to-background": {
+      "input": "e4824b0bf359e9bde633f3e2794010f4cbd18b754dc94598daf2c33bcc35b545",
+      "usefulness": 1.45,
+      "popularity": "unknown",
+      "confidence": 0.54
+    },
+    "doc-user-guide-cli-tool-progress-display": {
+      "input": "0c0053390152981d2cdd1bf53bb668c1ad21f46af7b9ff3b474e46e997fb46f8",
+      "usefulness": 0.74,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "doc-user-guide-cli-tool-preview-length": {
+      "input": "b47d17bc3d44e7b57e486d7da1ac7802ba0ebd8e2df85c7e21ce9f5bcf500845",
+      "usefulness": 1.99,
+      "popularity": "unknown",
+      "confidence": 0.48
+    },
+    "doc-user-guide-cli-resuming-sessions": {
+      "input": "18c65d8c816cd416a92e39fbf791282ae3e092512399a5039aa84f862e9ea115",
+      "usefulness": 2.8,
+      "popularity": "unknown",
+      "confidence": 0.71
+    },
+    "doc-user-guide-cli-session-storage": {
+      "input": "8f024b000d00b6e1112ccb333972c7e3030fdad1091362942b6843dfa63a4fea",
+      "usefulness": 1.05,
+      "popularity": "unknown",
+      "confidence": 0.61
+    },
+    "doc-user-guide-cli-context-compression": {
+      "input": "24402ed39e76ee3cea0a4b40815efc88f63b3a60739376efa3cbcc098cb669d2",
+      "usefulness": 2.95,
+      "popularity": "unknown",
+      "confidence": 0.82
+    },
+    "doc-user-guide-cli-background-sessions": {
+      "input": "6fa532c31342c357cbf282fc77c570b00ea5f3e3adbf7f00f5b32a41cd6fbbe5",
+      "usefulness": 1.63,
+      "popularity": "unknown",
+      "confidence": 0.44
+    },
+    "doc-user-guide-cli-how-it-works": {
+      "input": "bbc4ece64515b482491b52e3c775a82b04675810382e33766758d66413d12358",
+      "usefulness": 2.03,
+      "popularity": "unknown",
+      "confidence": 0.5
+    },
+    "doc-user-guide-cli-results": {
+      "input": "cfb9bf2757273273f5fedf676aa11cd77b09cf38a1b448bf45c7189ac159d321",
+      "usefulness": 1.05,
+      "popularity": "unknown",
+      "confidence": 0.56
+    },
+    "doc-user-guide-cli-use-cases": {
+      "input": "ffcf54cc89989285a00db7bbc76fadd6903e127f010cf1f255102292fde494dd",
+      "usefulness": 1.97,
+      "popularity": "unknown",
+      "confidence": 0.53
+    },
+    "doc-user-guide-cli-quiet-mode": {
+      "input": "3df60f53ca6438b90c97c54319515afdd07ee895f4226003b752ed05f7a527f0",
+      "usefulness": 0.51,
+      "popularity": "unknown",
+      "confidence": 0.58
     }
   }
 }

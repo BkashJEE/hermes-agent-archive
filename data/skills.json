@@ -84,6 +84,756 @@
       "url": "https://github.com/HKUDS/CLI-Anything",
       "date": "2026-09-25",
       "author": "HKUDS"
+    },
+    {
+      "id": "doc-user-guide-features-skills-browse-and-install-in-desktop",
+      "title": "Browse and install in Desktop",
+      "summary": "Open Capabilities → Skills and switch between Installed and Browse .",
+      "detail": "Open Capabilities → Skills and switch between Installed and Browse . Search stays at the top; the tab switch and actions share one row. Installed reads the selected profile's actual skills and enabled state; it is not inferred from the public catalog. Browse is a native catalog UI, not an embedded website or a second, smaller catalog. Desktop and the public Skills Hub read the same published CDN snapshot: /docs/api/skills.json . The public docs alias serves the same snapshot as Desktop's fetch URL, https://nousresearch.github.io/hermes-agent/docs/api/skills.json . The docs build generates it from bundled skills/ , optional-skills/ , and the centralized skills index. Browsing does not crawl GitHub or query upstream marketplaces live; installation still retrieves the selected skill through its source's installer.\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#browse-and-install-in-desktop",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-install-from-the-website",
+      "title": "Install from the website",
+      "summary": "The Skills Hub has an Install in Hermes button on each installable card.",
+      "detail": "The Skills Hub has an Install in Hermes button on each installable card. It opens the installed Hermes Desktop app with a URL-encoded, source-qualified skill target: for example, official/... for optional skills or clawhub/... for ClawHub. Bundled skills use an explicit repository path rather than an ambiguous bare name. When an older snapshot lacks that explicit bundled target, the website omits its install link and native Browse disables installation rather than resolving an ambiguous name. The next docs publish supplies those targets. The same target is used by native Browse and the card's CLI fallback: Hermes shows Install \"skill-name\"? with separate Source and Install to rows. Cancel makes no changes. After confirmation, the same dialog shows Installing… , then Installed and a completion notification. Errors stay in the dialog so you can read them and retry. Installation uses the existing Skills Hub pipeline, including security scanning, action logs, and installed-list refresh. If you switch profile or connection while the confirmation is open, reopen the link for the new destination. Changes apply to new sessions; a link cannot bypass scanning or select a different profile. T…\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "hermes://skill/install?identifier=official%2Fsecurity%2F1password",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#install-from-the-website",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-starting-with-a-blank-slate",
+      "title": "Starting with a blank slate",
+      "summary": "By default every profile is seeded with the bundled skill catalog, and each hermes update adds any newly bundled skills.",
+      "detail": "By default every profile is seeded with the bundled skill catalog, and each hermes update adds any newly bundled skills. If you want a profile with no bundled skills - and that stays empty across updates - you have two paths: At install time (applies to the default ~/.hermes profile): the installer has no --no-skills flag. Its setup stage asks whether to seed the bundled catalog when you pick the Blank Slate setup; answering no writes the opt-out marker described below. Non-interactive installs seed the catalog, so run hermes skills opt-out afterwards if you want the profile empty. At profile-create time (named profiles): On an already-installed profile (default or named), toggle it at runtime: All of these paths write a .no-bundled-skills marker into the profile directory. While the marker is present, the installer, hermes update , and any skill sync all skip bundled-skill seeding for that profile. Delete the marker (or run hermes skills opt-in ) to re-enable. Safe by default hermes skills opt-out only stops future seeding - it never deletes anything already on disk. The optional --remove flag deletes bundled skills only when they are unmodified (byte-identical to the version Herm…\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "hermes profile create research --no-skills",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#starting-with-a-blank-slate",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-stacking-multiple-skills-in-one-command",
+      "title": "Stacking multiple skills in one command",
+      "summary": "You can invoke several skills in a single message by chaining slash commands at the start - every leading /skill token (up to 5) is loaded, and the rest becomes your instruction: Parsing…",
+      "detail": "You can invoke several skills in a single message by chaining slash commands at the start - every leading /skill token (up to 5) is loaded, and the rest becomes your instruction: Parsing stops at the first token that isn't an installed skill, so arguments that happen to start with / (like file paths) are never swallowed: For combinations you use repeatedly, prefer a skill bundle - same effect under one short command. (Plan mode works the same way but is a built-in command now: /plan [request] tells Hermes to inspect context if needed, write a markdown implementation plan instead of executing the task, and save the result under .hermes/plans/ relative to the active workspace/backend working directory.) You can also interact with skills through natural conversation:\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "/github-pr-workflow /test-driven-development fix issue #123 and open a PR",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#stacking-multiple-skills-in-one-command",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-learning-a-skill-from-sources-learn",
+      "title": "Learning a skill from sources (/learn)",
+      "summary": "/learn is the fast way to turn something you already know - or a pile of reference material - into a reusable skill, without hand-writing the SKILL.md .",
+      "detail": "/learn is the fast way to turn something you already know - or a pile of reference material - into a reusable skill, without hand-writing the SKILL.md . It is open-ended: point it at anything you can describe and the agent gathers the material with the tools it already has, then authors a skill that follows the house authoring standards (≤60-char description, the standard section order, Hermes-tool framing, no invented commands).\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "# A local SDK or doc directory — read with read_file / search_files\n/learn the REST client in ~/projects/acme-sdk, focus on auth + pagination\n\n# An online doc page — fetched with web_extract\n/learn https://docs.example.com/api/quickstart\n\n# The workflow you just walked the agent through in this conversation\n/learn how I just deployed the staging server\n\n# Pasted notes / a described procedure\n/learn filing an expense: open the portal, New > Expense, attach the receipt, submit\n\n# A whole book, paper stack, or large docs corpus — becomes a knowledge-base skill\n/learn ~/books/designing-data-intensive-applications.pdf",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#learning-a-skill-from-sources-learn",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-large-sources-become-knowledge-base-skills",
+      "title": "Large sources become knowledge-base skills",
+      "summary": "When the source is a book, a stack of papers, a spec, or a large docs folder, the agent doesn't cram it into one file or reduce it to a lossy summary.",
+      "detail": "When the source is a book, a stack of papers, a spec, or a large docs folder, the agent doesn't cram it into one file or reduce it to a lossy summary. Instead it authors an expansive knowledge-base skill : a lean SKILL.md carrying the source's core mental models plus an index, with one distilled file per chapter or topic under references/ (plus a glossary or cheatsheet when the source earns them). Reference files cost nothing until a question needs one - the agent loads them on demand with skill_view , so query cost stays proportional to the answer, not the source. Re-running /learn with new material on the same topic folds it into the existing skill rather than creating a duplicate. The distillation synthesizes structure - frameworks, definitions, decision rules, anti-patterns - and never reproduces passages of the source text. Because the live agent does the sourcing, /learn works the same in the CLI, the messaging gateway, the TUI, and the dashboard - and on any terminal backend (local, Docker, remote), since there is no separate ingestion engine. In the dashboard , the Skills page has a Learn a skill button that opens a panel with a directory field, a URL field, and an open-end…\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#large-sources-become-knowledge-base-skills",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-progressive-disclosure",
+      "title": "Progressive Disclosure",
+      "summary": "Skills use a token-efficient loading pattern: The agent only loads the full skill content when it actually needs it.",
+      "detail": "Skills use a token-efficient loading pattern: The agent only loads the full skill content when it actually needs it.\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "Level 0: skills_list()           → [{name, description, category}, ...]   (~3k tokens)\nLevel 1: skill_view(name)        → Full content + metadata       (varies)\nLevel 2: skill_view(name, path)  → Specific reference file       (varies)",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#progressive-disclosure",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-platform-specific-skills",
+      "title": "Platform-Specific Skills",
+      "summary": "Skills can restrict themselves to specific operating systems using the platforms field: Value Matches macos macOS (Darwin) linux Linux windows Windows When set, the skill is automatically…",
+      "detail": "Skills can restrict themselves to specific operating systems using the platforms field: Value Matches macos macOS (Darwin) linux Linux windows Windows When set, the skill is automatically hidden from the system prompt, skills_list() , and slash commands on incompatible platforms. If omitted, the skill loads on all platforms.\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "platforms: [macos]            # macOS only (e.g., iMessage, Apple Reminders, FindMy)\nplatforms: [macos, linux]     # macOS and Linux",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#platform-specific-skills",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-skill-output-and-media-delivery",
+      "title": "Skill output and media delivery",
+      "summary": "When a skill response (or any agent response) includes a bare absolute path to a media file - for example /home/user/screenshots/diagram.png - the gateway auto-detects it, strips it from…",
+      "detail": "When a skill response (or any agent response) includes a bare absolute path to a media file - for example /home/user/screenshots/diagram.png - the gateway auto-detects it, strips it from the visible text, and delivers the file natively to the user's chat (Telegram photo, Discord attachment, etc.) instead of leaving the raw path in the message. For audio specifically, the [[audio_as_voice]] directive promotes audio files to native voice-message bubbles on platforms that support them (Telegram, WhatsApp).\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#skill-output-and-media-delivery",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-forcing-document-style-delivery-as-document",
+      "title": "Forcing document-style delivery: [[as_document]]",
+      "summary": "Sometimes you want the opposite of inline preview: you want the file delivered as a downloadable attachment, not a re-compressed image bubble.",
+      "detail": "Sometimes you want the opposite of inline preview: you want the file delivered as a downloadable attachment, not a re-compressed image bubble. The classic example is a high-resolution screenshot or chart - Telegram's sendPhoto recompresses it to ~200 KB at 1280 px, destroying readability. A 1-2 MB PNG sent via sendDocument keeps the original bytes intact. If a response (or any text inside it - typically the last line) contains the literal directive [[as_document]] , every media path extracted from that response is delivered as a document/file attachment rather than an image bubble: The directive is stripped before delivery, so users never see it. Granularity is intentionally all-or-nothing per response: emit [[as_document]] once and every image path in the same response is delivered as a document. This mirrors the scope of [[audio_as_voice]] . Use it from a skill when: You produce screenshots or charts the user needs as files (for editing in another tool, archiving, sharing intact). The default lossy preview would obscure detail (small text, pixel-accurate diagrams, color-sensitive renders). Platforms without a separate document path (e.g. SMS) fall back to whatever attachment mech…\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "Here is your rendered chart:\n\n/home/user/.hermes/cache/chart-q4-2025.png\n\n[[as_document]]",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#forcing-document-style-delivery-as_document",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-conditional-activation-fallback-skills",
+      "title": "Conditional Activation (Fallback Skills)",
+      "summary": "Skills can automatically show or hide themselves based on which tools are available in the current session.",
+      "detail": "Skills can automatically show or hide themselves based on which tools are available in the current session. This is most useful for fallback skills - free or local alternatives that should only appear when a premium tool is unavailable. Field Behavior fallback_for_toolsets Skill is hidden when the listed toolsets are available. Shown when they're missing. fallback_for_tools Same, but checks individual tools instead of toolsets. requires_toolsets Skill is hidden when the listed toolsets are unavailable. Shown when they're present. requires_tools Same, but checks individual tools. Example: The built-in duckduckgo-search skill uses fallback_for_toolsets: [web] . When you have FIRECRAWL_API_KEY set, the web toolset is available and the agent uses web_search - the DuckDuckGo skill stays hidden. If the API key is missing, the web toolset is unavailable and the DuckDuckGo skill automatically appears as a fallback. Skills without any conditional fields behave exactly as before - they're always shown.\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "metadata:\n  hermes:\n    fallback_for_toolsets: [web]      # Show ONLY when these toolsets are unavailable\n    requires_toolsets: [terminal]     # Show ONLY when these toolsets are available\n    fallback_for_tools: [web_search]  # Show ONLY when these specific tools are unavailable\n    requires_tools: [terminal]        # Show ONLY when these specific tools are available",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#conditional-activation-fallback-skills",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-secure-setup-on-load",
+      "title": "Secure Setup on Load",
+      "summary": "Skills can declare required environment variables without disappearing from discovery: When a missing value is encountered, Hermes asks for it securely only when the skill is actually loa…",
+      "detail": "Skills can declare required environment variables without disappearing from discovery: When a missing value is encountered, Hermes asks for it securely only when the skill is actually loaded in the local CLI. You can skip setup and keep using the skill. Messaging surfaces never ask for secrets in chat - they tell you to use hermes setup or ~/.hermes/.env locally instead. Once set, declared env vars are automatically passed through to execute_code and terminal sandboxes - the skill's scripts can use $TENOR_API_KEY directly. For non-skill env vars, use the terminal.env_passthrough config option. See Environment Variable Passthrough for details.\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "required_environment_variables:\n  - name: TENOR_API_KEY\n    prompt: Tenor API key\n    help: Get a key from https://developers.google.com/tenor\n    required_for: full functionality",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#secure-setup-on-load",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-skill-config-settings",
+      "title": "Skill Config Settings",
+      "summary": "Skills can also declare non-secret config settings (paths, preferences) stored in config.yaml : Settings are stored under skills.config in your config.yaml.",
+      "detail": "Skills can also declare non-secret config settings (paths, preferences) stored in config.yaml : Settings are stored under skills.config in your config.yaml. hermes config migrate prompts for unconfigured settings, and hermes config show displays them. When a skill loads, its resolved config values are injected into the context so the agent knows the configured values automatically. See Skill Settings and Creating Skills - Config Settings for details.\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "metadata:\n  hermes:\n    config:\n      - key: myplugin.path\n        description: Path to the plugin data directory\n        default: \"~/myplugin-data\"\n        prompt: Plugin data directory path",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#skill-config-settings",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-skill-directory-structure",
+      "title": "Skill Directory Structure",
+      "summary": "Third-party URL and GitHub installs include SKILL.md plus the exact local files it references under references/ , templates/ , scripts/ , assets/ , and examples/ .",
+      "detail": "Third-party URL and GitHub installs include SKILL.md plus the exact local files it references under references/ , templates/ , scripts/ , assets/ , and examples/ . Unreferenced repository files are not copied. Hermes scans the complete quarantined bundle and records the source URL, exact content hash, scanner version, findings, timestamp, and fresh-or-cached status in skills/.hub/lock.json .\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "~/.hermes/skills/                  # Single source of truth\n├── mlops/                         # Category directory\n│   ├── axolotl/\n│   │   ├── SKILL.md               # Main instructions (required)\n│   │   ├── references/            # Additional docs\n│   │   ├── templates/             # Output formats\n│   │   ├── scripts/               # Helper scripts callable from the skill\n│   │   ├── examples/              # Referenced example outputs\n│   │   └── assets/                # Supplementary files\n│   └── vllm/\n│       └── SKILL.md\n├── devops/\n│   └── deploy-k8s/                # Agent-created skill\n│       ├── SKILL.md\n│       └── references/\n├── .hub/                          # Skills Hub state\n│   ├── lock.json\n│   ├── quarantine/\n│   └── audit.log\n└── .bundled_manifest              # Tracks seeded bundled skills",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#skill-directory-structure",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-advisory-skillevaluator-scan",
+      "title": "Advisory SkillEvaluator scan",
+      "summary": "In addition to the built-in security scanner (which enforces the install policy above), Hermes can run NVIDIA SkillEvaluator Tier 1 checks on every hub install as a second opinion.",
+      "detail": "In addition to the built-in security scanner (which enforces the install policy above), Hermes can run NVIDIA SkillEvaluator Tier 1 checks on every hub install as a second opinion. Tier 1 is deterministic and keyless - PII detection (leaked emails, personal paths, connection strings), unicode-smuggling detection, script lint, license compliance, and a static security scan via NVIDIA SkillSpector . The scan is advisory only : findings are printed with file and line before the install confirmation, and the install continues. Findings that look like real credentials (private keys, cloud access keys, tokens, credentialed connection strings) are highlighted in red so you can review the flagged lines before deciding. PII-class findings are informational - the upstream scanner has known false-positive classes (e.g. git@github.com SSH syntax, documentation example emails), so they never block anything. To enable it, install the optional scanner binaries (the second one powers the security check; without it that check simply reports \"not run\"): Without the binary on PATH the scan is silently skipped. To turn it off entirely: The dashboard's Browse-hub scan button returns the same advisory d…\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "uv tool install --python 3.13 \\\n  \"skillevaluator @ git+https://github.com/NVIDIA/SkillEvaluator.git@v0.1.0\"\nuv tool install \"git+https://github.com/NVIDIA/SkillSpector.git@v2.9.5\"",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#advisory-skillevaluator-scan",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-external-skill-directories",
+      "title": "External Skill Directories",
+      "summary": "If you maintain skills outside of Hermes - for example, a shared ~/.agents/skills/ directory used by multiple AI tools - you can tell Hermes to scan those directories too.",
+      "detail": "If you maintain skills outside of Hermes - for example, a shared ~/.agents/skills/ directory used by multiple AI tools - you can tell Hermes to scan those directories too. Add external_dirs under the skills section in ~/.hermes/config.yaml : Paths support ~ expansion and ${VAR} environment variable substitution.\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "skills:\n  external_dirs:\n    - ~/.agents/skills\n    - /home/shared/team-skills\n    - ${SKILLS_REPO}/skills",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#external-skill-directories",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-how-it-works",
+      "title": "How it works",
+      "summary": "Create locally, update in place : New agent-created skills are written to ~/.hermes/skills/ (or skills.create_dir when configured - see below).",
+      "detail": "Create locally, update in place : New agent-created skills are written to ~/.hermes/skills/ (or skills.create_dir when configured - see below). Existing skills are modified where they are found, including skills under external_dirs , when the agent uses skill_manage actions such as patch (targeted or full rewrite), write_file , remove_file , or delete . External dirs are not a write-protection boundary : If an external skill directory is writable by the Hermes process, agent-managed skill updates can change files in that directory. Use filesystem permissions or a separate profile/toolset setup if shared external skills must stay read-only. Local precedence : If the same skill name exists in both the local dir and an external dir, the local version wins. Full integration : External skills appear in the system prompt index, skills_list , skill_view , and as /skill-name slash commands - no different from local skills. Non-existent paths are silently skipped : If a configured directory doesn't exist, Hermes ignores it without errors. Useful for optional shared directories that may not be present on every machine.\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#how-it-works",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-redirecting-skill-creation-skills-create-dir",
+      "title": "Redirecting Skill Creation (skills.create_dir)",
+      "summary": "By default the agent writes new skills to the profile-local ~/.hermes/skills/ .",
+      "detail": "By default the agent writes new skills to the profile-local ~/.hermes/skills/ . If you want agent-created skills to land somewhere else - a shared \"brain\" directory, a git-tracked repo, or a fleet-wide skills volume - set create_dir under the skills section: What this changes: skill_manage create writes there. New skills (including category subdirectories) are created under create_dir instead of the local skills dir. The directory is created on first write if it doesn't exist. The agent's instructions follow the config. Every agent-facing instruction that names the skill-creation path - the skill_manage tool description and related prompt text - dynamically renders the configured directory, so the agent is told to create skills there. No system-prompt overrides or filesystem tricks needed. The directory is fully integrated. Skills under create_dir are scanned alongside the local dir: they appear in the skill index, skills_list , skill_view , slash commands, and can be patched or deleted like any local skill. Everything else stays local. Existing skills are still modified in place wherever they live; bundled skill sync, the hub, and the curator keep operating on the profile-local di…\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "skills:\n  create_dir: /opt/brain/skills",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#redirecting-skill-creation-skillscreate_dir",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-project-local-skills",
+      "title": "Project-Local Skills",
+      "summary": "Repos can carry their own skills, active only for sessions started inside that project - the same pattern other agent harnesses use for repo-local configuration.",
+      "detail": "Repos can carry their own skills, active only for sessions started inside that project - the same pattern other agent harnesses use for repo-local configuration. When you launch Hermes inside a git checkout, it looks for skills in: The project root is the nearest ancestor directory containing .git (worktrees and submodules count).\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "<project-root>/.hermes/skills/    # Hermes-native location\n<project-root>/.agents/skills/    # cross-tool convention (shared with other agent CLIs)",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#project-local-skills",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-trusting-a-project",
+      "title": "Trusting a project",
+      "summary": "Skills are procedure documents the agent follows, so Hermes does not auto-load them from arbitrary cloned repos.",
+      "detail": "Skills are procedure documents the agent follows, so Hermes does not auto-load them from arbitrary cloned repos. The first time you run Hermes in a repo with project skills, the banner shows a notice: Trust the repo once (from inside it, or by passing the path): Trusted roots are stored in skills.trusted_project_dirs in ~/.hermes/config.yaml . Set skills.project_discovery: false to turn the feature off entirely (no scanning, no notices).\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "◆ 3 project skill(s) found in /home/you/myproject but not loaded — run `hermes skills trust` to enable them.",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#trusting-a-project",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-precedence",
+      "title": "Precedence",
+      "summary": "Project skills are the highest-precedence tier : project → local (~/.hermes/skills/) → external_dirs .",
+      "detail": "Project skills are the highest-precedence tier : project → local (~/.hermes/skills/) → external_dirs . A project skill named deploy overrides a same-named profile or bundled skill for sessions inside that repo - that's the point: vendored repo skills win on their home turf, without touching your global profile. Project skills are tagged [project] in the agent's skill index so provenance stays visible. Like external dirs, project skill directories are treated as repo-owned: autonomous skill maintenance (the curator) never modifies them, and new agent-created skills always go to ~/.hermes/skills/ .\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#precedence",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-scan-time-quarantine",
+      "title": "Scan-time quarantine",
+      "summary": "Trust is a repo-level decision, but a repo's skill content changes with every git pull .",
+      "detail": "Trust is a repo-level decision, but a repo's skill content changes with every git pull . To close that gap, every project skill is scanned with the same security scanner used for Skills Hub installs before it enters the index. A skill whose scan verdict is dangerous (prompt-injection directives, credential-exfiltration commands, hidden-text tricks) is quarantined: it does not appear in the skill index, skills_list , slash commands, and refuses to load by name with an explanatory error. Scans are content-hash cached under ~/.hermes/cache/project_skill_scans/ (never inside your repo) and re-run automatically when the skill's content changes.\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#scan-time-quarantine",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-non-interactive-surfaces-cron-api-acp",
+      "title": "Non-interactive surfaces (cron, API, ACP)",
+      "summary": "Cron jobs and other non-interactive surfaces inherit your interactive trust decision - they never prompt and never auto-trust.",
+      "detail": "Cron jobs and other non-interactive surfaces inherit your interactive trust decision - they never prompt and never auto-trust. The project root resolves from the surface's working directory (a cron job's workdir , via the same mechanism the terminal tool uses). A cron job whose workdir is inside a repo you previously trusted loads that repo's project skills; a job in an untrusted or undecided repo loads none. In the TUI and Desktop the project root follows each session's workspace (the directory shown in the sidebar / set with the workspace picker), so starting hermes --tui inside a trusted repo registers its project skills as slash commands even when terminal.cwd is left at the default placeholder . ; two sessions open in two repos each see their own.\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#non-interactive-surfaces-cron-api-acp",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-skill-bundles",
+      "title": "Skill Bundles",
+      "summary": "Skill bundles are tiny YAML files that group several skills under a single slash command.",
+      "detail": "Skill bundles are tiny YAML files that group several skills under a single slash command. When you run /<bundle-name> , every skill listed in the bundle loads at once - useful when a particular task always benefits from the same set of skills together.\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#skill-bundles",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-quick-example",
+      "title": "Quick example",
+      "summary": "Then in the CLI or any gateway platform: The agent receives all three skills loaded into one user message, with any text after the slash command attached as a user instruction.",
+      "detail": "Then in the CLI or any gateway platform: The agent receives all three skills loaded into one user message, with any text after the slash command attached as a user instruction.\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "# Create a bundle for backend feature work\nhermes bundles create backend-dev \\\n  --skill github-code-review \\\n  --skill test-driven-development \\\n  --skill github-pr-workflow \\\n  -d \"Backend feature work — review, test, PR workflow\"",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#quick-example",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-yaml-schema",
+      "title": "YAML schema",
+      "summary": "Bundles live in ~/.hermes/skill-bundles/<slug>.yaml and look like this: Fields: name (optional - defaults to the filename stem) - the bundle's display name.",
+      "detail": "Bundles live in ~/.hermes/skill-bundles/<slug>.yaml and look like this: Fields: name (optional - defaults to the filename stem) - the bundle's display name. Normalized to a hyphen slug for the slash command ( Backend Dev → /backend-dev ). description (optional) - short text shown in /bundles and hermes bundles list . skills (required, non-empty list) - skill names or paths relative to your skills directory. Use the same identifier you'd pass to /<skill-name> . instruction (optional) - extra guidance prepended to the loaded skill content. Useful for codifying \"how we always use these together.\"\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "name: backend-dev\ndescription: Backend feature work — review, test, PR workflow.\nskills:\n  - github-code-review\n  - test-driven-development\n  - github-pr-workflow\ninstruction: |\n  Always start by writing failing tests, then implement.\n  Open the PR through the standard workflow with co-author tags.",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#yaml-schema",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-managing-bundles",
+      "title": "Managing bundles",
+      "summary": "From inside a chat session, /bundles lists every installed bundle and its skills.",
+      "detail": "From inside a chat session, /bundles lists every installed bundle and its skills.\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "# List all installed bundles\nhermes bundles list\n\n# Inspect one bundle\nhermes bundles show backend-dev\n\n# Create a bundle interactively (omit --skill flags to enter them one per line)\nhermes bundles create research\n\n# Overwrite an existing bundle\nhermes bundles create backend-dev --skill ... --force\n\n# Delete a bundle\nhermes bundles delete backend-dev\n\n# Re-scan ~/.hermes/skill-bundles/ and report changes\nhermes bundles reload",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#managing-bundles",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-behavior",
+      "title": "Behavior",
+      "summary": "Bundles take precedence over individual skills when slugs collide.",
+      "detail": "Bundles take precedence over individual skills when slugs collide. If you name a bundle research and you also have a skill called research , /research invokes the bundle. This is intentional - you opted into the bundle by naming it. Missing skills are skipped, not fatal. If a bundle lists skill-foo and you haven't installed it, the bundle still loads the skills that do resolve, and the agent gets a note listing what was skipped. Bundles work in every surface - interactive CLI, TUI, dashboard chat, and every gateway platform (Telegram, Discord, Slack, …) - because dispatch is centralized in the same place as individual skill commands. Bundles do not invalidate the prompt cache. They generate a fresh user message at invocation time, the same way /<skill-name> does - no system prompt mutation.\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#behavior",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-when-bundles-beat-installing-each-skill-manually",
+      "title": "When bundles beat installing each skill manually",
+      "summary": "Use a bundle when: You always pair the same skills for a recurring task ( /backend-dev , /release-prep , /incident-response ).",
+      "detail": "Use a bundle when: You always pair the same skills for a recurring task ( /backend-dev , /release-prep , /incident-response ). You want a one-character-shorter mental model than typing several /skill invocations in a row. You want to ship a team-wide \"task profile\" by checking the bundle YAML into a shared dotfiles repo and symlinking it into ~/.hermes/skill-bundles/ . A bundle is just a YAML alias - it doesn't install skills for you. The skills themselves must already be present (in ~/.hermes/skills/ or an external skill directory). Otherwise the bundle invocation just skips the missing ones.\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#when-bundles-beat-installing-each-skill-manually",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-agent-managed-skills-skill-manage-tool",
+      "title": "Agent-Managed Skills (skill_manage tool)",
+      "summary": "The agent can create, update, and delete its own skills via the skill_manage tool.",
+      "detail": "The agent can create, update, and delete its own skills via the skill_manage tool. This is the agent's procedural memory - when it figures out a non-trivial workflow, it saves the approach as a skill for future reuse. Skills and memory work together in the self-improvement loop: memory stores small durable facts that should always be in context, while skills store longer procedures that should load only when relevant. The background review can suggest or stage skill changes after a session, but the write-approval gate below lets you require human review before those changes land.\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#agent-managed-skills-skill_manage-tool",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-when-the-agent-creates-skills",
+      "title": "When the Agent Creates Skills",
+      "summary": "The system prompt asks the agent to record a non-trivial workflow with skill_manage for future reuse.",
+      "detail": "The system prompt asks the agent to record a non-trivial workflow with skill_manage for future reuse. In practice that covers: When it worked out a multi-step workflow worth repeating When it hit errors or dead ends and found the working path When the user corrected its approach\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#when-the-agent-creates-skills",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-what-a-skill-entry-looks-like",
+      "title": "What a skill entry looks like",
+      "summary": "A skill is the instructions for doing a class of task the most efficient and correct way, to your specifications: the procedure in order, the commands and tool calls that work, how you wa…",
+      "detail": "A skill is the instructions for doing a class of task the most efficient and correct way, to your specifications: the procedure in order, the commands and tool calls that work, how you want the result to look, and the pitfalls that cost time. Whether written in a foreground turn, by the background review, or by the curator's consolidation pass, it captures lessons, not logs : a pitfall is a generalizable rule plus one clause of why (the mechanism), attached to the step it affects, stated once. Incident narration, PR or issue numbers, dates, and quoted chat are not skill content; the rule has to stand without the story behind it. Always-on rules live in SKILL.md itself; references/ holds a small set of files named by topic (a decision table, a recipe, provider quirks), extended in place rather than accumulated one file per session. Skills also do not restate what is already loaded every turn (the repo's AGENTS.md , tool schemas). skill_manage runs an advisory linter on create , on SKILL.md patches, and on references/ writes and returns its findings in the tool result. Three rules exist specifically for this shape: incident-log-shape (a body dense in PR/issue numbers), references-spr…\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#what-a-skill-entry-looks-like",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-actions",
+      "title": "Actions",
+      "summary": "Action Use for Key params create New skill from scratch name , content (full SKILL.md), optional category patch Targeted fixes (preferred) name , old_string , new_string patch with conten…",
+      "detail": "Action Use for Key params create New skill from scratch name , content (full SKILL.md), optional category patch Targeted fixes (preferred) name , old_string , new_string patch with content Major structural rewrites (replaces the whole SKILL.md; edit is the legacy alias) name , content delete Remove a skill entirely name write_file Add/update supporting files name , file_path , file_content remove_file Remove a supporting file name , file_path Each action is advertised as its own shape: the text slot belongs to one action only ( content → create / full rewrite, new_string → targeted patch, file_content → write_file). An op that carries another action's slot - e.g. file_content on a create - is invalid against the tool schema (grammar-constrained local backends never emit it) and, if it arrives anyway, is rejected before any op in the batch is applied , with an error naming the key the text sits in and where to move it. tip The targeted patch is preferred for updates - it's more token-efficient than a full rewrite because only the changed text appears in the tool call.\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#actions",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-gating-agent-skill-writes-skills-write-approval",
+      "title": "Gating agent skill writes (skills.write_approval)",
+      "summary": "By default the agent writes skills freely - including from the background self-improvement review that runs after a turn.",
+      "detail": "By default the agent writes skills freely - including from the background self-improvement review that runs after a turn. If you'd rather approve every skill write first (small models that misjudge what they learned, secure environments, or just wanting eyes on the self-improvement loop), turn on the write-approval gate: When write_approval: true , every skill_manage write (create / edit / patch / delete / write_file / remove_file) is staged instead of committed - a SKILL.md is too large to review inline, so staging applies regardless of whether the write came from a foreground turn or the background review. Staged writes survive restarts under ~/.hermes/pending/skills/ and are reviewed with the same familiar approve/deny flow as dangerous commands: The review surface works in the interactive CLI and on messaging platforms (diff output is truncated for chat bubbles - read the full diff on the CLI or in the pending JSON file). Memory writes have the same gate under memory.write_approval - see Controlling memory writes . The separate skills.guard_agent_created setting is a content scanner (dangerous-pattern heuristics), not an approval gate - the two are independent. See Guard on age…\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "skills:\n  write_approval: false     # false = write freely (default) | true = require approval",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#gating-agent-skill-writes-skillswrite_approval",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-skills-hub",
+      "title": "Skills Hub",
+      "summary": "Browse, search, install, and manage skills from online registries, skills.sh , direct well-known skill endpoints, and official optional skills.",
+      "detail": "Browse, search, install, and manage skills from online registries, skills.sh , direct well-known skill endpoints, and official optional skills. Unfiltered searches (CLI, TUI, and the dashboard) are answered from a cached centralized index that covers the external registries. That index is rebuilt periodically, so when it has no match for your query Hermes also asks skills.sh , ClawHub, LobeHub and well-known endpoints directly - a skill published minutes ago still shows up. That extra pass gets at most 8 seconds of the search budget, so a slow registry cannot turn a miss into a long wait. Custom GitHub taps are not part of that fallback (search them with --source github , or via the index once it catches up), and provider filters such as --source nvidia do not trigger it (those registries carry no provider data).\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#skills-hub",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-supported-hub-sources",
+      "title": "Supported hub sources",
+      "summary": "Source Example Notes official official/security/1password Optional skills shipped with Hermes.",
+      "detail": "Source Example Notes official official/security/1password Optional skills shipped with Hermes. skills-sh skills-sh/vercel-labs/agent-skills/vercel-react-best-practices Searchable via hermes skills search <query> --source skills-sh . Hermes resolves alias-style skills when the skills.sh slug differs from the repo folder. well-known well-known:https://mintlify.com/docs/.well-known/skills/mintlify Skills served directly from /.well-known/skills/index.json on a website. Search using the site or docs URL. url https://sharethis.chat/SKILL.md Direct HTTP(S) URL to SKILL.md plus explicitly referenced support files. Name resolution: frontmatter → URL slug → interactive prompt → --name flag. github openai/skills/k8s Direct GitHub repo/path installs and custom taps. clawhub , lobehub , browse-sh Source-specific identifiers Community or marketplace integrations.\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#supported-hub-sources",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-1-official-optional-skills-official",
+      "title": "1. Official optional skills (official)",
+      "summary": "These are maintained in the Hermes repository itself and install with built-in trust.",
+      "detail": "These are maintained in the Hermes repository itself and install with built-in trust. Catalog: Official Optional Skills Catalog Source in repo: optional-skills/ Example:\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "hermes skills browse --source official\nhermes skills install official/security/1password",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#1-official-optional-skills-official",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-2-skills-sh-skills-sh",
+      "title": "2. skills.sh (skills-sh)",
+      "summary": "This is Vercel's public skills directory.",
+      "detail": "This is Vercel's public skills directory. Hermes can search it directly, inspect skill detail pages, resolve alias-style slugs, and install from the underlying source repo. Directory: skills.sh CLI/tooling repo: vercel-labs/skills Official Vercel skills repo: vercel-labs/agent-skills Example:\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "hermes skills search react --source skills-sh\nhermes skills inspect skills-sh/vercel-labs/json-render/json-render-react\nhermes skills install skills-sh/vercel-labs/json-render/json-render-react --force",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#2-skillssh-skills-sh",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-3-well-known-skill-endpoints-well-known",
+      "title": "3. Well-known skill endpoints (well-known)",
+      "summary": "This is URL-based discovery from sites that publish /.well-known/skills/index.json .",
+      "detail": "This is URL-based discovery from sites that publish /.well-known/skills/index.json . It is not a single centralized hub - it is a web discovery convention. Example live endpoint: Mintlify docs skills index Reference server implementation: vercel-labs/skills-handler Example:\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "hermes skills search https://mintlify.com/docs --source well-known\nhermes skills inspect well-known:https://mintlify.com/docs/.well-known/skills/mintlify\nhermes skills install well-known:https://mintlify.com/docs/.well-known/skills/mintlify",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#3-well-known-skill-endpoints-well-known",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-4-direct-github-skills-github",
+      "title": "4. Direct GitHub skills (github)",
+      "summary": "Hermes can install directly from GitHub repositories and GitHub-based taps.",
+      "detail": "Hermes can install directly from GitHub repositories and GitHub-based taps. This is useful when you already know the repo/path or want to add your own custom source repo. Default taps (browsable without any setup): openai/skills anthropics/skills huggingface/skills NVIDIA/skills - NVIDIA-verified skills (signed skill.oms.sig + governance skill-card.md ) garrytan/gstack K-Dense-AI/scientific-agent-skills and synthetic-sciences/openscience - ~480 scientific research skills (bioinformatics, chemistry, physics, ML training, scholarly tooling), grouped under one science category. Community trust: every install is security-scanned. Many wrap third-party tools with their own licenses (some GPL; KEGG requires a commercial license for non-academic use) - check each skill's prerequisites. Example: Category groupings ( skills.sh.json ). A GitHub tap may ship a skills.sh.json file at its repo root following the skills.sh schema . Its groupings (each with a title and a list of skill names) are read at index time and become the category labels shown in the Skills Hub page - instead of a tag-derived guess. This is generic: any tap that ships the file gets real categorization, no Hermes-side chang…\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "hermes skills install openai/skills/k8s\nhermes skills tap add myorg/skills-repo",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#4-direct-github-skills-github",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-6-lobehub-lobehub",
+      "title": "6. LobeHub (lobehub)",
+      "summary": "Hermes can search and convert agent entries from LobeHub's public catalog into installable Hermes skills.",
+      "detail": "Hermes can search and convert agent entries from LobeHub's public catalog into installable Hermes skills. Site: LobeHub Public agents index: chat-agents.lobehub.com Backing repo: lobehub/lobe-chat-agents Hermes source id: lobehub\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#6-lobehub-lobehub",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-7-browse-sh-browse-sh",
+      "title": "7. browse.sh (browse-sh)",
+      "summary": "Hermes integrates with browse.sh , Browserbase's catalog of 200+ site-specific browser-automation SKILL.md files (Airbnb, Amazon, arXiv, 12306.cn, Etsy, Xero, and many more).",
+      "detail": "Hermes integrates with browse.sh , Browserbase's catalog of 200+ site-specific browser-automation SKILL.md files (Airbnb, Amazon, arXiv, 12306.cn, Etsy, Xero, and many more). Each skill describes how to drive one website end-to-end and is suitable for use with Hermes' browser tools and any browser-automation skills you already have installed. Site: browse.sh Catalog API: https://browse.sh/api/skills Hermes source id: browse-sh Trust level: community Identifiers use the form browse-sh/<hostname>/<task-id> and match the slug exposed by the browse.sh catalog. Content is resolved through the per-skill detail endpoint ( /api/skills/<slug> → skillMdUrl ), not through the catalog's GitHub sourceUrl .\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "hermes skills search airbnb --source browse-sh\nhermes skills inspect browse-sh/airbnb.com/search-listings-ddgioa\nhermes skills install browse-sh/airbnb.com/search-listings-ddgioa",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#7-browsesh-browse-sh",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-8-direct-url-url",
+      "title": "8. Direct URL (url)",
+      "summary": "Install SKILL.md directly from any HTTP(S) URL - useful when an author hosts a skill on their own site (no hub listing, no GitHub path to type).",
+      "detail": "Install SKILL.md directly from any HTTP(S) URL - useful when an author hosts a skill on their own site (no hub listing, no GitHub path to type). Hermes also fetches explicitly referenced files under references/ , templates/ , scripts/ , assets/ , and examples/ , then scans and installs the complete bundle. Hermes source id: url Identifier: the URL itself (no prefix needed) Scope: SKILL.md plus exact referenced support files in the allowlisted directories. Hermes does not enumerate or copy unrelated files from the host. Name resolution, in order: name: field in the SKILL.md YAML frontmatter (recommended - every well-formed skill has one). Parent directory name from the URL path (e.g. .../my-skill/SKILL.md → my-skill , or .../my-skill.md → my-skill ), when it's a valid identifier ( ^[a-z][a-z0-9_-]*$ ). Interactive prompt on a terminal with a TTY. On non-interactive surfaces (the /skills install slash command inside the TUI, gateway platforms, scripts), a clean error pointing at the --name override. Trust level is always community - the same security scan runs as for every other source. The URL is stored as the install identifier, so hermes skills update re-fetches from the same URL…\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "hermes skills install https://sharethis.chat/SKILL.md\nhermes skills install https://example.com/my-skill/SKILL.md --category productivity",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#8-direct-url-url",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-security-scanning-and-force",
+      "title": "Security scanning and --force",
+      "summary": "All hub-installed skills go through a security scanner that checks for data exfiltration, prompt injection, destructive commands, supply-chain signals, and other threats.",
+      "detail": "All hub-installed skills go through a security scanner that checks for data exfiltration, prompt injection, destructive commands, supply-chain signals, and other threats. hermes skills inspect ... now also surfaces upstream metadata when available: repo URL skills.sh detail page URL install command weekly installs upstream security audit statuses well-known index/endpoint URLs Use --force when you have reviewed a third-party skill and want to override a non-dangerous policy block: Important behavior: --force can override policy blocks for caution/warn-style findings. --force does not override a dangerous scan verdict. Official optional skills ( official/... ) are treated as built-in trust and do not show the third-party warning panel.\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "hermes skills install skills-sh/anthropics/skills/pdf --force",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#security-scanning-and---force",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-trust-levels",
+      "title": "Trust levels",
+      "summary": "Level Source Policy builtin Ships with Hermes Always trusted official optional-skills/ in the repo Built-in trust, no third-party warning trusted Trusted registries/repos such as openai/s…",
+      "detail": "Level Source Policy builtin Ships with Hermes Always trusted official optional-skills/ in the repo Built-in trust, no third-party warning trusted Trusted registries/repos such as openai/skills , anthropics/skills , huggingface/skills , NVIDIA/skills More permissive policy than community sources community Everything else ( skills.sh , well-known endpoints, custom GitHub repos, most marketplaces) Non-dangerous findings can be overridden with --force ; dangerous verdicts stay blocked\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#trust-levels",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-update-lifecycle",
+      "title": "Update lifecycle",
+      "summary": "The hub now tracks enough provenance to re-check upstream copies of installed skills: This uses the stored source identifier plus the current upstream bundle content hash to detect drift.",
+      "detail": "The hub now tracks enough provenance to re-check upstream copies of installed skills: This uses the stored source identifier plus the current upstream bundle content hash to detect drift. Checks skip network requests for missing or non-directory installs ( orphaned ) and unsafe or unresolvable recorded paths ( invalid_install ). Missing-directory entries can be removed with hermes skills uninstall <name> ; invalid paths require inspecting and repairing the active profile's skills/.hub/lock.json before retrying. No entries are removed automatically. Valid installs continue to use their source adapter's existing synchronous fetch and transport timeouts. There is no strict total deadline for an update check: an unreachable or slow source for an existing install can still delay later entries. Skills you have edited locally (the on-disk content no longer matches the hash recorded at install time) are skipped by hermes skills update so your changes are never silently overwritten. Pass --force to replace them with the upstream version anyway. GitHub rate limits Skills hub operations use the GitHub API, which has a rate limit of 60 requests/hour for unauthenticated users. If you see rate-l…\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "hermes skills check          # Report which installed hub skills changed upstream\nhermes skills update         # Reinstall only the skills with updates available\nhermes skills update react   # Update one specific installed hub skill\nhermes skills update react --force   # Overwrite a skill you've edited locally",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#update-lifecycle",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-publishing-a-custom-skill-tap",
+      "title": "Publishing a custom skill tap",
+      "summary": "If you want to share a curated set of skills - for your team, your org, or publicly - you can publish them as a tap : a GitHub repository other Hermes users add with hermes skills tap add…",
+      "detail": "If you want to share a curated set of skills - for your team, your org, or publicly - you can publish them as a tap : a GitHub repository other Hermes users add with hermes skills tap add <owner/repo> . No server, no registry sign-up, no release pipeline. Just a directory of SKILL.md files.\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#publishing-a-custom-skill-tap",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-repo-layout",
+      "title": "Repo layout",
+      "summary": "A tap is any GitHub repo (public or private - private needs GITHUB_TOKEN ) laid out like this: Rules: Each skill lives in its own directory under the tap's root path (default skills/ ).",
+      "detail": "A tap is any GitHub repo (public or private - private needs GITHUB_TOKEN ) laid out like this: Rules: Each skill lives in its own directory under the tap's root path (default skills/ ). The directory name becomes the skill's install slug. Each skill directory must contain a SKILL.md with standard SKILL.md frontmatter ( name , description , plus optional metadata.hermes.tags , version , author , platforms , metadata.hermes.config ). Subdirectories like references/ , templates/ , scripts/ , assets/ are downloaded alongside SKILL.md at install time. Skills whose directory name starts with . or _ are ignored. Hermes discovers skills by listing every subdirectory of the tap path and probing each for SKILL.md .\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "owner/repo\n├── skills/                       # default path; configurable per-tap\n│   ├── my-workflow/\n│   │   ├── SKILL.md              # required\n│   │   ├── references/           # optional supporting files\n│   │   ├── templates/\n│   │   └── scripts/\n│   ├── another-skill/\n│   │   └── SKILL.md\n│   └── third-skill/\n│       └── SKILL.md\n└── README.md                     # optional but helpful",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#repo-layout",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-minimal-tap-example",
+      "title": "Minimal tap example",
+      "summary": "skills/deploy-runbook/SKILL.md : After pushing that to GitHub, any Hermes user can subscribe and install:",
+      "detail": "skills/deploy-runbook/SKILL.md : After pushing that to GitHub, any Hermes user can subscribe and install:\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "my-org/hermes-skills\n└── skills/\n    └── deploy-runbook/\n        └── SKILL.md",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#minimal-tap-example",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-non-default-paths",
+      "title": "Non-default paths",
+      "summary": "If your skills don't live under skills/ (common when you're adding a skills/ subtree to an existing project), edit the tap entry in ~/.hermes/skills/.hub/taps.json : The hermes skills tap…",
+      "detail": "If your skills don't live under skills/ (common when you're adding a skills/ subtree to an existing project), edit the tap entry in ~/.hermes/skills/.hub/taps.json : The hermes skills tap add CLI defaults new taps to path: \"skills/\" ; edit the file directly if you need a different path. hermes skills tap list shows the effective path per tap.\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "{\n  \"taps\": [\n    {\"repo\": \"my-org/platform-docs\", \"path\": \"internal/skills/\"}\n  ]\n}",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#non-default-paths",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-installing-individual-skills-directly-without-add",
+      "title": "Installing individual skills directly (without adding a tap)",
+      "summary": "Users can also install a single skill from any public GitHub repo without adding the whole repo as a tap: Useful when you want to share one skill without asking the user to subscribe to y…",
+      "detail": "Users can also install a single skill from any public GitHub repo without adding the whole repo as a tap: Useful when you want to share one skill without asking the user to subscribe to your whole registry.\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "hermes skills install owner/repo/skills/my-workflow",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#installing-individual-skills-directly-without-adding-a-tap",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-trust-levels-for-taps",
+      "title": "Trust levels for taps",
+      "summary": "New taps are assigned community trust by default.",
+      "detail": "New taps are assigned community trust by default. Skills installed from them run through the standard security scan and show the third-party warning panel on first install. If your org or a widely-trusted source should get higher trust, add its repo to TRUSTED_REPOS in tools/skills_guard.py (requires a Hermes core PR).\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#trust-levels-for-taps",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-tap-management",
+      "title": "Tap management",
+      "summary": "Inside a running session: Taps are stored in ~/.hermes/skills/.hub/taps.json (created on demand).",
+      "detail": "Inside a running session: Taps are stored in ~/.hermes/skills/.hub/taps.json (created on demand).\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "hermes skills tap list                                # show all configured taps\nhermes skills tap add myorg/skills-repo               # add (default path: skills/)\nhermes skills tap remove myorg/skills-repo            # remove",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#tap-management",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-bundled-skill-updates-hermes-skills-reset",
+      "title": "Bundled skill updates (hermes skills reset)",
+      "summary": "Hermes ships with a set of bundled skills in skills/ inside the repo.",
+      "detail": "Hermes ships with a set of bundled skills in skills/ inside the repo. On install and on every hermes update , a sync pass copies those into ~/.hermes/skills/ and records a manifest at ~/.hermes/skills/.bundled_manifest mapping each skill name to the content hash at the time it was synced (the origin hash ). On each sync, Hermes recomputes the hash of your local copy and compares it to the origin hash: Unchanged → safe to pull upstream changes, copy the new bundled version in, record the new origin hash. Changed → treated as user-modified and skipped forever, so your edits never get stomped. Generated runtime caches inside a skill ( __pycache__/ , .pytest_cache/ , .mypy_cache/ , .ruff_cache/ , and a .pyc sitting next to its .py ) are not part of the hash, so running a skill's helper script never marks it user-modified or hides it from hermes skills list-modified / diff . The protection is good, but it has one sharp edge. If you edit a bundled skill and then later want to abandon your changes and go back to the bundled version by just copy-pasting from ~/.hermes/hermes-agent/skills/ , the manifest still holds the old origin hash from whenever the last successful sync ran. Your fresh…\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "# Safe: clears the manifest entry for this skill. Your current copy is preserved,\n# but the next sync re-baselines against it so future updates work normally.\nhermes skills reset google-workspace\n\n# Full restore: also deletes your local copy and re-copies the current bundled\n# version. Use this when you want the pristine upstream skill back.\nhermes skills reset google-workspace --restore\n\n# Non-interactive (e.g. in scripts or TUI mode) — skip the --restore confirmation.\nhermes skills reset google-workspace --restore --yes",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#bundled-skill-updates-hermes-skills-reset",
+      "date": "2026-09-25"
+    },
+    {
+      "id": "doc-user-guide-features-skills-slash-commands-inside-chat",
+      "title": "Slash commands (inside chat)",
+      "summary": "All the same commands work with /skills : Official optional skills still use identifiers like official/security/1password and official/migration/openclaw-migration .",
+      "detail": "All the same commands work with /skills : Official optional skills still use identifiers like official/security/1password and official/migration/openclaw-migration . Browse and install in Desktop Install from the website Starting with a blank slate Using Skills Stacking multiple skills in one command Learning a skill from sources ( /learn ) Large sources become knowledge-base skills Progressive Disclosure SKILL.md Format Platform-Specific Skills Skill output and media delivery Forcing document-style delivery: [[as_document]] Conditional Activation (Fallback Skills) Secure Setup on Load Skill Config Settings Skill Directory Structure Advisory SkillEvaluator scan External Skill Directories How it works Example Redirecting Skill Creation ( skills.create_dir ) Project-Local Skills Trusting a project Precedence Scan-time quarantine Non-interactive surfaces (cron, API, ACP) Skill Bundles Quick example YAML schema Managing bundles Behavior When bundles beat installing each skill manually Agent-Managed Skills (skill_manage tool) When the Agent Creates Skills What a skill entry looks like Actions Gating agent skill writes ( skills.write_approval ) Skills Hub Common commands Supported hub so…\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "/skills browse\n/skills search react --source skills-sh\n/skills search https://mintlify.com/docs --source well-known\n/skills inspect skills-sh/vercel-labs/json-render/json-render-react\n/skills install openai/skills/skill-creator --force\n/skills check\n/skills update\n/skills reset google-workspace\n/skills list",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#slash-commands-inside-chat",
+      "date": "2026-09-25"
     }
   ]
 }
