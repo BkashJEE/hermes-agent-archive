@@ -20,7 +20,8 @@
     "shots": "node scripts/make-shots.mjs",
     "docs": "node scripts/import-hermes-docs.mjs",
     "icons": "node scripts/make-icons.mjs",
-    "tricks": "node scripts/extract-tricks.mjs"
+    "tricks": "node scripts/extract-tricks.mjs",
+    "plugin": "node scripts/install-plugin.mjs"
   },
   "engines": {
     "node": ">=20"

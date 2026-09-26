@@ -95,6 +95,19 @@ router refuses to place anything there, in code.
 
 </details>
 
+## Inside Hermes Desktop
+
+```bash
+npm run plugin      # then restart Hermes Desktop
+```
+
+A sidebar entry, a status-bar launcher, and command-palette actions for each shelf and for
+suggesting an entry. The plugin is one file that frames the published archive, so
+installing it is the whole install — no server to run, nothing to keep alive.
+
+To read your own fork or a local clone instead, set `hermes-archive:url`. See
+[the plugin's README](desktop-plugin/README.md).
+
 ## Contribute or correct something
 
 [Suggest an entry](https://github.com/BkashJEE/hermes-agent-archive/issues/new?template=submit-entry.yml), [report a correction](https://github.com/BkashJEE/hermes-agent-archive/issues/new?template=correction.yml), or fork the repository and open a pull request.
@@ -150,6 +163,7 @@ assets/licenses/           retained upstream notices
 data/index.json            shelf configuration; computed shelves have no file
 data/*.json                curated entries and generated API/ranking snapshots
 scripts/                   local server, importers, maintenance and validation
+desktop-plugin/            the Hermes Desktop plugin: one file, no dependencies
 docs/                      methodology, privacy and release status
 ```
 
