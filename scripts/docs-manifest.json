@@ -23,7 +23,7 @@
   ],
 
   "skipped": {
-    "skills": "The Skills Hub is client-rendered: the page ships about 16KB with one heading and no server-rendered content, and the catalogue has no public JSON endpoint. There is nothing to parse without executing its bundle, and scraping a JS bundle is not a source anyone can re-verify.",
+    "skills": "The Skills Hub is client-rendered, but the official Skills System documentation now identifies a public catalogue at https://hermes-agent.nousresearch.com/docs/api/skills.json (HTTP 200 verified 2026-09-26). This HTML heading importer does not handle that JSON catalogue. Importing its entries needs separate review of attribution, Hermes applicability and repository eligibility; do not bulk-import the catalogue as verified recommendations.",
     "plugins": "Client-rendered for the same reason, with no headings at all in the served HTML.",
 
     "user-guide/configuration": "123 sections of option-by-option reference. It belongs upstream, where it is searchable and current.",

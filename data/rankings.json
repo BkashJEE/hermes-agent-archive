@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-09-26T08:28:13.837Z",
+  "classifiedAt": "2026-09-26T18:09:43.883Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -1985,10 +1985,10 @@
       "confidence": 0.55
     },
     "gh-hermes-agent": {
-      "input": "3ed27bc5b5baf8845a178a66a8378f2c90d89dbf04a4092b3ea9baa9b95111ca",
+      "input": "5e12e41546ded357a6b2079c458f35178468ba4a6c4050ace4ee92ac72e13432",
       "usefulness": 0,
       "popularity": "widespread",
-      "confidence": 0.88
+      "confidence": 0.87
     },
     "jev-hermes-newsroom-with-jev-omarchy": {
       "input": "f33df236fb350388c648db1635e94c18475cdccd8e67074b11857c9d7ed37604",
@@ -4193,16 +4193,16 @@
       "confidence": 0.95
     },
     "kit-cc-switch": {
-      "input": "15dd0ad6ad98337d699e64c19a97d7e01dcabaaa45c9b9860e58ef4a02a0a8eb",
-      "usefulness": 2.16,
+      "input": "2dd4521c5bdabeba882c1718b6c11d408401a809e55fc71092022a8d4ac29569",
+      "usefulness": 2.18,
       "popularity": "widespread",
-      "confidence": 0.58
+      "confidence": 0.57
     },
     "kit-codegraph": {
-      "input": "5bb0c491e0ae303c304b9b9e6415db09459fb3ac0e6f31be57a44af9e988d8b7",
-      "usefulness": 2.88,
+      "input": "7b73355fbc4e1f34f2323490e782009177014a42c2fb2570af794e213520a52a",
+      "usefulness": 2.91,
       "popularity": "widespread",
-      "confidence": 0.44
+      "confidence": 0.37
     },
     "kit-gbrain": {
       "input": "0b0eb6d783a7a4f50b6bc6224a85facf138bcd015874e712a84b2a4cb0c1a9d5",
@@ -4421,46 +4421,46 @@
       "confidence": 0.63
     },
     "skill-superpowers": {
-      "input": "a128710b7ee8a736b670b6f0a94b13467e8cdaa4cf10564e4958356f2db2a109",
-      "usefulness": 1.82,
+      "input": "18071c393bf0d5e616cb9b754c49901f66311d7b0bef12a601a756e5cb3af932",
+      "usefulness": 1.9,
       "popularity": "widespread",
-      "confidence": 0.54
+      "confidence": 0.55
     },
     "skill-ponytail": {
-      "input": "571796dd90d1a6eb6bcb11ac984b066840e86c37314dae1bfb71c16e9111e0a4",
-      "usefulness": 2.15,
+      "input": "6d209e86680ffec90ab26ed77985bbac1ca23a6c83d55a892a475716a19aa3ba",
+      "usefulness": 2.08,
       "popularity": "widespread",
-      "confidence": 0.66
+      "confidence": 0.6
     },
     "skill-impeccable": {
-      "input": "6ca401e544557cf113b652de5b942c1f35dcc08d7addff43de7a3aec1cab5393",
-      "usefulness": 2.24,
+      "input": "ee978da3e724059959bc90f9bbee8cde086ade79ad3c7f74b17ea1886406a973",
+      "usefulness": 2.27,
       "popularity": "widespread",
       "confidence": 0.62
     },
     "skill-cli-anything": {
-      "input": "537b5d6fadb9d879575322bff767497dc21f32808ce3453cecbd7ffc78cc1ed0",
-      "usefulness": 2.02,
+      "input": "afbe850a3ecec83b7ff6f18606356044fddcddc47097a02b29eca21bb095608a",
+      "usefulness": 1.97,
       "popularity": "strong",
-      "confidence": 0.32
+      "confidence": 0.37
     },
     "kit-caveman": {
-      "input": "107a8d8f9e4530a62634c7f611d60c09a4f7415439a1c948496a14fc35480144",
-      "usefulness": 2.33,
+      "input": "948af222a7a60cb1b42aeb80b8ba3796ac33f875e895c5c85e5c9db80ecd37e8",
+      "usefulness": 2.29,
       "popularity": "widespread",
-      "confidence": 0.56
+      "confidence": 0.55
     },
     "kit-open-design": {
-      "input": "c7893a5e608ce086ef064479e6495c746c54157db8adeb49ad3a2646fa5dbb6e",
-      "usefulness": 1.7,
+      "input": "bdcc01d20e2a9a63ccd3cc884030ba36be2bd5c48adcb107763185688d3da41a",
+      "usefulness": 1.66,
       "popularity": "widespread",
-      "confidence": 0.54
+      "confidence": 0.53
     },
     "kit-unsloth": {
-      "input": "f70d9433ada268916adffb936f687a36e4a98431b4a58e1ef221a54967ebb8b7",
-      "usefulness": 1.27,
+      "input": "c8e70f758ea8c5e0a54a350abfa23ecc6e6a40b8a8c51fb25adac8a9db589b28",
+      "usefulness": 1.24,
       "popularity": "widespread",
-      "confidence": 0.65
+      "confidence": 0.66
     },
     "gh-internet-court-internet-court-skill": {
       "input": "a323123cc389079ff27879d48f0a63f5cef12c2f053697293ac4d11598ad4fcc",
