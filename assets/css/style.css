@@ -776,3 +776,17 @@ code{font-family:var(--mono);font-size:.92em}
 }
 .skip-link:focus{ top:8px }
 @media (prefers-reduced-motion:reduce){ .skip-link{transition:none} }
+
+
+/* The pinned list bar carried its whole ranking note down the page — four lines of
+   methodology nobody re-reads, holding ~110px of every scroll hostage. Once the bar
+   is actually stuck the note folds to the screen-reader-only treatment: gone from the
+   layout, still in the accessibility tree, so someone navigating by heading can still
+   find out how the order was decided. */
+.stick-sentinel{height:1px;margin:0;padding:0}
+
+.listbar.is-stuck{padding-top:8px;padding-bottom:8px}
+.listbar.is-stuck #listSub{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0
+}
