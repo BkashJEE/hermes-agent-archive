@@ -113,6 +113,9 @@
       </div>
     </section>
 
+    <!-- Watched by app.js: once this scrolls out of view the listbar is stuck, and the
+         ranking note folds away so the pinned bar costs a row instead of four. -->
+    <div class="stick-sentinel" id="listbarSentinel" aria-hidden="true"></div>
     <div class="listbar" id="listbar">
       <div>
         <h2 id="listTitle" tabindex="-1" aria-live="polite">POPULAR &middot; <span id="listCount">0</span></h2>
@@ -161,6 +164,6 @@
   <div id="drawerBody"></div>
 </aside>
 
-<script type="module" src="assets/js/app.js?v=a11y-1"></script>
+<script type="module" src="assets/js/app.js?v=sticky-5"></script>
 </body>
 </html>

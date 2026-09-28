@@ -11,7 +11,7 @@ An independent community archive of Hermes Agent workflows, prompts, skills and 
 
 [Browse the archive](https://hermes-agent-archive.vercel.app) · [Contribute](CONTRIBUTING.md) · [Methodology](docs/METHODOLOGY.md) · [Release readiness](docs/RELEASE_READINESS.md)
 
-The archive is under active development. Some shelves are incomplete, and importer coverage is still being finished. A source link is not proof that a workflow works, and a listing is not a security endorsement.
+The archive is under active development. Some shelves are deliberately thin, and importer coverage is still being extended — `scripts/docs-manifest.json` records every documentation page that is imported and every one that is not, with the reason. A source link is not proof that a workflow works, and a listing is not a security endorsement.
 
 ## Run your own copy
 
@@ -57,15 +57,17 @@ The star cutoff is an editorial preference. It excludes smaller and newer projec
 | **Prompts** | Copyable examples, each verified against the page it cites. | 12 |
 | **Settings** | Configuration that materially changes how a run behaves. | 98 |
 | **Commands** | Commands and invocations, by how often they earn their keystrokes. | 272 |
-| **Hidden Tricks** | Non-obvious moves most people never find. | 0 |
+| **Hidden Tricks** | Non-obvious moves most people never find. | 4 |
 | **Works With** | Repositories worth pairing with Hermes, each read before listing. | 8 |
 | **People Build** | Projects built on Hermes and shown off publicly. | 4 |
 | **My Work** | The maintainer's own posts, with analytics explicitly credited. | 11 |
 
-Hidden Tricks is empty on purpose rather than by neglect. Claiming something is a
-non-obvious trick asserts that it is absent from the documentation, which no classifier
-can establish, so that shelf and Prompts are filled only by reviewed extraction. The
-router refuses to place anything there, in code.
+Hidden Tricks is small on purpose. Calling something a non-obvious trick asserts that it
+is absent from the documentation, and no classifier can establish that, so this shelf and
+Prompts are filled only by reviewed extraction — the router refuses to place anything
+there, in code. Each entry carries the evidence of its own absence from the docs, in
+`scripts/trick-evidence.json`, so the claim can be re-checked rather than taken on trust.
+Four honest entries beat forty guessed ones.
 
 ![The Use Cases shelf](docs/images/use-cases.png)
 
