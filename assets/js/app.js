@@ -158,11 +158,11 @@ function card(item, rank, iconName) {
   const category = cardCategory(item, iconName);
   const order = activeSort() === 'az' ? 'A–Z' : (item.ranking || activeSort() === 'trending') ? `#${rank}` : '';
   const action = iconName === 'stories' ? 'Read workflow' : iconName === 'prompts' ? 'View prompt' : 'View details';
-  const metric = item.metric ? `${num(item.metric.value)} ${item.metric.kind}` : 'no public metric';
+  const metric = item.metric ? `${num(item.metric.value)} ${item.metric.kind === 'stars' && item.metric.value === 1 ? 'star' : item.metric.kind}` : 'no public metric';
   return `<li><button class="card card-${category.tone}" data-id="${esc(item.id)}" aria-label="${esc(`${action}: ${item.title}`)}">
     <div class="card-heading"><span class="card-icon">${sectionIcon(category.icon)}</span><div class="card-heading-text">
       <h3>${esc(item.title)}</h3>
-      <p class="card-byline">${esc(credit.label)} <strong>${esc(credit.name)}</strong><span class="card-source">${esc(SOURCE_LABEL[item.source] || 'CURATED')}${item.sourced ? ' · SOURCED' : ''}</span></p>
+      <p class="card-byline">${esc(credit.label)} <strong>${esc(credit.name)}</strong><span class="card-source">${esc(SOURCE_LABEL[item.source] || 'CURATED')}${item.sourced ? ' · SOURCED' : ''}${item.communityException ? ' · OWNER-APPROVED EXCEPTION' : ''}</span></p>
     </div></div>
     <div class="card-preview"><p class="card-label">${item.cardPoints?.length || !(item.tags || []).includes('user-story') ? 'What it does' : 'From the source'}</p>
       <ul class="card-points">${cardPoints(item).map(point => `<li>${esc(point)}</li>`).join('')}</ul>
@@ -829,6 +829,7 @@ function openDrawer(id, trigger, updateUrl = true) {
     ${story ? `<figure class="d-story"><blockquote class="d-body" cite="${esc(it.url)}">${body}</blockquote>
       <figcaption class="d-attribution"><span class="attribution-rule" aria-hidden="true"></span>${esc(credit)}</figcaption></figure>`
       : `<p class="d-attribution">${esc(credit)}</p><div class="d-body">${body}</div>`}
+    ${it.communityException ? `<p class="d-attribution">Owner-approved community exception to the GitHub star minimum. <a href="${esc(it.communityException)}" target="_blank" rel="noopener noreferrer">View submission ↗</a></p>` : ''}
     ${it.hermesSupport ? `<div class="d-body"><p><a href="${esc(it.hermesSupport.url)}" target="_blank" rel="noopener noreferrer">Hermes support documented ↗</a><br>${esc(it.hermesSupport.note)}</p></div>` : ''}
     ${it.snippet ? `<div class="d-snip">
         <button class="copy-btn" id="copyBtn">${copyLabel}</button>
