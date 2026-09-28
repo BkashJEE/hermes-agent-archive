@@ -1356,6 +1356,366 @@
       "source": "docs",
       "url": "https://hermes-agent.nousresearch.com/docs/getting-started/termux#uninstall",
       "date": "2026-09-25"
+    },
+    {
+      "id": "review-settings-keep-credentials-out-of-shared-configuration",
+      "title": "Keep credentials out of shared configuration",
+      "summary": "Resolve configuration values from environment variables.",
+      "cardPoints": [
+        "Resolve configuration values from environment variables.",
+        "Use the documented substitution syntax and set values on the host running Hermes. Check missing-variable behavior before sharing configuration."
+      ],
+      "detail": "Resolve configuration values from environment variables.\n\nUse the documented substitution syntax and set values on the host running Hermes. Check missing-variable behavior before sharing configuration.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "configuration"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/configuration#environment-variable-substitution",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-settings-isolate-code-changes-with-git-worktrees",
+      "title": "Isolate code changes with Git worktrees",
+      "summary": "Configure separate working trees for coding sessions.",
+      "cardPoints": [
+        "Configure separate working trees for coding sessions.",
+        "Start from a Git repository and review where each session writes. Worktree isolation does not isolate every external service or credential."
+      ],
+      "detail": "Configure separate working trees for coding sessions.\n\nStart from a Git repository and review where each session writes. Worktree isolation does not isolate every external service or credential.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "configuration"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/configuration#git-worktree-isolation",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-settings-bound-a-run-by-elapsed-time",
+      "title": "Bound a run by elapsed time",
+      "summary": "Set a wall-clock budget for agent runs.",
+      "cardPoints": [
+        "Set a wall-clock budget for agent runs.",
+        "Choose a limit that permits useful work and inspect timeout behavior. A stopped run may leave partial changes to review."
+      ],
+      "detail": "Set a wall-clock budget for agent runs.\n\nChoose a limit that permits useful work and inspect timeout behavior. A stopped run may leave partial changes to review.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "configuration"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/configuration#wall-clock-run-budget",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-settings-keep-large-tool-results-from-crowding-context",
+      "title": "Keep large tool results from crowding context",
+      "summary": "Control the budget for results that spill outside the active context.",
+      "cardPoints": [
+        "Control the budget for results that spill outside the active context.",
+        "Keep detailed output available for inspection rather than assuming truncation means success."
+      ],
+      "detail": "Control the budget for results that spill outside the active context.\n\nKeep detailed output available for inspection rather than assuming truncation means success.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "configuration"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/configuration#tool-result-spillover-budget",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-settings-detect-sessions-that-stop-making-progress",
+      "title": "Detect sessions that stop making progress",
+      "summary": "Configure the session stall watchdog.",
+      "cardPoints": [
+        "Configure the session stall watchdog.",
+        "Tune thresholds for your workloads and inspect why a session stalled before retrying it."
+      ],
+      "detail": "Configure the session stall watchdog.\n\nTune thresholds for your workloads and inspect why a session stalled before retrying it.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "configuration"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/configuration#session-stall-watchdog",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-settings-restrict-web-access-by-domain",
+      "title": "Restrict web access by domain",
+      "summary": "Configure domains Hermes web and browser tools must not access.",
+      "cardPoints": [
+        "Configure domains Hermes web and browser tools must not access.",
+        "Review matching rules in the linked documentation; this setting is not a network-wide firewall."
+      ],
+      "detail": "Configure domains Hermes web and browser tools must not access.\n\nReview matching rules in the linked documentation; this setting is not a network-wide firewall.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "configuration"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/configuration#website-blocklist",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-settings-block-specific-terminal-commands",
+      "title": "Block specific terminal commands",
+      "summary": "Use deny patterns for commands that must not run.",
+      "cardPoints": [
+        "Use deny patterns for commands that must not run.",
+        "Patterns apply to Hermes approval handling. Review exact matching behavior and keep external access scoped too."
+      ],
+      "detail": "Use deny patterns for commands that must not run.\n\nPatterns apply to Hermes approval handling. Review exact matching behavior and keep external access scoped too.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "configuration"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/configuration#deny-rules",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-settings-stop-retries-after-rejected-commands",
+      "title": "Stop retries after rejected commands",
+      "summary": "Limit repeated attempts after command denials.",
+      "cardPoints": [
+        "Limit repeated attempts after command denials.",
+        "Set a threshold appropriate for interactive work. A denial should trigger a revised plan rather than variations of the same forbidden operation."
+      ],
+      "detail": "Limit repeated attempts after command denials.\n\nSet a threshold appropriate for interactive work. A denial should trigger a revised plan rather than variations of the same forbidden operation.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "configuration"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/configuration#denial-circuit-breaker",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-settings-help-speech-transcription-recognize-project-terms",
+      "title": "Help speech transcription recognize project terms",
+      "summary": "Provide vocabulary hints to compatible speech-to-text backends.",
+      "cardPoints": [
+        "Provide vocabulary hints to compatible speech-to-text backends.",
+        "Hints are backend-dependent and do not guarantee an exact transcription; review names and technical terms."
+      ],
+      "detail": "Provide vocabulary hints to compatible speech-to-text backends.\n\nHints are backend-dependent and do not guarantee an exact transcription; review names and technical terms.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "configuration"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/configuration#transcription-prompt-vocabulary-hints",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-settings-reduce-console-noise-with-focus-view",
+      "title": "Reduce console noise with focus view",
+      "summary": "Configure a reduced-output view in the CLI and TUI.",
+      "cardPoints": [
+        "Configure a reduced-output view in the CLI and TUI.",
+        "Use the linked display setting or command and retain access to detailed tool activity when investigating a run."
+      ],
+      "detail": "Configure a reduced-output view in the CLI and TUI.\n\nUse the linked display setting or command and retain access to detailed tool activity when investigating a run.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "configuration"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/configuration#focus-view-focus-cli--tui",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-settings-let-telegram-context-accumulate-without-unsolicited-replies",
+      "title": "Let Telegram context accumulate without unsolicited replies",
+      "summary": "Separate observing group chatter from deciding when to respond.",
+      "cardPoints": [
+        "Separate observing group chatter from deciding when to respond.",
+        "Review group membership, mention settings and allowlists before enabling group access."
+      ],
+      "detail": "Separate observing group chatter from deciding when to respond.\n\nReview group membership, mention settings and allowlists before enabling group access.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "configuration"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/messaging/telegram#observe-group-chatter-without-auto-replying",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-settings-control-telegram-messages-queued-during-startup",
+      "title": "Control Telegram messages queued during startup",
+      "summary": "Configure how a Telegram bot handles messages while it starts.",
+      "cardPoints": [
+        "Configure how a Telegram bot handles messages while it starts.",
+        "Read the queue behavior and limits in the current documentation; do not assume every old message should run later."
+      ],
+      "detail": "Configure how a Telegram bot handles messages while it starts.\n\nRead the queue behavior and limits in the current documentation; do not assume every old message should run later.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "configuration"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/messaging/telegram#cold-boot-pending-queue-optional",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-settings-give-telegram-channels-different-instructions",
+      "title": "Give Telegram channels different instructions",
+      "summary": "Apply channel-specific prompts for distinct workflows.",
+      "cardPoints": [
+        "Apply channel-specific prompts for distinct workflows.",
+        "Keep project context and permissions aligned with each channel. Instructions do not themselves create an access boundary."
+      ],
+      "detail": "Apply channel-specific prompts for distinct workflows.\n\nKeep project context and permissions aligned with each channel. Instructions do not themselves create an access boundary.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "configuration"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/messaging/telegram#per-channel-prompts",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-settings-bind-skills-to-telegram-forum-topics",
+      "title": "Bind skills to Telegram forum topics",
+      "summary": "Give forum topics the skills appropriate to their subject.",
+      "cardPoints": [
+        "Give forum topics the skills appropriate to their subject.",
+        "Configure the topic mapping and test with an authorized account. Distinguish group topics from private-chat topics."
+      ],
+      "detail": "Give forum topics the skills appropriate to their subject.\n\nConfigure the topic mapping and test with an authorized account. Distinguish group topics from private-chat topics.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "configuration"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/messaging/telegram#group-forum-topic-skill-binding",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-settings-reduce-telegram-notification-noise",
+      "title": "Reduce Telegram notification noise",
+      "summary": "Control which bot activity produces push notifications.",
+      "cardPoints": [
+        "Control which bot activity produces push notifications.",
+        "Test the chosen policy on the recipient device; quiet notifications should still leave a readable result."
+      ],
+      "detail": "Control which bot activity produces push notifications.\n\nTest the chosen policy on the recipient device; quiet notifications should still leave a readable result.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "configuration"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/messaging/telegram#push-notification-volume",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-settings-review-memory-changes-before-they-are-applied",
+      "title": "Review memory changes before they are applied",
+      "summary": "Stage proposed memory writes for approval.",
+      "cardPoints": [
+        "Stage proposed memory writes for approval.",
+        "Inspect pending changes and approve or reject them deliberately. This controls memory writes, not every filesystem operation."
+      ],
+      "detail": "Stage proposed memory writes for approval.\n\nInspect pending changes and approve or reject them deliberately. This controls memory writes, not every filesystem operation.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "configuration"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/memory#controlling-memory-writes-write_approval",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-settings-review-changes-to-learned-skills",
+      "title": "Review changes to learned skills",
+      "summary": "Stage skill updates and inspect their diffs before approval.",
+      "cardPoints": [
+        "Stage skill updates and inspect their diffs before approval.",
+        "A successful earlier run is not proof a proposed skill edit is correct; review and test changes."
+      ],
+      "detail": "Stage skill updates and inspect their diffs before approval.\n\nA successful earlier run is not proof a proposed skill edit is correct; review and test changes.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "configuration"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/memory#controlling-skill-writes-skillswrite_approval",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-settings-recycle-mcp-processes-that-retain-too-much-memory",
+      "title": "Recycle MCP processes that retain too much memory",
+      "summary": "Configure recycling for heavy stdio MCP servers.",
+      "cardPoints": [
+        "Configure recycling for heavy stdio MCP servers.",
+        "Check restart and state behavior for the server you use. Recycling does not fix an underlying leak."
+      ],
+      "detail": "Configure recycling for heavy stdio MCP servers.\n\nCheck restart and state behavior for the server you use. Recycling does not fix an underlying leak.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "configuration"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp#recycling-memory-heavy-stdio-servers",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-settings-limit-mcp-resources-and-prompt-utilities",
+      "title": "Limit MCP resources and prompt utilities",
+      "summary": "Control utility wrappers as well as ordinary server tools.",
+      "cardPoints": [
+        "Control utility wrappers as well as ordinary server tools.",
+        "Review both tool filters and resource/prompt switches; allowing a connection need not expose every capability."
+      ],
+      "detail": "Control utility wrappers as well as ordinary server tools.\n\nReview both tool filters and resource/prompt switches; allowing a connection need not expose every capability.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "configuration"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp#filter-utility-tools-too",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-settings-pass-caller-identity-to-an-mcp-server",
+      "title": "Pass caller identity to an MCP server",
+      "summary": "Configure per-user identity headers for supported MCP connections.",
+      "cardPoints": [
+        "Configure per-user identity headers for supported MCP connections.",
+        "The server must validate and authorize the identity. Do not treat a client-supplied header as authentication by itself."
+      ],
+      "detail": "Configure per-user identity headers for supported MCP connections.\n\nThe server must validate and authorize the identity. Do not treat a client-supplied header as authentication by itself.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "configuration"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp#per-user-identity-header",
+      "verifiedAt": "2026-09-28"
     }
   ]
 }

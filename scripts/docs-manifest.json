@@ -23,7 +23,7 @@
   ],
 
   "skipped": {
-    "skills": "The Skills Hub is client-rendered, but the official Skills System documentation now identifies a public catalogue at https://hermes-agent.nousresearch.com/docs/api/skills.json (HTTP 200 verified 2026-09-26). This HTML heading importer does not handle that JSON catalogue. Importing its entries needs separate review of attribution, Hermes applicability and repository eligibility; do not bulk-import the catalogue as verified recommendations.",
+    "skills": "The public catalogue is at https://hermes-agent.nousresearch.com/docs/api/skills.json. It includes third-party listings as well as official skills; catalogue presence alone is not a recommendation. Twenty official optional skills were reviewed individually in scripts/reviewed-expansion.json and verified against their documentation pages by scripts/import-reviewed-expansion.mjs.",
     "plugins": "Client-rendered for the same reason, with no headings at all in the served HTML.",
 
     "user-guide/configuration": "123 sections of option-by-option reference. It belongs upstream, where it is searchable and current.",

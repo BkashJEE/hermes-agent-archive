@@ -1,0 +1,41 @@
+{
+  "note": "Reviewed submissions approved by the owner on 2026-09-28 UTC as exceptions for these three repositories only. Summaries paraphrase the linked upstream READMEs; no candidate code was installed or executed. Engagement is fetched separately by fetch-signals.mjs, never copied from this manifest.",
+  "items": [
+    {
+      "id": "community-hermes-desktop-theme-pack",
+      "title": "Hermes Desktop Theme Pack",
+      "summary": "Browse and apply Hermes skins across the CLI, TUI, Desktop and web dashboard.",
+      "detail": "Cliff Wade's theme pack provides YAML skins and a Theme Switcher for Hermes Desktop and the web dashboard. Preview themes, search for a palette, switch between light and dark counterparts, and apply a skin across Hermes surfaces.\n\nTo use the skins, follow the repository's installation instructions and select one through Hermes Appearance settings or /skin. The full switcher requires both its backend plugin and its Desktop UI plugin. With an SSH connection, install the backend on the remote host and the UI on the local Desktop computer; restart or reconnect the backend to mount its routes.\n\nThe author's accessibility and contrast claims have not been independently tested by this archive. Community theme credits are listed upstream, including BeardedChop/hermes-skins-pack. This listing is a documentation review, not a security audit or runtime endorsement.",
+      "cardPoints": ["Preview and apply skins across Hermes surfaces.", "Browse themes from Desktop or the web dashboard."],
+      "author": "Cliff Wade",
+      "source": "github",
+      "url": "https://github.com/CliffWade/hermes-desktop-theme-pack",
+      "date": "2026-09-28",
+      "tags": ["community-build", "desktop", "themes"]
+    },
+    {
+      "id": "community-hermes-command-center",
+      "title": "Hermes Command Center",
+      "summary": "Inspect Hermes health, activity, scheduled jobs, model usage, skills and memory from a Desktop dashboard.",
+      "detail": "Cliff Wade describes a read-only dashboard using local Hermes state to show processes, model usage, cron jobs, plugins, skills and memory. Its Desktop page uses /hermes-center so it can coexist with the host's built-in Command Center.\n\nFollow the repository's instructions to install and enable the backend plugin, then install the Desktop UI plugin. Restart the backend so its API routes are mounted, reload Desktop plugins and open Hermes Center from the sidebar.\n\nRequires Hermes Desktop and its plugin SDK. The author's read-only and no-telemetry claims have not been independently audited. No candidate code was installed or executed during archive review.",
+      "cardPoints": ["Inspect scheduled jobs, activity and model usage.", "View local Hermes health, skills and memory."],
+      "author": "Cliff Wade",
+      "source": "github",
+      "url": "https://github.com/CliffWade/hermes-command-center",
+      "date": "2026-09-28",
+      "tags": ["community-build", "desktop", "monitoring"]
+    },
+    {
+      "id": "community-hermes-desktop-achievements",
+      "title": "Hermes Desktop Achievements",
+      "summary": "View achievements, progress and goals in Hermes Desktop, with optional unlock notifications and share cards.",
+      "detail": "Originally created by Tony Simons and extended by Cliff Wade, this Desktop plugin displays badges, goals, records, rewards and custom achievements using the existing hermes-achievements backend through the Hermes plugin SDK.\n\nEnable the hermes-achievements backend, install the Desktop UI plugin following the repository instructions, then reload Desktop plugins and open Achievements. The author recommends Hermes Desktop v0.19 or newer. The matching backend must be available and enabled.\n\nOptional Discord announcements send unlock information to a configured webhook; leave them disabled unless you want that information shared. The archive reviewed documentation only and did not install or execute the plugin. Original-author credit is preserved from the repository's License section.",
+      "cardPoints": ["View badges, goals and progress in Desktop.", "Choose unlock notifications and export share cards."],
+      "author": "Tony Simons (original), extended by Cliff Wade",
+      "source": "github",
+      "url": "https://github.com/CliffWade/hermes-desktop-achievements",
+      "date": "2026-09-28",
+      "tags": ["community-build", "desktop", "achievements"]
+    }
+  ]
+}

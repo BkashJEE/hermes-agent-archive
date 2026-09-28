@@ -834,6 +834,426 @@
       "source": "docs",
       "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#slash-commands-inside-chat",
       "date": "2026-09-25"
+    },
+    {
+      "id": "review-skills-agent-merge-conflict-arbiter",
+      "title": "Agent Merge Conflict Arbiter",
+      "summary": "Neutral arbiter for merge conflicts between two agents.",
+      "cardPoints": [
+        "Neutral arbiter for merge conflicts between two agents.",
+        "Compare both agents’ changes against the intended task before resolving a conflict. Requires access to the conflicting working trees; review the proposed merge and run tests."
+      ],
+      "detail": "Neutral arbiter for merge conflicts between two agents.\n\nCompare both agents’ changes against the intended task before resolving a conflict. Requires access to the conflicting working trees; review the proposed merge and run tests.\nInstall the official optional skill with the command below, then start a new session. Platforms: linux, macos, windows.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "snippet": "hermes skills install official/autonomous-ai-agents/agent-merge-conflict-arbiter",
+      "tags": [
+        "docs",
+        "skills",
+        "optional",
+        "autonomous-ai-agents"
+      ],
+      "source": "docs",
+      "author": "Hermes Agent",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/autonomous-ai-agents/autonomous-ai-agents-agent-merge-conflict-arbiter#skill-metadata",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-skills-one-three-one-rule",
+      "title": "One Three One Rule",
+      "summary": "1-3-1 decision briefs: problem, three options, one pick.",
+      "cardPoints": [
+        "1-3-1 decision briefs: problem, three options, one pick.",
+        "Frame the problem, compare three alternatives and recommend one. Supply actual constraints and evidence; the format does not validate the underlying facts."
+      ],
+      "detail": "1-3-1 decision briefs: problem, three options, one pick.\n\nFrame the problem, compare three alternatives and recommend one. Supply actual constraints and evidence; the format does not validate the underlying facts.\nInstall the official optional skill with the command below, then start a new session. Platforms: linux, macos, windows.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "snippet": "hermes skills install official/communication/one-three-one-rule",
+      "tags": [
+        "docs",
+        "skills",
+        "optional",
+        "communication"
+      ],
+      "source": "docs",
+      "author": "Willard Moore",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/communication/communication-one-three-one-rule#skill-metadata",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-skills-docker-management",
+      "title": "Docker Management",
+      "summary": "Manage Docker containers, images, volumes, and Compose.",
+      "cardPoints": [
+        "Manage Docker containers, images, volumes, and Compose.",
+        "Inspect containers and Compose stacks, then make a scoped maintenance plan. Requires a working Docker CLI and daemon; confirm destructive volume or container operations."
+      ],
+      "detail": "Manage Docker containers, images, volumes, and Compose.\n\nInspect containers and Compose stacks, then make a scoped maintenance plan. Requires a working Docker CLI and daemon; confirm destructive volume or container operations.\nInstall the official optional skill with the command below, then start a new session. Platforms: linux, macos, windows.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "snippet": "hermes skills install official/devops/docker-management",
+      "tags": [
+        "docs",
+        "skills",
+        "optional",
+        "devops"
+      ],
+      "source": "docs",
+      "author": "sprmn24",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/devops/devops-docker-management#skill-metadata",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-skills-watchers",
+      "title": "Watchers",
+      "summary": "Poll RSS, JSON APIs, and GitHub with watermark dedup.",
+      "cardPoints": [
+        "Poll RSS, JSON APIs, and GitHub with watermark dedup.",
+        "Poll a chosen feed or API and retain a watermark so only new items trigger work. Requires configured sources and persistent state; scheduling and notification delivery need separate setup."
+      ],
+      "detail": "Poll RSS, JSON APIs, and GitHub with watermark dedup.\n\nPoll a chosen feed or API and retain a watermark so only new items trigger work. Requires configured sources and persistent state; scheduling and notification delivery need separate setup.\nInstall the official optional skill with the command below, then start a new session. Platforms: linux, macos.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "snippet": "hermes skills install official/devops/watchers",
+      "tags": [
+        "docs",
+        "skills",
+        "optional",
+        "devops"
+      ],
+      "source": "docs",
+      "author": "Hermes Agent",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/devops/devops-watchers#skill-metadata",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-skills-memento-flashcards",
+      "title": "Memento Flashcards",
+      "summary": "Spaced-repetition flashcards: create, review, quiz, export.",
+      "cardPoints": [
+        "Spaced-repetition flashcards: create, review, quiz, export.",
+        "Create local study cards and review them using spaced repetition. Check generated answers against your study material before relying on them."
+      ],
+      "detail": "Spaced-repetition flashcards: create, review, quiz, export.\n\nCreate local study cards and review them using spaced repetition. Check generated answers against your study material before relying on them.\nInstall the official optional skill with the command below, then start a new session. Platforms: macos, linux.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "snippet": "hermes skills install official/productivity/memento-flashcards",
+      "tags": [
+        "docs",
+        "skills",
+        "optional",
+        "productivity"
+      ],
+      "source": "docs",
+      "author": "Memento AI",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/productivity/productivity-memento-flashcards#skill-metadata",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-skills-property-listings",
+      "title": "Property Listings",
+      "summary": "Present property and rental listings as desktop cards.",
+      "cardPoints": [
+        "Present property and rental listings as desktop cards.",
+        "Turn researched rentals or properties into browsable Hermes Desktop cards. Supply verified listings; this skill presents findings and is not a property search service or valuation."
+      ],
+      "detail": "Present property and rental listings as desktop cards.\n\nTurn researched rentals or properties into browsable Hermes Desktop cards. Supply verified listings; this skill presents findings and is not a property search service or valuation.\nInstall the official optional skill with the command below, then start a new session. Platforms: linux, macos, windows.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "snippet": "hermes skills install official/productivity/property-listings",
+      "tags": [
+        "docs",
+        "skills",
+        "optional",
+        "productivity"
+      ],
+      "source": "docs",
+      "author": "Teknium (teknium1), Hermes Agent",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/productivity/productivity-property-listings#skill-metadata",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-skills-blogwatcher",
+      "title": "Blogwatcher",
+      "summary": "Monitor blogs and RSS/Atom feeds via blogwatcher-cli tool.",
+      "cardPoints": [
+        "Monitor blogs and RSS/Atom feeds via blogwatcher-cli tool.",
+        "Track selected blogs and feeds with the blogwatcher CLI. Install the required CLI and review feed access; unavailable feeds must not be reported as unchanged."
+      ],
+      "detail": "Monitor blogs and RSS/Atom feeds via blogwatcher-cli tool.\n\nTrack selected blogs and feeds with the blogwatcher CLI. Install the required CLI and review feed access; unavailable feeds must not be reported as unchanged.\nInstall the official optional skill with the command below, then start a new session. Platforms: linux, macos, windows.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "snippet": "hermes skills install official/research/blogwatcher",
+      "tags": [
+        "docs",
+        "skills",
+        "optional",
+        "research"
+      ],
+      "source": "docs",
+      "author": "JulienTant (fork of Hyaxia/blogwatcher)",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-blogwatcher#skill-metadata",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-skills-rss-feeds",
+      "title": "Rss Feeds",
+      "summary": "Read RSS, Atom, JSON feeds; discover feeds behind a page.",
+      "cardPoints": [
+        "Read RSS, Atom, JSON feeds; discover feeds behind a page.",
+        "Discover and read RSS, Atom or JSON feeds from chosen publications. Feed availability and completeness depend on the publisher."
+      ],
+      "detail": "Read RSS, Atom, JSON feeds; discover feeds behind a page.\n\nDiscover and read RSS, Atom or JSON feeds from chosen publications. Feed availability and completeness depend on the publisher.\nInstall the official optional skill with the command below, then start a new session. Platforms: linux, macos, windows.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "snippet": "hermes skills install official/research/rss-feeds",
+      "tags": [
+        "docs",
+        "skills",
+        "optional",
+        "research"
+      ],
+      "source": "docs",
+      "author": "Teknium (teknium1), Hermes Agent",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-rss-feeds#skill-metadata",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-skills-qmd",
+      "title": "Qmd",
+      "summary": "Hybrid local search over notes, docs, and transcripts.",
+      "cardPoints": [
+        "Hybrid local search over notes, docs, and transcripts.",
+        "Search local notes, documents and transcripts. Requires the QMD setup described upstream; index only material you intend the agent to read."
+      ],
+      "detail": "Hybrid local search over notes, docs, and transcripts.\n\nSearch local notes, documents and transcripts. Requires the QMD setup described upstream; index only material you intend the agent to read.\nInstall the official optional skill with the command below, then start a new session. Platforms: macos, linux.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "snippet": "hermes skills install official/research/qmd",
+      "tags": [
+        "docs",
+        "skills",
+        "optional",
+        "research"
+      ],
+      "source": "docs",
+      "author": "Hermes Agent + Teknium",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-qmd#skill-metadata",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-skills-ast-grep",
+      "title": "Ast Grep",
+      "summary": "AST-aware structural code search and rewrite via ast-grep.",
+      "cardPoints": [
+        "AST-aware structural code search and rewrite via ast-grep.",
+        "Search source structure using AST patterns rather than text alone. Requires ast-grep and a supported language; inspect matches before applying rewrites."
+      ],
+      "detail": "AST-aware structural code search and rewrite via ast-grep.\n\nSearch source structure using AST patterns rather than text alone. Requires ast-grep and a supported language; inspect matches before applying rewrites.\nInstall the official optional skill with the command below, then start a new session. Platforms: linux, macos, windows.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "snippet": "hermes skills install official/software-development/ast-grep",
+      "tags": [
+        "docs",
+        "skills",
+        "optional",
+        "software-development"
+      ],
+      "source": "docs",
+      "author": "Yeongyu Kim (code-yeongyu), adapted by Hermes Agent",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/software-development/software-development-ast-grep#skill-metadata",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-skills-code-wiki",
+      "title": "Code Wiki",
+      "summary": "Generate wiki docs + Mermaid diagrams for any codebase.",
+      "cardPoints": [
+        "Generate wiki docs + Mermaid diagrams for any codebase.",
+        "Build a codebase wiki with architecture explanations and diagrams. Provide a repository to inspect and review the generated explanations against code."
+      ],
+      "detail": "Generate wiki docs + Mermaid diagrams for any codebase.\n\nBuild a codebase wiki with architecture explanations and diagrams. Provide a repository to inspect and review the generated explanations against code.\nInstall the official optional skill with the command below, then start a new session. Platforms: linux, macos, windows.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "snippet": "hermes skills install official/software-development/code-wiki",
+      "tags": [
+        "docs",
+        "skills",
+        "optional",
+        "software-development"
+      ],
+      "source": "docs",
+      "author": "Teknium (teknium1), Hermes Agent",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/software-development/software-development-code-wiki#skill-metadata",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-skills-grill-me",
+      "title": "Grill Me",
+      "summary": "Adversarial plan interview before implementation.",
+      "cardPoints": [
+        "Adversarial plan interview before implementation.",
+        "Challenge a proposed plan with specific implementation questions before work starts. Provide the plan and project context; questioning does not replace execution or tests."
+      ],
+      "detail": "Adversarial plan interview before implementation.\n\nChallenge a proposed plan with specific implementation questions before work starts. Provide the plan and project context; questioning does not replace execution or tests.\nInstall the official optional skill with the command below, then start a new session. Platforms: linux, macos, windows.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "snippet": "hermes skills install official/software-development/grill-me",
+      "tags": [
+        "docs",
+        "skills",
+        "optional",
+        "software-development"
+      ],
+      "source": "docs",
+      "author": "Rafael Zendron (rafaumeu) + Matt Pocock (mattpocock/skills, grilling) + Hermes Agent",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/software-development/software-development-grill-me#skill-metadata",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-skills-pr-lens",
+      "title": "Pr Lens",
+      "summary": "Draw code changes as animated architecture/data-flow SVGs.",
+      "cardPoints": [
+        "Draw code changes as animated architecture/data-flow SVGs.",
+        "Explain code changes with architecture and data-flow visuals. Supply an actual diff and confirm that the visualization matches the changed behavior."
+      ],
+      "detail": "Draw code changes as animated architecture/data-flow SVGs.\n\nExplain code changes with architecture and data-flow visuals. Supply an actual diff and confirm that the visualization matches the changed behavior.\nInstall the official optional skill with the command below, then start a new session. Platforms: linux, macos.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "snippet": "hermes skills install official/software-development/pr-lens",
+      "tags": [
+        "docs",
+        "skills",
+        "optional",
+        "software-development"
+      ],
+      "source": "docs",
+      "author": "Coldtea AI (adapted by Nous Research)",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/software-development/software-development-pr-lens#skill-metadata",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-skills-rest-graphql-debug",
+      "title": "Rest Graphql Debug",
+      "summary": "Debug REST/GraphQL APIs: status codes, auth, schemas, repro.",
+      "cardPoints": [
+        "Debug REST/GraphQL APIs: status codes, auth, schemas, repro.",
+        "Investigate HTTP failures, authentication and response schemas using reproducible requests. Use scoped test credentials and avoid placing secrets in shared reports."
+      ],
+      "detail": "Debug REST/GraphQL APIs: status codes, auth, schemas, repro.\n\nInvestigate HTTP failures, authentication and response schemas using reproducible requests. Use scoped test credentials and avoid placing secrets in shared reports.\nInstall the official optional skill with the command below, then start a new session. Platforms: linux, macos, windows.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "snippet": "hermes skills install official/software-development/rest-graphql-debug",
+      "tags": [
+        "docs",
+        "skills",
+        "optional",
+        "software-development"
+      ],
+      "source": "docs",
+      "author": "eren-karakus0",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/software-development/software-development-rest-graphql-debug#skill-metadata",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-skills-subagent-driven-development",
+      "title": "Subagent Driven Development",
+      "summary": "Execute plans via delegate_task subagents (2-stage review).",
+      "cardPoints": [
+        "Execute plans via delegate_task subagents (2-stage review).",
+        "Work through an implementation plan with delegated tasks and separate reviews. Requires Hermes delegation support; keep edits isolated and verify the combined result."
+      ],
+      "detail": "Execute plans via delegate_task subagents (2-stage review).\n\nWork through an implementation plan with delegated tasks and separate reviews. Requires Hermes delegation support; keep edits isolated and verify the combined result.\nInstall the official optional skill with the command below, then start a new session. Platforms: linux, macos, windows.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "snippet": "hermes skills install official/software-development/subagent-driven-development",
+      "tags": [
+        "docs",
+        "skills",
+        "optional",
+        "software-development"
+      ],
+      "source": "docs",
+      "author": "Hermes Agent (adapted from obra/superpowers)",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/software-development/software-development-subagent-driven-development#skill-metadata",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-skills-adversarial-ux-test",
+      "title": "Adversarial Ux Test",
+      "summary": "Roleplay a hostile user to find and triage UX pain points.",
+      "cardPoints": [
+        "Roleplay a hostile user to find and triage UX pain points.",
+        "Exercise a product as a difficult or confused user and record reproducible friction. Supply the test surface and account; simulated testing does not substitute for real user research."
+      ],
+      "detail": "Roleplay a hostile user to find and triage UX pain points.\n\nExercise a product as a difficult or confused user and record reproducible friction. Supply the test surface and account; simulated testing does not substitute for real user research.\nInstall the official optional skill with the command below, then start a new session. Platforms: linux, macos, windows.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "snippet": "hermes skills install official/dogfood/adversarial-ux-test",
+      "tags": [
+        "docs",
+        "skills",
+        "optional",
+        "other"
+      ],
+      "source": "docs",
+      "author": "Omni @ Comelse",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/dogfood/dogfood-adversarial-ux-test#skill-metadata",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-skills-decision-questionnaire",
+      "title": "Decision Questionnaire",
+      "summary": "Turn an unanswerable decision into a questionnaire doc.",
+      "cardPoints": [
+        "Turn an unanswerable decision into a questionnaire doc.",
+        "Convert missing decision inputs into questions stakeholders can answer asynchronously. Provide the decision and known constraints; leave unanswered facts explicit."
+      ],
+      "detail": "Turn an unanswerable decision into a questionnaire doc.\n\nConvert missing decision inputs into questions stakeholders can answer asynchronously. Provide the decision and known constraints; leave unanswered facts explicit.\nInstall the official optional skill with the command below, then start a new session. Platforms: linux, macos, windows.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "snippet": "hermes skills install official/productivity/decision-questionnaire",
+      "tags": [
+        "docs",
+        "skills",
+        "optional",
+        "productivity"
+      ],
+      "source": "docs",
+      "author": "Matt Pocock (mattpocock/skills, to-questionnaire) + Hermes Agent",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/productivity/productivity-decision-questionnaire#skill-metadata",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-skills-research-paper-writing",
+      "title": "Research Paper Writing",
+      "summary": "Write ML papers for NeurIPS/ICML/ICLR: design→submit.",
+      "cardPoints": [
+        "Write ML papers for NeurIPS/ICML/ICLR: design→submit.",
+        "Organize research writing around evidence, experiments and citations. Requires the dependencies and research material described upstream; verify every citation and result."
+      ],
+      "detail": "Write ML papers for NeurIPS/ICML/ICLR: design→submit.\n\nOrganize research writing around evidence, experiments and citations. Requires the dependencies and research material described upstream; verify every citation and result.\nInstall the official optional skill with the command below, then start a new session. Platforms: linux, macos.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "snippet": "hermes skills install official/research/research-paper-writing",
+      "tags": [
+        "docs",
+        "skills",
+        "optional",
+        "research"
+      ],
+      "source": "docs",
+      "author": "Orchestra Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-research-paper-writing#skill-metadata",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-skills-live-dashboard",
+      "title": "Live Dashboard",
+      "summary": "Build self-updating dashboards from live sources.",
+      "cardPoints": [
+        "Build self-updating dashboards from live sources.",
+        "Build a dashboard that refreshes from named data sources. Supply real endpoints and update requirements; missing or failed data must remain visibly unknown."
+      ],
+      "detail": "Build self-updating dashboards from live sources.\n\nBuild a dashboard that refreshes from named data sources. Supply real endpoints and update requirements; missing or failed data must remain visibly unknown.\nInstall the official optional skill with the command below, then start a new session. Platforms: linux, macos, windows.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "snippet": "hermes skills install official/productivity/live-dashboard",
+      "tags": [
+        "docs",
+        "skills",
+        "optional",
+        "productivity"
+      ],
+      "source": "docs",
+      "author": "Teknium (teknium1), Hermes Agent",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/productivity/productivity-live-dashboard#skill-metadata",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-skills-sketch",
+      "title": "Sketch",
+      "summary": "Throwaway HTML mockups: 2-3 design variants to compare.",
+      "cardPoints": [
+        "Throwaway HTML mockups: 2-3 design variants to compare.",
+        "Compare disposable HTML design directions before implementation. Provide a brief and constraints; these are prototypes, not production-ready designs."
+      ],
+      "detail": "Throwaway HTML mockups: 2-3 design variants to compare.\n\nCompare disposable HTML design directions before implementation. Provide a brief and constraints; these are prototypes, not production-ready designs.\nInstall the official optional skill with the command below, then start a new session. Platforms: linux, macos, windows.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "snippet": "hermes skills install official/creative/sketch",
+      "tags": [
+        "docs",
+        "skills",
+        "optional",
+        "creative"
+      ],
+      "source": "docs",
+      "author": "Hermes Agent (adapted from gsd-build/get-shit-done)",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-sketch#skill-metadata",
+      "verifiedAt": "2026-09-28"
     }
   ]
 }
