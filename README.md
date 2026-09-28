@@ -40,7 +40,7 @@ Use a recent browser with JavaScript enabled. Inter and JetBrains Mono load from
 
 - Community stories preserve source quotations, authors and permalinks.
 - Documentation and prompt examples link to the relevant upstream pages.
-- Repository cards require **strictly more than 50,000 public GitHub stars** and reviewed upstream documentation of Hermes support.
+- Repository cards normally require **strictly more than 50,000 public GitHub stars** and reviewed upstream documentation of Hermes support. Three specifically owner-approved community exceptions are labelled on their cards; see [the policy](docs/METHODOLOGY.md#community-exceptions).
 - Trending shows positive star growth measured between two public API observations, not GitHub's own Trending feed.
 - My Work contains the maintainer's posts with explicitly credited analytics, separate from public-popularity evidence.
 

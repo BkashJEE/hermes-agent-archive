@@ -31,7 +31,7 @@ npm run key    # paste API keys into a gitignored .env
 estimate, not a placeholder that looks real.
 
 - Metrics come from public APIs via `scripts/fetch-signals.mjs`, or carry a `credit` field naming their source. Credited analytics must be labelled on cards and excluded from public-popularity evidence.
-- A repo that fails to resolve retains its stored write-up, but is hidden until more than 50,000 stars can be verified.
+- A repo that fails to resolve retains its stored write-up, but is hidden until a public count and the repository eligibility policy can be verified.
 - An item with no public metric renders its tags and `no public metric`.
 - A source that failed at fetch time is named in the page footer.
 - X and Facebook have no free API. Entries from there are hand-curated **with a real
@@ -106,7 +106,7 @@ The archive accumulates. No pipeline stage may remove an entry that is already i
 - `import-hermes-stories.mjs` merges by id; an entry pulled from the source page keeps
   its place in the archive even if it later disappears upstream.
 - A seeded repo that does not resolve stays in stored data. The rendered archive
-  requires a verified count of more than 50,000 stars.
+  requires a verified count and the repository eligibility policy below.
 
 This rule exists because a single GitHub rate-limit once wiped a shelf and a 248k-star
 repo out of `live.json`. Recovery was `git show <sha>:data/live.json`.
@@ -161,8 +161,13 @@ stylesheet is load-bearing — do not remove it.
 
 ## GitHub visibility cutoff
 
-Require more than 50,000 fetched public stars for every GitHub repository on every
-shelf, including URL-only entries. Require upstream documentation of Hermes
+Normally require more than 50,000 fetched public stars for GitHub repositories on every
+shelf, including URL-only entries. The owner approved exactly three community exceptions
+on 2026-09-28 UTC: CliffWade/hermes-desktop-theme-pack, CliffWade/hermes-command-center,
+and CliffWade/hermes-desktop-achievements. Keep this exact allowlist in
+`assets/js/github-policy.js`, label exceptions visibly, require fetched counts and
+documented Hermes support, and preserve the normal floor for discovery and Trending.
+Do not extend this exception to other repositories or all projects by the same author. Require upstream documentation of Hermes
 support in `assets/js/github-policy.js`; a keyword mention or Jev assessment alone
 is not evidence of integration. Unknown counts are excluded. Apply the same
 threshold to discovery and routing. Keep stored content so a later qualifying count

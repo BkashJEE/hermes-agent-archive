@@ -1,7 +1,30 @@
 // A public star count is necessary, but does not prove Hermes compatibility.
 // Add a repository only after reviewing its own documented Hermes integration.
 export const MIN_GITHUB_STARS = 50000;
+// Owner-approved exceptions are exact repositories, never an author-wide exemption.
+export const COMMUNITY_EXCEPTIONS = Object.freeze({
+  'cliffwade/hermes-desktop-theme-pack': 'https://github.com/BkashJEE/hermes-agent-archive/issues/39',
+  'cliffwade/hermes-command-center': 'https://github.com/BkashJEE/hermes-agent-archive/issues/40',
+  'cliffwade/hermes-desktop-achievements': 'https://github.com/BkashJEE/hermes-agent-archive/issues/41'
+});
+export const communityException = repo => Object.hasOwn(COMMUNITY_EXCEPTIONS, repo?.toLowerCase())
+  ? COMMUNITY_EXCEPTIONS[repo.toLowerCase()] : null;
 export const HERMES_REPOSITORIES = {
+  "cliffwade/hermes-desktop-theme-pack": {
+    "url": "https://github.com/CliffWade/hermes-desktop-theme-pack#theme-switcher-desktop-app--web-dashboard",
+    "note": "Documents Hermes YAML skins plus backend and Desktop Theme Switcher plugins. The full switcher requires both components; remote connections split them across backend and Desktop hosts.",
+    "reviewedAt": "2026-09-28"
+  },
+  "cliffwade/hermes-command-center": {
+    "url": "https://github.com/CliffWade/hermes-command-center#install",
+    "note": "Documents a Hermes backend API and Desktop SDK page at /hermes-center. Both plugins and a backend restart are required.",
+    "reviewedAt": "2026-09-28"
+  },
+  "cliffwade/hermes-desktop-achievements": {
+    "url": "https://github.com/CliffWade/hermes-desktop-achievements#how-it-works",
+    "note": "Documents use of the Hermes Desktop SDK and existing hermes-achievements backend. Requires the backend to be enabled; the author recommends Desktop v0.19 or newer.",
+    "reviewedAt": "2026-09-28"
+  },
   "nousresearch/hermes-agent": {
     "url": "https://github.com/NousResearch/hermes-agent/blob/main/README.md",
     "note": "Official Hermes Agent repository: skills, tools, plugins and example workflows.",
@@ -65,4 +88,4 @@ export const qualifiesStars = (stars, floor = MIN_GITHUB_STARS) =>
   Number.isFinite(stars) && stars > githubStarFloor(floor);
 export const hermesSupport = (repo, reviews = HERMES_REPOSITORIES) => reviews[repo?.toLowerCase()] || null;
 export const qualifiesRepository = (repo, stars, reviews = HERMES_REPOSITORIES, floor = MIN_GITHUB_STARS) =>
-  qualifiesStars(stars, floor) && !!hermesSupport(repo, reviews);
+  (qualifiesStars(stars, floor) || (!!communityException(repo) && Number.isSafeInteger(stars) && stars >= 0)) && !!hermesSupport(repo, reviews);
