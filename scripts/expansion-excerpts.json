@@ -1709,6 +1709,17 @@
         }
       ],
       "blocks": []
+    },
+    "https://github.com/tt-a1i/archify": {
+      "fetchedAt": "2026-09-28T16:28:45.682Z",
+      "revision": "d4d6511ccf8996400284cf09c35eb964a3da26e1",
+      "sections": [
+        {
+          "anchor": "readme",
+          "text": "| **Hermes Agent** | Opt-in: `hermes skills install skills-sh/tt-a1i/archify/archify -y` | Community Skill-only integration; Node `>=18`; not a Nous official product. No telemetry. It is not a switcher target. [Details](integrations/hermes-agent/README.md). |"
+        }
+      ],
+      "blocks": []
     }
   }
 }

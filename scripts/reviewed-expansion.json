@@ -3273,6 +3273,33 @@
       "evidence": [
         "Right now my agent does this and send me final chart on telegram every 3 hours, with a brief note on chart."
       ]
+    },
+    {
+      "shelf": "toolkit",
+      "item": {
+        "id": "review-integration-archify",
+        "title": "Archify diagrams with Hermes",
+        "summary": "Turn a repository or workflow description into an interactive architecture diagram through a documented Hermes skill.",
+        "cardPoints": [
+          "Create an interactive HTML diagram from a repository or workflow description.",
+          "Install the optional Hermes skill, restart the session and review the generated diagram against its source."
+        ],
+        "detail": "Create an interactive architecture or workflow diagram through Archify’s community Hermes skill.\n\n- Setup: Install Node.js 18 or newer, inspect the published skill, then use the upstream installation command below and restart Hermes. Ask the archify skill to map the repository’s runtime architecture and return the specification JSON and HTML file paths.\n- Limitations: Skill-only community integration, not an official Nous Research product. The renderer remains a Node CLI; it adds no native Python render tools and is not an agent-switcher target. Generated diagrams are not verification of live infrastructure or merge safety.\n- Docker: Install into the mounted Hermes skills volume or mount the actual skill files. A host symlink pointing outside that volume is not visible inside the container.\n- Review scope: upstream README and dedicated Hermes integration instructions were read; the archive has not installed or execution-tested this integration.",
+        "snippet": "hermes skills install skills-sh/tt-a1i/archify/archify -y",
+        "tags": [
+          "integration",
+          "hermes",
+          "reviewed",
+          "architecture"
+        ],
+        "source": "github",
+        "author": "tt-a1i",
+        "url": "https://github.com/tt-a1i/archify#readme",
+        "verifiedAt": "2026-09-28"
+      },
+      "evidence": [
+        "| **Hermes Agent** | Opt-in: `hermes skills install skills-sh/tt-a1i/archify/archify -y` | Community Skill-only integration; Node `>=18`; not a Nous official product. No telemetry. It is not a switcher target. [Details](integrations/hermes-agent/README.md). |"
+      ]
     }
   ]
 }
