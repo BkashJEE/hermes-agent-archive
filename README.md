@@ -149,9 +149,13 @@ npm run docs -- --dry                   # report what would land, write nothing
 node scripts/import-hermes-stories.mjs  # Nous Research's community stories
 node scripts/import-hermes-cli.mjs      # official CLI reference
 node scripts/import-jev-hermes.mjs      # Hermes entries in the Jev directory
+node scripts/import-reviewed-expansion.mjs --verify # check reviewed selections offline
+node scripts/import-reviewed-expansion.mjs          # add missing reviewed selections
+node scripts/import-reviewed-expansion.mjs --refresh # refresh all sources; fail before writes on error
+npm run tricks -- --offline             # verify reviewed tricks and absence evidence
 ```
 
-Sources change, and not every shelf is reproducible from an importer: Hidden Tricks has no extractor yet, and the Skills Hub and Plugins pages are client-rendered with no public JSON behind them, so neither can be imported honestly. `scripts/docs-manifest.json` records every documentation page that is imported, and every page that is not, with the reason. Do not overwrite a failed import with an empty result. Remaining coverage is tracked in [release readiness](docs/RELEASE_READINESS.md).
+Sources change, and importer coverage remains partial. Hidden Tricks has a reviewed extractor and an offline documentation corpus. The Skills Hub exposes a public catalogue; the reviewed expansion selects official optional skills individually rather than treating the entire catalogue as vetted. `scripts/docs-manifest.json` records documentation coverage. The [September expansion review](docs/SHELF_EXPANSION_2026-09-28.md) records selections, exclusions and cached evidence, including community comments whose public JSON refresh is currently blocked. Do not overwrite a failed import with an empty result. Remaining coverage is tracked in [release readiness](docs/RELEASE_READINESS.md).
 
 Maintenance can incur external API usage under the account where it runs. No credentials or scheduled jobs are inherited by cloning or forking. Ranking results may change when evidence or the classifier changes. Stale classifications should be shown as unclassified, never silently reused as current.
 

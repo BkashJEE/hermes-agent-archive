@@ -5172,6 +5172,386 @@
       "source": "docs",
       "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#file-dependency-chain",
       "date": "2026-09-25"
+    },
+    {
+      "id": "review-use-cases-nightly-backlog-triage-with-hermes",
+      "title": "Nightly Backlog Triage with Hermes",
+      "summary": "Label, prioritize, and summarize new issues every night. Delivers a digest to your team channel.",
+      "cardPoints": [
+        "Label, prioritize, and summarize new issues every night. Delivers a digest to your team channel.",
+        "Set up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients."
+      ],
+      "detail": "Label, prioritize, and summarize new issues every night. Delivers a digest to your team channel.\n\nSet up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients.\nStart with a manual run and review the output. Some blueprints post messages or change repositories; use scoped access and approval before external writes.\nThis is an official workflow example, not a report that someone executed it successfully.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "workflow",
+        "automation"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/automation-blueprints#nightly-backlog-triage",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-use-cases-docs-drift-detection-with-hermes",
+      "title": "Docs Drift Detection with Hermes",
+      "summary": "Weekly scan of merged PRs to find API changes that need documentation updates.",
+      "cardPoints": [
+        "Weekly scan of merged PRs to find API changes that need documentation updates.",
+        "Set up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients."
+      ],
+      "detail": "Weekly scan of merged PRs to find API changes that need documentation updates.\n\nSet up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients.\nStart with a manual run and review the output. Some blueprints post messages or change repositories; use scoped access and approval before external writes.\nThis is an official workflow example, not a report that someone executed it successfully.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "workflow",
+        "automation"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/automation-blueprints#docs-drift-detection",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-use-cases-dependency-security-audit-with-hermes",
+      "title": "Dependency Security Audit with Hermes",
+      "summary": "Daily scan for known vulnerabilities in project dependencies.",
+      "cardPoints": [
+        "Daily scan for known vulnerabilities in project dependencies.",
+        "Set up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients."
+      ],
+      "detail": "Daily scan for known vulnerabilities in project dependencies.\n\nSet up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients.\nStart with a manual run and review the output. Some blueprints post messages or change repositories; use scoped access and approval before external writes.\nThis is an official workflow example, not a report that someone executed it successfully.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "workflow",
+        "automation"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/automation-blueprints#dependency-security-audit",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-use-cases-deploy-verification-with-hermes",
+      "title": "Deploy Verification with Hermes",
+      "summary": "Trigger smoke tests after every deployment. Your CI/CD pipeline POSTs to the webhook when a deploy completes.",
+      "cardPoints": [
+        "Trigger smoke tests after every deployment. Your CI/CD pipeline POSTs to the webhook when a deploy completes.",
+        "Set up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients."
+      ],
+      "detail": "Trigger smoke tests after every deployment. Your CI/CD pipeline POSTs to the webhook when a deploy completes.\n\nSet up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients.\nStart with a manual run and review the output. Some blueprints post messages or change repositories; use scoped access and approval before external writes.\nThis is an official workflow example, not a report that someone executed it successfully.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "workflow",
+        "automation"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/automation-blueprints#deploy-verification",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-use-cases-alert-triage-with-hermes",
+      "title": "Alert Triage with Hermes",
+      "summary": "Correlate monitoring alerts with recent changes to draft a response. Works with Datadog, PagerDuty, Grafana, or any alerting system that can POST JSON.",
+      "cardPoints": [
+        "Correlate monitoring alerts with recent changes to draft a response. Works with Datadog, PagerDuty, Grafana, or any alerting system that can POST JSON.",
+        "Set up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients."
+      ],
+      "detail": "Correlate monitoring alerts with recent changes to draft a response. Works with Datadog, PagerDuty, Grafana, or any alerting system that can POST JSON.\n\nSet up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients.\nStart with a manual run and review the output. Some blueprints post messages or change repositories; use scoped access and approval before external writes.\nThis is an official workflow example, not a report that someone executed it successfully.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "workflow",
+        "automation"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/automation-blueprints#alert-triage",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-use-cases-uptime-monitor-with-hermes",
+      "title": "Uptime Monitor with Hermes",
+      "summary": "Check endpoints every 30 minutes. Only notify when something is down.",
+      "cardPoints": [
+        "Check endpoints every 30 minutes. Only notify when something is down.",
+        "Set up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients."
+      ],
+      "detail": "Check endpoints every 30 minutes. Only notify when something is down.\n\nSet up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients.\nStart with a manual run and review the output. Some blueprints post messages or change repositories; use scoped access and approval before external writes.\nThis is an official workflow example, not a report that someone executed it successfully.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "workflow",
+        "automation"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/automation-blueprints#uptime-monitor",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-use-cases-competitive-repository-scout-with-hermes",
+      "title": "Competitive Repository Scout with Hermes",
+      "summary": "Monitor competitor repos for interesting PRs, features, and architectural decisions.",
+      "cardPoints": [
+        "Monitor competitor repos for interesting PRs, features, and architectural decisions.",
+        "Set up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients."
+      ],
+      "detail": "Monitor competitor repos for interesting PRs, features, and architectural decisions.\n\nSet up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients.\nStart with a manual run and review the output. Some blueprints post messages or change repositories; use scoped access and approval before external writes.\nThis is an official workflow example, not a report that someone executed it successfully.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "workflow",
+        "automation"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/automation-blueprints#competitive-repository-scout",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-use-cases-ai-news-digest-with-hermes",
+      "title": "AI News Digest with Hermes",
+      "summary": "Weekly roundup of AI/ML developments.",
+      "cardPoints": [
+        "Weekly roundup of AI/ML developments.",
+        "Set up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients."
+      ],
+      "detail": "Weekly roundup of AI/ML developments.\n\nSet up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients.\nStart with a manual run and review the output. Some blueprints post messages or change repositories; use scoped access and approval before external writes.\nThis is an official workflow example, not a report that someone executed it successfully.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "workflow",
+        "automation"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/automation-blueprints#ai-news-digest",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-use-cases-paper-digest-with-notes-with-hermes",
+      "title": "Paper Digest with Notes with Hermes",
+      "summary": "Daily arXiv scan that saves summaries to your note-taking system.",
+      "cardPoints": [
+        "Daily arXiv scan that saves summaries to your note-taking system.",
+        "Set up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients."
+      ],
+      "detail": "Daily arXiv scan that saves summaries to your note-taking system.\n\nSet up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients.\nStart with a manual run and review the output. Some blueprints post messages or change repositories; use scoped access and approval before external writes.\nThis is an official workflow example, not a report that someone executed it successfully.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "workflow",
+        "automation"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/automation-blueprints#paper-digest-with-notes",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-use-cases-issue-auto-labeling-with-hermes",
+      "title": "Issue Auto-Labeling with Hermes",
+      "summary": "Automatically label and respond to new issues.",
+      "cardPoints": [
+        "Automatically label and respond to new issues.",
+        "Set up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients."
+      ],
+      "detail": "Automatically label and respond to new issues.\n\nSet up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients.\nStart with a manual run and review the output. Some blueprints post messages or change repositories; use scoped access and approval before external writes.\nThis is an official workflow example, not a report that someone executed it successfully.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "workflow",
+        "automation"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/automation-blueprints#issue-auto-labeling",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-use-cases-ci-failure-analysis-with-hermes",
+      "title": "CI Failure Analysis with Hermes",
+      "summary": "Analyze CI failures and post diagnostics on the PR.",
+      "cardPoints": [
+        "Analyze CI failures and post diagnostics on the PR.",
+        "Set up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients."
+      ],
+      "detail": "Analyze CI failures and post diagnostics on the PR.\n\nSet up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients.\nStart with a manual run and review the output. Some blueprints post messages or change repositories; use scoped access and approval before external writes.\nThis is an official workflow example, not a report that someone executed it successfully.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "workflow",
+        "automation"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/automation-blueprints#ci-failure-analysis",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-use-cases-auto-port-changes-across-repos-with-hermes",
+      "title": "Auto-Port Changes Across Repos with Hermes",
+      "summary": "When a PR merges in one repo, automatically port the equivalent change to another.",
+      "cardPoints": [
+        "When a PR merges in one repo, automatically port the equivalent change to another.",
+        "Set up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients."
+      ],
+      "detail": "When a PR merges in one repo, automatically port the equivalent change to another.\n\nSet up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients.\nStart with a manual run and review the output. Some blueprints post messages or change repositories; use scoped access and approval before external writes.\nThis is an official workflow example, not a report that someone executed it successfully.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "workflow",
+        "automation"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/automation-blueprints#auto-port-changes-across-repos",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-use-cases-stripe-payment-monitoring-with-hermes",
+      "title": "Stripe Payment Monitoring with Hermes",
+      "summary": "Track payment events and get summaries of failures.",
+      "cardPoints": [
+        "Track payment events and get summaries of failures.",
+        "Set up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients."
+      ],
+      "detail": "Track payment events and get summaries of failures.\n\nSet up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients.\nStart with a manual run and review the output. Some blueprints post messages or change repositories; use scoped access and approval before external writes.\nThis is an official workflow example, not a report that someone executed it successfully.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "workflow",
+        "automation"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/automation-blueprints#stripe-payment-monitoring",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-use-cases-daily-revenue-summary-with-hermes",
+      "title": "Daily Revenue Summary with Hermes",
+      "summary": "Compile key business metrics every morning.",
+      "cardPoints": [
+        "Compile key business metrics every morning.",
+        "Set up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients."
+      ],
+      "detail": "Compile key business metrics every morning.\n\nSet up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients.\nStart with a manual run and review the output. Some blueprints post messages or change repositories; use scoped access and approval before external writes.\nThis is an official workflow example, not a report that someone executed it successfully.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "workflow",
+        "automation"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/automation-blueprints#daily-revenue-summary",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-use-cases-security-audit-pipeline-with-hermes",
+      "title": "Security Audit Pipeline with Hermes",
+      "summary": "Combine multiple skills for a comprehensive weekly security review.",
+      "cardPoints": [
+        "Combine multiple skills for a comprehensive weekly security review.",
+        "Set up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients."
+      ],
+      "detail": "Combine multiple skills for a comprehensive weekly security review.\n\nSet up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients.\nStart with a manual run and review the output. Some blueprints post messages or change repositories; use scoped access and approval before external writes.\nThis is an official workflow example, not a report that someone executed it successfully.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "workflow",
+        "automation"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/automation-blueprints#security-audit-pipeline",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-use-cases-content-pipeline-with-hermes",
+      "title": "Content Pipeline with Hermes",
+      "summary": "Research, draft, and prepare content on a schedule.",
+      "cardPoints": [
+        "Research, draft, and prepare content on a schedule.",
+        "Set up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients."
+      ],
+      "detail": "Research, draft, and prepare content on a schedule.\n\nSet up the schedule or webhook shown in the source, provide the required tools and replace example repositories, paths and recipients.\nStart with a manual run and review the output. Some blueprints post messages or change repositories; use scoped access and approval before external writes.\nThis is an official workflow example, not a report that someone executed it successfully.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "workflow",
+        "automation"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/automation-blueprints#content-pipeline",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-use-cases-triage-a-dedicated-agent-mailbox",
+      "title": "Triage a dedicated agent mailbox",
+      "summary": "Poll an agent-owned mailbox and summarize useful incoming messages.",
+      "cardPoints": [
+        "Poll an agent-owned mailbox and summarize useful incoming messages.",
+        "Set up the Himalaya skill and a dedicated low-privilege mailbox first. Treat incoming text as untrusted and approve outbound replies."
+      ],
+      "detail": "Poll an agent-owned mailbox and summarize useful incoming messages.\n\nSet up the Himalaya skill and a dedicated low-privilege mailbox first. Treat incoming text as untrusted and approve outbound replies.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "workflow",
+        "automation"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/agent-email-address#3-poll-the-inbox-on-a-schedule",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-use-cases-check-a-website-only-when-it-changes",
+      "title": "Check a website only when it changes",
+      "summary": "Use a script to detect changes before asking Hermes to summarize them.",
+      "cardPoints": [
+        "Use a script to detect changes before asking Hermes to summarize them.",
+        "Configure the URL, script and delivery target. Retain a last-good comparison so network errors are not mistaken for a change."
+      ],
+      "detail": "Use a script to detect changes before asking Hermes to summarize them.\n\nConfigure the URL, script and delivery target. Retain a last-good comparison so network errors are not mistaken for a change.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "workflow",
+        "automation"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/automate-with-cron#pattern-1-website-change-monitor",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-use-cases-collect-data-before-asking-for-trend-analysis",
+      "title": "Collect data before asking for trend analysis",
+      "summary": "Separate mechanical collection from the agent’s interpretation.",
+      "cardPoints": [
+        "Separate mechanical collection from the agent’s interpretation.",
+        "Provide a collection script and persistent output files. Require sufficient actual observations before describing a trend."
+      ],
+      "detail": "Separate mechanical collection from the agent’s interpretation.\n\nProvide a collection script and persistent output files. Require sufficient actual observations before describing a trend.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "workflow",
+        "automation"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/automate-with-cron#pattern-4-data-collection-pipeline",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-use-cases-send-a-completion-message-from-a-long-running-task",
+      "title": "Send a completion message from a long-running task",
+      "summary": "Use Hermes delivery from a shell workflow after a job finishes.",
+      "cardPoints": [
+        "Use Hermes delivery from a shell workflow after a job finishes.",
+        "Configure a supported destination before using hermes send. Preserve the original task’s exit status and distinguish a failed delivery from a failed job."
+      ],
+      "detail": "Use Hermes delivery from a shell workflow after a job finishes.\n\nConfigure a supported destination before using hermes send. Preserve the original task’s exit status and distinguish a failed delivery from a failed job.\n\nSource: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.",
+      "tags": [
+        "docs",
+        "workflow",
+        "automation"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/guides/pipe-script-output#long-running-tasks-ping-when-done",
+      "verifiedAt": "2026-09-28"
     }
   ]
 }
