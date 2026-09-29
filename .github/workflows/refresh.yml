@@ -1,7 +1,11 @@
 name: Refresh live signals
 
 on:
-  # Daily research is handled by the archive updater agent; this is the manual fallback.
+  # A free archive that stops moving stops being worth opening. This runs itself daily
+  # and proposes what it found; it still cannot publish, because merging is the owner's
+  # act and deployment is a separate one after that.
+  schedule:
+    - cron: '17 6 * * *'        # 06:17 UTC daily — off the hour, where the runner queue is shorter
   workflow_dispatch:
 
 permissions:
@@ -60,5 +64,8 @@ jobs:
 
           Validation: npm run check and npm test passed. Review eligibility,
           freshness and any source warnings before approving publication.
+
+          Merging this does not publish it. The Vercel project has no Git
+          integration, so the site changes only when someone deploys from main.
           BODY
           gh pr create --base main --head "$branch" --title "Refresh public signals" --body-file "$RUNNER_TEMP/refresh-pr.md"
