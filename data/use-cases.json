@@ -5552,6 +5552,27 @@
       "author": "Nous Research",
       "url": "https://hermes-agent.nousresearch.com/docs/guides/pipe-script-output#long-running-tasks-ping-when-done",
       "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-x-bot-screen-login-handoff",
+      "title": "Sign in yourself, then hand the bot’s browser back",
+      "summary": "Use Bot Screen to complete a login in the same browser session your Hermes bot continues using.",
+      "cardPoints": [
+        "Enable Computer Use and set up Bot Screen on the Linux gateway host.",
+        "Take over at sign-in, finish the login, then hand control back and ask the bot to continue."
+      ],
+      "detail": "“your bot gets its own desktop” — @witcheer.\n\nOn the Linux gateway host, enable Computer Use and install Bot Screen with hermes computer-use screen install. Set browser.headed to true using hermes config set browser.headed true.\n\nIn Hermes Desktop, right-click the bot under Bots, choose Open Screen and start the screen. Ask the bot to stop at the login page. Use Take over to sign in yourself; choose Hand back and tell the bot to continue.\n\nThe browser profile retains the login until the site expires it. Requires supported gateway setup and sufficient memory. A bot screen is not a separate security boundary: do not give a bot access to accounts you would not trust it to use.\n\nThis is an editorial summary of the linked public guide, not a Hidden Trick. Current setup and limitations: https://hermes-agent.nousresearch.com/docs/user-guide/features/bot-screen",
+      "tags": [
+        "browser",
+        "automation",
+        "desktop",
+        "human-in-the-loop"
+      ],
+      "source": "x",
+      "author": "@witcheer",
+      "url": "https://x.com/witcheer/status/2104935137653739584",
+      "date": "2026-09-29",
+      "verifiedAt": "2026-09-29"
     }
   ]
 }

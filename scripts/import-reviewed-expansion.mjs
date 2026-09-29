@@ -16,12 +16,22 @@ export function validateSelection(selection, page) {
   for (const key of ['id','title','summary','detail','author','url']) if(typeof item?.[key]!=='string'||!item[key].trim()) throw new Error(`Missing ${key}`);
   const url=new URL(item.url);
   if(url.protocol!=='https:'||url.username||url.password) throw new Error('Invalid source URL');
-  if(!['docs','github','reddit'].includes(item.source))throw new Error('Unsupported source type');
+  if(!['docs','github','reddit','x'].includes(item.source))throw new Error('Unsupported source type');
   if(shelf==='prompts'&&item.source!=='docs')throw new Error('Prompts require official source verification');
   if(item.source==='docs'&&url.origin!=='https://hermes-agent.nousresearch.com')throw new Error('Incorrect official source');
   if(item.source==='github'&&(url.hostname!=='github.com'||!/^\/[^/]+\/[^/]+$/.test(url.pathname)||item.credit))throw new Error('Repository entries must retain the public star policy');
   if(item.metric || item.metric2) throw new Error('Public metrics belong in the API snapshot');
   if(!Array.isArray(evidence)||!evidence.length||!page?.fetchedAt||!Array.isArray(page.sections)||!Array.isArray(page.blocks)) throw new Error('Missing source evidence');
+  if(item.source==='x') {
+    const match=url.pathname.match(/^\/([A-Za-z0-9_]+)\/status\/([0-9]+)$/);
+    if(url.hostname!=='x.com'||!match||url.search||url.hash||item.author.toLowerCase()!==('@'+match[1]).toLowerCase())throw new Error('Expected an attributed X post permalink');
+    if(page.kind!=='reviewed-public-x-post'||page.url!==item.url||page.author!==item.author||page.captureMethod!=='Public X post rendered in browser')throw new Error('X attribution or capture mismatch');
+    if(item.repo||item.credit||!['use-cases','settings','commands','skills'].includes(shelf))throw new Error('X workflows cannot bypass repository or extraction policies');
+    if(!Number.isSafeInteger(page.observedViews)||!Number.isSafeInteger(page.reviewMinimumViews)||page.reviewMinimumViews<=0||page.observedViews<page.reviewMinimumViews||!Number.isFinite(Date.parse(page.fetchedAt)))throw new Error('Missing qualifying view observation');
+    for(const quote of evidence)if(typeof quote!=='string'||quote.length<12||!page.sections.some(s=>normal(s.text).includes(normal(quote)))||!normal(item.detail).includes(normal(quote)))throw new Error('X excerpt changed');
+    if(item.snippet&&!page.sections.some(s=>normal(s.text).includes(normal(item.snippet))))throw new Error('X snippet changed');
+    return; // Browser counts stay in research evidence, never card metrics or public ranking.
+  }
   if(item.source==='reddit') {
     if(url.hostname!=='www.reddit.com'||!/^\/r\/hermesagent\/comments\/[a-z0-9]+\/comment\/[a-z0-9]+\/$/.test(url.pathname))throw new Error('Expected an exact community comment permalink');
     if(page.url!==item.url||page.author!==item.author||page.kind!=='reviewed-public-comment')throw new Error('Comment attribution mismatch');
@@ -65,6 +75,7 @@ export function planExpansion(selections,record,shelves) {
 export async function importExpansion(root=ROOT,{refresh=false,verify=false,fetcher=fetch}={}) {
   const manifest=JSON.parse(await readFile(join(root,'scripts/reviewed-expansion.json'),'utf8'));
   const record=JSON.parse(await readFile(join(root,'scripts/expansion-excerpts.json'),'utf8'));
+  if(refresh&&manifest.entries.some(x=>new URL(x.item.url).hostname==='x.com'))throw new Error('X selections require a new public-browser review; automatic refresh unavailable; archive and cached evidence untouched');
   if(refresh)for(const url of [...new Set(manifest.entries.map(x=>x.item.url.split('#')[0]))]) {
     const location=new URL(url);
     if(location.hostname==='www.reddit.com') {

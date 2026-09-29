@@ -1720,6 +1720,24 @@
         }
       ],
       "blocks": []
+    },
+    "https://x.com/witcheer/status/2104935137653739584": {
+      "kind": "reviewed-public-x-post",
+      "captureMethod": "Public X post rendered in browser",
+      "url": "https://x.com/witcheer/status/2104935137653739584",
+      "author": "@witcheer",
+      "fetchedAt": "2026-09-29T18:01:47.741Z",
+      "observedViews": 12279,
+      "reviewMinimumViews": 10000,
+      "reviewMinimumStatus": "Provisional pending owner preference; research selection only",
+      "sections": [
+        {
+          "anchor": "post",
+          "text": "how to use Bot Screen in Hermes Agent: your bot gets its own desktop, and you step in when it hits a login. on the Linux machine that runs your Hermes gateway: 1. install the screen: `hermes computer-use screen install` 2. make the bot's browser show on it: `hermes config set browser.headed true` 3. in Hermes Desktop: Bots, right-click your bot, Open Screen, then Start 4. ask it to open a login page in its browser and stop at the sign-in 5. when it stops, click Take over and sign in 6. click Hand back and tell it to continue the bot keeps that login for later sessions, until the site expires it."
+        }
+      ],
+      "blocks": [],
+      "corroboratingUrl": "https://hermes-agent.nousresearch.com/docs/user-guide/features/bot-screen"
     }
   }
 }
