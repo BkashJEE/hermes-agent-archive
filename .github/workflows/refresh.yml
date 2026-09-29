@@ -1,7 +1,11 @@
 name: Refresh live signals
 
 on:
-  # Daily research is handled by the archive updater agent; this is the manual fallback.
+  # A free archive that stops moving stops being worth opening. This runs itself daily
+  # and proposes what it found; it still cannot publish, because merging is the owner's
+  # act and deployment is a separate one after that.
+  schedule:
+    - cron: '17 6 * * *'        # 06:17 UTC daily — off the hour, where the runner queue is shorter
   workflow_dispatch:
 
 permissions:
@@ -50,15 +54,17 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/live.json data/rankings.json
-          if git diff --staged --quiet; then exit 0; fi
+          if git diff --staged --quiet; then
+            echo "Nothing changed; no proposal to make."
+            exit 0
+          fi
+          # Work out what was found before committing, while the previous state is still
+          # what HEAD holds. The title is the notification: it has to say whether this run
+          # is worth opening.
+          title="$(node scripts/summarise-refresh.mjs)"
+          node scripts/summarise-refresh.mjs --body > "$RUNNER_TEMP/refresh-pr.md"
           branch="automation/refresh-signals-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
           git switch -c "$branch"
-          git commit -m "Refresh public signals for review"
+          git commit -m "$title"
           git push origin "$branch"
-          cat > "$RUNNER_TEMP/refresh-pr.md" <<'BODY'
-          Refresh public API snapshots and the associated archive classifications.
-
-          Validation: npm run check and npm test passed. Review eligibility,
-          freshness and any source warnings before approving publication.
-          BODY
-          gh pr create --base main --head "$branch" --title "Refresh public signals" --body-file "$RUNNER_TEMP/refresh-pr.md"
+          gh pr create --base main --head "$branch" --title "$title" --body-file "$RUNNER_TEMP/refresh-pr.md"
