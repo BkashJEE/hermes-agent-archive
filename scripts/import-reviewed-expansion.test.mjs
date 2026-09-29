@@ -46,3 +46,29 @@ test('a community report must retain its exact author, quote and comment URL',()
   const changed=structuredClone(selection);mutate(changed);assert.throws(()=>planExpansion([changed],record,{builds:{items:[]}}));
  }
 });
+
+test('reviewed X workflows preserve attribution and keep observed views out of card metrics',()=>{
+ const url='https://x.com/example/status/123456789';
+ const quote='Pause at the login and let the human take over.';
+ const selection={shelf:'use-cases',item:{id:'x-example',title:'Human browser handoff',summary:'A reproducible workflow',detail:quote,author:'@example',source:'x',url},evidence:[quote]};
+ const page={kind:'reviewed-public-x-post',captureMethod:'Public X post rendered in browser',url,author:'@example',fetchedAt:'2026-09-29T18:00:00Z',observedViews:12000,reviewMinimumViews:10000,sections:[{text:quote}],blocks:[]};
+ const record={pages:{[url]:page}},shelves={'use-cases':{items:[]}};
+ assert.equal(planExpansion([selection],record,shelves).added['use-cases'],1);
+ for(const mutate of [s=>s.item.author='@other',s=>s.item.url+='?other=1',s=>s.item.repo='org/repo',s=>s.item.metric={kind:'views',value:12000},s=>s.item.credit='X',s=>s.item.detail='No source quotation',s=>s.item.snippet='Invented shell command',s=>s.shelf='prompts',s=>s.shelf='tricks']) {
+  const changed=structuredClone(selection);mutate(changed);assert.throws(()=>planExpansion([changed],record,shelves));
+ }
+ for(const mutate of [p=>p.observedViews=null,p=>p.observedViews=9999,p=>p.reviewMinimumViews=0,p=>p.fetchedAt='not a date',p=>p.author='@other',p=>p.sections=[]]) {
+  const changed=structuredClone(record);mutate(changed.pages[url]);assert.throws(()=>planExpansion([selection],changed,shelves));
+ }
+});
+
+test('automatic X refresh fails before network access or any writes',async t=>{
+ const root=await mkdtemp(join(tmpdir(),'hermes-x-refresh-'));t.after(()=>rm(root,{recursive:true,force:true}));
+ await mkdir(join(root,'scripts'));await mkdir(join(root,'data'));
+ await writeFile(join(root,'scripts/reviewed-expansion.json'),JSON.stringify({entries:[{item:{url:'https://x.com/example/status/123'}}]}));
+ const cache=join(root,'scripts/expansion-excerpts.json'),target=join(root,'data/use-cases.json');
+ await writeFile(cache,'{"pages":{}}');await writeFile(target,'{"items":[{"id":"preserved"}]}');
+ let fetched=false;
+ await assert.rejects(importExpansion(root,{refresh:true,fetcher:()=>{fetched=true;throw Error('unexpected network');}}),/public-browser review/);
+ assert.equal(fetched,false);assert.equal(await readFile(cache,'utf8'),'{"pages":{}}');assert.equal(await readFile(target,'utf8'),'{"items":[{"id":"preserved"}]}');
+});
