@@ -70,6 +70,423 @@
         "value": 542
       },
       "credit": "jev-use-cases.com"
+    },
+    {
+      "id": "community-hermes-desktop-theme-pack",
+      "title": "Hermes Desktop Theme Pack",
+      "summary": "Browse and apply Hermes skins across the CLI, TUI, Desktop and web dashboard.",
+      "detail": "Cliff Wade's theme pack provides YAML skins and a Theme Switcher for Hermes Desktop and the web dashboard. Preview themes, search for a palette, switch between light and dark counterparts, and apply a skin across Hermes surfaces.\n\nTo use the skins, follow the repository's installation instructions and select one through Hermes Appearance settings or /skin. The full switcher requires both its backend plugin and its Desktop UI plugin. With an SSH connection, install the backend on the remote host and the UI on the local Desktop computer; restart or reconnect the backend to mount its routes.\n\nThe author's accessibility and contrast claims have not been independently tested by this archive. Community theme credits are listed upstream, including BeardedChop/hermes-skins-pack. This listing is a documentation review, not a security audit or runtime endorsement.",
+      "cardPoints": [
+        "Preview and apply skins across Hermes surfaces.",
+        "Browse themes from Desktop or the web dashboard."
+      ],
+      "author": "Cliff Wade",
+      "source": "github",
+      "url": "https://github.com/CliffWade/hermes-desktop-theme-pack",
+      "date": "2026-09-28",
+      "tags": [
+        "community-build",
+        "desktop",
+        "themes"
+      ]
+    },
+    {
+      "id": "community-hermes-command-center",
+      "title": "Hermes Command Center",
+      "summary": "Inspect Hermes health, activity, scheduled jobs, model usage, skills and memory from a Desktop dashboard.",
+      "detail": "Cliff Wade describes a read-only dashboard using local Hermes state to show processes, model usage, cron jobs, plugins, skills and memory. Its Desktop page uses /hermes-center so it can coexist with the host's built-in Command Center.\n\nFollow the repository's instructions to install and enable the backend plugin, then install the Desktop UI plugin. Restart the backend so its API routes are mounted, reload Desktop plugins and open Hermes Center from the sidebar.\n\nRequires Hermes Desktop and its plugin SDK. The author's read-only and no-telemetry claims have not been independently audited. No candidate code was installed or executed during archive review.",
+      "cardPoints": [
+        "Inspect scheduled jobs, activity and model usage.",
+        "View local Hermes health, skills and memory."
+      ],
+      "author": "Cliff Wade",
+      "source": "github",
+      "url": "https://github.com/CliffWade/hermes-command-center",
+      "date": "2026-09-28",
+      "tags": [
+        "community-build",
+        "desktop",
+        "monitoring"
+      ]
+    },
+    {
+      "id": "community-hermes-desktop-achievements",
+      "title": "Hermes Desktop Achievements",
+      "summary": "View achievements, progress and goals in Hermes Desktop, with optional unlock notifications and share cards.",
+      "detail": "Originally created by Tony Simons and extended by Cliff Wade, this Desktop plugin displays badges, goals, records, rewards and custom achievements using the existing hermes-achievements backend through the Hermes plugin SDK.\n\nEnable the hermes-achievements backend, install the Desktop UI plugin following the repository instructions, then reload Desktop plugins and open Achievements. The author recommends Hermes Desktop v0.19 or newer. The matching backend must be available and enabled.\n\nOptional Discord announcements send unlock information to a configured webhook; leave them disabled unless you want that information shared. The archive reviewed documentation only and did not install or execute the plugin. Original-author credit is preserved from the repository's License section.",
+      "cardPoints": [
+        "View badges, goals and progress in Desktop.",
+        "Choose unlock notifications and export share cards."
+      ],
+      "author": "Tony Simons (original), extended by Cliff Wade",
+      "source": "github",
+      "url": "https://github.com/CliffWade/hermes-desktop-achievements",
+      "date": "2026-09-28",
+      "tags": [
+        "community-build",
+        "desktop",
+        "achievements"
+      ]
+    },
+    {
+      "id": "community-report-pbqsovk",
+      "title": "Hermes chat inside a research workflow hub",
+      "summary": "A research team is experimenting with a Hermes interface inside DRP Hub and REANA workflows.",
+      "cardPoints": [
+        "A research team is experimenting with a Hermes interface inside DRP Hub and REANA workflows.",
+        "Community report — read the setup and limitations."
+      ],
+      "detail": "“We’re integrating Hermes Agent into DRP Hub with a chat bubble directly on the site, so researchers can access the agent without leaving their workflow.”\n\n— u/arm2armreddit, via r/hermesagent.\n\n- What they built: A research team is experimenting with a Hermes interface inside DRP Hub and REANA workflows.\n- Status and limitations: The author describes an experimental image and ongoing work on persistent storage, shared skills and JupyterLab. This is a work in progress, not a completed integration claim.\n- Evidence: attributed public comment, reviewed on 2026-09-28. This is the contributor’s report; the archive has not independently run or audited their build.",
+      "tags": [
+        "community-build",
+        "user-story"
+      ],
+      "source": "reddit",
+      "author": "u/arm2armreddit",
+      "url": "https://www.reddit.com/r/hermesagent/comments/1woxjjd/comment/pbqsovk/",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "community-report-pbqt22w",
+      "title": "Kanban event notifications instead of polling",
+      "summary": "A contributor built event-driven notifications for completed and blocked Kanban tasks.",
+      "cardPoints": [
+        "A contributor built event-driven notifications for completed and blocked Kanban tasks.",
+        "Community report — read the setup and limitations."
+      ],
+      "detail": "“I asked Hermes to create kanban-events plugin for the built-in kanban feature because it was giving me slow updates on my small AI team (analyst, coder, tester).”\n\n— u/shahonseven, via r/hermesagent.\n\n- What they built: A contributor built event-driven notifications for completed and blocked Kanban tasks.\n- Status and limitations: The author reports routing blocked tasks to an assistant before escalating human decisions. Review retry policy and notification permissions; no implementation or measured latency was verified here.\n- Evidence: attributed public comment, reviewed on 2026-09-28. This is the contributor’s report; the archive has not independently run or audited their build.",
+      "tags": [
+        "community-build",
+        "user-story"
+      ],
+      "source": "reddit",
+      "author": "u/shahonseven",
+      "url": "https://www.reddit.com/r/hermesagent/comments/1woxjjd/comment/pbqt22w/",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "community-report-p7r2nbl",
+      "title": "A Windows app for electricity-bill reports",
+      "summary": "A contributor is building an app that extracts bill data and compares it with a historical spreadsheet.",
+      "cardPoints": [
+        "A contributor is building an app that extracts bill data and compares it with a historical spreadsheet.",
+        "Community report — read the setup and limitations."
+      ],
+      "detail": "“Have Hermes create an APP for Windows (for now) to read the bill and generate the report.”\n\n— u/TerribleDebate774, via r/hermesagent.\n\n- What they built: A contributor is building an app that extracts bill data and compares it with a historical spreadsheet.\n- Status and limitations: The author explicitly says the app is still a work in progress and only data extraction is working so far. Price comparisons and PDF reports are intended steps, not verified completed features.\n- Evidence: attributed public comment, reviewed on 2026-09-28. This is the contributor’s report; the archive has not independently run or audited their build.",
+      "tags": [
+        "community-build",
+        "user-story"
+      ],
+      "source": "reddit",
+      "author": "u/TerribleDebate774",
+      "url": "https://www.reddit.com/r/hermesagent/comments/1w7039f/comment/p7r2nbl/",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "community-report-p7rcbjb",
+      "title": "A family rewards app built with Hermes",
+      "summary": "A self-hosted web app gives a family a shared rewards chart.",
+      "cardPoints": [
+        "A self-hosted web app gives a family a shared rewards chart.",
+        "Community report — read the setup and limitations."
+      ],
+      "detail": "“Hermes and I built a self-hosted progressive web app that helps me track “big boy points” that we can award to my kiddo and redeem for prizes.”\n\n— u/SnyderMesh, via r/hermesagent.\n\n- What they built: A self-hosted web app gives a family a shared rewards chart.\n- Status and limitations: The creator reports using it with their spouse. No source code or independent test is provided in the comment; treat it as an idea for a small personal application.\n- Evidence: attributed public comment, reviewed on 2026-09-28. This is the contributor’s report; the archive has not independently run or audited their build.",
+      "tags": [
+        "community-build",
+        "user-story"
+      ],
+      "source": "reddit",
+      "author": "u/SnyderMesh",
+      "url": "https://www.reddit.com/r/hermesagent/comments/1w7039f/comment/p7rcbjb/",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "community-report-p7rah3v",
+      "title": "A living wiki for a Proxmox homelab",
+      "summary": "A homelab owner used Hermes to document services before carrying out upgrades.",
+      "cardPoints": [
+        "A homelab owner used Hermes to document services before carrying out upgrades.",
+        "Community report — read the setup and limitations."
+      ],
+      "detail": "“I first let it setup streamlined access to all machines via ssh key, then I let it setup a wiki.js instance and then have it scan over all machines and write a detailed documentation.”\n\n— u/lemacx, via r/hermesagent.\n\n- What they built: A homelab owner used Hermes to document services before carrying out upgrades.\n- Status and limitations: The author describes detached backups that the agent cannot access. Start with inventory and read-only documentation; approve upgrades separately and verify restore procedures.\n- Evidence: attributed public comment, reviewed on 2026-09-28. This is the contributor’s report; the archive has not independently run or audited their build.",
+      "tags": [
+        "community-build",
+        "user-story"
+      ],
+      "source": "reddit",
+      "author": "u/lemacx",
+      "url": "https://www.reddit.com/r/hermesagent/comments/1w7039f/comment/p7rah3v/",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "community-report-p7rhpwg",
+      "title": "A Home Assistant voice profile with local personality",
+      "summary": "A contributor connected home voice controls to a Hermes profile and customized its voice.",
+      "cardPoints": [
+        "A contributor connected home voice controls to a Hermes profile and customized its voice.",
+        "Community report — read the setup and limitations."
+      ],
+      "detail": "“Last week (or the week before) I posted about how I had managed to get Home Assistant Voice pointed at Hermes and made a profile as my voice assistant.”\n\n— u/LifeBandit666, via r/hermesagent.\n\n- What they built: A contributor connected home voice controls to a Hermes profile and customized its voice.\n- Status and limitations: The report includes shopping-list and arrival routines. The post is a personal setup report, not a complete installation guide; permissions and hardware differ by home.\n- Evidence: attributed public comment, reviewed on 2026-09-28. This is the contributor’s report; the archive has not independently run or audited their build.",
+      "tags": [
+        "community-build",
+        "user-story"
+      ],
+      "source": "reddit",
+      "author": "u/LifeBandit666",
+      "url": "https://www.reddit.com/r/hermesagent/comments/1w7039f/comment/p7rhpwg/",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "community-report-p7r111q",
+      "title": "A Kanban team with a human approval step",
+      "summary": "A contributor is separating conversation, operations, planning and building into different Hermes roles.",
+      "cardPoints": [
+        "A contributor is separating conversation, operations, planning and building into different Hermes roles.",
+        "Community report — read the setup and limitations."
+      ],
+      "detail": "“Kanban Coordinator - knows which profile does what, and what happens when it's finished.”\n\n— u/LifeBandit666, via r/hermesagent.\n\n- What they built: A contributor is separating conversation, operations, planning and building into different Hermes roles.\n- Status and limitations: The author reports repeated loops and high token use while the system is still being built. Preserve human approval before building and bound retries; this is not a finished success story.\n- Evidence: attributed public comment, reviewed on 2026-09-28. This is the contributor’s report; the archive has not independently run or audited their build.",
+      "tags": [
+        "community-build",
+        "user-story"
+      ],
+      "source": "reddit",
+      "author": "u/LifeBandit666",
+      "url": "https://www.reddit.com/r/hermesagent/comments/1w7039f/comment/p7r111q/",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "community-report-p7rl1qv",
+      "title": "Trello-triggered build and installation tests",
+      "summary": "A contributor separates software builds from installation verification and starts work from Trello.",
+      "cardPoints": [
+        "A contributor separates software builds from installation verification and starts work from Trello.",
+        "Community report — read the setup and limitations."
+      ],
+      "detail": "“Main hermes acts as orchestrator. Install bot builds a completely portable, relocatable software installation (open source software). Testing bot then takes that completed install and tests it across VMs fired up with orbstack.”\n\n— u/sixteenpoundblanket, via r/hermesagent.\n\n- What they built: A contributor separates software builds from installation verification and starts work from Trello.\n- Status and limitations: The author uses isolated test machines and watches tasks on Hermes Kanban. Review source code and installation actions before reproducing; the archive has not executed this setup.\n- Evidence: attributed public comment, reviewed on 2026-09-28. This is the contributor’s report; the archive has not independently run or audited their build.",
+      "tags": [
+        "community-build",
+        "user-story"
+      ],
+      "source": "reddit",
+      "author": "u/sixteenpoundblanket",
+      "url": "https://www.reddit.com/r/hermesagent/comments/1w7039f/comment/p7rl1qv/",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "community-report-p94rqcw",
+      "title": "A school-day assistant for the family",
+      "summary": "A local Hermes setup combines the school rotation, emails, weather and travel into a morning recap.",
+      "cardPoints": [
+        "A local Hermes setup combines the school rotation, emails, weather and travel into a morning recap.",
+        "Community report — read the setup and limitations."
+      ],
+      "detail": "“My agent also then reads all school emails, checks the weather and transport routes in the morning, then sends a morning recap on the day number, weather, transport routes to school and flags up anything which deviates from a “normal day”.”\n\n— u/TemporaryInk, via r/hermesagent.\n\n- What they built: A local Hermes setup combines the school rotation, emails, weather and travel into a morning recap.\n- Status and limitations: The source describes a dedicated local machine. Give the agent only the mailbox and calendar access needed and check unusual-day alerts against the school’s actual schedule.\n- Evidence: attributed public comment, reviewed on 2026-09-28. This is the contributor’s report; the archive has not independently run or audited their build.",
+      "tags": [
+        "community-build",
+        "user-story"
+      ],
+      "source": "reddit",
+      "author": "u/TemporaryInk",
+      "url": "https://www.reddit.com/r/hermesagent/comments/1wdbwgt/comment/p94rqcw/",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "community-report-p95x0wf",
+      "title": "An Obsidian cleanup with a review queue",
+      "summary": "A contributor organized imported notes into existing folders, leaving uncertain items for review.",
+      "cardPoints": [
+        "A contributor organized imported notes into existing folders, leaving uncertain items for review.",
+        "Community report — read the setup and limitations."
+      ],
+      "detail": "“Asked my Hermes agent to review and sort them out to existing folders and/or to review folder or delete.”\n\n— u/RankLord, via r/hermesagent.\n\n- What they built: A contributor organized imported notes into existing folders, leaving uncertain items for review.\n- Status and limitations: The author reports selective checking after the run. Back up the vault first and approve deletions separately; a successful personal run does not guarantee faithful organization of another vault.\n- Evidence: attributed public comment, reviewed on 2026-09-28. This is the contributor’s report; the archive has not independently run or audited their build.",
+      "tags": [
+        "community-build",
+        "user-story"
+      ],
+      "source": "reddit",
+      "author": "u/RankLord",
+      "url": "https://www.reddit.com/r/hermesagent/comments/1wdbwgt/comment/p95x0wf/",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "community-report-p955icz",
+      "title": "A fundraiser poster adapted through Discord voice",
+      "summary": "A contributor reused an existing poster and asked Hermes to adapt its audience and voice.",
+      "cardPoints": [
+        "A contributor reused an existing poster and asked Hermes to adapt its audience and voice.",
+        "Community report — read the setup and limitations."
+      ],
+      "detail": "“I literally had to drop the original poster into Discord and tell Hermes to remake it written from my sons perspective for school. Now he has one for school too.”\n\n— u/LifeBandit666, via r/hermesagent.\n\n- What they built: A contributor reused an existing poster and asked Hermes to adapt its audience and voice.\n- Status and limitations: The useful pattern is adapting an approved asset from a mobile conversation. Review names, permissions and final copy before distributing the result.\n- Evidence: attributed public comment, reviewed on 2026-09-28. This is the contributor’s report; the archive has not independently run or audited their build.",
+      "tags": [
+        "community-build",
+        "user-story"
+      ],
+      "source": "reddit",
+      "author": "u/LifeBandit666",
+      "url": "https://www.reddit.com/r/hermesagent/comments/1wdbwgt/comment/p955icz/",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "community-report-p97agce",
+      "title": "A tablet dashboard from a rough drawing",
+      "summary": "A contributor built a Home Assistant tablet dashboard from a simple visual brief.",
+      "cardPoints": [
+        "A contributor built a Home Assistant tablet dashboard from a simple visual brief.",
+        "Community report — read the setup and limitations."
+      ],
+      "detail": "“Just finished building a custom dashboard for the View Assist (a home assistant integration for my tablet displays)”\n\n— u/Drakaner, via r/hermesagent.\n\n- What they built: A contributor built a Home Assistant tablet dashboard from a simple visual brief.\n- Status and limitations: The author reports using a locally hosted model. The comment does not include a complete reproduction guide; validate controls against your own Home Assistant setup.\n- Evidence: attributed public comment, reviewed on 2026-09-28. This is the contributor’s report; the archive has not independently run or audited their build.",
+      "tags": [
+        "community-build",
+        "user-story"
+      ],
+      "source": "reddit",
+      "author": "u/Drakaner",
+      "url": "https://www.reddit.com/r/hermesagent/comments/1wdbwgt/comment/p97agce/",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "community-report-p97kz89",
+      "title": "A Pi and VPS team controlled through Discord",
+      "summary": "A contributor coordinates Hermes instances on separate hosts using a shared task board.",
+      "cardPoints": [
+        "A contributor coordinates Hermes instances on separate hosts using a shared task board.",
+        "Community report — read the setup and limitations."
+      ],
+      "detail": "“They coordinate through a shared Kanban board, not through my chat history. Each agent gets an isolated workspace, claims a card, works it, and files evidence when it's done.”\n\n— u/DyGr00339, via r/hermesagent.\n\n- What they built: A contributor coordinates Hermes instances on separate hosts using a shared task board.\n- Status and limitations: The setup also uses model fallbacks and separate memory containers. These are author-reported choices, not an audited isolation boundary or a promise of free operation.\n- Evidence: attributed public comment, reviewed on 2026-09-28. This is the contributor’s report; the archive has not independently run or audited their build.",
+      "tags": [
+        "community-build",
+        "user-story"
+      ],
+      "source": "reddit",
+      "author": "u/DyGr00339",
+      "url": "https://www.reddit.com/r/hermesagent/comments/1wdbwgt/comment/p97kz89/",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "community-report-p95lclt",
+      "title": "A job-search team that tailors application documents",
+      "summary": "A contributor divides vacancy discovery, normalization, assessment and CV writing across roles.",
+      "cardPoints": [
+        "A contributor divides vacancy discovery, normalization, assessment and CV writing across roles.",
+        "Community report — read the setup and limitations."
+      ],
+      "detail": "“Built a job search team that scans the web and preconfigured sources, filters jobs, scores them, and delivers a tailored CV per opening.”\n\n— u/positiveconstraint, via r/hermesagent.\n\n- What they built: A contributor divides vacancy discovery, normalization, assessment and CV writing across roles.\n- Status and limitations: The author supplies the criteria and refines them with feedback. Verify job details and every statement in a tailored CV; no autonomous submission or employment outcome is established.\n- Evidence: attributed public comment, reviewed on 2026-09-28. This is the contributor’s report; the archive has not independently run or audited their build.",
+      "tags": [
+        "community-build",
+        "user-story"
+      ],
+      "source": "reddit",
+      "author": "u/positiveconstraint",
+      "url": "https://www.reddit.com/r/hermesagent/comments/1wdbwgt/comment/p95lclt/",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "community-report-pbyf2dd",
+      "title": "An old notebook as a home information station",
+      "summary": "A contributor keeps a repurposed notebook running a recurring home information and control setup.",
+      "cardPoints": [
+        "A contributor keeps a repurposed notebook running a recurring home information and control setup.",
+        "Community report — read the setup and limitations."
+      ],
+      "detail": "“news report, weather forecast, home gadget control, audio summary.”\n\n— u/Dieguox, via r/hermesagent.\n\n- What they built: A contributor keeps a repurposed notebook running a recurring home information and control setup.\n- Status and limitations: The source describes an evolving personal build and includes a screenshot. Hardware, model requirements and control permissions need separate verification for reproduction.\n- Evidence: attributed public comment, reviewed on 2026-09-28. This is the contributor’s report; the archive has not independently run or audited their build.",
+      "tags": [
+        "community-build",
+        "user-story"
+      ],
+      "source": "reddit",
+      "author": "u/Dieguox",
+      "url": "https://www.reddit.com/r/hermesagent/comments/1wpsbui/comment/pbyf2dd/",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "community-report-pbxz8zn",
+      "title": "Importing recipe documents into Mealie",
+      "summary": "A homelab user is turning recipe documents into entries in a self-hosted recipe service.",
+      "cardPoints": [
+        "A homelab user is turning recipe documents into entries in a self-hosted recipe service.",
+        "Community report — read the setup and limitations."
+      ],
+      "detail": "“Now he is importing recipe books PDFs and Books into mealie.”\n\n— u/qonTrixzz, via r/hermesagent.\n\n- What they built: A homelab user is turning recipe documents into entries in a self-hosted recipe service.\n- Status and limitations: The author describes reading service APIs and writing skills as needed. The import was in progress; check extracted ingredients, units and duplicates before accepting a batch.\n- Evidence: attributed public comment, reviewed on 2026-09-28. This is the contributor’s report; the archive has not independently run or audited their build.",
+      "tags": [
+        "community-build",
+        "user-story"
+      ],
+      "source": "reddit",
+      "author": "u/qonTrixzz",
+      "url": "https://www.reddit.com/r/hermesagent/comments/1wpsbui/comment/pbxz8zn/",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "community-report-pc10y2a",
+      "title": "Automatic change documentation for a home server",
+      "summary": "A contributor keeps a record of home-server changes while using Hermes for maintenance.",
+      "cardPoints": [
+        "A contributor keeps a record of home-server changes while using Hermes for maintenance.",
+        "Community report — read the setup and limitations."
+      ],
+      "detail": "“I also now have an automatic documentation of everything that changes for my home server.”\n\n— u/c0mpufreak, via r/hermesagent.\n\n- What they built: A contributor keeps a record of home-server changes while using Hermes for maintenance.\n- Status and limitations: The surrounding discussion describes SSH, scoped service APIs and application credentials. Independently compare the log with actual changes; do not treat generated documentation as an audit guarantee.\n- Evidence: attributed public comment, reviewed on 2026-09-28. This is the contributor’s report; the archive has not independently run or audited their build.",
+      "tags": [
+        "community-build",
+        "user-story"
+      ],
+      "source": "reddit",
+      "author": "u/c0mpufreak",
+      "url": "https://www.reddit.com/r/hermesagent/comments/1wpsbui/comment/pc10y2a/",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "community-report-pca7uxj",
+      "title": "A Pi voice assistant and photo frame",
+      "summary": "A contributor combines a wake-word assistant, a display and a photo slideshow on a Raspberry Pi.",
+      "cardPoints": [
+        "A contributor combines a wake-word assistant, a display and a photo slideshow on a Raspberry Pi.",
+        "Community report — read the setup and limitations."
+      ],
+      "detail": "“The mic now has a settle-and-flush period after every playback like a normal person.”\n\n— u/musicalfurball, via r/hermesagent.\n\n- What they built: A contributor combines a wake-word assistant, a display and a photo slideshow on a Raspberry Pi.\n- Status and limitations: The report describes audio routing, cold-start delays, resource contention and playback retriggering. It is a hardware experiment with detailed lessons, not a turnkey installer or a verified performance benchmark.\n- Evidence: attributed public comment, reviewed on 2026-09-28. This is the contributor’s report; the archive has not independently run or audited their build.",
+      "tags": [
+        "community-build",
+        "user-story"
+      ],
+      "source": "reddit",
+      "author": "u/musicalfurball",
+      "url": "https://www.reddit.com/r/hermesagent/comments/1wpsbui/comment/pca7uxj/",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "community-report-pby2tkd",
+      "title": "A mobile control app for a personal Hermes setup",
+      "summary": "A contributor is using Hermes to coordinate development of a mobile control interface.",
+      "cardPoints": [
+        "A contributor is using Hermes to coordinate development of a mobile control interface.",
+        "Community report — read the setup and limitations."
+      ],
+      "detail": "“it's now using Claude/Codex/Antigravity to plan, build & QA a mobile app to control my Hermes”\n\n— u/Strange-Network1437, via r/hermesagent.\n\n- What they built: A contributor is using Hermes to coordinate development of a mobile control interface.\n- Status and limitations: The original comment says the build is still running. Existing Hermes profile and mobile tools may already cover part of the need; this card records an experiment, not a released app.\n- Evidence: attributed public comment, reviewed on 2026-09-28. This is the contributor’s report; the archive has not independently run or audited their build.",
+      "tags": [
+        "community-build",
+        "user-story"
+      ],
+      "source": "reddit",
+      "author": "u/Strange-Network1437",
+      "url": "https://www.reddit.com/r/hermesagent/comments/1wpsbui/comment/pby2tkd/",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "community-report-p9i0xsf",
+      "title": "OpenRouter spending charts delivered to Telegram",
+      "summary": "A contributor replaces repeated dashboard visits with a scheduled usage chart.",
+      "cardPoints": [
+        "A contributor replaces repeated dashboard visits with a scheduled usage chart.",
+        "Community report — read the setup and limitations."
+      ],
+      "detail": "“Right now my agent does this and send me final chart on telegram every 3 hours, with a brief note on chart.”\n\n— u/interAathma, via r/hermesagent.\n\n- What they built: A contributor replaces repeated dashboard visits with a scheduled usage chart.\n- Status and limitations: The author says the report reads provider APIs without an additional model call. No cost or token-saving figure is imported; verify provider records and protect account credentials.\n- Evidence: attributed public comment, reviewed on 2026-09-28. This is the contributor’s report; the archive has not independently run or audited their build.",
+      "tags": [
+        "community-build",
+        "user-story"
+      ],
+      "source": "reddit",
+      "author": "u/interAathma",
+      "url": "https://www.reddit.com/r/hermesagent/comments/1w631p8/comment/p9i0xsf/",
+      "verifiedAt": "2026-09-28"
     }
   ],
   "jevImportedAt": "2026-09-24T04:38:34.714Z"

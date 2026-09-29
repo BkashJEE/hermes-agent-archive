@@ -33,7 +33,7 @@ body:
     id: evidence
     attributes:
       label: Hermes integration evidence for repository submissions
-      description: Link to upstream Hermes installation or usage documentation. Repository cards require more than 50,000 GitHub stars, verified by the maintainer through the public API.
+      description: Link to upstream Hermes installation or usage documentation. Repository cards normally require more than 50,000 GitHub stars, verified through the public API. Three named owner-approved exceptions exist; submitting an entry does not grant an exception.
   - type: textarea
     id: connection
     attributes:

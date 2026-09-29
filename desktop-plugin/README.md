@@ -102,10 +102,26 @@ Hermes supplies `react` and `@hermes/plugin-sdk`; this repository installs neith
 The wrapper uses navigation and local browser storage, and opens source/contribution
 links. It makes no gateway RPC calls and does not send chat history or local files.
 
-The website frame permits scripts, its own origin and source-link popups. It does
-not permit top-level navigation or downloads. **That does not sandbox the plugin:**
+The frame requests scripts, its own origin and popup permissions, but Hermes separately
+denies popups. The confirmed host action described below opens sources instead. The frame
+does not permit top-level navigation or downloads. **That does not sandbox the plugin:**
 Hermes desktop plugin code runs with the app's authority. Only install reviewed code
 and configure hosts you trust. See [privacy](../docs/PRIVACY.md) and [security](../SECURITY.md).
+
+## Opening original sources
+
+**Read workflow** opens the detail drawer inside the archive. **Read the original**
+shows the destination above the frame; choose **Open source** to open it in your browser.
+The plugin verifies the message's frame and origin, accepts only HTTP(S) links, and calls
+Hermes's `ctx.os.openExternal` API only after that confirmation. A frame message alone
+cannot open a browser. If the host API is unavailable or refuses the link, an error and a
+copyable address remain visible. **Open archive in browser** offers a direct fallback.
+
+This requires both the updated website (`assets/js/desktop-bridge.js`) and the updated
+plugin. After updating your clone, rerun `npm run plugin -- --replace` and reload desktop plugins.
+Self-hosted copies must also update their served website. Standalone website links keep
+their normal browser behavior. The plugin does not change Hermes's popup security policy.
+
 
 ## Desktop smoke test
 

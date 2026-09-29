@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-09-26T08:28:13.837Z",
+  "classifiedAt": "2026-09-29T16:40:15.121Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -1985,10 +1985,10 @@
       "confidence": 0.55
     },
     "gh-hermes-agent": {
-      "input": "3ed27bc5b5baf8845a178a66a8378f2c90d89dbf04a4092b3ea9baa9b95111ca",
+      "input": "6b8456304ef631a342bf94fa5a2c4476ca30fe33453efeab09d5aa9e4df68d95",
       "usefulness": 0,
       "popularity": "widespread",
-      "confidence": 0.88
+      "confidence": 0.93
     },
     "jev-hermes-newsroom-with-jev-omarchy": {
       "input": "f33df236fb350388c648db1635e94c18475cdccd8e67074b11857c9d7ed37604",
@@ -4193,16 +4193,16 @@
       "confidence": 0.95
     },
     "kit-cc-switch": {
-      "input": "15dd0ad6ad98337d699e64c19a97d7e01dcabaaa45c9b9860e58ef4a02a0a8eb",
-      "usefulness": 2.16,
+      "input": "3b64bb7b0bc50a0e299e48fc5170241c3c7f4f6dd29e4bc6a119add22e249006",
+      "usefulness": 2.22,
       "popularity": "widespread",
       "confidence": 0.58
     },
     "kit-codegraph": {
-      "input": "5bb0c491e0ae303c304b9b9e6415db09459fb3ac0e6f31be57a44af9e988d8b7",
-      "usefulness": 2.88,
+      "input": "ae12ce5d081f7a2c6259c3bc9adbc4c60e7af2f8fc6527fbde8f8cbb2eebac82",
+      "usefulness": 2.89,
       "popularity": "widespread",
-      "confidence": 0.44
+      "confidence": 0.53
     },
     "kit-gbrain": {
       "input": "0b0eb6d783a7a4f50b6bc6224a85facf138bcd015874e712a84b2a4cb0c1a9d5",
@@ -4421,46 +4421,46 @@
       "confidence": 0.63
     },
     "skill-superpowers": {
-      "input": "a128710b7ee8a736b670b6f0a94b13467e8cdaa4cf10564e4958356f2db2a109",
-      "usefulness": 1.82,
+      "input": "4361ae36cde6de893f7d4772a84b57bfcc9c20c81a0f0559c37d1467f4be7cf1",
+      "usefulness": 1.87,
       "popularity": "widespread",
-      "confidence": 0.54
+      "confidence": 0.55
     },
     "skill-ponytail": {
-      "input": "571796dd90d1a6eb6bcb11ac984b066840e86c37314dae1bfb71c16e9111e0a4",
-      "usefulness": 2.15,
+      "input": "e3fe673ecb7bb303bbef92b9e9f9531758f7f624b7bfcd806431d3492a47779a",
+      "usefulness": 2.11,
       "popularity": "widespread",
-      "confidence": 0.66
+      "confidence": 0.64
     },
     "skill-impeccable": {
-      "input": "6ca401e544557cf113b652de5b942c1f35dcc08d7addff43de7a3aec1cab5393",
-      "usefulness": 2.24,
-      "popularity": "widespread",
-      "confidence": 0.62
-    },
-    "skill-cli-anything": {
-      "input": "537b5d6fadb9d879575322bff767497dc21f32808ce3453cecbd7ffc78cc1ed0",
-      "usefulness": 2.02,
-      "popularity": "strong",
-      "confidence": 0.32
-    },
-    "kit-caveman": {
-      "input": "107a8d8f9e4530a62634c7f611d60c09a4f7415439a1c948496a14fc35480144",
-      "usefulness": 2.33,
-      "popularity": "widespread",
-      "confidence": 0.56
-    },
-    "kit-open-design": {
-      "input": "c7893a5e608ce086ef064479e6495c746c54157db8adeb49ad3a2646fa5dbb6e",
-      "usefulness": 1.7,
-      "popularity": "widespread",
-      "confidence": 0.54
-    },
-    "kit-unsloth": {
-      "input": "f70d9433ada268916adffb936f687a36e4a98431b4a58e1ef221a54967ebb8b7",
-      "usefulness": 1.27,
+      "input": "327f658c8fb03751fe696b85602fb11842034eaf3a8294221276ff3a40c3adcf",
+      "usefulness": 2.21,
       "popularity": "widespread",
       "confidence": 0.65
+    },
+    "skill-cli-anything": {
+      "input": "afe819caad4ff1f20bf24d08c92e9ad714c1c8d7cde3be60d226c57e84659db9",
+      "usefulness": 1.96,
+      "popularity": "widespread",
+      "confidence": 0.46
+    },
+    "kit-caveman": {
+      "input": "71b22e5765c071b3962e02680fc8f026c167db77eaefd4287347f1056a8318b7",
+      "usefulness": 2.35,
+      "popularity": "widespread",
+      "confidence": 0.55
+    },
+    "kit-open-design": {
+      "input": "caf5f1b67c1b137783ef70506b96e98ee6bea3959b538d96bbfb0431e5d0868a",
+      "usefulness": 1.72,
+      "popularity": "widespread",
+      "confidence": 0.55
+    },
+    "kit-unsloth": {
+      "input": "0d29bdf72fd5474a01150dfb2393258f5f488f403769eceae112596c53f3f061",
+      "usefulness": 1.3,
+      "popularity": "widespread",
+      "confidence": 0.64
     },
     "gh-internet-court-internet-court-skill": {
       "input": "a323123cc389079ff27879d48f0a63f5cef12c2f053697293ac4d11598ad4fcc",
@@ -5471,28 +5471,826 @@
       "confidence": 0.58
     },
     "trick-audit-the-skill-auditor": {
-      "input": "2f865b7b61a0c6b7f9b8952c990a452d825d2612008a53bc94bb9d0c1ce792ae",
-      "usefulness": 1.07,
+      "input": "4e6e07f3e13f6073d53d644cfcde57b7770d43a0acb10a0af3df89b0c5fb34c6",
+      "usefulness": 1.09,
       "popularity": "unknown",
-      "confidence": 0.87
+      "confidence": 0.86
     },
     "trick-generate-a-read-only-memory-vault": {
-      "input": "eb84047a17358a5eb90928bfd9ddd93cbb858294a3c0688a76a882344cd84bc7",
-      "usefulness": 1.54,
+      "input": "3f778854bd86bce3b4763eced549ef5e895df33512f3592d3a6d7a826dff894d",
+      "usefulness": 1.53,
       "popularity": "unknown",
-      "confidence": 0.54
+      "confidence": 0.55
     },
     "trick-navigate-document-structure-before-retrieval": {
-      "input": "1a1fd8f309c364c0cea7de470680ad9d41c1c89bfbfe9e32f6401b31e3999e0a",
+      "input": "fc2c6dd96f8d91ead04b109e4b020fb759e13824038ef92a8605d768b672f283",
       "usefulness": 1.51,
       "popularity": "unknown",
       "confidence": 0.57
     },
     "trick-bridge-a-serial-terminal-through-a-login-shell": {
-      "input": "127ebdd7e5b4752284861d8134b36e74f0b6ea5ba620b012160def47392b3c5e",
-      "usefulness": 1.32,
+      "input": "eeaf98995092233832c636b98a1432807ff7f2536f9b0c635ef33eec66494753",
+      "usefulness": 1.33,
       "popularity": "unknown",
       "confidence": 0.71
+    },
+    "community-hermes-desktop-theme-pack": {
+      "input": "63e04763664ae42aa1ebec6f607b0c5a9b50aa16230ea41522e74b453c6f45c4",
+      "usefulness": 2.28,
+      "popularity": "limited",
+      "confidence": 0.61
+    },
+    "community-hermes-command-center": {
+      "input": "a0407cabb558ae4c1430d654351812903a979862159607cf4927f64ed348ba17",
+      "usefulness": 1.96,
+      "popularity": "limited",
+      "confidence": 0.61
+    },
+    "community-hermes-desktop-achievements": {
+      "input": "e44eaa8d545804b649f1a0bbdaec521ce6d7137d1f162b0d02da7def3eb089a9",
+      "usefulness": 1.83,
+      "popularity": "limited",
+      "confidence": 0.62
+    },
+    "review-use-cases-nightly-backlog-triage-with-hermes": {
+      "input": "b4adf48de5d31e4ca0112dcf976f9301b6aec9bd08b91af414a8b3b5865f78b3",
+      "usefulness": 1.67,
+      "popularity": "unknown",
+      "confidence": 0.4
+    },
+    "review-use-cases-docs-drift-detection-with-hermes": {
+      "input": "e4afb829340a281e9c7b5eefee46ecef3dd91ebdb32a512745e256c896498e04",
+      "usefulness": 1.66,
+      "popularity": "unknown",
+      "confidence": 0.42
+    },
+    "review-use-cases-dependency-security-audit-with-hermes": {
+      "input": "bff0907a3dd2cd1543c4802aac26f502feaa35b669be82e62e5587481cb1f2e5",
+      "usefulness": 1.55,
+      "popularity": "unknown",
+      "confidence": 0.47
+    },
+    "review-use-cases-deploy-verification-with-hermes": {
+      "input": "a2d1eff947edd296b8ab0857fbbe5c36c85144926ee15d56a01c15d5ab3887e7",
+      "usefulness": 1.62,
+      "popularity": "unknown",
+      "confidence": 0.43
+    },
+    "review-use-cases-alert-triage-with-hermes": {
+      "input": "bd155b7151bc82f75509e1cb120f463537845a0cdd1f7c95e3e3d745f743ec74",
+      "usefulness": 1.74,
+      "popularity": "unknown",
+      "confidence": 0.34
+    },
+    "review-use-cases-uptime-monitor-with-hermes": {
+      "input": "66beeef79bade4a832b902c0832c1674fb840bd3c80ac7621437211449d798d6",
+      "usefulness": 1.52,
+      "popularity": "unknown",
+      "confidence": 0.5
+    },
+    "review-use-cases-competitive-repository-scout-with-hermes": {
+      "input": "633b3c8ffe3c264c0136553f162daf0050a51fc90a514c4a715b4c260227c446",
+      "usefulness": 1.29,
+      "popularity": "unknown",
+      "confidence": 0.64
+    },
+    "review-use-cases-ai-news-digest-with-hermes": {
+      "input": "02e4e7642c60031023e358cd34dfd5a4229b160e08fc631fb731c53116941628",
+      "usefulness": 0.95,
+      "popularity": "unknown",
+      "confidence": 0.63
+    },
+    "review-use-cases-paper-digest-with-notes-with-hermes": {
+      "input": "b587733aacf90e6deab26de4b9e0e703b4ed0ca44b3f12ff4e9238bb051e2c14",
+      "usefulness": 1.41,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "review-use-cases-issue-auto-labeling-with-hermes": {
+      "input": "3164c31dac1f7359a581f7e9467b352c05b34cd9530f446ce3c48b5b62667bc0",
+      "usefulness": 0.98,
+      "popularity": "unknown",
+      "confidence": 0.68
+    },
+    "review-use-cases-ci-failure-analysis-with-hermes": {
+      "input": "6db3ab81fe5996929f152cb27f58fdbff870713a1fb2d51c6b328fb0793dc43a",
+      "usefulness": 1.1,
+      "popularity": "unknown",
+      "confidence": 0.69
+    },
+    "review-use-cases-auto-port-changes-across-repos-with-hermes": {
+      "input": "45fc53a60d98b75b175cb856f1ae0d6be6ebde9b0a37530b13838efc77922cb6",
+      "usefulness": 1.28,
+      "popularity": "unknown",
+      "confidence": 0.66
+    },
+    "review-use-cases-stripe-payment-monitoring-with-hermes": {
+      "input": "9801d5e40938da46e2f38955e62041f3cc19240bc4fcb41232594a57a358ac06",
+      "usefulness": 0.91,
+      "popularity": "unknown",
+      "confidence": 0.69
+    },
+    "review-use-cases-daily-revenue-summary-with-hermes": {
+      "input": "3e509ed7ae40bd1590b685a7dc395ea5e924961bf675d473c8b28e6f4cfa18d7",
+      "usefulness": 0.86,
+      "popularity": "unknown",
+      "confidence": 0.7
+    },
+    "review-use-cases-security-audit-pipeline-with-hermes": {
+      "input": "758cafe051f4b1139df864031003586f3e08df7b96692eedf34205866528b688",
+      "usefulness": 1.01,
+      "popularity": "unknown",
+      "confidence": 0.67
+    },
+    "review-use-cases-content-pipeline-with-hermes": {
+      "input": "05074e3c8b07554313b67e962c66b9f0a006de56665ab9ca6e2afa4c455e13ec",
+      "usefulness": 0.91,
+      "popularity": "unknown",
+      "confidence": 0.71
+    },
+    "review-use-cases-triage-a-dedicated-agent-mailbox": {
+      "input": "526d8b2f9e2feae1c7a99a6654d1d3882f4f9b0bf40ecd6eff7dcbf0612a907d",
+      "usefulness": 1.5,
+      "popularity": "unknown",
+      "confidence": 0.56
+    },
+    "review-use-cases-check-a-website-only-when-it-changes": {
+      "input": "0c2ecfeba1cb6e5807f3fd7390ffbb2d8d394af8597c071639dbfd17614bde53",
+      "usefulness": 1.77,
+      "popularity": "unknown",
+      "confidence": 0.54
+    },
+    "review-use-cases-collect-data-before-asking-for-trend-analysis": {
+      "input": "e811e05fe0dc89696b584bd3a4c9d9d00697c347d750e15851e797fb9e57fbbe",
+      "usefulness": 1.28,
+      "popularity": "unknown",
+      "confidence": 0.7
+    },
+    "review-use-cases-send-a-completion-message-from-a-long-running-task": {
+      "input": "0f448bb42e22783af97e4d1151d1f8d349c2bbdd2fcff97c20cb819d1d0fd043",
+      "usefulness": 1.21,
+      "popularity": "unknown",
+      "confidence": 0.68
+    },
+    "review-skills-agent-merge-conflict-arbiter": {
+      "input": "7d3418a860dc826eab35854019b10c818e654bf45497c3d2e72a110c56600cc3",
+      "usefulness": 1.66,
+      "popularity": "unknown",
+      "confidence": 0.51
+    },
+    "review-skills-one-three-one-rule": {
+      "input": "be396f3f8dcb0ce58d1d552c704f0c917a753d3e2aa3c27717bed29d86bd0d4b",
+      "usefulness": 2.16,
+      "popularity": "unknown",
+      "confidence": 0.29
+    },
+    "review-skills-docker-management": {
+      "input": "6be38825eef2cbbec372b6abe641be431c60b72f27db2a33e146abc414f5b7b6",
+      "usefulness": 1.23,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "review-skills-watchers": {
+      "input": "051e78a71e6ab5e7bf8208033d578f0995b4341fbeefe9331c9ef1202cdd8aad",
+      "usefulness": 1.55,
+      "popularity": "unknown",
+      "confidence": 0.52
+    },
+    "review-skills-memento-flashcards": {
+      "input": "ecbdd7210c66f6afd9f16c1507f9389097f8f53963b1972ca7bba579dd74468e",
+      "usefulness": 1.58,
+      "popularity": "unknown",
+      "confidence": 0.44
+    },
+    "review-skills-property-listings": {
+      "input": "06f6235c3ec567caec4df92150277cefb8114b45eb23d2423917325ebeaaa479",
+      "usefulness": 1.25,
+      "popularity": "unknown",
+      "confidence": 0.61
+    },
+    "review-skills-blogwatcher": {
+      "input": "99565aa9d1b2e65a811788cec369af06109e0596259a4b1095f5b3a97b109e84",
+      "usefulness": 1.28,
+      "popularity": "unknown",
+      "confidence": 0.63
+    },
+    "review-skills-rss-feeds": {
+      "input": "fe576bdd3ff008a434ebf59b75735c17a4198ff3110d47187c142805b8dbcde0",
+      "usefulness": 1.43,
+      "popularity": "unknown",
+      "confidence": 0.54
+    },
+    "review-skills-qmd": {
+      "input": "a20dd86a25b08271def8bb017cc6aefa36f5000ab05bc0ecd5dfd70eb51e78cd",
+      "usefulness": 1.46,
+      "popularity": "unknown",
+      "confidence": 0.52
+    },
+    "review-skills-ast-grep": {
+      "input": "c678f2b9b2ee9d85018ec6990969043a2e0fa5237da298e96cd557c95800d94d",
+      "usefulness": 1.67,
+      "popularity": "unknown",
+      "confidence": 0.53
+    },
+    "review-skills-code-wiki": {
+      "input": "6cff3909730e81ff5d86588986295909dc283abdb7d41a16baf5ee0f6dc5942d",
+      "usefulness": 1.57,
+      "popularity": "unknown",
+      "confidence": 0.45
+    },
+    "review-skills-grill-me": {
+      "input": "df9ef37fa370b4ed4117460c2d20570b40d4ad7f3a6dd84dfab2d8c3d892f387",
+      "usefulness": 1.59,
+      "popularity": "unknown",
+      "confidence": 0.45
+    },
+    "review-skills-pr-lens": {
+      "input": "51936237dd015af0c7dcd38c87325d99e1ad7988e0fe1ad943ca264f41ec167f",
+      "usefulness": 1.82,
+      "popularity": "unknown",
+      "confidence": 0.5
+    },
+    "review-skills-rest-graphql-debug": {
+      "input": "92855c9c44be8825847b641a8a4e1eebb304e66d82cb74ba3f53a603b6fdf8e3",
+      "usefulness": 1.51,
+      "popularity": "unknown",
+      "confidence": 0.46
+    },
+    "review-skills-subagent-driven-development": {
+      "input": "5fd2c7828db445c1b50f2b7fa785c9faec1e6283411823b19f3c459564cb9841",
+      "usefulness": 1.3,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "review-skills-adversarial-ux-test": {
+      "input": "357bfa393ba79b6d403058e05bb5b85b3f3a8595bfe9b2b9b0febfa8c69c0d11",
+      "usefulness": 1.7,
+      "popularity": "unknown",
+      "confidence": 0.39
+    },
+    "review-skills-decision-questionnaire": {
+      "input": "bae5d3968708a2ff6a2db42a8f0c9874b5ae6139c9d09e52aa6f55fd87741804",
+      "usefulness": 1.65,
+      "popularity": "unknown",
+      "confidence": 0.38
+    },
+    "review-skills-research-paper-writing": {
+      "input": "d778df344dd000f52357f0978105bd4ef000381bec0117f295605edb0f1b63a2",
+      "usefulness": 1.05,
+      "popularity": "unknown",
+      "confidence": 0.66
+    },
+    "review-skills-live-dashboard": {
+      "input": "e776e4a912161a87b23a42ecdae9298a55c0115d1ea0b504875df277030e540a",
+      "usefulness": 1.3,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "review-skills-sketch": {
+      "input": "31d1e18b967178925fee87add206836b67dcaeba6be1d35eaef062c064fef8d4",
+      "usefulness": 1.52,
+      "popularity": "unknown",
+      "confidence": 0.5
+    },
+    "review-prompts-inspect-a-project-through-a-scoped-mcp-server": {
+      "input": "bf9f62b0fbc2fb6c2dfedf7a1fd7e704398771d08177540c87fe0d9947c93aa6",
+      "usefulness": 1.28,
+      "popularity": "unknown",
+      "confidence": 0.63
+    },
+    "review-prompts-check-which-mcp-tools-are-actually-available": {
+      "input": "1a0838634c8fed6ae883b37a16cd306a320469e60fa0d297ff88188af7d6f00a",
+      "usefulness": 1.4,
+      "popularity": "unknown",
+      "confidence": 0.56
+    },
+    "review-prompts-locate-configuration-in-a-project": {
+      "input": "358fc327cf2ca1ab02815bfa497dbcf0f9603f4f88d4104f481e839355d402ed",
+      "usefulness": 0.94,
+      "popularity": "unknown",
+      "confidence": 0.74
+    },
+    "review-prompts-compile-an-open-scaffold-handoff": {
+      "input": "915a5485e66189853877a0da78e9eb79cb1e95f0244dadf8e40c231b43e77f74",
+      "usefulness": 0.4,
+      "popularity": "unknown",
+      "confidence": 0.66
+    },
+    "review-prompts-check-whether-a-plan-is-ready-for-review": {
+      "input": "d045f3dda98c389320f2d60f06e74133eff1eb428eb112408de0785887173d25",
+      "usefulness": 1.07,
+      "popularity": "unknown",
+      "confidence": 0.73
+    },
+    "review-prompts-trace-mcp-registration-in-code": {
+      "input": "382640e8b655c91e78ead699552dcadaf72464497cd24cb5bd5df650e77ba19d",
+      "usefulness": 1.05,
+      "popularity": "unknown",
+      "confidence": 0.66
+    },
+    "review-prompts-summarize-customer-invoice-activity": {
+      "input": "3817910e9716705d50d333b2d18210b0f8126a28babfe50cc4d335d9610c4edb",
+      "usefulness": 1.06,
+      "popularity": "unknown",
+      "confidence": 0.79
+    },
+    "review-prompts-find-incident-response-prompts-on-an-mcp-server": {
+      "input": "a024448ed4e3470ca0a0582d837775214dc3580eab83bb814ef46a8fa6a49361",
+      "usefulness": 0.97,
+      "popularity": "unknown",
+      "confidence": 0.73
+    },
+    "review-prompts-map-a-codebase-s-mcp-integration-points": {
+      "input": "979c67d6c14169d8273a9926a95bf0f9ecd4a3c6d7b171e0e6b0f1289f7e7a7f",
+      "usefulness": 1.61,
+      "popularity": "unknown",
+      "confidence": 0.45
+    },
+    "review-prompts-turn-a-local-finding-into-a-github-issue": {
+      "input": "d620cf07deee549e0cae59b60610f371232df710ebaa8fa981d2187584c6f4bb",
+      "usefulness": 1.27,
+      "popularity": "unknown",
+      "confidence": 0.7
+    },
+    "review-prompts-schedule-a-repository-standup-summary": {
+      "input": "a0177659c85e4174eed371e8a2693d895fd188872cb28223c4ec189ffe917646",
+      "usefulness": 2.5,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "review-prompts-schedule-a-server-health-summary": {
+      "input": "b614b3df53141686065721051ec2811288c8988dac3321053353441c3fcaf941",
+      "usefulness": 2.88,
+      "popularity": "unknown",
+      "confidence": 0.83
+    },
+    "review-prompts-keep-a-healthy-nginx-monitor-quiet": {
+      "input": "27a83d53abdad67e391abfd9221e46cd155f2b155a3684cafa25783d7f719084",
+      "usefulness": 2.15,
+      "popularity": "unknown",
+      "confidence": 0.28
+    },
+    "review-prompts-request-a-script-only-memory-watchdog": {
+      "input": "b60e891745ac8c03f59fd31f6f67a8cfb43747df103b0cf1abd4da1c4e881a3b",
+      "usefulness": 2.16,
+      "popularity": "unknown",
+      "confidence": 0.48
+    },
+    "review-prompts-review-an-agent-inbox-without-following-unsolicited-instructions": {
+      "input": "174d1e0748ed5a47659b928e7797fc6d4d549e10b68deebef150a1d63e995afe",
+      "usefulness": 2.86,
+      "popularity": "unknown",
+      "confidence": 0.77
+    },
+    "review-prompts-summarize-a-changed-feed-after-its-precheck": {
+      "input": "e9df8a2de0581174d69d0380572977cefc446827d350f0bbffce81d0581841e9",
+      "usefulness": 1.3,
+      "popularity": "unknown",
+      "confidence": 0.65
+    },
+    "review-prompts-analyze-a-batch-only-after-it-is-ready": {
+      "input": "0eb1f8d739e2ce3a5a796a3604b06b99e40c0147273dc432493f748d668221a5",
+      "usefulness": 1.15,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "review-prompts-summarize-newly-collected-messages": {
+      "input": "1ee3fcd3de6bab3c75a99285bd51272c47927abf06c8c8e2ecb36e2eca88d997",
+      "usefulness": 1.34,
+      "popularity": "unknown",
+      "confidence": 0.56
+    },
+    "review-prompts-write-a-digest-from-previous-job-outputs": {
+      "input": "2b0aba18c9577a2313e90c48504aea16379cd71d940681027ff181cf738f71d0",
+      "usefulness": 1.24,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "review-prompts-ask-for-help-with-a-docker-permission-error": {
+      "input": "d58d09b0f9c434808334d0f134ca091e4edb41501f3d15ac9c01efeb99ed1e56",
+      "usefulness": 0.91,
+      "popularity": "unknown",
+      "confidence": 0.64
+    },
+    "review-settings-keep-credentials-out-of-shared-configuration": {
+      "input": "56a37a7a1fc195780b304870bfcf7c12b75aabefb75eea83dffb24de92e182aa",
+      "usefulness": 1.45,
+      "popularity": "unknown",
+      "confidence": 0.54
+    },
+    "review-settings-isolate-code-changes-with-git-worktrees": {
+      "input": "5fec58eec9d5a1d5f1b9f729ab4b8125151ee96d1fdb770f77334f61e89dbc9b",
+      "usefulness": 0.99,
+      "popularity": "unknown",
+      "confidence": 0.85
+    },
+    "review-settings-bound-a-run-by-elapsed-time": {
+      "input": "64c2f1718d7ba96f268790505b6fb04da21630761d4c2033d5f174351660c81b",
+      "usefulness": 1.07,
+      "popularity": "unknown",
+      "confidence": 0.82
+    },
+    "review-settings-keep-large-tool-results-from-crowding-context": {
+      "input": "67b202e2533695ef769262b536c27389179b96553537f0b010b040eb4ea3a9d6",
+      "usefulness": 0.76,
+      "popularity": "unknown",
+      "confidence": 0.72
+    },
+    "review-settings-detect-sessions-that-stop-making-progress": {
+      "input": "8e8a426c0e258490b97c85519e570e949cab7b34d2026605ec0be4fc1b7ada77",
+      "usefulness": 0.83,
+      "popularity": "unknown",
+      "confidence": 0.74
+    },
+    "review-settings-restrict-web-access-by-domain": {
+      "input": "cb80f21481957ad898fd9122a6a82d85294a90020739143cb9c24153a61871e6",
+      "usefulness": 0.93,
+      "popularity": "unknown",
+      "confidence": 0.73
+    },
+    "review-settings-block-specific-terminal-commands": {
+      "input": "7d5e829e649de74ac9b481cb7faf39f78a5925a3b558346c6623795254900ec2",
+      "usefulness": 1.04,
+      "popularity": "unknown",
+      "confidence": 0.84
+    },
+    "review-settings-stop-retries-after-rejected-commands": {
+      "input": "dfc62401e29c84d85ed05522e8e06ca0b3c7c9ad0f00a3309cd68637f5f0d97f",
+      "usefulness": 1.08,
+      "popularity": "unknown",
+      "confidence": 0.83
+    },
+    "review-settings-help-speech-transcription-recognize-project-terms": {
+      "input": "a40e9ffd7fa5685501608aa4a1fc98b79f4070fb18669d07f2be0978b1f110a4",
+      "usefulness": 0.9,
+      "popularity": "unknown",
+      "confidence": 0.76
+    },
+    "review-settings-reduce-console-noise-with-focus-view": {
+      "input": "a462d280aa9de8a5b68f19bb6d856c602c487de3968d276949a7d6682c0d6732",
+      "usefulness": 0.75,
+      "popularity": "unknown",
+      "confidence": 0.74
+    },
+    "review-settings-let-telegram-context-accumulate-without-unsolicited-replies": {
+      "input": "756c8844dca19b213bd7debb920f409ab4511912c4bc0aa22575540e51ef5840",
+      "usefulness": 1.04,
+      "popularity": "unknown",
+      "confidence": 0.81
+    },
+    "review-settings-control-telegram-messages-queued-during-startup": {
+      "input": "e36febc5320b25fea6dad5d8f8c7a006d05dd593b3dabf2eedaa56ce7b830016",
+      "usefulness": 0.46,
+      "popularity": "unknown",
+      "confidence": 0.61
+    },
+    "review-settings-give-telegram-channels-different-instructions": {
+      "input": "b8f6b49a7b828a115d8deb44fef0863e7c856adfaeeda30c956836deef6e050e",
+      "usefulness": 0.77,
+      "popularity": "unknown",
+      "confidence": 0.78
+    },
+    "review-settings-bind-skills-to-telegram-forum-topics": {
+      "input": "8ec99bead262d3067211655859e3b11eac1e512fc3f354f4e6fba2048cf49070",
+      "usefulness": 1,
+      "popularity": "unknown",
+      "confidence": 0.8
+    },
+    "review-settings-reduce-telegram-notification-noise": {
+      "input": "f2fb70d66da4a60df762e49b49785fe270a457a0f9218a98521c8610a718623e",
+      "usefulness": 0.93,
+      "popularity": "unknown",
+      "confidence": 0.77
+    },
+    "review-settings-review-memory-changes-before-they-are-applied": {
+      "input": "b30eed91ffca177215348d29b4e884b2cc0585e721b0dc9dc49ac6fb4d00ec6b",
+      "usefulness": 1.29,
+      "popularity": "unknown",
+      "confidence": 0.66
+    },
+    "review-settings-review-changes-to-learned-skills": {
+      "input": "bb1fafd7f6429782dd0664f68d58ce66d1ea048a694ac97616cbe6ec1b8b4622",
+      "usefulness": 0.97,
+      "popularity": "unknown",
+      "confidence": 0.76
+    },
+    "review-settings-recycle-mcp-processes-that-retain-too-much-memory": {
+      "input": "5044e857e98c45a63c1756474e5530f8c90ac0b7c6834ceaaa58589e564d74da",
+      "usefulness": 1.09,
+      "popularity": "unknown",
+      "confidence": 0.81
+    },
+    "review-settings-limit-mcp-resources-and-prompt-utilities": {
+      "input": "a91c5817e9007dfec0779b0b8694ab9dde127b80202ec4b5eb929e71836cfdb5",
+      "usefulness": 0.74,
+      "popularity": "unknown",
+      "confidence": 0.73
+    },
+    "review-settings-pass-caller-identity-to-an-mcp-server": {
+      "input": "6f4d169005bd6a8658d03328977a8ebe352bc21578f8ce4e03571453074468f2",
+      "usefulness": 1.16,
+      "popularity": "unknown",
+      "confidence": 0.73
+    },
+    "review-commands-send-or-pipe-a-result-through-hermes": {
+      "input": "adc740b2ae20831baa82fd282803238e2b2b267c08928570d1b499ebca374ad4",
+      "usefulness": 3.13,
+      "popularity": "unknown",
+      "confidence": 0.64
+    },
+    "review-commands-check-delivery-results-in-a-shell-script": {
+      "input": "899c7d6a2dc4aea10314977729a75277bd3efc6bcbbc852182fac57d3c4ea4d7",
+      "usefulness": 2.85,
+      "popularity": "unknown",
+      "confidence": 0.73
+    },
+    "review-commands-discover-configured-message-destinations": {
+      "input": "29bc70fe163940c1bf7ce21e372d07a09474d4cd8a496b94bea0de181b21e72d",
+      "usefulness": 2.25,
+      "popularity": "unknown",
+      "confidence": 0.48
+    },
+    "review-commands-report-a-build-result-to-a-team-channel": {
+      "input": "c1dd2fab80b32e65b7cbd82c0ff1b296e29076afa60d02c0f77091abd1ffca7e",
+      "usefulness": 2.83,
+      "popularity": "unknown",
+      "confidence": 0.77
+    },
+    "review-commands-send-a-resource-alert-from-a-watchdog": {
+      "input": "2279c8d9c091d5e9d7d6e261c0357b16aa05d638beefd448d474435d4fe20f9b",
+      "usefulness": 2.94,
+      "popularity": "unknown",
+      "confidence": 0.81
+    },
+    "review-commands-create-a-script-only-watchdog-from-the-cli": {
+      "input": "15673d15753c2e14b4ada358a52116707fbc8b92efee9dc60bc11840f6013ea9",
+      "usefulness": 3.25,
+      "popularity": "unknown",
+      "confidence": 0.71
+    },
+    "review-commands-schedule-the-documented-disk-space-alert": {
+      "input": "abfbaa2a47720118873782c2e990b8bf72ed03729eb87c91c0e210f0d1f81fc4",
+      "usefulness": 3.25,
+      "popularity": "unknown",
+      "confidence": 0.72
+    },
+    "review-commands-manage-the-lifecycle-of-a-script-only-job": {
+      "input": "29b3a7ab01fac26d137a2a2c5a58340d5c3f4b76ceb61b1d97b216e9ce892523",
+      "usefulness": 2.64,
+      "popularity": "unknown",
+      "confidence": 0.61
+    },
+    "review-commands-inspect-and-approve-staged-memory-writes": {
+      "input": "d04c5b8e7473ba63a34c9d447549f7a142a4268e8c34999cfccd7ad03edb39de",
+      "usefulness": 2.61,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "review-commands-inspect-and-approve-a-pending-skill-diff": {
+      "input": "850831bc654831475d9190e33b711e56683e3fbf2a5f8b934fd731b6b281eb69",
+      "usefulness": 2.65,
+      "popularity": "unknown",
+      "confidence": 0.64
+    },
+    "review-commands-search-installed-skills-by-topic": {
+      "input": "ba9d519d1f648396c6f9202dcdea3e83fc06802ac95d51a7336ee7a7b7e6fb54",
+      "usefulness": 1.54,
+      "popularity": "unknown",
+      "confidence": 0.48
+    },
+    "review-commands-load-a-namespaced-plugin-skill-explicitly": {
+      "input": "42e7016dcbfcc64f01743d4d167ba559d75f51a16c3a313522d9c9f4af4025d3",
+      "usefulness": 2.32,
+      "popularity": "unknown",
+      "confidence": 0.47
+    },
+    "review-commands-inspect-the-configuration-needed-by-a-skill": {
+      "input": "99829f0dc1bb11d257352a3fec0452914082e0b341be1aad48febcf9c088879c",
+      "usefulness": 2.05,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "review-commands-exercise-a-newly-written-skill-in-a-fresh-session": {
+      "input": "f0f986e05b838212d4f39331fffaf7146a919bf1afbd64b481f061703cd84b44",
+      "usefulness": 1.34,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "review-commands-start-hermes-as-an-mcp-server": {
+      "input": "31e85a888adf5471628415dc6202116ea5081e98ea8532d43f71ff79e00eedb7",
+      "usefulness": 0.98,
+      "popularity": "unknown",
+      "confidence": 0.71
+    },
+    "review-commands-reload-mcp-connections-after-editing-configuration": {
+      "input": "9d8dd9841a027e81ea81a8ccf47ad38af418faa89a05496b13007c7eae8ab781",
+      "usefulness": 1.27,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "review-commands-install-an-official-optional-skill-from-the-hub": {
+      "input": "9861b00b6341dbb9a5f0689338bb0770f8c9b8dc50c360ff1c3720230bbbcfc4",
+      "usefulness": 2.65,
+      "popularity": "unknown",
+      "confidence": 0.56
+    },
+    "review-commands-test-and-pause-a-scheduled-workflow": {
+      "input": "32286c9dff274ba79cba0cddc5a5100d7ccfde38312cb16917534c508fec1427",
+      "usefulness": 2.71,
+      "popularity": "unknown",
+      "confidence": 0.63
+    },
+    "review-commands-inspect-a-running-gateway-and-its-logs": {
+      "input": "8d10fc27fc66eedc2c1f5f8a3d6aaff5ad59df3eb899419d1b0121caf7d60bc3",
+      "usefulness": 2.47,
+      "popularity": "unknown",
+      "confidence": 0.53
+    },
+    "review-commands-pair-a-new-team-member-with-the-bot": {
+      "input": "ff06e61134c9c11db13b53c9eb5a86e46bc18b45ef26c732a44480e154a8c8aa",
+      "usefulness": 1.37,
+      "popularity": "unknown",
+      "confidence": 0.56
+    },
+    "integration-rtk-ai-rtk": {
+      "input": "04625aa15989cc434f0972fa08285b3ab226624d77608eda9334f262a07acf99",
+      "usefulness": 1.54,
+      "popularity": "widespread",
+      "confidence": 0.54
+    },
+    "integration-egonex-ai-understand-anything": {
+      "input": "fcb75806ef7b0b3dfeecabcc9e8a6875c9d4164795f6f1f9a8e0945bed82fd1a",
+      "usefulness": 1.57,
+      "popularity": "widespread",
+      "confidence": 0.55
+    },
+    "integration-browser-use-browser-use": {
+      "input": "4aeb5d2a45fad82bb29c5cf167fff78569931943801da11c1e04f1c95501a7de",
+      "usefulness": 1.26,
+      "popularity": "widespread",
+      "confidence": 0.69
+    },
+    "integration-affaan-m-ecc": {
+      "input": "7d4a3d503cadd68f2f619d0e24be4d622752447751d20deb5ac8589b533d0c80",
+      "usefulness": 1.22,
+      "popularity": "widespread",
+      "confidence": 0.77
+    },
+    "integration-msitarzewski-agency-agents": {
+      "input": "a56a8d52100ffa9d570f646cc72d030849b129d8b32ee3c1061efcd825d81498",
+      "usefulness": 1.73,
+      "popularity": "widespread",
+      "confidence": 0.61
+    },
+    "integration-graphify-labs-graphify": {
+      "input": "e2dff67493c2c2936ea00bc3ae86e0a8b355f2da56b4eb755453f90e87b4fda5",
+      "usefulness": 1.61,
+      "popularity": "widespread",
+      "confidence": 0.54
+    },
+    "integration-alishahryar1-free-claude-code": {
+      "input": "1a64538a0210743caec2d40bb297903201143aa630d5cb9d44aee410d5feeb02",
+      "usefulness": 1.12,
+      "popularity": "widespread",
+      "confidence": 0.75
+    },
+    "integration-garrytan-gstack": {
+      "input": "97de6ae21f398cff012f88dbe52bc071f876927e870a94bb020ea575919e2880",
+      "usefulness": 0.42,
+      "popularity": "widespread",
+      "confidence": 0.65
+    },
+    "integration-multica-ai-multica": {
+      "input": "ca59e0fe7d21cb86b039a1d1e2f0241ff01cdaf5e92aef79aecdde53962052b6",
+      "usefulness": 1.24,
+      "popularity": "widespread",
+      "confidence": 0.73
+    },
+    "community-report-pbqsovk": {
+      "input": "ae6707374c9162b40d93094d77ed6452f8e3e990cb8cb4227521b7c88edce31b",
+      "usefulness": 0.68,
+      "popularity": "unknown",
+      "confidence": 0.72
+    },
+    "community-report-pbqt22w": {
+      "input": "79cd9fd7758d2e653d0d5f810c1514fc600ed32167090a77ab2582ae7af912a7",
+      "usefulness": 1.04,
+      "popularity": "unknown",
+      "confidence": 0.88
+    },
+    "community-report-p7r2nbl": {
+      "input": "388d3b3528885329032370f79196f64502759062765849b6ca36f2c7a4082a64",
+      "usefulness": 0.96,
+      "popularity": "unknown",
+      "confidence": 0.88
+    },
+    "community-report-p7rcbjb": {
+      "input": "2082e0cdee13610724fde7678a2874dc3b12ed4f05b2114aa68745c4d92145c0",
+      "usefulness": 0.92,
+      "popularity": "unknown",
+      "confidence": 0.9
+    },
+    "community-report-p7rah3v": {
+      "input": "bf9d3f62f939fb219ce3f7fa06e24bb0925e64bd73cf04a67ade94825f792960",
+      "usefulness": 1.96,
+      "popularity": "unknown",
+      "confidence": 0.72
+    },
+    "community-report-p7rhpwg": {
+      "input": "b16660fc4d3144f85be7f4156bfa85721bbc09908556950edbf7b22c4fbc8f11",
+      "usefulness": 0.93,
+      "popularity": "unknown",
+      "confidence": 0.85
+    },
+    "community-report-p7r111q": {
+      "input": "7efe6206931a4584b6095503afd3fb1f262460dc851b001f7e64991abddeb1f6",
+      "usefulness": 0.83,
+      "popularity": "unknown",
+      "confidence": 0.82
+    },
+    "community-report-p7rl1qv": {
+      "input": "ec5b51a585a010adbce4f426ebfe1eb23cf3b5e5365a266911ed96b7fb5b1f1f",
+      "usefulness": 1.35,
+      "popularity": "unknown",
+      "confidence": 0.68
+    },
+    "community-report-p94rqcw": {
+      "input": "8c630654867abdd2751bd4905fb60515ed6c066b7a2d921db05504145bfd070c",
+      "usefulness": 2.15,
+      "popularity": "unknown",
+      "confidence": 0.76
+    },
+    "community-report-p95x0wf": {
+      "input": "217600a604fd038c74fb1922fde30277fd3d55cbf0ff1a07a8996e5cc82bd362",
+      "usefulness": 1.01,
+      "popularity": "unknown",
+      "confidence": 0.8
+    },
+    "community-report-p955icz": {
+      "input": "74edf44a5d1f3b3fcb147663ce3d9b3c8e77632afeb02639272f87555ab3f677",
+      "usefulness": 1.66,
+      "popularity": "unknown",
+      "confidence": 0.67
+    },
+    "community-report-p97agce": {
+      "input": "da515dc82cb3addc4ae26ae20736d9eefd28a27f00bd7869f81ce9266f0fd893",
+      "usefulness": 0.6,
+      "popularity": "unknown",
+      "confidence": 0.65
+    },
+    "community-report-p97kz89": {
+      "input": "b5471d31d0dadeb7ae687b1d4c3268d1168b5687256c226e1c26c53dfc7c049f",
+      "usefulness": 1.7,
+      "popularity": "unknown",
+      "confidence": 0.63
+    },
+    "community-report-p95lclt": {
+      "input": "f0802669d3b7c0757fc4cd39c0c66d5e1ee88c1ce9e16c8d47be27ef13cd2fc0",
+      "usefulness": 1.47,
+      "popularity": "unknown",
+      "confidence": 0.58
+    },
+    "community-report-pbyf2dd": {
+      "input": "d08682584022c7c806d2b2ede37ce2c83af4e50c4098e9672f777f2aa1a64657",
+      "usefulness": 0.76,
+      "popularity": "unknown",
+      "confidence": 0.77
+    },
+    "community-report-pbxz8zn": {
+      "input": "e383886ba1f007b1f14635f6e3c48b505495988b30e43fbdceb1e4957950d524",
+      "usefulness": 1.03,
+      "popularity": "unknown",
+      "confidence": 0.8
+    },
+    "community-report-pc10y2a": {
+      "input": "940d98dacdbc6ea10a10e666b94799f1b84682801e3907a7ed98e03191513028",
+      "usefulness": 0.86,
+      "popularity": "unknown",
+      "confidence": 0.8
+    },
+    "community-report-pca7uxj": {
+      "input": "1d659a0d4723bb0ca5436c02dd17ef345ba1ae1c505d257de1feb44596c7d960",
+      "usefulness": 1.3,
+      "popularity": "unknown",
+      "confidence": 0.67
+    },
+    "community-report-pby2tkd": {
+      "input": "43642624ca216eae7b0d438ee7274469b9ec28b2393c4a7c8516bfe7724f336e",
+      "usefulness": 0.45,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "community-report-p9i0xsf": {
+      "input": "f1ea53b4c0262be1cb3d42f8539240a5e9c52962bb36fe6cffa6b35ea3416747",
+      "usefulness": 1.47,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "review-integration-archify": {
+      "input": "e6e2f2cfd894a0b9e77fba2d18068f8a90c09cb006710b13653e998e9cdde6a0",
+      "usefulness": 2.61,
+      "popularity": "widespread",
+      "confidence": 0.66
     }
   }
 }

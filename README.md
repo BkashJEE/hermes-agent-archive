@@ -11,7 +11,7 @@ An independent community archive of Hermes Agent workflows, prompts, skills and 
 
 [Browse the archive](https://hermes-agent-archive.vercel.app) · [Contribute](CONTRIBUTING.md) · [Methodology](docs/METHODOLOGY.md) · [Release readiness](docs/RELEASE_READINESS.md)
 
-The website is available now. The optional Hermes Desktop plugin is an early preview; host-app compatibility testing is still pending. Some source coverage is incomplete. A source link is not proof that a workflow works, and a listing is not a security endorsement.
+The website is available now. The optional Hermes Desktop plugin is an early preview; host-app compatibility testing is still pending. Importer coverage remains partial and is recorded in `scripts/docs-manifest.json`. A source link is not proof that a workflow works, and a listing is not a security endorsement.
 
 ## Run your own copy
 
@@ -42,7 +42,7 @@ Use a recent browser with JavaScript enabled. Inter and JetBrains Mono load from
 
 - Community stories preserve source quotations, authors and permalinks.
 - Documentation and prompt examples link to the relevant upstream pages.
-- Repository cards require **strictly more than 50,000 public GitHub stars** and reviewed upstream documentation of Hermes support.
+- Repository cards normally require **strictly more than 50,000 public GitHub stars** and reviewed upstream documentation of Hermes support. Three specifically owner-approved community exceptions are labelled on their cards; see [the policy](docs/METHODOLOGY.md#community-exceptions).
 - Trending shows positive star growth measured between two public API observations, not GitHub's own Trending feed.
 - My Work contains the maintainer's posts with explicitly credited analytics, separate from public-popularity evidence.
 
@@ -53,22 +53,18 @@ The star cutoff is an editorial preference. It excludes smaller and newer projec
 | Shelf | Holds | Now |
 | --- | --- | --- |
 | **Dashboard** | Counted live from what is loaded, never stored or estimated. | computed |
-| **Use Cases** | Real user stories, each quoted and linked to the original post. | 372 |
+| **Use Cases** | Real user stories, each quoted and linked to the original post. | 392 |
 | **Trending GitHub** | Documented integrations with measured star growth per day. | computed |
-| **Skills** | Packaged capabilities you install rather than re-prompt. | 59 |
-| **Prompts** | Copyable examples, each verified against the page it cites. | 12 |
-| **Settings** | Configuration that materially changes how a run behaves. | 98 |
-| **Commands** | Commands and invocations, by how often they earn their keystrokes. | 272 |
+| **Skills** | Packaged capabilities you install rather than re-prompt. | 79 |
+| **Prompts** | Copyable examples, each verified against the page it cites. | 32 |
+| **Settings** | Configuration that materially changes how a run behaves. | 118 |
+| **Commands** | Commands and invocations, by how often they earn their keystrokes. | 292 |
 | **Hidden Tricks** | Attributed community techniques checked against a pinned documentation corpus. | 4 |
-| **Works With** | Repositories worth pairing with Hermes, each read before listing. | 8 |
-| **People Build** | Projects built on Hermes and shown off publicly. | 4 |
+| **Works With** | Repositories worth pairing with Hermes, each read before listing. | 18 |
+| **People Build** | Projects built on Hermes and shown off publicly. | 27 |
 | **My Work** | The maintainer's own posts, with analytics explicitly credited. | 11 |
 
-These are stored counts at the release of `4e366aa` (840 entries), not a promise that
-all entries qualify for display. Hidden Tricks and Prompts accept only reviewed
-extraction; the classifier cannot populate them. The four tricks include source
-quotations and a bounded documentation-absence check, with 15 rejected candidates
-recorded. See [the reproducible evidence](docs/HIDDEN_TRICKS.md).
+These are stored counts at the September 29 review (973 entries), not a promise that all entries qualify for display. Hidden Tricks and Prompts accept only reviewed extraction; the classifier cannot populate them. The four tricks include quotations and a bounded documentation-absence check, with 15 rejected candidates recorded. See [the reproducible evidence](docs/HIDDEN_TRICKS.md).
 
 ![The Use Cases shelf](docs/images/use-cases.png)
 
@@ -163,9 +159,13 @@ npm run docs -- --dry                   # report what would land, write nothing
 node scripts/import-hermes-stories.mjs  # Nous Research's community stories
 node scripts/import-hermes-cli.mjs      # official CLI reference
 node scripts/import-jev-hermes.mjs      # Hermes entries in the Jev directory
+node scripts/import-reviewed-expansion.mjs --verify # check reviewed selections offline
+node scripts/import-reviewed-expansion.mjs          # add missing reviewed selections
+node scripts/import-reviewed-expansion.mjs --refresh # refresh all sources; fail before writes on error
+npm run tricks -- --offline             # verify reviewed tricks and absence evidence
 ```
 
-Sources change, and not all discovery sources have importers. Hidden Tricks now has a reviewed extractor; the Skills Hub and Plugins directory pages remain excluded by the current docs manifest. Re-check those pages before building a new importer rather than assuming their implementation is fixed. `scripts/docs-manifest.json` records every documentation page that is imported, and every page that is not, with the reason. Do not overwrite a failed import with an empty result. Remaining coverage is tracked in [release readiness](docs/RELEASE_READINESS.md).
+Sources change, and importer coverage remains partial. Hidden Tricks has a reviewed extractor and an offline documentation corpus. The Skills Hub exposes a public catalogue; the reviewed expansion selects official optional skills individually rather than treating the entire catalogue as vetted. `scripts/docs-manifest.json` records documentation coverage. The [September expansion review](docs/SHELF_EXPANSION_2026-09-28.md) records selections, exclusions and cached evidence, including community comments whose public JSON refresh is currently blocked. Do not overwrite a failed import with an empty result. Remaining coverage is tracked in [release readiness](docs/RELEASE_READINESS.md).
 
 Maintenance can incur external API usage under the account where it runs. No credentials or scheduled jobs are inherited by cloning or forking. Ranking results may change when evidence or the classifier changes. Stale classifications should be shown as unclassified, never silently reused as current.
 

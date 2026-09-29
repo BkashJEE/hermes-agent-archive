@@ -12,7 +12,7 @@ Use the **Suggest an archive entry** issue form. Include:
 - A specific Hermes Agent workflow, tip, prompt, skill or integration.
 - What it does, the setup it needs, and any important limitation.
 - For repository cards, upstream documentation of Hermes support. Repositories
-  must have **more than 50,000 public GitHub stars**; exactly 50,000 is ineligible.
+  normally must have **more than 50,000 public GitHub stars**; exactly 50,000 is ineligible. The owner has approved [three named exceptions](docs/METHODOLOGY.md#community-exceptions); this is not a general exemption for submissions.
 
 A project being useful to agents in general does not establish Hermes support.
 Do not submit private conversations, credentials or material you cannot share.

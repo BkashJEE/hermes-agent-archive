@@ -3,7 +3,7 @@
    hand-written, and nothing is estimated. */
 import { githubTrend } from './trends.js';
 
-import { githubStarFloor, HERMES_REPOSITORIES, qualifiesStars, qualifiesRepository, hermesSupport } from './github-policy.js';
+import { githubStarFloor, HERMES_REPOSITORIES, qualifiesStars, qualifiesRepository, hermesSupport, communityException } from './github-policy.js';
 export { MIN_GITHUB_STARS } from './github-policy.js';
 
 export function githubRepo(item) {
@@ -27,6 +27,7 @@ export function mergeLive(data, live, reviews = HERMES_REPOSITORIES) {
      an author's own analytics export is real, it simply is not public, so the
      card says so rather than the archive pretending the figure does not exist. */
   for (const items of Object.values(data)) for (const item of items) {
+    delete item.communityException;
     if (item.credit) { delete item.trend; delete item.hermesSupport; continue; }
     delete item.metric; delete item.metric2; delete item.trend; delete item.hermesSupport;
   }
@@ -36,7 +37,7 @@ export function mergeLive(data, live, reviews = HERMES_REPOSITORIES) {
     return;
   }
   // GitHub: attach real stars/forks to any seeded repo, on any shelf.
-  // Repository write-ups stay on disk; only documented Hermes repos with more than 50k stars enter the view.
+  // Keep stored write-ups; admit documented repos meeting the floor or an explicit owner exception.
   const byRepo = new Map((live.github || []).map(g => [g.repo.toLowerCase(), g]));
   for (const [sectionId, items] of Object.entries(data)) {
     data[sectionId] = items.filter(item => {
@@ -50,6 +51,7 @@ export function mergeLive(data, live, reviews = HERMES_REPOSITORIES) {
       if (!repo || item.credit) return true;
       const g = byRepo.get(repo);
       item.hermesSupport = hermesSupport(repo, reviews);
+      item.communityException = communityException(repo);
       // Qualification above guarantees a fetched observation for this seed.
       if (item.repo) item.title = g.repo;                       // follow renames/transfers
       // A curated write-up outranks the repo's own one-liner.
@@ -86,6 +88,7 @@ export function mergeLive(data, live, reviews = HERMES_REPOSITORIES) {
       metric2: observation ? { kind: 'forks', value: observation.forks } : raw.metric2,
       trend: githubTrend(observation),
       hermesSupport: hermesSupport(repo, reviews),
+      communityException: communityException(repo),
       sourced: raw.routedBy || 'auto',
       tags: ['sourced', ...(raw.topics || []).slice(0, 2)]
     });

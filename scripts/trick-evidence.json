@@ -2,11 +2,11 @@
   "version": 1,
   "scope": "Official English website/docs reference Markdown, excluding user-stories.mdx (testimonials, not reference instructions), plus all cached prompt prose and code blocks. Literal absence requires separate editorial semantic review.",
   "corpus": {
-    "commit": "d0288be5b3330d2442e3907185b8e9d0958297bb",
-    "sha256": "1626344095430c239d9163447a4af6f92b57a955f99c69dafe0534971af7f900",
-    "promptSha256": "69dffe1e744e1323250eeee66584bb3084497c43a9410786c74779fa6b98e6d2",
-    "candidatesSha256": "e46ffa0d9b1569e7d38501101d9399a0740569efbf3cb4dbc8755f2cf5fc57b9",
-    "pageCount": 452
+    "commit": "5458de948379badc5b84ba624dc029367a28ece4",
+    "sha256": "9450de88ab6ebbd804ca4f2a2333191b6d6020fb1f40d6ee533f4aa0d6a74458",
+    "promptSha256": "2bede374a9376744894e17d8757ff7fc637528bb464619564c6e11823c91b790",
+    "candidatesSha256": "286bd0ad6ff6f3851011a0450ef6656a7468db38829194c8620eb980b3780d09",
+    "pageCount": 458
   },
   "entries": [
     {
@@ -324,6 +324,8 @@
         "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-auteur",
         "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-baoyu-article-illustrator",
         "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-baoyu-comic",
+        "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-brag",
+        "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-brag-slim",
         "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-comfyui",
         "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-concept-diagrams",
         "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-creative-ideation",
@@ -486,7 +488,7 @@
       ],
       "absence": "no matches in the pinned reference corpus and prompt excerpts",
       "review": {
-        "commit": "d0288be5b3330d2442e3907185b8e9d0958297bb",
+        "commit": "5458de948379badc5b84ba624dc029367a28ece4",
         "reason": "The distinctive step is recursive evaluation of the auditor using a different skill as its test case. Documentation describes security scans, normal skill testing and automatic skill updates, but not that feedback experiment.",
         "closestDocs": [
           {
@@ -830,6 +832,8 @@
         "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-auteur",
         "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-baoyu-article-illustrator",
         "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-baoyu-comic",
+        "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-brag",
+        "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-brag-slim",
         "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-comfyui",
         "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-concept-diagrams",
         "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-creative-ideation",
@@ -992,7 +996,7 @@
       ],
       "absence": "no matches in the pinned reference corpus and prompt excerpts",
       "review": {
-        "commit": "d0288be5b3330d2442e3907185b8e9d0958297bb",
+        "commit": "5458de948379badc5b84ba624dc029367a28ece4",
         "reason": "The unusual inversion is a database-owned memory graph generating a read-only Obsidian view. SQLite session search and memory provider extensibility are documented, but not this specific separation of model output, SQL mutation and a generated vault.",
         "closestDocs": [
           {
@@ -1336,6 +1340,8 @@
         "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-auteur",
         "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-baoyu-article-illustrator",
         "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-baoyu-comic",
+        "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-brag",
+        "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-brag-slim",
         "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-comfyui",
         "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-concept-diagrams",
         "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-creative-ideation",
@@ -1496,7 +1502,7 @@
       ],
       "absence": "no matches in the pinned reference corpus and prompt excerpts",
       "review": {
-        "commit": "d0288be5b3330d2442e3907185b8e9d0958297bb",
+        "commit": "5458de948379badc5b84ba624dc029367a28ece4",
         "reason": "Generic tool calls and document reading are documented; choosing pages through an explicit document hierarchy instead of vector-nearest chunks is the distinct reviewed mechanism.",
         "closestDocs": [
           {
@@ -1835,6 +1841,8 @@
         "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-auteur",
         "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-baoyu-article-illustrator",
         "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-baoyu-comic",
+        "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-brag",
+        "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-brag-slim",
         "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-comfyui",
         "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-concept-diagrams",
         "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-creative-ideation",
@@ -1996,7 +2004,7 @@
       ],
       "absence": "no matches in the pinned reference corpus and prompt excerpts",
       "review": {
-        "commit": "d0288be5b3330d2442e3907185b8e9d0958297bb",
+        "commit": "5458de948379badc5b84ba624dc029367a28ece4",
         "reason": "Official docs cover CLI and HTTP frontends but do not describe a serial getty connected to a custom Hermes login shell.",
         "closestDocs": [
           {

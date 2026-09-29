@@ -1,5 +1,6 @@
 /* Use-Case Archive — data loading, filtering, rendering. No framework, no build step. */
 
+import { installDesktopBridge } from './desktop-bridge.js';
 import { githubStarFloor } from './github-policy.js';
 import { archiveField } from './archive-field.js';
 import { sectionIcon } from './icons.js?v=launch-10';
@@ -158,11 +159,11 @@ function card(item, rank, iconName) {
   const category = cardCategory(item, iconName);
   const order = activeSort() === 'az' ? 'A–Z' : (item.ranking || activeSort() === 'trending') ? `#${rank}` : '';
   const action = iconName === 'stories' ? 'Read workflow' : iconName === 'prompts' ? 'View prompt' : 'View details';
-  const metric = item.metric ? `${num(item.metric.value)} ${item.metric.kind}` : 'no public metric';
+  const metric = item.metric ? `${num(item.metric.value)} ${item.metric.kind === 'stars' && item.metric.value === 1 ? 'star' : item.metric.kind}` : 'no public metric';
   return `<li><button class="card card-${category.tone}" data-id="${esc(item.id)}" aria-label="${esc(`${action}: ${item.title}`)}">
     <div class="card-heading"><span class="card-icon">${sectionIcon(category.icon)}</span><div class="card-heading-text">
       <h3>${esc(item.title)}</h3>
-      <p class="card-byline">${esc(credit.label)} <strong>${esc(credit.name)}</strong><span class="card-source">${esc(SOURCE_LABEL[item.source] || 'CURATED')}${item.sourced ? ' · SOURCED' : ''}</span></p>
+      <p class="card-byline">${esc(credit.label)} <strong>${esc(credit.name)}</strong><span class="card-source">${esc(SOURCE_LABEL[item.source] || 'CURATED')}${item.sourced ? ' · SOURCED' : ''}${item.communityException ? ' · OWNER-APPROVED EXCEPTION' : ''}</span></p>
     </div></div>
     <div class="card-preview"><p class="card-label">${item.cardPoints?.length || !(item.tags || []).includes('user-story') ? 'What it does' : 'From the source'}</p>
       <ul class="card-points">${cardPoints(item).map(point => `<li>${esc(point)}</li>`).join('')}</ul>
@@ -714,6 +715,51 @@ function paletteClose() {
   if (palette.trigger?.isConnected) palette.trigger.focus();
 }
 
+/**
+ * Fold the ranking note away while the list bar is stuck to the header.
+ *
+ * CSS cannot ask whether a sticky element is currently stuck, so this compares the bar's
+ * own position against the offset it sticks at. When the two meet, it is pinned.
+ *
+ * An IntersectionObserver with a negative rootMargin is the usual trick and was tried
+ * first. It reports nothing at all in a tab the browser considers hidden: shrinking an
+ * already-empty root leaves no area to intersect, so the callback never runs and the bar
+ * silently keeps its full height. A rect comparison has no such edge, and a headless or
+ * backgrounded render gets the same answer as a visible one.
+ *
+ * The note folds to the screen-reader-only treatment rather than display:none. It explains
+ * how the order was decided, which someone navigating by heading should still reach; it
+ * just has no business occupying four lines of every scroll.
+ */
+function wireStickyListbar() {
+  const bar = $('#listbar');
+  if (!bar) return;
+
+  /* Everything is read at the moment of the check, nothing is cached.
+   *
+   * Caching whether the bar is sticky looked like an easy saving and was a bug: in a
+   * frame that lays out after its script runs — a plugin pane, an offscreen iframe — the
+   * first read returns "static", the cached flag says the bar never sticks, and the note
+   * stays at full height for the life of the page. Reading twice per scroll costs less
+   * than being wrong in exactly the place this is meant to help.
+   *
+   * No requestAnimationFrame either: a hidden tab or an unviewed pane throttles it to
+   * nothing, which is the same failure wearing a different hat. */
+  const check = () => {
+    const style = getComputedStyle(bar);
+    if (style.position !== 'sticky') { bar.classList.remove('is-stuck'); return; }
+    const offset = parseFloat(style.top) || 0;
+    bar.classList.toggle('is-stuck', bar.getBoundingClientRect().top <= offset + 1);
+  };
+
+  addEventListener('scroll', check, { passive: true });
+  addEventListener('resize', check, { passive: true });
+  /* Layout may not be settled when this runs; check again once it is. */
+  check();
+  requestAnimationFrame(check);
+  addEventListener('load', check, { once: true });
+}
+
 function wirePalette() {
   if ($('#palette')) return;
   const el = document.createElement('div');
@@ -784,6 +830,7 @@ function openDrawer(id, trigger, updateUrl = true) {
     ${story ? `<figure class="d-story"><blockquote class="d-body" cite="${esc(it.url)}">${body}</blockquote>
       <figcaption class="d-attribution"><span class="attribution-rule" aria-hidden="true"></span>${esc(credit)}</figcaption></figure>`
       : `<p class="d-attribution">${esc(credit)}</p><div class="d-body">${body}</div>`}
+    ${it.communityException ? `<p class="d-attribution">Owner-approved community exception to the GitHub star minimum. <a href="${esc(it.communityException)}" target="_blank" rel="noopener noreferrer">View submission ↗</a></p>` : ''}
     ${it.hermesSupport ? `<div class="d-body"><p><a href="${esc(it.hermesSupport.url)}" target="_blank" rel="noopener noreferrer">Hermes support documented ↗</a><br>${esc(it.hermesSupport.note)}</p></div>` : ''}
     ${it.snippet ? `<div class="d-snip">
         <button class="copy-btn" id="copyBtn">${copyLabel}</button>
@@ -913,6 +960,7 @@ function wire() {
   const favicon = archiveIcon.replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" ')
     .replace('currentColor', accent);
   $('#favicon').href = `data:image/svg+xml,${encodeURIComponent(favicon)}`;
+  wireStickyListbar();
   wirePalette();
   $('#jumpBtn').addEventListener('click', paletteOpen);
   const applyTheme = theme => {
@@ -1037,6 +1085,7 @@ function wire() {
 
 /* ------------------------------------------------------------------ boot */
 
+installDesktopBridge();
 load()
   .then(() => { routeFromHash(); wire(); restoreRoute(); })
   .catch(err => {

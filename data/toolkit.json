@@ -145,6 +145,204 @@
       "url": "https://github.com/unslothai/unsloth",
       "date": "2026-09-25",
       "author": "unslothai"
+    },
+    {
+      "id": "integration-rtk-ai-rtk",
+      "title": "RTK terminal output for Hermes",
+      "summary": "Compact terminal output through a native Hermes command-rewriting plugin.",
+      "cardPoints": [
+        "Compact terminal output through a native Hermes command-rewriting plugin.",
+        "Install RTK using its documented platform instructions, then initialize the Hermes adapter and restart the session."
+      ],
+      "detail": "Compact terminal output through a native Hermes command-rewriting plugin.\n\n- Setup: Install RTK using its documented platform instructions, then initialize the Hermes adapter and restart the session.\n- Limitations: Only supported terminal commands are rewritten. Keep access to original output for debugging; savings depend on the actual workload.\n- Review scope: upstream documentation was read. The archive has not installed or execution-tested this integration.",
+      "tags": [
+        "integration",
+        "hermes",
+        "reviewed"
+      ],
+      "source": "github",
+      "author": "rtk-ai",
+      "url": "https://github.com/rtk-ai/rtk#readme",
+      "verifiedAt": "2026-09-28",
+      "snippet": "rtk init --agent hermes"
+    },
+    {
+      "id": "integration-egonex-ai-understand-anything",
+      "title": "Understand Anything for Hermes",
+      "summary": "Explore a codebase through a generated knowledge graph.",
+      "cardPoints": [
+        "Explore a codebase through a generated knowledge graph.",
+        "Review the project installer, select the documented hermes platform, then ask the understand skill to analyze your repository."
+      ],
+      "detail": "Explore a codebase through a generated knowledge graph.\n\n- Setup: Review the project installer, select the documented hermes platform, then ask the understand skill to analyze your repository.\n- Limitations: Indexing is an analysis aid, not proof that generated relationships are correct. Review installation effects and sensitive code access.\n- Review scope: upstream documentation was read. The archive has not installed or execution-tested this integration.",
+      "tags": [
+        "integration",
+        "hermes",
+        "reviewed"
+      ],
+      "source": "github",
+      "author": "Egonex-AI",
+      "url": "https://github.com/Egonex-AI/Understand-Anything#readme",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "integration-browser-use-browser-use",
+      "title": "Browser Use with Hermes",
+      "summary": "Give a Hermes session browser tools through the Browser Use CLI skill.",
+      "cardPoints": [
+        "Give a Hermes session browser tools through the Browser Use CLI skill.",
+        "Follow the README CLI path using Python and uv, register the skill and connect the intended browser."
+      ],
+      "detail": "Give a Hermes session browser tools through the Browser Use CLI skill.\n\n- Setup: Follow the README CLI path using Python and uv, register the skill and connect the intended browser.\n- Limitations: The local CLI and hosted cloud are different setups. Review browser access and service costs before choosing a cloud option.\n- Review scope: upstream documentation was read. The archive has not installed or execution-tested this integration.",
+      "tags": [
+        "integration",
+        "hermes",
+        "reviewed"
+      ],
+      "source": "github",
+      "author": "browser-use",
+      "url": "https://github.com/browser-use/browser-use#readme",
+      "verifiedAt": "2026-09-28",
+      "snippet": "browser-use skill install"
+    },
+    {
+      "id": "integration-affaan-m-ecc",
+      "title": "ECC minimal adapter for Hermes",
+      "summary": "Bring the ECC workflow instructions and skills into a Hermes project.",
+      "cardPoints": [
+        "Bring the ECC workflow instructions and skills into a Hermes project.",
+        "Use the documented selective installer with the minimal Hermes target after reviewing the setup guide."
+      ],
+      "detail": "Bring the ECC workflow instructions and skills into a Hermes project.\n\n- Setup: Use the documented selective installer with the minimal Hermes target after reviewing the setup guide.\n- Limitations: The Hermes adapter is experimental/minimal. Upstream explicitly does not claim full Claude feature parity; memory runtime features require separate setup.\n- Review scope: upstream documentation was read. The archive has not installed or execution-tested this integration.",
+      "tags": [
+        "integration",
+        "hermes",
+        "reviewed"
+      ],
+      "source": "github",
+      "author": "affaan-m",
+      "url": "https://github.com/affaan-m/ECC#readme",
+      "verifiedAt": "2026-09-28",
+      "snippet": "./install.sh --profile minimal --target hermes"
+    },
+    {
+      "id": "integration-msitarzewski-agency-agents",
+      "title": "Agency Agents router for Hermes",
+      "summary": "Load relevant specialist instructions on demand through a Hermes plugin.",
+      "cardPoints": [
+        "Load relevant specialist instructions on demand through a Hermes plugin.",
+        "Generate the Hermes integration, install the router and restart Hermes. Search and inspect a specialist before loading or delegating."
+      ],
+      "detail": "Load relevant specialist instructions on demand through a Hermes plugin.\n\n- Setup: Generate the Hermes integration, install the router and restart Hermes. Search and inspect a specialist before loading or delegating.\n- Limitations: The integration uses a lazy router instead of preloading all specialists. Review the selected specialist instructions and delegation permissions.\n- Review scope: upstream documentation was read. The archive has not installed or execution-tested this integration.",
+      "tags": [
+        "integration",
+        "hermes",
+        "reviewed"
+      ],
+      "source": "github",
+      "author": "msitarzewski",
+      "url": "https://github.com/msitarzewski/agency-agents#readme",
+      "verifiedAt": "2026-09-28",
+      "snippet": "./scripts/install.sh --tool hermes"
+    },
+    {
+      "id": "integration-graphify-labs-graphify",
+      "title": "Graphify knowledge graphs for Hermes",
+      "summary": "Build a queryable graph from code and supporting project documents.",
+      "cardPoints": [
+        "Build a queryable graph from code and supporting project documents.",
+        "Install Graphify using its upstream instructions, then install its Hermes integration and index the intended project."
+      ],
+      "detail": "Build a queryable graph from code and supporting project documents.\n\n- Setup: Install Graphify using its upstream instructions, then install its Hermes integration and index the intended project.\n- Limitations: The Hermes adapter writes instruction and skill files. Inspect those changes and validate graph findings against the source.\n- Review scope: upstream documentation was read. The archive has not installed or execution-tested this integration.",
+      "tags": [
+        "integration",
+        "hermes",
+        "reviewed"
+      ],
+      "source": "github",
+      "author": "Graphify-Labs",
+      "url": "https://github.com/Graphify-Labs/graphify#readme",
+      "verifiedAt": "2026-09-28",
+      "snippet": "graphify hermes install"
+    },
+    {
+      "id": "integration-alishahryar1-free-claude-code",
+      "title": "FCC model gateway for Hermes",
+      "summary": "Launch Hermes against models configured in the FCC gateway.",
+      "cardPoints": [
+        "Launch Hermes against models configured in the FCC gateway.",
+        "Complete FCC setup and configure a provider, then use the documented Hermes launcher."
+      ],
+      "detail": "Launch Hermes against models configured in the FCC gateway.\n\n- Setup: Complete FCC setup and configure a provider, then use the documented Hermes launcher.\n- Limitations: Provider availability, quotas and terms can change. A project name containing free is not a guarantee of free inference; inspect your selected provider.\n- Review scope: upstream documentation was read. The archive has not installed or execution-tested this integration.",
+      "tags": [
+        "integration",
+        "hermes",
+        "reviewed"
+      ],
+      "source": "github",
+      "author": "Alishahryar1",
+      "url": "https://github.com/Alishahryar1/free-claude-code#readme",
+      "verifiedAt": "2026-09-28",
+      "snippet": "fcc-hermes"
+    },
+    {
+      "id": "integration-garrytan-gstack",
+      "title": "Gstack methodology for Hermes",
+      "summary": "Use the explicitly documented Hermes methodology and instruction tier.",
+      "cardPoints": [
+        "Use the explicitly documented Hermes methodology and instruction tier.",
+        "Follow the other-agent setup instructions for the Hermes host, or review the instruction digest for a project-local setup."
+      ],
+      "detail": "Use the explicitly documented Hermes methodology and instruction tier.\n\n- Setup: Follow the other-agent setup instructions for the Hermes host, or review the instruction digest for a project-local setup.\n- Limitations: Hermes receives methodology artifacts and an instruction digest, not the same full runtime integration advertised for other hosts. Browser pairing is a separate workflow.\n- Review scope: upstream documentation was read. The archive has not installed or execution-tested this integration.",
+      "tags": [
+        "integration",
+        "hermes",
+        "reviewed"
+      ],
+      "source": "github",
+      "author": "garrytan",
+      "url": "https://github.com/garrytan/gstack#readme",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "integration-multica-ai-multica",
+      "title": "Multica workspace with a Hermes runtime",
+      "summary": "Assign work to an installed Hermes CLI through a shared agent workspace.",
+      "cardPoints": [
+        "Assign work to an installed Hermes CLI through a shared agent workspace.",
+        "Set up a Multica runtime on a host where Hermes is already installed and authenticated, then select Hermes for an agent."
+      ],
+      "detail": "Assign work to an installed Hermes CLI through a shared agent workspace.\n\n- Setup: Set up a Multica runtime on a host where Hermes is already installed and authenticated, then select Hermes for an agent.\n- Limitations: Multica does not supply the agent CLI. It is source-available; inspect its license, permissions and runtime isolation before adopting it.\n- Review scope: upstream documentation was read. The archive has not installed or execution-tested this integration.",
+      "tags": [
+        "integration",
+        "hermes",
+        "reviewed"
+      ],
+      "source": "github",
+      "author": "multica-ai",
+      "url": "https://github.com/multica-ai/multica#readme",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "review-integration-archify",
+      "title": "Archify diagrams with Hermes",
+      "summary": "Turn a repository or workflow description into an interactive architecture diagram through a documented Hermes skill.",
+      "cardPoints": [
+        "Create an interactive HTML diagram from a repository or workflow description.",
+        "Install the optional Hermes skill, restart the session and review the generated diagram against its source."
+      ],
+      "detail": "Create an interactive architecture or workflow diagram through Archify’s community Hermes skill.\n\n- Setup: Install Node.js 18 or newer, inspect the published skill, then use the upstream installation command below and restart Hermes. Ask the archify skill to map the repository’s runtime architecture and return the specification JSON and HTML file paths.\n- Limitations: Skill-only community integration, not an official Nous Research product. The renderer remains a Node CLI; it adds no native Python render tools and is not an agent-switcher target. Generated diagrams are not verification of live infrastructure or merge safety.\n- Docker: Install into the mounted Hermes skills volume or mount the actual skill files. A host symlink pointing outside that volume is not visible inside the container.\n- Review scope: upstream README and dedicated Hermes integration instructions were read; the archive has not installed or execution-tested this integration.",
+      "snippet": "hermes skills install skills-sh/tt-a1i/archify/archify -y",
+      "tags": [
+        "integration",
+        "hermes",
+        "reviewed",
+        "architecture"
+      ],
+      "source": "github",
+      "author": "tt-a1i",
+      "url": "https://github.com/tt-a1i/archify#readme",
+      "verifiedAt": "2026-09-28"
     }
   ]
 }

@@ -1,8 +1,8 @@
 # Release readiness
 
-Reviewed 2026-09-26 against main `4e366aa` and this preparation branch. The repository
-is already public. Production was verified at `4e366aa`; preparing this branch does
-not merge, tag, install into the owner's Desktop or deploy another release.
+Reviewed 2026-09-29 against main `3cf2273` and this preparation branch. The repository
+is already public. The last verified production revision is `9191f24`; merging and
+deploying are separate steps. No installation into the owner's Desktop was performed.
 
 ## What is available
 
@@ -27,16 +27,22 @@ not merge, tag, install into the owner's Desktop or deploy another release.
 
 ## Evidence and limits
 
-- `npm run check`: 840 stored entries across nine content shelves; Dashboard and Trending are computed.
-- `npm test`: 85 tests passed, including importer, ranking, local-server, plugin and installer regression tests. Plugin tests use SDK stand-ins, not a real Hermes Desktop instance.
-- A clean local clone passed both commands with an empty credential environment and no `.env` or `node_modules`. Its preview server served the four tricks and refused maintenance-script requests. Installer tests used disposable homes; the owner's installed plugin was not changed.
+- `npm run check`: 973 stored entries across nine content shelves; Dashboard and Trending are computed.
+- `npm test`: 101 tests passed, including importer, ranking, local-server, plugin and installer regression tests. Plugin tests use SDK stand-ins, not a real Hermes Desktop instance.
+- During the September 26 review, a clean local clone passed both commands with an empty credential environment and no `.env` or `node_modules`. Its preview server served the four tricks and refused maintenance-script requests. Installer tests used disposable homes; the owner's installed plugin was not changed.
 - The prior merged release passed source-attribution and documentation-anchor checks. The link checker does not fetch every social post or verify redistribution rights.
 - GitHub read-only checks on 2026-09-26: public repository, secret scanning and push protection enabled, private vulnerability reporting enabled, zero open secret-scanning alerts returned. This is not a complete secrets-history or security audit.
 - Only `.env.example` is tracked among environment/configuration paths checked; real credentials and Vercel project configuration remain ignored.
 
-Stored counts at `4e366aa`: Use Cases 372, Commands 272, Settings 98, Skills 59,
-Prompts 12, My Work 11, Works With 8, People Build 4 and Hidden Tricks 4.
-Displayed totals differ because repository eligibility is checked against public metrics.
+Stored counts at this review: Use Cases 392, Commands 292, Settings 118, Skills 79,
+Prompts 32, My Work 11, Works With 18, People Build 27 and Hidden Tricks 4.
+969 are currently eligible to display; stored entries are retained when ineligible.
+
+The September 29 browser fixture confirmed that an embedded archive sends the selected
+original-source URL to the host. Native Hermes Desktop confirmation and external browser
+opening remain unverified. Source confirmation requires both the updated website and plugin.
+
+Publishing remains manual: the last inspected Vercel project has no Git integration.
 
 ## Before announcing the plugin as supported
 
