@@ -77,12 +77,21 @@ so neither is a dependency of this repository and the archive stays dependency-f
 tests resolve both specifiers to a stub in `test-stubs.mjs` rather than installing React to
 exercise one file.
 
-The framed page is sandboxed to `allow-scripts allow-same-origin allow-popups
-allow-popups-to-escape-sandbox`. It needs scripts and its own origin to fetch its JSON, and
-it needs to open links, because following a source to the original post is the entire point
-of the archive and every one of those links is `target="_blank"`. Downloads and top-level
-navigation stay refused, so a framed page cannot move the host window or drop a file on
-you.
+The framed page needs scripts and its own origin to fetch its JSON. Its existing sandbox
+permissions are preserved, but Hermes separately denies popup requests, including ordinary
+`target="_blank"` links. Downloads and top-level navigation remain refused.
+
+**Read workflow** opens the detail drawer inside the archive. **Read the original**
+shows the destination above the frame; choose **Open source** to open it in your browser.
+The plugin verifies the message's frame and origin, accepts only HTTP(S) links, and calls
+Hermes's `ctx.os.openExternal` API only after that confirmation. A frame message alone
+cannot open a browser. If the host API is unavailable or refuses the link, an error and a
+copyable address remain visible. **Open archive in browser** offers a direct fallback.
+
+This requires both the updated website (`assets/js/desktop-bridge.js`) and the updated
+plugin. After updating your clone, rerun `npm run plugin` and restart Hermes Desktop.
+Self-hosted copies must also update their served website. Standalone website links keep
+their normal browser behavior. The plugin does not change Hermes's popup security policy.
 
 ## Tests
 
@@ -91,4 +100,6 @@ npm test          # the plugin's tests run with the rest
 ```
 
 `scripts/desktop-plugin.test.mjs` covers the address policy, the shelf deep links, the
-registered contributions, the sandbox, and the two unreachable states.
+registered contributions, the sandbox, the unreachable states and source-link validation.
+`scripts/desktop-bridge.test.mjs` covers the frame handshake and click interception without
+network access. Native Desktop behavior still needs a manual smoke test after installation.
