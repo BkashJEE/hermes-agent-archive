@@ -6,7 +6,7 @@ body:
     id: steps
     attributes:
       label: Steps to reproduce
-      description: Include the page or local commit, browser and screen size. Do not include secrets or private logs.
+      description: Include the page or local commit, browser and screen size. For the Desktop plugin, also include OS, Hermes Desktop version, install method and whether Archive appears in Capabilities → Plugins. Do not include secrets or private logs.
     validations:
       required: true
   - type: textarea

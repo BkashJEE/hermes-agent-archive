@@ -11,7 +11,7 @@ An independent community archive of Hermes Agent workflows, prompts, skills and 
 
 [Browse the archive](https://hermes-agent-archive.vercel.app) · [Contribute](CONTRIBUTING.md) · [Methodology](docs/METHODOLOGY.md) · [Release readiness](docs/RELEASE_READINESS.md)
 
-The archive is under active development. Some shelves are deliberately thin, and importer coverage is still being extended — `scripts/docs-manifest.json` records every documentation page that is imported and every one that is not, with the reason. A source link is not proof that a workflow works, and a listing is not a security endorsement.
+The website is available now. The optional Hermes Desktop plugin is an early preview; host-app compatibility testing is still pending. Importer coverage remains partial and is recorded in `scripts/docs-manifest.json`. A source link is not proof that a workflow works, and a listing is not a security endorsement.
 
 ## Run your own copy
 
@@ -28,11 +28,13 @@ Open **http://127.0.0.1:4179**. No `npm install`, build, API key, account or Ver
 ```bash
 npm run check   # validate archive data: fields, duplicate IDs and titles, source links, credits
 npm test        # rendering, ranking, parsing, data and local-server regression tests
-npm run links   # confirm every source link and documentation anchor still resolves
+npm run links   # check source attribution and live official-documentation anchors
 npm run prompts # re-verify every stored prompt against the page it cites
+npm run tricks -- --offline # verify the pinned source and documentation evidence
 ```
 
-The last two reach the network, so they are not part of the required checks.
+`links` and `prompts` reach the network. The other commands use the included snapshots.
+The link check does not fetch every third-party social post.
 
 Use a recent browser with JavaScript enabled. Inter and JetBrains Mono load from Google Fonts; fallback fonts work when offline. Search and preferences work locally. Changes to your clone cannot change the shared website. `private: true` in package.json prevents accidental npm publication; it does not make the source repository private.
 
@@ -51,23 +53,18 @@ The star cutoff is an editorial preference. It excludes smaller and newer projec
 | Shelf | Holds | Now |
 | --- | --- | --- |
 | **Dashboard** | Counted live from what is loaded, never stored or estimated. | computed |
-| **Use Cases** | Real user stories, each quoted and linked to the original post. | 372 |
+| **Use Cases** | Real user stories, each quoted and linked to the original post. | 392 |
 | **Trending GitHub** | Documented integrations with measured star growth per day. | computed |
-| **Skills** | Packaged capabilities you install rather than re-prompt. | 59 |
-| **Prompts** | Copyable examples, each verified against the page it cites. | 12 |
-| **Settings** | Configuration that materially changes how a run behaves. | 98 |
-| **Commands** | Commands and invocations, by how often they earn their keystrokes. | 272 |
-| **Hidden Tricks** | Non-obvious moves most people never find. | 4 |
-| **Works With** | Repositories worth pairing with Hermes, each read before listing. | 8 |
-| **People Build** | Projects built on Hermes and shown off publicly. | 4 |
+| **Skills** | Packaged capabilities you install rather than re-prompt. | 79 |
+| **Prompts** | Copyable examples, each verified against the page it cites. | 32 |
+| **Settings** | Configuration that materially changes how a run behaves. | 118 |
+| **Commands** | Commands and invocations, by how often they earn their keystrokes. | 292 |
+| **Hidden Tricks** | Attributed community techniques checked against a pinned documentation corpus. | 4 |
+| **Works With** | Repositories worth pairing with Hermes, each read before listing. | 18 |
+| **People Build** | Projects built on Hermes and shown off publicly. | 27 |
 | **My Work** | The maintainer's own posts, with analytics explicitly credited. | 11 |
 
-Hidden Tricks is small on purpose. Calling something a non-obvious trick asserts that it
-is absent from the documentation, and no classifier can establish that, so this shelf and
-Prompts are filled only by reviewed extraction — the router refuses to place anything
-there, in code. Each entry carries the evidence of its own absence from the docs, in
-`scripts/trick-evidence.json`, so the claim can be re-checked rather than taken on trust.
-Four honest entries beat forty guessed ones.
+These are stored counts at the September 29 review (973 entries), not a promise that all entries qualify for display. Hidden Tricks and Prompts accept only reviewed extraction; the classifier cannot populate them. The four tricks include quotations and a bounded documentation-absence check, with 15 rejected candidates recorded. See [the reproducible evidence](docs/HIDDEN_TRICKS.md).
 
 ![The Use Cases shelf](docs/images/use-cases.png)
 
@@ -97,18 +94,30 @@ Four honest entries beat forty guessed ones.
 
 </details>
 
-## Inside Hermes Desktop
+## Inside Hermes Desktop — early preview
+
+From your clone, inspect the target before installing:
 
 ```bash
-npm run plugin      # then restart Hermes Desktop
+npm run plugin -- --dry
+npm run plugin
 ```
 
-A sidebar entry, a status-bar launcher, and command-palette actions for each shelf and for
-suggesting an entry. The plugin is one file that frames the published archive, so
-installing it is the whole install — no server to run, nothing to keep alive.
+Check **Capabilities → Plugins** in Hermes Desktop, then choose **Archive** in the
+sidebar. Current Hermes versions support **Reload desktop plugins** in the command
+palette; restart older versions if needed.
 
-To read your own fork or a local clone instead, set `hermes-archive:url`. See
-[the plugin's README](desktop-plugin/README.md).
+The plugin frames the public archive and adds shelf shortcuts, including Hidden
+Tricks. It needs internet access by default, but no archive account, API key or local
+server. It does not add agent tools, chat search, a "send to chat" action or favourites.
+There is no catalog listing or claim of verified Windows/macOS/Linux compatibility
+for this release. Unit tests use SDK stand-ins; an installed file is not proof that
+it loaded successfully in Hermes Desktop.
+
+Read [installation, safe updates, removal and the desktop smoke test](desktop-plugin/README.md).
+The wrapper runs with Hermes Desktop's permissions; inspect the file before loading
+it. React and the plugin SDK come from Hermes; the archive itself stays vanilla and
+dependency-free. A browser-only fork can ignore `desktop-plugin/` entirely.
 
 ## Contribute or correct something
 
@@ -144,6 +153,7 @@ npm test
 Existing import commands:
 
 ```bash
+npm run tricks                          # reviewed community tricks, live source checks
 npm run docs                            # official documentation, per scripts/docs-manifest.json
 npm run docs -- --dry                   # report what would land, write nothing
 node scripts/import-hermes-stories.mjs  # Nous Research's community stories

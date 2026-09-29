@@ -10,3 +10,15 @@ The static dashboard has no account system, advertising integration or applicati
 - Optional fetch and ranking scripts contact external APIs from the machine where they run. Jev receives the archive text and public evidence being classified. Credentials are optional for browsing and must never be shipped to visitors.
 
 Imported authors' public handles, quoted text, dates and source URLs are visible in the JSON as well as on cards. See [NOTICE.md](../NOTICE.md) for corrections and rights concerns.
+
+## Optional Hermes Desktop plugin
+
+The plugin opens the same public website in a frame, so the hosting, font and source-link
+requests described above still apply. `hermes-archive:url` is a local Desktop preference
+for a fork or local server. The wrapper does not send chat history, gateway credentials
+or local files to the archive and does not register agent tools or a submission service.
+
+Hermes loads desktop plugin code with the app's authority. The frame restrictions
+apply to the displayed website, not to the plugin JavaScript itself. Review the plugin
+before installing it, and only configure an archive host you trust. Files saved by the
+installer are local; update/removal backups are retained for manual recovery.

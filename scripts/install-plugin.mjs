@@ -1,88 +1,75 @@
 #!/usr/bin/env node
-/**
- * Install the Hermes Desktop plugin for this archive.
- *
- *   npm run plugin            # install, then say what to do next
- *   npm run plugin -- --dry   # print where it would go, write nothing
- *   npm run plugin -- --local # point it at your own copy on http://127.0.0.1:4179
- *   npm run plugin -- --remove
- *
- * Hermes scans one directory for desktop plugins on every platform, so this is a copy and
- * a message rather than a build. The plugin frames the published archive by default, which
- * means installing it is the whole install: there is no server to run and nothing to keep
- * alive afterwards.
- *
- * It refuses to write the `.hermes-package.json` marker beside the file. That marker tells
- * Hermes the folder belongs to an installed agent package, which loads the plugin disabled
- * and lets Hermes delete the folder later.
- */
-
-import { readFile, writeFile, mkdir, rm, stat } from 'node:fs/promises';
+/** Copy the reviewed desktop plugin; preserve existing files and package ownership. */
+import { readFile, writeFile, mkdir, unlink, rename, lstat } from 'node:fs/promises';
+import { randomUUID } from 'node:crypto';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { dirname, join } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import { homedir } from 'node:os';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SOURCE = join(ROOT, 'desktop-plugin', 'plugin.js');
 const PLUGIN_ID = 'hermes-archive';
-const LOCAL_URL = 'http://127.0.0.1:4179/';
 
-/** Where Hermes keeps its home, honouring an explicit override. */
 export function hermesHome(env = process.env, home = homedir()) {
-  const configured = env.HERMES_HOME?.trim();
-  return configured || join(home, '.hermes');
+  return env.HERMES_HOME?.trim() || join(home, '.hermes');
 }
-
-/** The one directory Hermes scans for desktop plugins, on every platform. */
 export function pluginTarget(home = hermesHome()) {
   return join(home, 'desktop-plugins', PLUGIN_ID, 'plugin.js');
 }
+const exists = async path => lstat(path).catch(e => {
+  if (e.code === 'ENOENT') return null;
+  throw e;
+});
 
-const flag = name => process.argv.includes(`--${name}`);
-
-async function main() {
-  const target = pluginTarget();
-  const folder = dirname(target);
-
-  if (flag('remove')) {
-    await rm(folder, { recursive: true, force: true });
-    console.log(`Removed ${folder}`);
-    console.log('Restart Hermes Desktop: plugins on disk are scanned at startup, not on reload.');
-    return;
+export async function install({ home = hermesHome(), args = process.argv.slice(2) } = {}) {
+  const allowed = new Set(['--dry', '--local', '--remove', '--replace']);
+  if (args.some(a => !allowed.has(a)) || (args.includes('--remove') && (args.includes('--local') || args.includes('--replace'))))
+    throw new Error('Use --dry, --local, --replace, or --remove; removal cannot be combined with --local/--replace.');
+  const dry = args.includes('--dry'), remove = args.includes('--remove');
+  const target = resolve(pluginTarget(home)), folder = dirname(target);
+  // Refuse symlinked components rather than write/remove another installation's files.
+  for (let path = target; ; path = dirname(path)) {
+    const info = await exists(path);
+    if (info?.isSymbolicLink()) throw new Error(`Refusing a symlinked installation path: ${path}`);
+    if (path === resolve(home) || path === dirname(path)) break;
   }
-
-  const source = await readFile(SOURCE, 'utf8').catch(() => null);
-  if (!source) throw new Error(`Cannot read ${SOURCE}. Run this from a clone of the archive.`);
-
-  if (flag('dry')) {
-    console.log(`Would write ${source.length} bytes to:\n  ${target}`);
-    return;
-  }
+  if (await exists(join(folder, '.hermes-package.json')))
+    throw new Error('This directory is managed by Hermes. Update or uninstall it through Hermes; its package marker was preserved.');
+  const previous = await readFile(target).catch(e => {
+    if (e.code === 'ENOENT') return null;
+    throw e;
+  });
+  const source = remove ? null : await readFile(SOURCE);
+  if (!remove && !source.length) throw new Error('Plugin source is empty; installation untouched.');
+  if (remove && !previous) { console.log('Archive plugin is not installed.'); return; }
+  if (!remove && previous?.equals(source)) { console.log('The current Archive plugin is already installed.'); return; }
+  if (!remove && previous && !args.includes('--replace'))
+    throw new Error('A different plugin file is installed. Review it first, then use --replace to back it up and update.');
+  if (dry) { console.log(`Would ${remove ? 'back up and remove' : previous ? 'back up and replace' : 'install'} ${target}. No files changed.`); return; }
 
   await mkdir(folder, { recursive: true });
-  await writeFile(target, source);
-
-  /* Never leave the package marker behind: it disables the plugin and marks the folder
-     as disposable. Checked rather than assumed, in case an older install wrote one. */
-  const marker = join(folder, '.hermes-package.json');
-  if (await stat(marker).then(() => true).catch(() => false)) {
-    await rm(marker, { force: true });
-    console.log('Removed a stale .hermes-package.json, which would have loaded the plugin disabled.');
+  if (previous) {
+    const backup = `${target}.backup-${randomUUID()}`;
+    await writeFile(backup, previous, { flag: 'wx', mode: 0o600 });
+    console.log(`Previous plugin preserved at ${backup}`);
   }
-
-  console.log(`Installed the archive plugin:\n  ${target}\n`);
-  console.log('Restart Hermes Desktop. Plugins on disk are scanned at startup, not on reload.');
-  console.log('Then: "Archive" in the sidebar, or the command palette — Archive: Open.\n');
-
-  if (flag('local')) {
-    console.log('To read your own copy instead of the published one, run this in the');
-    console.log("Hermes Desktop window's console, then reload the page:\n");
-    console.log(`  localStorage.setItem('hermes-archive:url', '${LOCAL_URL}')\n`);
-    console.log('and serve it with `npm start` from your clone.');
+  if (remove) {
+    await unlink(target); // Only our entry file, never the whole directory.
+    console.log('Removed plugin.js; backups and other files are preserved.');
   } else {
-    console.log('It opens the published archive. To read your own copy instead, see');
-    console.log('desktop-plugin/README.md.');
+    const staged = `${target}.tmp-${randomUUID()}`;
+    try {
+      await writeFile(staged, source, { flag: 'wx', mode: 0o600 });
+      await rename(staged, target);
+    } finally {
+      await unlink(staged).catch(e => { if (e.code !== 'ENOENT') throw e; });
+    }
+    console.log(`Installed the archive plugin: ${target}`);
+    if (args.includes('--local'))
+      console.log('For a local copy, run npm start and configure hermes-archive:url as described in desktop-plugin/README.md. This flag does not change Desktop settings.');
   }
+  console.log('In Hermes Desktop: Reload desktop plugins in the command palette, then check Capabilities → Plugins. Restart older versions if needed.');
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) await main();
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href)
+  install().catch(e => { console.error(e.message); process.exitCode = 1; });

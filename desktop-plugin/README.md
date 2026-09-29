@@ -1,85 +1,114 @@
-# Hermes Agent Archive — Desktop plugin
+# Hermes Agent Archive — Desktop plugin preview
 
-Puts the archive inside Hermes Desktop: a sidebar entry, a status-bar launcher, and
-command-palette actions for each shelf and for suggesting an entry.
+Browse the sourced archive inside Hermes Desktop. The wrapper adds an **Archive**
+sidebar entry, a status-bar launcher and command-palette shelf shortcuts. It opens
+the published archive by default; no local server, API key or archive account is needed.
+Internet access is required for the hosted copy.
 
-The plugin is one file. It holds no data, has no backend of its own, and stores nothing
-but the address it was told to open.
+**Release status:** code and installer tests pass against SDK stand-ins. A versioned
+smoke test inside the real Hermes Desktop app is still pending. This is an early
+preview, not a catalog-listed or cross-platform-certified plugin. Installing the
+file successfully does not establish that Hermes loaded it.
 
-## Install
+## Install from a clone
 
-From a clone of the archive:
+Requires Git, Node.js 20+ and Hermes **Desktop** with the desktop plugin SDK. This
+is not a plugin for `hermes dashboard` or an agent-side Python plugin. See the
+[official SDK and delivery modes](https://hermes-agent.nousresearch.com/docs/developer-guide/desktop-plugin-sdk).
 
 ```bash
+git clone https://github.com/BkashJEE/hermes-agent-archive.git
+cd hermes-agent-archive
+npm run plugin -- --dry
 npm run plugin
 ```
 
-Then restart Hermes Desktop — plugins on disk are scanned at startup, not on reload.
-That is the whole install. There is no server to run and nothing to keep alive, because
-the plugin opens the published archive.
+Review `desktop-plugin/plugin.js` first. The installer writes only to
+`$HERMES_HOME/desktop-plugins/hermes-archive/plugin.js`, defaulting to your home
+folder's `.hermes` directory. There is no dependency install or build.
 
-By hand, if you prefer: copy `desktop-plugin/plugin.js` to
-`~/.hermes/desktop-plugins/hermes-archive/plugin.js`. Set `HERMES_HOME` if yours is
-somewhere else. Do not put a `.hermes-package.json` beside it — that marker tells Hermes
-the folder belongs to an installed agent package, which loads the plugin disabled and lets
-Hermes delete the folder later.
+In Hermes Desktop, check **Capabilities → Plugins** and enable Archive if necessary.
+Current versions watch plugin files and support **Reload desktop plugins** in the
+command palette. Restart older versions if it does not appear. Then select **Archive**
+in the sidebar or **Archive: Open** in the command palette.
+
+If your directory has `.hermes-package.json`, use Hermes to manage that installation.
+The installer refuses to overwrite it or delete its ownership marker. Symlinked
+installation paths are also refused; choose a real directory through `HERMES_HOME`.
+
+## Update and remove safely
+
+After reviewing an update and pulling it into your clone:
 
 ```bash
-npm run plugin -- --dry      # show where it would go
-npm run plugin -- --remove   # take it out again
+npm run plugin -- --replace --dry
+npm run plugin -- --replace
 ```
 
-## Read your own copy instead
+A different installed file is never overwritten silently. `--replace` saves its exact
+bytes as `plugin.js.backup-<unique-id>` in the same directory before replacing it.
+An identical installation is left alone. Backups are not uploaded anywhere.
 
-Everyone gets the published archive by default. To read your own — a fork you have
-deployed, or a local clone — set the address in the Hermes Desktop window's console and
-reload the page:
+```bash
+npm run plugin -- --remove --dry
+npm run plugin -- --remove
+```
+
+Removal first backs up `plugin.js`, then removes that file only. Other files and all
+backups stay in place. To restore, copy the chosen backup back to `plugin.js` and reload
+desktop plugins. Do not use the installer to remove a package managed by Hermes.
+
+## What is available
+
+- Sidebar page and status-bar launcher.
+- Palette actions: open, reload, suggest an entry and all nine content shelves plus Trending.
+- Source attribution, filters and browsing through the embedded website.
+- Optional address setting for your own fork or local archive.
+
+Chat search, "send to chat", agent tools, personal favourites and offline snapshot
+bundling are **not implemented**. Suggestions open a public GitHub issue form. They
+never edit the shared archive directly.
+
+## Read a fork or local copy
+
+For a local copy, run `npm start`. In the Hermes Desktop window's developer console:
 
 ```js
-localStorage.setItem('hermes-archive:url', 'https://your-fork.example.com/')
+try {
+  localStorage.setItem('hermes-archive:url', 'http://127.0.0.1:4179/');
+} catch {
+  console.warn('Desktop storage is unavailable; the published archive will be used.');
+}
 ```
 
-For a local clone, serve it first with `npm start` and point at that:
+Reload the archive route or the Desktop window after changing the setting. Use your
+own `https://` URL for a deployed fork. HTTP is allowed only for loopback addresses;
+`javascript:`, `data:`, `file:` and other schemes are refused.
+
+To restore the default:
 
 ```js
-localStorage.setItem('hermes-archive:url', 'http://127.0.0.1:4179/')
+try { localStorage.removeItem('hermes-archive:url'); } catch {}
 ```
 
-Clear the setting to go back to the published archive:
+`--local` prints guidance only; it does not change Desktop preferences. Custom hosts
+must permit framing. Some failed frame loads do not trigger browser error events;
+if you see a blank page, open the configured URL in your browser and check the host's
+frame policy and your connection.
 
-```js
-localStorage.removeItem('hermes-archive:url')
-```
+## Permissions and privacy
 
-Two shapes of address are accepted and nothing else: **any `https:` address**, so a fork
-on someone else's host works, and **plain `http:` only on loopback**, because that is the
-local preview server and `npm start` does not offer TLS. A `javascript:`, `data:` or
-`file:` setting is discarded and the published archive is opened instead. A framed page
-keeps its own origin, so the risk of a loose rule here is not to Hermes but to you: you
-would have no way of telling a swapped-in page from the archive.
+Hermes supplies `react` and `@hermes/plugin-sdk`; this repository installs neither.
+The wrapper uses navigation and local browser storage, and opens source/contribution
+links. It makes no gateway RPC calls and does not send chat history or local files.
 
-## What it adds
+The frame requests scripts, its own origin and popup permissions, but Hermes separately
+denies popups. The confirmed host action described below opens sources instead. The frame
+does not permit top-level navigation or downloads. **That does not sandbox the plugin:**
+Hermes desktop plugin code runs with the app's authority. Only install reviewed code
+and configure hosts you trust. See [privacy](../docs/PRIVACY.md) and [security](../SECURITY.md).
 
-| Where | What |
-| --- | --- |
-| Sidebar | **Archive** |
-| Status bar | **Archive**, to the left |
-| Palette | `Archive: Open`, `Archive: Reload`, `Archive: Suggest an entry` |
-| Palette | One per shelf — Use Cases, Skills, Prompts, Commands, Settings, Trending GitHub |
-
-Suggesting an entry costs the same keystroke as reading one, which is the point: the
-archive is only worth having if the people using it can add to it.
-
-## How it works
-
-`react` and `@hermes/plugin-sdk` are supplied by the Hermes Desktop runtime at load time,
-so neither is a dependency of this repository and the archive stays dependency-free. The
-tests resolve both specifiers to a stub in `test-stubs.mjs` rather than installing React to
-exercise one file.
-
-The framed page needs scripts and its own origin to fetch its JSON. Its existing sandbox
-permissions are preserved, but Hermes separately denies popup requests, including ordinary
-`target="_blank"` links. Downloads and top-level navigation remain refused.
+## Opening original sources
 
 **Read workflow** opens the detail drawer inside the archive. **Read the original**
 shows the destination above the frame; choose **Open source** to open it in your browser.
@@ -89,17 +118,25 @@ cannot open a browser. If the host API is unavailable or refuses the link, an er
 copyable address remain visible. **Open archive in browser** offers a direct fallback.
 
 This requires both the updated website (`assets/js/desktop-bridge.js`) and the updated
-plugin. After updating your clone, rerun `npm run plugin` and restart Hermes Desktop.
+plugin. After updating your clone, rerun `npm run plugin -- --replace` and reload desktop plugins.
 Self-hosted copies must also update their served website. Standalone website links keep
 their normal browser behavior. The plugin does not change Hermes's popup security policy.
 
-## Tests
 
-```bash
-npm test          # the plugin's tests run with the rest
-```
+## Desktop smoke test
 
-`scripts/desktop-plugin.test.mjs` covers the address policy, the shelf deep links, the
-registered contributions, the sandbox, the unreachable states and source-link validation.
-`scripts/desktop-bridge.test.mjs` covers the frame handshake and click interception without
-network access. Native Desktop behavior still needs a manual smoke test after installation.
+Record the archive commit, OS and exact Hermes Desktop version with the result:
+
+1. Install into a disposable Hermes home/profile and confirm Archive loads without errors.
+2. Open Archive from the sidebar and status bar.
+3. From another Hermes page, select **Archive: Hidden Tricks** in the command palette;
+   it should open that shelf on the first attempt. Repeat while Archive is already open.
+4. Search, filter, open and close a card; verify keyboard focus returns to the card.
+5. Open an original source and the suggestion form; confirm each opens outside the frame.
+6. Check the hosted URL and a local clone. Disconnect the local server and record whether
+   a blank frame or the fallback is shown; reconnect and reload.
+7. Disable/re-enable the plugin. Test update, backup recovery and removal in the disposable
+   installation; retain unrelated files.
+
+Do not claim this checklist passed merely because `npm test` is green. Host-app testing
+remains pending until someone records the version and observed result in the PR.

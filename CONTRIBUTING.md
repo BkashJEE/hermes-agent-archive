@@ -31,6 +31,19 @@ to copying long passages.
    reaches the network, so it is not part of the required checks.
 6. Open a pull request explaining what changed and linking to the source.
 
+For a new entry, the test suite requires a matching Jev classification. Contributors
+do not need a key: submit the source through an issue, or open a draft PR and record
+the expected classification failure. A maintainer runs `npm run rank` with their own
+configured credentials before merging; never fabricate a ranking to make CI pass.
+
+Prompts and Hidden Tricks also require their reviewed extractor and evidence. Do not
+append a claimed trick based on keywords or change the routing guard. Follow
+[Hidden Tricks extraction](docs/HIDDEN_TRICKS.md) and retain each rejection reason.
+
+Plugin changes should include the relevant unit tests and a completed or explicitly
+pending [Hermes Desktop smoke test](desktop-plugin/README.md#desktop-smoke-test).
+Tests against SDK stand-ins cannot establish host-app compatibility.
+
 Do not hand-edit `data/live.json`, invent engagement, or present editorial scores
 as public metrics. The maintainer can fetch API evidence and classify new entries
 with Jev. A new repository is hidden until its API count qualifies. Stale or
