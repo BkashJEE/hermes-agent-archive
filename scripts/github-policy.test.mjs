@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {githubStarFloor, qualifiesStars} from '../assets/js/github-policy.js';
+import {githubStarFloor, qualifiesStars, qualifiesRepository, COMMUNITY_EXCEPTIONS} from '../assets/js/github-policy.js';
 import {mergeLive, trendingItems} from '../assets/js/archive.js';
 
 test('one strict default accepts 50001 and rejects 50000; overrides can lower or raise it',()=>{
@@ -23,4 +23,30 @@ test('rendering and Trending follow the fetched policy rather than a second floo
   const strict={builds:[{id:'tool',repo:'org/tool',title:'Tool'}]};
   mergeLive(strict,{...live,githubMinStars:1000},{'org/tool':{url:'https://github.com/org/tool',note:'Fixture support'}});
   assert.equal(strict.builds.length,0);
+});
+
+test('community exceptions apply only to the three approved repos and still require fetched counts and support', () => {
+  assert.equal(Object.keys(COMMUNITY_EXCEPTIONS).length, 3);
+  for (const repo of Object.keys(COMMUNITY_EXCEPTIONS)) {
+    assert.equal(qualifiesRepository(repo, 1), true);
+    assert.equal(qualifiesRepository(repo.toUpperCase(), 0), true);
+    for (const unknown of [undefined, null, NaN, -1, '24']) assert.equal(qualifiesRepository(repo, unknown), false);
+    assert.equal(qualifiesRepository(repo, 24, {}), false);
+    assert.equal(qualifiesRepository(`${repo}-other`, 24), false);
+  }
+  assert.equal(qualifiesRepository('cliffwade/another-plugin', 24, {'cliffwade/another-plugin':{note:'Hermes support'}}), false);
+});
+
+test('exceptions render with a policy label but do not enter Trending below its floor', () => {
+  const repo = 'cliffwade/hermes-command-center', now = Date.now();
+  const item = {id:'center',title:'Center',source:'github',url:`https://github.com/${repo}`};
+  const data = {builds:[structuredClone(item)]};
+  mergeLive(data, {github:[{repo,stars:2,forks:0,url:item.url,observedAt:new Date(now).toISOString(),previousStars:{value:1,at:new Date(now-86400000).toISOString()}}]});
+  assert.equal(data.builds.length,1);
+  assert.equal(data.builds[0].metric.value,2);
+  assert.equal(data.builds[0].communityException,COMMUNITY_EXCEPTIONS[repo]);
+  assert.deepEqual(trendingItems(data),[]);
+  const missing = {builds:[item]};
+  mergeLive(missing,{github:[]});
+  assert.deepEqual(missing.builds,[]);
 });

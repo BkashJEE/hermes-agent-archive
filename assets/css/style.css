@@ -776,3 +776,32 @@ code{font-family:var(--mono);font-size:.92em}
 }
 .skip-link:focus{ top:8px }
 @media (prefers-reduced-motion:reduce){ .skip-link{transition:none} }
+
+
+/* The pinned list bar carried its whole ranking note down the page — four lines of
+   methodology nobody re-reads, holding ~110px of every scroll hostage. Once the bar
+   is actually stuck the note folds to the screen-reader-only treatment: gone from the
+   layout, still in the accessibility tree, so someone navigating by heading can still
+   find out how the order was decided. */
+.stick-sentinel{height:1px;margin:0;padding:0}
+
+.listbar.is-stuck{padding-top:8px;padding-bottom:8px}
+.listbar.is-stuck #listSub{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0
+}
+
+
+/* The one line on the page that is about the person keeping it rather than the people
+   being credited. Set apart so it reads as a signature, not another disclaimer. */
+.curator-line{margin-top:10px}
+.curator-line b{color:var(--ink);font-weight:700}
+.curator-line a{margin:0 2px}
+
+/* The curator mark keeps its place on a phone. The source link folds away there because
+   the footer repeats it, but most of this archive's readers arrive from a post on X and
+   arrive on a phone; hiding the one link back to the person who wrote that post is the
+   wrong economy. */
+.curator-link{display:grid;place-items:center;color:var(--ink-dim);text-decoration:none}
+.curator-link svg{width:15px;height:15px;display:block}
+.curator-link:hover{color:var(--accent)}

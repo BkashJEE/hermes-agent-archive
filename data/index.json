@@ -21,7 +21,7 @@
       "icon": "stories",
       "file": "use-cases.json",
       "title": "WHAT PEOPLE ACTUALLY BUILD",
-      "blurb": "Real Hermes Agent user stories — every one quoted and linked to the original post on X, Reddit, Discord, GitHub, YouTube or a blog."
+      "blurb": "Sourced community workflows and official Hermes Agent examples — with attribution, setup notes and links to the original."
     },
     {
       "id": "trending",

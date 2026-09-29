@@ -11,7 +11,7 @@ An independent community archive of Hermes Agent workflows, prompts, skills and 
 
 [Browse the archive](https://hermes-agent-archive.vercel.app) · [Contribute](CONTRIBUTING.md) · [Methodology](docs/METHODOLOGY.md) · [Release readiness](docs/RELEASE_READINESS.md)
 
-The archive is under active development. Some shelves are incomplete, and importer coverage is still being finished. A source link is not proof that a workflow works, and a listing is not a security endorsement.
+The archive is under active development. Some shelves are deliberately thin, and importer coverage is still being extended — `scripts/docs-manifest.json` records every documentation page that is imported and every one that is not, with the reason. A source link is not proof that a workflow works, and a listing is not a security endorsement.
 
 ## Run your own copy
 
@@ -40,7 +40,7 @@ Use a recent browser with JavaScript enabled. Inter and JetBrains Mono load from
 
 - Community stories preserve source quotations, authors and permalinks.
 - Documentation and prompt examples link to the relevant upstream pages.
-- Repository cards require **strictly more than 50,000 public GitHub stars** and reviewed upstream documentation of Hermes support.
+- Repository cards normally require **strictly more than 50,000 public GitHub stars** and reviewed upstream documentation of Hermes support. Three specifically owner-approved community exceptions are labelled on their cards; see [the policy](docs/METHODOLOGY.md#community-exceptions).
 - Trending shows positive star growth measured between two public API observations, not GitHub's own Trending feed.
 - My Work contains the maintainer's posts with explicitly credited analytics, separate from public-popularity evidence.
 
@@ -57,15 +57,17 @@ The star cutoff is an editorial preference. It excludes smaller and newer projec
 | **Prompts** | Copyable examples, each verified against the page it cites. | 12 |
 | **Settings** | Configuration that materially changes how a run behaves. | 98 |
 | **Commands** | Commands and invocations, by how often they earn their keystrokes. | 272 |
-| **Hidden Tricks** | Non-obvious moves most people never find. | 0 |
+| **Hidden Tricks** | Non-obvious moves most people never find. | 4 |
 | **Works With** | Repositories worth pairing with Hermes, each read before listing. | 8 |
 | **People Build** | Projects built on Hermes and shown off publicly. | 4 |
 | **My Work** | The maintainer's own posts, with analytics explicitly credited. | 11 |
 
-Hidden Tricks is empty on purpose rather than by neglect. Claiming something is a
-non-obvious trick asserts that it is absent from the documentation, which no classifier
-can establish, so that shelf and Prompts are filled only by reviewed extraction. The
-router refuses to place anything there, in code.
+Hidden Tricks is small on purpose. Calling something a non-obvious trick asserts that it
+is absent from the documentation, and no classifier can establish that, so this shelf and
+Prompts are filled only by reviewed extraction — the router refuses to place anything
+there, in code. Each entry carries the evidence of its own absence from the docs, in
+`scripts/trick-evidence.json`, so the claim can be re-checked rather than taken on trust.
+Four honest entries beat forty guessed ones.
 
 ![The Use Cases shelf](docs/images/use-cases.png)
 
@@ -147,9 +149,13 @@ npm run docs -- --dry                   # report what would land, write nothing
 node scripts/import-hermes-stories.mjs  # Nous Research's community stories
 node scripts/import-hermes-cli.mjs      # official CLI reference
 node scripts/import-jev-hermes.mjs      # Hermes entries in the Jev directory
+node scripts/import-reviewed-expansion.mjs --verify # check reviewed selections offline
+node scripts/import-reviewed-expansion.mjs          # add missing reviewed selections
+node scripts/import-reviewed-expansion.mjs --refresh # refresh all sources; fail before writes on error
+npm run tricks -- --offline             # verify reviewed tricks and absence evidence
 ```
 
-Sources change, and not every shelf is reproducible from an importer: Hidden Tricks has no extractor yet, and the Skills Hub and Plugins pages are client-rendered with no public JSON behind them, so neither can be imported honestly. `scripts/docs-manifest.json` records every documentation page that is imported, and every page that is not, with the reason. Do not overwrite a failed import with an empty result. Remaining coverage is tracked in [release readiness](docs/RELEASE_READINESS.md).
+Sources change, and importer coverage remains partial. Hidden Tricks has a reviewed extractor and an offline documentation corpus. The Skills Hub exposes a public catalogue; the reviewed expansion selects official optional skills individually rather than treating the entire catalogue as vetted. `scripts/docs-manifest.json` records documentation coverage. The [September expansion review](docs/SHELF_EXPANSION_2026-09-28.md) records selections, exclusions and cached evidence, including community comments whose public JSON refresh is currently blocked. Do not overwrite a failed import with an empty result. Remaining coverage is tracked in [release readiness](docs/RELEASE_READINESS.md).
 
 Maintenance can incur external API usage under the account where it runs. No credentials or scheduled jobs are inherited by cloning or forking. Ranking results may change when evidence or the classifier changes. Stale classifications should be shown as unclassified, never silently reused as current.
 
