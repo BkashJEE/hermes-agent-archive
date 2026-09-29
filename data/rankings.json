@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-09-29T16:40:15.121Z",
+  "classifiedAt": "2026-09-30T07:31:58.482Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -6291,6 +6291,60 @@
       "usefulness": 2.61,
       "popularity": "widespread",
       "confidence": 0.66
+    },
+    "jev-hermes-skill-loading-halved-with-two-jev-calls-34350927": {
+      "input": "32a52bbc4da597bc3b13d6bf02ed4892c0912e19958284b1d60e521c7db06c17",
+      "usefulness": 0.64,
+      "popularity": "unknown",
+      "confidence": 0.63
+    },
+    "jev-oh-my-hermes-jev-skills-pack-434300": {
+      "input": "6f84e6cce016b62e7b93368588f2cce040c4894c53e5121afcae96fe3aed1789",
+      "usefulness": 0.17,
+      "popularity": "unknown",
+      "confidence": 0.86
+    },
+    "jev-hermes-plus-jev-skills-for-agents-5868075432": {
+      "input": "58dc736b4927e64bfd6d625e17da12bba83d3dca19f0acc1014234c085c165b1",
+      "usefulness": 0.18,
+      "popularity": "unknown",
+      "confidence": 0.85
+    },
+    "jev-hermes-plugins-wire-jev-nerve-and-router-65630022": {
+      "input": "252926ac021bcaa5b06d23a5841126c577b36ca729c478e1141bfc0727d808c5",
+      "usefulness": 0.51,
+      "popularity": "unknown",
+      "confidence": 0.58
+    },
+    "jev-belai-safer-harness-uses-jev-36046112": {
+      "input": "010a891e07718974c1d9245be50d1346bd111bb913fa544989fc4e4d6ece1999",
+      "usefulness": 0.1,
+      "popularity": "unknown",
+      "confidence": 0.92
+    },
+    "jev-hermes-research-jev-deepseek": {
+      "input": "fb653533b96d50386a2b428ba29b293199de5f0e20e421e734d2dc4ef27f1945",
+      "usefulness": 1.01,
+      "popularity": "unknown",
+      "confidence": 0.75
+    },
+    "jev-jev-brain-cli-ships-as-terminal-agent-83846865": {
+      "input": "9e78b585e0ed13c350321e83a8c82685d15a02c0804fc1e1e80e82dff9ddc4cf",
+      "usefulness": 0.69,
+      "popularity": "unknown",
+      "confidence": 0.61
+    },
+    "jev-hermes-skill-selection-jev": {
+      "input": "10b131dc789f56d60e25b37e03a4ccda45a03ba0ef064add7c61792903106f2b",
+      "usefulness": 0.27,
+      "popularity": "unknown",
+      "confidence": 0.77
+    },
+    "jev-hermes-claude-jev-sales-roundtable": {
+      "input": "00dc76ec01eb2eade67be487aa4fad4acb9bd944bc357ff747c2143907769312",
+      "usefulness": 0.16,
+      "popularity": "unknown",
+      "confidence": 0.86
     }
   }
 }

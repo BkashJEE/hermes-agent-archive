@@ -11,67 +11,6 @@
       "author": "NousResearch"
     },
     {
-      "id": "jev-hermes-newsroom-with-jev-omarchy",
-      "title": "Hermes Newsroom with Jev + Omarchy",
-      "summary": "Building Hermes Newsroom inside a Hermes+Omarchy command center so Jev helps turn agent work into a live newspaper around Hermes Agent activity.",
-      "detail": "Building Hermes Newsroom inside a Hermes+Omarchy command center so Jev helps turn agent work into a live newspaper around Hermes Agent activity.\n\nPosted by @BkashJosi on 2026-09-22. Listed under Agents in the independent Jev builder directory, which reports 460 X impressions for the original post.",
-      "tags": [
-        "jev-directory",
-        "agents"
-      ],
-      "source": "x",
-      "url": "https://x.com/BkashJosi/status/2102354216144822581",
-      "author": "@BkashJosi",
-      "date": "2026-09-22",
-      "metric": {
-        "kind": "impressions",
-        "value": 460
-      },
-      "credit": "jev-use-cases.com"
-    },
-    {
-      "id": "jev-asimov-jev-noul-linkedin-jsonld",
-      "title": "ASIMOV --jev=NOUL LinkedIn to JSON-LD",
-      "summary": "ASIMOV Platform ships built-in --jev=NOUL so Hermes-style harnesses offload NL postprocessing to Jev; demo turns a LinkedIn network into JSON-LD.",
-      "detail": "ASIMOV Platform ships built-in --jev=NOUL so Hermes-style harnesses offload NL postprocessing to Jev; demo turns a LinkedIn network into JSON-LD.\n\nPosted by @bendiken on 2026-09-22. Listed under Agents in the independent Jev builder directory, which reports 117 X impressions for the original post.",
-      "tags": [
-        "jev-directory",
-        "agents"
-      ],
-      "source": "x",
-      "url": "https://x.com/bendiken/status/2102377817459872084",
-      "author": "@bendiken",
-      "date": "2026-09-22",
-      "metric": {
-        "kind": "impressions",
-        "value": 117
-      },
-      "metric2": {
-        "kind": "votes",
-        "value": 1
-      },
-      "credit": "jev-use-cases.com"
-    },
-    {
-      "id": "jev-openrouter-style-layer-for-agent-harnesses-includi-0417562102",
-      "title": "OpenRouter-style layer for agent harnesses including Jev",
-      "summary": "Open-source plug-and-play infrastructure to run many agent harnesses under one interface, including System One powered by Jev alongside Codex, Claude Code, Hermes, and others.",
-      "detail": "Open-source plug-and-play infrastructure to run many agent harnesses under one interface, including System One powered by Jev alongside Codex, Claude Code, Hermes, and others.\n\nPosted by @0x_rody on 2026-09-23. Listed under Agents in the independent Jev builder directory, which reports 542 X impressions for the original post.",
-      "tags": [
-        "jev-directory",
-        "agents"
-      ],
-      "source": "x",
-      "url": "https://x.com/0x_rody/status/2102768250417562102",
-      "author": "@0x_rody",
-      "date": "2026-09-23",
-      "metric": {
-        "kind": "impressions",
-        "value": 542
-      },
-      "credit": "jev-use-cases.com"
-    },
-    {
       "id": "community-hermes-desktop-theme-pack",
       "title": "Hermes Desktop Theme Pack",
       "summary": "Browse and apply Hermes skins across the CLI, TUI, Desktop and web dashboard.",
@@ -487,7 +426,239 @@
       "author": "u/interAathma",
       "url": "https://www.reddit.com/r/hermesagent/comments/1w631p8/comment/p9i0xsf/",
       "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "jev-hermes-skill-loading-halved-with-two-jev-calls-34350927",
+      "title": "Hermes skill loading halved with two Jev calls",
+      "summary": "TypeSafe cut wrong Claude skill loads by putting two Jev calls in front of Hermes short skill descriptions that previously confused lookalikes.",
+      "detail": "TypeSafe cut wrong Claude skill loads by putting two Jev calls in front of Hermes short skill descriptions that previously confused lookalikes.\n\nPosted by @kazurai (@k4zxbt) on 2026-09-28. Listed under Agents in the independent Jev builder directory, which reports 461 X impressions for the original post.",
+      "tags": [
+        "jev-directory",
+        "agents"
+      ],
+      "source": "x",
+      "url": "https://x.com/k4zxbt/status/2104645844234350927",
+      "author": "@kazurai (@k4zxbt)",
+      "date": "2026-09-28",
+      "metric": {
+        "kind": "impressions",
+        "value": 461
+      },
+      "credit": "jev-use-cases.com"
+    },
+    {
+      "id": "jev-openrouter-style-layer-for-agent-harnesses-includi-0417562102",
+      "title": "OpenRouter-style layer for agent harnesses including Jev",
+      "summary": "Open-source plug-and-play infrastructure to run many agent harnesses under one interface, including System One powered by Jev alongside Codex, Claude Code, Hermes, and others.",
+      "detail": "Open-source plug-and-play infrastructure to run many agent harnesses under one interface, including System One powered by Jev alongside Codex, Claude Code, Hermes, and others.\n\nPosted by @0x_rody on 2026-09-23. Listed under Agents in the independent Jev builder directory, which reports 542 X impressions for the original post.",
+      "tags": [
+        "jev-directory",
+        "agents"
+      ],
+      "source": "x",
+      "url": "https://x.com/0x_rody/status/2102768250417562102",
+      "author": "@0x_rody",
+      "date": "2026-09-23",
+      "metric": {
+        "kind": "impressions",
+        "value": 542
+      },
+      "credit": "jev-use-cases.com"
+    },
+    {
+      "id": "jev-oh-my-hermes-jev-skills-pack-434300",
+      "title": "Oh-My-Hermes Jev Skills pack",
+      "summary": "Six OMH skills that wire typed Jev ask, route, and related decisions into Hermes agent workflows.",
+      "detail": "Six OMH skills that wire typed Jev ask, route, and related decisions into Hermes agent workflows.\n\nPosted by @HOPE on 2026-09-24. Listed under Agents in the independent Jev builder directory, which reports 30 X impressions for the original post.",
+      "tags": [
+        "jev-directory",
+        "agents"
+      ],
+      "source": "x",
+      "url": "https://x.com/rlaope/status/2103145217956434300",
+      "author": "@HOPE",
+      "date": "2026-09-24",
+      "metric": {
+        "kind": "impressions",
+        "value": 30
+      },
+      "credit": "jev-use-cases.com"
+    },
+    {
+      "id": "jev-asimov-jev-noul-linkedin-jsonld",
+      "title": "ASIMOV --jev=NOUL LinkedIn to JSON-LD",
+      "summary": "ASIMOV Platform ships built-in --jev=NOUL so Hermes-style harnesses offload NL postprocessing to Jev; demo turns a LinkedIn network into JSON-LD.",
+      "detail": "ASIMOV Platform ships built-in --jev=NOUL so Hermes-style harnesses offload NL postprocessing to Jev; demo turns a LinkedIn network into JSON-LD.\n\nPosted by @bendiken on 2026-09-22. Listed under Agents in the independent Jev builder directory, which reports 117 X impressions for the original post.",
+      "tags": [
+        "jev-directory",
+        "agents"
+      ],
+      "source": "x",
+      "url": "https://x.com/bendiken/status/2102377817459872084",
+      "author": "@bendiken",
+      "date": "2026-09-22",
+      "metric": {
+        "kind": "impressions",
+        "value": 117
+      },
+      "metric2": {
+        "kind": "votes",
+        "value": 1
+      },
+      "credit": "jev-use-cases.com"
+    },
+    {
+      "id": "jev-hermes-plus-jev-skills-for-agents-5868075432",
+      "title": "Hermes plus Jev Skills for agent routing",
+      "summary": "Open-source roundup highlighting Hermes + Jev Skills to add model routing, skill selection, memory filtering, and GUI decisions to Claude Code / Codex agents.",
+      "detail": "Open-source roundup highlighting Hermes + Jev Skills to add model routing, skill selection, memory filtering, and GUI decisions to Claude Code / Codex agents.\n\nPosted by @AI Daily on 2026-09-24. Listed under Agents in the independent Jev builder directory, which reports 18 X impressions for the original post.",
+      "tags": [
+        "jev-directory",
+        "agents"
+      ],
+      "source": "x",
+      "url": "https://x.com/Jiang6366621/status/2103031265868075432",
+      "author": "@AI Daily",
+      "date": "2026-09-24",
+      "metric": {
+        "kind": "impressions",
+        "value": 18
+      },
+      "credit": "jev-use-cases.com"
+    },
+    {
+      "id": "jev-hermes-plugins-wire-jev-nerve-and-router-65630022",
+      "title": "Hermes plugins wire Jev nerve and router",
+      "summary": "Roundup of Hermes plugins highlights keeltrace nerve with Jev/Laya/OpenJev reflex plus a TypeSafe skill router that gates which skills load before the model speaks.",
+      "detail": "Roundup of Hermes plugins highlights keeltrace nerve with Jev/Laya/OpenJev reflex plus a TypeSafe skill router that gates which skills load before the model speaks.\n\nPosted by @GitTrend (@GitTrend0x) on 2026-09-29. Listed under Agents in the independent Jev builder directory, which reports 837 X impressions for the original post.",
+      "tags": [
+        "jev-directory",
+        "agents"
+      ],
+      "source": "x",
+      "url": "https://x.com/GitTrend0x/status/2104847278565630022",
+      "author": "@GitTrend (@GitTrend0x)",
+      "date": "2026-09-29",
+      "metric": {
+        "kind": "impressions",
+        "value": 837
+      },
+      "credit": "jev-use-cases.com"
+    },
+    {
+      "id": "jev-hermes-newsroom-with-jev-omarchy",
+      "title": "Hermes Newsroom with Jev + Omarchy",
+      "summary": "Building Hermes Newsroom inside a Hermes+Omarchy command center so Jev helps turn agent work into a live newspaper around Hermes Agent activity.",
+      "detail": "Building Hermes Newsroom inside a Hermes+Omarchy command center so Jev helps turn agent work into a live newspaper around Hermes Agent activity.\n\nPosted by @BkashJosi on 2026-09-22. Listed under Agents in the independent Jev builder directory, which reports 460 X impressions for the original post.",
+      "tags": [
+        "jev-directory",
+        "agents"
+      ],
+      "source": "x",
+      "url": "https://x.com/BkashJosi/status/2102354216144822581",
+      "author": "@BkashJosi",
+      "date": "2026-09-22",
+      "metric": {
+        "kind": "impressions",
+        "value": 460
+      },
+      "credit": "jev-use-cases.com"
+    },
+    {
+      "id": "jev-belai-safer-harness-uses-jev-36046112",
+      "title": "Belai safer harness uses Jev",
+      "summary": "Belai is an Apache 2.0 safer agent harness and crew manager in the Hermes plus Claude vein, and it wires TypeSafe Jev into the loop.",
+      "detail": "Belai is an Apache 2.0 safer agent harness and crew manager in the Hermes plus Claude vein, and it wires TypeSafe Jev into the loop.\n\nPosted by @Stof (@0x73746F66) on 2026-09-29. Listed under Safety & review in the independent Jev builder directory, which reports 1 X impressions for the original post.",
+      "tags": [
+        "jev-directory",
+        "safety-review"
+      ],
+      "source": "x",
+      "url": "https://x.com/0x73746F66/status/2104860273136046112",
+      "author": "@Stof (@0x73746F66)",
+      "date": "2026-09-29",
+      "metric": {
+        "kind": "impressions",
+        "value": 1
+      },
+      "credit": "jev-use-cases.com"
+    },
+    {
+      "id": "jev-hermes-research-jev-deepseek",
+      "title": "Hermes agent researches YT/X/LN with Jev",
+      "summary": "A Hermes agent uses TypeSafe Jev plus DeepSeek V4 Flash for most research on YouTube, X, and LinkedIn, running three times a day while burning few OpenRouter credits.",
+      "detail": "A Hermes agent uses TypeSafe Jev plus DeepSeek V4 Flash for most research on YouTube, X, and LinkedIn, running three times a day while burning few OpenRouter credits.\n\nPosted by @nabendu82 on 2026-09-25. Listed under Agents in the independent Jev builder directory, which reports 88 X impressions for the original post.",
+      "tags": [
+        "jev-directory",
+        "agents"
+      ],
+      "source": "x",
+      "url": "https://x.com/nabendu82/status/2103327702459842998",
+      "author": "@nabendu82",
+      "date": "2026-09-25",
+      "metric": {
+        "kind": "impressions",
+        "value": 88
+      },
+      "credit": "jev-use-cases.com"
+    },
+    {
+      "id": "jev-jev-brain-cli-ships-as-terminal-agent-83846865",
+      "title": "Jev Brain CLI ships as terminal agent",
+      "summary": "Jev Brain CLI becomes a full terminal agent that can fix failing tests and open a PR end to end, with drop-in Hermes/Claude-compatible SKILL.md packs.",
+      "detail": "Jev Brain CLI becomes a full terminal agent that can fix failing tests and open a PR end to end, with drop-in Hermes/Claude-compatible SKILL.md packs.\n\nPosted by @Syn (@Synxneuos) on 2026-09-29. Listed under Agents in the independent Jev builder directory, which reports 66 X impressions for the original post.",
+      "tags": [
+        "jev-directory",
+        "agents"
+      ],
+      "source": "x",
+      "url": "https://x.com/Synxneuos/status/2104840818783846865",
+      "author": "@Syn (@Synxneuos)",
+      "date": "2026-09-29",
+      "metric": {
+        "kind": "impressions",
+        "value": 66
+      },
+      "credit": "jev-use-cases.com"
+    },
+    {
+      "id": "jev-hermes-skill-selection-jev",
+      "title": "Hermes skill selection driven by Jev",
+      "summary": "Jev selects skills inside a Hermes agent, with plans to also choose which bot should receive delegated tasks across Hermes, OpenCode, and Nsnobot.",
+      "detail": "Jev selects skills inside a Hermes agent, with plans to also choose which bot should receive delegated tasks across Hermes, OpenCode, and Nsnobot.\n\nPosted by @bmtrnavsky on 2026-09-25. Listed under Agents in the independent Jev builder directory, which reports 27 X impressions for the original post.",
+      "tags": [
+        "jev-directory",
+        "agents"
+      ],
+      "source": "x",
+      "url": "https://x.com/bmtrnavsky/status/2103304722816082207",
+      "author": "@bmtrnavsky",
+      "date": "2026-09-25",
+      "metric": {
+        "kind": "impressions",
+        "value": 27
+      },
+      "credit": "jev-use-cases.com"
+    },
+    {
+      "id": "jev-hermes-claude-jev-sales-roundtable",
+      "title": "Hermes plus Claude plus Jev for sales agents",
+      "summary": "RoundtableSpace guide: Hermes + Claude Opus + Jev to find sales leaks, price gaps, build workflows, respond 24/7, and hand qualified leads to the owner.",
+      "detail": "RoundtableSpace guide: Hermes + Claude Opus + Jev to find sales leaks, price gaps, build workflows, respond 24/7, and hand qualified leads to the owner.\n\nPosted by @0xMarioNawfal on 2026-09-24. Listed under Agents in the independent Jev builder directory, which reports 8,357 X impressions for the original post.",
+      "tags": [
+        "jev-directory",
+        "agents"
+      ],
+      "source": "x",
+      "url": "https://x.com/RoundtableSpace/status/2103043007293607966",
+      "author": "@0xMarioNawfal",
+      "date": "2026-09-24",
+      "metric": {
+        "kind": "impressions",
+        "value": 8357
+      },
+      "credit": "jev-use-cases.com"
     }
   ],
-  "jevImportedAt": "2026-09-24T04:38:34.714Z"
+  "jevImportedAt": "2026-09-29T18:47:39.848Z"
 }
