@@ -10,6 +10,11 @@ export const COMMUNITY_EXCEPTIONS = Object.freeze({
 export const communityException = repo => Object.hasOwn(COMMUNITY_EXCEPTIONS, repo?.toLowerCase())
   ? COMMUNITY_EXCEPTIONS[repo.toLowerCase()] : null;
 export const HERMES_REPOSITORIES = {
+  "tt-a1i/archify": {
+    "url": "https://github.com/tt-a1i/archify/blob/main/integrations/hermes-agent/README.md",
+    "note": "Documents an opt-in Hermes skill installation for interactive architecture diagrams. Requires Node.js 18 or newer and a session restart. This community integration uses the Node renderer; it adds no native Python render tools and is not an agent-switcher target. Docker needs the installed files available inside the mounted volume. Generated diagrams are not live-infrastructure verification.",
+    "reviewedAt": "2026-09-28"
+  },
   "rtk-ai/rtk": {
     "url": "https://github.com/rtk-ai/rtk/blob/main/README.md",
     "note": "Compact terminal output through a native Hermes command-rewriting plugin. Install RTK using its documented platform instructions, then initialize the Hermes adapter and restart the session. Only supported terminal commands are rewritten. Keep access to original output for debugging; savings depend on the actual workload.",
