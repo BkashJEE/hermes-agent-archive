@@ -535,7 +535,10 @@ function shelfPreviews() {
         <h2 id="preview-${esc(section.id)}">${esc(section.label.toUpperCase())} <span>${num(total)}</span></h2>
         <a class="dash-preview-all" href="#${esc(section.id)}">See all ${num(total)} &rarr;</a>
       </div>
-      <ul class="grid">${items.map((item, i) => card(item, i + 1, section.icon)).join('')}</ul>
+      <!-- Always compact here whatever the reader's preference: a preview is for
+           scanning nine shelves, and the shelf page is where it gets read. Buys
+           about a thousand pixels across the panel. -->
+      <ul class="grid" data-density="compact">${items.map((item, i) => card(item, i + 1, section.icon)).join('')}</ul>
     </section>`).join('')}</div>`;
 }
 

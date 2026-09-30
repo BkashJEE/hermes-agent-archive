@@ -837,3 +837,10 @@ code{font-family:var(--mono);font-size:.92em}
   .dash-previews{gap:22px}
   .dash-preview-head{margin-bottom:8px}
 }
+
+/* A preview is exactly one row. The shelf grid auto-fills by width, which for three
+   cards lands on two columns at most laptop sizes and leaves the third stranded beside
+   a card-sized hole — more space wasted than compact density saves. Three across when
+   there is room, two on a tablet, one on a phone, and never an orphan. */
+.dash-preview .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:640px){ .dash-preview .grid{grid-template-columns:1fr} }
