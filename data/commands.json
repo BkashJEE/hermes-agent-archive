@@ -3118,21 +3118,6 @@
       "date": "2026-09-25"
     },
     {
-      "id": "doc-getting-started-quickstart-2-choose-a-provider",
-      "title": "2. Choose a Provider",
-      "summary": "The single most important setup step.",
-      "detail": "The single most important setup step. Use hermes model to walk through the choice interactively: Easiest path: Nous Portal One subscription covers 300+ models plus the Tool Gateway (web search, image generation, TTS, cloud browser). On a fresh install: That logs you in, sets Nous as your provider, and turns on the Tool Gateway in one command. Setup modes On a fresh install, hermes setup offers three modes: Quick Setup (Nous Portal) - OAuth login, no API keys to manage; sets up a model plus the Tool Gateway tools, billed to your Nous Portal subscription . The recommended fast path. Full Setup - walk through every provider, tool, and option yourself (bring your own keys). Blank Slate - everything starts off except the bare minimum needed to run an agent: provider & model, the File Operations toolset, and the Terminal toolset . No web, browser, code execution, vision, memory, delegation, cron, skills, plugins, or MCP servers - and compression, checkpoints, smart routing, and memory capture are all disabled. After the minimal baseline is applied, you choose one of two paths: start with everything disabled (finish now with the minimal agent), or walk through all configurations (opt in t\u2026\n\nFrom the official Hermes Agent documentation.",
-      "snippet": "hermes model",
-      "tags": [
-        "quickstart",
-        "getting-started",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#2-choose-a-provider",
-      "date": "2026-09-25"
-    },
-    {
       "id": "doc-getting-started-quickstart-how-settings-are-stored",
       "title": "How settings are stored",
       "summary": "Hermes separates secrets from normal config: Secrets and tokens \u2192 ~/.hermes/.env Non-secret settings \u2192 ~/.hermes/config.yaml The easiest way to set values correctly is through the CLI: Th\u2026",
@@ -3145,64 +3130,6 @@
       ],
       "source": "docs",
       "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#how-settings-are-stored",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-getting-started-quickstart-3-run-your-first-chat",
-      "title": "3. Run Your First Chat",
-      "summary": "You'll see a welcome banner with your model, available tools, and skills.",
-      "detail": "You'll see a welcome banner with your model, available tools, and skills. Use a prompt that's specific and easy to verify: Pick your interface Hermes ships with two terminal interfaces: the classic prompt_toolkit CLI and a newer TUI with modal overlays, mouse selection, and non-blocking input. Both share the same sessions, slash commands, and config - try each with hermes vs hermes --tui . What success looks like: The banner shows your chosen model/provider Hermes replies without error It can use a tool if needed (terminal, file read, web search) The conversation continues normally for more than one turn If that works, you're past the hardest part.\n\nFrom the official Hermes Agent documentation.",
-      "snippet": "hermes            # classic CLI\nhermes --tui      # modern TUI (recommended)",
-      "tags": [
-        "quickstart",
-        "getting-started",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#3-run-your-first-chat",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-getting-started-quickstart-4-verify-sessions-work",
-      "title": "4. Verify Sessions Work",
-      "summary": "Before moving on, make sure resume works: That should bring you back to the session you just had.",
-      "detail": "Before moving on, make sure resume works: That should bring you back to the session you just had. If it doesn't, check whether you're in the same profile and whether the session actually saved. This matters later when you're juggling multiple setups or machines.\n\nFrom the official Hermes Agent documentation.",
-      "snippet": "hermes --continue    # Resume the most recent session\nhermes -c            # Short form",
-      "tags": [
-        "quickstart",
-        "getting-started",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#4-verify-sessions-work",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-getting-started-quickstart-slash-commands",
-      "title": "Slash commands",
-      "summary": "Type / to see an autocomplete dropdown of all commands: Command What it does /help Show all available commands /tools List available tools /model Switch models interactively /personality\u2026",
-      "detail": "Type / to see an autocomplete dropdown of all commands: Command What it does /help Show all available commands /tools List available tools /model Switch models interactively /personality pirate Try a fun personality /save Save the conversation\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "quickstart",
-        "getting-started",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#slash-commands",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-getting-started-quickstart-multi-line-input",
-      "title": "Multi-line input",
-      "summary": "Press Alt+Enter , Ctrl+J , or Shift+Enter to add a new line.",
-      "detail": "Press Alt+Enter , Ctrl+J , or Shift+Enter to add a new line. Shift+Enter requires a terminal that sends it as a distinct sequence (Kitty / foot / WezTerm / Ghostty by default; iTerm2 / Alacritty / VS Code terminal once the Kitty keyboard protocol is enabled). Alt+Enter and Ctrl+J work in every terminal.\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "quickstart",
-        "getting-started",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#multi-line-input",
       "date": "2026-09-25"
     },
     {
@@ -3233,20 +3160,6 @@
       ],
       "source": "docs",
       "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#sandboxed-terminal",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-getting-started-quickstart-voice-mode",
-      "title": "Voice mode",
-      "summary": "Run hermes tools and configure the Voice providers.",
-      "detail": "Run hermes tools and configure the Voice providers. Then enable /voice on in the CLI and press Ctrl+B to record. PM handles missing supported requirements; a dependency change can require a restart. Local Faster-Whisper is not available on every architecture. See Voice Mode .\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "quickstart",
-        "getting-started",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#voice-mode",
       "date": "2026-09-25"
     },
     {
@@ -3294,34 +3207,6 @@
       "date": "2026-09-25"
     },
     {
-      "id": "doc-getting-started-quickstart-recovery-toolkit",
-      "title": "Recovery Toolkit",
-      "summary": "When something feels off, use this order: hermes doctor hermes model hermes setup hermes sessions list hermes --continue hermes gateway status That sequence gets you from \"broken vibes\" b\u2026",
-      "detail": "When something feels off, use this order: hermes doctor hermes model hermes setup hermes sessions list hermes --continue hermes gateway status That sequence gets you from \"broken vibes\" back to a known state fast.\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "quickstart",
-        "getting-started",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#recovery-toolkit",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-getting-started-quickstart-quick-reference",
-      "title": "Quick Reference",
-      "summary": "Command Description hermes Start chatting hermes model Choose your LLM provider and model hermes tools Configure which tools are enabled per platform hermes setup Full setup wizard (confi\u2026",
-      "detail": "Command Description hermes Start chatting hermes model Choose your LLM provider and model hermes tools Configure which tools are enabled per platform hermes setup Full setup wizard (configures everything at once) hermes doctor Diagnose issues hermes update Update to latest version hermes gateway Start the messaging gateway hermes --continue Resume last session\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "quickstart",
-        "getting-started",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#quick-reference",
-      "date": "2026-09-25"
-    },
-    {
       "id": "doc-getting-started-installation-desktop-packages-on-macos-or-windows",
       "title": "Desktop packages on macOS or Windows",
       "summary": "Download the package for your platform from the Hermes website .",
@@ -3347,20 +3232,6 @@
       ],
       "source": "docs",
       "url": "https://hermes-agent.nousresearch.com/docs/getting-started/installation#what-the-source-installer-does",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-getting-started-installation-install-layout",
-      "title": "Install layout",
-      "summary": "Method Code CLI entry point Default user data POSIX source script ~/.hermes/hermes-agent/ ~/.local/bin/hermes wrapper ~/.hermes/ Windows source script %LOCALAPPDATA%\\hermes\\hermes-agent\\\u2026",
-      "detail": "Method Code CLI entry point Default user data POSIX source script ~/.hermes/hermes-agent/ ~/.local/bin/hermes wrapper ~/.hermes/ Windows source script %LOCALAPPDATA%\\hermes\\hermes-agent\\ %LOCALAPPDATA%\\hermes\\bin\\ %LOCALAPPDATA%\\hermes\\ Desktop bundle Inside the installed app package Packaged launchers; Windows execution aliases Platform default Hermes data directory Docker /opt/hermes/ Image entrypoint and hermes shim Mounted /opt/data/ Termux APT $PREFIX/lib/hermes-agent/ Symlinks in $PREFIX/bin/ ~/.hermes/ HERMES_HOME selects user data. The POSIX script's --dir selects its source checkout independently. Windows provides -HermesHome and -InstallDir . Running the POSIX script as root does not select an automatic FHS layout: it uses root's home unless you provide an explicit source path. PM's tool store and per-install Python generations have separate lifetimes. See Package management for their locations. Do not remove the data root to repair an application installation.\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "install",
-        "getting-started",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/installation#install-layout",
       "date": "2026-09-25"
     },
     {
@@ -3464,19 +3335,6 @@
       "date": "2026-09-25"
     },
     {
-      "id": "doc-user-guide-cli-interface-layout",
-      "title": "Interface Layout",
-      "summary": "The Hermes CLI banner, conversation stream, and fixed input prompt rendered as a stable docs figure instead of fragile text art.",
-      "detail": "The Hermes CLI banner, conversation stream, and fixed input prompt rendered as a stable docs figure instead of fragile text art. The welcome banner shows your model, terminal backend, working directory, available tools, and installed skills at a glance.\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "cli",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#interface-layout",
-      "date": "2026-09-25"
-    },
-    {
       "id": "doc-user-guide-cli-status-bar",
       "title": "Status Bar",
       "summary": "A persistent status bar sits above the input area, updating in real time: Element Description Model name Current model (truncated if longer than 26 chars) Token count Context tokens used\u2026",
@@ -3501,19 +3359,6 @@
       ],
       "source": "docs",
       "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#session-resume-display",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-user-guide-cli-keybindings",
-      "title": "Keybindings",
-      "summary": "On macOS, F6 / F7 mean the physical function keys, not the media/system controls shown on the top row.",
-      "detail": "On macOS, F6 / F7 mean the physical function keys, not the media/system controls shown on the top row. Hold Fn (the globe key on newer keyboards) while pressing the function key, or enable Use F1, F2, etc. keys as standard function keys in System Settings \u2192 Keyboard \u2192 Keyboard Shortcuts \u2192 Function Keys . The reliable terminal fallbacks are Ctrl+T for F6 and Ctrl+R for F7 . Key Action Enter Send message Alt+Enter , Ctrl+J , or Shift+Enter New line (multi-line input). Shift+Enter requires a terminal that distinguishes it from Enter - see below. On Windows Terminal, Alt+Enter is captured by the terminal (fullscreen toggle); use Ctrl+Enter or Ctrl+J instead. Alt+V Paste an image from the clipboard when supported by the terminal Ctrl+V Paste text and opportunistically attach clipboard images Ctrl+B Start/stop voice recording when voice mode is enabled ( voice.record_key , default: ctrl+b ) Ctrl+G Open the current input buffer in $EDITOR (vim/nvim/nano/VS Code/etc.). Save and quit to send the edited text as the next prompt - ideal for long, multi-paragraph prompts. Ctrl+X Ctrl+E Emacs-style alternate binding for the external editor (same behavior as Ctrl+G ). Ctrl+S Stash the prompt. Par\u2026\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "cli",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#keybindings",
       "date": "2026-09-25"
     },
     {
@@ -3601,19 +3446,6 @@
       "date": "2026-09-25"
     },
     {
-      "id": "doc-user-guide-cli-shift-enter-compatibility",
-      "title": "Shift+Enter compatibility",
-      "summary": "Most terminals send the same byte sequence for Enter and Shift+Enter by default, so applications cannot distinguish them.",
-      "detail": "Most terminals send the same byte sequence for Enter and Shift+Enter by default, so applications cannot distinguish them. Hermes recognises Shift+Enter only when the terminal sends a distinct sequence via the Kitty keyboard protocol or xterm's modifyOtherKeys mode. Terminal Status Kitty, foot, WezTerm, Ghostty Distinct Shift+Enter enabled by default iTerm2 (recent), Alacritty, VS Code terminal, Warp Supported once the Kitty protocol is enabled in settings Windows Terminal Preview 1.25+ Supported once the Kitty protocol is enabled in settings macOS Terminal.app, stock Windows Terminal (stable) Not supported - Shift+Enter is indistinguishable from Enter Where the terminal cannot distinguish them, Alt+Enter and Ctrl+J continue to work by default. On Windows Terminal specifically, Alt+Enter is captured by the terminal (toggles fullscreen) and never reaches Hermes - use Ctrl+Enter (delivered as Ctrl+J ) or Ctrl+J directly for a newline.\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "cli",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#shiftenter-compatibility",
-      "date": "2026-09-25"
-    },
-    {
       "id": "doc-user-guide-cli-redirecting-the-agent-mid-turn",
       "title": "Redirecting the Agent Mid-Turn",
       "summary": "While the agent is working, you can send a correction without starting a new turn: Type a new message + Enter - redirects the active turn using your correction Ctrl+C - interrupt the curr\u2026",
@@ -3697,19 +3529,6 @@
       "date": "2026-09-25"
     },
     {
-      "id": "doc-user-guide-cli-session-storage",
-      "title": "Session Storage",
-      "summary": "CLI sessions are stored in Hermes's SQLite state database under ~/.hermes/state.db .",
-      "detail": "CLI sessions are stored in Hermes's SQLite state database under ~/.hermes/state.db . The database keeps: session metadata (ID, title, timestamps, token counters) message history lineage across compressed/resumed sessions full-text search indexes used by session_search Some messaging adapters also keep per-platform transcript files alongside the database, but the CLI itself resumes from the SQLite session store.\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "cli",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#session-storage",
-      "date": "2026-09-25"
-    },
-    {
       "id": "doc-user-guide-cli-context-compression",
       "title": "Context Compression",
       "summary": "Long conversations are automatically summarized when approaching context limits: When compression triggers, middle turns are summarized while the first 3 and last 20 turns are always pres\u2026",
@@ -3762,19 +3581,6 @@
       ],
       "source": "docs",
       "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#results",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-user-guide-cli-use-cases",
-      "title": "Use Cases",
-      "summary": "Long-running research - \"/bg research the latest developments in quantum error correction\" while you work on code File processing - \"/bg analyze all Python files in this repo and list any\u2026",
-      "detail": "Long-running research - \"/bg research the latest developments in quantum error correction\" while you work on code File processing - \"/bg analyze all Python files in this repo and list any security issues\" while you continue a conversation Parallel investigations - start multiple background tasks to explore different angles simultaneously info Background sessions do not appear in your main conversation history. They are standalone sessions with their own task ID (e.g., bg_143022_a1b2c3 ).\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "cli",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#use-cases",
       "date": "2026-09-25"
     },
     {

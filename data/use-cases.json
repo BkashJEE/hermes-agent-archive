@@ -4656,32 +4656,6 @@
       "date": "2026-09-25"
     },
     {
-      "id": "doc-user-guide-features-overview-core",
-      "title": "Core",
-      "summary": "Tools & Toolsets - Tools are functions that extend the agent's capabilities.",
-      "detail": "Tools & Toolsets - Tools are functions that extend the agent's capabilities. They're organized into logical toolsets that can be enabled or disabled per platform, covering web search, terminal execution, file editing, memory, delegation, and more. Skills System - On-demand knowledge documents the agent can load when needed. Skills follow a progressive disclosure pattern to minimize token usage and are compatible with the agentskills.io open standard. Persistent Memory - Bounded, curated memory that persists across sessions. Hermes remembers your preferences, projects, environment, and things it has learned via MEMORY.md and USER.md . Context Files - Hermes automatically discovers and loads project context files ( .hermes.md , AGENTS.md , CLAUDE.md , SOUL.md , .cursorrules ) that shape how it behaves in your project. Context References - Type @ followed by a reference to inject files, folders, git diffs, and URLs directly into your messages. Hermes expands the reference inline and appends the content automatically. Checkpoints - Hermes automatically snapshots your working directory before making file changes, giving you a safety net to roll back with /rollback if something goes wron…\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "features",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/overview#core",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-user-guide-features-overview-automation",
-      "title": "Automation",
-      "summary": "Scheduled Tasks (Cron) - Schedule tasks to run automatically with natural language or cron expressions.",
-      "detail": "Scheduled Tasks (Cron) - Schedule tasks to run automatically with natural language or cron expressions. Jobs can attach skills, deliver results to any platform, and support pause/resume/edit operations. Subagent Delegation - The delegate_task tool spawns child agent instances with isolated context, restricted toolsets, and their own terminal sessions. Run 3 concurrent subagents by default (configurable) for parallel workstreams. Code Execution - The execute_code tool lets the agent write Python scripts that call Hermes tools programmatically, collapsing multi-step workflows into a single LLM turn via sandboxed RPC execution. Event Hooks - Run custom code at key lifecycle points. Gateway hooks handle logging, alerts, and webhooks; plugin hooks handle tool interception, metrics, and guardrails. Batch Processing - Run the Hermes agent across hundreds or thousands of prompts in parallel, generating structured ShareGPT-format trajectory data for training data generation or evaluation.\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "features",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/overview#automation",
-      "date": "2026-09-25"
-    },
-    {
       "id": "doc-user-guide-features-overview-media-web",
       "title": "Media & Web",
       "summary": "Voice Mode - Full voice interaction across CLI and messaging platforms.",
@@ -4692,32 +4666,6 @@
       ],
       "source": "docs",
       "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/overview#media--web",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-user-guide-features-overview-integrations",
-      "title": "Integrations",
-      "summary": "MCP Integration - Connect to any MCP server via stdio or HTTP transport.",
-      "detail": "MCP Integration - Connect to any MCP server via stdio or HTTP transport. Access external tools from GitHub, databases, file systems, and internal APIs without writing native Hermes tools. Includes per-server tool filtering and sampling support. Provider Routing - Fine-grained control over which AI providers handle your requests. Optimize for cost, speed, or quality with sorting, whitelists, blacklists, and priority ordering. Fallback Providers - Automatic failover to backup LLM providers when your primary model encounters errors, including independent fallback for auxiliary tasks like vision and compression. Credential Pools - Distribute API calls across multiple keys for the same provider. Automatic rotation on rate limits or failures. Prompt caching - Built-in cross-session 1-hour prefix cache for Claude on native Anthropic, OpenRouter, and Nous Portal. Always-on; no configuration required. Memory Providers - Plug in external memory backends (Honcho, OpenViking, Mem0, Holographic, RetainDB, ByteRover, Supermemory, plus Hindsight from the plugin catalog) for cross-session user modeling and personalization beyond the built-in memory system. API Server - Expose Hermes as an OpenAI-c…\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "features",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/overview#integrations",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-user-guide-features-overview-customization",
-      "title": "Customization",
-      "summary": "Personality & SOUL.md - Fully customizable agent personality.",
-      "detail": "Personality & SOUL.md - Fully customizable agent personality. SOUL.md is the primary identity file - the first thing in the system prompt - and you can swap in built-in or custom /personality presets per session. Skins & Themes - Customize the CLI's visual presentation: banner colors, spinner faces and verbs, response-box labels, branding text, and the tool activity prefix. Plugins - Add custom tools, hooks, and integrations without modifying core code. Three plugin types: general plugins (tools/hooks), memory providers (cross-session knowledge), and context engines (alternative context management). Managed via the unified hermes plugins interactive UI. Core Automation Media & Web Integrations Customization\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "features",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/overview#customization",
       "date": "2026-09-25"
     },
     {
@@ -4746,21 +4694,6 @@
       ],
       "source": "docs",
       "url": "https://hermes-agent.nousresearch.com/docs/guides/use-voice-mode-with-hermes#choose-your-voice-mode-setup",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-guides-use-voice-mode-with-hermes-step-1-make-sure-normal-hermes-works-first",
-      "title": "Step 1: make sure normal Hermes works first",
-      "summary": "Before touching voice mode, verify that: Hermes starts your provider is configured the agent can answer text prompts normally Ask something simple: If that is not solid yet, fix text mode…",
-      "detail": "Before touching voice mode, verify that: Hermes starts your provider is configured the agent can answer text prompts normally Ask something simple: If that is not solid yet, fix text mode first.\n\nFrom the official Hermes Agent documentation.",
-      "snippet": "hermes",
-      "tags": [
-        "voice-mode",
-        "guide",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/guides/use-voice-mode-with-hermes#step-1-make-sure-normal-hermes-works-first",
       "date": "2026-09-25"
     },
     {
@@ -4819,35 +4752,6 @@
       ],
       "source": "docs",
       "url": "https://hermes-agent.nousresearch.com/docs/guides/use-voice-mode-with-hermes#if-you-use-hermes-setup",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-guides-use-voice-mode-with-hermes-step-5-recommended-config",
-      "title": "Step 5: recommended config",
-      "summary": "This is a good conservative default for most people.",
-      "detail": "This is a good conservative default for most people. In the TUI, voice.submit_mode controls what happens after transcription: direct (default) submits the transcript immediately. draft puts the transcript in the composer so you can edit or cancel it before pressing Enter. For editable voice drafts, set: If you want local TTS instead, switch the tts block to:\n\nFrom the official Hermes Agent documentation.",
-      "snippet": "voice:\n  record_key: \"ctrl+b\"\n  submit_mode: \"direct\"  # TUI: direct | draft\n  max_recording_seconds: 120\n  auto_tts: false\n  beep_enabled: true\n  silence_threshold: 200\n  silence_duration: 3.0\n\nstt:\n  provider: \"local\"\n  local:\n    model: \"base\"\n\ntts:\n  provider: \"edge\"\n  edge:\n    voice: \"en-US-AriaNeural\"",
-      "tags": [
-        "voice-mode",
-        "guide",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/guides/use-voice-mode-with-hermes#step-5-recommended-config",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-guides-use-voice-mode-with-hermes-recording-flow",
-      "title": "Recording flow",
-      "summary": "Default key: Ctrl+B Workflow: press Ctrl+B speak wait for silence detection to stop recording automatically Hermes transcribes and responds if TTS is on, it speaks the answer the loop can…",
-      "detail": "Default key: Ctrl+B Workflow: press Ctrl+B speak wait for silence detection to stop recording automatically Hermes transcribes and responds if TTS is on, it speaks the answer the loop can automatically restart for continuous use\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "voice-mode",
-        "guide",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/guides/use-voice-mode-with-hermes#recording-flow",
       "date": "2026-09-25"
     },
     {
@@ -4923,101 +4827,6 @@
       "date": "2026-09-25"
     },
     {
-      "id": "doc-guides-run-nemotron-3-ultra-free-2-connect-nous-portal",
-      "title": "2. Connect Nous Portal",
-      "summary": "When the app opens, you'll see a \"Let's get you set up\" screen.",
-      "detail": "When the app opens, you'll see a \"Let's get you set up\" screen. Click Nous Portal (marked Recommended ). Your browser opens - create a Nous Portal account (or sign in), choose the Free plan, and authorize Hermes. The app connects automatically.\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "nemotron",
-        "models",
-        "guide",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/guides/run-nemotron-3-ultra-free#2-connect-nous-portal",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-guides-run-nemotron-3-ultra-free-3-pick-the-free-nemotron-3-ultra-model",
-      "title": "3. Pick the free Nemotron 3 Ultra model",
-      "summary": "After connecting, the app shows a Default model card.",
-      "detail": "After connecting, the app shows a Default model card. Click Change , search for nemotron 3 ultra , and select the variant tagged Free tier : The :free tag is what keeps it on the no-cost tier - pick that variant.\n\nFrom the official Hermes Agent documentation.",
-      "snippet": "nvidia/nemotron-3-ultra:free",
-      "tags": [
-        "nemotron",
-        "models",
-        "guide",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/guides/run-nemotron-3-ultra-free#3-pick-the-free-nemotron-3-ultra-model",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-guides-run-nemotron-3-ultra-free-1-install-hermes-agent",
-      "title": "1. Install Hermes Agent",
-      "summary": "On macOS/Linux/WSL2/Android, run On Windows, run Prefer to review first?",
-      "detail": "On macOS/Linux/WSL2/Android, run On Windows, run Prefer to review first? Download install.sh , inspect it, then run it. After it finishes, reload your shell:\n\nFrom the official Hermes Agent documentation.",
-      "snippet": "curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash",
-      "tags": [
-        "nemotron",
-        "models",
-        "guide",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/guides/run-nemotron-3-ultra-free#1-install-hermes-agent",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-guides-run-nemotron-3-ultra-free-2-run-quick-setup",
-      "title": "2. Run Quick Setup",
-      "summary": "Hermes opens a browser tab and waits for you to finish the next steps.",
-      "detail": "Select Quick Setup . Hermes opens a browser tab and waits for you to finish the next steps.\n\nFrom the official Hermes Agent documentation.",
-      "snippet": "hermes setup",
-      "tags": [
-        "nemotron",
-        "models",
-        "guide",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/guides/run-nemotron-3-ultra-free#2-run-quick-setup",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-guides-run-nemotron-3-ultra-free-5-select-the-free-nemotron-3-ultra-model",
-      "title": "5. Select the free Nemotron 3 Ultra model",
-      "summary": "From the model list, select: The :free tag is what keeps it on the no-cost tier, so make sure you pick that variant.",
-      "detail": "Return to your terminal. From the model list, select: The :free tag is what keeps it on the no-cost tier, so make sure you pick that variant.\n\nFrom the official Hermes Agent documentation.",
-      "snippet": "nvidia/nemotron-3-ultra:free",
-      "tags": [
-        "nemotron",
-        "models",
-        "guide",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/guides/run-nemotron-3-ultra-free#5-select-the-free-nemotron-3-ultra-model",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-guides-run-nemotron-3-ultra-free-6-start-chatting",
-      "title": "6. Start chatting",
-      "summary": "Complete the remaining Quick Setup prompts, then run: That's it - you're talking to Nemotron 3 Ultra, free.",
-      "detail": "Complete the remaining Quick Setup prompts, then run: That's it - you're talking to Nemotron 3 Ultra, free.\n\nFrom the official Hermes Agent documentation.",
-      "snippet": "hermes",
-      "tags": [
-        "nemotron",
-        "models",
-        "guide",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/guides/run-nemotron-3-ultra-free#6-start-chatting",
-      "date": "2026-09-25"
-    },
-    {
       "id": "doc-guides-run-nemotron-3-ultra-free-switching-to-it-later",
       "title": "Switching to it later",
       "summary": "Already set up with another model?",
@@ -5044,118 +4853,6 @@
       ],
       "source": "docs",
       "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#recommended-reading-order",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-developer-guide-architecture-agent-loop",
-      "title": "Agent Loop",
-      "summary": "The synchronous orchestration engine ( AIAgent , exposed by the run_agent.py facade; the loop lives in agent/conversation_loop.py and agent/turn_*.py ).",
-      "detail": "The synchronous orchestration engine ( AIAgent , exposed by the run_agent.py facade; the loop lives in agent/conversation_loop.py and agent/turn_*.py ). Handles provider selection, prompt construction, tool execution, retries, fallback, callbacks, compression, and persistence. Supports three API modes for different provider backends. → Agent Loop Internals\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "architecture",
-        "developer",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#agent-loop",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-developer-guide-architecture-prompt-system",
-      "title": "Prompt System",
-      "summary": "Prompt construction and maintenance across the conversation lifecycle: system_prompt.py + prompt_builder.py - assembles the ordered system-prompt tiers ( stable → context → volatile ): id…",
-      "detail": "Prompt construction and maintenance across the conversation lifecycle: system_prompt.py + prompt_builder.py - assembles the ordered system-prompt tiers ( stable → context → volatile ): identity/tool guidance/skills, context files, then memory/profile/timestamp blocks prompt_caching.py - Applies Anthropic cache breakpoints for prefix caching context_compressor.py - Summarizes middle conversation turns when context exceeds thresholds → Prompt Assembly , Context Compression & Prompt Caching\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "architecture",
-        "developer",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#prompt-system",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-developer-guide-architecture-provider-resolution",
-      "title": "Provider Resolution",
-      "summary": "A shared runtime resolver used by CLI, gateway, cron, ACP, and auxiliary calls.",
-      "detail": "A shared runtime resolver used by CLI, gateway, cron, ACP, and auxiliary calls. Maps (provider, model) tuples to (api_mode, api_key, base_url) . Handles 18+ providers, OAuth flows, credential pools, and alias resolution. → Provider Runtime Resolution\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "architecture",
-        "developer",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#provider-resolution",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-developer-guide-architecture-tool-system",
-      "title": "Tool System",
-      "summary": "Central tool registry ( tools/registry.py ) with 70+ registered tools across ~28 toolsets.",
-      "detail": "Central tool registry ( tools/registry.py ) with 70+ registered tools across ~28 toolsets. Each tool file self-registers at import time. The registry handles schema collection, dispatch, availability checking, and error wrapping. Terminal tools support 7 backends (local, Docker, SSH, Daytona, Modal, Singularity, Vercel Sandbox). → Tools Runtime\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "architecture",
-        "developer",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#tool-system",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-developer-guide-architecture-session-persistence",
-      "title": "Session Persistence",
-      "summary": "SQLite-based session storage with FTS5 full-text search.",
-      "detail": "SQLite-based session storage with FTS5 full-text search. Sessions have lineage tracking (parent/child across compressions), per-platform isolation, and atomic writes with contention handling. → Session Storage\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "architecture",
-        "developer",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#session-persistence",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-developer-guide-architecture-messaging-gateway",
-      "title": "Messaging Gateway",
-      "summary": "Long-running process with 25+ platform adapters (built-in + bundled plugins), unified session routing, user authorization (allowlists + DM pairing), slash command dispatch, hook system, c…",
-      "detail": "Long-running process with 25+ platform adapters (built-in + bundled plugins), unified session routing, user authorization (allowlists + DM pairing), slash command dispatch, hook system, cron ticking, and background maintenance. → Gateway Internals\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "architecture",
-        "developer",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#messaging-gateway",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-developer-guide-architecture-plugin-system",
-      "title": "Plugin System",
-      "summary": "Three discovery sources: ~/.hermes/plugins/ (user), .hermes/plugins/ (project), and pip entry points.",
-      "detail": "Three discovery sources: ~/.hermes/plugins/ (user), .hermes/plugins/ (project), and pip entry points. Plugins register tools, hooks, and CLI commands through a context API. Two specialized plugin types exist: memory providers ( plugins/memory/ ) and context engines ( plugins/context_engine/ ). Both are single-select - only one of each can be active at a time, configured via hermes plugins or config.yaml . → Plugin Guide , Memory Provider Plugin\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "architecture",
-        "developer",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#plugin-system",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-developer-guide-architecture-design-principles",
-      "title": "Design Principles",
-      "summary": "Principle What it means in practice Prompt stability System prompt doesn't change mid-conversation.",
-      "detail": "Principle What it means in practice Prompt stability System prompt doesn't change mid-conversation. No cache-breaking mutations except explicit user actions ( /model ). Observable execution Every tool call is visible to the user via callbacks. Progress updates in CLI (spinner) and gateway (chat messages). Interruptible API calls and tool execution can be cancelled mid-flight by user input or signals. Platform-agnostic core One AIAgent class serves CLI, gateway, ACP, batch, and API server. Platform differences live in the entry point, not the agent. Loose coupling Optional subsystems (MCP, plugins, memory providers, RL environments) use registry patterns and check_fn gating, not hard dependencies. Profile isolation Each profile ( hermes -p <name> ) gets its own HERMES_HOME, config, memory, sessions, and gateway PID. Multiple profiles run concurrently.\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "architecture",
-        "developer",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#design-principles",
       "date": "2026-09-25"
     },
     {
