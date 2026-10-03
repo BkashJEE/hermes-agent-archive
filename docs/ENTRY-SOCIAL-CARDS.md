@@ -17,7 +17,7 @@ Output: `assets/og/entries/<id>.png`, 1200×630. Each card carries the recorded 
 
 The full 973-entry corpus was rendered locally: **32,385,011 bytes (30.88 MiB)**. Individual PNGs ranged from 20,975 to 57,560 bytes. This is a measured full batch, not an extrapolation.
 
-The 973 generated PNGs are gitignored and excluded from Vercel inputs by `assets/og/entries/**` in `.vercelignore`. They add zero committed PNG bytes in this change and are not automatically deployed. An initial Vercel dry run included every runtime asset and configured JSON file; subsequent comparison runs were blocked by an expired CLI login. Including the entire batch would add exactly 32,385,011 uncompressed source bytes to that deployment input, before any transport compression.
+The 973 generated PNGs are gitignored and excluded from Vercel inputs by `assets/og/entries/**` in `.vercelignore`. They add zero committed PNG bytes in this change and are not automatically deployed. Vercel dry runs verified every runtime asset and configured JSON file is included, and all 973 generated PNGs are excluded. A separate dry-run comparison with the bulk exclusion removed included all 973 PNGs: exactly 32,385,011 additional uncompressed image bytes, before any transport compression. The directory preview was deployed without the bulk images.
 
 To publish selected cards later, force-add only the reviewed PNGs and explicitly allow their exact paths after the exclusion in `.vercelignore`. Verify the resulting file list with `vercel deploy --dry --json`. Do not remove the bulk exclusion without evaluating its cost.
 
