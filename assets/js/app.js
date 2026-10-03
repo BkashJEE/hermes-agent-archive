@@ -5,26 +5,25 @@ import { githubStarFloor } from './github-policy.js';
 import { archiveField } from './archive-field.js';
 import { sectionIcon } from './icons.js?v=launch-10';
 import { mergeLive, trendingItems } from './archive.js?v=hermes-50k';
-import { cardPoints, cardCategory } from './card-preview.js?v=launch-10';
+import { cardPoints } from './card-preview.js?v=launch-10';
 import { formatDetails } from './details.js';
 import { creditFor } from './credits.js?v=launch-10';
 import { attachRankings, compareRankings, usefulnessLabel, popularityLabel } from './ranking.js';
 
+import { SOURCE_LABEL, agentFor, shelfLabel, snippetLabel } from './directory.js';
+
 const $  = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
-const SOURCE_LABEL = {
-  x: 'X / TWITTER', reddit: 'REDDIT', hn: 'HACKER NEWS', discord: 'DISCORD',
-  fb: 'FACEBOOK', github: 'GITHUB', youtube: 'YOUTUBE', blog: 'BLOG',
-  podcast: 'PODCAST', linkedin: 'LINKEDIN', producthunt: 'PRODUCT HUNT',
-  docs: 'OFFICIAL DOCS', community: 'COMMUNITY'
-};
+
+const entryShelves = new Map();
 
 const state = {
   cfg: null,
   data: {},          // sectionId -> items[]
   live: null,
-  section: 'use-cases',
+  section: 'dashboard',
+  agent: 'all',
   source: 'all',
   sort: 'recommended',
   q: '',
@@ -66,11 +65,16 @@ async function load() {
 
   state.live = await getJSON('data/live.json').catch(() => null);
   mergeLive(state.data, state.live);
+  entryShelves.clear();
   const bannerItems = [];
   for (const section of state.cfg.sections) {
     if (!section.file) continue;
     bannerItems.push(...state.data[section.id]);
+    for (const item of state.data[section.id]) entryShelves.set(item.id, section);
   }
+  const agents = [...new Set(bannerItems.map(agentFor))].sort();
+  $('#directoryAgents').textContent = agents.join(' · ');
+  fillSelect($('#agentSel'), [{ id: 'all', label: 'All agents' }, ...agents.map(name => ({ id: name, label: name }))], state.agent);
   $('#archiveField').innerHTML = archiveField(bannerItems);
   $('#archiveFieldCount').textContent = num(bannerItems.length);
   $('#githubFloor').textContent = num(githubStarFloor(state.live?.githubMinStars));
@@ -84,12 +88,13 @@ const activeSort = () => state.section === 'trending' ? 'trending' : state.sort;
 const shelfItems = id => id === 'trending' ? trendingItems(state.data, state.live?.githubMinStars) : (state.data[id] || []);
 
 function matches(item, sort = state.sort) {
+  if (state.agent !== 'all' && agentFor(item) !== state.agent) return false;
   if (sort === 'trending' && !item.trend) return false;
   if (state.author && creditFor(item).name !== state.author) return false;
   if (state.source !== 'all' && item.source !== state.source) return false;
   if (state.tag && !(item.tags || []).includes(state.tag)) return false;
   if (state.q) {
-    const hay = [item.title, item.summary, item.detail, item.snippet, item.author, ...(item.tags || [])]
+    const hay = [item.title, item.summary, item.detail, item.snippet, item.author, agentFor(item), ...(item.tags || [])]
       .join(' ').toLowerCase();
     if (!state.q.toLowerCase().split(/\s+/).every(t => hay.includes(t))) return false;
   }
@@ -106,14 +111,6 @@ function sortItems(items) {
 const visible = id => shelfItems(id).filter(item => matches(item, id === 'trending' ? 'trending' : state.sort));
 
 /* ------------------------------------------------------------- renderers */
-
-function pill(source) {
-  const key = SOURCE_LABEL[source] ? source : 'curated';
-  // Colour marks the source family; unique monograms and names identify sources.
-  const marks = { x: 'X', reddit: 'rd', hn: 'Y', discord: 'dc', fb: 'f', github: 'gh',
-    youtube: '▶', blog: 'b', podcast: '♫', linkedin: 'in', producthunt: 'P', docs: '//', community: 'co' };
-  return `<span class="pill pill-${key}"><span class="source-mark" aria-hidden="true">${marks[source] || '—'}</span>${esc(SOURCE_LABEL[source] || 'CURATED')}</span>`;
-}
 
 /* Growth per day is what Trending actually ranks by, so the badge leads with the
    gain and states the rate. The two raw timestamps it used to print were exact
@@ -156,22 +153,29 @@ function metricBlock(item) {
 
 function card(item, rank, iconName) {
   const credit = creditFor(item);
-  const category = cardCategory(item, iconName);
+  const shelf = entryShelves.get(item.id);
+  const snippet = snippetLabel(item);
   const order = activeSort() === 'az' ? 'A–Z' : (item.ranking || activeSort() === 'trending') ? `#${rank}` : '';
   const action = iconName === 'stories' ? 'Read workflow' : iconName === 'prompts' ? 'View prompt' : 'View details';
   const metric = item.metric ? `${num(item.metric.value)} ${item.metric.kind === 'stars' && item.metric.value === 1 ? 'star' : item.metric.kind}` : 'no public metric';
-  return `<li><button class="card card-${category.tone}" data-id="${esc(item.id)}" aria-label="${esc(`${action}: ${item.title}`)}">
-    <div class="card-heading"><span class="card-icon">${sectionIcon(category.icon)}</span><div class="card-heading-text">
+  return `<li><button class="card${snippet ? ' card-with-snippet' : ''}" data-id="${esc(item.id)}" aria-label="${esc(`${action}: ${item.title}`)}">
+    <div class="entry-context"><span class="agent-label">${esc(agentFor(item))}</span><span>${esc(shelfLabel(shelf))}</span></div>
+    <div class="card-heading"><div class="card-heading-text">
       <h3>${esc(item.title)}</h3>
       <p class="card-byline">${esc(credit.label)} <strong>${esc(credit.name)}</strong><span class="card-source">${esc(SOURCE_LABEL[item.source] || 'CURATED')}${item.sourced ? ' · SOURCED' : ''}${item.communityException ? ' · OWNER-APPROVED EXCEPTION' : ''}</span></p>
     </div></div>
     <div class="card-preview"><p class="card-label">${item.cardPoints?.length || !(item.tags || []).includes('user-story') ? 'What it does' : 'From the source'}</p>
       <ul class="card-points">${cardPoints(item).map(point => `<li>${esc(point)}</li>`).join('')}</ul>
     </div>
+    ${snippet ? `<div class="card-snippet"><span>${esc(snippet)}</span><code>${esc(snippetPreview(item))}</code></div>` : ''}
     <div class="card-tags">${(item.tags || []).filter(t => t !== 'user-story').slice(0, 2).map(t => `<span class="trow-tag">${esc(t)}</span>`).join('')}${order ? `<span class="rank" title="Position in the selected sort">${order}</span>` : ''}</div>
     ${item.trend ? trendBadge(item.trend) : ''}
     <div class="card-foot"><span class="card-evidence">${esc(metric)}${item.credit ? `<span class="m-credit">${esc(item.credit)}</span>` : ''}</span><span class="card-action">${action} <span aria-hidden="true">→</span></span></div>
   </button></li>`;
+}
+
+function snippetPreview(item) {
+  return item.snippet.trim().split('\n').filter(line => line.trim()).slice(0, 2).join('\n').slice(0, 180);
 }
 
 /* A shelf that is filtered to nothing looks exactly like a shelf that holds
@@ -190,7 +194,7 @@ function filtersActive() {
   // state.range is undefined when the config ships no ranges, and undefined is
   // not 'all' — comparing carelessly marked every shelf as filtered.
   const ranged = state.range && state.range !== 'all';
-  return !!(state.q || state.tag || state.author || state.source !== 'all' || ranged);
+  return !!(state.q || state.tag || state.author || state.agent !== 'all' || state.source !== 'all' || ranged);
 }
 
 /* Shown as "12 / 326" while a filter is on, so the shelf's real size stays
@@ -208,7 +212,7 @@ function countFor(section) {
 function renderNav() {
   $('#nav').innerHTML = state.cfg.sections.map(s => `
     <a href="#${s.id}" class="${s.id === state.section ? 'on' : ''}" data-section="${s.id}" ${s.id === state.section ? 'aria-current="page"' : ''}>
-      <span class="nav-ico">${sectionIcon(s.icon)}</span>${esc(s.label)}${countFor(s)}
+      <span class="nav-ico">${sectionIcon(s.icon)}</span>${esc(shelfLabel(s))}${countFor(s)}
     </a>`).join('');
 }
 
@@ -228,6 +232,7 @@ function renderTags() {
 
 function renderFilters() {
   const bits = [];
+  if (state.agent !== 'all') bits.push(['agent', `AGENT: ${state.agent}`]);
   if (state.sort === 'trending' && state.section !== 'trending') bits.push(['trending', 'TRENDING: MEASURED STAR GROWTH']);
   if (state.q)                  bits.push(['q',      `SEARCH: ${state.q}`]);
   if (state.author)             bits.push(['author', `AUTHOR: ${state.author}`]);
@@ -250,30 +255,30 @@ function render() {
     : focused?.dataset.section ? ['section', focused.dataset.section] : null;
   const sec = state.cfg.sections.find(s => s.id === state.section) || state.cfg.sections[0];
   const isDash = sec.kind === 'dashboard';
-  $('#archiveBanner').hidden = !isDash && sec.id !== 'use-cases';
-  const key = JSON.stringify([state.section, state.q, state.source, state.tag, state.author, activeSort()]);
+  $('#archiveBanner').hidden = !isDash;
+  const key = JSON.stringify([state.section, state.q, state.source, state.tag, state.author, state.agent, activeSort()]);
   if (key !== state.viewKey) { state.limit = 24; state.viewKey = key; }
   $('#sortSel').disabled = sec.kind === 'trending';
   $('#sortSel').value = activeSort();
   $('#loadMoreRow').hidden = true;
-  $('#dashboard').hidden = !isDash;
+  $('#dashPanel').hidden = !isDash;
   $('#listbar').hidden = isDash;
   $('#grid').hidden = isDash;
   if (isDash) {
     $('#heroIcon').innerHTML = sectionIcon(sec.icon);
-    $('#heroTitle').textContent = sec.title;
-    $('#heroBlurb').textContent = sec.blurb;
+    $('#heroTitle').textContent = 'Browse the directory';
+    $('#heroBlurb').textContent = 'Find a workflow, copy an example, follow the people behind it.';
     $('#empty').hidden = true;
-    document.title = `${sec.label} · Hermes Agent Archive`;
+    document.title = `${shelfLabel(sec)} · Agent Directory`;
     renderDashboard(); renderNav(); renderTags(); renderFilters();
     return;
   }
   const items = sortItems(visible(sec.id));
 
   $('#heroIcon').innerHTML    = sectionIcon(sec.icon);
-  $('#heroTitle').textContent = sec.title;
+  $('#heroTitle').textContent = sec.id === 'my-work' ? 'From the curator' : sec.title;
   $('#heroBlurb').textContent = sec.blurb;
-  $('#listTitle').innerHTML   = `${esc(sec.label.toUpperCase())} &middot; <span>${items.length}</span>`;
+  $('#listTitle').innerHTML   = `${esc(shelfLabel(sec).toUpperCase())} &middot; <span>${items.length}</span>`;
   const classified = items.filter(item => item.ranking).length;
   const unstocked = !(state.data[sec.id] || []).length;
   $('#listSub').textContent = !items.length
@@ -300,6 +305,7 @@ function render() {
      with no explanation reads as a broken site. */
   if (!emptyShelf && filtersActive() && !items.length) {
     const bits = [];
+    if (state.agent !== 'all') bits.push(`agent <b>${esc(state.agent)}</b>`);
     if (state.source !== 'all') bits.push(`source <b>${esc(SOURCE_LABEL[state.source] || state.source)}</b>`);
     if (state.tag)    bits.push(`tag <b>${esc(state.tag)}</b>`);
     if (state.author) bits.push(`author <b>${esc(state.author)}</b>`);
@@ -325,7 +331,7 @@ function render() {
     : `<strong>Nothing matches those filters.</strong>
        <span>This shelf has entries. Choose All Sources or clear your filters to see them.</span>
        <button class="ghost-btn" data-clear>Clear filters</button>`;
-  document.title = `${sec.label} · Hermes Agent Archive`;
+  document.title = `${shelfLabel(sec)} · Agent Directory`;
 
   renderNav();
   renderTags();
@@ -375,7 +381,7 @@ function dashboardStats() {
   const sections = state.cfg.sections.filter(s => s.file);
   const all = sections.flatMap(s => state.data[s.id] || []);
 
-  const byShelf  = sections.map(s => [s.label, (state.data[s.id] || []).length]);
+  const byShelf  = sections.map(s => [shelfLabel(s), (state.data[s.id] || []).length]);
   const bySource = new Map();
   const byAuthor = new Map();
   const byMetric = new Map();       // kind -> { total, items }
@@ -509,6 +515,25 @@ function donutChart(rows, sum) {
   </div>`;
 }
 
+/* Extend #48’s shelf previews using the shared entry renderer and current filters. */
+function shelfPreviews() {
+  const previews = state.cfg.sections
+    .filter(section => section.file)                 // dashboard and trending are computed
+    .map(section => ({ section, items: sortItems(visible(section.id)).slice(0, 3), total: visible(section.id).length }))
+    .filter(preview => preview.items.length);        // an empty shelf says so on its own page
+
+  if (!previews.length) return '<div class="empty"><strong>No entries match.</strong><span>Try a different search or clear your filters.</span><button class="ghost-btn" data-clear>Clear filters</button></div>';
+
+  return `<div class="dash-previews">${previews.map(({ section, items, total }) => `
+    <section class="dash-preview" aria-labelledby="preview-${esc(section.id)}">
+      <div class="dash-preview-head">
+        <h2 id="preview-${esc(section.id)}">${esc(shelfLabel(section))} <span>${num(total)}</span></h2>
+        <a class="dash-preview-all" href="#${esc(section.id)}">See all ${num(total)} &rarr;</a>
+      </div>
+      <ul class="grid" data-density="compact">${items.map((item, i) => card(item, i + 1, section.icon)).join('')}</ul>
+    </section>`).join('')}</div>`;
+}
+
 function renderDashboard() {
   const st = dashboardStats();
   const live = state.live || {};
@@ -530,7 +555,9 @@ function renderDashboard() {
         tile(kind, r.total, `across ${num(r.items)} ${r.items === 1 ? 'entry' : 'entries'}`)).join('')
     : '<p class="dash-none">No fetched metrics loaded.</p>';
 
-  $('#dashboard').innerHTML = `
+  $('#dashPanel').innerHTML = `
+    ${shelfPreviews()}
+    <h2 class="dash-section-title">About this collection · unfiltered totals</h2>
     <div class="dash-tiles">
       ${tile('items in the archive', st.total)}
       ${tile('carry a real metric', st.withMetric, `${Math.round(st.withMetric / (st.total || 1) * 100)}% of the archive`, st.withMetric / (st.total || 1))}
@@ -586,7 +613,7 @@ function renderDashboard() {
 }
 
 function revealDashboard(st) {
-  const root = $('#dashboard');
+  const root = $('#dashPanel');
 
   for (const el of root.querySelectorAll('.tile-v[data-count]')) {
     const v = Number(el.dataset.count);
@@ -607,7 +634,7 @@ function revealDashboard(st) {
 /* Hover layer: every mark carrying data-tip gets the shared tooltip. */
 function wireTips() {
   const tip = chartTip();
-  const dash = $('#dashboard');
+  const dash = $('#dashPanel');
   const show = e => {
     const el = e.target.closest('[data-tip]');
     if (!el) return;
@@ -807,7 +834,10 @@ function openDrawer(id, trigger, updateUrl = true) {
   if (!it) return;
 
   drawerTrigger = trigger || (document.activeElement === document.body ? null : document.activeElement);
-  if (updateUrl) history.pushState(null, '', `#${state.section}?item=${encodeURIComponent(id)}`);
+  const shelf = entryShelves.get(it.id);
+  const entryHash = `${shelf.id}?item=${encodeURIComponent(it.id)}`;
+  if (updateUrl) history.pushState(null, '', `#${entryHash}`);
+  document.title = `${it.title} · ${agentFor(it)} · Agent Directory`;
   const story = (it.tags || []).includes('user-story');
   const copyLabel = (it.tags || []).includes('prompt') ? 'COPY PROMPT' : 'COPY';
   const paragraphs = (it.detail || it.summary || '').split('\n\n');
@@ -822,23 +852,28 @@ function openDrawer(id, trigger, updateUrl = true) {
   const credit = (author.label === 'Author' ? null : attribution) || [`${author.label} ${author.name}`, SOURCE_LABEL[it.source], date].filter(Boolean).join(' · ');
 
   $('#drawerBody').innerHTML = `
-    <div class="d-kicker">${pill(it.source)}${it.lang ? `<span class="pill pill-curated">${esc(it.lang)}</span>` : ''}</div>
-    <p class="d-attribution">${it.ranking
-      ? `Jev assessment: ${esc(usefulnessLabel(it.ranking.usefulness))} · ${esc(popularityLabel(it.ranking.popularity))}`
-      : 'Awaiting Jev classification; no date-based ranking.'}</p>
-    <h3 id="drawerTitle">${esc(it.title)}</h3>
+    <div class="entry-context d-context"><span class="agent-label">${esc(agentFor(it))}</span><a href="#${esc(shelf.id)}">${esc(shelfLabel(shelf))} ↗</a></div>
+    <h2 id="drawerTitle">${esc(it.title)}</h2>
+    ${it.summary ? `<p class="d-summary">${esc(it.summary)}</p>` : ''}
+    <div class="d-credit"><span>${esc(author.label)}</span> <strong>${esc(author.name)}</strong>${date ? `<time datetime="${esc(it.date.slice(0, 10))}">${esc(date)}</time>` : ''}</div>
+    <div class="d-actions">${it.url ? `<a class="d-link" href="${esc(it.url)}" target="_blank" rel="noopener noreferrer">${esc(SOURCE_LABEL[it.source] || 'Original source')} <span aria-hidden="true">↗</span><small>${esc(new URL(it.url).hostname)}</small></a>` : ''}<button class="ghost-btn" id="shareCardBtn">Copy entry link</button><span id="shareStatus" role="status"></span></div>
+    <input class="d-share" id="shareCardUrl" aria-label="Link to this entry" readonly hidden>
+    ${it.snippet ? `<section class="d-snip" aria-labelledby="snippetTitle">
+      <div class="d-snip-head"><h3 id="snippetTitle">${esc(snippetLabel(it))}</h3><button class="copy-btn" id="copyBtn">${copyLabel}</button></div>
+      <pre tabindex="0" aria-label="Copyable example"><code>${esc(it.snippet)}</code></pre><span class="sr-only" id="copyStatus" role="status"></span></section>` : ''}
+    <section class="d-reading" aria-label="Entry details">
     ${story ? `<figure class="d-story"><blockquote class="d-body" cite="${esc(it.url)}">${body}</blockquote>
       <figcaption class="d-attribution"><span class="attribution-rule" aria-hidden="true"></span>${esc(credit)}</figcaption></figure>`
-      : `<p class="d-attribution">${esc(credit)}</p><div class="d-body">${body}</div>`}
+      : `<div class="d-body">${body}</div>`}
+    </section>
     ${it.communityException ? `<p class="d-attribution">Owner-approved community exception to the GitHub star minimum. <a href="${esc(it.communityException)}" target="_blank" rel="noopener noreferrer">View submission ↗</a></p>` : ''}
     ${it.hermesSupport ? `<div class="d-body"><p><a href="${esc(it.hermesSupport.url)}" target="_blank" rel="noopener noreferrer">Hermes support documented ↗</a><br>${esc(it.hermesSupport.note)}</p></div>` : ''}
-    ${it.snippet ? `<div class="d-snip">
-        <button class="copy-btn" id="copyBtn">${copyLabel}</button>
-        <pre><code>${esc(it.snippet)}</code></pre></div>` : ''}
     ${(it.tags || []).length ? `<div class="d-tags">${it.tags.map(t => `<button class="d-tag" data-tag="${esc(t)}">#${esc(t)}</button>`).join('')}</div>` : ''}
-    <div class="d-actions">${it.url ? `<a class="d-link" href="${esc(it.url)}" target="_blank" rel="noopener noreferrer">READ THE ORIGINAL &#8599;</a>` : ''}<button class="ghost-btn" id="shareCardBtn">Copy card link</button><span id="shareStatus" role="status"></span></div>
-    <input class="d-share" id="shareCardUrl" aria-label="Link to this card" readonly hidden>
-    <div class="d-meta">${it.metric ? metricBlock(it) : '<span class="trow-note">no public metric</span>'}</div>`;
+    <div class="d-meta">${it.metric ? metricBlock(it) : '<span class="trow-note">no public metric</span>'}
+      <p class="d-attribution">${it.ranking
+        ? `Jev editorial assessment: ${esc(usefulnessLabel(it.ranking.usefulness))} · ${esc(popularityLabel(it.ranking.popularity))}`
+        : 'Awaiting Jev classification; no date-based ranking.'}</p>
+    </div>`;
 
   $('#drawer').hidden = false;
   $('#scrim').hidden = false;
@@ -851,7 +886,7 @@ function openDrawer(id, trigger, updateUrl = true) {
   $('#shareCardBtn').onclick = async () => {
     const url = new URL(location.href);
     url.search = '';
-    url.hash = `${state.section}?item=${encodeURIComponent(id)}`;
+    url.hash = entryHash;
     try {
       await navigator.clipboard.writeText(url.href);
       $('#shareStatus').textContent = 'Link copied';
@@ -866,10 +901,17 @@ function openDrawer(id, trigger, updateUrl = true) {
     try {
       await navigator.clipboard.writeText(it.snippet);
       copy.textContent = 'COPIED';
+      $('#copyStatus').textContent = 'Snippet copied';
       copy.classList.add('done');
       setTimeout(() => { copy.textContent = copyLabel; copy.classList.remove('done'); }, 1400);
     } catch {
-      copy.textContent = 'SELECT IT';
+      const range = document.createRange();
+      range.selectNodeContents($('.d-snip code'));
+      const selection = window.getSelection();
+      selection.removeAllRanges(); selection.addRange(range);
+      $('.d-snip pre').focus();
+      $('#copyStatus').textContent = 'Snippet selected. Use your device’s copy command.';
+      copy.textContent = 'SELECTED';
     }
   };
 }
@@ -883,7 +925,8 @@ function closeDrawer(updateUrl = true) {
   $('.shell').inert = false;
   document.body.classList.remove('modal-open');
   if (drawerTrigger?.isConnected) drawerTrigger.focus({ preventScroll: true });
-  else $('#listTitle').focus();
+  else (state.section === 'dashboard' ? $('#heroTitle') : $('#listTitle')).focus();
+  document.title = `${shelfLabel(state.cfg.sections.find(s => s.id === state.section))} · Agent Directory`;
 }
 
 /* ---------------------------------------------------------------- wiring */
@@ -894,7 +937,8 @@ function fillSelect(el, options, selected) {
 
 function clearFilters() {
   if (state.sort === 'trending') { state.sort = 'recommended'; $('#sortSel').value = state.sort; }
-  state.q = ''; state.tag = null; state.author = null; state.source = 'all';
+  state.q = ''; state.tag = null; state.author = null; state.source = 'all'; state.agent = 'all';
+  $('#agentSel').value = 'all';
   $('#search').value = '';
   $('#sourceSel').value = 'all';
   render();
@@ -908,7 +952,7 @@ function filterAuthor(name) {
 
 function routeFromHash() {
   const [id] = location.hash.slice(1).split('?');
-  if (state.cfg.sections.some(s => s.id === id)) state.section = id;
+  state.section = state.cfg.sections.some(s => s.id === id) ? id : 'dashboard';
 }
 
 function restoreRoute() {
@@ -984,6 +1028,7 @@ function wire() {
     try { localStorage.setItem('hermes-density', state.density); } catch { /* Browsing still works. */ }
     render();
   }));
+  $('#agentSel').addEventListener('change', e => { state.agent = e.target.value; render(); });
   fillSelect($('#sourceSel'), state.cfg.sources, state.source);
   fillSelect($('#sortSel'),   state.cfg.sorts,   state.sort);
 
@@ -1040,6 +1085,7 @@ function wire() {
       if (k === 'q')      { state.q = ''; $('#search').value = ''; }
       if (k === 'tag')    state.tag = null;
       if (k === 'author') state.author = null;
+      if (k === 'agent') { state.agent = 'all'; $('#agentSel').value = 'all'; }
       if (k === 'source') { state.source = 'all'; $('#sourceSel').value = 'all'; }
       render(); afterClearFocus(); return;
     }

@@ -16,3 +16,5 @@
 !data/my-work.json
 !data/live.json
 !data/rankings.json
+# Bulk social renders must not silently add ~100 MB to a deployment.
+assets/og/entries/**

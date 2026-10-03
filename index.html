@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=launch-10">
+<link rel="stylesheet" href="assets/css/style.css?v=directory-1">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to the archive</a>
@@ -34,11 +34,11 @@
 <header class="topbar">
   <button class="icon-btn" id="menuBtn" aria-label="Toggle navigation" aria-controls="sidebar" aria-expanded="false">&#9776;</button>
 
-  <a class="brand" href="#use-cases">
+  <a class="brand" href="#dashboard">
     <span class="brand-mark" id="brandMark" aria-hidden="true"></span>
     <span class="brand-text">
-      <strong>HERMES AGENT <em>ARCHIVE</em></strong>
-      <small>THE CRAFT PEOPLE ACTUALLY USE &middot; CURATED BY <b id="curator">@BkashJosi</b></small>
+      <strong>AGENT <em>DIRECTORY</em></strong>
+      <small>WORKFLOWS · EXAMPLES · COMMUNITY KNOW-HOW</small>
     </span>
   </a>
 
@@ -50,8 +50,6 @@
     <kbd>/</kbd>
   </div>
 
-  <label class="sr-only" for="sourceSel">Source</label>
-  <select id="sourceSel" class="select" title="Filter by where it was shown"></select>
   <button class="icon-btn" id="jumpBtn" aria-label="Jump to a shelf or entry" title="Jump to (Ctrl/⌘ K)">⌘K</button>
   <button class="icon-btn" id="themeBtn" aria-label="Broadsheet layout" aria-pressed="false" title="Toggle broadsheet layout">▤</button>
   <button class="icon-btn" id="refreshBtn" title="Reload data" aria-label="Reload data">&#8635;</button>
@@ -77,13 +75,15 @@
   <aside class="sidebar" id="sidebar">
     <div class="side-card">
       <span class="side-card-mark" id="archiveMark" aria-hidden="true"></span>
-      <p><strong>Curated craft</strong><span>Ideas worth keeping.</span></p>
+      <p><strong>Find something useful</strong><span>Sourced. Credited. Copyable.</span></p>
     </div>
+
+    <div class="agent-filter"><label class="side-title" for="agentSel">AGENT</label><select id="agentSel" class="select"></select><label class="side-title" for="sourceSel">SOURCE</label><select id="sourceSel" class="select" title="Filter by where it was shown"></select></div>
 
     <nav id="nav" class="nav" aria-label="Sections"></nav>
 
     <div class="side-block">
-      <h2 class="side-title">TAG WATCHLIST</h2>
+      <h2 class="side-title">BROWSE BY TOPIC</h2>
       <label class="sr-only" for="tagSearch">Find a tag</label>
       <input id="tagSearch" class="tag-search" type="search" placeholder="Find a tag…" autocomplete="off">
       <ul id="tagList" class="taglist"></ul>
@@ -100,9 +100,10 @@
   <main class="main" id="main" tabindex="-1">
     <section class="archive-banner" id="archiveBanner" aria-labelledby="archiveIntro" hidden>
       <div class="archive-banner-copy">
-        <p class="archive-eyebrow"><span class="archive-status" aria-hidden="true"></span> OPEN SOURCE · COMMUNITY ARCHIVE</p>
-        <p class="archive-headline" id="archiveIntro">Find your next<br><em>Hermes workflow.</em></p>
-        <p class="archive-intro">Explore workflows, prompts, skills and projects.<br class="wide-only"> Follow the source. Make an idea your own.</p>
+        <p class="archive-eyebrow"><span class="archive-status" aria-hidden="true"></span> COMMUNITY KNOW-HOW, WITH SOURCES</p>
+        <p class="archive-headline" id="archiveIntro">How people put<br><em>agents to work.</em></p>
+        <p class="archive-intro">Browse real workflows, reusable prompts and practical setup notes. Every entry leads back to its source.</p>
+        <p class="directory-scope">Currently exploring <strong id="directoryAgents">Hermes</strong></p>
         <div class="archive-actions">
           <a class="archive-primary" href="#prompts">Explore prompts <span aria-hidden="true">↗</span></a>
           <a class="archive-secondary" href="https://github.com/BkashJEE/hermes-agent-archive/issues/new?template=submit-entry.yml" target="_blank" rel="noopener noreferrer">Add yours <span aria-hidden="true">↗</span></a>
@@ -116,7 +117,7 @@
     <section class="hero">
       <div class="hero-icon" id="heroIcon" aria-hidden="true">&#9670;</div>
       <div class="hero-text">
-        <h1><span id="heroTitle" tabindex="-1">USE CASES THAT STICK</span><span class="badge" id="heroBadge">ARCHIVE</span></h1>
+        <h1><span id="heroTitle" tabindex="-1">USE CASES THAT STICK</span><span class="badge" id="heroBadge">DIRECTORY</span></h1>
         <p id="heroBlurb">Workflows people run every day.</p>
       </div>
     </section>
@@ -143,7 +144,9 @@
 
     <div id="activeFilters" class="active-filters" hidden></div>
 
-    <section id="dashboard" class="dash" hidden aria-label="Archive overview"></section>
+    <!-- Deliberately not id="dashboard": that is also the route hash, and a matching
+         element id makes the browser anchor-jump past the hero on every visit. -->
+    <section id="dashPanel" class="dash" hidden aria-label="Archive overview"></section>
     <ul id="grid" class="grid" aria-label="Archive items"></ul>
     <div class="load-more" id="loadMoreRow" hidden>
       <p id="shownCount" role="status"></p>
@@ -162,7 +165,7 @@
       <p><a href="https://github.com/BkashJEE/hermes-agent-archive/issues/new?template=submit-entry.yml" target="_blank" rel="noopener noreferrer">Suggest an entry ↗</a> · <a href="https://github.com/BkashJEE/hermes-agent-archive/issues/new?template=correction.yml" target="_blank" rel="noopener noreferrer">Correct a credit ↗</a> · <a href="https://github.com/BkashJEE/hermes-agent-archive#run-your-own-copy" target="_blank" rel="noopener noreferrer">Run your own copy ↗</a> · <a href="https://github.com/BkashJEE/hermes-agent-archive" target="_blank" rel="noopener noreferrer">Source on GitHub ↗</a>. Open source, MIT licensed. Submissions need a GitHub account and are reviewed before publishing.</p>
       <!-- The archive spends its whole page crediting other people. This is the line that
            credits the person keeping it, with somewhere to go next. -->
-      <p class="curator-line"><b>Kept by @BkashJosi.</b>
+      <p class="curator-line"><b>Maintained by <span id="curator">@BkashJosi</span>.</b>
         <a href="https://x.com/BkashJosi" target="_blank" rel="noopener noreferrer">X ↗</a> &middot;
         <a href="https://github.com/BkashJEE" target="_blank" rel="noopener noreferrer">GitHub ↗</a> &middot;
         <a href="https://bkashjee.github.io" target="_blank" rel="noopener noreferrer">Portfolio ↗</a></p>
@@ -174,10 +177,10 @@
 
 <div class="drawer-scrim" id="scrim" hidden></div>
 <aside class="drawer" id="drawer" hidden aria-labelledby="drawerTitle" role="dialog" aria-modal="true">
-  <button class="drawer-close" id="drawerClose" aria-label="Close">&#10005;</button>
+  <button class="drawer-close" id="drawerClose" aria-label="Close entry">Close <span aria-hidden="true">&#10005;</span></button>
   <div id="drawerBody"></div>
 </aside>
 
-<script type="module" src="assets/js/app.js?v=profile-3"></script>
+<script type="module" src="assets/js/app.js?v=directory-1"></script>
 </body>
 </html>
