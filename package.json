@@ -22,7 +22,8 @@
     "icons": "node scripts/make-icons.mjs",
     "tricks": "node scripts/extract-tricks.mjs",
     "plugin": "node scripts/install-plugin.mjs",
-    "harvest": "node scripts/harvest.mjs"
+    "harvest": "node scripts/harvest.mjs",
+    "discover": "node scripts/discover-hermes-topic.mjs"
   },
   "engines": {
     "node": ">=20"

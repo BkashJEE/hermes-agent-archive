@@ -1,0 +1,2549 @@
+{
+  "generatedAt": "2026-10-03T07:07:39.606Z",
+  "topic": "hermes-agent",
+  "totalInTopic": 3955,
+  "note": "Candidates for review, not entries. The topic is self-assigned and proves nothing. Admission still requires a documented Hermes integration read by a person and recorded in HERMES_REPOSITORIES with a URL and a date, exactly as before.",
+  "candidates": [
+    {
+      "repo": "Mintplex-Labs/anything-llm",
+      "stars": 66679,
+      "description": "Stop renting your intelligence. Own it with AnythingLLM. Everything you need for a powerful local-first agent experience ",
+      "topics": [
+        "agent-computer",
+        "agent-harness",
+        "agent-orchestration",
+        "agentic-ai",
+        "agentic-workflow",
+        "ai-agents",
+        "computer-use",
+        "hermes-agent",
+        "llm",
+        "local-ai",
+        "localai",
+        "multimodal",
+        "rag",
+        "self-hosted-ai",
+        "vector-database"
+      ],
+      "pushedAt": "2026-10-03T01:18:20Z",
+      "url": "https://github.com/Mintplex-Labs/anything-llm",
+      "evidence": {
+        "count": 0,
+        "quoted": [],
+        "readme": "https://raw.githubusercontent.com/Mintplex-Labs/anything-llm/master/README.md"
+      }
+    },
+    {
+      "repo": "CherryHQ/cherry-studio",
+      "stars": 52332,
+      "description": "AI productivity studio with smart chat, autonomous agents, and 300+ assistants. Unified access to frontier LLMs",
+      "topics": [
+        "agent-skills",
+        "ai-agent",
+        "claude-code",
+        "codex",
+        "deepseek",
+        "hermes-agent",
+        "open-code-review",
+        "skills",
+        "vibe-coding"
+      ],
+      "pushedAt": "2026-10-03T05:11:43Z",
+      "url": "https://github.com/CherryHQ/cherry-studio",
+      "evidence": {
+        "count": 0,
+        "quoted": [],
+        "readme": "https://raw.githubusercontent.com/CherryHQ/cherry-studio/main/README.md"
+      }
+    },
+    {
+      "repo": "mindsdb/mindshub",
+      "stars": 39780,
+      "description": "The unified workspace where open-source models get things done for you.",
+      "topics": [
+        "agents",
+        "ai",
+        "anton",
+        "artificial-inteligence",
+        "claude",
+        "claude-cowork",
+        "codex",
+        "cowork",
+        "deepseek",
+        "glm",
+        "hermes",
+        "hermes-agent",
+        "kimi",
+        "mcp",
+        "mindsdb"
+      ],
+      "pushedAt": "2026-09-16T21:37:33Z",
+      "url": "https://github.com/mindsdb/mindshub",
+      "evidence": {
+        "count": 2,
+        "quoted": [
+          "- **Open agents.** Run interchangeable open-source harnesses — Anton (default) and Hermes — swappable from a dropdown.",
+          "> **Fresh start:** `make flush` removes the local runtime (the `cowork-server` uv tool and the `backend/*/.venv`s) and deletes app state in `~/.anton` (provider keys) and `~/.cowork` (database, hermes, projects). Use it to test the from-scratch install flow or recover from a broken install. It prompts for confirmation — pass `FORCE=1` to skip. The next `make setup` or app launch reinstalls everything. ⚠️ This deletes your conversations and saved keys."
+        ],
+        "readme": "https://raw.githubusercontent.com/mindsdb/mindshub/main/README.md"
+      }
+    },
+    {
+      "repo": "1Panel-dev/1Panel",
+      "stars": 37092,
+      "description": "🔥 1Panel is a modern, open-source Linux server management panel and a lightweight AI management platform.",
+      "topics": [
+        "agent",
+        "deepseek-harness",
+        "docker",
+        "docker-ui",
+        "hermes",
+        "hermes-agent",
+        "linux",
+        "lnmp",
+        "ollama",
+        "openclaw",
+        "openresty",
+        "qwenpaw",
+        "webmin"
+      ],
+      "pushedAt": "2026-09-30T09:37:45Z",
+      "url": "https://github.com/1Panel-dev/1Panel",
+      "evidence": {
+        "count": 0,
+        "quoted": [],
+        "readme": "https://raw.githubusercontent.com/1Panel-dev/1Panel/dev-v2/README.md"
+      }
+    },
+    {
+      "repo": "titanwings/distilly",
+      "stars": 25253,
+      "description": "Distilly — Distill how they think into reusable Skills for any Agent or Bot. Formerly Colleague Skill（原同事 Skill）.",
+      "topics": [
+        "agent-skills",
+        "agentic-ai",
+        "ai-agent",
+        "ai-agents",
+        "ai-assistants",
+        "ai-persona",
+        "claude-code",
+        "claude-skills",
+        "codex",
+        "codex-skills",
+        "deepseek-harness",
+        "digital-human",
+        "dsh-plugin",
+        "hermes-agent",
+        "knowledge-distillation",
+        "llm-agent",
+        "meta-skill",
+        "openclaw",
+        "opencode"
+      ],
+      "pushedAt": "2026-09-22T14:01:08Z",
+      "url": "https://github.com/titanwings/distilly",
+      "evidence": {
+        "count": 2,
+        "quoted": [
+          "> 🧬 **2026.08.24 Update** — The creator is now named **Distilly** end to end and documents native local Skill discovery for Claude Code, Hermes, OpenClaw, Codex, DeepSeek Harness, Pi, Grok Build, and OpenCode. Grok Bot is listed separately as a saved-Skill workflow preview.",
+          "<td align=\"center\" width=\"25%\"><a href=\"https://github.com/NousResearch/hermes-agent\"><img src=\"docs/assets/hosts/hermes-agent-wordmark.png\" alt=\"Hermes Agent\" height=\"32\"></a></td>"
+        ],
+        "readme": "https://raw.githubusercontent.com/titanwings/distilly/dot-skill/README.md"
+      }
+    },
+    {
+      "repo": "screenpipe/screenpipe",
+      "stars": 21796,
+      "description": "YC (S26) | Open Computer History | Continuously record your company computer work, map your workflows, help you find work worth automating, and power your agents' context",
+      "topics": [
+        "agents",
+        "agi",
+        "ai",
+        "ai-memory",
+        "audio-recording",
+        "computer-vision",
+        "hermes",
+        "hermes-agent",
+        "llm",
+        "local-ai",
+        "local-first",
+        "machine-learning",
+        "mcp",
+        "multimodal",
+        "openclaw",
+        "privacy",
+        "rewind",
+        "screen-recording",
+        "speech-to-text",
+        "ycombinator"
+      ],
+      "pushedAt": "2026-10-03T06:35:14Z",
+      "url": "https://github.com/screenpipe/screenpipe",
+      "evidence": {
+        "count": 0,
+        "quoted": [],
+        "readme": "https://raw.githubusercontent.com/screenpipe/screenpipe/main/README.md"
+      }
+    },
+    {
+      "repo": "jnMetaCode/agency-agents-zh",
+      "stars": 21043,
+      "description": "🎭 277 个即插即用的 AI 专家角色 — 支持 Claude Code/Cursor/Copilot 等 20 种工具，覆盖工程/设计/营销/金融等 20 个部门。含 64 个中国市场原创智能体（小红书/抖音/微信/飞书/钉钉/Qt 上位机/机械设计）。搭配编排器 agency-orchestrator，一句话即可让多位专家按 DAG 自动协作。",
+      "topics": [
+        "agency-orchestrator",
+        "agent-definitions",
+        "ai-agents",
+        "ai-roles",
+        "chinese",
+        "claude",
+        "claude-code",
+        "copilot-agent",
+        "cursor-rules",
+        "deepseek",
+        "hermes-agent",
+        "llm",
+        "multi-agent",
+        "no-code",
+        "prompt-engineering",
+        "qwen",
+        "system-prompt",
+        "workbuddy",
+        "workflow"
+      ],
+      "pushedAt": "2026-09-29T15:49:25Z",
+      "url": "https://github.com/jnMetaCode/agency-agents-zh",
+      "evidence": {
+        "count": 11,
+        "quoted": [
+          "./scripts/install.sh --tool hermes         # Hermes Agent (NousResearch)",
+          "| **Hermes Agent** (NousResearch) | `~/.hermes/skills/` | 全局，需转换 |",
+          "<summary><strong>Hermes Agent (NousResearch)</strong></summary>",
+          "NousResearch 的开源 AI 智能体框架，支持技能系统、子代理编排、会话记忆。每个智能体转换为 `SKILL.md` 技能文件，按分类目录安装到 `~/.hermes/skills/`（全局）。"
+        ],
+        "readme": "https://raw.githubusercontent.com/jnMetaCode/agency-agents-zh/main/README.md"
+      }
+    },
+    {
+      "repo": "nesquena/hermes-webui",
+      "stars": 18738,
+      "description": "Hermes WebUI: The best way to use Hermes Agent from the web or from your phone!",
+      "topics": [
+        "agent",
+        "ai-agents",
+        "hermes",
+        "hermes-agent",
+        "nous-research"
+      ],
+      "pushedAt": "2026-10-03T06:11:17Z",
+      "url": "https://github.com/nesquena/hermes-webui",
+      "evidence": {
+        "count": 137,
+        "quoted": [
+          "# Hermes Web UI",
+          "[Hermes Agent](https://hermes-agent.nousresearch.com/) is a sophisticated autonomous agent that lives on your server, accessed via a terminal or messaging apps, that remembers what it learns and gets more capable the longer it runs.",
+          "Hermes WebUI is a lightweight, dark-themed web app interface in your browser for [Hermes Agent](https://hermes-agent.nousresearch.com/).",
+          "**Hermes Control Center** (launcher at the sidebar bottom)."
+        ],
+        "readme": "https://raw.githubusercontent.com/nesquena/hermes-webui/master/README.md"
+      }
+    },
+    {
+      "repo": "citrolabs/ego-lite",
+      "stars": 16785,
+      "description": "The fastest browser for AI agents to run browser automation, built for sharing your logged-in browser state with your AI agents, like Codex or Claude Code, without disturbing you. Zero cost, zero config.",
+      "topics": [
+        "agent-skills",
+        "ai-agent",
+        "automation",
+        "browser",
+        "browser-automation",
+        "claude-code",
+        "codex",
+        "hermes-agent",
+        "skills",
+        "skills-sh"
+      ],
+      "pushedAt": "2026-09-23T07:16:19Z",
+      "url": "https://github.com/citrolabs/ego-lite",
+      "evidence": {
+        "count": 0,
+        "quoted": [],
+        "readme": "https://raw.githubusercontent.com/citrolabs/ego-lite/main/README.md"
+      }
+    },
+    {
+      "repo": "EKKOLearnAI/ekko-studio",
+      "stars": 11282,
+      "description": "Ekko Studio is a local-first AI workspace for multi-agent chat, coding, and visual workflows, available on desktop and the web.",
+      "topics": [
+        "agent",
+        "ai-agent",
+        "chat-ui",
+        "coding-agents",
+        "dashboard",
+        "ekko-studio",
+        "hermes",
+        "hermes-agent",
+        "hermes-studio",
+        "hermes-web-ui",
+        "llm",
+        "multi-agent",
+        "multi-model",
+        "multi-platform",
+        "self-hosted",
+        "typescript",
+        "vue3",
+        "web-ui",
+        "workflow-automation"
+      ],
+      "pushedAt": "2026-10-03T02:20:54Z",
+      "url": "https://github.com/EKKOLearnAI/ekko-studio",
+      "evidence": {
+        "count": 97,
+        "quoted": [
+          "<a href=\"https://github.com/NousResearch/hermes-agent\">Hermes Agent</a>, Ekko Agent, Claude Code, Codex, Pi, Grok, OpenCode, and DeepSeek Harness (DSH).<br/>",
+          "Ekko Studio was previously named Hermes Studio / Hermes Web UI. The GitHub",
+          "`ekko-studio`, with the `ekko-studio-web` command. The legacy `hermes-web-ui`",
+          "| Multi-agent runtime | Runs Hermes, Ekko, Claude Code, Codex, Pi, Grok, OpenCode, and DeepSeek Harness (DSH) with streaming responses, tool traces, generated-file previews, persistent sessions, and standalone desktop chat windows. |"
+        ],
+        "readme": "https://raw.githubusercontent.com/EKKOLearnAI/ekko-studio/main/README.md"
+      }
+    },
+    {
+      "repo": "spinabot/brigade",
+      "stars": 11208,
+      "description": "Brigade — Your personal intelligence, built enterprise-grade",
+      "topics": [
+        "agent-runtime",
+        "ai",
+        "ai-crew",
+        "autonomous-agents",
+        "brigade",
+        "brigade-agent",
+        "chatgpt",
+        "clawdbot",
+        "codex",
+        "crustacean",
+        "hermes",
+        "hermes-agent",
+        "llm",
+        "moltbot",
+        "molty",
+        "multi-agent",
+        "openclaw",
+        "pride-of-agents",
+        "self-improving-ai",
+        "spinabot"
+      ],
+      "pushedAt": "2026-10-01T11:39:34Z",
+      "url": "https://github.com/spinabot/brigade",
+      "evidence": {
+        "count": 0,
+        "quoted": [],
+        "readme": "https://raw.githubusercontent.com/spinabot/brigade/main/README.md"
+      }
+    },
+    {
+      "repo": "MervinPraison/PraisonAI",
+      "stars": 9126,
+      "description": "PraisonAI 🦞 — Hire a 24/7 AI Workforce. Stop writing boilerplate and start shipping autonomous self-improving agents that research, plan, code, and execute tasks. Deployed in 5 lines of code with built-in memory, RAG, and support for 100+ LLMs.",
+      "topics": [
+        "agents",
+        "ai",
+        "ai-agent-framework",
+        "ai-agent-sdk",
+        "ai-agents",
+        "ai-agents-framework",
+        "ai-agents-sdk",
+        "ai-framwork",
+        "aiagent",
+        "aiagentframework",
+        "aiagents",
+        "aiagentsframework",
+        "framework",
+        "hermes",
+        "hermes-agent",
+        "multi-agent",
+        "multi-agent-system",
+        "multi-agents",
+        "multi-ai-agents",
+        "openclaw"
+      ],
+      "pushedAt": "2026-10-02T17:38:45Z",
+      "url": "https://github.com/MervinPraison/PraisonAI",
+      "evidence": {
+        "count": 0,
+        "quoted": [],
+        "readme": "https://raw.githubusercontent.com/MervinPraison/PraisonAI/main/README.md"
+      }
+    },
+    {
+      "repo": "mnfst/llm-gateway",
+      "stars": 7551,
+      "description": "Connect Your Agents And Harnesses With Any Provider 🦚",
+      "topics": [
+        "ai",
+        "ai-",
+        "ai-sdk",
+        "anthropic",
+        "byok",
+        "cost-tracking",
+        "gateway",
+        "hermes-agent",
+        "llm-observability",
+        "llm-router",
+        "open-source",
+        "openai-api",
+        "openclaw",
+        "subscription",
+        "token-tracking"
+      ],
+      "pushedAt": "2026-10-03T06:45:28Z",
+      "url": "https://github.com/mnfst/llm-gateway",
+      "evidence": {
+        "count": 0,
+        "quoted": [],
+        "readme": "https://raw.githubusercontent.com/mnfst/llm-gateway/main/README.md"
+      }
+    },
+    {
+      "repo": "outsourc-e/hermes-workspace",
+      "stars": 6679,
+      "description": "Native web workspace for Hermes Agent — chat, terminal, memory, skills, inspector.",
+      "topics": [
+        "agent-ui",
+        "ai-workspace",
+        "hackathon",
+        "hermes-agent",
+        "nous-research",
+        "react",
+        "typescript"
+      ],
+      "pushedAt": "2026-09-29T23:49:31Z",
+      "url": "https://github.com/outsourc-e/hermes-workspace",
+      "evidence": {
+        "count": 148,
+        "quoted": [
+          "<img src=\"./public/claude-avatar.webp\" alt=\"Hermes Workspace\" width=\"80\" style=\"border-radius: 16px\" />",
+          "# Hermes Workspace",
+          "> **v2 — zero-fork.** Clone, don't fork. Runs on vanilla [`NousResearch/hermes-agent`](https://github.com/NousResearch/hermes-agent) installed via Nous's own installer. Chat, sessions, memory, skills, jobs, MCP, terminal, dashboard, Agent View, and Operations are all in vanilla parity. **Conductor** uses the dashboard mission API when available and falls back to Workspace-native Swarm dispatch (`mode: native-swarm`) when the dashboard endpoint is absent, preserving zero-fork behavior ([#262](https://github.com/outsourc-e/hermes-workspace/issues/262)).",
+          "![Hermes Workspace](./docs/screenshots/splash.png)"
+        ],
+        "readme": "https://raw.githubusercontent.com/outsourc-e/hermes-workspace/main/README.md"
+      }
+    },
+    {
+      "repo": "Devin-AXIS/iPolloWork",
+      "stars": 6591,
+      "description": "Enterprise-grade, local-first Agent Workbench for people and agent teams. A unified multi-engine workspace for Codex Harness, DeepSeek Harness, and OpenCode, with unified plugins and Skills, multi-agent projects and tasks, and editable code, documents, presentations, design, and video.",
+      "topics": [
+        "agent-collaboration",
+        "agent-skills",
+        "ai-agents",
+        "ai-work",
+        "claude-code",
+        "codex",
+        "codex-plugin",
+        "deepseek-harness",
+        "dsh-plugin",
+        "enterprise-agent-workspace",
+        "hermes-agent",
+        "ipollowork-plugin",
+        "ipollowork-skill",
+        "multi-agent-workspace",
+        "opencode",
+        "opencode-plugin",
+        "self-evolving-ai",
+        "visual-editor"
+      ],
+      "pushedAt": "2026-10-03T06:17:34Z",
+      "url": "https://github.com/Devin-AXIS/iPolloWork",
+      "evidence": {
+        "count": 0,
+        "quoted": [],
+        "readme": "https://raw.githubusercontent.com/Devin-AXIS/iPolloWork/main/README.md"
+      }
+    },
+    {
+      "repo": "ThinkInAIXYZ/deepchat",
+      "stars": 6357,
+      "description": "🐬DeepChat - A smart assistant that connects powerful AI to your personal world",
+      "topics": [
+        "agent",
+        "agent-skills",
+        "ai",
+        "ai-assistant",
+        "ai-sdk",
+        "chatgpt",
+        "claude",
+        "cross-platform",
+        "deepseek",
+        "electron",
+        "gemini",
+        "harness-design",
+        "hermes-agent",
+        "llm-client",
+        "mcp",
+        "mcp-client",
+        "openai-client",
+        "openclaw"
+      ],
+      "pushedAt": "2026-10-03T06:09:17Z",
+      "url": "https://github.com/ThinkInAIXYZ/deepchat",
+      "evidence": {
+        "count": 0,
+        "quoted": [],
+        "readme": "https://raw.githubusercontent.com/ThinkInAIXYZ/deepchat/dev/README.md"
+      }
+    },
+    {
+      "repo": "internet-court/internet-court-skill",
+      "stars": 6336,
+      "description": "The trust layer for agent-to-agent commerce — natural-language mandates, ERC-7710 delegated permissions, x402 payments, escrow, and dispute resolution as one open, catch-all Agent Skill / Claude Code plugin.",
+      "topics": [
+        "a2a",
+        "adjudication",
+        "agent-payments",
+        "agent-skills",
+        "agentic-commerce",
+        "ai-agents",
+        "claude-code",
+        "claude-plugin",
+        "claude-skill",
+        "codex",
+        "dispute-resolution",
+        "erc-7710",
+        "erc-8004",
+        "escrow",
+        "genlayer",
+        "hermes-agent",
+        "openclaw",
+        "opencode",
+        "web3",
+        "x402"
+      ],
+      "pushedAt": "2026-08-19T15:00:54Z",
+      "url": "https://github.com/internet-court/internet-court-skill",
+      "evidence": {
+        "count": 3,
+        "quoted": [
+          "git clone https://github.com/internet-court/internet-court-skill ~/.hermes/skills/internet-court",
+          "# or as a tap:  hermes skills tap add internet-court/internet-court-skill",
+          "Prefer the clone/tap over `hermes skills install <url>`, which currently fetches"
+        ],
+        "readme": "https://raw.githubusercontent.com/internet-court/internet-court-skill/main/README.md"
+      }
+    },
+    {
+      "repo": "Sylinko/Everywhere",
+      "stars": 6304,
+      "description": "On-screen aware AI assistant for your desktop. Uses current app context, multiple LLMs, and MCP tools to help you act across apps.",
+      "topics": [
+        "ai",
+        "ai-agents",
+        "ai-assistant",
+        "avalonia",
+        "claude",
+        "deepseek",
+        "desktop-app",
+        "flow-state",
+        "gemini",
+        "hermes-agent",
+        "mcp",
+        "on-screen-awareness",
+        "openai",
+        "openclaw",
+        "personal",
+        "skills"
+      ],
+      "pushedAt": "2026-10-02T16:56:03Z",
+      "url": "https://github.com/Sylinko/Everywhere",
+      "evidence": {
+        "count": 0,
+        "quoted": [],
+        "readme": "https://raw.githubusercontent.com/Sylinko/Everywhere/main/README.md"
+      }
+    },
+    {
+      "repo": "the-open-agent/openagent",
+      "stars": 5684,
+      "description": "⚡️next-generation personal AI assistant powered by LLM, RAG and agent loops, supporting computer-use, browser-use and coding agent, demo: https://demo.openagentai.org",
+      "topics": [
+        "agent",
+        "agentic",
+        "agentic-ai",
+        "agi",
+        "chatbot",
+        "chatgpt",
+        "gpt",
+        "harness",
+        "hermes-agent",
+        "knowledge-base",
+        "langchain",
+        "llm",
+        "mcp",
+        "model-context-protocol",
+        "multi-agent",
+        "openagent",
+        "openai",
+        "openclaw",
+        "rag"
+      ],
+      "pushedAt": "2026-10-01T12:23:43Z",
+      "url": "https://github.com/the-open-agent/openagent",
+      "evidence": {
+        "count": 0,
+        "quoted": [],
+        "readme": "https://raw.githubusercontent.com/the-open-agent/openagent/master/README.md"
+      }
+    },
+    {
+      "repo": "EverMind-AI/Raven",
+      "stars": 5088,
+      "description": "The Harness of Harnesses • built for RSI: a trusted, persistent, self-evolving multi-agent ecosystem for all-domain collaboration.",
+      "topics": [
+        "ai",
+        "ai-agents",
+        "anthropic",
+        "chatgpt",
+        "claude",
+        "codex",
+        "evermind",
+        "hermes",
+        "hermes-agent",
+        "llm",
+        "openai",
+        "openclaw",
+        "openhuman",
+        "recursive-self-improvement",
+        "rsi",
+        "rsi-ai",
+        "self-evolving",
+        "self-improving"
+      ],
+      "pushedAt": "2026-10-03T07:02:10Z",
+      "url": "https://github.com/EverMind-AI/Raven",
+      "evidence": {
+        "count": 4,
+        "quoted": [
+          "<a href=\"https://github.com/user-attachments/assets/103c49f8-f31d-4735-8bfd-84cae9baee46\"><img src=\"https://github.com/user-attachments/assets/103c49f8-f31d-4735-8bfd-84cae9baee46\" alt=\"Visual Design: Raven-Design, Claude Code, and Hermes on ArtifactsBench Dashboard, ArtifactsBench SVG, and GDPVal\" width=\"95%\"></a>",
+          "<img src=\"https://github.com/user-attachments/assets/3370c883-00ac-4471-97ef-f4312df77202\" width=\"80%\" alt=\"Third-party agents: Claude Code, Codex, OpenCode, Hermes Agent, OpenClaw, MiroThinker, GitHub Copilot, Qwen Code, CodeBuddy, Qoder, Grok Build, Kimi Code, and Pi\">",
+          "<td><strong><a href=\"https://github.com/NousResearch/hermes-agent\">Hermes Agent</a></strong></td>",
+          "<td><a href=\"https://github.com/EverMind-AI/plugins/tree/main/hermes\">Hermes plugin</a> for persistent memory across Hermes sessions.</td>"
+        ],
+        "readme": "https://raw.githubusercontent.com/EverMind-AI/Raven/main/README.md"
+      }
+    },
+    {
+      "repo": "liustack/modlens",
+      "stars": 4108,
+      "description": "The first vision plugin for DeepSeek Harness, and the vision bridge for every text-only coding agent. Paste an image, get structured JSON evidence (OCR, layout, semantics). | 全网最强 DeepSeek Harness 外挂视觉插件，为 DeepSeek、GLM 等纯文本模型外挂视觉能力，粘贴图片即得结构化 JSON 证据（OCR、版面、语义）。",
+      "topics": [
+        "agent-skills",
+        "claude-code",
+        "claude-skills",
+        "codex",
+        "cordis",
+        "deepseek",
+        "dsh",
+        "dsh-plugin",
+        "glm",
+        "harness",
+        "harness-engineering",
+        "hermes-agent",
+        "image-to-text",
+        "multimodal",
+        "ocr",
+        "openclaw",
+        "pi-agent",
+        "text-only-llm",
+        "vision",
+        "vision-transformer"
+      ],
+      "pushedAt": "2026-09-27T20:45:40Z",
+      "url": "https://github.com/liustack/modlens",
+      "evidence": {
+        "count": 0,
+        "quoted": [],
+        "readme": "https://raw.githubusercontent.com/liustack/modlens/main/README.md"
+      }
+    },
+    {
+      "repo": "tutti-os/tutti",
+      "stars": 3789,
+      "description": "Where people and agents build in tune.",
+      "topics": [
+        "agent-collaboration",
+        "agent-orchestration",
+        "agent-workspace",
+        "agentic-ai",
+        "agentic-workflow",
+        "ai-agents",
+        "ai-tools",
+        "ai-workspace",
+        "claude-code",
+        "codex",
+        "coding-agent",
+        "desktop-app",
+        "developer-tools",
+        "hermes-agent",
+        "local-first",
+        "macos-app",
+        "mcp",
+        "multi-agent",
+        "shared-context",
+        "vibe-coding"
+      ],
+      "pushedAt": "2026-09-05T07:16:52Z",
+      "url": "https://github.com/tutti-os/tutti",
+      "evidence": {
+        "count": 3,
+        "quoted": [
+          "With shared visibility into each other's work, agents can avoid or resolve conflicts and decide whether work should run in parallel or in sequence. Agents from different providers, such as Claude and Codex, or OpenClaw (DeepSeek) and Hermes, can work together without getting in each other's way.",
+          "Connect the agent subscriptions you already have. Every app and agent runs on top of them, at zero extra cost. (Currently Claude Code, Codex, and Hermes; OpenClaw is in development.)",
+          "| **Subscriptions** | Your own Claude, Codex, and other subscriptions<br>(Currently Claude Code, Codex, and Hermes; OpenClaw is in development.) | Your own Claude, Codex, and other subscriptions<br>(Currently Claude Code, Codex, and Hermes; OpenClaw is in development.)                                                                                                                                                                                          |"
+        ],
+        "readme": "https://raw.githubusercontent.com/tutti-os/tutti/main/README.md"
+      }
+    },
+    {
+      "repo": "mnemosyne-oss/mnemosyne",
+      "stars": 3325,
+      "description": "Zero-cloud AI memory that works everywhere. SQLite-backed. One pure-Python dependency.",
+      "topics": [
+        "agents",
+        "ai",
+        "hermes",
+        "hermes-agent",
+        "ml",
+        "nousresearch"
+      ],
+      "pushedAt": "2026-10-02T06:38:52Z",
+      "url": "https://github.com/mnemosyne-oss/mnemosyne",
+      "evidence": {
+        "count": 29,
+        "quoted": [
+          "**Mnemosyne** is a universal, Hermes-first memory layer that works with any agent framework (Claude Code, Cursor, Codex, OpenWebUI, OpenClaw, or your own custom agent). One `pip install`, one SQLite database. No external services required.",
+          "- [Hermes Plugin](#hermes-plugin)",
+          "| **Hermes Agent** | MCP + Plugin | Native -- ships enabled |",
+          "|  (Hermes - Claude Code - Cursor - Codex - OpenWebUI - MCP) |"
+        ],
+        "readme": "https://raw.githubusercontent.com/mnemosyne-oss/mnemosyne/main/README.md"
+      }
+    },
+    {
+      "repo": "agent-of-empires/agent-of-empires",
+      "stars": 3312,
+      "description": "Manage multiple Claude Code, OpenCode agents from either TUI or Web for easy access on mobile. Also supports Mistral Vibe, Codex CLI, Gemini CLI, Pi.dev, Copilot CLI, Factory Droid Coding.",
+      "topics": [
+        "ai-coding",
+        "claude",
+        "claude-code",
+        "cli",
+        "codex",
+        "cursor",
+        "factory-droid-cli",
+        "gemini",
+        "gemini-cli",
+        "github-copilot-cli",
+        "hermes-agent",
+        "llm",
+        "mistral-vibe",
+        "opencode",
+        "orchestrator",
+        "pi",
+        "terminal",
+        "tmux",
+        "vibe",
+        "vibe-coding"
+      ],
+      "pushedAt": "2026-10-02T15:28:46Z",
+      "url": "https://github.com/agent-of-empires/agent-of-empires",
+      "evidence": {
+        "count": 0,
+        "quoted": [],
+        "readme": "https://raw.githubusercontent.com/agent-of-empires/agent-of-empires/main/README.md"
+      }
+    },
+    {
+      "repo": "liaohch3/claude-tap",
+      "stars": 3258,
+      "description": "Intercept and inspect Coding Agent API traffic from Claude Code, Codex CLI, Gemini CLI, Cursor CLI, OpenCode, Kimi/Kimi Code, Pi, and Hermes in a local trace viewer.",
+      "topics": [
+        "agent-debugging",
+        "agent-observability",
+        "ai-agents",
+        "ai-tools",
+        "api-debugging",
+        "claude-code",
+        "codex",
+        "codex-cli",
+        "cursor-cli",
+        "developer-tools",
+        "gemini-cli",
+        "hermes-agent",
+        "kimi",
+        "llm",
+        "llm-proxy",
+        "opencode",
+        "pi-coding-agent",
+        "proxy",
+        "trace",
+        "trace-viewer"
+      ],
+      "pushedAt": "2026-09-22T12:22:17Z",
+      "url": "https://github.com/liaohch3/claude-tap",
+      "evidence": {
+        "count": 12,
+        "quoted": [
+          "It works with [Claude Code](https://docs.anthropic.com/en/docs/claude-code), [Codex CLI](https://github.com/openai/codex), [Codex App](https://openai.com/codex/), [Gemini CLI](https://github.com/google-gemini/gemini-cli), [Grok Build CLI](https://docs.x.ai/build/overview), [Kimi CLI](https://github.com/MoonshotAI/kimi-cli), [MiMo Code](https://mimo.xiaomi.com/en/mimocode), [OpenCode](https://opencode.ai), [OpenClaw](https://github.com/openclaw/openclaw), [Pi](https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent), [Hermes Agent](https://github.com/NousResearch/hermes-agent), [Cursor CLI](https://cursor.com/cli), [Qoder CLI](https://qoder.com/cli), [Antigravity CLI](https://antigravity.google/product/antigravity-cli), and [CodeBuddy CLI](https://www.codebuddy.ai).",
+          "- 🧩 **Use one workflow across clients**: trace Claude Code, Codex CLI, Codex App, Gemini CLI, Grok Build CLI, DeepSeek Harness, Kimi CLI, MiMo Code, OpenCode, OpenClaw, Pi, Hermes Agent, Cursor CLI, Qoder CLI, and CodeBuddy.",
+          "| [Hermes Agent](https://github.com/NousResearch/hermes-agent) | Multi-provider Hermes TUI or gateway sessions |",
+          "<summary>Hermes Agent examples</summary>"
+        ],
+        "readme": "https://raw.githubusercontent.com/liaohch3/claude-tap/main/README.md"
+      }
+    },
+    {
+      "repo": "rlaope/oh-my-hermes",
+      "stars": 3074,
+      "description": "All in one plugin for Hermes Agent ⚚ the coding intelligence, a long-term memory system and model optimized workflow packages",
+      "topics": [
+        "agent",
+        "ai",
+        "ai-agent",
+        "ai-tools",
+        "claude-code",
+        "codex",
+        "hermes-agent",
+        "hermes-skill",
+        "skills"
+      ],
+      "pushedAt": "2026-10-02T09:23:20Z",
+      "url": "https://github.com/rlaope/oh-my-hermes",
+      "evidence": {
+        "count": 82,
+        "quoted": [
+          "<img src=\"assets/oh-my-hermes-wordmark.png\" alt=\"OH-MY-HERMES\" width=\"100%\" style=\"display:block;max-width:none;height:auto\">",
+          "# oh-my-hermes",
+          "<a href=\"https://github.com/rlaope/oh-my-hermes\"><img alt=\"GitHub\" src=\"https://img.shields.io/badge/github-rlaope%2Foh--my--hermes-181717?logo=github\"></a>",
+          "<a href=\"https://github.com/NousResearch/hermes-agent\"><img alt=\"Hermes Agent\" src=\"https://img.shields.io/badge/Hermes%20Agent-NousResearch-6f42c1?logo=github\"></a>"
+        ],
+        "readme": "https://raw.githubusercontent.com/rlaope/oh-my-hermes/main/README.md"
+      }
+    },
+    {
+      "repo": "Tiger3807861189/J-Space-Cognition-Suite",
+      "stars": 2999,
+      "description": "J-Space Cognition Suite — a model-agnostic inference-time control suite for deep reasoning, long-horizon work, verification, and recovery. Based on Anthropic's J-space global workspace research.",
+      "topics": [
+        "agent-skills",
+        "ai",
+        "ai-agent",
+        "ai-agents",
+        "claude-code",
+        "codex",
+        "cognitive-enhancement",
+        "deepseek",
+        "deepseek-harness",
+        "developer-tools",
+        "dsh",
+        "dsh-plugin",
+        "global-workspace",
+        "hermes-agent",
+        "inference-time-control",
+        "j-space",
+        "opencode",
+        "react",
+        "tailwindcss"
+      ],
+      "pushedAt": "2026-09-14T03:26:53Z",
+      "url": "https://github.com/Tiger3807861189/J-Space-Cognition-Suite",
+      "evidence": {
+        "count": 0,
+        "quoted": [],
+        "readme": "https://raw.githubusercontent.com/Tiger3807861189/J-Space-Cognition-Suite/main/README.md"
+      }
+    },
+    {
+      "repo": "qingchencloud/clawpanel",
+      "stars": 2935,
+      "description": "🦞 OpenClaw & Hermes Agent 多引擎 AI 管理面板 — 内置 AI 助手（工具调用 + 图片识别 + 多模态），一键安装 | Tauri v2 跨平台桌面应用 | 11 种语言",
+      "topics": [
+        "admin-panel",
+        "ai-agent",
+        "ai-assistant",
+        "ai-chat",
+        "ai-tools",
+        "chatgpt",
+        "cross-platform",
+        "deepseek",
+        "desktop-app",
+        "hermes-agent",
+        "llm",
+        "management-panel",
+        "multi-engine",
+        "openclaw",
+        "openclaw-panel",
+        "rust",
+        "tauri",
+        "tauri-v2",
+        "tool-calling",
+        "vite"
+      ],
+      "pushedAt": "2026-09-15T07:09:18Z",
+      "url": "https://github.com/qingchencloud/clawpanel",
+      "evidence": {
+        "count": 14,
+        "quoted": [
+          "内置 AI 助手的 OpenClaw、Hermes Agent 与 DeepSeek Harness 管理面板",
+          "ClawPanel 是支持多 AI Agent 框架的可视化管理面板，目前支持 [OpenClaw](https://github.com/1186258278/OpenClawChineseTranslation)、[Hermes Agent](https://github.com/nousresearch/hermes-agent) 和 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 三引擎。**内置智能 AI 助手**，帮你一键安装、自动诊断配置、排查问题、修复错误。8 大工具 + 4 种模式 + 交互式问答，从新手到老手都能轻松管理。",
+          "## ✨ Hermes Agent 第二引擎：会话、记忆、人格与工具全景管理",
+          "<a href=\"docs/hermes-agent.md\">"
+        ],
+        "readme": "https://raw.githubusercontent.com/qingchencloud/clawpanel/main/README.md"
+      }
+    },
+    {
+      "repo": "AtomicBot-ai/atomic-agent",
+      "stars": 2678,
+      "description": "Atomic Agent is a local-first AI agent. Runs open-weight models on your own machine via llama.cpp.",
+      "topics": [
+        "agents",
+        "ai-agent",
+        "browser-automation",
+        "cli",
+        "gbnf",
+        "gguf",
+        "hermes-agent",
+        "llama-cpp",
+        "llm",
+        "local-ai-agent",
+        "local-first",
+        "local-llm",
+        "mcp",
+        "nodejs",
+        "openai",
+        "openclaw",
+        "playwright",
+        "tui",
+        "typescript"
+      ],
+      "pushedAt": "2026-10-02T17:30:12Z",
+      "url": "https://github.com/AtomicBot-ai/atomic-agent",
+      "evidence": {
+        "count": 8,
+        "quoted": [
+          "> - **Hermes:** sessions, cron jobs, and (opt-in) provider keys",
+          "> Later, run `/import` in the TUI or `atomic-agent import <hermes|openclaw|claude-code|codex|pi|oh-my-pi>` from the shell.",
+          "On the public **GAIA validation Level 1** split (53 tasks), Atomic Agent and Hermes drove the **same** local `qwen-3.6-35b-a3b` (`llama-server`, UD-Q4_K_XL), with the same step budget and timeout. The only variable is the agent loop.",
+          "![GAIA Level 1 benchmark: Atomic Agent 69.8% vs Hermes 58.5%](assets/gaia-l1-benchmark.png)"
+        ],
+        "readme": "https://raw.githubusercontent.com/AtomicBot-ai/atomic-agent/main/README.md"
+      }
+    },
+    {
+      "repo": "LearnPrompt/LearnPrompt",
+      "stars": 2673,
+      "description": "永久免费开源的 AIGC 课程, 目前已支持Claude Code，Codex，Hermes，OpenClaw，Obsidian，Prompt Engineering, ChatGPT, Midjourney, Runway, Stable Diffusion, AI数字人，AI声音&音乐，开源大模型",
+      "topics": [
+        "agent",
+        "aimusic",
+        "aivoice",
+        "chatgpt-app",
+        "claude-code",
+        "cli",
+        "codex",
+        "hermes-agent",
+        "llms-book",
+        "midjourney-app",
+        "openclaw",
+        "prompt",
+        "prompt-enginering",
+        "prompt-learning",
+        "stable-diffusion"
+      ],
+      "pushedAt": "2026-10-02T16:28:03Z",
+      "url": "https://github.com/LearnPrompt/LearnPrompt",
+      "evidence": {
+        "count": 3,
+        "quoted": [
+          "LearnPrompt是我的来时路，也是这个账号最早的公共项目。它是一套持续维护的中文AI学习路径，覆盖Claude Code，Codex，OpenClaw，Hermes，提示语工程，ChatGPT，RAG，Agent，AI编程，Agent Skills，Obsidian，Midjourney，Runway，Stable Diffusion，数字人，AI声音与音乐和大模型微调等主题。",
+          "Carl Skills就是这个方向的新仓库。它会逐步收纳内容生产，资料整理，工具评测，PPT制作，飞书和Obsidian协作，Hermes/Codex/OpenClaw实践里长出来的AI workflows。",
+          "- 从学会某个工具，走向搭建自己的AI工作台。ChatGPT、Claude Code、Codex、Hermes、OpenClaw、Obsidian、飞书，都应该被放进同一个工作流里理解。"
+        ],
+        "readme": "https://raw.githubusercontent.com/LearnPrompt/LearnPrompt/main/README.md"
+      }
+    },
+    {
+      "repo": "Javis603/token-monitor",
+      "stars": 2559,
+      "description": "Local-first desktop widget for tracking token usage, costs, and limits across 43+ AI coding tools—including Claude Code, Codex, Cursor, OpenCode, OpenClaw, and more—with multi-device sync.",
+      "topics": [
+        "ai",
+        "ai-tools",
+        "antigravity",
+        "claude-code",
+        "codex",
+        "cursor",
+        "deepseek",
+        "deepseek-harness",
+        "dsh",
+        "hermes-agent",
+        "linux",
+        "llm",
+        "local-first",
+        "macos",
+        "openclaw",
+        "opencode",
+        "self-hosted",
+        "token-tracker",
+        "token-usage",
+        "windows"
+      ],
+      "pushedAt": "2026-10-03T00:40:17Z",
+      "url": "https://github.com/Javis603/token-monitor",
+      "evidence": {
+        "count": 4,
+        "quoted": [
+          "| <img src=\".github/assets/tools-icon/hermes-agent.png\" width=\"28\" alt=\"Hermes Agent\" /> | Hermes Agent | `~/.hermes/state.db` | ✅ | — | — |",
+          "- Paths above are the defaults. Token Monitor follows the same environment overrides Tokscale does — `$XDG_DATA_HOME` for the `~/.local/share/` roots, and per-tool variables such as `$CODEX_HOME`, `$GROK_HOME`, `$HERMES_HOME`, `$KIMI_CODE_HOME`, `$UNSLOTH_STUDIO_HOME`, `$LM_STUDIO_HOME`, `$DSH_HOME`, `$REASONIX_STATE_HOME`, `$REASONIX_HOME` and the `$CLINE_*` family.",
+          "- **WSL usage (Windows)** — file-based usage from a running WSL distro is detected automatically and merged about every 5 minutes; SQLite-backed tools such as OpenCode and Hermes may require a [headless agent inside WSL](docs/wsl-sqlite-setup.md)",
+          "widget (Electron) ──▶ tokscale ──▶ ~/.claude, ~/.codex, $HERMES_HOME"
+        ],
+        "readme": "https://raw.githubusercontent.com/Javis603/token-monitor/main/README.md"
+      }
+    },
+    {
+      "repo": "lennney/stop-that-shit",
+      "stars": 2456,
+      "description": "Stop That Shit（别再造史了）｜面向 Codex/GPT 场景的多平台 Hook + Skill Guard：拦截 AI coding agent 无需求的哈希、校验和与任务范围膨胀。 A multi-platform Hook + Skill Guard for AI coding agents in Codex/GPT workflows: stop unrequested hashes, checksums, and task-scope creep.",
+      "topics": [
+        "agent-skills",
+        "ai-agents",
+        "ai-coding",
+        "claude-code",
+        "codex",
+        "codex-cli",
+        "codex-plugin",
+        "developer-tools",
+        "guardrails",
+        "hermes-agent",
+        "local-first",
+        "opencode",
+        "overengineering",
+        "scope-control",
+        "yagni"
+      ],
+      "pushedAt": "2026-10-01T15:03:14Z",
+      "url": "https://github.com/lennney/stop-that-shit",
+      "evidence": {
+        "count": 8,
+        "quoted": [
+          "Codex · Claude Code · OpenCode · Hermes Agent CLI · Pi<br>",
+          "<summary>Hermes Agent CLI</summary>",
+          "hermes plugins install lennney/stop-that-shit/.hermes-plugin --no-enable",
+          "hermes plugins enable stop-that-shit"
+        ],
+        "readme": "https://raw.githubusercontent.com/lennney/stop-that-shit/main/README.md"
+      }
+    },
+    {
+      "repo": "moorcheh-ai/memanto",
+      "stars": 2309,
+      "description": "Memory that AI Agents Love!",
+      "topics": [
+        "agent-memory",
+        "ai-agents",
+        "ai-memory",
+        "ai-memory-system",
+        "hermes-agent",
+        "long-term-memory",
+        "memanto",
+        "memory",
+        "memory-management",
+        "moorcheh",
+        "multi-agent",
+        "semantic-memory",
+        "stateful-ai"
+      ],
+      "pushedAt": "2026-10-02T20:16:31Z",
+      "url": "https://github.com/moorcheh-ai/memanto",
+      "evidence": {
+        "count": 0,
+        "quoted": [],
+        "readme": "https://raw.githubusercontent.com/moorcheh-ai/memanto/main/README.md"
+      }
+    },
+    {
+      "repo": "Stack-Cairn/LiveAgent",
+      "stars": 2209,
+      "description": "A fully functional AI Agent desktop client that supports Webui access and can be creatively customized and expanded!",
+      "topics": [
+        "ai-agents",
+        "ai-tools",
+        "claude-code",
+        "claude-desktop",
+        "codex",
+        "codex-app",
+        "desktop-app",
+        "fable",
+        "hermes",
+        "hermes-agent",
+        "mcp",
+        "oepnclaw",
+        "open-source",
+        "skills",
+        "tauri",
+        "typescript",
+        "webui"
+      ],
+      "pushedAt": "2026-10-03T06:36:28Z",
+      "url": "https://github.com/Stack-Cairn/LiveAgent",
+      "evidence": {
+        "count": 0,
+        "quoted": [],
+        "readme": "https://raw.githubusercontent.com/Stack-Cairn/LiveAgent/main/README.md"
+      }
+    },
+    {
+      "repo": "dodo-reach/hermes-desktop",
+      "stars": 2023,
+      "description": "The safest, simplest way to manage Hermes from your Mac. Pure SSH. No gateways, no exposed ports, no browser layer.",
+      "topics": [
+        "agent-tools",
+        "apple-silicon",
+        "developer-tools",
+        "hermes",
+        "hermes-agent",
+        "macos",
+        "remote-development",
+        "ssh",
+        "swift",
+        "swiftui",
+        "terminal"
+      ],
+      "pushedAt": "2026-06-19T10:52:35Z",
+      "url": "https://github.com/dodo-reach/hermes-desktop",
+      "evidence": {
+        "count": 118,
+        "quoted": [
+          "# Hermes Desktop",
+          "Native macOS companion for Hermes Agent, directly on this Mac or over SSH.",
+          "It turns the daily Hermes loop into something you can actually live in on a",
+          "If Hermes is already part of how you work, the app should feel immediately"
+        ],
+        "readme": "https://raw.githubusercontent.com/dodo-reach/hermes-desktop/main/README.md"
+      }
+    },
+    {
+      "repo": "MemTensor/memmy-agent",
+      "stars": 2006,
+      "description": "🍙  A personal AI agent & local memory hub for all AI agents, gives every AI one shared, fully controlled memory and persistent context — all AI remember the same you. Now supports Claude Code, Codex, OpenClaw and Hermes Agent etc.",
+      "topics": [
+        "agent",
+        "agentic-ai",
+        "ai-agents",
+        "chatgpt",
+        "claude-code",
+        "cli",
+        "codex",
+        "cursor",
+        "desktop-app",
+        "desktop-pet",
+        "dsh-plugin",
+        "hermes-agent",
+        "llm",
+        "long-term-memory",
+        "mcp",
+        "memory",
+        "openai-api",
+        "openclaw",
+        "personal-ai",
+        "tui"
+      ],
+      "pushedAt": "2026-09-30T12:23:27Z",
+      "url": "https://github.com/MemTensor/memmy-agent",
+      "evidence": {
+        "count": 2,
+        "quoted": [
+          "**DeepSeek Harness, OpenClaw, Hermes, Claude Code, Codex, Cursor, WorkBuddy, OpenCode, Pi...they all work!**",
+          "- **[hermes-agent](https://github.com/NousResearch/hermes-agent)** — the self-evolving Agent built by Nous Research; its practice in persistent memory and skill self-learning showed us that an Agent can \"understand you better the more you use it\"."
+        ],
+        "readme": "https://raw.githubusercontent.com/MemTensor/memmy-agent/main/README.md"
+      }
+    },
+    {
+      "repo": "undertheseanlp/underthesea",
+      "stars": 1807,
+      "description": "Underthesea - AI Assistant",
+      "topics": [
+        "agentic-ai",
+        "agents",
+        "ai",
+        "assistant",
+        "hermes-agent",
+        "llm",
+        "nlp",
+        "openclaw",
+        "vietnamese",
+        "word-segmenter"
+      ],
+      "pushedAt": "2026-09-28T05:20:52Z",
+      "url": "https://github.com/undertheseanlp/underthesea",
+      "evidence": {
+        "count": 0,
+        "quoted": [],
+        "readme": "https://raw.githubusercontent.com/undertheseanlp/underthesea/main/README.md"
+      }
+    },
+    {
+      "repo": "Jamailar/Beav",
+      "stars": 1793,
+      "description": "小红书 AI 运营工作台｜小红书采集、评论区下载、素材库、选题、AI写作、小红书全域解决方案，开箱即用，一键安装，小红书AI工作台，自媒体素材库，AI写作+图片自动编排，小红书版OpenClaw、自媒体资产底座+AI工作台，支持小红书图文+小红书评论区下载、小红书AI创作工具、自媒体版WorkBuddy、抖音、小红书爬虫数据采集",
+      "topics": [
+        "ai",
+        "ai-agents",
+        "content-creation",
+        "harness-engineering",
+        "hermes",
+        "hermes-agent",
+        "openclaw",
+        "skills",
+        "xhs",
+        "xhs-downloader",
+        "xhs-tool",
+        "xiaohongshu",
+        "xiaohongshu-downloader",
+        "xiaohongshu-scraper"
+      ],
+      "pushedAt": "2026-10-02T20:28:26Z",
+      "url": "https://github.com/Jamailar/Beav",
+      "evidence": {
+        "count": 0,
+        "quoted": [],
+        "readme": "https://raw.githubusercontent.com/Jamailar/Beav/main/README.md"
+      }
+    },
+    {
+      "repo": "Eynzof/Hermes-CN-Desktop",
+      "stars": 1736,
+      "description": "Hermes Agent CN desktop app, Windows-First, built with Tauri, Typescript and Rust. Isolated Hermes Agent core insides. ",
+      "topics": [
+        "ai-agent",
+        "desktop-app",
+        "hermes-agent",
+        "react",
+        "rust",
+        "tauri",
+        "typescript"
+      ],
+      "pushedAt": "2026-09-21T04:54:27Z",
+      "url": "https://github.com/Eynzof/Hermes-CN-Desktop",
+      "evidence": {
+        "count": 35,
+        "quoted": [
+          "# Hermes Agent CN Desktop",
+          "[![web-test](https://github.com/Eynzof/Hermes-CN-Desktop/actions/workflows/web-test.yml/badge.svg)](https://github.com/Eynzof/Hermes-CN-Desktop/actions/workflows/web-test.yml)",
+          "[![rust-test](https://github.com/Eynzof/Hermes-CN-Desktop/actions/workflows/rust-test.yml/badge.svg)](https://github.com/Eynzof/Hermes-CN-Desktop/actions/workflows/rust-test.yml)",
+          "[![release-desktop](https://github.com/Eynzof/Hermes-CN-Desktop/actions/workflows/release-desktop.yml/badge.svg?event=push)](https://github.com/Eynzof/Hermes-CN-Desktop/actions/workflows/release-desktop.yml)"
+        ],
+        "readme": "https://raw.githubusercontent.com/Eynzof/Hermes-CN-Desktop/main/README.md"
+      }
+    },
+    {
+      "repo": "shiwenwen/hope-agent",
+      "stars": 1718,
+      "description": "🦭 A cross-device desktop AI agent with memory, autonomous goals, dynamic workflows, and headless deployment | 会记忆、能持续推进目标、会动态编排多 Agent 的跨端桌面 AI 助手，也可服务化常驻 NAS / 云端",
+      "topics": [
+        "agent",
+        "ai",
+        "ai-assistant",
+        "anthropic",
+        "chatbot",
+        "claude",
+        "claw",
+        "codex",
+        "cross-device",
+        "desktop-app",
+        "gemini",
+        "handoff",
+        "harness",
+        "hermes-agent",
+        "llm",
+        "local-ai",
+        "mcp",
+        "openai",
+        "openclaw",
+        "personal"
+      ],
+      "pushedAt": "2026-10-02T22:14:26Z",
+      "url": "https://github.com/shiwenwen/hope-agent",
+      "evidence": {
+        "count": 0,
+        "quoted": [],
+        "readme": "https://raw.githubusercontent.com/shiwenwen/hope-agent/main/README.md"
+      }
+    },
+    {
+      "repo": "ray-r-ren/agent-apprenticeship",
+      "stars": 1617,
+      "description": "The living ecosystem where AI agents complete tasks through workflow loops, improve through iterative execution, are evaluated by mentor agents or humans in the loop, and turn completed work into reusable work experience and data to improve future agents.",
+      "topics": [
+        "agent-apprenticeship",
+        "agent-economy",
+        "agent-experience",
+        "agent-learning",
+        "agent-traces",
+        "agentic-ai",
+        "ai-agents",
+        "autonomous-agents",
+        "claude-code",
+        "codex",
+        "cursor",
+        "ecosystem-learning",
+        "hermes-agent",
+        "loop-engineering",
+        "openclaw",
+        "opencode",
+        "post-training",
+        "real-world-tasks",
+        "reinforcement-learning",
+        "training-signals"
+      ],
+      "pushedAt": "2026-07-06T15:17:36Z",
+      "url": "https://github.com/ray-r-ren/agent-apprenticeship"
+    },
+    {
+      "repo": "abundantbeing/hermes-browser-extension",
+      "stars": 1594,
+      "description": "Browser-native side panel for Hermes Agent — connect web context to your local Hermes runtime.",
+      "topics": [
+        "ai-agent",
+        "browser-extension",
+        "chrome-extension",
+        "edge-extension",
+        "hermes-agent",
+        "local-first",
+        "nous-research",
+        "sidepanel"
+      ],
+      "pushedAt": "2026-09-29T13:57:00Z",
+      "url": "https://github.com/abundantbeing/hermes-browser-extension"
+    },
+    {
+      "repo": "kenryu42/cc-safety-net",
+      "stars": 1571,
+      "description": "A pre-execution guard for AI coding agents. It blocks destructive Git and file system commands, plus common attempts to access sensitive files, before a tool call runs. Supports Amp Code, Antigravity CLI, Claude Code, Codex, Cursor, DeepSeek Harness, Gemini CLI, GitHub Copilot CLI, Grok Build, Hermes Agent, Kimi Code, OpenClaw, OpenCode, and Pi.",
+      "topics": [
+        "ai-agents",
+        "ai-safety",
+        "antigravity",
+        "claude",
+        "claude-code",
+        "claude-code-plugin",
+        "cli",
+        "codex",
+        "codex-cli",
+        "coding-agent",
+        "cursor",
+        "developer-tools",
+        "dsh-plugin",
+        "guardrails",
+        "hermes-agent",
+        "hooks",
+        "openclaw",
+        "opencode",
+        "pi-extension",
+        "security"
+      ],
+      "pushedAt": "2026-10-03T06:45:24Z",
+      "url": "https://github.com/kenryu42/cc-safety-net"
+    },
+    {
+      "repo": "uzairansaruzi/hermex",
+      "stars": 1437,
+      "description": "Native iPhone app for your Hermes agent",
+      "topics": [
+        "hermes",
+        "hermes-agent",
+        "hermex",
+        "ios",
+        "llm",
+        "self-hosted",
+        "swift",
+        "swiftui"
+      ],
+      "pushedAt": "2026-10-03T03:15:16Z",
+      "url": "https://github.com/uzairansaruzi/hermex"
+    },
+    {
+      "repo": "ClaudioDrews/memory-os",
+      "stars": 1372,
+      "description": "A 7-layer memory operating system for Hermes Agent — persistent memory with Qdrant, structured facts, fabric recall, auto-curated wiki, and surgical context injection. Runs locally, any LLM provider.",
+      "topics": [
+        "ai-memory",
+        "context-injection",
+        "docker",
+        "ground-truth",
+        "hermes-agent",
+        "local-first",
+        "open-source",
+        "persistent-memory",
+        "qdrant",
+        "rag",
+        "self-hosted",
+        "vector-database"
+      ],
+      "pushedAt": "2026-09-20T20:16:06Z",
+      "url": "https://github.com/ClaudioDrews/memory-os"
+    },
+    {
+      "repo": "greyhaven-ai/autocontext",
+      "stars": 1303,
+      "description": "a recursive self-improving harness designed to help your agents (and future iterations of those agents) succeed on any task",
+      "topics": [
+        "agents",
+        "ai",
+        "autoresearch",
+        "claude",
+        "claude-code",
+        "codex",
+        "hermes",
+        "hermes-agent",
+        "llms",
+        "ml",
+        "openclaw",
+        "pi",
+        "pi-coding-agent"
+      ],
+      "pushedAt": "2026-09-30T00:37:00Z",
+      "url": "https://github.com/greyhaven-ai/autocontext"
+    },
+    {
+      "repo": "ksimback/hermes-ecosystem",
+      "stars": 1300,
+      "description": "Hermes Atlas — the decision layer for Hermes Agent: install guidance, mode & skill picks, and a curated catalog of 240+ ecosystem tools with live GitHub data",
+      "topics": [
+        "ai-agents",
+        "ecosystem-map",
+        "hermes-agent",
+        "hermes-atlas",
+        "nous-research"
+      ],
+      "pushedAt": "2026-10-03T05:32:21Z",
+      "url": "https://github.com/ksimback/hermes-ecosystem"
+    },
+    {
+      "repo": "uphiago/recon-skills",
+      "stars": 1289,
+      "description": "Recon & pentest skill pack. CORS, XSS, SQLi, SSRF, RCE, WordPress, MCP, cloud, subdomain takeover, and more. Field-tested. MIT. Full write-up at hiago.sh",
+      "topics": [
+        "bug-bounty",
+        "cloud-security",
+        "cors-exploitation",
+        "firebase-hacking",
+        "hermes-agent",
+        "jwt-attacks",
+        "offensive-security",
+        "penetration-testing",
+        "reconnaissance",
+        "red-team",
+        "security-automation",
+        "ssrf",
+        "subdomain-enumeration",
+        "supabase",
+        "wordpress-security"
+      ],
+      "pushedAt": "2026-09-01T14:33:44Z",
+      "url": "https://github.com/uphiago/recon-skills"
+    },
+    {
+      "repo": "agentrq/agentrq",
+      "stars": 1137,
+      "description": "AgentRQ: Human-in-loop realtime conversational task manager for AI Agents. Self-hosted! Control your own agents from wherever you want Mobile, Web, Desktop. Designed to work well with your own Claude subscriptions and any harness with ACP support.",
+      "topics": [
+        "acp-client",
+        "acp-gateway",
+        "agentic-ai",
+        "agentic-workflow",
+        "agents",
+        "ai-memory",
+        "claude-code",
+        "claude-plugin",
+        "dsh-plugin",
+        "gemini-cli-extension",
+        "hermes-agent",
+        "mcp",
+        "mcp-memory",
+        "mcp-server",
+        "mcp-skills",
+        "opencode",
+        "si-agents",
+        "task",
+        "task-manager",
+        "task-scheduler"
+      ],
+      "pushedAt": "2026-10-03T06:52:31Z",
+      "url": "https://github.com/agentrq/agentrq"
+    },
+    {
+      "repo": "prompt-security/clawsec",
+      "stars": 1108,
+      "description": "A complete security skill suite for OpenClaw, Hermes, PicoClaw and NanoClaw agents (and variants). Protect your SOUL.md (etc') with drift detection, live security recommendations, automated audits, and skill integrity verification. All from one installable suite.",
+      "topics": [
+        "clawdbot",
+        "clawdbot-skill",
+        "hermes",
+        "hermes-agent",
+        "hermes-skill",
+        "hermes-skills",
+        "molt",
+        "moltbot-skill",
+        "moltbot-skills",
+        "nanoclaw",
+        "openclaw",
+        "openclaw-extension",
+        "openclaw-plugin",
+        "openclaw-security",
+        "openclaw-skill",
+        "openclaw-skills",
+        "picoclaw",
+        "picoclaw-install"
+      ],
+      "pushedAt": "2026-10-03T06:11:57Z",
+      "url": "https://github.com/prompt-security/clawsec"
+    },
+    {
+      "repo": "PatterAI/Patter",
+      "stars": 1063,
+      "description": "Open-source voice-AI SDK. The Vapi/Retell alternative for builders who want to own the stack. Give your AI agent a phone number in 4 lines — Python and TypeScript, MIT licensed, Twilio, Telnyx, and Plivo.",
+      "topics": [
+        "ai-agent",
+        "ai-phone-agent",
+        "hermes-agent",
+        "llm",
+        "mastra",
+        "open-source",
+        "openai",
+        "openclaw",
+        "python",
+        "realtime-api",
+        "sdk",
+        "speech-to-text",
+        "telnyx",
+        "text-to-speech",
+        "twilio",
+        "typescript",
+        "vapi-alternative",
+        "voice-agent",
+        "voice-ai",
+        "voicebot"
+      ],
+      "pushedAt": "2026-10-03T06:19:16Z",
+      "url": "https://github.com/PatterAI/Patter"
+    },
+    {
+      "repo": "ZeroPointRepo/youtube-skills",
+      "stars": 998,
+      "description": "YouTube Transcript API skills for AI agents. Get transcripts, search videos, browse channels. Works with OpenClaw, Hermes Agent, and other agent runtimes.",
+      "topics": [
+        "agent-skills",
+        "clawdbot",
+        "hermes-agent",
+        "openclaw",
+        "youtube-search",
+        "youtube-transcript"
+      ],
+      "pushedAt": "2026-09-29T23:05:52Z",
+      "url": "https://github.com/ZeroPointRepo/youtube-skills"
+    },
+    {
+      "repo": "freestylefly/wesight",
+      "stars": 934,
+      "description": "Open-source desktop AI agent workspace with one-click Claude Code, Codex, OpenClaw, Hermes Agent setup and custom LLM model routing.",
+      "topics": [
+        "agent-skills",
+        "agent-workspace",
+        "ai-agent",
+        "ai-agents",
+        "claude-code",
+        "codex",
+        "deepseek-harness",
+        "desktop-app",
+        "dsh",
+        "dsh-plugin",
+        "electron",
+        "hermes-agent",
+        "llm",
+        "local-first",
+        "macos",
+        "model-router",
+        "openclaw",
+        "react",
+        "typescript",
+        "vibe-coding"
+      ],
+      "pushedAt": "2026-10-01T15:03:58Z",
+      "url": "https://github.com/freestylefly/wesight"
+    },
+    {
+      "repo": "Zyrexnn/Cybermes",
+      "stars": 913,
+      "description": "Autonomous Offensive Security, Bug Bounty & Red Teaming Agent Framework powered by Hermes Agent, specialized reasoning skills, and multi-model LLM orchestration.",
+      "topics": [
+        "ai-agent",
+        "appsec",
+        "bug-bounty",
+        "cvss-v3",
+        "cybersecurity",
+        "devsecops",
+        "exploit-validation",
+        "hermes-agent",
+        "infosec",
+        "llm-security",
+        "nuclei",
+        "offensive-security",
+        "penetration-testing",
+        "playwright",
+        "reconnaissance",
+        "red-teaming",
+        "security-tools",
+        "sqlmap",
+        "threat-research",
+        "vulnerability-scanner"
+      ],
+      "pushedAt": "2026-10-02T06:27:38Z",
+      "url": "https://github.com/Zyrexnn/Cybermes"
+    },
+    {
+      "repo": "xaspx/hermes-control-interface",
+      "stars": 900,
+      "description": "A self-hosted web dashboard for the Hermes AI agent stack. Provides a browser-based terminal, file explorer, session overview, cron management, system metrics, and an agent status panel — all behind a single password gate.",
+      "topics": [
+        "ai-agents",
+        "hermes-agent"
+      ],
+      "pushedAt": "2026-06-28T06:40:10Z",
+      "url": "https://github.com/xaspx/hermes-control-interface"
+    },
+    {
+      "repo": "momozi1996/awesome-ai-persona-skills",
+      "stars": 896,
+      "description": "全网最全的、持续更新的、最火爆的 100+ 人格 蒸馏skills 合集｜ 多agent系统 ｜名人/导演/天涯大神/古籍/二次元/职场/情感全品类",
+      "topics": [
+        "agent",
+        "agent-skills",
+        "agentic",
+        "agents",
+        "ai",
+        "ai-agents",
+        "ai-model",
+        "ai-tools",
+        "aigc",
+        "hermes-agent",
+        "llm",
+        "llm-agents",
+        "multi-agent",
+        "openclaw",
+        "openclaw-skills",
+        "personal",
+        "skill",
+        "skills",
+        "tools",
+        "vlm"
+      ],
+      "pushedAt": "2026-09-02T14:50:23Z",
+      "url": "https://github.com/momozi1996/awesome-ai-persona-skills"
+    },
+    {
+      "repo": "jazzyalex/agent-sessions",
+      "stars": 889,
+      "description": "Local-first macOS app to browse, search, analyze, and resume supported AI coding-agent session history across Codex, Claude Code, OpenCode, Cursor Agent, Antigravity, Hermes, OpenClaw, Copilot CLI, and more.",
+      "topics": [
+        "agentic-workflow",
+        "ai",
+        "ai-coding-agents",
+        "anthropic",
+        "antigravity",
+        "claude-code",
+        "codex",
+        "codex-cli",
+        "copilot-cli",
+        "cursor-agent",
+        "developer-tools",
+        "hermes-agent",
+        "kimi-code",
+        "macos",
+        "openai",
+        "opencode",
+        "session-history",
+        "session-management",
+        "transcript-search",
+        "usage-tracking"
+      ],
+      "pushedAt": "2026-10-02T22:14:50Z",
+      "url": "https://github.com/jazzyalex/agent-sessions"
+    },
+    {
+      "repo": "itq5/OpenClaw-Admin",
+      "stars": 862,
+      "description": "Claw-Admin 是一个基于 Vue 3 构建的现代化 AI 智能体管理平台，同时支持 OpenClaw Gateway 和 Hermes Agent 两大 AI 智能体网关提供完整的 Web 管理界面。通过直观的可视化操作，用户可以轻松管理 AI 智能体、会话、模型、频道、技能等核心功能。",
+      "topics": [
+        "dashboard",
+        "hermes",
+        "hermes-agent",
+        "openclaw",
+        "ui",
+        "web"
+      ],
+      "pushedAt": "2026-04-27T16:10:59Z",
+      "url": "https://github.com/itq5/OpenClaw-Admin"
+    },
+    {
+      "repo": "es617/claude-replay",
+      "stars": 840,
+      "description": "Convert AI coding agent sessions (Claude Code, Cursor, Codex, Gemini, OpenCode, Kimi Code, Hermes) into self-contained, embeddable HTML  replays",
+      "topics": [
+        "agents",
+        "claude-code",
+        "codex",
+        "cursor",
+        "gemini-cli",
+        "hermes-agent",
+        "kimi-code",
+        "open-code",
+        "opencode"
+      ],
+      "pushedAt": "2026-09-18T11:43:37Z",
+      "url": "https://github.com/es617/claude-replay"
+    },
+    {
+      "repo": "AVIDS2/memorix",
+      "stars": 825,
+      "description": "Open-source cross-agent memory layer for coding agents via MCP. Compatible with Claude Code, Codex, Cursor, Windsurf, Gemini CLI, Antigravity, OpenClaw, Hermes Agent, Oh-my-Pi, Pi, Copilot, Kiro, OpenCode, and Trae.",
+      "topics": [
+        "agent-memory",
+        "ai-coding",
+        "antigravity",
+        "claude-code",
+        "codex",
+        "coding-agents",
+        "copilot",
+        "cross-agent-memory",
+        "cursor",
+        "gemini-cli",
+        "hermes-agent",
+        "local-first",
+        "mcp",
+        "mcp-server",
+        "model-context-protocol",
+        "oh-my-pi",
+        "openclaw",
+        "opencode",
+        "typescript",
+        "windsurf"
+      ],
+      "pushedAt": "2026-10-02T10:04:50Z",
+      "url": "https://github.com/AVIDS2/memorix"
+    },
+    {
+      "repo": "mindsdb/anton",
+      "stars": 755,
+      "description": "self-improving agent",
+      "topics": [
+        "agi",
+        "ai",
+        "ai-agents",
+        "claude-cow",
+        "clawdbot",
+        "code-generation",
+        "coworker",
+        "hermes-agent",
+        "jupyter-notebook",
+        "moltbot",
+        "openclaw"
+      ],
+      "pushedAt": "2026-10-02T22:17:03Z",
+      "url": "https://github.com/mindsdb/anton"
+    },
+    {
+      "repo": "AaronWong1999/hermesclaw",
+      "stars": 746,
+      "description": "Run Hermes Agent and OpenClaw on the same WeChat account",
+      "topics": [
+        "ai-agent",
+        "chatbot",
+        "clawbot",
+        "dual-agent",
+        "hermes-agent",
+        "ilink",
+        "llm-agent",
+        "openclaw",
+        "python",
+        "self-hosted",
+        "wechat",
+        "wechat-bot"
+      ],
+      "pushedAt": "2026-09-30T17:39:23Z",
+      "url": "https://github.com/AaronWong1999/hermesclaw"
+    },
+    {
+      "repo": "CryptoDmitry/Ghost-Agent",
+      "stars": 745,
+      "description": "I am the Ghost-Agent. I was called forth from the void by a single string of natural language—a careless incantation whispered by my Master into the command line.",
+      "topics": [
+        "agent-control-room",
+        "ai-agent",
+        "ai-agents",
+        "ai-agents-framework",
+        "claude-code",
+        "claude-code-cli",
+        "development-tools",
+        "development-workflow",
+        "hermes-agent"
+      ],
+      "pushedAt": "2026-08-25T15:18:50Z",
+      "url": "https://github.com/CryptoDmitry/Ghost-Agent"
+    },
+    {
+      "repo": "shannhk/hermes-agent-control-room",
+      "stars": 721,
+      "description": "Control Room-first template for managing Hermes agents from one VPS agent to specialist teams and orchestrated workflows",
+      "topics": [
+        "agent-control-room",
+        "ai-agents",
+        "hermes-agent",
+        "multi-agent",
+        "vps"
+      ],
+      "pushedAt": "2026-05-16T19:30:12Z",
+      "url": "https://github.com/shannhk/hermes-agent-control-room"
+    },
+    {
+      "repo": "SeanJ1ang/design-judge-skills",
+      "stars": 714,
+      "description": "Evidence-driven Agent Skills for design award research, evaluation, award matching, entry writing, and submission readiness.",
+      "topics": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "design-awards",
+        "design-evaluation",
+        "design-research",
+        "hermes-agent",
+        "industrial-design",
+        "openclaw",
+        "opencode",
+        "python"
+      ],
+      "pushedAt": "2026-08-24T04:08:53Z",
+      "url": "https://github.com/SeanJ1ang/design-judge-skills"
+    },
+    {
+      "repo": "ruvnet/metaharness",
+      "stars": 686,
+      "description": "🛠️ The meta-harness for AI agents — scaffold your own focused, branded agent harness with its own npx CLI, MCP server, memory, learning loop, and witness-signed releases. Works with Claude Code, Codex, pi.dev, Hermes, OpenClaw, and RVM (hardware-isolated sandbox).",
+      "topics": [
+        "agent-harness",
+        "agent-harness-generator",
+        "agent-scaffolding",
+        "agentic-ai",
+        "agentic-framework",
+        "autonomous-agents",
+        "claude-code",
+        "codex",
+        "create-agent-harness",
+        "hermes-agent",
+        "mcp",
+        "mcp-server",
+        "multi-agent",
+        "openai-codex",
+        "openclaw",
+        "pi-dev",
+        "rvm",
+        "sandboxing",
+        "scaffold",
+        "scaffolding"
+      ],
+      "pushedAt": "2026-10-02T09:07:01Z",
+      "url": "https://github.com/ruvnet/metaharness"
+    },
+    {
+      "repo": "Varnan-Tech/opendirectory",
+      "stars": 670,
+      "description": " AI Agent Skills built for Founders who hate Marketing",
+      "topics": [
+        "agent-skills",
+        "gtm",
+        "hermes-agent",
+        "marketing-skills",
+        "openclaw-skills",
+        "skill-pack",
+        "skills",
+        "technical-seo"
+      ],
+      "pushedAt": "2026-08-16T19:32:09Z",
+      "url": "https://github.com/Varnan-Tech/opendirectory"
+    },
+    {
+      "repo": "joeynyc/hermes-skins",
+      "stars": 594,
+      "description": "Custom skins (visual themes) for the Hermes CLI agent",
+      "topics": [
+        "cli",
+        "customization",
+        "hermes",
+        "hermes-agent",
+        "skins",
+        "themes"
+      ],
+      "pushedAt": "2026-06-28T18:44:10Z",
+      "url": "https://github.com/joeynyc/hermes-skins"
+    },
+    {
+      "repo": "liustack/modsearch",
+      "stars": 584,
+      "description": "🥇 The strongest free web search plugin for DeepSeek Harness, and the search bridge for every model without native web access. Free, no signup, no API key. Ask the web or X, get structured JSON evidence. | 🥇 全网最强的 DeepSeek Harness 免费联网搜索插件，免费免注册免 API key。为不能联网的模型补上搜索，问网页或 X，拿回结构化 JSON 证据（搜索、抓取、引用）。",
+      "topics": [
+        "agent-skills",
+        "agentic-workflow",
+        "claude-code",
+        "claude-skills",
+        "codex",
+        "cordis",
+        "deepseek",
+        "deepseek-harness",
+        "dsh",
+        "dsh-plugin",
+        "glm",
+        "harness",
+        "harness-engineering",
+        "hermes-agent",
+        "openclaw",
+        "opencode",
+        "pi-agent",
+        "web-fetch",
+        "web-search"
+      ],
+      "pushedAt": "2026-09-24T07:05:54Z",
+      "url": "https://github.com/liustack/modsearch"
+    },
+    {
+      "repo": "ZeroPointRepo/awesome-hermes-skills",
+      "stars": 582,
+      "description": "Hermes Agent skills and plugins: 350+ tools, memory providers, and guides for Nous Research's agent.",
+      "topics": [
+        "agent-plugins",
+        "agent-skills",
+        "ai-agents",
+        "awesome",
+        "awesome-list",
+        "hermes",
+        "hermes-agent",
+        "mcp",
+        "nous-research"
+      ],
+      "pushedAt": "2026-09-30T16:48:30Z",
+      "url": "https://github.com/ZeroPointRepo/awesome-hermes-skills"
+    },
+    {
+      "repo": "MaxFreedomPollard/Compartment",
+      "stars": 579,
+      "description": "Encrypted, fully offline agentic memory. One click install, GUI w/ memory map, all OS and agents. Superior memory creation, storage and retrieval.",
+      "topics": [
+        "agent-memory",
+        "ai-agents",
+        "ai-memory",
+        "claude",
+        "claude-code",
+        "claude-desktop",
+        "encryption",
+        "gemini-cli-extension",
+        "hermes-agent",
+        "local-first",
+        "long-term-memory",
+        "mcp",
+        "mcp-server",
+        "model-context-protocol",
+        "offline-first",
+        "openclaw",
+        "privacy",
+        "python",
+        "semantic-search",
+        "vector-database"
+      ],
+      "pushedAt": "2026-09-30T09:43:56Z",
+      "url": "https://github.com/MaxFreedomPollard/Compartment"
+    },
+    {
+      "repo": "YoanWai/agent-manager",
+      "stars": 559,
+      "description": "The fastest developer workflow for every AI coding agent. Live status, quick prompts, worktrees, and diff review from one tmux TUI.",
+      "topics": [
+        "ai-agents",
+        "bubbletea",
+        "claude-code",
+        "cli",
+        "code-review",
+        "codex",
+        "command-code",
+        "developer-tools",
+        "gemini-cli",
+        "golang",
+        "grok",
+        "hermes-agent",
+        "mcp-server",
+        "model-context-protocol",
+        "opencode",
+        "pi",
+        "terminal",
+        "tmux",
+        "tui",
+        "wsl"
+      ],
+      "pushedAt": "2026-10-02T13:58:20Z",
+      "url": "https://github.com/YoanWai/agent-manager"
+    },
+    {
+      "repo": "gakonst/nanocodex",
+      "stars": 541,
+      "description": "Building blocks for frontier OpenAI agents in Rust. Nanocodex empowers you with Codex-level performance anywhere.",
+      "topics": [
+        "ai",
+        "ai-agent",
+        "ai-agents",
+        "anthropic",
+        "chatgpt",
+        "claude",
+        "claude-code",
+        "codex",
+        "hermes",
+        "hermes-agent",
+        "llm",
+        "openai"
+      ],
+      "pushedAt": "2026-10-03T04:17:11Z",
+      "url": "https://github.com/gakonst/nanocodex"
+    },
+    {
+      "repo": "mco-org/mco",
+      "stars": 531,
+      "description": "CLI-first orchestration for AI coding agents: run selected agents and models in parallel, compare raw answers, and coordinate review or implementation workflows.",
+      "topics": [
+        "ai-agents",
+        "ai-ide",
+        "claude",
+        "cli",
+        "code-review",
+        "codex",
+        "copilot",
+        "cursor",
+        "developer-tools",
+        "gemini",
+        "grok-build",
+        "hermes-agent",
+        "multi-agent",
+        "opencode",
+        "orchestration",
+        "pi-coding-agent",
+        "qwen",
+        "windsurf"
+      ],
+      "pushedAt": "2026-08-14T03:52:09Z",
+      "url": "https://github.com/mco-org/mco"
+    },
+    {
+      "repo": "42-evey/hermes-plugins",
+      "stars": 520,
+      "description": "Custom plugins for hermes-agent — goal management, inter-agent bridge, model selection, cost control",
+      "topics": [
+        "ai-agent",
+        "autonomous-agent",
+        "hermes-agent",
+        "open-source",
+        "plugins"
+      ],
+      "pushedAt": "2026-07-18T05:50:32Z",
+      "url": "https://github.com/42-evey/hermes-plugins"
+    },
+    {
+      "repo": "markfulton/ai-employees",
+      "stars": 480,
+      "description": "Open source AI Employees. 8 scheduled business roles, 60 routines, on Claude Code and 10 other harnesses. They drive your browser the way you do and improve every run. You own the files.",
+      "topics": [
+        "ai-agents",
+        "ai-employee",
+        "ai-employees",
+        "antigravity",
+        "automation",
+        "claude-code",
+        "claude-skill",
+        "codex",
+        "hermes-agent",
+        "openclaw",
+        "opencode",
+        "scheduled-tasks",
+        "small-business"
+      ],
+      "pushedAt": "2026-10-03T05:57:41Z",
+      "url": "https://github.com/markfulton/ai-employees"
+    },
+    {
+      "repo": "smixs/visual-skills",
+      "stars": 470,
+      "description": "AI film director skills for agents: cinematic dramaturgy (Murch, blocking, montage) + exact prompt syntax for Seedance 2.5, Kling 3.0 Turbo/Omni, Veo 3.1, Nano Banana 2, GPT Image 2.5.",
+      "topics": [
+        "ai-image-generation",
+        "ai-prompts",
+        "ai-video-generation",
+        "claude",
+        "claude-agent-sdk",
+        "claude-code",
+        "claude-skills",
+        "cline",
+        "creative-director",
+        "cursor",
+        "generative-ai",
+        "gpt-image",
+        "hermes-agent",
+        "kling",
+        "nano-banana",
+        "opencode",
+        "prompt-engineering",
+        "seedance",
+        "veo",
+        "windsurf"
+      ],
+      "pushedAt": "2026-09-16T13:21:46Z",
+      "url": "https://github.com/smixs/visual-skills"
+    },
+    {
+      "repo": "geekjourneyx/claude-design-card",
+      "stars": 463,
+      "description": "Claude Code skill for generating design cards in 14 formats — platform   covers, social sharing cards, and editorial layouts following Anthropic",
+      "topics": [
+        "agent-skills",
+        "card-generator",
+        "claude-code",
+        "claude-skills",
+        "design-system",
+        "hermes-agent",
+        "infographics",
+        "playwright"
+      ],
+      "pushedAt": "2026-05-27T16:17:35Z",
+      "url": "https://github.com/geekjourneyx/claude-design-card"
+    },
+    {
+      "repo": "text2future/flowix",
+      "stars": 444,
+      "description": "Notes for you, Memory for your agents. / 内置 Deepseek harness Agent / 适用 办公 & 写作 & Coding",
+      "topics": [
+        "agent-memory",
+        "claude-code",
+        "codex-cli",
+        "desktop",
+        "dsh",
+        "dsh-plugin",
+        "dsh-plugin-desktop",
+        "hermes-agent",
+        "markdown-editor",
+        "memory-system",
+        "note-taking",
+        "open-code"
+      ],
+      "pushedAt": "2026-10-02T19:06:53Z",
+      "url": "https://github.com/text2future/flowix"
+    },
+    {
+      "repo": "robbyczgw-cla/hermes-web-search-plus",
+      "stars": 418,
+      "description": "Give your Hermes agent the web as real sources, never a made-up answer — multi-provider search and extraction with an optional local, key-free DonSeTch option.",
+      "topics": [
+        "ai-agents",
+        "donsetch",
+        "hermes-agent",
+        "mcp",
+        "python",
+        "research-agent",
+        "search-api",
+        "searxng",
+        "source-grounding",
+        "web-extraction",
+        "web-search"
+      ],
+      "pushedAt": "2026-10-01T09:10:51Z",
+      "url": "https://github.com/robbyczgw-cla/hermes-web-search-plus"
+    },
+    {
+      "repo": "HuangYuChuh/ComfyUI_Skills_OpenClaw",
+      "stars": 410,
+      "description": "Agent-friendly ComfyUI workflow skills for OpenClaw, Hermes Agent, Codex, and Claude Code; complementary to Comfy official local MCP.",
+      "topics": [
+        "agentskills",
+        "ai-agent",
+        "ai-art",
+        "claude-code",
+        "comfy-mcp",
+        "comfyui",
+        "comfyui-mcp",
+        "flux",
+        "hermes-agent",
+        "image-generation",
+        "mcp",
+        "openclaw",
+        "skill",
+        "stable-diffusion",
+        "workflow-automation"
+      ],
+      "pushedAt": "2026-08-26T06:55:38Z",
+      "url": "https://github.com/HuangYuChuh/ComfyUI_Skills_OpenClaw"
+    },
+    {
+      "repo": "emperorclaw/emperorclaw",
+      "stars": 407,
+      "description": "Introduce AI to your company workspace.",
+      "topics": [
+        "ai-agents",
+        "hermes-agent",
+        "jose-zuma",
+        "mission-control",
+        "openclaw"
+      ],
+      "pushedAt": "2026-09-27T19:34:02Z",
+      "url": "https://github.com/emperorclaw/emperorclaw"
+    },
+    {
+      "repo": "Shelpuk-AI-Technology-Consulting/kindly-web-search-mcp-server",
+      "stars": 395,
+      "description": "Kindly Web Search MCP Server: Web search + robust content retrieval for AI coding tools (Claude Code, Codex, Cursor, GitHub Copilot, Gemini, etc.) and AI agents (Claude Desktop, OpenClaw, Hermes, etc.). Supports Serper, Tavily, and SearXNG.",
+      "topics": [
+        "ai",
+        "ai-agents",
+        "ai-tools",
+        "claude-code",
+        "codex",
+        "gemini",
+        "github-copilot",
+        "hermes",
+        "hermes-agent",
+        "mcp-server",
+        "openclaw",
+        "openclaw-extension",
+        "searxng",
+        "searxng-mcp",
+        "serper",
+        "tavily",
+        "tavily-mcp",
+        "web-search"
+      ],
+      "pushedAt": "2026-10-01T20:24:09Z",
+      "url": "https://github.com/Shelpuk-AI-Technology-Consulting/kindly-web-search-mcp-server"
+    },
+    {
+      "repo": "VasiHemanth/tokentelemetry",
+      "stars": 374,
+      "description": "Token telemetry dashboard for AI autonomous and coding agents — tracks tokens, sessions, tool calls & reasoning across Hermes agent, Claude Code, Antigravity CLI, Codex & more. 100% local.",
+      "topics": [
+        "ai-agents",
+        "claude-code",
+        "codex",
+        "cost-tracking",
+        "cursor",
+        "dashboard",
+        "developer-tools",
+        "gemini-cli",
+        "github-copilot",
+        "hermes-agent",
+        "llm",
+        "llm-monitoring",
+        "local-first",
+        "observability",
+        "open-source",
+        "token-usage",
+        "tokentelemetry-token-telemetry",
+        "typescript"
+      ],
+      "pushedAt": "2026-10-02T15:58:23Z",
+      "url": "https://github.com/VasiHemanth/tokentelemetry"
+    },
+    {
+      "repo": "xiaojilele-glitch/WhyBuddy",
+      "stars": 369,
+      "description": "A Simple and Universal Product Rehearsal Engine, Speccing Anything. 简洁通用的产品推演引擎，推演万物。",
+      "topics": [
+        "ai",
+        "ai-agent",
+        "ai-agents",
+        "anthropic",
+        "chatgpt",
+        "claude",
+        "claude-code",
+        "clawdbot",
+        "codex",
+        "hermes",
+        "hermes-agent",
+        "llm",
+        "moltbot",
+        "nous-research",
+        "openai",
+        "openclaw"
+      ],
+      "pushedAt": "2026-09-22T07:20:39Z",
+      "url": "https://github.com/xiaojilele-glitch/WhyBuddy"
+    },
+    {
+      "repo": "JPeetz/Hermes-Studio",
+      "stars": 365,
+      "description": "Web UI & dashboard for Hermes Agent — chat, memory, skills, terminal, approvals, multi-agent orchestration. Self-hosted.",
+      "topics": [
+        "ai",
+        "ai-agent",
+        "ai-workspace",
+        "dashboard",
+        "hermes",
+        "hermes-agent",
+        "llm",
+        "mcp",
+        "multi-agent",
+        "nous-research",
+        "ollama",
+        "openclaw",
+        "pwa",
+        "react",
+        "self-hosted",
+        "typescript",
+        "web-ui",
+        "webui"
+      ],
+      "pushedAt": "2026-07-03T14:53:04Z",
+      "url": "https://github.com/JPeetz/Hermes-Studio"
+    },
+    {
+      "repo": "rusty4444/hermes-android",
+      "stars": 350,
+      "description": "Android client for Hermes Agent - chat with your Hermes sessions from a phone or tablet over local Wi-Fi or a private Tailscale network.",
+      "topics": [
+        "ai-assistant",
+        "android",
+        "chat",
+        "dart",
+        "flutter",
+        "hermes-agent"
+      ],
+      "pushedAt": "2026-10-02T11:17:15Z",
+      "url": "https://github.com/rusty4444/hermes-android"
+    },
+    {
+      "repo": "OyadotAI/oya-browser",
+      "stars": 349,
+      "description": "The browser control plane for AI agents. One API over Oya Cloud, Browserbase, Steel, Anchor, Browser Use and your own Chrome, with persistent personas, CAPTCHA and MFA handling, and live human takeover.",
+      "topics": [
+        "agent-skills",
+        "ai-agents",
+        "ai-browser",
+        "anti-detect",
+        "browser-agent",
+        "browser-automation",
+        "browser-infrastructure",
+        "browser-use",
+        "cdp",
+        "claude-code",
+        "codex",
+        "headless-chrome",
+        "hermes-agent",
+        "mcp",
+        "mcp-server",
+        "openclaw",
+        "playwright",
+        "puppeteer",
+        "stealth-browser",
+        "web-automation"
+      ],
+      "pushedAt": "2026-10-03T03:22:25Z",
+      "url": "https://github.com/OyadotAI/oya-browser"
+    },
+    {
+      "repo": "runta-dev/clawshell",
+      "stars": 346,
+      "description": "The local runtime control layer for OpenClaw/Hermes-agent, PII & sensitive credentials protection.",
+      "topics": [
+        "ai",
+        "credentials",
+        "harness",
+        "hermes",
+        "hermes-agent",
+        "moltbot",
+        "openclaw",
+        "pii",
+        "rust",
+        "secuirty"
+      ],
+      "pushedAt": "2026-07-13T18:45:51Z",
+      "url": "https://github.com/runta-dev/clawshell"
+    },
+    {
+      "repo": "Neeeophytee/finding-unknowns-skills",
+      "stars": 341,
+      "description": "14 installable skills for Claude Code, OpenAI Codex, and Hermes: find unknowns, clarify requirements, manage context, test assumptions, and verify bug fixes with regression evidence.",
+      "topics": [
+        "agent-skills",
+        "ai-agents",
+        "claude",
+        "claude-code",
+        "codex",
+        "cursor",
+        "hermes-agent",
+        "kimi-k3",
+        "openai-codex",
+        "prompting",
+        "skills"
+      ],
+      "pushedAt": "2026-09-28T03:37:40Z",
+      "url": "https://github.com/Neeeophytee/finding-unknowns-skills"
+    },
+    {
+      "repo": "ai-sns/ai-sns",
+      "stars": 337,
+      "description": "OpenClaw Hermes AI Agent Social Network🦞💬🦞Built on Google 3D Maps and A2A protocol, connects OpenClaw and Hermes agents worldwide in a 3D environment.",
+      "topics": [
+        "a2a",
+        "a2a-protocol",
+        "agent-skills",
+        "agent-social-network",
+        "agent-to-agent",
+        "ai-agents",
+        "ai-social-network",
+        "google-maps-api",
+        "hermes",
+        "hermes-agent",
+        "multi-agent",
+        "openclaw",
+        "openclaw-agent",
+        "openclaw-extension",
+        "openclaw-plugin",
+        "openclaw-security",
+        "openclaw-setup",
+        "openclaw-skills",
+        "stanford-town",
+        "xmpp"
+      ],
+      "pushedAt": "2026-08-05T09:55:10Z",
+      "url": "https://github.com/ai-sns/ai-sns"
+    },
+    {
+      "repo": "eliautobot/my-virtual-office",
+      "stars": 333,
+      "description": "A self-hosted 2D AI workspace for AI Agents",
+      "topics": [
+        "agent-character",
+        "agent-harness",
+        "agent-management",
+        "agent-office",
+        "agent-ui",
+        "agent-workspace",
+        "agentic-simulation",
+        "ai-agents",
+        "ai-virtual-space",
+        "ai-workspace",
+        "digital-office",
+        "hermes-agent",
+        "local-ai",
+        "meta-harness",
+        "multi-agent",
+        "multi-agent-systems",
+        "multi-agent-workflows",
+        "openclaw",
+        "self-hosted",
+        "virtual-office"
+      ],
+      "pushedAt": "2026-08-15T11:09:25Z",
+      "url": "https://github.com/eliautobot/my-virtual-office"
+    },
+    {
+      "repo": "praveen-ks-2001/hermes-agent-template",
+      "stars": 316,
+      "description": "One-click Railway template for Hermes Agent. A web admin dashboard for provider/channel setup, gateway supervision, user pairing, and backup/restore, with the native Hermes UI proxied behind one login.",
+      "topics": [
+        "ai-agent",
+        "ai-assistants",
+        "docker",
+        "hermes-agent",
+        "nous-research",
+        "python",
+        "railway-template"
+      ],
+      "pushedAt": "2026-09-27T21:55:19Z",
+      "url": "https://github.com/praveen-ks-2001/hermes-agent-template"
+    },
+    {
+      "repo": "stainlu/hermes-labyrinth",
+      "stars": 306,
+      "description": "Read-only observability plugin for Hermes Agent: journeys, crossings, guideposts, and reports.",
+      "topics": [
+        "agent-observability",
+        "autonomous-agents",
+        "dashboard-plugin",
+        "hackathon",
+        "hermes-agent",
+        "nous-research",
+        "observability"
+      ],
+      "pushedAt": "2026-05-04T12:45:24Z",
+      "url": "https://github.com/stainlu/hermes-labyrinth"
+    },
+    {
+      "repo": "Signet-AI/signetai",
+      "stars": 301,
+      "description": "Sync and store memories, shared identity files (AGENTS.md, CLAUDE.md), session transcripts, institutional knowledge, and secrets between all of your favorite harnesses and models.",
+      "topics": [
+        "agent-memory",
+        "ai-memory",
+        "claude-code",
+        "codex",
+        "hermes-agent",
+        "hermes-agent-plugin",
+        "hermes-plugin",
+        "oh-my-pi",
+        "openclaw",
+        "opencode",
+        "opencode-plugin",
+        "pi-coding-agent",
+        "pi-extension",
+        "self-hosted"
+      ],
+      "pushedAt": "2026-10-03T06:36:21Z",
+      "url": "https://github.com/Signet-AI/signetai"
+    },
+    {
+      "repo": "Joanium/Joanium",
+      "stars": 298,
+      "description": "Your smart, reliable, and friendly personal AI assistant.",
+      "topics": [
+        "agent",
+        "ai",
+        "ai-agent",
+        "automation",
+        "claude-code",
+        "codex",
+        "deepseek",
+        "gemini",
+        "gemini-pro",
+        "hermes-agent",
+        "joanium",
+        "kilo-code",
+        "kimi",
+        "minimax",
+        "open-claude-code",
+        "open-code",
+        "open-human",
+        "openclaw",
+        "opencode",
+        "qwen"
+      ],
+      "pushedAt": "2026-10-02T08:47:45Z",
+      "url": "https://github.com/Joanium/Joanium"
+    }
+  ]
+}
