@@ -802,6 +802,34 @@ function findItem(id) {
 
 let drawerTrigger = null;
 
+/**
+ * Where to find more of this person's work, when that can be derived rather than guessed.
+ *
+ * Three sources carry a handle that maps to a public profile by a documented rule: an X
+ * handle, a Reddit u/name, and a GitHub owner taken from the repository path. Everything
+ * else — Discord especially, which has no public profiles at all — returns nothing, and
+ * the card shows no link rather than a plausible one that 404s. Guessing a profile URL
+ * would be inventing a fact about a real person, which is the same failure as inventing
+ * a number, with more at stake.
+ */
+export function authorProfile(item) {
+  const handle = (item.author || '').trim();
+  if (!handle) return null;
+  /* A trailing "(GitHub Gist)" or "(Substack)" is a note about where it was published,
+     not part of anyone's name. */
+  const bare = handle.replace(/\s*\([^)]*\)\s*$/, '').replace(/^@/, '').trim();
+  if (!bare || /\s/.test(bare)) return null;        // a real name, not a handle
+
+  if (item.source === 'x')      return { url: `https://x.com/${encodeURIComponent(bare)}`, where: 'X' };
+  if (item.source === 'reddit') return { url: `https://reddit.com/user/${encodeURIComponent(bare.replace(/^u\//, ''))}`, where: 'Reddit' };
+  if (item.source === 'github') {
+    const owner = (item.repo || item.url || '').split('github.com/').pop()?.split('/')[0];
+    if (owner && owner.toLowerCase() === bare.toLowerCase())
+      return { url: `https://github.com/${encodeURIComponent(owner)}`, where: 'GitHub' };
+  }
+  return null;
+}
+
 function openDrawer(id, trigger, updateUrl = true) {
   const it = findItem(id);
   if (!it) return;
@@ -836,7 +864,11 @@ function openDrawer(id, trigger, updateUrl = true) {
         <button class="copy-btn" id="copyBtn">${copyLabel}</button>
         <pre><code>${esc(it.snippet)}</code></pre></div>` : ''}
     ${(it.tags || []).length ? `<div class="d-tags">${it.tags.map(t => `<button class="d-tag" data-tag="${esc(t)}">#${esc(t)}</button>`).join('')}</div>` : ''}
-    <div class="d-actions">${it.url ? `<a class="d-link" href="${esc(it.url)}" target="_blank" rel="noopener noreferrer">READ THE ORIGINAL &#8599;</a>` : ''}<button class="ghost-btn" id="shareCardBtn">Copy card link</button><span id="shareStatus" role="status"></span></div>
+    <div class="d-actions">${it.url ? `<a class="d-link" href="${esc(it.url)}" target="_blank" rel="noopener noreferrer">READ THE ORIGINAL &#8599;</a>` : ''}${(() => {
+      /* The archive is worth being listed in only if being listed leads somewhere. */
+      const profile = authorProfile(it);
+      return profile ? `<a class="ghost-btn" href="${esc(profile.url)}" target="_blank" rel="noopener noreferrer">${esc(author.name)} on ${esc(profile.where)} &#8599;</a>` : '';
+    })()}${author.label === 'Author' ? '' : `<button class="ghost-btn" data-author="${esc(author.name)}">More by ${esc(author.name)}</button>`}<button class="ghost-btn" id="shareCardBtn">Copy card link</button><span id="shareStatus" role="status"></span></div>
     <input class="d-share" id="shareCardUrl" aria-label="Link to this card" readonly hidden>
     <div class="d-meta">${it.metric ? metricBlock(it) : '<span class="trow-note">no public metric</span>'}</div>`;
 

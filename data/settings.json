@@ -1228,34 +1228,6 @@
       "date": "2026-09-24"
     },
     {
-      "id": "doc-getting-started-platform-support-tier-1",
-      "title": "Tier 1",
-      "summary": "We strive to never break installations and updates for these.",
-      "detail": "We strive to never break installations and updates for these. Issues & regressions in Tier 1 are our first priority and take precedence over other platforms. OS / Architecture Installation methods Notes macOS (Apple Silicon) Hermes Desktop , install.sh Windows 10 / 11 (x86_64, aarch64) install.ps1 , MSIX desktop The MSIX package requires Windows 11 22H2 or later. Optional dependencies have architecture limits . Linux / WSL2 (x86_64, aarch64) install.sh We test on the latest Ubuntu and WSL2. If your distro has glibc, systemd, and follows the Filesystem Hierarchy Standard, it's likely to work pretty well. Docker Container (x86_64, aarch64) docker pull Docker installs do not support hermes update . Updating is done by running a new image.\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "platform",
-        "getting-started",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/platform-support#tier-1",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-getting-started-platform-support-tier-2",
-      "title": "Tier 2",
-      "summary": "These platforms are maintained in-tree only as a best effort.",
-      "detail": "These platforms are maintained in-tree only as a best effort. Releases may break them, and we can't promise we'll fix them promptly when they break. PRs will be accepted to fix issues with them, but they will take precedence below fixing issues with Tier 1 platforms. OS / Architecture Installation methods Notes Nix (macOS, Linux, NixOS) Nix flake and modules Nix owns runtime installation and updates. Android / Termux (aarch64) Signed APT repository , then pkg install hermes-agent Prerelease package with Python, Node, and TUI. Run the gateway in a Termux session; Android can terminate background processes.\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "platform",
-        "getting-started",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/platform-support#tier-2",
-      "date": "2026-09-25"
-    },
-    {
       "id": "doc-getting-started-platform-support-build-targets-and-support-priority",
       "title": "Build targets and support priority",
       "summary": "The native bundle pipeline includes Intel macOS ( x64 ) as well as Apple Silicon.",
@@ -1267,20 +1239,6 @@
       ],
       "source": "docs",
       "url": "https://hermes-agent.nousresearch.com/docs/getting-started/platform-support#build-targets-and-support-priority",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-getting-started-platform-support-unsupported",
-      "title": "Unsupported",
-      "summary": "These platforms and distribution methods are not supported.",
-      "detail": "These platforms and distribution methods are not supported. We suggest that you migrate to a supported distribution method or platform. They may be broken right now, they may break more in the future. PRs to fix them will not be accepted, and any code that keeps compatibility with them may be removed at any point. Android / Termux on non-aarch64 devices (aarch64 is supported via our APT package) installs via the AUR (we might upstream patches if it helps out <3) 32-bit x86 macOS. Intel x86_64 has native bundle build and package-update acceptance lanes; this does not change the Tier 1 priority for Apple Silicon. installs via pypi (e.g. uv tool install hermes-agent , pip install hermes-agent , etc.) installs via brew ( brew install hermes-agent ) If you are using an unsupported distribution method, please read the the installation guide to learn how to switch to a supported one. Tier 1 Tier 2 Build targets and support priority Unsupported\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "platform",
-        "getting-started",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/platform-support#unsupported",
       "date": "2026-09-25"
     },
     {
@@ -1326,20 +1284,6 @@
       ],
       "source": "docs",
       "url": "https://hermes-agent.nousresearch.com/docs/getting-started/termux#gateway",
-      "date": "2026-09-25"
-    },
-    {
-      "id": "doc-getting-started-termux-limits",
-      "title": "Limits",
-      "summary": "The package does not include the nemo-relay exporter.",
-      "detail": "The package does not include the nemo-relay exporter. Its vendored build toolchain does not support this target. The package does not include Electron, local Chromium, or desktop computer-use tools. A local Docker daemon is not part of the Termux environment. Remote services have their own requirements and connectivity limits. Phone-native Termux :API microphone and clipboard adapters are not provided by this package path. The prebuilt CLI/TUI is not proof of local voice or wake-word support. Optional integrations and third-party plugins can require dependencies that do not support Android. Python 3.14 on this target reports sys.platform == \"android\" . A dependency or skill gated only to linux is not automatically available on Android.\n\nFrom the official Hermes Agent documentation.",
-      "tags": [
-        "android",
-        "termux",
-        "docs"
-      ],
-      "source": "docs",
-      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/termux#limits",
       "date": "2026-09-25"
     },
     {
