@@ -6,3 +6,5 @@ node_modules/
 .DS_Store
 *.log
 .claude/settings.local.json
+# On-demand social assets. Select individual cards explicitly for publication.
+/assets/og/entries/
