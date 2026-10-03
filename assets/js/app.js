@@ -256,7 +256,7 @@ function render() {
   $('#sortSel').disabled = sec.kind === 'trending';
   $('#sortSel').value = activeSort();
   $('#loadMoreRow').hidden = true;
-  $('#dashboard').hidden = !isDash;
+  $('#dashPanel').hidden = !isDash;
   $('#listbar').hidden = isDash;
   $('#grid').hidden = isDash;
   if (isDash) {
@@ -509,6 +509,39 @@ function donutChart(rows, sum) {
   </div>`;
 }
 
+/**
+ * A few real entries from every shelf, above the counts.
+ *
+ * The dashboard opened with statistics about the archive — how many entries, how many
+ * stars, how many authors — which tells a first-time reader how big it is and nothing
+ * about what is in it. Someone arriving from a link has to pick a shelf out of a sidebar
+ * before they see a single card, and on a phone that sidebar is behind a hamburger, so
+ * they see one shelf of eleven.
+ *
+ * Three cards per shelf, in the shelf's own order, with a way through to the rest. The
+ * counts keep their place underneath: they are worth reading once you care.
+ */
+function shelfPreviews() {
+  const previews = state.cfg.sections
+    .filter(section => section.file)                 // dashboard and trending are computed
+    .map(section => ({ section, items: sortItems(visible(section.id)).slice(0, 3), total: visible(section.id).length }))
+    .filter(preview => preview.items.length);        // an empty shelf says so on its own page
+
+  if (!previews.length) return '';
+
+  return `<div class="dash-previews">${previews.map(({ section, items, total }) => `
+    <section class="dash-preview" aria-labelledby="preview-${esc(section.id)}">
+      <div class="dash-preview-head">
+        <h2 id="preview-${esc(section.id)}">${esc(section.label.toUpperCase())} <span>${num(total)}</span></h2>
+        <a class="dash-preview-all" href="#${esc(section.id)}">See all ${num(total)} &rarr;</a>
+      </div>
+      <!-- Always compact here whatever the reader's preference: a preview is for
+           scanning nine shelves, and the shelf page is where it gets read. Buys
+           about a thousand pixels across the panel. -->
+      <ul class="grid" data-density="compact">${items.map((item, i) => card(item, i + 1, section.icon)).join('')}</ul>
+    </section>`).join('')}</div>`;
+}
+
 function renderDashboard() {
   const st = dashboardStats();
   const live = state.live || {};
@@ -530,7 +563,9 @@ function renderDashboard() {
         tile(kind, r.total, `across ${num(r.items)} ${r.items === 1 ? 'entry' : 'entries'}`)).join('')
     : '<p class="dash-none">No fetched metrics loaded.</p>';
 
-  $('#dashboard').innerHTML = `
+  $('#dashPanel').innerHTML = `
+    ${shelfPreviews()}
+    <h2 class="dash-section-title">BY THE NUMBERS</h2>
     <div class="dash-tiles">
       ${tile('items in the archive', st.total)}
       ${tile('carry a real metric', st.withMetric, `${Math.round(st.withMetric / (st.total || 1) * 100)}% of the archive`, st.withMetric / (st.total || 1))}
@@ -586,7 +621,7 @@ function renderDashboard() {
 }
 
 function revealDashboard(st) {
-  const root = $('#dashboard');
+  const root = $('#dashPanel');
 
   for (const el of root.querySelectorAll('.tile-v[data-count]')) {
     const v = Number(el.dataset.count);
@@ -607,7 +642,7 @@ function revealDashboard(st) {
 /* Hover layer: every mark carrying data-tip gets the shared tooltip. */
 function wireTips() {
   const tip = chartTip();
-  const dash = $('#dashboard');
+  const dash = $('#dashPanel');
   const show = e => {
     const el = e.target.closest('[data-tip]');
     if (!el) return;

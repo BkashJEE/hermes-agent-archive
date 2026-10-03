@@ -143,7 +143,9 @@
 
     <div id="activeFilters" class="active-filters" hidden></div>
 
-    <section id="dashboard" class="dash" hidden aria-label="Archive overview"></section>
+    <!-- Deliberately not id="dashboard": that is also the route hash, and a matching
+         element id makes the browser anchor-jump past the hero on every visit. -->
+    <section id="dashPanel" class="dash" hidden aria-label="Archive overview"></section>
     <ul id="grid" class="grid" aria-label="Archive items"></ul>
     <div class="load-more" id="loadMoreRow" hidden>
       <p id="shownCount" role="status"></p>
@@ -178,6 +180,6 @@
   <div id="drawerBody"></div>
 </aside>
 
-<script type="module" src="assets/js/app.js?v=credit-1"></script>
+<script type="module" src="assets/js/app.js?v=dash-credit-2"></script>
 </body>
 </html>
