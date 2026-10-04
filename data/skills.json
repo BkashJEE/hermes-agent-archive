@@ -1066,6 +1066,21 @@
       "author": "Hermes Agent (adapted from gsd-build/get-shit-done)",
       "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-sketch#skill-metadata",
       "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "skill-oh-my-hermes",
+      "title": "rlaope/oh-my-hermes",
+      "summary": "One plugin adding a coding layer, long-term memory and an operating layer on top of Hermes, without replacing it.",
+      "detail": "WHY\nThe things people bolt onto Hermes — memory, coding conventions, a tighter operating loop — usually arrive as three separate installs. This bundles them.\n\nHOW\nA single install script: curl to sh on Unix, or the PowerShell equivalent on Windows. The project also publishes INSTALL_FOR_AGENTS.md pinned to a resolved commit SHA, so an agent can install it without being pointed at a moving branch.\n\nUSE CASE\nYou want the common add-ons configured together rather than assembled by hand.\n\nVerified: the README's own line is \"Install once. Keep Hermes. Add a stronger operating layer.\" Pinning the agent install doc to a commit is the project's own practice.",
+      "tags": [
+        "plugin",
+        "memory",
+        "workflow"
+      ],
+      "source": "github",
+      "repo": "rlaope/oh-my-hermes",
+      "author": "rlaope",
+      "date": "2026-10-04"
     }
   ]
 }
