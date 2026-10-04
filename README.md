@@ -53,15 +53,15 @@ The star cutoff is an editorial preference. It excludes smaller and newer projec
 | Shelf | Holds | Now |
 | --- | --- | --- |
 | **Dashboard** | Counted live from what is loaded, never stored or estimated. | computed |
-| **Use Cases** | Real user stories, each quoted and linked to the original post. | 392 |
+| **Use Cases** | Real user stories, each quoted and linked to the original post. | 371 |
 | **Trending GitHub** | Documented integrations with measured star growth per day. | computed |
-| **Skills** | Packaged capabilities you install rather than re-prompt. | 79 |
+| **Skills** | Packaged capabilities you install rather than re-prompt. | 65 |
 | **Prompts** | Copyable examples, each verified against the page it cites. | 32 |
-| **Settings** | Configuration that materially changes how a run behaves. | 118 |
-| **Commands** | Commands and invocations, by how often they earn their keystrokes. | 292 |
+| **Settings** | Configuration that materially changes how a run behaves. | 114 |
+| **Commands** | Commands and invocations, by how often they earn their keystrokes. | 278 |
 | **Hidden Tricks** | Attributed community techniques checked against a pinned documentation corpus. | 4 |
 | **Works With** | Repositories worth pairing with Hermes, each read before listing. | 18 |
-| **People Build** | Projects built on Hermes and shown off publicly. | 27 |
+| **People Build** | Projects built on Hermes and shown off publicly. | 36 |
 | **My Work** | The maintainer's own posts, with analytics explicitly credited. | 11 |
 
 These are stored counts at the September 29 review (973 entries), not a promise that all entries qualify for display. Hidden Tricks and Prompts accept only reviewed extraction; the classifier cannot populate them. The four tricks include quotations and a bounded documentation-absence check, with 15 rejected candidates recorded. See [the reproducible evidence](docs/HIDDEN_TRICKS.md).

@@ -27,16 +27,20 @@ deploying are separate steps. No installation into the owner's Desktop was perfo
 
 ## Evidence and limits
 
-- `npm run check`: 973 stored entries across nine content shelves; Dashboard and Trending are computed.
+- `npm run check`: 929 stored entries across nine content shelves; Dashboard and Trending are computed.
 - `npm test`: 101 tests passed, including importer, ranking, local-server, plugin and installer regression tests. Plugin tests use SDK stand-ins, not a real Hermes Desktop instance.
 - During the September 26 review, a clean local clone passed both commands with an empty credential environment and no `.env` or `node_modules`. Its preview server served the four tricks and refused maintenance-script requests. Installer tests used disposable homes; the owner's installed plugin was not changed.
 - The prior merged release passed source-attribution and documentation-anchor checks. The link checker does not fetch every social post or verify redistribution rights.
 - GitHub read-only checks on 2026-09-26: public repository, secret scanning and push protection enabled, private vulnerability reporting enabled, zero open secret-scanning alerts returned. This is not a complete secrets-history or security audit.
 - Only `.env.example` is tracked among environment/configuration paths checked; real credentials and Vercel project configuration remain ignored.
 
-Stored counts at this review: Use Cases 392, Commands 292, Settings 118, Skills 79,
-Prompts 32, My Work 11, Works With 18, People Build 27 and Hidden Tricks 4.
-969 are currently eligible to display; stored entries are retained when ineligible.
+Stored counts at this review: Use Cases 371, Commands 278, Settings 114, Skills 65,
+People Build 36, Prompts 32, Works With 18, My Work 11 and Hidden Tricks 4.
+925 are currently eligible to display; stored entries are retained when ineligible.
+
+The drop from 973 is a removal, not a loss: 53 documentation fragments — numbered
+procedure steps and bare section labels that mean nothing as cards — were taken out
+deliberately, and every one of them is recorded in `scripts/pruned-doc-fragments.json`.
 
 The September 29 browser fixture confirmed that an embedded archive sends the selected
 original-source URL to the host. Native Hermes Desktop confirmation and external browser
