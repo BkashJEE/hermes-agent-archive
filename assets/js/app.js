@@ -65,6 +65,9 @@ async function load() {
   state.cfg.sections.forEach((s, i) => { state.data[s.id] = sections[i].items || []; });
 
   state.live = await getJSON('data/live.json').catch(() => null);
+  /* When each entry arrived, from git history. Optional: the archive reads fine without
+     it and the what's-new panel simply says it has nothing to show. */
+  state.added = await getJSON('data/added.json').then(d => d?.added || null).catch(() => null);
   mergeLive(state.data, state.live);
   const bannerItems = [];
   for (const section of state.cfg.sections) {
@@ -985,6 +988,73 @@ function restoreRoute() {
   if (id && findItem(id)) openDrawer(id, document.querySelector(`[data-id="${CSS.escape(id)}"]`), false);
 }
 
+/**
+ * What arrived recently, newest first, grouped by the day it arrived.
+ *
+ * Deliberately not the `date` field: that is when the thing described was published, so a
+ * Reddit post from February stays February however recently the archive picked it up.
+ * data/added.json is built from git history — the first commit holding an id is the day
+ * that entry arrived — which is the question a reader clicking "UPDATED" is asking.
+ */
+function whatsNewDays(limit = 6) {
+  if (!state.added) return [];
+  const byId = new Map();
+  for (const [sectionId, items] of Object.entries(state.data || {}))
+    for (const item of items) byId.set(item.id, { ...item, shelf: sectionId });
+
+  const days = new Map();
+  for (const [id, day] of Object.entries(state.added)) {
+    const item = byId.get(id);
+    if (!item) continue;                       // stored but not currently displayed
+    if (!days.has(day)) days.set(day, []);
+    days.get(day).push(item);
+  }
+  return [...days.entries()].sort((a, b) => b[0].localeCompare(a[0])).slice(0, limit);
+}
+
+function renderWhatsNew() {
+  const days = whatsNewDays();
+  const note = $('#whatsNewNote');
+  const body = $('#whatsNewBody');
+  if (!days.length) {
+    note.textContent = 'No arrival history is available. Run npm run added to build it.';
+    body.innerHTML = '';
+    return;
+  }
+  const total = days.reduce((n, [, items]) => n + items.length, 0);
+  note.textContent = `${num(total)} ${total === 1 ? 'entry' : 'entries'} across the last ${days.length} ${days.length === 1 ? 'day' : 'days'} the archive grew. Dates are when each entry arrived here, not when its source was published.`;
+
+  body.innerHTML = days.map(([day, items]) => {
+    const when = new Date(`${day}T12:00:00Z`).toLocaleDateString('en-US',
+      { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+    const byShelf = items.reduce((m, i) => ((m[i.shelf] ||= []).push(i), m), {});
+    return `<section class="wn-day">
+      <h3>${esc(when)} <span>+${num(items.length)}</span></h3>
+      ${Object.entries(byShelf).map(([shelf, list]) => `
+        <p class="wn-shelf">${esc((state.cfg.sections.find(s => s.id === shelf)?.label || shelf).toUpperCase())} &middot; ${num(list.length)}</p>
+        <ul class="wn-list">${list.slice(0, 6).map(item =>
+          `<li><button data-open-entry="${esc(item.id)}">${esc(item.title)}</button></li>`).join('')}
+          ${list.length > 6 ? `<li class="wn-more">+ ${num(list.length - 6)} more on this shelf</li>` : ''}
+        </ul>`).join('')}
+    </section>`;
+  }).join('');
+}
+
+function openWhatsNew() {
+  renderWhatsNew();
+  $('#whatsNew').hidden = false;
+  $('#newScrim').hidden = false;
+  $('#whatsNewBtn').setAttribute('aria-expanded', 'true');
+  $('#whatsNewClose').focus();
+}
+
+function closeWhatsNew() {
+  $('#whatsNew').hidden = true;
+  $('#newScrim').hidden = true;
+  $('#whatsNewBtn').setAttribute('aria-expanded', 'false');
+  $('#whatsNewBtn').focus();
+}
+
 function renderSourceStatus() {
   $('#updatedAt').textContent = state.live?.generatedAt
     ? new Date(state.live.generatedAt).toLocaleDateString() : 'Not fetched';
@@ -1117,14 +1187,22 @@ function wire() {
     }
     if (e.target.closest('[data-clear]')) { clearFilters(); afterClearFocus(); return; }
 
+    const arrival = e.target.closest('[data-open-entry]');
+    if (arrival) { closeWhatsNew(); openDrawer(arrival.dataset.openEntry, arrival); return; }
+
     const c = e.target.closest('.card');
     if (c) openDrawer(c.dataset.id, c);
   });
+
+  $('#whatsNewBtn').addEventListener('click', () => $('#whatsNew').hidden ? openWhatsNew() : closeWhatsNew());
+  $('#whatsNewClose').addEventListener('click', () => closeWhatsNew());
+  $('#newScrim').addEventListener('click', () => closeWhatsNew());
 
   $('#drawerClose').addEventListener('click', () => closeDrawer());
   $('#scrim').addEventListener('click', () => closeDrawer());
 
   document.addEventListener('keydown', e => {
+    if (!$('#whatsNew').hidden && e.key === 'Escape') { e.preventDefault(); closeWhatsNew(); return; }
     if (!$('#drawer').hidden) {
       if (e.key === 'Escape') { e.preventDefault(); closeDrawer(); }
       if (e.key === 'Tab') {

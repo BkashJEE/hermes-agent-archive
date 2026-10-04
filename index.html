@@ -68,7 +68,10 @@
      title="Source on GitHub — open source, contributions welcome" aria-label="Source on GitHub">
     <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38l-.01-1.33c-2.23.48-2.7-1.07-2.7-1.07-.36-.93-.89-1.18-.89-1.18-.73-.5.06-.49.06-.49.8.06 1.23.83 1.23.83.72 1.23 1.88.87 2.34.67.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.2c0 .21.15.46.55.38A8 8 0 0 0 8 0Z"/></svg>
   </a>
-  <span class="updated">UPDATED <b id="updatedAt">&mdash;</b></span>
+  <!-- The date alone said when metrics were fetched, which answers a question nobody
+       asked. It opens what actually arrived, and when. -->
+  <button class="updated" id="whatsNewBtn" aria-expanded="false" aria-controls="whatsNew"
+          title="What was added recently">UPDATED <b id="updatedAt">&mdash;</b></button>
 
 </header>
 
@@ -174,12 +177,20 @@
   </main>
 </div>
 
+<div class="drawer-scrim" id="newScrim" hidden></div>
+<aside class="whats-new" id="whatsNew" hidden aria-labelledby="whatsNewTitle" role="dialog" aria-modal="true">
+  <button class="drawer-close" id="whatsNewClose" aria-label="Close">&#10005;</button>
+  <h2 id="whatsNewTitle">What arrived recently</h2>
+  <p class="wn-note" id="whatsNewNote"></p>
+  <div id="whatsNewBody"></div>
+</aside>
+
 <div class="drawer-scrim" id="scrim" hidden></div>
 <aside class="drawer" id="drawer" hidden aria-labelledby="drawerTitle" role="dialog" aria-modal="true">
   <button class="drawer-close" id="drawerClose" aria-label="Close">&#10005;</button>
   <div id="drawerBody"></div>
 </aside>
 
-<script type="module" src="assets/js/app.js?v=dash-credit-2"></script>
+<script type="module" src="assets/js/app.js?v=whatsnew-1"></script>
 </body>
 </html>
