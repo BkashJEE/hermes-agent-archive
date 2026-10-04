@@ -24,6 +24,7 @@
     "plugin": "node scripts/install-plugin.mjs",
     "harvest": "node scripts/harvest.mjs",
     "discover": "node scripts/discover-hermes-topic.mjs",
+    "scout": "node scripts/scout-candidates.mjs",
     "added": "node scripts/build-added-dates.mjs"
   },
   "engines": {

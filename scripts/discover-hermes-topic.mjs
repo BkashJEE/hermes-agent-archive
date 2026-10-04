@@ -46,6 +46,29 @@ async function api(url) {
 }
 
 /**
+ * Does Hermes appear in the words of this line, rather than in its markup?
+ *
+ * A README badge or screenshot can carry `hermes` in an image filename or an alt
+ * attribute while the sentence a reader sees never mentions it. Those lines read as
+ * evidence of an integration and are evidence of a file name. One repository ranked sixth
+ * in review order on two `<img>` tags, so markup is stripped before the test.
+ *
+ * Code is deliberately kept. `~/.hermes/skills/` or `hermes skills tap add` is the
+ * strongest evidence of a real integration a README can contain — removing it to tidy the
+ * filter would throw away the thing worth finding.
+ */
+export function mentionsHermesInProse(line) {
+  const visible = line
+    /* Real tags only. Anything in angle brackets is too greedy: a usage line like
+       `import <hermes|openclaw|codex>` is prose, and eating it loses an integration. A tag
+       name is followed by whitespace, a slash or the closing bracket — never a pipe. */
+    .replace(/<\/?[a-z][a-z0-9-]*(\s[^>]*)?\/?>/gi, ' ')
+    .replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1')      // links keep their label, drop the target
+    .replace(/^[#>\-*|\s]+/, '');                   // leading markdown furniture
+  return /hermes/i.test(visible) && visible.trim().length > 12;
+}
+
+/**
  * The lines of a README that mention Hermes, as the author wrote them.
  *
  * A repository tagged `hermes-agent` whose README never says Hermes is almost certainly
@@ -58,10 +81,8 @@ async function hermesMentions(repo, branch) {
     const res = await fetch(url, { headers: { 'user-agent': headers['user-agent'] }, signal: AbortSignal.timeout(20000) }).catch(() => null);
     if (!res?.ok) continue;
     const text = await res.text();
-    const lines = text.split('\n')
-      .map(line => line.trim())
-      .filter(line => /hermes/i.test(line) && line.length > 12 && !/^[#>\-*|]+$/.test(line));
-    return { count: lines.length, quoted: lines.slice(0, 4), readme: url };
+    const lines = text.split('\n').map(line => line.trim()).filter(mentionsHermesInProse);
+    return { count: lines.length, quoted: lines.slice(0, 6), readme: url };
   }
   return { count: 0, quoted: [], readme: null };
 }
