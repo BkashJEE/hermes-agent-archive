@@ -844,3 +844,38 @@ code{font-family:var(--mono);font-size:.92em}
    there is room, two on a tablet, one on a phone, and never an orphan. */
 .dash-preview .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media (max-width:640px){ .dash-preview .grid{grid-template-columns:1fr} }
+
+
+/* ---- what arrived recently ---- */
+
+button.updated{
+  background:none;border:0;cursor:pointer;font:inherit;color:inherit;
+  padding:4px 6px;border-radius:8px
+}
+button.updated:hover{background:var(--panel2);color:var(--accent)}
+
+.whats-new{
+  position:fixed;right:0;top:0;bottom:0;width:min(440px,100%);z-index:45;
+  background:var(--panel);border-left:1px solid var(--line);
+  padding:22px 22px 40px;overflow:auto;display:block
+}
+.whats-new h2{margin:0 0 6px;font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--ink)}
+.wn-note{margin:0 0 18px;font-size:11px;line-height:1.6;color:var(--ink-mute)}
+
+.wn-day{margin-bottom:22px}
+.wn-day h3{
+  margin:0 0 8px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  color:var(--ink);font-weight:700;border-bottom:1px solid var(--line);padding-bottom:6px
+}
+.wn-day h3 span{color:var(--accent)}
+.wn-shelf{margin:10px 0 4px;font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--ink-mute)}
+
+.wn-list{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.wn-list button{
+  background:none;border:0;cursor:pointer;text-align:left;width:100%;
+  padding:6px 8px;border-radius:8px;color:var(--ink);font:inherit;font-size:12.5px;line-height:1.45
+}
+.wn-list button:hover{background:var(--panel2);color:var(--accent)}
+.wn-more{padding:4px 8px;font-size:11px;color:var(--ink-mute)}
+
+@media (max-width:640px){ .whats-new{width:100%;padding:18px 16px 40px} }
