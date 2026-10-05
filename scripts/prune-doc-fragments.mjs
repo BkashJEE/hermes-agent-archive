@@ -77,15 +77,27 @@ async function main() {
   if (dry) { console.log('\n--dry: nothing written.'); return; }
 
   /* Write down what went, so the removal is auditable after the fact and a later import
-     can be checked against it rather than quietly re-adding the same fragments. */
-  await writeFile(RECORD, JSON.stringify({
+     can be checked against it rather than quietly re-adding the same fragments.
+
+     Earlier passes are kept. This file is the audit trail for every fragment this script
+     has ever removed, and a second run that replaced it would erase the record of the
+     first — fifty-three entries, in the one file that explains where they went. */
+  let history = { passes: [] };
+  try {
+    const existing = JSON.parse(await readFile(RECORD, 'utf8'));
+    history.passes = existing.passes ?? (existing.items ? [{ removedAt: existing.removedAt, why: existing.why, items: existing.items }] : []);
+  } catch { /* first run */ }
+
+  history.passes.push({
     removedAt: new Date().toISOString(),
     why: 'Numbered procedure steps and bare section labels imported from the documentation. '
        + 'A step is meaningless outside its sequence and a one-word label is not an instruction. '
        + 'Deliberate reviewed removal of doc- entries only; no community-sourced entry is eligible.',
     items: removed
-  }, null, 2) + '\n');
-  console.log(`wrote ${RECORD.replace(ROOT + '/', '')}`);
+  });
+  history.totalRemoved = history.passes.reduce((n, p) => n + p.items.length, 0);
+  await writeFile(RECORD, JSON.stringify(history, null, 2) + '\n');
+  console.log(`wrote ${RECORD.replace(ROOT + '/', '')} — ${history.totalRemoved} removed across ${history.passes.length} pass${history.passes.length === 1 ? '' : 'es'}`);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) await main();
