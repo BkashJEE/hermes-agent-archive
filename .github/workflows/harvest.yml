@@ -50,6 +50,12 @@ jobs:
             echo "Jev key unavailable; new entries stay unclassified until a later run."
           fi
 
+      # Entries and their pages ship together. A harvest that adds an entry without
+      # regenerating leaves it with no URL a crawler can reach, and the page test below
+      # fails rather than letting that merge quietly.
+      - name: Rebuild the crawlable pages
+        run: npm run pages
+
       # A harvest that breaks the archive is worse than one that finds nothing, so this
       # gate runs before anything is proposed rather than after review.
       - name: Validate
@@ -63,7 +69,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/
+          git add data/ entry/ shelf/ sitemap.xml
           if git diff --staged --quiet; then
             echo "The sources had nothing new; no proposal to make."
             exit 0

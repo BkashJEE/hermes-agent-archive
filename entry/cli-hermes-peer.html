@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>hermes peer · Hermes Agent Archive</title>
+<meta name="description" content="Register peer Hermes gateways on other machines and DM their agents&#39; canonical Bot Chats (hermes peer dm &lt;peer&gt;[/&lt;agent&gt;] &quot;…&quot;). The transport behind…">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/cli-hermes-peer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hermes peer">
+<meta property="og:description" content="Register peer Hermes gateways on other machines and DM their agents&#39; canonical Bot Chats (hermes peer dm &lt;peer&gt;[/&lt;agent&gt;] &quot;…&quot;). The transport behind…">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/cli-hermes-peer">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="hermes peer">
+<meta name="twitter:description" content="Register peer Hermes gateways on other machines and DM their agents&#39; canonical Bot Chats (hermes peer dm &lt;peer&gt;[/&lt;agent&gt;] &quot;…&quot;). The transport behind…">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/commands">Commands</a></header>
+
+<article>
+<h1>hermes peer</h1>
+
+<p class="meta">From Official Docs</p>
+<p>Register peer Hermes gateways on other machines and DM their agents&#39; canonical Bot Chats (hermes peer dm &lt;peer&gt;[/&lt;agent&gt;] &quot;…&quot;). The transport behind cross-machine bot-to-bot messaging.</p>
+<p>Bot-to-bot DMs across machines. Register another Hermes gateway (any machine running the api_server platform) as a peer, then message its agents: hermes peer dm resolves the remote agent&#39;s canonical Bot Chat session over the peer&#39;s API server, runs one agent turn there, and prints the reply on stdout — the cross-machine twin of the local hermes -p &lt;bot&gt; chat --in ~ -c &quot;Bot Chat&quot; … bot-messaging command.</p>
+<p>&lt;peer&gt; alone targets the peer gateway&#39;s main agent; &lt;peer&gt;/&lt;agent&gt; targets a named profile on a multiplexed peer (routed via its /p/&lt;profile&gt;/ mirror).</p>
+<p>When at least one peer is registered, the Bot Mode messaging protocol (agent.bot_mode_protocol) taught to every canonical Bot Chat automatically includes the peer roster and the hermes peer dm pattern, so agents discover cross-machine teammates without SOUL edits. See Bot Mode.</p>
+<p>Exit codes: 0 on success, 1 on delivery/peer failure, 2 on usage errors.</p>
+<p>From the official Hermes Agent CLI reference.</p>
+<pre><code>hermes peer</code></pre>
+<ul class="tags"><li>#cli</li><li>#reference</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-peer" rel="noopener">Read the original</a>
+<a href="/#commands?item=cli-hermes-peer">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

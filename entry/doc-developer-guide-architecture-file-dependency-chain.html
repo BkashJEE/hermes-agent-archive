@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>File Dependency Chain · Hermes Agent Archive</title>
+<meta name="description" content="This chain means tool registration happens at import time, before any agent instance is created.">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-developer-guide-architecture-file-dependency-chain">
+<meta property="og:type" content="article">
+<meta property="og:title" content="File Dependency Chain">
+<meta property="og:description" content="This chain means tool registration happens at import time, before any agent instance is created.">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-developer-guide-architecture-file-dependency-chain">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="File Dependency Chain">
+<meta name="twitter:description" content="This chain means tool registration happens at import time, before any agent instance is created.">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/use-cases">Use Cases</a></header>
+
+<article>
+<h1>File Dependency Chain</h1>
+
+<p class="meta">From Official Docs</p>
+<p>This chain means tool registration happens at import time, before any agent instance is created. Any tools/*.py file with a top-level registry.register() call is auto-discovered - no manual import list needed. System Overview Directory Structure Data Flow CLI Session Gateway Message Cron Job Recommended Reading Order Major Subsystems Agent Loop Prompt System Provider Resolution Tool System Session Persistence Messaging Gateway Plugin System Cron ACP Integration Trajectories Design Principles File Dependency Chain</p>
+<p>From the official Hermes Agent documentation.</p>
+<pre><code>tools/registry.py  (no deps — imported by all tool files)
+       ↑
+tools/*.py  (each calls registry.register() at import time)
+       ↑
+model_tools.py  (imports tools/registry + triggers tool discovery)
+       ↑
+run_agent.py, cli.py, batch_runner.py, environments/</code></pre>
+<ul class="tags"><li>#architecture</li><li>#developer</li><li>#docs</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#file-dependency-chain" rel="noopener">Read the original</a>
+<a href="/#use-cases?item=doc-developer-guide-architecture-file-dependency-chain">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

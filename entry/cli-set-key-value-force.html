@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>set &lt;key&gt; &lt;value&gt; [--force] · Hermes Agent Archive</title>
+<meta name="description" content="Set a config value. Dotted paths go to config.yaml; every UPPER_SNAKE name (OPENROUTER_API_KEY, DISCORD_HOME_CHANNEL, TELEGRAM_GROUP_ALLOWED_USERS…">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/cli-set-key-value-force">
+<meta property="og:type" content="article">
+<meta property="og:title" content="set &lt;key&gt; &lt;value&gt; [--force]">
+<meta property="og:description" content="Set a config value. Dotted paths go to config.yaml; every UPPER_SNAKE name (OPENROUTER_API_KEY, DISCORD_HOME_CHANNEL, TELEGRAM_GROUP_ALLOWED_USERS…">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/cli-set-key-value-force">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="set &lt;key&gt; &lt;value&gt; [--force]">
+<meta name="twitter:description" content="Set a config value. Dotted paths go to config.yaml; every UPPER_SNAKE name (OPENROUTER_API_KEY, DISCORD_HOME_CHANNEL, TELEGRAM_GROUP_ALLOWED_USERS…">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/settings">Settings</a></header>
+
+<article>
+<h1>set &lt;key&gt; &lt;value&gt; [--force]</h1>
+
+<p class="meta">From Official Docs</p>
+<p>Set a config value. Dotted paths go to config.yaml; every UPPER_SNAKE name (OPENROUTER_API_KEY, DISCORD_HOME_CHANNEL, TELEGRAM_GROUP_ALLOWED_USERS, HERMES_TIMEZONE, …) is an environment variable and goes to .env — the same file the platform setup flows and /sethome write, and the one every runtime reader resolves against. config set never writes an UPPER_SNAKE key into config.yaml, --force included; names on the env writer&#39;s denylist (HERMES_YOLO_MODE, PATH, …) are refused outright; any other UPPER_SNAKE name is saved to .env as-is (plugins, skills and external tools read it from the process environment). A known key written under the wrong prefix (gateway.discord.foo, where discord.foo is itself a known key) is refused with a did-you-mean and nothing is written; any other unknown path under a known section (agent.max_turnz, or a runtime-read key that has no seeded default) is written with a did-you-mean notice, and an unknown lowercase top-level key is written with a notice (top-level scalars are bridged into the environment for skills). --force writes the refused wrong-prefix path too. Values are type-checked against the schema: a key that must hold a list or a mapping (custom_providers, model.aliases, display.platforms, plugins.enabled/plugins.disabled, model_catalog.excluded_providers, any key already holding one) refuses a plain string or a wrong-shaped literal, and a value that looks like a list/mapping but is not valid YAML/JSON is refused instead of being stored as a string — nothing is written and the error names the expected type. Pass a YAML/JSON literal (hermes config set custom_providers &#39;[{name: x, base_url: https://...}]&#39;); to store a string that merely starts with [ or {, quote it in YAML (&quot;&#39;[text&#39;&quot;). --force still replaces a whole mapping section; a non-list in a list slot has no override, except that a bare name for a list of names read leniently (agent.disabled_toolsets, skills.disabled) is stored as a one-item list.</p>
+<p>From the official Hermes Agent CLI reference.</p>
+
+<ul class="tags"><li>#cli</li><li>#reference</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/reference/cli-commands" rel="noopener">Read the original</a>
+<a href="/#settings?item=cli-set-key-value-force">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

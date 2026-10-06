@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What the source installer does · Hermes Agent Archive</title>
+<meta name="description" content="The scripts clone the source, bootstrap uv, and delegate dependency preparation to PM.">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-getting-started-installation-what-the-source-installer-does">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What the source installer does">
+<meta property="og:description" content="The scripts clone the source, bootstrap uv, and delegate dependency preparation to PM.">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-getting-started-installation-what-the-source-installer-does">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What the source installer does">
+<meta name="twitter:description" content="The scripts clone the source, bootstrap uv, and delegate dependency preparation to PM.">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/commands">Commands</a></header>
+
+<article>
+<h1>What the source installer does</h1>
+
+<p class="meta">From Official Docs</p>
+<p>The scripts clone the source, bootstrap uv, and delegate dependency preparation to PM. PM provides pinned Python, Node.js, npm, ripgrep, and FFmpeg. The source installation selects the all Python extra, not every optional extra. PM also installs the browser tools ( agent-browser and its pinned Chromium) by default. If that download fails, the install still completes and prints the command to retry. Other optional tools use their feature-specific installation paths. To leave the browser tools out, pass --skip-browser on POSIX or -SkipBrowser on Windows. Hermes remembers this choice: later installs and hermes update do not add them back. Run hermes pm install agent-browser to install them and undo the choice. The scripts create a launcher and prepare the data directory. Interactive runs also invoke setup and gateway configuration. --non-interactive on POSIX, or -NonInteractive on Windows, skips stages that need input. The optional --include-desktop / -IncludeDesktop stage builds the desktop from source. On a terminal the scripts show one status line per step and write the output of git, uv and the builds to logs/install.log under the Hermes data directory; a failed step prints its la…</p>
+<p>From the official Hermes Agent documentation.</p>
+
+<ul class="tags"><li>#install</li><li>#getting-started</li><li>#docs</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/getting-started/installation#what-the-source-installer-does" rel="noopener">Read the original</a>
+<a href="/#commands?item=doc-getting-started-installation-what-the-source-installer-does">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

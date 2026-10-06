@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Generate the memory vault from a database instead of letting the agent edit it · Hermes Agent Archive</title>
+<meta name="description" content="Use structured model output as input to a deterministic store, then render a read-only Obsidian view.">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/trick-generate-a-read-only-memory-vault">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Generate the memory vault from a database instead of letting the agent edit it">
+<meta property="og:description" content="Use structured model output as input to a deterministic store, then render a read-only Obsidian view.">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/trick-generate-a-read-only-memory-vault">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Generate the memory vault from a database instead of letting the agent edit it">
+<meta name="twitter:description" content="Use structured model output as input to a deterministic store, then render a read-only Obsidian view.">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/tricks">Hidden Tricks</a></header>
+
+<article>
+<h1>Generate the memory vault from a database instead of letting the agent edit it</h1>
+<p class="lede">Use structured model output as input to a deterministic store, then render a read-only Obsidian view.</p>
+<p class="meta">By @lauratom · Discord</p>
+<p>I just have my DB auto-generate a read-only Markdown vault</p>
+<p>— @lauratom, 2026-04-04, via the public Nous Discord archive.</p>
+<p>The contributor uses the model to extract structured semantic signals. A Python backend turns those signals into typed nodes and edges in SQLite FTS5, handles memory changes in SQL, and generates Markdown for viewing in Obsidian. The generated vault is an output, not the writable source of truth.</p>
+<p>Limitations: Requires a custom memory backend; no complete implementation is supplied in the message. Read-only generated files alone do not establish a security boundary. Built-in Hermes session search already uses SQLite; that alone is not the trick.</p>
+<p>Documentation check: this specific community technique was not found in the official English reference snapshot (5458de9) or the cached prompt guides. Related built-in features are documented. This is a bounded source review, not a claim about every document or independent execution testing.</p>
+
+<ul class="tags"><li>#memory</li><li>#dev-workflow</li></ul>
+<div class="actions">
+<a href="https://github.com/teknium1/nous-discord-archive/blob/00e34c284fc9ec2571acc43d6f3e9b8ef1fe2c8a/archives/hermes-agent.txt#L162913-L162925" rel="noopener">Read the original</a>
+<a href="/#tricks?item=trick-generate-a-read-only-memory-vault">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

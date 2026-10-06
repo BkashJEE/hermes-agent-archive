@@ -11,13 +11,13 @@ const TYPES = {
   '.mjs': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8',
   '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml',
   '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp',
-  '.woff2': 'font/woff2', '.ico': 'image/x-icon', '.txt': 'text/plain; charset=utf-8'
+  '.woff2': 'font/woff2', '.xml': 'application/xml; charset=utf-8', '.ico': 'image/x-icon', '.txt': 'text/plain; charset=utf-8'
 };
 
 export async function createArchiveServer(root = ROOT) {
   root = await realpath(root);
   const cfg = JSON.parse(await readFile(resolve(root, 'data/index.json'), 'utf8'));
-  const publicFiles = new Set(['index.html', 'robots.txt', 'data/index.json', 'data/live.json', 'data/rankings.json']);
+  const publicFiles = new Set(['index.html', 'robots.txt', 'sitemap.xml', 'data/index.json', 'data/live.json', 'data/rankings.json']);
   for (const section of cfg.sections) {
     if (!section.file) continue;
     if (!/^[a-z0-9-]+\.json$/i.test(section.file)) throw new Error('Invalid section file');
@@ -36,8 +36,18 @@ export async function createArchiveServer(root = ROOT) {
       const segments = path.split('/');
       if (path.includes('\\') || segments.some(s => !s || s.startsWith('.'))) throw new Error('Invalid path');
       const asset = path.startsWith('assets/') && TYPES[extname(path)];
-      if (!publicFiles.has(path) && !asset) throw new Error('Not public');
-      const file = resolve(root, path);
+      /* The generated entry and shelf pages, matched by shape rather than listed: there
+         are 938 of them and they change with the data. Vercel serves these with
+         `cleanUrls`, so /entry/<id> resolves to entry/<id>.html; the same here, or local
+         and production disagree about every link in the sitemap. The id pattern is the
+         one build-pages.mjs enforces, and the traversal, symlink and root checks below
+         still apply to whatever it produces. */
+      const generated = /^(entry|shelf)\/[A-Za-z0-9][A-Za-z0-9._-]*$/.test(path)
+        && !path.endsWith('.html') ? `${path}.html` : null;
+      const served = generated ?? path;
+      const isGenerated = /^(entry|shelf)\/[A-Za-z0-9][A-Za-z0-9._-]*\.html$/.test(served);
+      if (!publicFiles.has(served) && !asset && !isGenerated) throw new Error('Not public');
+      const file = resolve(root, served);
       // Reject symlinks too: a public-looking filename must not alias a secret.
       if (!file.startsWith(root + sep) || await realpath(file) !== file) throw new Error('Invalid target');
       const body = await readFile(file);

@@ -1,0 +1,25 @@
+/* Layout for the generated entry and shelf pages (scripts/build-pages.mjs).
+   The palette, the fonts and the tokens stay in style.css; this only lays out a
+   document. Kept in a file rather than inlined in every page: it was repeated 929
+   times, and a shared stylesheet is cached once instead. */
+
+/* The app stylesheet owns the palette and the fonts; this only lays out a document. */
+body { margin: 0; padding: 0 16px 64px; }
+/* A quoted post can carry a URL or an identifier with no space in it for 90 characters,
+   which pushes the page sideways on a phone. Break inside a word only when there is no
+   other way to fit it. */
+.doc, .doc * { overflow-wrap: anywhere; }
+.doc pre, .doc code { overflow-wrap: normal; }
+.doc { max-width: 46rem; margin: 0 auto; }
+.doc header { padding: 24px 0 8px; border-bottom: 1px solid var(--line, #2a2a2a); margin-bottom: 28px; }
+.doc h1 { font-size: clamp(1.5rem, 4vw, 2.1rem); line-height: 1.25; margin: 20px 0 8px; }
+.doc .lede { font-size: 1.05rem; opacity: .9; }
+.doc pre { overflow-x: auto; padding: 14px; border: 1px solid var(--line, #2a2a2a); border-radius: 8px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: .85rem; }
+.doc .meta { font-size: .85rem; opacity: .75; margin: 4px 0 0; }
+.doc .tags { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: .78rem; opacity: .8; }
+.doc .actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0; }
+.doc .actions a { padding: 10px 16px; border: 1px solid var(--line, #2a2a2a); border-radius: 8px; text-decoration: none; }
+.doc ul.entries { list-style: none; padding: 0; }
+.doc ul.entries li { padding: 14px 0; border-bottom: 1px solid var(--line, #2a2a2a); }
+.doc ul.entries p { margin: 4px 0 0; opacity: .8; font-size: .92rem; }
+.doc footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line, #2a2a2a); font-size: .85rem; opacity: .8; }

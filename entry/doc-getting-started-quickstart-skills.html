@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skills · Hermes Agent Archive</title>
+<meta name="description" content="Skills are on-demand instruction documents that teach Hermes how to do a specific task - deploy to Kubernetes, open a GitHub PR, fine-tune a model, search…">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-getting-started-quickstart-skills">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Skills">
+<meta property="og:description" content="Skills are on-demand instruction documents that teach Hermes how to do a specific task - deploy to Kubernetes, open a GitHub PR, fine-tune a model, search…">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-getting-started-quickstart-skills">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Skills">
+<meta name="twitter:description" content="Skills are on-demand instruction documents that teach Hermes how to do a specific task - deploy to Kubernetes, open a GitHub PR, fine-tune a model, search…">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/commands">Commands</a></header>
+
+<article>
+<h1>Skills</h1>
+
+<p class="meta">From Official Docs</p>
+<p>Skills are on-demand instruction documents that teach Hermes how to do a specific task - deploy to Kubernetes, open a GitHub PR, fine-tune a model, search for GIFs. Each is a SKILL.md file with a name, a description, and a step-by-step procedure. The agent reads the short descriptions for free and only loads a skill&#39;s full content when a task actually calls for it, so adding skills doesn&#39;t bloat every request. Hermes ships with a catalog of bundled skills already installed in ~/.hermes/skills/ . You can add more from the Skills Hub, or write your own. Browse and install from the hub: The install argument is a source/path slug from the hub - openai/skills/k8s means the k8s skill from OpenAI&#39;s catalog. hermes skills browse shows the exact slugs to use. Use a skill - every installed skill becomes a slash command automatically: This works in the CLI and in any connected messaging platform. You don&#39;t have to install everything up front - the agent picks the right bundled skill on its own during normal conversation when a task matches one. See Skills System for writing your own, external skill directories, and the full hub source list.</p>
+<p>From the official Hermes Agent documentation.</p>
+<pre><code>hermes skills browse                      # list everything available
+hermes skills search kubernetes           # find skills by keyword
+hermes skills install openai/skills/k8s   # install one (runs a security scan first)</code></pre>
+<ul class="tags"><li>#quickstart</li><li>#getting-started</li><li>#docs</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#skills" rel="noopener">Read the original</a>
+<a href="/#commands?item=doc-getting-started-quickstart-skills">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>
