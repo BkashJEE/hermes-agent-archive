@@ -1,6 +1,7 @@
 *
 !index.html
 !vercel.json
+!robots.txt
 !assets
 !assets/**
 !data

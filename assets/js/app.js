@@ -546,7 +546,7 @@ function renderDashboard() {
   const st = dashboardStats();
   const live = state.live || {};
   const stale = (live.github || []).filter(g => g.stale).length;
-  const warnings = (live.warnings || []).length;
+  const warnings = (live.warnings || []).length + (live.unconfigured || []).length;
 
   /* A tile may carry a share track — the progress-stat idea: a big numeral with a
      thin rail underneath showing what fraction of the whole it represents. */
@@ -992,7 +992,10 @@ function renderSourceStatus() {
     ? `Public metrics last fetched ${new Date(state.live.generatedAt).toLocaleString()}.`
     : 'Public metrics have not been fetched yet.';
   $('.foot-warn')?.remove();
-  const warn = state.live?.warnings || [];
+  /* A source that broke and a source that was never configured both leave the reader
+     without a figure, so both are disclosed here. They are stored apart only so that an
+     unconfigured source does not fail the nightly run. */
+  const warn = [...(state.live?.warnings || []), ...(state.live?.unconfigured || [])];
   if (warn.length) {
     const names = [...new Set(warn.map(w => /reddit/i.test(w) ? 'Reddit' : /github/i.test(w) ? 'GitHub' : /hacker|\bhn\b/i.test(w) ? 'Hacker News' : 'A source'))];
     const el = document.createElement('p');
