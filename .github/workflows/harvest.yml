@@ -74,9 +74,12 @@ jobs:
           git switch -c "$branch"
           git commit -m "$title"
           git push origin "$branch"
-          # The summary is read from the file rather than interpolated through ${{ }}.
+          # The summary is read from this file rather than through a workflow expression.
           # Pasting program output into a shell script is a script-injection seam, and the
           # text includes upstream error messages this repository does not control.
+          # (Writing that expression syntax literally here would not survive: the runner
+          # parses it anywhere in the file, comments included, and an empty one is a
+          # syntax error — which is exactly how this line broke the workflow once.)
           {
             echo 'Re-read the upstream sources that grow and merged what was new.'
             echo
