@@ -52,3 +52,13 @@ test('an unconfigured source is still disclosed to the reader', async () => {
   assert.match(app, /\(live\.unconfigured \|\| \[\]\)\.length/,
     'the dashboard count covers both buckets');
 });
+
+test('a failure report names the failure, not the runtime', async () => {
+  /* The harvest log once read `unreachable: import-jev-hermes.mjs — Node.js v20.20.2`,
+     because the reason was taken from the last line of output and a thrown error ends
+     with Node's version banner. */
+  const src = await read('./harvest.mjs');
+  assert.ok(!/result\.out\.trim\(\)\.split\('\\n'\)\.slice\(-1\)\[0\]/.test(src),
+    'the last line of output is not the reason');
+  assert.match(src, /function reason\(out\)/, 'a dedicated extractor picks the thrown message');
+});
