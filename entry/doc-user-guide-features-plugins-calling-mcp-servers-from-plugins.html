@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calling MCP servers from plugins · Hermes Agent Archive</title>
+<meta name="description" content="ctx.call_mcp() lets a plugin call a tool on one of the user&#39;s configured MCP servers - synchronously, from any hook or tool handler - routing through…">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-calling-mcp-servers-from-plugins">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Calling MCP servers from plugins">
+<meta property="og:description" content="ctx.call_mcp() lets a plugin call a tool on one of the user&#39;s configured MCP servers - synchronously, from any hook or tool handler - routing through…">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-calling-mcp-servers-from-plugins">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calling MCP servers from plugins">
+<meta name="twitter:description" content="ctx.call_mcp() lets a plugin call a tool on one of the user&#39;s configured MCP servers - synchronously, from any hook or tool handler - routing through…">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/skills">Skills</a></header>
+
+<article>
+<h1>Calling MCP servers from plugins</h1>
+
+<p class="meta">From Official Docs</p>
+<p>ctx.call_mcp() lets a plugin call a tool on one of the user&#39;s configured MCP servers - synchronously, from any hook or tool handler - routing through Hermes&#39; existing native MCP client (same connections, trust-tier gates, circuit breaker, and reconnect logic as model-invoked MCP tools; never a parallel client). Signature: ctx.call_mcp(server: str, tool: str, arguments: dict | None = None, timeout: float = 30) -&gt; dict Returns a stable envelope: {&quot;ok&quot;: True, &quot;result&quot;: ...} (plus structuredContent when the server provides it) or {&quot;ok&quot;: False, &quot;error&quot;: &quot;...&quot;} . Results over ~64 KB are truncated and flagged with &quot;truncated&quot;: True .</p>
+<p>From the official Hermes Agent documentation.</p>
+<pre><code>result = ctx.call_mcp(
+    &quot;knowledge_rag&quot;,            # server name from mcp.servers
+    &quot;query_knowledge&quot;,          # tool on that server
+    {&quot;query&quot;: &quot;deploy runbook&quot;},
+    timeout=30,                 # seconds; clamped to 1–600
+)
+if result[&quot;ok&quot;]:
+    print(result[&quot;result&quot;])
+else:
+    print(&quot;MCP error:&quot;, result[&quot;error&quot;])</code></pre>
+<ul class="tags"><li>#plugins</li><li>#docs</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#calling-mcp-servers-from-plugins" rel="noopener">Read the original</a>
+<a href="/#skills?item=doc-user-guide-features-plugins-calling-mcp-servers-from-plugins">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

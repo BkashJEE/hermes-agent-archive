@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Actual Setup · Hermes Agent Archive</title>
+<meta name="description" content="Set up Actual Computer (actual.inc) inference in Hermes.">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/skill-optional-devops-actual-setup">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Actual Setup">
+<meta property="og:description" content="Set up Actual Computer (actual.inc) inference in Hermes.">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/skill-optional-devops-actual-setup">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Actual Setup">
+<meta name="twitter:description" content="Set up Actual Computer (actual.inc) inference in Hermes.">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/skills">Skills</a></header>
+
+<article>
+<h1>Actual Setup</h1>
+<p class="lede">Set up Actual Computer (actual.inc) inference in Hermes.</p>
+<p class="meta">By shl0ms + Hermes Agent · Official Docs</p>
+<p>Sets up [actual.inc](https://actual.inc) (Actual Computer) as a Hermes inference<br>provider. Actual turns the user&#39;s own hardware into a private inference cluster<br>and exposes an OpenAI-compatible API two ways: a hosted end-to-end-encrypted<br>relay at `https://api.actual.inc` (authenticated with an `ac_` key), and a local<br>on-device daemon at `http://127.0.0.1:8080` (no auth on loopback). This skill<br>does not install the Actual daemon for the user — device authorization requires<br>a human in a browser.</p>
+<p>Platforms: linux, macos, windows.</p>
+<pre><code>hermes skills install official/devops/actual-setup</code></pre>
+<ul class="tags"><li>#skills</li><li>#optional</li><li>#devops</li><li>#actual</li><li>#actual-inc</li><li>#provider</li><li>#local-inference</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/devops/devops-actual-setup" rel="noopener">Read the original</a>
+<a href="/#skills?item=skill-optional-devops-actual-setup">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

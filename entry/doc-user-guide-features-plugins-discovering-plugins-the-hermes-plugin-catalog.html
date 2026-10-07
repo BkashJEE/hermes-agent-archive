@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Discovering plugins — the Hermes plugin catalog · Hermes Agent Archive</title>
+<meta name="description" content="hermes plugins search &lt;term&gt; searches the Hermes plugin catalog - the curated, SHA-pinned catalog maintained in the hermes-agent repository (…">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-discovering-plugins-the-hermes-plugin-catalog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Discovering plugins — the Hermes plugin catalog">
+<meta property="og:description" content="hermes plugins search &lt;term&gt; searches the Hermes plugin catalog - the curated, SHA-pinned catalog maintained in the hermes-agent repository (…">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-discovering-plugins-the-hermes-plugin-catalog">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Discovering plugins — the Hermes plugin catalog">
+<meta name="twitter:description" content="hermes plugins search &lt;term&gt; searches the Hermes plugin catalog - the curated, SHA-pinned catalog maintained in the hermes-agent repository (…">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/skills">Skills</a></header>
+
+<article>
+<h1>Discovering plugins — the Hermes plugin catalog</h1>
+
+<p class="meta">From Official Docs</p>
+<p>hermes plugins search &lt;term&gt; searches the Hermes plugin catalog - the curated, SHA-pinned catalog maintained in the hermes-agent repository ( plugin-catalog/ ). Matching covers entry names, descriptions, and declared tools: Once you&#39;ve found a plugin, install it by bare name - the name resolves to the entry&#39;s repository at its pinned commit SHA , and catalog provenance is recorded so hermes plugins update can re-pin when the catalog moves: Explicit owner/repo or Git-URL identifiers never touch the catalog and are flagged as custom (unreviewed) sources. An explicit --ref &lt;40-char commit SHA&gt; pins a custom install. See Plugin Catalog for the full trust model, admission CI, and submission workflow. Cataloged ≠ audited A catalog entry means the entry&#39;s metadata and declared capabilities were reviewed at admission - it is not a code audit . Installing still goes through the normal consent flow (plugins install disabled by default, enabling is an explicit step, and tool-override rights require a separate grant). Review a plugin&#39;s source before enabling it.</p>
+<p>From the official Hermes Agent documentation.</p>
+<pre><code>hermes plugins search telegram    # search the catalog
+hermes plugins browse             # browse every entry
+hermes plugins info &lt;name&gt;        # full details for one entry</code></pre>
+<ul class="tags"><li>#plugins</li><li>#docs</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#discovering-plugins--the-hermes-plugin-catalog" rel="noopener">Read the original</a>
+<a href="/#skills?item=doc-user-guide-features-plugins-discovering-plugins-the-hermes-plugin-catalog">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

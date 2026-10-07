@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What plugins can do · Hermes Agent Archive</title>
+<meta name="description" content="Every ctx.* API below is available inside a plugin&#39;s register(ctx) function.">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-what-plugins-can-do">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What plugins can do">
+<meta property="og:description" content="Every ctx.* API below is available inside a plugin&#39;s register(ctx) function.">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-what-plugins-can-do">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What plugins can do">
+<meta name="twitter:description" content="Every ctx.* API below is available inside a plugin&#39;s register(ctx) function.">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/skills">Skills</a></header>
+
+<article>
+<h1>What plugins can do</h1>
+
+<p class="meta">From Official Docs</p>
+<p>Every ctx.* API below is available inside a plugin&#39;s register(ctx) function. Capability How Add tools ctx.register_tool(name=..., toolset=..., schema=..., handler=...) Add hooks ctx.register_hook(&quot;post_tool_call&quot;, callback) Add slash commands ctx.register_command(name, handler, description) - adds /name in CLI and gateway sessions Dispatch tools from commands ctx.dispatch_tool(name, args) - invokes a registered tool with parent-agent context auto-wired Add CLI commands ctx.register_cli_command(name, help, setup_fn, handler_fn) - adds hermes &lt;plugin&gt; &lt;subcommand&gt; Inject messages ctx.inject_message(content, role=&quot;user&quot;, session_key=...) - see Injecting Messages Ship data files Path(__file__).parent / &quot;data&quot; / &quot;file.yaml&quot; Bundle skills ctx.register_skill(name, path) - namespaced as plugin:skill , loaded via skill_view(&quot;plugin:skill&quot;) Gate on env vars requires_env: [API_KEY] in plugin.yaml - prompted during hermes plugins install Distribute via pip [project.entry-points.&quot;hermes_agent.plugins&quot;] Register a gateway platform (Discord, Telegram, IRC, …) ctx.register_platform(name, label, adapter_factory, check_fn, ...) - see Adding Platform Adapters Register an image-generation backend ctx.…</p>
+<p>From the official Hermes Agent documentation.</p>
+
+<ul class="tags"><li>#plugins</li><li>#docs</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#what-plugins-can-do" rel="noopener">Read the original</a>
+<a href="/#skills?item=doc-user-guide-features-plugins-what-plugins-can-do">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>
