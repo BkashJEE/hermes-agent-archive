@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>colbymchenry/codegraph · Hermes Agent Archive</title>
+<meta name="description" content="A code index with an installer that configures the Hermes MCP connection.">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/kit-codegraph">
+<meta property="og:type" content="article">
+<meta property="og:title" content="colbymchenry/codegraph">
+<meta property="og:description" content="A code index with an installer that configures the Hermes MCP connection.">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/kit-codegraph">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="colbymchenry/codegraph">
+<meta name="twitter:description" content="A code index with an installer that configures the Hermes MCP connection.">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/toolkit">Works With</a></header>
+
+<article>
+<h1>colbymchenry/codegraph</h1>
+<p class="lede">A code index with an installer that configures the Hermes MCP connection.</p>
+<p class="meta">By colbymchenry · GitHub</p>
+<p>WHAT IT DOES<br>CodeGraph maintains a code index that agents can query through MCP. Its installer explicitly detects Hermes and configures the connection.</p>
+<p>HOW TO USE IT<br>Install the CLI, open a new terminal, and run codegraph install to connect Hermes. Run codegraph init inside each project to build its index. Restart Hermes to load the MCP server. Installing the CLI alone does not configure the agent or index a project.</p>
+<p>USE CASE<br>Ask Hermes to investigate relationships in an unfamiliar repository using the project index. This is an archive-authored example; token and speed savings are not measured here.</p>
+<pre><code>npm install -g @colbymchenry/codegraph
+# In a new terminal:
+codegraph install
+# From the project you want to index:
+codegraph init</code></pre>
+<ul class="tags"><li>#toolkit</li><li>#context</li><li>#indexing</li><li>#local-first</li></ul>
+<div class="actions">
+<a href="https://github.com/colbymchenry/codegraph" rel="noopener">Read the original</a>
+<a href="/#toolkit?item=kit-codegraph">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

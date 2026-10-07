@@ -23,12 +23,20 @@ jobs:
           ref: main
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with: { node-version: "20" }
+      # The fetcher writes data/live.json before it reports a failure, because the figures
+      # it did get are worth keeping on a run where something else broke. Letting a
+      # non-zero exit stop the job here would throw them away again; the failure is
+      # reported in the last step instead, after the update has been proposed.
       - name: Fetch public metrics
+        id: fetch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
           REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
-        run: node scripts/fetch-signals.mjs
+        run: |
+          set +e
+          node scripts/fetch-signals.mjs
+          echo "exit=$?" >> "$GITHUB_OUTPUT"
 
       - name: Route signals onto their shelves
         env:
@@ -68,3 +76,10 @@ jobs:
           git commit -m "$title"
           git push origin "$branch"
           gh pr create --base main --head "$branch" --title "$title" --body-file "$RUNNER_TEMP/refresh-pr.md"
+
+      # Last, so a broken source is reported without costing the run the figures it did get.
+      - name: Report a failed source
+        if: steps.fetch.outputs.exit != '0'
+        run: |
+          echo "::error::A configured source failed; its previous figures were kept and marked stale."
+          exit 1

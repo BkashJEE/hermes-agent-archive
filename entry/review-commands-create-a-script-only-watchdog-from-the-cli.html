@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create a script-only watchdog from the CLI · Hermes Agent Archive</title>
+<meta name="description" content="Use the documented recipe to create a script-only watchdog from the CLI.">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/review-commands-create-a-script-only-watchdog-from-the-cli">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Create a script-only watchdog from the CLI">
+<meta property="og:description" content="Use the documented recipe to create a script-only watchdog from the CLI.">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/review-commands-create-a-script-only-watchdog-from-the-cli">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Create a script-only watchdog from the CLI">
+<meta name="twitter:description" content="Use the documented recipe to create a script-only watchdog from the CLI.">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/commands">Commands</a></header>
+
+<article>
+<h1>Create a script-only watchdog from the CLI</h1>
+
+<p class="meta">By Nous Research · Official Docs</p>
+<p>Use the documented recipe to create a script-only watchdog from the CLI.</p>
+<p>Run on the configured Hermes host and replace example paths, IDs and destinations. Read the linked prerequisites before pasting; commands that send messages, approve changes or restart services have real effects.</p>
+<p>Source: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.</p>
+<pre><code># 1. Write your script
+cat &gt; ~/.hermes/scripts/memory-watchdog.sh &lt;&lt;&#39;EOF&#39;
+#!/usr/bin/env bash
+# Alert when RAM usage is over 85%. Silent otherwise.
+RAM_PCT=$(free | awk &#39;/^Mem:/ {printf &quot;%d&quot;, $3 * 100 / $2}&#39;)
+if [ &quot;$RAM_PCT&quot; -ge 85 ]; then
+  echo &quot;⚠ RAM ${RAM_PCT}% on $(hostname)&quot;
+fi
+# Empty stdout = silent run; no message sent.
+EOF
+chmod +x ~/.hermes/scripts/memory-watchdog.sh
+
+# 2. Schedule it
+hermes cron create &quot;every 5m&quot; \
+  --no-agent \
+  --script memory-watchdog.sh \
+  --deliver telegram \
+  --name &quot;memory-watchdog&quot;
+
+# 3. Verify
+hermes cron list
+hermes cron run &lt;job_id&gt;    # fire it once to test</code></pre>
+<ul class="tags"><li>#docs</li><li>#commands</li><li>#recipe</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/guides/cron-script-only#create-one-from-the-cli" rel="noopener">Read the original</a>
+<a href="/#commands?item=review-commands-create-a-script-only-watchdog-from-the-cli">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

@@ -1,7 +1,7 @@
 {
   "site": {
     "name": "HERMES AGENT ARCHIVE",
-    "tagline": "Sourced Hermes Agent workflows, prompts and projects \u2014 curated by usefulness.",
+    "tagline": "Sourced Hermes Agent workflows, prompts and projects — curated by usefulness.",
     "curator": "@BkashJosi",
     "quote": "Ship the trick, not the hype.",
     "quoteAuthor": "— HERMES AGENT ARCHIVE"
@@ -157,11 +157,11 @@
   "sorts": [
     {
       "id": "recommended",
-      "label": "Most useful · Jev"
+      "label": "Most useful"
     },
     {
       "id": "popular",
-      "label": "Most popular · Jev"
+      "label": "Most popular"
     },
     {
       "id": "trending",

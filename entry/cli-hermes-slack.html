@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>hermes slack · Hermes Agent Archive</title>
+<meta name="description" content="Slack helpers (currently: generate the app manifest with every command as a native slash).">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/cli-hermes-slack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hermes slack">
+<meta property="og:description" content="Slack helpers (currently: generate the app manifest with every command as a native slash).">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/cli-hermes-slack">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="hermes slack">
+<meta name="twitter:description" content="Slack helpers (currently: generate the app manifest with every command as a native slash).">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/commands">Commands</a></header>
+
+<article>
+<h1>hermes slack</h1>
+
+<p class="meta">From Official Docs</p>
+<p>Slack helpers (currently: generate the app manifest with every command as a native slash).</p>
+<p>Generates a Slack app manifest that registers every gateway command in COMMAND_REGISTRY (/btw, /stop, /model, …) as a first-class Slack slash command — matching Discord and Telegram parity. Paste the output into your Slack app config at https://api.slack.com/apps → your app → Features → App Manifest → Edit, then Save. Slack prompts for reinstall if scopes or slash commands changed.</p>
+<p>Run hermes slack manifest --write again after hermes update to pick up any new commands.</p>
+<p>From the official Hermes Agent CLI reference.</p>
+<pre><code>hermes slack</code></pre>
+<ul class="tags"><li>#cli</li><li>#reference</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-slack" rel="noopener">Read the original</a>
+<a href="/#commands?item=cli-hermes-slack">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

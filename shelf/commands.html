@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Commands · Hermes Agent Archive</title>
+<meta name="description" content="Hermes Agent commands and invocations, by how often they earn their keystrokes.">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/shelf/commands">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Commands">
+<meta property="og:description" content="Hermes Agent commands and invocations, by how often they earn their keystrokes.">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/shelf/commands">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Commands">
+<meta name="twitter:description" content="Hermes Agent commands and invocations, by how often they earn their keystrokes.">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a></header>
+
+<h1>COMMANDS ON THE HOT PATH</h1>
+<p class="lede">Hermes Agent commands and invocations, by how often they earn their keystrokes.</p>
+<p class="meta">278 entries</p>
+<ul class="entries">
+<li><a href="/entry/cli-hermes-chat">hermes chat</a><p>Interactive or one-shot chat with the agent.</p></li>
+<li><a href="/entry/cli-hermes-model">hermes model</a><p>Interactively choose the default provider and model.</p></li>
+<li><a href="/entry/cli-hermes-moa">hermes moa</a><p>Configure named Mixture of Agents presets selectable from the model picker.</p></li>
+<li><a href="/entry/cli-hermes-fallback">hermes fallback</a><p>Manage fallback providers tried when the primary model errors.</p></li>
+<li><a href="/entry/cli-hermes-gateway">hermes gateway</a><p>Run or manage the messaging gateway service.</p></li>
+<li><a href="/entry/cli-hermes-proxy">hermes proxy</a><p>Local OpenAI-compatible proxy that attaches OAuth provider credentials. See Subscription Proxy.</p></li>
+<li><a href="/entry/cli-hermes-egress">hermes egress</a><p>Outbound credential-injection firewall for remote terminal sandboxes (iron-proxy). Disabled by default. See Egress proxy.</p></li>
+<li><a href="/entry/cli-hermes-lsp">hermes lsp</a><p>Manage Language Server Protocol integration (semantic diagnostics for write_file/patch).</p></li>
+<li><a href="/entry/cli-hermes-setup">hermes setup</a><p>Interactive setup wizard for all or part of the configuration.</p></li>
+<li><a href="/entry/cli-hermes-whatsapp">hermes whatsapp</a><p>Configure and pair the WhatsApp bridge.</p></li>
+<li><a href="/entry/cli-hermes-whatsapp-cloud">hermes whatsapp-cloud</a><p>Configure the official Meta WhatsApp Business Cloud API adapter (Business account + public webhook required). Distinct from hermes whatsapp (Baileys personal-account bridge).</p></li>
+<li><a href="/entry/cli-hermes-slack">hermes slack</a><p>Slack helpers (currently: generate the app manifest with every command as a native slash).</p></li>
+<li><a href="/entry/cli-hermes-auth">hermes auth</a><p>Manage credentials — add, list, remove, reset, status, logout. Handles OAuth flows for Codex/Nous/Anthropic.</p></li>
+<li><a href="/entry/cli-hermes-send">hermes send</a><p>Send a one-shot message to a configured messaging platform (Telegram, Discord, Slack, Signal, SMS, …). Useful from shell scripts, cron jobs, CI hooks, and monitoring daemons — no…</p></li>
+<li><a href="/entry/cli-hermes-peer">hermes peer</a><p>Register peer Hermes gateways on other machines and DM their agents&#39; canonical Bot Chats (hermes peer dm &lt;peer&gt;[/&lt;agent&gt;] &quot;…&quot;). The transport behind cross-machine bot-to-bot…</p></li>
+<li><a href="/entry/cli-hermes-secrets">hermes secrets</a><p>Manage external secret sources (currently Bitwarden Secrets Manager) for pulling API keys at process startup instead of from ~/.hermes/.env.</p></li>
+<li><a href="/entry/cli-hermes-migrate">hermes migrate</a><p>Diagnose and (optionally) rewrite config.yaml to replace references to retired models or deprecated settings (e.g. migrate xai).</p></li>
+<li><a href="/entry/cli-hermes-codex-runtime">hermes codex-runtime</a><p>Noninteractive counterpart of /codex-runtime: migrate [--dry-run] [--json] regenerates the Hermes-managed block in ~/.codex/config.toml for the selected profile. See Codex…</p></li>
+<li><a href="/entry/cli-hermes-status">hermes status</a><p>Show agent, auth, and platform status.</p></li>
+<li><a href="/entry/cli-hermes-usage">hermes usage</a><p>Show the configured account&#39;s rate-limit windows (the /usage block) without a session; --json for scripts.</p></li>
+<li><a href="/entry/cli-hermes-cron">hermes cron</a><p>Inspect and tick the cron scheduler.</p></li>
+<li><a href="/entry/cli-hermes-kanban">hermes kanban</a><p>Multi-profile collaboration board (tasks, links, dispatcher).</p></li>
+<li><a href="/entry/cli-hermes-project">hermes project</a><p>Manage named, multi-folder workspaces (projects). Anchors desktop session grouping and, when bound to a kanban board, gives tasks a deterministic worktree + branch convention…</p></li>
+<li><a href="/entry/cli-hermes-webhook">hermes webhook</a><p>Manage dynamic webhook subscriptions for event-driven activation.</p></li>
+<li><a href="/entry/cli-hermes-hooks">hermes hooks</a><p>Inspect, approve, or remove shell-script hooks declared in config.yaml.</p></li>
+<li><a href="/entry/cli-hermes-doctor">hermes doctor</a><p>Diagnose config and dependency issues.</p></li>
+<li><a href="/entry/cli-hermes-security-audit">hermes security audit</a><p>On-demand supply-chain audit (OSV.dev) for the venv, plugin requirements, and pinned MCP servers.</p></li>
+<li><a href="/entry/cli-hermes-approvals">hermes approvals</a><p>Approval-prompt tools — mine approval history into allowlist proposals.</p></li>
+<li><a href="/entry/cli-hermes-dump">hermes dump</a><p>Copy-pasteable setup summary for support/debugging.</p></li>
+<li><a href="/entry/cli-hermes-prompt-size">hermes prompt-size</a><p>Show a byte breakdown of the system prompt + tool schemas (skills index, memory, profile). Runs offline.</p></li>
+<li><a href="/entry/cli-hermes-debug">hermes debug</a><p>Debug tools — upload logs and system info for support.</p></li>
+<li><a href="/entry/cli-hermes-backup">hermes backup</a><p>Back up Hermes home directory to a zip file.</p></li>
+<li><a href="/entry/cli-hermes-checkpoints">hermes checkpoints</a><p>Inspect / prune / clear ~/.hermes/checkpoints/ (the shadow store used by /rollback). Run with no args for a status overview.</p></li>
+<li><a href="/entry/cli-hermes-import">hermes import</a><p>Restore a Hermes backup from a zip file.</p></li>
+<li><a href="/entry/cli-hermes-logs">hermes logs</a><p>View, tail, and filter agent/gateway/error log files.</p></li>
+<li><a href="/entry/cli-hermes-config">hermes config</a><p>Show, edit, migrate, and query configuration files.</p></li>
+<li><a href="/entry/cli-hermes-skin">hermes skin</a><p>List, switch, and tweak display skins.</p></li>
+<li><a href="/entry/cli-hermes-console">hermes console</a><p>Open the safe Hermes command console.</p></li>
+<li><a href="/entry/cli-hermes-pairing">hermes pairing</a><p>Approve or revoke messaging pairing codes.</p></li>
+<li><a href="/entry/cli-hermes-skills">hermes skills</a><p>Browse, install, publish, audit, and configure skills.</p></li>
+<li><a href="/entry/cli-hermes-bundles">hermes bundles</a><p>Group several skills under a single /&lt;name&gt; slash command. See Skill Bundles.</p></li>
+<li><a href="/entry/cli-hermes-curator">hermes curator</a><p>Background skill maintenance — status, run, pause, pin. See Curator.</p></li>
+<li><a href="/entry/cli-hermes-memory">hermes memory</a><p>Configure external memory provider. Plugin-specific subcommands (e.g. hermes honcho) register automatically when their provider is active.</p></li>
+<li><a href="/entry/cli-hermes-acp">hermes acp</a><p>Run Hermes as an ACP server for editor integration.</p></li>
+<li><a href="/entry/cli-hermes-mcp">hermes mcp</a><p>Manage MCP server configurations and run Hermes as an MCP server.</p></li>
+<li><a href="/entry/cli-hermes-plugins">hermes plugins</a><p>Manage Hermes Agent plugins (install, enable, disable, remove).</p></li>
+<li><a href="/entry/cli-hermes-portal">hermes portal</a><p>Nous Portal status, subscription link, and Tool Gateway routing. See Tool Gateway.</p></li>
+<li><a href="/entry/cli-hermes-tools">hermes tools</a><p>Configure enabled tools per platform.</p></li>
+<li><a href="/entry/cli-hermes-computer-use">hermes computer-use</a><p>Install or check the Computer Use (cua-driver) backend (macOS/Windows/Linux).</p></li>
+<li><a href="/entry/cli-hermes-pets">hermes pets</a><p>Browse, install, and select petdex animated pets shown across the CLI, TUI, and desktop app. Subcommands: list, install, select, show, off, scale, remove, doctor.</p></li>
+<li><a href="/entry/cli-hermes-sessions">hermes sessions</a><p>Browse, export, prune, rename, and delete sessions.</p></li>
+<li><a href="/entry/cli-hermes-insights">hermes insights</a><p>Show token/cost/activity analytics.</p></li>
+<li><a href="/entry/cli-hermes-claw">hermes claw</a><p>OpenClaw migration helpers.</p></li>
+<li><a href="/entry/cli-hermes-import-agent">hermes import-agent</a><p>Import a Claude Code (~/.claude) or Codex CLI (~/.codex) setup.</p></li>
+<li><a href="/entry/cli-hermes-dashboard">hermes dashboard</a><p>Launch the web dashboard for managing config, API keys, and sessions.</p></li>
+<li><a href="/entry/cli-hermes-serve">hermes serve</a><p>Start the Hermes backend server (headless; powers the desktop app and remote backends).</p></li>
+<li><a href="/entry/cli-hermes-profile">hermes profile</a><p>Manage profiles — multiple isolated Hermes instances.</p></li>
+<li><a href="/entry/cli-hermes-completion">hermes completion</a><p>Print shell completion scripts (bash/zsh/fish).</p></li>
+<li><a href="/entry/cli-hermes-version">hermes --version</a><p>Show version information.</p></li>
+<li><a href="/entry/cli-hermes-update">hermes update</a><p>Pull latest code and reinstall dependencies. --check previews without installing; --backup takes a pre-pull HERMES_HOME snapshot.</p></li>
+<li><a href="/entry/cli-hermes-uninstall">hermes uninstall</a><p>Remove Hermes from the system.</p></li>
+<li><a href="/entry/cli-system">system</a><p>subtype: &quot;init&quot;, model, session_id</p></li>
+<li><a href="/entry/cli-text">text</a><p>text — a streamed assistant text delta</p></li>
+<li><a href="/entry/cli-tool-use">tool_use</a><p>name; input when the tool arguments are available</p></li>
+<li><a href="/entry/cli-tool-result">tool_result</a><p>name, output (capped at 5000 chars), duration_ms, is_error</p></li>
+<li><a href="/entry/cli-result">result</a><p>session_id, exit_code, text, tokens (input, output, total, cache_read, cache_write), duration_ms; error when the turn failed</p></li>
+<li><a href="/entry/cli-run">run</a><p>Run the gateway in the foreground. Recommended for WSL, Docker, and Termux.</p></li>
+<li><a href="/entry/cli-start">start</a><p>Start the installed systemd/launchd background service.</p></li>
+<li><a href="/entry/cli-stop">stop</a><p>Stop the service (or foreground process).</p></li>
+<li><a href="/entry/cli-restart">restart</a><p>Restart the service.</p></li>
+<li><a href="/entry/cli-status">status</a><p>Show service status.</p></li>
+<li><a href="/entry/cli-list">list</a><p>List all profiles and whether each profile&#39;s gateway is currently running (with PID where available). Handy when you run multiple profiles side-by-side and want a single overview.</p></li>
+<li><a href="/entry/cli-install">install</a><p>Install as a systemd (Linux) or launchd (macOS) background service.</p></li>
+<li><a href="/entry/cli-uninstall">uninstall</a><p>Remove the installed service.</p></li>
+<li><a href="/entry/cli-setup">setup</a><p>Interactive messaging-platform setup.</p></li>
+<li><a href="/entry/cli-migrate">migrate</a><p>Fold per-profile standalone gateways onto the one host gateway (--multiplex, the only mode — hermes update runs it automatically unless a real boundary blocks it). Re-running it…</p></li>
+<li><a href="/entry/cli-migrate-legacy">migrate-legacy</a><p>Remove legacy hermes.service units left over from pre-rename installs. Profile units (hermes-gateway-&lt;profile&gt;.service) and unrelated services are never touched. Flags: --dry-run…</p></li>
+<li><a href="/entry/cli-install-id">install &lt;id&gt;</a><p>Eagerly install one server&#39;s binary.</p></li>
+<li><a href="/entry/cli-install-all">install-all</a><p>Install every server with a known auto-install recipe.</p></li>
+<li><a href="/entry/cli-which-id">which &lt;id&gt;</a><p>Print the resolved binary path for one server.</p></li>
+<li><a href="/entry/cli-model">model</a><p>Provider and model setup.</p></li>
+<li><a href="/entry/cli-terminal">terminal</a><p>Terminal backend and sandbox setup.</p></li>
+<li><a href="/entry/cli-gateway">gateway</a><p>Messaging platform setup.</p></li>
+<li><a href="/entry/cli-tools">tools</a><p>Enable/disable tools per platform.</p></li>
+<li><a href="/entry/cli-open">open</a><p>Open portal.nousresearch.com/manage-subscription in your default browser.</p></li>
+<li><a href="/entry/cli-dm-peer-agent-message">dm &lt;peer&gt;[/&lt;agent&gt;] [message]</a><p>Message the peer agent&#39;s canonical Bot Chat and print the reply (--json for machine-readable output; message falls back to stdin).</p></li>
+<li><a href="/entry/cli-run-peer-agent-message">run &lt;peer&gt;[/&lt;agent&gt;] [message]</a><p>Start a long canonical Bot Chat turn asynchronously and return its run_id, session ID, and idempotency key (--json supported). Reuse --idempotency-key when retrying the same…</p></li>
+<li><a href="/entry/cli-status-peer-agent-run-id">status &lt;peer&gt;[/&lt;agent&gt;] &lt;run_id&gt;</a><p>Poll an asynchronous peer run and print its final output when complete (--json supported).</p></li>
+<li><a href="/entry/cli-stop-peer-agent-run-id">stop &lt;peer&gt;[/&lt;agent&gt;] &lt;run_id&gt;</a><p>Stop the exact asynchronous peer run without targeting another turn (--json supported).</p></li>
+<li><a href="/entry/cli-remove-name">remove &lt;name&gt;</a><p>Remove a peer from the registry (the .env key entry is left in place).</p></li>
+<li><a href="/entry/cli-token">token</a><p>Rotate the access token: validates the new token against Bitwarden before storing it in .env (a rejected token changes nothing). Accepts --access-token for non-interactive use and…</p></li>
+<li><a href="/entry/cli-sync">sync</a><p>Fetch secrets now and report what changed. Add --apply to actually export the secrets into the current shell&#39;s environment (default is dry-run).</p></li>
+<li><a href="/entry/cli-disable">disable</a><p>Turn off the Bitwarden integration.</p></li>
+<li><a href="/entry/cli-providers">providers</a><p>List available proxy upstream providers.</p></li>
+<li><a href="/entry/cli-audit">audit</a><p>Run a one-shot supply-chain audit.</p></li>
+<li><a href="/entry/cli-edit">edit</a><p>Update a job&#39;s schedule, prompt, name, delivery, repeat count, or attached skills. Supports --clear-skills, --add-skill, and --remove-skill, plus --reasoning-effort (empty string…</p></li>
+<li><a href="/entry/cli-pause">pause</a><p>Pause a job without deleting it.</p></li>
+<li><a href="/entry/cli-resume">resume</a><p>Resume a paused job. A recurring slot that came due while paused stays due (one catch-up run or a logged skip on the next tick); otherwise the next future run is computed.</p></li>
+<li><a href="/entry/cli-remove">remove</a><p>Delete a scheduled job.</p></li>
+<li><a href="/entry/cli-doctor">doctor</a><p>Read-only fleet health check: failed runs, failed deliveries, overdue/missing next_run_at, missing scripts or workdirs. Exits non-zero when issues are found.</p></li>
+<li><a href="/entry/cli-tick">tick</a><p>Run due jobs once and exit.</p></li>
+<li><a href="/entry/cli-init">init</a><p>Create kanban.db if missing. Idempotent.</p></li>
+<li><a href="/entry/cli-boards-create-slug">boards create &lt;slug&gt;</a><p>Create a new board. Flags: --name, --description, --icon, --color, --switch (make active). Slug is kebab-case, auto-downcased.</p></li>
+<li><a href="/entry/cli-boards-rename-slug-name">boards rename &lt;slug&gt; &quot;&lt;name&gt;&quot;</a><p>Change a board&#39;s display name. Slug is immutable.</p></li>
+<li><a href="/entry/cli-boards-rm-slug">boards rm &lt;slug&gt;</a><p>Archive (default) or hard-delete a board. --delete skips the archive step. Archived boards move to boards/_archived/&lt;slug&gt;-&lt;ts&gt;/. Refused for default.</p></li>
+<li><a href="/entry/cli-create-title">create &quot;&lt;title&gt;&quot;</a><p>Create a new task on the active board. Flags: --body, --assignee, --parent (repeatable), --workspace scratch|worktree|dir:&lt;path&gt;, --tenant, --priority, --triage…</p></li>
+<li><a href="/entry/cli-show-id">show &lt;id&gt;</a><p>Show a task with comments and events. --json for machine output.</p></li>
+<li><a href="/entry/cli-assign-id-profile">assign &lt;id&gt; &lt;profile&gt;</a><p>Assign or reassign. Use none to unassign. Refused while task is running.</p></li>
+<li><a href="/entry/cli-link-parent-child">link &lt;parent&gt; &lt;child&gt;</a><p>Add a dependency. Cycle-detected. Both tasks must be on the same board.</p></li>
+<li><a href="/entry/cli-unlink-parent-child">unlink &lt;parent&gt; &lt;child&gt;</a><p>Remove a dependency.</p></li>
+<li><a href="/entry/cli-claim-id">claim &lt;id&gt;</a><p>Atomically claim a ready task. Prints resolved workspace path.</p></li>
+<li><a href="/entry/cli-comment-id-text">comment &lt;id&gt; &quot;&lt;text&gt;&quot;</a><p>Append a comment. The next worker that claims the task reads it as part of its kanban_show() response.</p></li>
+<li><a href="/entry/cli-complete-id">complete &lt;id&gt;</a><p>Mark task done. Flags: --result, --summary, --metadata.</p></li>
+<li><a href="/entry/cli-block-id-reason">block &lt;id&gt; &quot;&lt;reason&gt;&quot;</a><p>Mark task blocked for human input. Also appends the reason as a comment.</p></li>
+<li><a href="/entry/cli-request-review-id">request-review &lt;id&gt;</a><p>Move a task to review with a reviewer handoff — NOT a block. Flags: --summary, --metadata, --reviewer (reassigns before review dispatch).</p></li>
+<li><a href="/entry/cli-request-changes-id-reason">request-changes &lt;id&gt; &lt;reason&gt;</a><p>Reviewer verdict for an active review run: close the review attempt and route the task back to its original implementer.</p></li>
+<li><a href="/entry/cli-reopen-review-id">reopen-review &lt;id&gt;...</a><p>Send review task(s) back for changes (review → ready/todo). Flag: --reason (appended as a comment).</p></li>
+<li><a href="/entry/cli-schedule-id-reason">schedule &lt;id&gt; &quot;&lt;reason&gt;&quot;</a><p>Park time-delay/follow-up work in scheduled so it is not shown as a human blocker.</p></li>
+<li><a href="/entry/cli-unblock-id">unblock &lt;id&gt;</a><p>Restore a blocked task to its source phase (review or ready), or todo while dependencies remain open.</p></li>
+<li><a href="/entry/cli-archive-id">archive &lt;id&gt;</a><p>Hide from default list. gc will remove scratch workspaces.</p></li>
+<li><a href="/entry/cli-tail-id">tail &lt;id&gt;</a><p>Follow a task&#39;s event stream.</p></li>
+<li><a href="/entry/cli-dispatch">dispatch</a><p>One dispatcher pass on the active board. Flags: --dry-run, --max N, --failure-limit N, --json.</p></li>
+<li><a href="/entry/cli-context-id">context &lt;id&gt;</a><p>Print the full context a worker would see (title + body + parent results + comments).</p></li>
+<li><a href="/entry/cli-gc">gc</a><p>Remove scratch workspaces for archived tasks.</p></li>
+<li><a href="/entry/cli-create">create</a><p>Create a new project.</p></li>
+<li><a href="/entry/cli-show">show</a><p>Show a project&#39;s details.</p></li>
+<li><a href="/entry/cli-add-folder">add-folder</a><p>Add a folder / repo to a project.</p></li>
+<li><a href="/entry/cli-remove-folder">remove-folder</a><p>Remove a folder from a project.</p></li>
+<li><a href="/entry/cli-rename">rename</a><p>Rename a project.</p></li>
+<li><a href="/entry/cli-set-primary">set-primary</a><p>Set the primary folder.</p></li>
+<li><a href="/entry/cli-use">use</a><p>Set the active project.</p></li>
+<li><a href="/entry/cli-archive">archive</a><p>Archive a project (recoverable).</p></li>
+<li><a href="/entry/cli-restore">restore</a><p>Restore an archived project.</p></li>
+<li><a href="/entry/cli-bind-board">bind-board</a><p>Bind a kanban board to this project.</p></li>
+<li><a href="/entry/cli-test">test</a><p>Send a test POST to verify a subscription is working.</p></li>
+<li><a href="/entry/cli-prune">prune</a><p>Force a cleanup sweep — delete orphan and stale projects, GC the store, enforce the size cap. Ignores the 24h idempotency marker.</p></li>
+<li><a href="/entry/cli-clear">clear</a><p>Delete the entire checkpoint base. Irreversible; asks for confirmation unless -f.</p></li>
+<li><a href="/entry/cli-clear-legacy">clear-legacy</a><p>Delete only the legacy-&lt;timestamp&gt;/ archives produced by the v1→v2 migration. Exits 2 (after printing Could not delete N archive(s)) when any archive could not be removed, e.g…</p></li>
+<li><a href="/entry/cli-log-name">log_name</a><p>Which log to view: agent (default), errors, gateway, or list to show available files with sizes.</p></li>
+<li><a href="/entry/cli-env-path">env-path</a><p>Print the .env file path.</p></li>
+<li><a href="/entry/cli-approve-platform-code">approve &lt;platform&gt; &lt;code&gt;</a><p>Approve a pairing code.</p></li>
+<li><a href="/entry/cli-revoke-platform-user-id">revoke &lt;platform&gt; &lt;user-id&gt;</a><p>Revoke a user&#39;s access.</p></li>
+<li><a href="/entry/cli-clear-pending">clear-pending</a><p>Clear pending pairing codes.</p></li>
+<li><a href="/entry/cli-browse">browse</a><p>Paginated browser for skill registries.</p></li>
+<li><a href="/entry/cli-search">search</a><p>Search skill registries.</p></li>
+<li><a href="/entry/cli-inspect">inspect</a><p>Preview a skill without installing it.</p></li>
+<li><a href="/entry/cli-update">update</a><p>Reinstall hub skills with upstream changes when available.</p></li>
+<li><a href="/entry/cli-opt-out">opt-out</a><p>Stop bundled skills from being seeded into the active profile. Writes a .no-bundled-skills marker so the installer, hermes update, and any sync skip bundled-skill seeding. Safe by…</p></li>
+<li><a href="/entry/cli-opt-in">opt-in</a><p>Undo opt-out by removing the .no-bundled-skills marker so bundled skills are seeded again on the next hermes update. With --sync, re-seed immediately.</p></li>
+<li><a href="/entry/cli-publish">publish</a><p>Publish a skill to a registry.</p></li>
+<li><a href="/entry/cli-tap">tap</a><p>Manage custom skill sources.</p></li>
+<li><a href="/entry/cli-show-name">show &lt;name&gt;</a><p>Show one bundle&#39;s name, description, skills, and file path</p></li>
+<li><a href="/entry/cli-create-name">create &lt;name&gt;</a><p>Create a new bundle. Pass --skill &lt;id&gt; (repeat) or omit for interactive entry. --description, --instruction, --force available.</p></li>
+<li><a href="/entry/cli-delete-name">delete &lt;name&gt;</a><p>Remove a bundle file</p></li>
+<li><a href="/entry/cli-reload">reload</a><p>Re-scan ~/.hermes/skill-bundles/ and report added/removed bundles</p></li>
+<li><a href="/entry/cli-run-background">run --background</a><p>Start the LLM pass in a background thread and return immediately</p></li>
+<li><a href="/entry/cli-run-dry-run">run --dry-run</a><p>Preview only — produce the review report with no mutations</p></li>
+<li><a href="/entry/cli-backup">backup</a><p>Take a manual tar.gz snapshot of ~/.hermes/skills/ (curator also snapshots automatically before every real run)</p></li>
+<li><a href="/entry/cli-rollback">rollback</a><p>Restore ~/.hermes/skills/ from a snapshot (defaults to newest)</p></li>
+<li><a href="/entry/cli-rollback-list">rollback --list</a><p>List available snapshots</p></li>
+<li><a href="/entry/cli-rollback-id-ts">rollback --id &lt;ts&gt;</a><p>Restore a specific snapshot by id</p></li>
+<li><a href="/entry/cli-rollback-y">rollback -y</a><p>Skip the confirmation prompt</p></li>
+<li><a href="/entry/cli-pin-skill">pin &lt;skill&gt;</a><p>Pin a skill so the curator never auto-transitions it</p></li>
+<li><a href="/entry/cli-restore-skill">restore &lt;skill&gt;</a><p>Restore an archived skill</p></li>
+<li><a href="/entry/cli-archive-skill">archive &lt;skill&gt;</a><p>Archive a skill manually</p></li>
+<li><a href="/entry/cli-list-archived">list-archived</a><p>List archived skills (recoverable via restore)</p></li>
+<li><a href="/entry/cli-add">add</a><p>Pick a provider + model (same picker as hermes model) and append to the chain</p></li>
+<li><a href="/entry/cli-test-event">test &lt;event&gt;</a><p>Fire every hook matching &lt;event&gt; against a synthetic payload</p></li>
+<li><a href="/entry/cli-off">off</a><p>Disable external provider (built-in only).</p></li>
+<li><a href="/entry/cli-catalog">catalog</a><p>List Nous-approved MCPs (plain text, scriptable).</p></li>
+<li><a href="/entry/cli-install-name">install &lt;name&gt;</a><p>Install a catalog entry (e.g. hermes mcp install deepwiki).</p></li>
+<li><a href="/entry/cli-serve-v-verbose">serve [-v|--verbose]</a><p>Run Hermes as an MCP server — expose conversations to other agents.</p></li>
+<li><a href="/entry/cli-test-name">test &lt;name&gt;</a><p>Test connection to an MCP server.</p></li>
+<li><a href="/entry/cli-install-identifier-force-ref-commit-sha-allow-removed">install &lt;identifier&gt; [--force] [--ref COMMIT_SHA] [--allow-removed]</a><p>Install a plugin from the Hermes plugin catalog (bare entry name), a Git URL, or owner/repo shorthand. Catalog names resolve to the entry&#39;s repo at its pinned 40-hex commit SHA…</p></li>
+<li><a href="/entry/cli-search-term-json">search [term] [--json]</a><p>Search the Hermes plugin catalog (matches entry names, descriptions, and declared tools; omit term to list everything). The catalog is curated in-repo (plugin-catalog/), refreshed…</p></li>
+<li><a href="/entry/cli-update-name">update &lt;name&gt;</a><p>Pull latest changes for an unpinned installed plugin. Pinned plugins must be reinstalled with --force --ref &lt;new-commit&gt; to move.</p></li>
+<li><a href="/entry/cli-enable-name">enable &lt;name&gt;</a><p>Enable a disabled plugin.</p></li>
+<li><a href="/entry/cli-disable-name">disable &lt;name&gt;</a><p>Disable a plugin without removing it.</p></li>
+<li><a href="/entry/cli-doctor-path-or-id-ci">doctor [path-or-id] [--ci]</a><p>Validate a native plugin through the real manifest parser, loader, and registration path. --ci exits 1 on errors.</p></li>
+<li><a href="/entry/cli-pack-install-path-or-url-force">pack install &lt;path-or-url&gt; [--force]</a><p>Install a plugin pack (hermes-pack.yaml) — a declarative set of plugins each pinned to an exact 40-character commit SHA. Shows a mandatory review screen (every plugin, source…</p></li>
+<li><a href="/entry/cli-pack-show-path-or-url">pack show &lt;path-or-url&gt;</a><p>Dry-run: parse, validate, and display a pack without installing anything.</p></li>
+<li><a href="/entry/cli-install-upgrade">install --upgrade</a><p>Re-run the installer even if cua-driver is already on PATH. The upstream script always pulls the latest release, so this performs an in-place upgrade.</p></li>
+<li><a href="/entry/cli-doctor-include-check-skip-check-json">doctor [--include CHECK] [--skip CHECK] [--json]</a><p>Run cua-driver&#39;s health report and show its platform checks.</p></li>
+<li><a href="/entry/cli-permissions-status-json">permissions status [--json]</a><p>Report macOS Accessibility and Screen Recording grants.</p></li>
+<li><a href="/entry/cli-permissions-grant">permissions grant</a><p>Ask macOS to grant Accessibility and Screen Recording to Cua Driver.</p></li>
+<li><a href="/entry/cli-select">select</a><p>Set the active pet (writes display.pet.*).</p></li>
+<li><a href="/entry/cli-scale">scale</a><p>Resize the pet everywhere (display.pet.scale).</p></li>
+<li><a href="/entry/cli-export-output-session-id-id">export &lt;output&gt; [--session-id ID]</a><p>Export sessions to JSONL.</p></li>
+<li><a href="/entry/cli-delete-session-id">delete &lt;session-id&gt;</a><p>Delete one session.</p></li>
+<li><a href="/entry/cli-stats">stats</a><p>Show session-store statistics.</p></li>
+<li><a href="/entry/cli-rename-session-id-title">rename &lt;session-id&gt; &lt;title&gt;</a><p>Set or change a session title.</p></li>
+<li><a href="/entry/cli-optimize">optimize</a><p>Reclaim disk space: merge FTS5 index segments + VACUUM. Non-destructive — no session data changes.</p></li>
+<li><a href="/entry/cli-optimize-storage">optimize-storage</a><p>Migrate the full-text search index to the compact v23 external-content layout; on large databases this reclaims a large fraction of state.db.</p></li>
+<li><a href="/entry/cli-repair">repair</a><p>Repair a malformed state.db schema (e.g. table messages_fts already exists) so hidden sessions reappear; a backup is made first.</p></li>
+<li><a href="/entry/cli-repair-routing">repair-routing</a><p>Re-attach gateway conversations stranded in session rows that lost their routing identity (a chat &quot;jumping back in time&quot; after a restart). Dry-run by default; --apply performs the…</p></li>
+<li><a href="/entry/cli-repair-profiles">repair-profiles</a><p>Settle session, routing, Telegram-topic and voice-mode state that landed under the wrong profile (rows in another profile&#39;s store, labels disagreeing with the session key, parent…</p></li>
+<li><a href="/entry/cli-recover">recover</a><p>Offline, non-destructive recovery of a damaged state.db into a separate clean database.</p></li>
+<li><a href="/entry/cli-retitle-skills">retitle-skills</a><p>Regenerate titles for sessions opened with a /skill, using what the user actually typed; lists changes unless --apply is passed.</p></li>
+<li><a href="/entry/cli-use-name">use &lt;name&gt;</a><p>Set a sticky default profile.</p></li>
+<li><a href="/entry/cli-delete-name-y">delete &lt;name&gt; [-y]</a><p>Delete a profile.</p></li>
+<li><a href="/entry/cli-alias-name-remove-name-name">alias &lt;name&gt; [--remove] [--name NAME]</a><p>Manage wrapper scripts for quick profile access.</p></li>
+<li><a href="/entry/cli-rename-old-new">rename &lt;old&gt; &lt;new&gt;</a><p>Rename a profile.</p></li>
+<li><a href="/entry/cli-export-name-o-file">export &lt;name&gt; [-o FILE]</a><p>Export a profile to a .tar.gz archive (local backup).</p></li>
+<li><a href="/entry/cli-import-archive-name-name">import &lt;archive&gt; [--name NAME]</a><p>Import a profile from a .tar.gz archive (local restore).</p></li>
+<li><a href="/entry/cli-install-source-name-n-alias-force-y">install &lt;source&gt; [--name N] [--alias] [--force] [-y]</a><p>Install a profile distribution from a git URL or local directory.</p></li>
+<li><a href="/entry/cli-info-name">info &lt;name&gt;</a><p>Show a profile&#39;s distribution manifest (version, requirements, source).</p></li>
+<li><a href="/entry/cli-sec-hermes-agent-legacy-single-query-runner">hermes-agent (legacy single-query runner)</a><p>The install also ships hermes-agent, a minimal runner that sends one query and exits: hermes-agent --query &quot;summarize README.md&quot; (or hermes-agent &quot;summarize README.md&quot;)…</p></li>
+<li><a href="/entry/cli-sec-hermes-z-prompt-scripted-one-shot">hermes -z &lt;prompt&gt; — scripted one-shot</a><p>For programmatic callers (shell scripts, CI, cron, parent processes piping in a prompt), hermes -z is the purest one-shot entry point: single prompt in, final response text out…</p></li>
+<li><a href="/entry/cli-sec-sending-images-and-other-media">Sending images and other media</a><p>--file is for text bodies only. To deliver an image, document, video, or audio file as a native platform attachment, reference it inside the message text with the…</p></li>
+<li><a href="/entry/cli-sec-hermes-security">hermes security</a><p>On-demand vulnerability scan against OSV.dev. Covers the Hermes venv (installed PyPI distributions), Python dependencies declared by plugins under ~/.hermes/plugins/, and pinned…</p></li>
+<li><a href="/entry/cli-sec-hermes-login-hermes-logout-deprecated">hermes login / hermes logout (Deprecated)</a><p>hermes login has been removed. Use hermes auth to manage OAuth credentials, hermes model to select a provider, or hermes setup for full interactive setup.</p></li>
+<li><a href="/entry/cli-sec-hermes-webhook-subscribe">hermes webhook subscribe</a><p>Subscriptions persist to ~/.hermes/webhook_subscriptions.json and are hot-reloaded by the webhook adapter without a gateway restart. Re-running subscribe for an existing name…</p></li>
+<li><a href="/entry/cli-sec-when-to-use">When to use</a><p>hermes dump is specifically designed for sharing. For interactive diagnostics, use hermes doctor. For a visual overview, use hermes status.</p></li>
+<li><a href="/entry/cli-sec-examples">Examples</a><p>See Checkpoints and /rollback for the full architecture and the in-session commands.</p></li>
+<li><a href="/entry/cli-sec-sqlite-databases">SQLite databases</a><p>.db members (state.db, kanban.db, response_store.db, …) are not published with a rename like ordinary files. Renaming would replace the file&#39;s inode while a gateway, dashboard, or…</p></li>
+<li><a href="/entry/cli-sec-filtering">Filtering</a><p>Filters can be combined. When multiple filters are active, a log line must pass all of them to be shown:</p></li>
+<li><a href="/entry/cli-sec-log-rotation">Log rotation</a><p>Hermes uses Python&#39;s RotatingFileHandler. Old logs are rotated automatically — look for agent.log.1, agent.log.2, etc. The hermes logs list subcommand shows all log files…</p></li>
+<li><a href="/entry/cli-sec-hermes-dashboard-register">hermes dashboard register</a><p>Register this install as a self-hosted dashboard with your Nous Portal account. Creates an OAuth client, writes HERMES_DASHBOARD_OAUTH_CLIENT_ID into ~/.hermes/.env, and prints…</p></li>
+<li><a href="/entry/cli-sec-model-slash-command-mid-session">/model slash command (mid-session)</a><p>Switch between already-configured models without leaving a session:</p></li>
+<li><a href="/entry/cli-sec-diagnostic-shortcuts">Diagnostic shortcuts</a><p>Common failure modes + recovery are covered in Egress proxy → Troubleshooting.</p></li>
+<li><a href="/entry/doc-getting-started-quickstart-prefer-to-watch">Prefer to watch?</a><p>Onchain AI Garage put together a Masterclass walkthrough of installation, setup, and basic commands - a good companion to this page if you&#39;d rather follow along on video.</p></li>
+<li><a href="/entry/doc-getting-started-quickstart-who-this-is-for">Who this is for</a><p>Brand new and want the shortest path to a working setup Switching providers and don&#39;t want to lose time to config mistakes Setting up Hermes for a team, bot, or always-on workflow…</p></li>
+<li><a href="/entry/doc-getting-started-quickstart-the-fastest-path">The fastest path</a><p>Pick the row that matches your goal: Goal Do this first Then do this I just want Hermes working on my machine hermes setup Run a real chat and verify it responds I already know my…</p></li>
+<li><a href="/entry/doc-getting-started-quickstart-windows-native">Windows (native)</a><p>Run in powershell: After it finishes, reload your shell: For detailed installation options, prerequisites, and troubleshooting, see the Installation guide .</p></li>
+<li><a href="/entry/doc-getting-started-quickstart-how-settings-are-stored">How settings are stored</a><p>Hermes separates secrets from normal config: Secrets and tokens → ~/.hermes/.env Non-secret settings → ~/.hermes/config.yaml The easiest way to set values correctly is through the…</p></li>
+<li><a href="/entry/doc-getting-started-quickstart-bot-or-shared-assistant">Bot or shared assistant</a><p>Connect Telegram , Discord , Slack , WhatsApp , Signal , Email , or Home Assistant , or Microsoft Teams .</p></li>
+<li><a href="/entry/doc-getting-started-quickstart-sandboxed-terminal">Sandboxed terminal</a><p>For safety, run the agent in a Docker container or on a remote server: For Docker sandboxes, you can also enable the egress credential-injection proxy so the sandbox never sees…</p></li>
+<li><a href="/entry/doc-getting-started-quickstart-skills">Skills</a><p>Skills are on-demand instruction documents that teach Hermes how to do a specific task - deploy to Kubernetes, open a GitHub PR, fine-tune a model, search for GIFs.</p></li>
+<li><a href="/entry/doc-getting-started-quickstart-editor-integration-acp">Editor integration (ACP)</a><p>ACP support ships with the standard [all] extras, so the curl installer already includes it.</p></li>
+<li><a href="/entry/doc-getting-started-quickstart-common-failure-modes">Common Failure Modes</a><p>These are the problems that waste the most time: Symptom Likely cause Fix Hermes opens but gives empty or broken replies Provider auth or model selection is wrong Run hermes model…</p></li>
+<li><a href="/entry/doc-getting-started-installation-desktop-packages-on-macos-or-windows">Desktop packages on macOS or Windows</a><p>Download the package for your platform from the Hermes website .</p></li>
+<li><a href="/entry/doc-getting-started-installation-what-the-source-installer-does">What the source installer does</a><p>The scripts clone the source, bootstrap uv, and delegate dependency preparation to PM.</p></li>
+<li><a href="/entry/doc-getting-started-installation-after-installation">After Installation</a><p>Reload your shell and start chatting: To reconfigure individual settings later, use the dedicated commands: Fastest path: Nous Portal One subscription covers 300+ models plus the…</p></li>
+<li><a href="/entry/doc-getting-started-installation-manual-developer-installation">Manual / Developer Installation</a><p>For a source checkout, start with the PM developer workflow .</p></li>
+<li><a href="/entry/doc-getting-started-installation-non-sudo-system-service-user-installs">Non-Sudo / System Service User Installs</a><p>Run the source installer as the intended service user.</p></li>
+<li><a href="/entry/doc-getting-started-installation-symlinked-home-directories-and-external-storage">Symlinked home directories and external storage</a><p>Hermes supports a symlinked HERMES_HOME and symlinked home subdirectories, including hooks , skills , sessions , and logs .</p></li>
+<li><a href="/entry/doc-getting-started-installation-install-method-auto-detection">Install method auto-detection</a><p>The update owner depends on the running installation, not only its data home.</p></li>
+<li><a href="/entry/doc-user-guide-cli-worktree-cleanup">Worktree cleanup</a><p>hermes -w sessions create disposable worktrees under &lt;repo&gt;/.worktrees/ .</p></li>
+<li><a href="/entry/doc-user-guide-cli-plugin-management">Plugin management</a><p>The hermes plugins commands manage native Hermes plugins and portable Agent Plugins v1 packages through the same opt-in workflow: Portable packages remain disabled until…</p></li>
+<li><a href="/entry/doc-user-guide-cli-status-bar">Status Bar</a><p>A persistent status bar sits above the input area, updating in real time: Element Description Model name Current model (truncated if longer than 26 chars) Token count Context…</p></li>
+<li><a href="/entry/doc-user-guide-cli-session-resume-display">Session Resume Display</a><p>When resuming a previous session ( hermes -c or hermes --resume &lt;id&gt; ), a &quot;Previous Conversation&quot; panel appears between the banner and the input prompt, showing a compact recap of…</p></li>
+<li><a href="/entry/doc-user-guide-cli-shell-mode">! Shell Mode</a><p>to run it as a shell command instead of sending it to the agent: Zero cost.</p></li>
+<li><a href="/entry/doc-user-guide-cli-quick-commands">Quick Commands</a><p>You can define custom commands that run shell commands instantly without invoking the LLM.</p></li>
+<li><a href="/entry/doc-user-guide-cli-preloading-skills-at-launch">Preloading Skills at Launch</a><p>If you already know which skills you want active for the session, pass them at launch time: Hermes loads each named skill into the session prompt before the first turn.</p></li>
+<li><a href="/entry/doc-user-guide-cli-persistent-auto-load-via-config">Persistent auto-load via config</a><p>To have the same skills active at the start of every new session - CLI, TUI, gateway, cron and API sessions alike - set skills.auto_load in config.yaml : Each entry is a skill…</p></li>
+<li><a href="/entry/doc-user-guide-cli-skill-slash-commands">Skill Slash Commands</a><p>Every installed skill in ~/.hermes/skills/ is automatically registered as a slash command.</p></li>
+<li><a href="/entry/doc-user-guide-cli-personalities">Personalities</a><p>Set a predefined personality to change the agent&#39;s tone: Built-in personalities include: helpful , concise , technical , creative , teacher , kawaii , catgirl , pirate …</p></li>
+<li><a href="/entry/doc-user-guide-cli-redirecting-the-agent-mid-turn">Redirecting the Agent Mid-Turn</a><p>While the agent is working, you can send a correction without starting a new turn: Type a new message + Enter - redirects the active turn using your correction Ctrl+C - interrupt…</p></li>
+<li><a href="/entry/doc-user-guide-cli-busy-input-mode">Busy Input Mode</a><p>The display.busy_input_mode config key controls what happens when you press Enter while the agent is working: Mode Behavior &quot;interrupt&quot; (default) Your message redirects the active…</p></li>
+<li><a href="/entry/doc-user-guide-cli-suspending-to-background">Suspending to Background</a><p>On Unix systems, press Ctrl+Z to suspend Hermes to the background - just like any terminal process.</p></li>
+<li><a href="/entry/doc-user-guide-cli-tool-progress-display">Tool Progress Display</a><p>The CLI shows animated feedback as the agent works: Thinking animation (during API calls): Tool execution feed: Cycle through display modes with /verbose : off → new → all →…</p></li>
+<li><a href="/entry/doc-user-guide-cli-tool-preview-length">Tool Preview Length</a><p>The display.tool_preview_length config key controls the maximum number of characters shown in tool call preview lines (e.g.</p></li>
+<li><a href="/entry/doc-user-guide-cli-resuming-sessions">Resuming Sessions</a><p>When you exit a CLI session, a resume command is printed: Resume options: Resuming restores the full conversation history from SQLite.</p></li>
+<li><a href="/entry/doc-user-guide-cli-context-compression">Context Compression</a><p>Long conversations are automatically summarized when approaching context limits: When compression triggers, middle turns are summarized while the first 3 and last 20 turns are…</p></li>
+<li><a href="/entry/doc-user-guide-cli-background-sessions">Background Sessions</a><p>Run a prompt in a separate background session while continuing to use the CLI for other work: Hermes immediately confirms the task and gives you back the prompt:</p></li>
+<li><a href="/entry/doc-user-guide-cli-how-it-works">How It Works</a><p>Each /bg prompt spawns a completely separate agent session in a daemon thread: Isolated conversation - the background agent has no knowledge of your current session&#39;s history.</p></li>
+<li><a href="/entry/doc-user-guide-cli-results">Results</a><p>When a background task finishes, the result appears as a panel in your terminal: If the task fails, you&#39;ll see an error notification instead.</p></li>
+<li><a href="/entry/doc-user-guide-cli-quiet-mode">Quiet Mode</a><p>By default, the CLI runs in quiet mode which: Suppresses verbose logging from tools Enables kawaii-style animated feedback Keeps output clean and user-friendly For debug output…</p></li>
+<li><a href="/entry/review-commands-send-or-pipe-a-result-through-hermes">Send or pipe a result through Hermes</a><p>Use the documented recipe to send or pipe a result through Hermes.</p></li>
+<li><a href="/entry/review-commands-check-delivery-results-in-a-shell-script">Check delivery results in a shell script</a><p>Use the documented recipe to check delivery results in a shell script.</p></li>
+<li><a href="/entry/review-commands-discover-configured-message-destinations">Discover configured message destinations</a><p>Use the documented recipe to discover configured message destinations.</p></li>
+<li><a href="/entry/review-commands-report-a-build-result-to-a-team-channel">Report a build result to a team channel</a><p>Use the documented recipe to report a build result to a team channel.</p></li>
+<li><a href="/entry/review-commands-send-a-resource-alert-from-a-watchdog">Send a resource alert from a watchdog</a><p>Use the documented recipe to send a resource alert from a watchdog.</p></li>
+<li><a href="/entry/review-commands-create-a-script-only-watchdog-from-the-cli">Create a script-only watchdog from the CLI</a><p>Use the documented recipe to create a script-only watchdog from the CLI.</p></li>
+<li><a href="/entry/review-commands-schedule-the-documented-disk-space-alert">Schedule the documented disk-space alert</a><p>Use the documented recipe to schedule the documented disk-space alert.</p></li>
+<li><a href="/entry/review-commands-manage-the-lifecycle-of-a-script-only-job">Manage the lifecycle of a script-only job</a><p>Use the documented recipe to manage the lifecycle of a script-only job.</p></li>
+<li><a href="/entry/review-commands-inspect-and-approve-staged-memory-writes">Inspect and approve staged memory writes</a><p>Use the documented recipe to inspect and approve staged memory writes.</p></li>
+<li><a href="/entry/review-commands-inspect-and-approve-a-pending-skill-diff">Inspect and approve a pending skill diff</a><p>Use the documented recipe to inspect and approve a pending skill diff.</p></li>
+<li><a href="/entry/review-commands-search-installed-skills-by-topic">Search installed skills by topic</a><p>Use the documented recipe to search installed skills by topic.</p></li>
+<li><a href="/entry/review-commands-load-a-namespaced-plugin-skill-explicitly">Load a namespaced plugin skill explicitly</a><p>Use the documented recipe to load a namespaced plugin skill explicitly.</p></li>
+<li><a href="/entry/review-commands-inspect-the-configuration-needed-by-a-skill">Inspect the configuration needed by a skill</a><p>Use the documented recipe to inspect the configuration needed by a skill.</p></li>
+<li><a href="/entry/review-commands-exercise-a-newly-written-skill-in-a-fresh-session">Exercise a newly written skill in a fresh session</a><p>Use the documented recipe to exercise a newly written skill in a fresh session.</p></li>
+<li><a href="/entry/review-commands-start-hermes-as-an-mcp-server">Start Hermes as an MCP server</a><p>Use the documented recipe to start Hermes as an MCP server.</p></li>
+<li><a href="/entry/review-commands-reload-mcp-connections-after-editing-configuration">Reload MCP connections after editing configuration</a><p>Use the documented recipe to reload MCP connections after editing configuration.</p></li>
+<li><a href="/entry/review-commands-install-an-official-optional-skill-from-the-hub">Install an official optional skill from the Hub</a><p>Use the documented recipe to install an official optional skill from the Hub.</p></li>
+<li><a href="/entry/review-commands-test-and-pause-a-scheduled-workflow">Test and pause a scheduled workflow</a><p>Use the documented recipe to test and pause a scheduled workflow.</p></li>
+<li><a href="/entry/review-commands-inspect-a-running-gateway-and-its-logs">Inspect a running gateway and its logs</a><p>Use the documented recipe to inspect a running gateway and its logs.</p></li>
+<li><a href="/entry/review-commands-pair-a-new-team-member-with-the-bot">Pair a new team member with the bot</a><p>Use the documented recipe to pair a new team member with the bot.</p></li>
+</ul>
+<div class="actions"><a href="/#commands">Browse this shelf in the archive</a></div>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

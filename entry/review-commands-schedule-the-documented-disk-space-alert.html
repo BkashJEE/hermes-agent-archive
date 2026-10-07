@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Schedule the documented disk-space alert · Hermes Agent Archive</title>
+<meta name="description" content="Use the documented recipe to schedule the documented disk-space alert.">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/review-commands-schedule-the-documented-disk-space-alert">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Schedule the documented disk-space alert">
+<meta property="og:description" content="Use the documented recipe to schedule the documented disk-space alert.">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/review-commands-schedule-the-documented-disk-space-alert">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Schedule the documented disk-space alert">
+<meta name="twitter:description" content="Use the documented recipe to schedule the documented disk-space alert.">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/commands">Commands</a></header>
+
+<article>
+<h1>Schedule the documented disk-space alert</h1>
+
+<p class="meta">By Nous Research · Official Docs</p>
+<p>Use the documented recipe to schedule the documented disk-space alert.</p>
+<p>Run on the configured Hermes host and replace example paths, IDs and destinations. Read the linked prerequisites before pasting; commands that send messages, approve changes or restart services have real effects.</p>
+<p>Source: official Hermes Agent documentation. This card is an editorial summary; copyable examples retain source wording. Verify the linked instructions for your installed version.</p>
+<pre><code>cat &gt; ~/.hermes/scripts/disk-alert.sh &lt;&lt;&#39;EOF&#39;
+#!/usr/bin/env bash
+# Alert when / or /home is over 90% full.
+THRESHOLD=90
+df -h / /home 2&gt;/dev/null | awk -v t=&quot;$THRESHOLD&quot; &#39;
+  NR &gt; 1 &amp;&amp; $5+0 &gt;= t {
+    printf &quot;⚠ Disk %s full on %s\n&quot;, $5, $6
+  }
+&#39;
+EOF
+chmod +x ~/.hermes/scripts/disk-alert.sh
+
+hermes cron create &quot;*/15 * * * *&quot; \
+  --no-agent \
+  --script disk-alert.sh \
+  --deliver telegram \
+  --name &quot;disk-alert&quot;</code></pre>
+<ul class="tags"><li>#docs</li><li>#commands</li><li>#recipe</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/guides/cron-script-only#worked-example-disk-space-alert" rel="noopener">Read the original</a>
+<a href="/#commands?item=review-commands-schedule-the-documented-disk-space-alert">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

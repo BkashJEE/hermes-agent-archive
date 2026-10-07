@@ -58,6 +58,22 @@ async function counts() {
 
 const total = c => Object.values(c).reduce((a, b) => a + b, 0);
 
+/**
+ * The line worth repeating from a failed importer's output.
+ *
+ * This took the last line, which on a thrown error is Node's own version banner — the
+ * harvest log read `unreachable: import-jev-hermes.mjs — Node.js v20.20.2`, naming the
+ * runtime instead of the problem. Prefer the thrown message, then the last line that says
+ * anything, so the report names what actually went wrong.
+ */
+function reason(out) {
+  const lines = out.split('\n').map(l => l.trim()).filter(Boolean);
+  const thrown = lines.find(l => /^(?:Uncaught\s+)?(?:[A-Z]\w*)?Error: /.test(l));
+  if (thrown) return thrown.replace(/^(?:Uncaught\s+)?(?:[A-Z]\w*)?Error: /, '');
+  const useful = lines.filter(l => !/^(?:Node\.js v[\d.]+|at\s|\^+$|\s*\}?\s*)$/.test(l));
+  return useful.slice(-1)[0] || 'exited non-zero';
+}
+
 async function main() {
   if (process.argv.includes('--dry')) {
     console.log('Would run, in order:');
@@ -76,7 +92,7 @@ async function main() {
   for (const { script, what } of IMPORTERS) {
     const result = await run(script);
     if (!result.ok) {
-      failed.push([script, result.out.trim().split('\n').slice(-1)[0] || 'exited non-zero']);
+      failed.push([script, reason(result.out)]);
       console.error(`  ${script} failed — ${what}`);
     }
   }

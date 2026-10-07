@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skill Directory Structure · Hermes Agent Archive</title>
+<meta name="description" content="Third-party URL and GitHub installs include SKILL.md plus the exact local files it references under references/ , templates/ , scripts/ , assets/ , and…">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-skill-directory-structure">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Skill Directory Structure">
+<meta property="og:description" content="Third-party URL and GitHub installs include SKILL.md plus the exact local files it references under references/ , templates/ , scripts/ , assets/ , and…">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-skill-directory-structure">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Skill Directory Structure">
+<meta name="twitter:description" content="Third-party URL and GitHub installs include SKILL.md plus the exact local files it references under references/ , templates/ , scripts/ , assets/ , and…">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/skills">Skills</a></header>
+
+<article>
+<h1>Skill Directory Structure</h1>
+
+<p class="meta">From Official Docs</p>
+<p>Third-party URL and GitHub installs include SKILL.md plus the exact local files it references under references/ , templates/ , scripts/ , assets/ , and examples/ . Unreferenced repository files are not copied. Hermes scans the complete quarantined bundle and records the source URL, exact content hash, scanner version, findings, timestamp, and fresh-or-cached status in skills/.hub/lock.json .</p>
+<p>From the official Hermes Agent documentation.</p>
+<pre><code>~/.hermes/skills/                  # Single source of truth
+├── mlops/                         # Category directory
+│   ├── axolotl/
+│   │   ├── SKILL.md               # Main instructions (required)
+│   │   ├── references/            # Additional docs
+│   │   ├── templates/             # Output formats
+│   │   ├── scripts/               # Helper scripts callable from the skill
+│   │   ├── examples/              # Referenced example outputs
+│   │   └── assets/                # Supplementary files
+│   └── vllm/
+│       └── SKILL.md
+├── devops/
+│   └── deploy-k8s/                # Agent-created skill
+│       ├── SKILL.md
+│       └── references/
+├── .hub/                          # Skills Hub state
+│   ├── lock.json
+│   ├── quarantine/
+│   └── audit.log
+└── .bundled_manifest              # Tracks seeded bundled skills</code></pre>
+<ul class="tags"><li>#skills</li><li>#docs</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#skill-directory-structure" rel="noopener">Read the original</a>
+<a href="/#skills?item=doc-user-guide-features-skills-skill-directory-structure">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>hermes cron · Hermes Agent Archive</title>
+<meta name="description" content="Inspect and tick the cron scheduler.">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/cli-hermes-cron">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hermes cron">
+<meta property="og:description" content="Inspect and tick the cron scheduler.">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/cli-hermes-cron">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="hermes cron">
+<meta name="twitter:description" content="Inspect and tick the cron scheduler.">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/commands">Commands</a></header>
+
+<article>
+<h1>hermes cron</h1>
+<p class="lede">Inspect and tick the cron scheduler.</p>
+<p class="meta">From Official Docs</p>
+<p>Inspect and tick the cron scheduler.</p>
+<p>The cron trigger is pluggable via the cron.provider config key. Empty (the default) uses the built-in in-process ticker. Set it to chronos (the NAS-managed provider for scale-to-zero hosted gateways) — configured via the cron.chronos.* keys (portal_url, callback_url, expected_audience, nas_jwks_url) — or name a custom provider under plugins/cron/&lt;name&gt;/ or $HERMES_HOME/plugins/&lt;name&gt;/. An unknown or unavailable provider falls back to the built-in, so cron is never left without a trigger. See the cron internals doc.</p>
+<p>From the official Hermes Agent CLI reference.</p>
+<pre><code>hermes cron</code></pre>
+<ul class="tags"><li>#cli</li><li>#reference</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-cron" rel="noopener">Read the original</a>
+<a href="/#commands?item=cli-hermes-cron">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

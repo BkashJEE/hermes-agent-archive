@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Starting with a blank slate · Hermes Agent Archive</title>
+<meta name="description" content="By default every profile is seeded with the bundled skill catalog, and each hermes update adds any newly bundled skills.">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-starting-with-a-blank-slate">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Starting with a blank slate">
+<meta property="og:description" content="By default every profile is seeded with the bundled skill catalog, and each hermes update adds any newly bundled skills.">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-starting-with-a-blank-slate">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Starting with a blank slate">
+<meta name="twitter:description" content="By default every profile is seeded with the bundled skill catalog, and each hermes update adds any newly bundled skills.">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/skills">Skills</a></header>
+
+<article>
+<h1>Starting with a blank slate</h1>
+
+<p class="meta">From Official Docs</p>
+<p>By default every profile is seeded with the bundled skill catalog, and each hermes update adds any newly bundled skills. If you want a profile with no bundled skills - and that stays empty across updates - you have two paths: At install time (applies to the default ~/.hermes profile): the installer has no --no-skills flag. Its setup stage asks whether to seed the bundled catalog when you pick the Blank Slate setup; answering no writes the opt-out marker described below. Non-interactive installs seed the catalog, so run hermes skills opt-out afterwards if you want the profile empty. At profile-create time (named profiles): On an already-installed profile (default or named), toggle it at runtime: All of these paths write a .no-bundled-skills marker into the profile directory. While the marker is present, the installer, hermes update , and any skill sync all skip bundled-skill seeding for that profile. Delete the marker (or run hermes skills opt-in ) to re-enable. Safe by default hermes skills opt-out only stops future seeding - it never deletes anything already on disk. The optional --remove flag deletes bundled skills only when they are unmodified (byte-identical to the version Herm…</p>
+<p>From the official Hermes Agent documentation.</p>
+<pre><code>hermes profile create research --no-skills</code></pre>
+<ul class="tags"><li>#skills</li><li>#docs</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#starting-with-a-blank-slate" rel="noopener">Read the original</a>
+<a href="/#skills?item=doc-user-guide-features-skills-starting-with-a-blank-slate">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

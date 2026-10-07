@@ -12,6 +12,7 @@
     "sync": "npm run fetch && npm run route",
     "rank": "node scripts/rank-archive.mjs",
     "check": "node scripts/check-data.mjs",
+    "pages": "node scripts/build-pages.mjs",
     "rank:ideas": "node scripts/rank-with-jev.mjs",
     "test": "node --test scripts/*.test.mjs",
     "hero": "node scripts/make-hero.mjs",
