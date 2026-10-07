@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>hermes doctor · Hermes Agent Archive</title>
+<meta name="description" content="Diagnose config and dependency issues.">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/cli-hermes-doctor">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hermes doctor">
+<meta property="og:description" content="Diagnose config and dependency issues.">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/cli-hermes-doctor">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="hermes doctor">
+<meta name="twitter:description" content="Diagnose config and dependency issues.">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/commands">Commands</a></header>
+
+<article>
+<h1>hermes doctor</h1>
+<p class="lede">Diagnose config and dependency issues.</p>
+<p class="meta">From Official Docs</p>
+<p>Diagnose config and dependency issues.</p>
+<p>Exit status: 0 when the report lists no unresolved problems, 1 when at least one remains (including problems --fix could not repair), so a health gate or CI step can trust hermes doctor as a check.</p>
+<p>The API Connectivity section includes an IPv6 route check: it opens one short (2 s) IPv6 TCP connection to a known dual-stack host. A route that is advertised but only times out (a blackholed IPv6 prefix) is reported as a warning naming the remedy, network.force_ipv4: true. Having no IPv6 route at all is healthy and reported as OK; the check is skipped when force_ipv4 is already set.</p>
+<p>Custom-endpoint config checks (both warn-only; --fix does not rewrite them):</p>
+<p>Config Structure also flags any list/mapping setting stored as one quoted string (plugins.enabled: &#39;[&quot;a&quot;,&quot;b&quot;]&#39;, model_catalog.excluded_providers: &#39;[&quot;openai-api&quot;]&#39; — the shape older config set versions wrote): every reader ignores such a string, so the plugins silently stay unmounted and the exclusion never applies. The finding names the key and the hermes config set &lt;key&gt; &#39;&lt;literal&gt;&#39; command that stores a real list; the same warning appears in the startup banner. --fix does not rewrite the file.</p>
+<p>From the official Hermes Agent CLI reference.</p>
+<pre><code>hermes doctor</code></pre>
+<ul class="tags"><li>#cli</li><li>#reference</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-doctor" rel="noopener">Read the original</a>
+<a href="/#commands?item=cli-hermes-doctor">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

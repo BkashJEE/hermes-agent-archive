@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Progressive Disclosure · Hermes Agent Archive</title>
+<meta name="description" content="Skills use a token-efficient loading pattern: The agent only loads the full skill content when it actually needs it.">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-progressive-disclosure">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Progressive Disclosure">
+<meta property="og:description" content="Skills use a token-efficient loading pattern: The agent only loads the full skill content when it actually needs it.">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-progressive-disclosure">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Progressive Disclosure">
+<meta name="twitter:description" content="Skills use a token-efficient loading pattern: The agent only loads the full skill content when it actually needs it.">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/skills">Skills</a></header>
+
+<article>
+<h1>Progressive Disclosure</h1>
+
+<p class="meta">From Official Docs</p>
+<p>Skills use a token-efficient loading pattern: The agent only loads the full skill content when it actually needs it.</p>
+<p>From the official Hermes Agent documentation.</p>
+<pre><code>Level 0: skills_list()           → [{name, description, category}, ...]   (~3k tokens)
+Level 1: skill_view(name)        → Full content + metadata       (varies)
+Level 2: skill_view(name, path)  → Specific reference file       (varies)</code></pre>
+<ul class="tags"><li>#skills</li><li>#docs</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#progressive-disclosure" rel="noopener">Read the original</a>
+<a href="/#skills?item=doc-user-guide-features-skills-progressive-disclosure">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

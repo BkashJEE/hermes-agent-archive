@@ -29,7 +29,20 @@ const html = await res.text();
 /* The payload is JSON escaped inside script chunks; unescape, then take each record. */
 const flat = html.replace(/\\"/g, '"').replace(/\\\\/g, '\\');
 const blocks = flat.match(/\{"id":"[0-9a-f-]{36}",.*?"preview":(?:null|\{.*?\})\}/g) || [];
-if (blocks.length < 100) throw new Error(`Found only ${blocks.length} records — the payload shape changed; fix the parser rather than importing a fraction.`);
+
+/* An empty directory and a broken parser both yield nothing, and they need opposite
+   responses: one is a fact about the source, the other is a bug here. The page prints its
+   own total next to "ideas from the community", so ask it rather than guessing. On 2026-10-05 it rendered `0 ideas from the
+   community` and shipped no records at all — the directory had been emptied upstream, and
+   reporting that as a parser failure sent the whole harvest down with it. */
+const statedCount = html.match(/class="intro-number"[^>]*>\s*([\d,]+)/i);
+const upstreamTotal = statedCount ? Number(statedCount[1].replace(/,/g, '')) : null;
+
+if (!blocks.length && upstreamTotal === 0) {
+  console.log(`${SRC} lists no use cases today; nothing to import and nothing changed.`);
+  process.exit(0);                    // a source with no entries is a fact, not a failure
+}
+if (blocks.length < 100) throw new Error(`Found only ${blocks.length} records${upstreamTotal === null ? '' : ` while the page states ${upstreamTotal}`} — the payload shape changed; fix the parser rather than importing a fraction.`);
 
 const all = [];
 let unparsed = 0;

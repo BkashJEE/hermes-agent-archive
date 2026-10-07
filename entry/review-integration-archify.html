@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Archify diagrams with Hermes · Hermes Agent Archive</title>
+<meta name="description" content="Turn a repository or workflow description into an interactive architecture diagram through a documented Hermes skill.">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/review-integration-archify">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Archify diagrams with Hermes">
+<meta property="og:description" content="Turn a repository or workflow description into an interactive architecture diagram through a documented Hermes skill.">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/review-integration-archify">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Archify diagrams with Hermes">
+<meta name="twitter:description" content="Turn a repository or workflow description into an interactive architecture diagram through a documented Hermes skill.">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/toolkit">Works With</a></header>
+
+<article>
+<h1>Archify diagrams with Hermes</h1>
+<p class="lede">Turn a repository or workflow description into an interactive architecture diagram through a documented Hermes skill.</p>
+<p class="meta">By tt-a1i · GitHub</p>
+<p>Create an interactive architecture or workflow diagram through Archify’s community Hermes skill.</p>
+<p>- Setup: Install Node.js 18 or newer, inspect the published skill, then use the upstream installation command below and restart Hermes. Ask the archify skill to map the repository’s runtime architecture and return the specification JSON and HTML file paths.<br>- Limitations: Skill-only community integration, not an official Nous Research product. The renderer remains a Node CLI; it adds no native Python render tools and is not an agent-switcher target. Generated diagrams are not verification of live infrastructure or merge safety.<br>- Docker: Install into the mounted Hermes skills volume or mount the actual skill files. A host symlink pointing outside that volume is not visible inside the container.<br>- Review scope: upstream README and dedicated Hermes integration instructions were read; the archive has not installed or execution-tested this integration.</p>
+<pre><code>hermes skills install skills-sh/tt-a1i/archify/archify -y</code></pre>
+<ul class="tags"><li>#integration</li><li>#hermes</li><li>#reviewed</li><li>#architecture</li></ul>
+<div class="actions">
+<a href="https://github.com/tt-a1i/archify#readme" rel="noopener">Read the original</a>
+<a href="/#toolkit?item=review-integration-archify">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

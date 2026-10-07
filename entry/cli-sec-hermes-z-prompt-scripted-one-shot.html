@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>hermes -z &lt;prompt&gt; — scripted one-shot · Hermes Agent Archive</title>
+<meta name="description" content="For programmatic callers (shell scripts, CI, cron, parent processes piping in a prompt), hermes -z is the purest one-shot entry point: single prompt in…">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/cli-sec-hermes-z-prompt-scripted-one-shot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hermes -z &lt;prompt&gt; — scripted one-shot">
+<meta property="og:description" content="For programmatic callers (shell scripts, CI, cron, parent processes piping in a prompt), hermes -z is the purest one-shot entry point: single prompt in…">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/cli-sec-hermes-z-prompt-scripted-one-shot">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="hermes -z &lt;prompt&gt; — scripted one-shot">
+<meta name="twitter:description" content="For programmatic callers (shell scripts, CI, cron, parent processes piping in a prompt), hermes -z is the purest one-shot entry point: single prompt in…">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/commands">Commands</a></header>
+
+<article>
+<h1>hermes -z &lt;prompt&gt; — scripted one-shot</h1>
+
+<p class="meta">From Official Docs</p>
+<p>For programmatic callers (shell scripts, CI, cron, parent processes piping in a prompt), hermes -z is the purest one-shot entry point: single prompt in, final response text out, nothing else on stdout or stderr. No banner, no spinner, no tool previews, no Session: line — just the agent&#39;s final reply as plain text.</p>
+<p>Per-run overrides (no mutation to ~/.hermes/config.yaml):</p>
+<p>Same agent, same tools, same skills — just strips every interactive / cosmetic layer. If you need tool output in the transcript too, use hermes chat --oneshot -q instead; -z is explicitly for &quot;I only want the final answer&quot;.</p>
+<p>Exit codes: 0 the turn completed; 2 it failed or stopped partway (partial, iteration budget, completed: false) — even when an explanation was printed; 130 it was interrupted; 1 a completed turn produced no text at all; 2 also for usage errors (bad flags) before the run starts. These codes intentionally differ from chat -q/-Q above (which exit 1 for failed/partial/budget and 0 for a completed turn with no text): -z reserves 1 for &quot;answered nothing&quot;. Judge the run by the exit code (or the --usage-file flags), not by whether stdout is non-empty.</p>
+<p>From the official Hermes Agent CLI reference.</p>
+
+<ul class="tags"><li>#cli</li><li>#reference</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes--z-prompt--scripted-one-shot" rel="noopener">Read the original</a>
+<a href="/#commands?item=cli-sec-hermes-z-prompt-scripted-one-shot">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

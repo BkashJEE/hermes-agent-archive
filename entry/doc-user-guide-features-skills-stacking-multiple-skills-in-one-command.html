@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stacking multiple skills in one command · Hermes Agent Archive</title>
+<meta name="description" content="You can invoke several skills in a single message by chaining slash commands at the start - every leading /skill token (up to 5) is loaded, and the rest…">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-stacking-multiple-skills-in-one-command">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stacking multiple skills in one command">
+<meta property="og:description" content="You can invoke several skills in a single message by chaining slash commands at the start - every leading /skill token (up to 5) is loaded, and the rest…">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-stacking-multiple-skills-in-one-command">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Stacking multiple skills in one command">
+<meta name="twitter:description" content="You can invoke several skills in a single message by chaining slash commands at the start - every leading /skill token (up to 5) is loaded, and the rest…">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/skills">Skills</a></header>
+
+<article>
+<h1>Stacking multiple skills in one command</h1>
+
+<p class="meta">From Official Docs</p>
+<p>You can invoke several skills in a single message by chaining slash commands at the start - every leading /skill token (up to 5) is loaded, and the rest becomes your instruction: Parsing stops at the first token that isn&#39;t an installed skill, so arguments that happen to start with / (like file paths) are never swallowed: For combinations you use repeatedly, prefer a skill bundle - same effect under one short command. (Plan mode works the same way but is a built-in command now: /plan [request] tells Hermes to inspect context if needed, write a markdown implementation plan instead of executing the task, and save the result under .hermes/plans/ relative to the active workspace/backend working directory.) You can also interact with skills through natural conversation:</p>
+<p>From the official Hermes Agent documentation.</p>
+<pre><code>/github-pr-workflow /test-driven-development fix issue #123 and open a PR</code></pre>
+<ul class="tags"><li>#skills</li><li>#docs</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#stacking-multiple-skills-in-one-command" rel="noopener">Read the original</a>
+<a href="/#skills?item=doc-user-guide-features-skills-stacking-multiple-skills-in-one-command">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

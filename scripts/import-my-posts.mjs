@@ -85,7 +85,8 @@ items.sort((a, b) => (b.metric?.value ?? 0) - (a.metric?.value ?? 0));
 
 /* Additive, like every other importer: an entry already here is refreshed, never removed. */
 const target = join(ROOT, 'data/my-work.json');
-const existing = JSON.parse(await readFile(target, 'utf8').catch(() => '{"items":[]}')).items || [];
+const prior = JSON.parse(await readFile(target, 'utf8').catch(() => '{"items":[]}'));
+const existing = prior.items || [];
 const byId = new Map(existing.map(i => [i.id, i]));
 let added = 0;
 for (const it of items) {
@@ -93,10 +94,16 @@ for (const it of items) {
   else { byId.set(it.id, it); added++; }
 }
 
-await writeFile(target, JSON.stringify({
+/* Unchanged input leaves the file alone, timestamp included. A re-stamp on every run
+   makes the harvest propose a pull request with no entries in it. */
+const merged = [...byId.values()];
+const unchanged = JSON.stringify(merged) === JSON.stringify(existing);
+
+if (unchanged) console.log('\nNothing changed; the file is left exactly as it was.');
+else await writeFile(target, JSON.stringify({
   note: `Imported from ${SRC} by scripts/import-my-posts.mjs. These are the archive author's own posts. Impression and engagement figures come from their X analytics exports and are carried over as published, not measured here.`,
   importedAt: new Date().toISOString(),
-  items: [...byId.values()]
+  items: merged
 }, null, 2) + '\n');
 
 console.log(`\n${items.length} of the author's Hermes posts imported (${added} new, ${skipped} on other subjects left out).\n`);
