@@ -439,6 +439,7 @@
   <url><loc>https://hermes-agent-archive.vercel.app/entry/review-skills-research-paper-writing</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/review-skills-live-dashboard</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/review-skills-sketch</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/skill-oh-my-hermes</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/shelf/prompts</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/prompt-parallel-research</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/prompt-auth-review</loc></url>
@@ -890,6 +891,7 @@
   <url><loc>https://hermes-agent-archive.vercel.app/entry/integration-garrytan-gstack</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/integration-multica-ai-multica</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/review-integration-archify</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/kit-mnemosyne</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/shelf/builds</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/gh-hermes-agent</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/community-hermes-desktop-theme-pack</loc></url>
@@ -927,6 +929,10 @@
   <url><loc>https://hermes-agent-archive.vercel.app/entry/jev-jev-brain-cli-ships-as-terminal-agent-83846865</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/jev-hermes-skill-selection-jev</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/jev-hermes-claude-jev-sales-roundtable</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/build-hermes-workspace</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/build-hermes-webui</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/build-hermes-desktop-mac</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/build-hermes-cn-desktop</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/shelf/my-work</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/mine-jev-connect-skill</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/mine-jev-setup-walkthrough</loc></url>
