@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-10-07T07:20:54.370Z",
+  "classifiedAt": "2026-10-09T07:48:29.908Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -1985,7 +1985,7 @@
       "confidence": 0.55
     },
     "gh-hermes-agent": {
-      "input": "28138484964ffc70b865bf6e4be9d218e5d4bb7dc0abc2145929eefed165bb56",
+      "input": "944e3ade8da7cbedf2a2f1323ef025ccd439b3ce314aecebc4a01dbf7b70b6d9",
       "usefulness": 0,
       "popularity": "widespread",
       "confidence": 0.91
@@ -4193,16 +4193,16 @@
       "confidence": 0.95
     },
     "kit-cc-switch": {
-      "input": "99c579710f8a6236872058aa00a8cb68411082cb8ebd698936fb431682d651be",
-      "usefulness": 2.18,
+      "input": "b11a0202a0578ed4e6ae3b1c713664b77658be33eb078b65d80e0e290984b46a",
+      "usefulness": 2.17,
       "popularity": "widespread",
       "confidence": 0.6
     },
     "kit-codegraph": {
-      "input": "143903027c20a3b5964ea2cc66441fcb2cb129fc1585db346ecce422c4ec24fd",
+      "input": "4652645456181e76567e0c636a93f6dee25e848861e4f55a5e5950467e57c2fc",
       "usefulness": 2.89,
       "popularity": "widespread",
-      "confidence": 0.44
+      "confidence": 0.46
     },
     "kit-gbrain": {
       "input": "0b0eb6d783a7a4f50b6bc6224a85facf138bcd015874e712a84b2a4cb0c1a9d5",
@@ -4421,46 +4421,46 @@
       "confidence": 0.63
     },
     "skill-superpowers": {
-      "input": "eb128c697235c1e54d7e0202e5c7c88ba7c798b7b77963e96729481149bce01d",
-      "usefulness": 1.8,
+      "input": "6f67ae85db2cc4f7f35cb00ff17fdf3c54997c06aca9543bd256a17a17457737",
+      "usefulness": 1.76,
       "popularity": "widespread",
-      "confidence": 0.54
+      "confidence": 0.53
     },
     "skill-ponytail": {
-      "input": "e82d9c892d6893cce62105d1d026ec6c1ae2793228d5b680d54ebb5f058d6713",
-      "usefulness": 2.18,
+      "input": "d4cdb9af5e1d93a65155f9f25889418baa5a03cabd6473c589c6631aa89ff430",
+      "usefulness": 2.1,
+      "popularity": "widespread",
+      "confidence": 0.68
+    },
+    "skill-impeccable": {
+      "input": "b1364ac919c60093c77ac1a4597486f3ea88106283a2638d13e726ee9a7c0637",
+      "usefulness": 2.22,
       "popularity": "widespread",
       "confidence": 0.62
     },
-    "skill-impeccable": {
-      "input": "d02d6798809bc208045142f3001a8ef3294daf195062dd7d9bf22672619c2232",
-      "usefulness": 2.21,
-      "popularity": "widespread",
-      "confidence": 0.64
-    },
     "skill-cli-anything": {
-      "input": "6c45ad5c8c8b4b33a2d5d27ac585bb10cc4c7fb6052113cb0aa8e243bd7e3aff",
-      "usefulness": 1.99,
-      "popularity": "strong",
-      "confidence": 0.32
+      "input": "02c743c2a47f60615ddc695726c441de4814d8417f95378f3f7748cd24ead9f3",
+      "usefulness": 2.01,
+      "popularity": "widespread",
+      "confidence": 0.36
     },
     "kit-caveman": {
-      "input": "8afe868d83de11480277941f5b1e171795c1b81ba6d366496fcedcf91f002329",
+      "input": "a6ebfa9fe6fedb7c6eefc052149a77a2fcaf5d522c0a681adeb52aeb10bb5d22",
       "usefulness": 2.36,
       "popularity": "widespread",
-      "confidence": 0.56
+      "confidence": 0.57
     },
     "kit-open-design": {
-      "input": "2fcc2cc85a2d4275a384b46e751a4bdfdf64948a199152783014e64792bbe392",
-      "usefulness": 1.68,
+      "input": "368bec61c470837e91521a399dc85c9be31b3fd28b571640f2d19d07c8a794de",
+      "usefulness": 1.67,
       "popularity": "widespread",
-      "confidence": 0.54
+      "confidence": 0.5
     },
     "kit-unsloth": {
-      "input": "4929271a463096f653f1a4d1f81d7b4d0808e7c3c47639ebfc04fb4e4780175f",
-      "usefulness": 1.27,
+      "input": "c2f38b43fb8294539ff8557ec6c8e4a6948a5d20a2fd092508f924bb5e401c80",
+      "usefulness": 1.25,
       "popularity": "widespread",
-      "confidence": 0.66
+      "confidence": 0.68
     },
     "gh-internet-court-internet-court-skill": {
       "input": "a323123cc389079ff27879d48f0a63f5cef12c2f053697293ac4d11598ad4fcc",
@@ -6113,58 +6113,58 @@
       "confidence": 0.56
     },
     "integration-rtk-ai-rtk": {
-      "input": "fa9bdaf6f51591a9a1112ecccc739373f65735a952d6a2acc4a1cb26b9733db1",
-      "usefulness": 1.52,
+      "input": "3c46ca111d6fb69686a01e2c7eed1b9e0c46cbf8a1184f0d7a40dcf3c5681644",
+      "usefulness": 1.5,
       "popularity": "widespread",
-      "confidence": 0.55
+      "confidence": 0.57
     },
     "integration-egonex-ai-understand-anything": {
-      "input": "13f714ac41e6b7affcaee14febcbd48247c3c58d3f861b41264a80f8a5b6a252",
-      "usefulness": 1.59,
+      "input": "2ad41ede31cd3ed6598c2578fd3a3ab9bc461df05beda9e38933d4879025ee0e",
+      "usefulness": 1.51,
       "popularity": "widespread",
-      "confidence": 0.56
+      "confidence": 0.52
     },
     "integration-browser-use-browser-use": {
-      "input": "2b66f06f8439b9c7ad531068d06dfa21718adf5af167da80d774fdfe3338816e",
+      "input": "f40606af0de3c1b35e127970e582f4ec27fc2c2bc5298b1904cd5c68679eee0b",
       "usefulness": 1.3,
       "popularity": "widespread",
-      "confidence": 0.67
+      "confidence": 0.68
     },
     "integration-affaan-m-ecc": {
-      "input": "ef18ed5f6007d91ba0339a0c6866e9b961a7327302d1b6da2f28beef9a32b07e",
-      "usefulness": 1.24,
+      "input": "29dddce04688e4fce38ca6ed3ddf86cb08b4175e4423a811114e0c02dc131321",
+      "usefulness": 1.19,
       "popularity": "widespread",
-      "confidence": 0.75
+      "confidence": 0.79
     },
     "integration-msitarzewski-agency-agents": {
-      "input": "e6f3fd008c1868fc6cf45480284321bd289009179eb683f93f2fbf5a41e062ce",
-      "usefulness": 1.73,
-      "popularity": "widespread",
-      "confidence": 0.6
-    },
-    "integration-graphify-labs-graphify": {
-      "input": "4abf81162d9db3e09c9ade53ab0c529f73a3dc7830bed2a12d2aac6d8bef6cda",
-      "usefulness": 1.61,
-      "popularity": "widespread",
-      "confidence": 0.58
-    },
-    "integration-alishahryar1-free-claude-code": {
-      "input": "b8d5dabbe9cf88cfae6df72a5dff78853afd838ca0db3d248ac0ee9799774475",
-      "usefulness": 1.08,
-      "popularity": "widespread",
-      "confidence": 0.7
-    },
-    "integration-garrytan-gstack": {
-      "input": "ffb59c6659121361b4752639465c3c140735d1e3e4a77a1bfb59c5930ee1aae0",
-      "usefulness": 0.46,
+      "input": "77ab3cc132e3d21579801f758383d49400faf6348711a2c161da2105efd60dbe",
+      "usefulness": 1.75,
       "popularity": "widespread",
       "confidence": 0.62
     },
-    "integration-multica-ai-multica": {
-      "input": "8fcf090b501f3644e667a10a928523fdfdb7f1ccde23bfe2bd2dfd08a5d283fc",
-      "usefulness": 1.24,
+    "integration-graphify-labs-graphify": {
+      "input": "ff8bbe4187ecd5560fecdf15973119f8b77fae676462a11bfceb3723a6519770",
+      "usefulness": 1.57,
       "popularity": "widespread",
-      "confidence": 0.63
+      "confidence": 0.56
+    },
+    "integration-alishahryar1-free-claude-code": {
+      "input": "9e806567784d03a93a66f21139efceb5f9540c54cd4c353306bb9e69c4d95cf9",
+      "usefulness": 1.09,
+      "popularity": "widespread",
+      "confidence": 0.76
+    },
+    "integration-garrytan-gstack": {
+      "input": "6d25ddf25b38ee0492640d2d8d204154dd8de8a4c74523bcbe62f4a6fae3d63e",
+      "usefulness": 0.41,
+      "popularity": "widespread",
+      "confidence": 0.67
+    },
+    "integration-multica-ai-multica": {
+      "input": "235124220c73a41024af2bf7cf0b25c600dcd0bd2455d308769dfc7a6b18a3f8",
+      "usefulness": 1.2,
+      "popularity": "widespread",
+      "confidence": 0.74
     },
     "community-report-pbqsovk": {
       "input": "ae6707374c9162b40d93094d77ed6452f8e3e990cb8cb4227521b7c88edce31b",
@@ -6287,8 +6287,8 @@
       "confidence": 0.6
     },
     "review-integration-archify": {
-      "input": "eef5b85504ff85ceea1f86c8b6496bd3b19c1c9d1c3d6eb931de8c0e21be3bae",
-      "usefulness": 2.6,
+      "input": "f3d4f8c237a8201b4a88ca9e88494a599c17e6c007117972ec65767e905caccf",
+      "usefulness": 2.58,
       "popularity": "widespread",
       "confidence": 0.65
     },
@@ -7629,6 +7629,396 @@
       "usefulness": 2.96,
       "popularity": "unknown",
       "confidence": 0.54
+    },
+    "story-razorpay-gives-220-employees-their-own-isolated-always-on-he": {
+      "input": "0056f7316d6a966a50dcf6d63c79b8b12d5f003bb5077ccd1b6532bc560a9895",
+      "usefulness": 0.8,
+      "popularity": "unknown",
+      "confidence": 0.65
+    },
+    "story-a-17-person-startup-gives-every-team-its-own-hermes-profile-": {
+      "input": "2f92ec6056b410ec9d5ae48e0dcfece88cc81e9eab20077933de652f47e610e2",
+      "usefulness": 1.31,
+      "popularity": "unknown",
+      "confidence": 0.63
+    },
+    "story-route-manager-at-a-400-pools-a-week-service-company-has-herm": {
+      "input": "536433acbb5efd1bac5ae24cfe9e27b104f1e550b74046ef6235b8d5e304d607",
+      "usefulness": 1.92,
+      "popularity": "unknown",
+      "confidence": 0.74
+    },
+    "story-runs-hermes-assistants-for-french-small-business-owners-8-00": {
+      "input": "7147c27dddc1b34a2dfb6869ed0e5e9612917f8bed7f5a0a2f9cd2b401db1cd5",
+      "usefulness": 1.83,
+      "popularity": "unknown",
+      "confidence": 0.69
+    },
+    "story-film-production-company-owner-runs-budgets-deal-memos-and-sa": {
+      "input": "8d616beb2babf9c7959e7e81804259015efa2104f49d8d1fa7693cb245571797",
+      "usefulness": 1.37,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "story-a-maternal-fetal-medicine-specialist-runs-clinical-documenta": {
+      "input": "883ad0cb4674ad4ca6cc533a08af92bacdffa718a39884d0351084deef7c1c9d",
+      "usefulness": 0.72,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "story-korean-ai-company-runs-dozens-of-hermes-agents-on-a-mac-mini": {
+      "input": "784888deecbfe2d83b54d3da6a0e8e9eadf6738e00e9708e535f4d5a1d1b20fb",
+      "usefulness": 0.04,
+      "popularity": "unknown",
+      "confidence": 0.97
+    },
+    "story-attorney-who-also-runs-a-local-multi-site-business-automates": {
+      "input": "9a88aaa1177e3c9d424c3d7feed68195d6db65858b01f79fad7a709800180d3d",
+      "usefulness": 1.15,
+      "popularity": "unknown",
+      "confidence": 0.73
+    },
+    "story-swiss-web-agency-drafts-client-invoices-from-harvest-and-cli": {
+      "input": "60505a1ec3b3ea0e1dea2d4827705fe9974af0ac116c82f8a5597430b8558dfe",
+      "usefulness": 1.87,
+      "popularity": "unknown",
+      "confidence": 0.64
+    },
+    "story-two-person-video-startup-lets-hermes-pm-and-engineer-agents-": {
+      "input": "2c5233fafefab2c90937cf923035b134c0336b7f477f4d3085f556792a558bb0",
+      "usefulness": 1.04,
+      "popularity": "unknown",
+      "confidence": 0.73
+    },
+    "story-a-pr-agency-runs-sales-ops-in-slack-crm-lookups-lead-researc": {
+      "input": "a160bf6cfdf4155fd8fad99072d158aefc57f429808fba5e4f4062904547f6f9",
+      "usefulness": 1.19,
+      "popularity": "unknown",
+      "confidence": 0.61
+    },
+    "story-ad-agency-team-runs-spend-audits-and-creative-refreshes-with": {
+      "input": "ba08a77b2000bfdc76ff22b1f69f00c000987e84db2d041f7a170271c38fca8b",
+      "usefulness": 1.71,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "story-nontechnical-teammates-query-bigquery-stripe-and-amplitude-t": {
+      "input": "5109e3c531fa953a990a4a0db7c1d0f12eba015f8a5f751304e0b28a62276fcb",
+      "usefulness": 0.85,
+      "popularity": "unknown",
+      "confidence": 0.78
+    },
+    "story-fin-crime-platform-reworked-2-500-rule-scenarios-so-client-c": {
+      "input": "06cdb1e7e10577ffb73de43422392d30083c422a16dba8a25f3071ac24454bad",
+      "usefulness": 1.17,
+      "popularity": "unknown",
+      "confidence": 0.63
+    },
+    "story-managed-agent-cut-a-real-estate-client-s-accounting-fees-by-": {
+      "input": "e8449f540ae7166946478891e902fd925ce2bbc7e19aae1b5eaf67ab201cd140",
+      "usefulness": 1.1,
+      "popularity": "unknown",
+      "confidence": 0.73
+    },
+    "story-construction-company-owner-runs-bidding-legal-drafts-and-erp": {
+      "input": "8f275652fa581734da23d0ce293a50aea331f191b208101c992a90025a02bc7c",
+      "usefulness": 1.51,
+      "popularity": "unknown",
+      "confidence": 0.54
+    },
+    "story-an-e-commerce-seo-agency-splits-hermes-into-shopify-search-a": {
+      "input": "cbef1ba34f6381856218307a0d4b6de46f0225e58ad650c7398240f8d076ef5f",
+      "usefulness": 1.24,
+      "popularity": "unknown",
+      "confidence": 0.74
+    },
+    "story-podcast-hosting-founder-shares-his-agent-with-the-team-to-mi": {
+      "input": "ee138f522975c540136ea0209796bed73194e117d025258606b8ad2c09945a61",
+      "usefulness": 1.65,
+      "popularity": "unknown",
+      "confidence": 0.68
+    },
+    "story-bookstore-runs-a-staff-agent-on-discord-and-a-customer-agent": {
+      "input": "4c23405fff8ac225a495e83896c254a3d802c6bd3083c52cbfe91f9eb1666a2f",
+      "usefulness": 1.35,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "story-replaced-the-helpdesk-hermes-briefs-a-local-support-agent-an": {
+      "input": "f4b5bad1349b2a7f71ca162e9e50417dec7c33e7fe12749ce1d09e1a3dad066a",
+      "usefulness": 1.44,
+      "popularity": "unknown",
+      "confidence": 0.59
+    },
+    "story-a-50-developer-team-uses-hermes-for-code-review-incident-not": {
+      "input": "f95ed0a66d2492c5a1b3794f3fa08ff30121bc52815cc7fad4645eacc0f16298",
+      "usefulness": 1.01,
+      "popularity": "unknown",
+      "confidence": 0.7
+    },
+    "story-deployed-linkedin-prospecting-agents-for-consulting-firms-an": {
+      "input": "19a7939e1886162d7d32a856c01ccc3759292d6f44d434527ca22f5130174efe",
+      "usefulness": 1.7,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "story-family-collectibles-shop-on-a-12-vps-gets-inbox-triage-and-s": {
+      "input": "1731c54237ba88001c9410695666183bbd0504823f11f35dc56406088b5196ad",
+      "usefulness": 1.66,
+      "popularity": "unknown",
+      "confidence": 0.63
+    },
+    "story-a-three-person-software-house-uses-hermes-for-lead-research-": {
+      "input": "fae93abf3391eeff95d91583f3ba420a8d960f5c47a809fd064fd708df00380c",
+      "usefulness": 1.42,
+      "popularity": "unknown",
+      "confidence": 0.55
+    },
+    "story-yc-backed-design-to-code-startup-made-a-hermes-agent-its-on-": {
+      "input": "fcd6d7fb7beaebe99c6cf97fea06dd35968559060f55885ea3c756b5aa77b2cf",
+      "usefulness": 0.57,
+      "popularity": "unknown",
+      "confidence": 0.59
+    },
+    "story-media-company-agent-brings-7-months-of-company-memory-into-a": {
+      "input": "530f5ae2ce96eab33bac48c0d153e250ffc1b408fa00aedab88009bf626fbe67",
+      "usefulness": 0.64,
+      "popularity": "unknown",
+      "confidence": 0.67
+    },
+    "story-it-consultancy-deploys-hermes-for-sme-clients-crm-outreach-l": {
+      "input": "4adbc4d0cc60bd41b5b92d1ee9716bc64f7488d6e5d88a3673cdc5e39366eaf0",
+      "usefulness": 0.47,
+      "popularity": "unknown",
+      "confidence": 0.61
+    },
+    "story-company-agents-for-sales-and-sprint-reports-went-from-hackat": {
+      "input": "9a0d3bf2e366cebac63ed7fe9a092cfc07b03ef4298932f361275f765011cd4a",
+      "usefulness": 1.98,
+      "popularity": "unknown",
+      "confidence": 0.69
+    },
+    "story-outbound-sales-agent-researches-accounts-and-queues-every-se": {
+      "input": "299432c64e1d1e8306d2ecf6961aaf9bca54149bea93d4db42b810909f61ee1f",
+      "usefulness": 1.81,
+      "popularity": "unknown",
+      "confidence": 0.47
+    },
+    "story-staff-forward-email-threads-to-an-update-inbox-and-hermes-fi": {
+      "input": "f71bbe0e4f6282fcc08808e0c7d1cc4a5d0abd42d965655e2de2ed30c80d0d39",
+      "usefulness": 2.11,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "story-a-software-consultancy-built-an-internal-slack-assistant-tha": {
+      "input": "5f58bda79007f98209c8ec409f142e5cc3698698bbc13c5b99c679a48b94e1b0",
+      "usefulness": 0.73,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "story-marketing-business-owner-has-hermes-find-50-prospects-a-day-": {
+      "input": "9a981af0d505f8bc1c7ec2bab1f7abc4f143deffe9c3ea9394edb0ff40b75d18",
+      "usefulness": 2.1,
+      "popularity": "unknown",
+      "confidence": 0.64
+    },
+    "story-a-daily-seo-loop-search-console-analysis-drafts-approval-the": {
+      "input": "169c5c22078405d0e771e9c6363cc368b21b77933be0fde4ad030fc44944d286",
+      "usefulness": 1.13,
+      "popularity": "unknown",
+      "confidence": 0.66
+    },
+    "story-20-developer-software-agency-hands-pr-notices-client-status-": {
+      "input": "e62cd57f451bca5282bd64ad17d1c909e56a52f88b9b7876507295ccbf9eaa4f",
+      "usefulness": 0.78,
+      "popularity": "unknown",
+      "confidence": 0.72
+    },
+    "story-startup-founder-runs-support-banking-stripe-and-seo-through-": {
+      "input": "7dc56afad1e3b971afcfe87f682ce285cac4831869ce671d693ae9af74bb7853",
+      "usefulness": 0.04,
+      "popularity": "unknown",
+      "confidence": 0.97
+    },
+    "story-managed-service-firm-runs-a-separate-hermes-agent-per-client": {
+      "input": "b26f58e70968e247fa1e84478a1803a1691f00ef080cfa01945ca587e7a74eca",
+      "usefulness": 1.01,
+      "popularity": "unknown",
+      "confidence": 0.83
+    },
+    "story-a-startup-s-company-brain-runs-daily-standups-and-gtm-tracki": {
+      "input": "6f40634e049c1f0b590e45a1afa769329743a181d804fb082941a79e0fe03e6d",
+      "usefulness": 1.26,
+      "popularity": "unknown",
+      "confidence": 0.68
+    },
+    "story-owner-of-three-commercial-real-estate-firms-runs-a-hermes-ch": {
+      "input": "3ee932c2206d67b8588482f78202f3e04f8403d11da1b80e35675d7e1f5af73a",
+      "usefulness": 1.11,
+      "popularity": "unknown",
+      "confidence": 0.78
+    },
+    "story-asking-internal-business-tools-about-orders-and-inventory-ov": {
+      "input": "92eec5513ae0c50eaf4957ef3ad046c973b1135fbfe90bdae311e4d269f732fb",
+      "usefulness": 1.13,
+      "popularity": "unknown",
+      "confidence": 0.8
+    },
+    "story-niche-online-store-owner-has-hermes-turn-b2b-client-emails-i": {
+      "input": "f17dbac615fd84528abcab3e2fd75e813ba036bf810577f8097b650545ab5db3",
+      "usefulness": 2.11,
+      "popularity": "unknown",
+      "confidence": 0.71
+    },
+    "story-a-first-time-founder-uses-hermes-as-a-daily-boss-for-fundrai": {
+      "input": "cc90fc1f6c953578104dd01436456e7db2cb9d1c85f326568b1f3e75818eec52",
+      "usefulness": 1,
+      "popularity": "unknown",
+      "confidence": 0.76
+    },
+    "story-consultant-wires-hermes-to-a-self-hosted-crm-and-gets-an-8-p": {
+      "input": "709c62429c2be890e166382f78b761565e646c21f60a6d2f24a2634fc3fd9741",
+      "usefulness": 1.29,
+      "popularity": "unknown",
+      "confidence": 0.61
+    },
+    "story-a-marketing-founder-runs-whatsapp-replies-approval-gated-job": {
+      "input": "e0b0f9193fb24e09f1694ffb62fcc764182c26050ad757f9d3ba063508b608da",
+      "usefulness": 0.57,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "story-a-daily-work-setup-on-hermes-for-meetings-prospects-and-comm": {
+      "input": "84346ef5133e44f2e1518c8e6f07702c97aaa29f6730d5be08a7b6451ba12610",
+      "usefulness": 0.67,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "doc-user-guide-features-skills-duplicate-skill-names": {
+      "input": "0acee86787510bb65392e51e831c1a4ea2db9fcf199b7e60cd4834a080a64493",
+      "usefulness": 1.76,
+      "popularity": "unknown",
+      "confidence": 0.24
+    },
+    "skill-optional-productivity-first-task": {
+      "input": "6355569b408a2aeaeaaf8aa9733295cf2e148ac789028c394e35b29ca492fde3",
+      "usefulness": 1.22,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "skill-optional-productivity-initiate-setup": {
+      "input": "807e6a0b465f01a21c7d904b2a6e052f1f598ddf4272672796dd18771346fb1d",
+      "usefulness": 1.87,
+      "popularity": "unknown",
+      "confidence": 0.17
+    },
+    "skill-pack-anthropic-academy-guide": {
+      "input": "11f6f4019be422951badacb3704fee5333460ad373b78bdd892c71017dc0bb1d",
+      "usefulness": 1.62,
+      "popularity": "widespread",
+      "confidence": 0.42
+    },
+    "skill-pack-anthropic-algorithmic-art": {
+      "input": "9d3a51ea05195bb0e8dafea20ba273cd49acaf67875277e5257ad8d5015c3514",
+      "usefulness": 1.57,
+      "popularity": "widespread",
+      "confidence": 0.47
+    },
+    "skill-pack-anthropic-brand-guidelines": {
+      "input": "ddac76c5e80b00301df9c783a83c55553411489279732d27004b87aa57918094",
+      "usefulness": 0.78,
+      "popularity": "widespread",
+      "confidence": 0.59
+    },
+    "skill-pack-anthropic-canvas-design": {
+      "input": "93e6a0e3ac7502ecf4e9005508f39cf6369374ba2ed3cc1823b94c73308ac0b7",
+      "usefulness": 0.68,
+      "popularity": "widespread",
+      "confidence": 0.57
+    },
+    "skill-pack-anthropic-claude-api": {
+      "input": "e34adf0ceec053d130366ee970d795f0658660ba3b65b63ce0844026f59a6b38",
+      "usefulness": 0.57,
+      "popularity": "widespread",
+      "confidence": 0.53
+    },
+    "skill-pack-anthropic-discernment-nudge": {
+      "input": "62b95ee3d72c8ba8b5ef01e532cde40b39eac9486953f96a2686bf6c8a4066e1",
+      "usefulness": 0.58,
+      "popularity": "widespread",
+      "confidence": 0.53
+    },
+    "skill-pack-anthropic-doc-coauthoring": {
+      "input": "462abb8e62f4cd861593212a20788537d25bb7ba171de617cb46df1538d2fd13",
+      "usefulness": 1.11,
+      "popularity": "widespread",
+      "confidence": 0.51
+    },
+    "skill-pack-anthropic-frontend-design": {
+      "input": "761f3a934048abccf225b7541ffe7e0a6861bd89c6ef2ead7741ffee67928ec0",
+      "usefulness": 0.57,
+      "popularity": "widespread",
+      "confidence": 0.52
+    },
+    "skill-pack-anthropic-internal-comms": {
+      "input": "3c70bc5550d02d490aa4d814e678117f4e407b16fc589d6cac17dc5d1cea91b5",
+      "usefulness": 1.17,
+      "popularity": "widespread",
+      "confidence": 0.55
+    },
+    "skill-pack-anthropic-mcp-builder": {
+      "input": "0c1c7ae70257e63ff409814984116a25b7c0f4940f63a5a4257d0742f15f61bd",
+      "usefulness": 1.42,
+      "popularity": "widespread",
+      "confidence": 0.38
+    },
+    "skill-pack-anthropic-pptx": {
+      "input": "4b25cd1d51337b09ff36e05eccaf0a83c620e5ab492562a5fc4242fd20c367b9",
+      "usefulness": 0.87,
+      "popularity": "widespread",
+      "confidence": 0.28
+    },
+    "skill-pack-anthropic-skill-creator": {
+      "input": "3bdb9d45a31eaad217e5a5cc287961ad1a78e498e9799c443cc78512bec8d6fe",
+      "usefulness": 0.85,
+      "popularity": "widespread",
+      "confidence": 0.49
+    },
+    "skill-pack-anthropic-slack-gif-creator": {
+      "input": "79d8055d113b60c80dbe1ede430db76044763bc90401b266df352ac57057a0f2",
+      "usefulness": 1.4,
+      "popularity": "widespread",
+      "confidence": 0.43
+    },
+    "skill-pack-anthropic-theme-factory": {
+      "input": "27a16a7418acb604e0468d033aed7252003454a4e3330ed0a5f0a52267b78310",
+      "usefulness": 1.35,
+      "popularity": "widespread",
+      "confidence": 0.57
+    },
+    "skill-pack-anthropic-web-artifacts-builder": {
+      "input": "8a92880fb05c925c912c8ef36295cda1ec153a567765f0d6d220957af9a9e025",
+      "usefulness": 1.37,
+      "popularity": "widespread",
+      "confidence": 0.47
+    },
+    "skill-pack-anthropic-webapp-testing": {
+      "input": "53338607ad1ecbd13b358600cb3c7262d39a0c88a506362db7db3a1d038e8275",
+      "usefulness": 1.45,
+      "popularity": "widespread",
+      "confidence": 0.49
+    },
+    "doc-user-guide-cli-slash-commands": {
+      "input": "f8bfec0094ca2eef09d40725f52cd4bb279c4954aee59a40b61847d7bd026c17",
+      "usefulness": 1.5,
+      "popularity": "unknown",
+      "confidence": 0.2
+    },
+    "doc-user-guide-cli-multi-line-input": {
+      "input": "20fba0c024d8c576b41759c717004bb44ce4fae0eaf50795259b81010ef470d8",
+      "usefulness": 2.72,
+      "popularity": "unknown",
+      "confidence": 0.43
     }
   }
 }

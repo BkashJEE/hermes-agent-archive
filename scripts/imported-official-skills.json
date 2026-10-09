@@ -1,964 +1,1078 @@
 {
-  "importedAt": "2026-10-05T16:57:49.994Z",
   "source": "https://hermes-agent.nousresearch.com/docs/api/skills.json",
-  "note": "Official Hermes skills — the built-in set bundled with the agent and the official optional catalogue. Admitted on provenance, not on a judgement of quality, and every documentation link was verified to resolve at import. Third-party directories indexed by the same catalogue are excluded: being listed in one is not a recommendation.",
-  "counts": {
-    "catalogue": 101748,
-    "official": 210,
-    "imported": 190,
-    "alreadyPresent": 20,
-    "deadLinks": 0
-  },
-  "imported": [
-    {
-      "id": "skill-bundled-apple-apple-notes",
-      "title": "Apple Notes",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/apple/apple-apple-notes"
-    },
-    {
-      "id": "skill-bundled-apple-apple-reminders",
-      "title": "Apple Reminders",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/apple/apple-apple-reminders"
-    },
-    {
-      "id": "skill-bundled-apple-findmy",
-      "title": "Findmy",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/apple/apple-findmy"
-    },
-    {
-      "id": "skill-bundled-apple-imessage",
-      "title": "Imessage",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/apple/apple-imessage"
-    },
-    {
-      "id": "skill-bundled-autonomous-ai-agents-claude-code",
-      "title": "Claude Code",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-claude-code"
-    },
-    {
-      "id": "skill-bundled-autonomous-ai-agents-codex",
-      "title": "Codex",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-codex"
-    },
-    {
-      "id": "skill-bundled-autonomous-ai-agents-computer-use",
-      "title": "Computer Use",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-computer-use"
-    },
-    {
-      "id": "skill-bundled-autonomous-ai-agents-hermes-agent",
-      "title": "Hermes Agent",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-hermes-agent"
-    },
-    {
-      "id": "skill-bundled-autonomous-ai-agents-opencode",
-      "title": "Opencode",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-opencode"
-    },
-    {
-      "id": "skill-bundled-creative-architecture-diagram",
-      "title": "Architecture Diagram",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/creative/creative-architecture-diagram"
-    },
-    {
-      "id": "skill-bundled-creative-ascii-video",
-      "title": "Ascii Video",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/creative/creative-ascii-video"
-    },
-    {
-      "id": "skill-bundled-creative-baoyu-infographic",
-      "title": "Baoyu Infographic",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/creative/creative-baoyu-infographic"
-    },
-    {
-      "id": "skill-bundled-creative-claude-design",
-      "title": "Claude Design",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/creative/creative-claude-design"
-    },
-    {
-      "id": "skill-bundled-creative-design-md",
-      "title": "Design Md",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/creative/creative-design-md"
-    },
-    {
-      "id": "skill-bundled-creative-humanizer",
-      "title": "Humanizer",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/creative/creative-humanizer"
-    },
-    {
-      "id": "skill-bundled-creative-manim-video",
-      "title": "Manim Video",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/creative/creative-manim-video"
-    },
-    {
-      "id": "skill-bundled-creative-p5js",
-      "title": "P5js",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/creative/creative-p5js"
-    },
-    {
-      "id": "skill-bundled-creative-popular-web-designs",
-      "title": "Popular Web Designs",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/creative/creative-popular-web-designs"
-    },
-    {
-      "id": "skill-bundled-creative-songwriting-and-ai-music",
-      "title": "Songwriting And AI Music",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/creative/creative-songwriting-and-ai-music"
-    },
-    {
-      "id": "skill-bundled-devops-sdlc-review",
-      "title": "Sdlc Review",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/devops/devops-sdlc-review"
-    },
-    {
-      "id": "skill-bundled-media-gif-search",
-      "title": "GIF Search",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/media/media-gif-search"
-    },
-    {
-      "id": "skill-bundled-media-songsee",
-      "title": "Songsee",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/media/media-songsee"
-    },
-    {
-      "id": "skill-bundled-media-youtube-content",
-      "title": "YouTube Content",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/media/media-youtube-content"
-    },
-    {
-      "id": "skill-bundled-productivity-airtable",
-      "title": "Airtable",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-airtable"
-    },
-    {
-      "id": "skill-bundled-productivity-box",
-      "title": "Box",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-box"
-    },
-    {
-      "id": "skill-bundled-productivity-document-to-action-items",
-      "title": "Document To Action Items",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-document-to-action-items"
-    },
-    {
-      "id": "skill-bundled-productivity-docx",
-      "title": "DOCX",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-docx"
-    },
-    {
-      "id": "skill-bundled-productivity-google-workspace",
-      "title": "Google Workspace",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-google-workspace"
-    },
-    {
-      "id": "skill-bundled-productivity-maps",
-      "title": "Maps",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-maps"
-    },
-    {
-      "id": "skill-bundled-productivity-meeting-action-items",
-      "title": "Meeting Action Items",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-meeting-action-items"
-    },
-    {
-      "id": "skill-bundled-productivity-notion",
-      "title": "Notion",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-notion"
-    },
-    {
-      "id": "skill-bundled-productivity-pdf",
-      "title": "PDF",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-pdf"
-    },
-    {
-      "id": "skill-bundled-productivity-powerpoint",
-      "title": "PowerPoint",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-powerpoint"
-    },
-    {
-      "id": "skill-bundled-productivity-product-price-monitor",
-      "title": "Product Price Monitor",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-product-price-monitor"
-    },
-    {
-      "id": "skill-bundled-productivity-teams-meeting-pipeline",
-      "title": "Teams Meeting Pipeline",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-teams-meeting-pipeline"
-    },
-    {
-      "id": "skill-bundled-productivity-weekly-review-planning",
-      "title": "Weekly Review Planning",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-weekly-review-planning"
-    },
-    {
-      "id": "skill-bundled-productivity-xlsx",
-      "title": "XLSX",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-xlsx"
-    },
-    {
-      "id": "skill-bundled-research-arxiv",
-      "title": "Arxiv",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/research/research-arxiv"
-    },
-    {
-      "id": "skill-bundled-research-competitor-news-monitor",
-      "title": "Competitor News Monitor",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/research/research-competitor-news-monitor"
-    },
-    {
-      "id": "skill-bundled-research-grounded-citations",
-      "title": "Grounded Citations",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/research/research-grounded-citations"
-    },
-    {
-      "id": "skill-bundled-research-llm-wiki",
-      "title": "LLM Wiki",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/research/research-llm-wiki"
-    },
-    {
-      "id": "skill-bundled-social-media-xurl",
-      "title": "Xurl",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/social-media/social-media-xurl"
-    },
-    {
-      "id": "skill-bundled-software-development-codebase-inspection",
-      "title": "Codebase Inspection",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/software-development/software-development-codebase-inspection"
-    },
-    {
-      "id": "skill-bundled-software-development-dogfood",
-      "title": "Dogfood",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/software-development/software-development-dogfood"
-    },
-    {
-      "id": "skill-bundled-software-development-github",
-      "title": "GitHub",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/software-development/software-development-github"
-    },
-    {
-      "id": "skill-bundled-software-development-hermes-agent-skill-authoring",
-      "title": "Hermes Agent Skill Authoring",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/software-development/software-development-hermes-agent-skill-authoring"
-    },
-    {
-      "id": "skill-bundled-software-development-inspecting-hermes-desktop-dom",
-      "title": "Inspecting Hermes Desktop Dom",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/software-development/software-development-inspecting-hermes-desktop-dom"
-    },
-    {
-      "id": "skill-bundled-software-development-node-inspect-debugger",
-      "title": "Node Inspect Debugger",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/software-development/software-development-node-inspect-debugger"
-    },
-    {
-      "id": "skill-bundled-software-development-python-debugpy",
-      "title": "Python Debugpy",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/software-development/software-development-python-debugpy"
-    },
-    {
-      "id": "skill-bundled-software-development-requesting-code-review",
-      "title": "Requesting Code Review",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/software-development/software-development-requesting-code-review"
-    },
-    {
-      "id": "skill-bundled-software-development-simplify-code",
-      "title": "Simplify Code",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/software-development/software-development-simplify-code"
-    },
-    {
-      "id": "skill-bundled-software-development-spike",
-      "title": "Spike",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/software-development/software-development-spike"
-    },
-    {
-      "id": "skill-bundled-software-development-systematic-debugging",
-      "title": "Systematic Debugging",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/software-development/software-development-systematic-debugging"
-    },
-    {
-      "id": "skill-bundled-software-development-test-driven-development",
-      "title": "Test Driven Development",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/software-development/software-development-test-driven-development"
-    },
-    {
-      "id": "skill-bundled-other-blocked-page-recovery",
-      "title": "Blocked Page Recovery",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/web/web-blocked-page-recovery"
-    },
-    {
-      "id": "skill-bundled-other-email-inbox-triage",
-      "title": "Email Inbox Triage",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/email/email-email-inbox-triage"
-    },
-    {
-      "id": "skill-bundled-other-himalaya",
-      "title": "Himalaya",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/email/email-himalaya"
-    },
-    {
-      "id": "skill-bundled-other-obsidian",
-      "title": "Obsidian",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/note-taking/note-taking-obsidian"
-    },
-    {
-      "id": "skill-optional-autonomous-ai-agents-antigravity-cli",
-      "title": "Antigravity CLI",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/autonomous-ai-agents/autonomous-ai-agents-antigravity-cli"
-    },
-    {
-      "id": "skill-optional-autonomous-ai-agents-blackbox",
-      "title": "Blackbox",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/autonomous-ai-agents/autonomous-ai-agents-blackbox"
-    },
-    {
-      "id": "skill-optional-autonomous-ai-agents-dynamic-workflow",
-      "title": "Dynamic Workflow",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/autonomous-ai-agents/autonomous-ai-agents-dynamic-workflow"
-    },
-    {
-      "id": "skill-optional-autonomous-ai-agents-grok",
-      "title": "Grok",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/autonomous-ai-agents/autonomous-ai-agents-grok"
-    },
-    {
-      "id": "skill-optional-autonomous-ai-agents-honcho",
-      "title": "Honcho",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/autonomous-ai-agents/autonomous-ai-agents-honcho"
-    },
-    {
-      "id": "skill-optional-autonomous-ai-agents-openhands",
-      "title": "Openhands",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/autonomous-ai-agents/autonomous-ai-agents-openhands"
-    },
-    {
-      "id": "skill-optional-blockchain-evm",
-      "title": "Evm",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/blockchain/blockchain-evm"
-    },
-    {
-      "id": "skill-optional-blockchain-hyperliquid",
-      "title": "Hyperliquid",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/blockchain/blockchain-hyperliquid"
-    },
-    {
-      "id": "skill-optional-blockchain-solana",
-      "title": "Solana",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/blockchain/blockchain-solana"
-    },
-    {
-      "id": "skill-optional-creative-ai-presenter-video",
-      "title": "AI Presenter Video",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-ai-presenter-video"
-    },
-    {
-      "id": "skill-optional-creative-archify",
-      "title": "Archify",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-archify"
-    },
-    {
-      "id": "skill-optional-creative-ascii-art",
-      "title": "Ascii Art",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-ascii-art"
-    },
-    {
-      "id": "skill-optional-creative-audiocraft-audio-generation",
-      "title": "Audiocraft Audio Generation",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-audiocraft-audio-generation"
-    },
-    {
-      "id": "skill-optional-creative-auteur",
-      "title": "Auteur",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-auteur"
-    },
-    {
-      "id": "skill-optional-creative-baoyu-article-illustrator",
-      "title": "Baoyu Article Illustrator",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-baoyu-article-illustrator"
-    },
-    {
-      "id": "skill-optional-creative-baoyu-comic",
-      "title": "Baoyu Comic",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-baoyu-comic"
-    },
-    {
-      "id": "skill-optional-creative-brag",
-      "title": "Brag",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-brag"
-    },
-    {
-      "id": "skill-optional-creative-brag-slim",
-      "title": "Brag Slim",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-brag-slim"
-    },
-    {
-      "id": "skill-optional-creative-comfyui",
-      "title": "Comfyui",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-comfyui"
-    },
-    {
-      "id": "skill-optional-creative-concept-diagrams",
-      "title": "Concept Diagrams",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-concept-diagrams"
-    },
-    {
-      "id": "skill-optional-creative-creative-ideation",
-      "title": "Creative Ideation",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-creative-ideation"
-    },
-    {
-      "id": "skill-optional-creative-draw-your-font",
-      "title": "Draw Your Font",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-draw-your-font"
-    },
-    {
-      "id": "skill-optional-creative-dream-loop",
-      "title": "Dream Loop",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-dream-loop"
-    },
-    {
-      "id": "skill-optional-creative-excalidraw",
-      "title": "Excalidraw",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-excalidraw"
-    },
-    {
-      "id": "skill-optional-creative-heartmula",
-      "title": "Heartmula",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-heartmula"
-    },
-    {
-      "id": "skill-optional-creative-hyperframes",
-      "title": "Hyperframes",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-hyperframes"
-    },
-    {
-      "id": "skill-optional-creative-impeccable",
-      "title": "Impeccable",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-impeccable"
-    },
-    {
-      "id": "skill-optional-creative-ip-as-logo",
-      "title": "Ip As Logo",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-ip-as-logo"
-    },
-    {
-      "id": "skill-optional-creative-kanban-video-orchestrator",
-      "title": "Kanban Video Orchestrator",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-kanban-video-orchestrator"
-    },
-    {
-      "id": "skill-optional-creative-meme-generation",
-      "title": "Meme Generation",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-meme-generation"
-    },
-    {
-      "id": "skill-optional-creative-mono-color",
-      "title": "Mono Color",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-mono-color"
-    },
-    {
-      "id": "skill-optional-creative-pixel-art",
-      "title": "Pixel Art",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-pixel-art"
-    },
-    {
-      "id": "skill-optional-creative-pretext",
-      "title": "Pretext",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-pretext"
-    },
-    {
-      "id": "skill-optional-creative-simple-english",
-      "title": "Simple English",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-simple-english"
-    },
-    {
-      "id": "skill-optional-creative-social-media-content-calendar",
-      "title": "Social Media Content Calendar",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-social-media-content-calendar"
-    },
-    {
-      "id": "skill-optional-creative-system-atlas",
-      "title": "System Atlas",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-system-atlas"
-    },
-    {
-      "id": "skill-optional-creative-tldraw-offline",
-      "title": "Tldraw Offline",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-tldraw-offline"
-    },
-    {
-      "id": "skill-optional-creative-unreal-mcp",
-      "title": "Unreal MCP",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-unreal-mcp"
-    },
-    {
-      "id": "skill-optional-data-science-jupyter-notebook",
-      "title": "Jupyter Notebook",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/data-science/data-science-jupyter-notebook"
-    },
-    {
-      "id": "skill-optional-devops-actual-setup",
-      "title": "Actual Setup",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/devops/devops-actual-setup"
-    },
-    {
-      "id": "skill-optional-devops-hermes-s6-container-supervision",
-      "title": "Hermes S6 Container Supervision",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/devops/devops-hermes-s6-container-supervision"
-    },
-    {
-      "id": "skill-optional-devops-inference-sh-cli",
-      "title": "Inference sh CLI",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/devops/devops-inference-sh-cli"
-    },
-    {
-      "id": "skill-optional-devops-pinggy-tunnel",
-      "title": "Pinggy Tunnel",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/devops/devops-pinggy-tunnel"
-    },
-    {
-      "id": "skill-optional-devops-setup-wizard-generator",
-      "title": "Setup Wizard Generator",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/devops/devops-setup-wizard-generator"
-    },
-    {
-      "id": "skill-optional-finance-3-statement-model",
-      "title": "3 Statement Model",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/finance/finance-3-statement-model"
-    },
-    {
-      "id": "skill-optional-finance-comps-analysis",
-      "title": "Comps Analysis",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/finance/finance-comps-analysis"
-    },
-    {
-      "id": "skill-optional-finance-dcf-model",
-      "title": "Dcf Model",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/finance/finance-dcf-model"
-    },
-    {
-      "id": "skill-optional-finance-excel-author",
-      "title": "Excel Author",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/finance/finance-excel-author"
-    },
-    {
-      "id": "skill-optional-finance-lbo-model",
-      "title": "Lbo Model",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/finance/finance-lbo-model"
-    },
-    {
-      "id": "skill-optional-finance-merger-model",
-      "title": "Merger Model",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/finance/finance-merger-model"
-    },
-    {
-      "id": "skill-optional-finance-polymarket",
-      "title": "Polymarket",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/finance/finance-polymarket"
-    },
-    {
-      "id": "skill-optional-finance-pptx-author",
-      "title": "PPTX Author",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/finance/finance-pptx-author"
-    },
-    {
-      "id": "skill-optional-finance-stocks",
-      "title": "Stocks",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/finance/finance-stocks"
-    },
-    {
-      "id": "skill-optional-gaming-minecraft-modpack-server",
-      "title": "Minecraft Modpack Server",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/gaming/gaming-minecraft-modpack-server"
-    },
-    {
-      "id": "skill-optional-gaming-pokemon-player",
-      "title": "Pokemon Player",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/gaming/gaming-pokemon-player"
-    },
-    {
-      "id": "skill-optional-health-fitness-nutrition",
-      "title": "Fitness Nutrition",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/health/health-fitness-nutrition"
-    },
-    {
-      "id": "skill-optional-health-neuroskill-bci",
-      "title": "Neuroskill Bci",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/health/health-neuroskill-bci"
-    },
-    {
-      "id": "skill-optional-mcp-fastmcp",
-      "title": "Fastmcp",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mcp/mcp-fastmcp"
-    },
-    {
-      "id": "skill-optional-mcp-mcp-oauth-remote-gateway",
-      "title": "MCP OAuth Remote Gateway",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mcp/mcp-mcp-oauth-remote-gateway"
-    },
-    {
-      "id": "skill-optional-mcp-mcporter",
-      "title": "Mcporter",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mcp/mcp-mcporter"
-    },
-    {
-      "id": "skill-optional-migration-openclaw-migration",
-      "title": "Openclaw Migration",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/migration/migration-openclaw-migration"
-    },
-    {
-      "id": "skill-optional-mlops-accelerate",
-      "title": "Accelerate",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-accelerate"
-    },
-    {
-      "id": "skill-optional-mlops-axolotl",
-      "title": "Axolotl",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-training-axolotl"
-    },
-    {
-      "id": "skill-optional-mlops-chroma",
-      "title": "Chroma",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-chroma"
-    },
-    {
-      "id": "skill-optional-mlops-clip",
-      "title": "Clip",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-clip"
-    },
-    {
-      "id": "skill-optional-mlops-dspy",
-      "title": "Dspy",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-research-dspy"
-    },
-    {
-      "id": "skill-optional-mlops-evaluating-llms-harness",
-      "title": "Evaluating Llms Harness",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-evaluation-evaluating-llms-harness"
-    },
-    {
-      "id": "skill-optional-mlops-faiss",
-      "title": "Faiss",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-faiss"
-    },
-    {
-      "id": "skill-optional-mlops-flash-attention",
-      "title": "Flash Attention",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-flash-attention"
-    },
-    {
-      "id": "skill-optional-mlops-guidance",
-      "title": "Guidance",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-guidance"
-    },
-    {
-      "id": "skill-optional-mlops-huggingface-hub",
-      "title": "Huggingface Hub",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-models-huggingface-hub"
-    },
-    {
-      "id": "skill-optional-mlops-huggingface-tokenizers",
-      "title": "Huggingface Tokenizers",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-huggingface-tokenizers"
-    },
-    {
-      "id": "skill-optional-mlops-instructor",
-      "title": "Instructor",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-instructor"
-    },
-    {
-      "id": "skill-optional-mlops-lambda-labs",
-      "title": "Lambda Labs",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-lambda-labs"
-    },
-    {
-      "id": "skill-optional-mlops-llama-cpp",
-      "title": "Llama Cpp",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-inference-llama-cpp"
-    },
-    {
-      "id": "skill-optional-mlops-llava",
-      "title": "Llava",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-llava"
-    },
-    {
-      "id": "skill-optional-mlops-modal",
-      "title": "Modal",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-modal"
-    },
-    {
-      "id": "skill-optional-mlops-nemo-curator",
-      "title": "Nemo Curator",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-nemo-curator"
-    },
-    {
-      "id": "skill-optional-mlops-obliteratus",
-      "title": "Obliteratus",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-obliteratus"
-    },
-    {
-      "id": "skill-optional-mlops-outlines",
-      "title": "Outlines",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-inference-outlines"
-    },
-    {
-      "id": "skill-optional-mlops-peft",
-      "title": "Peft",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-peft"
-    },
-    {
-      "id": "skill-optional-mlops-pinecone",
-      "title": "Pinecone",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-pinecone"
-    },
-    {
-      "id": "skill-optional-mlops-pytorch-fsdp",
-      "title": "Pytorch Fsdp",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-pytorch-fsdp"
-    },
-    {
-      "id": "skill-optional-mlops-pytorch-lightning",
-      "title": "Pytorch Lightning",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-pytorch-lightning"
-    },
-    {
-      "id": "skill-optional-mlops-qdrant",
-      "title": "Qdrant",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-qdrant"
-    },
-    {
-      "id": "skill-optional-mlops-saelens",
-      "title": "Saelens",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-saelens"
-    },
-    {
-      "id": "skill-optional-mlops-segment-anything-model",
-      "title": "Segment Anything Model",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-models-segment-anything-model"
-    },
-    {
-      "id": "skill-optional-mlops-serving-llms-vllm",
-      "title": "Serving Llms Vllm",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-inference-serving-llms-vllm"
-    },
-    {
-      "id": "skill-optional-mlops-simpo",
-      "title": "Simpo",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-simpo"
-    },
-    {
-      "id": "skill-optional-mlops-slime",
-      "title": "Slime",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-slime"
-    },
-    {
-      "id": "skill-optional-mlops-stable-diffusion",
-      "title": "Stable Diffusion",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-stable-diffusion"
-    },
-    {
-      "id": "skill-optional-mlops-tensorrt-llm",
-      "title": "TensorRT LLM",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-tensorrt-llm"
-    },
-    {
-      "id": "skill-optional-mlops-torchtitan",
-      "title": "Torchtitan",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-torchtitan"
-    },
-    {
-      "id": "skill-optional-mlops-trl-fine-tuning",
-      "title": "Trl Fine Tuning",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-training-trl-fine-tuning"
-    },
-    {
-      "id": "skill-optional-mlops-unsloth",
-      "title": "Unsloth",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-training-unsloth"
-    },
-    {
-      "id": "skill-optional-mlops-weights-and-biases",
-      "title": "Weights And Biases",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-evaluation-weights-and-biases"
-    },
-    {
-      "id": "skill-optional-mlops-whisper",
-      "title": "Whisper",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-whisper"
-    },
-    {
-      "id": "skill-optional-productivity-canvas",
-      "title": "Canvas",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/productivity/productivity-canvas"
-    },
-    {
-      "id": "skill-optional-productivity-here-now",
-      "title": "Here Now",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/productivity/productivity-here-now"
-    },
-    {
-      "id": "skill-optional-productivity-shop",
-      "title": "Shop",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/productivity/productivity-shop"
-    },
-    {
-      "id": "skill-optional-productivity-shopify",
-      "title": "Shopify",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/productivity/productivity-shopify"
-    },
-    {
-      "id": "skill-optional-productivity-siyuan",
-      "title": "Siyuan",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/productivity/productivity-siyuan"
-    },
-    {
-      "id": "skill-optional-productivity-telephony",
-      "title": "Telephony",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/productivity/productivity-telephony"
-    },
-    {
-      "id": "skill-optional-research-bioinformatics",
-      "title": "Bioinformatics",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-bioinformatics"
-    },
-    {
-      "id": "skill-optional-research-darwinian-evolver",
-      "title": "Darwinian Evolver",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-darwinian-evolver"
-    },
-    {
-      "id": "skill-optional-research-domain-intel",
-      "title": "Domain Intel",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-domain-intel"
-    },
-    {
-      "id": "skill-optional-research-drug-discovery",
-      "title": "Drug Discovery",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-drug-discovery"
-    },
-    {
-      "id": "skill-optional-research-duckduckgo-search",
-      "title": "Duckduckgo Search",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-duckduckgo-search"
-    },
-    {
-      "id": "skill-optional-research-gitnexus-explorer",
-      "title": "Gitnexus Explorer",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-gitnexus-explorer"
-    },
-    {
-      "id": "skill-optional-research-osint-investigation",
-      "title": "Osint Investigation",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-osint-investigation"
-    },
-    {
-      "id": "skill-optional-research-parallel-cli",
-      "title": "Parallel CLI",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-parallel-cli"
-    },
-    {
-      "id": "skill-optional-research-pinecone-research",
-      "title": "Pinecone Research",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-pinecone-research"
-    },
-    {
-      "id": "skill-optional-research-scrapling",
-      "title": "Scrapling",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-scrapling"
-    },
-    {
-      "id": "skill-optional-research-searxng-search",
-      "title": "Searxng Search",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-searxng-search"
-    },
-    {
-      "id": "skill-optional-security-1password",
-      "title": "1password",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/security/security-1password"
-    },
-    {
-      "id": "skill-optional-security-godmode",
-      "title": "Godmode",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/security/security-godmode"
-    },
-    {
-      "id": "skill-optional-security-oss-forensics",
-      "title": "OSS Forensics",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/security/security-oss-forensics"
-    },
-    {
-      "id": "skill-optional-security-sherlock",
-      "title": "Sherlock",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/security/security-sherlock"
-    },
-    {
-      "id": "skill-optional-security-unbroker",
-      "title": "Unbroker",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/security/security-unbroker"
-    },
-    {
-      "id": "skill-optional-security-web-pentest",
-      "title": "Web Pentest",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/security/security-web-pentest"
-    },
-    {
-      "id": "skill-optional-smart-home-openhue",
-      "title": "Openhue",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/smart-home/smart-home-openhue"
-    },
-    {
-      "id": "skill-optional-social-media-reddit-reading",
-      "title": "Reddit Reading",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/social-media/social-media-reddit-reading"
-    },
-    {
-      "id": "skill-optional-web-development-cloudflare-temporary-deploy",
-      "title": "Cloudflare Temporary Deploy",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/web-development/web-development-cloudflare-temporary-deploy"
-    },
-    {
-      "id": "skill-optional-web-development-har-derived-api-client",
-      "title": "HAR Derived API Client",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/web-development/web-development-har-derived-api-client"
-    },
-    {
-      "id": "skill-optional-web-development-page-agent",
-      "title": "Page Agent",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/web-development/web-development-page-agent"
-    },
-    {
-      "id": "skill-optional-web-development-publish-site",
-      "title": "Publish Site",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/web-development/web-development-publish-site"
-    },
-    {
-      "id": "skill-optional-web-development-scrollcraft",
-      "title": "Scrollcraft",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/web-development/web-development-scrollcraft"
-    },
-    {
-      "id": "skill-optional-other-agentmail",
-      "title": "Agentmail",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/email/email-agentmail"
-    },
-    {
-      "id": "skill-optional-other-mpp-agent",
-      "title": "Mpp Agent",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/payments/payments-mpp-agent"
-    },
-    {
-      "id": "skill-optional-other-stripe-link-cli",
-      "title": "Stripe Link CLI",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/payments/payments-stripe-link-cli"
-    },
-    {
-      "id": "skill-optional-other-stripe-projects",
-      "title": "Stripe Projects",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/payments/payments-stripe-projects"
-    },
-    {
-      "id": "skill-optional-other-yuanbao",
-      "title": "Yuanbao",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/yuanbao/yuanbao-yuanbao"
+  "note": "Skills shelved from the official Hermes catalogue: the built-in set, the official optional catalogue, and vendor packs whose repository clears the GitHub star floor. Admitted on provenance, not on a judgement of quality; every link verified to resolve at import. Third-party directories indexed by the same catalogue are excluded.",
+  "passes": [
+    {
+      "importedAt": "2026-10-05T16:57:49.994Z",
+      "what": "official",
+      "counts": {
+        "catalogue": 101748,
+        "official": 210,
+        "imported": 190,
+        "alreadyPresent": 20,
+        "deadLinks": 0
+      },
+      "imported": [
+        {
+          "id": "skill-bundled-apple-apple-notes",
+          "title": "Apple Notes",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/apple/apple-apple-notes"
+        },
+        {
+          "id": "skill-bundled-apple-apple-reminders",
+          "title": "Apple Reminders",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/apple/apple-apple-reminders"
+        },
+        {
+          "id": "skill-bundled-apple-findmy",
+          "title": "Findmy",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/apple/apple-findmy"
+        },
+        {
+          "id": "skill-bundled-apple-imessage",
+          "title": "Imessage",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/apple/apple-imessage"
+        },
+        {
+          "id": "skill-bundled-autonomous-ai-agents-claude-code",
+          "title": "Claude Code",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-claude-code"
+        },
+        {
+          "id": "skill-bundled-autonomous-ai-agents-codex",
+          "title": "Codex",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-codex"
+        },
+        {
+          "id": "skill-bundled-autonomous-ai-agents-computer-use",
+          "title": "Computer Use",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-computer-use"
+        },
+        {
+          "id": "skill-bundled-autonomous-ai-agents-hermes-agent",
+          "title": "Hermes Agent",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-hermes-agent"
+        },
+        {
+          "id": "skill-bundled-autonomous-ai-agents-opencode",
+          "title": "Opencode",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-opencode"
+        },
+        {
+          "id": "skill-bundled-creative-architecture-diagram",
+          "title": "Architecture Diagram",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/creative/creative-architecture-diagram"
+        },
+        {
+          "id": "skill-bundled-creative-ascii-video",
+          "title": "Ascii Video",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/creative/creative-ascii-video"
+        },
+        {
+          "id": "skill-bundled-creative-baoyu-infographic",
+          "title": "Baoyu Infographic",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/creative/creative-baoyu-infographic"
+        },
+        {
+          "id": "skill-bundled-creative-claude-design",
+          "title": "Claude Design",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/creative/creative-claude-design"
+        },
+        {
+          "id": "skill-bundled-creative-design-md",
+          "title": "Design Md",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/creative/creative-design-md"
+        },
+        {
+          "id": "skill-bundled-creative-humanizer",
+          "title": "Humanizer",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/creative/creative-humanizer"
+        },
+        {
+          "id": "skill-bundled-creative-manim-video",
+          "title": "Manim Video",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/creative/creative-manim-video"
+        },
+        {
+          "id": "skill-bundled-creative-p5js",
+          "title": "P5js",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/creative/creative-p5js"
+        },
+        {
+          "id": "skill-bundled-creative-popular-web-designs",
+          "title": "Popular Web Designs",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/creative/creative-popular-web-designs"
+        },
+        {
+          "id": "skill-bundled-creative-songwriting-and-ai-music",
+          "title": "Songwriting And AI Music",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/creative/creative-songwriting-and-ai-music"
+        },
+        {
+          "id": "skill-bundled-devops-sdlc-review",
+          "title": "Sdlc Review",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/devops/devops-sdlc-review"
+        },
+        {
+          "id": "skill-bundled-media-gif-search",
+          "title": "GIF Search",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/media/media-gif-search"
+        },
+        {
+          "id": "skill-bundled-media-songsee",
+          "title": "Songsee",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/media/media-songsee"
+        },
+        {
+          "id": "skill-bundled-media-youtube-content",
+          "title": "YouTube Content",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/media/media-youtube-content"
+        },
+        {
+          "id": "skill-bundled-productivity-airtable",
+          "title": "Airtable",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-airtable"
+        },
+        {
+          "id": "skill-bundled-productivity-box",
+          "title": "Box",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-box"
+        },
+        {
+          "id": "skill-bundled-productivity-document-to-action-items",
+          "title": "Document To Action Items",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-document-to-action-items"
+        },
+        {
+          "id": "skill-bundled-productivity-docx",
+          "title": "DOCX",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-docx"
+        },
+        {
+          "id": "skill-bundled-productivity-google-workspace",
+          "title": "Google Workspace",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-google-workspace"
+        },
+        {
+          "id": "skill-bundled-productivity-maps",
+          "title": "Maps",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-maps"
+        },
+        {
+          "id": "skill-bundled-productivity-meeting-action-items",
+          "title": "Meeting Action Items",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-meeting-action-items"
+        },
+        {
+          "id": "skill-bundled-productivity-notion",
+          "title": "Notion",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-notion"
+        },
+        {
+          "id": "skill-bundled-productivity-pdf",
+          "title": "PDF",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-pdf"
+        },
+        {
+          "id": "skill-bundled-productivity-powerpoint",
+          "title": "PowerPoint",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-powerpoint"
+        },
+        {
+          "id": "skill-bundled-productivity-product-price-monitor",
+          "title": "Product Price Monitor",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-product-price-monitor"
+        },
+        {
+          "id": "skill-bundled-productivity-teams-meeting-pipeline",
+          "title": "Teams Meeting Pipeline",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-teams-meeting-pipeline"
+        },
+        {
+          "id": "skill-bundled-productivity-weekly-review-planning",
+          "title": "Weekly Review Planning",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-weekly-review-planning"
+        },
+        {
+          "id": "skill-bundled-productivity-xlsx",
+          "title": "XLSX",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-xlsx"
+        },
+        {
+          "id": "skill-bundled-research-arxiv",
+          "title": "Arxiv",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/research/research-arxiv"
+        },
+        {
+          "id": "skill-bundled-research-competitor-news-monitor",
+          "title": "Competitor News Monitor",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/research/research-competitor-news-monitor"
+        },
+        {
+          "id": "skill-bundled-research-grounded-citations",
+          "title": "Grounded Citations",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/research/research-grounded-citations"
+        },
+        {
+          "id": "skill-bundled-research-llm-wiki",
+          "title": "LLM Wiki",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/research/research-llm-wiki"
+        },
+        {
+          "id": "skill-bundled-social-media-xurl",
+          "title": "Xurl",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/social-media/social-media-xurl"
+        },
+        {
+          "id": "skill-bundled-software-development-codebase-inspection",
+          "title": "Codebase Inspection",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/software-development/software-development-codebase-inspection"
+        },
+        {
+          "id": "skill-bundled-software-development-dogfood",
+          "title": "Dogfood",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/software-development/software-development-dogfood"
+        },
+        {
+          "id": "skill-bundled-software-development-github",
+          "title": "GitHub",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/software-development/software-development-github"
+        },
+        {
+          "id": "skill-bundled-software-development-hermes-agent-skill-authoring",
+          "title": "Hermes Agent Skill Authoring",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/software-development/software-development-hermes-agent-skill-authoring"
+        },
+        {
+          "id": "skill-bundled-software-development-inspecting-hermes-desktop-dom",
+          "title": "Inspecting Hermes Desktop Dom",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/software-development/software-development-inspecting-hermes-desktop-dom"
+        },
+        {
+          "id": "skill-bundled-software-development-node-inspect-debugger",
+          "title": "Node Inspect Debugger",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/software-development/software-development-node-inspect-debugger"
+        },
+        {
+          "id": "skill-bundled-software-development-python-debugpy",
+          "title": "Python Debugpy",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/software-development/software-development-python-debugpy"
+        },
+        {
+          "id": "skill-bundled-software-development-requesting-code-review",
+          "title": "Requesting Code Review",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/software-development/software-development-requesting-code-review"
+        },
+        {
+          "id": "skill-bundled-software-development-simplify-code",
+          "title": "Simplify Code",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/software-development/software-development-simplify-code"
+        },
+        {
+          "id": "skill-bundled-software-development-spike",
+          "title": "Spike",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/software-development/software-development-spike"
+        },
+        {
+          "id": "skill-bundled-software-development-systematic-debugging",
+          "title": "Systematic Debugging",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/software-development/software-development-systematic-debugging"
+        },
+        {
+          "id": "skill-bundled-software-development-test-driven-development",
+          "title": "Test Driven Development",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/software-development/software-development-test-driven-development"
+        },
+        {
+          "id": "skill-bundled-other-blocked-page-recovery",
+          "title": "Blocked Page Recovery",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/web/web-blocked-page-recovery"
+        },
+        {
+          "id": "skill-bundled-other-email-inbox-triage",
+          "title": "Email Inbox Triage",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/email/email-email-inbox-triage"
+        },
+        {
+          "id": "skill-bundled-other-himalaya",
+          "title": "Himalaya",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/email/email-himalaya"
+        },
+        {
+          "id": "skill-bundled-other-obsidian",
+          "title": "Obsidian",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/note-taking/note-taking-obsidian"
+        },
+        {
+          "id": "skill-optional-autonomous-ai-agents-antigravity-cli",
+          "title": "Antigravity CLI",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/autonomous-ai-agents/autonomous-ai-agents-antigravity-cli"
+        },
+        {
+          "id": "skill-optional-autonomous-ai-agents-blackbox",
+          "title": "Blackbox",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/autonomous-ai-agents/autonomous-ai-agents-blackbox"
+        },
+        {
+          "id": "skill-optional-autonomous-ai-agents-dynamic-workflow",
+          "title": "Dynamic Workflow",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/autonomous-ai-agents/autonomous-ai-agents-dynamic-workflow"
+        },
+        {
+          "id": "skill-optional-autonomous-ai-agents-grok",
+          "title": "Grok",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/autonomous-ai-agents/autonomous-ai-agents-grok"
+        },
+        {
+          "id": "skill-optional-autonomous-ai-agents-honcho",
+          "title": "Honcho",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/autonomous-ai-agents/autonomous-ai-agents-honcho"
+        },
+        {
+          "id": "skill-optional-autonomous-ai-agents-openhands",
+          "title": "Openhands",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/autonomous-ai-agents/autonomous-ai-agents-openhands"
+        },
+        {
+          "id": "skill-optional-blockchain-evm",
+          "title": "Evm",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/blockchain/blockchain-evm"
+        },
+        {
+          "id": "skill-optional-blockchain-hyperliquid",
+          "title": "Hyperliquid",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/blockchain/blockchain-hyperliquid"
+        },
+        {
+          "id": "skill-optional-blockchain-solana",
+          "title": "Solana",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/blockchain/blockchain-solana"
+        },
+        {
+          "id": "skill-optional-creative-ai-presenter-video",
+          "title": "AI Presenter Video",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-ai-presenter-video"
+        },
+        {
+          "id": "skill-optional-creative-archify",
+          "title": "Archify",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-archify"
+        },
+        {
+          "id": "skill-optional-creative-ascii-art",
+          "title": "Ascii Art",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-ascii-art"
+        },
+        {
+          "id": "skill-optional-creative-audiocraft-audio-generation",
+          "title": "Audiocraft Audio Generation",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-audiocraft-audio-generation"
+        },
+        {
+          "id": "skill-optional-creative-auteur",
+          "title": "Auteur",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-auteur"
+        },
+        {
+          "id": "skill-optional-creative-baoyu-article-illustrator",
+          "title": "Baoyu Article Illustrator",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-baoyu-article-illustrator"
+        },
+        {
+          "id": "skill-optional-creative-baoyu-comic",
+          "title": "Baoyu Comic",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-baoyu-comic"
+        },
+        {
+          "id": "skill-optional-creative-brag",
+          "title": "Brag",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-brag"
+        },
+        {
+          "id": "skill-optional-creative-brag-slim",
+          "title": "Brag Slim",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-brag-slim"
+        },
+        {
+          "id": "skill-optional-creative-comfyui",
+          "title": "Comfyui",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-comfyui"
+        },
+        {
+          "id": "skill-optional-creative-concept-diagrams",
+          "title": "Concept Diagrams",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-concept-diagrams"
+        },
+        {
+          "id": "skill-optional-creative-creative-ideation",
+          "title": "Creative Ideation",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-creative-ideation"
+        },
+        {
+          "id": "skill-optional-creative-draw-your-font",
+          "title": "Draw Your Font",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-draw-your-font"
+        },
+        {
+          "id": "skill-optional-creative-dream-loop",
+          "title": "Dream Loop",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-dream-loop"
+        },
+        {
+          "id": "skill-optional-creative-excalidraw",
+          "title": "Excalidraw",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-excalidraw"
+        },
+        {
+          "id": "skill-optional-creative-heartmula",
+          "title": "Heartmula",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-heartmula"
+        },
+        {
+          "id": "skill-optional-creative-hyperframes",
+          "title": "Hyperframes",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-hyperframes"
+        },
+        {
+          "id": "skill-optional-creative-impeccable",
+          "title": "Impeccable",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-impeccable"
+        },
+        {
+          "id": "skill-optional-creative-ip-as-logo",
+          "title": "Ip As Logo",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-ip-as-logo"
+        },
+        {
+          "id": "skill-optional-creative-kanban-video-orchestrator",
+          "title": "Kanban Video Orchestrator",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-kanban-video-orchestrator"
+        },
+        {
+          "id": "skill-optional-creative-meme-generation",
+          "title": "Meme Generation",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-meme-generation"
+        },
+        {
+          "id": "skill-optional-creative-mono-color",
+          "title": "Mono Color",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-mono-color"
+        },
+        {
+          "id": "skill-optional-creative-pixel-art",
+          "title": "Pixel Art",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-pixel-art"
+        },
+        {
+          "id": "skill-optional-creative-pretext",
+          "title": "Pretext",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-pretext"
+        },
+        {
+          "id": "skill-optional-creative-simple-english",
+          "title": "Simple English",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-simple-english"
+        },
+        {
+          "id": "skill-optional-creative-social-media-content-calendar",
+          "title": "Social Media Content Calendar",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-social-media-content-calendar"
+        },
+        {
+          "id": "skill-optional-creative-system-atlas",
+          "title": "System Atlas",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-system-atlas"
+        },
+        {
+          "id": "skill-optional-creative-tldraw-offline",
+          "title": "Tldraw Offline",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-tldraw-offline"
+        },
+        {
+          "id": "skill-optional-creative-unreal-mcp",
+          "title": "Unreal MCP",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-unreal-mcp"
+        },
+        {
+          "id": "skill-optional-data-science-jupyter-notebook",
+          "title": "Jupyter Notebook",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/data-science/data-science-jupyter-notebook"
+        },
+        {
+          "id": "skill-optional-devops-actual-setup",
+          "title": "Actual Setup",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/devops/devops-actual-setup"
+        },
+        {
+          "id": "skill-optional-devops-hermes-s6-container-supervision",
+          "title": "Hermes S6 Container Supervision",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/devops/devops-hermes-s6-container-supervision"
+        },
+        {
+          "id": "skill-optional-devops-inference-sh-cli",
+          "title": "Inference sh CLI",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/devops/devops-inference-sh-cli"
+        },
+        {
+          "id": "skill-optional-devops-pinggy-tunnel",
+          "title": "Pinggy Tunnel",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/devops/devops-pinggy-tunnel"
+        },
+        {
+          "id": "skill-optional-devops-setup-wizard-generator",
+          "title": "Setup Wizard Generator",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/devops/devops-setup-wizard-generator"
+        },
+        {
+          "id": "skill-optional-finance-3-statement-model",
+          "title": "3 Statement Model",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/finance/finance-3-statement-model"
+        },
+        {
+          "id": "skill-optional-finance-comps-analysis",
+          "title": "Comps Analysis",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/finance/finance-comps-analysis"
+        },
+        {
+          "id": "skill-optional-finance-dcf-model",
+          "title": "Dcf Model",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/finance/finance-dcf-model"
+        },
+        {
+          "id": "skill-optional-finance-excel-author",
+          "title": "Excel Author",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/finance/finance-excel-author"
+        },
+        {
+          "id": "skill-optional-finance-lbo-model",
+          "title": "Lbo Model",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/finance/finance-lbo-model"
+        },
+        {
+          "id": "skill-optional-finance-merger-model",
+          "title": "Merger Model",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/finance/finance-merger-model"
+        },
+        {
+          "id": "skill-optional-finance-polymarket",
+          "title": "Polymarket",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/finance/finance-polymarket"
+        },
+        {
+          "id": "skill-optional-finance-pptx-author",
+          "title": "PPTX Author",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/finance/finance-pptx-author"
+        },
+        {
+          "id": "skill-optional-finance-stocks",
+          "title": "Stocks",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/finance/finance-stocks"
+        },
+        {
+          "id": "skill-optional-gaming-minecraft-modpack-server",
+          "title": "Minecraft Modpack Server",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/gaming/gaming-minecraft-modpack-server"
+        },
+        {
+          "id": "skill-optional-gaming-pokemon-player",
+          "title": "Pokemon Player",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/gaming/gaming-pokemon-player"
+        },
+        {
+          "id": "skill-optional-health-fitness-nutrition",
+          "title": "Fitness Nutrition",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/health/health-fitness-nutrition"
+        },
+        {
+          "id": "skill-optional-health-neuroskill-bci",
+          "title": "Neuroskill Bci",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/health/health-neuroskill-bci"
+        },
+        {
+          "id": "skill-optional-mcp-fastmcp",
+          "title": "Fastmcp",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mcp/mcp-fastmcp"
+        },
+        {
+          "id": "skill-optional-mcp-mcp-oauth-remote-gateway",
+          "title": "MCP OAuth Remote Gateway",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mcp/mcp-mcp-oauth-remote-gateway"
+        },
+        {
+          "id": "skill-optional-mcp-mcporter",
+          "title": "Mcporter",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mcp/mcp-mcporter"
+        },
+        {
+          "id": "skill-optional-migration-openclaw-migration",
+          "title": "Openclaw Migration",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/migration/migration-openclaw-migration"
+        },
+        {
+          "id": "skill-optional-mlops-accelerate",
+          "title": "Accelerate",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-accelerate"
+        },
+        {
+          "id": "skill-optional-mlops-axolotl",
+          "title": "Axolotl",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-training-axolotl"
+        },
+        {
+          "id": "skill-optional-mlops-chroma",
+          "title": "Chroma",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-chroma"
+        },
+        {
+          "id": "skill-optional-mlops-clip",
+          "title": "Clip",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-clip"
+        },
+        {
+          "id": "skill-optional-mlops-dspy",
+          "title": "Dspy",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-research-dspy"
+        },
+        {
+          "id": "skill-optional-mlops-evaluating-llms-harness",
+          "title": "Evaluating Llms Harness",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-evaluation-evaluating-llms-harness"
+        },
+        {
+          "id": "skill-optional-mlops-faiss",
+          "title": "Faiss",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-faiss"
+        },
+        {
+          "id": "skill-optional-mlops-flash-attention",
+          "title": "Flash Attention",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-flash-attention"
+        },
+        {
+          "id": "skill-optional-mlops-guidance",
+          "title": "Guidance",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-guidance"
+        },
+        {
+          "id": "skill-optional-mlops-huggingface-hub",
+          "title": "Huggingface Hub",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-models-huggingface-hub"
+        },
+        {
+          "id": "skill-optional-mlops-huggingface-tokenizers",
+          "title": "Huggingface Tokenizers",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-huggingface-tokenizers"
+        },
+        {
+          "id": "skill-optional-mlops-instructor",
+          "title": "Instructor",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-instructor"
+        },
+        {
+          "id": "skill-optional-mlops-lambda-labs",
+          "title": "Lambda Labs",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-lambda-labs"
+        },
+        {
+          "id": "skill-optional-mlops-llama-cpp",
+          "title": "Llama Cpp",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-inference-llama-cpp"
+        },
+        {
+          "id": "skill-optional-mlops-llava",
+          "title": "Llava",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-llava"
+        },
+        {
+          "id": "skill-optional-mlops-modal",
+          "title": "Modal",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-modal"
+        },
+        {
+          "id": "skill-optional-mlops-nemo-curator",
+          "title": "Nemo Curator",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-nemo-curator"
+        },
+        {
+          "id": "skill-optional-mlops-obliteratus",
+          "title": "Obliteratus",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-obliteratus"
+        },
+        {
+          "id": "skill-optional-mlops-outlines",
+          "title": "Outlines",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-inference-outlines"
+        },
+        {
+          "id": "skill-optional-mlops-peft",
+          "title": "Peft",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-peft"
+        },
+        {
+          "id": "skill-optional-mlops-pinecone",
+          "title": "Pinecone",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-pinecone"
+        },
+        {
+          "id": "skill-optional-mlops-pytorch-fsdp",
+          "title": "Pytorch Fsdp",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-pytorch-fsdp"
+        },
+        {
+          "id": "skill-optional-mlops-pytorch-lightning",
+          "title": "Pytorch Lightning",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-pytorch-lightning"
+        },
+        {
+          "id": "skill-optional-mlops-qdrant",
+          "title": "Qdrant",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-qdrant"
+        },
+        {
+          "id": "skill-optional-mlops-saelens",
+          "title": "Saelens",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-saelens"
+        },
+        {
+          "id": "skill-optional-mlops-segment-anything-model",
+          "title": "Segment Anything Model",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-models-segment-anything-model"
+        },
+        {
+          "id": "skill-optional-mlops-serving-llms-vllm",
+          "title": "Serving Llms Vllm",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-inference-serving-llms-vllm"
+        },
+        {
+          "id": "skill-optional-mlops-simpo",
+          "title": "Simpo",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-simpo"
+        },
+        {
+          "id": "skill-optional-mlops-slime",
+          "title": "Slime",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-slime"
+        },
+        {
+          "id": "skill-optional-mlops-stable-diffusion",
+          "title": "Stable Diffusion",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-stable-diffusion"
+        },
+        {
+          "id": "skill-optional-mlops-tensorrt-llm",
+          "title": "TensorRT LLM",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-tensorrt-llm"
+        },
+        {
+          "id": "skill-optional-mlops-torchtitan",
+          "title": "Torchtitan",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-torchtitan"
+        },
+        {
+          "id": "skill-optional-mlops-trl-fine-tuning",
+          "title": "Trl Fine Tuning",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-training-trl-fine-tuning"
+        },
+        {
+          "id": "skill-optional-mlops-unsloth",
+          "title": "Unsloth",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-training-unsloth"
+        },
+        {
+          "id": "skill-optional-mlops-weights-and-biases",
+          "title": "Weights And Biases",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-evaluation-weights-and-biases"
+        },
+        {
+          "id": "skill-optional-mlops-whisper",
+          "title": "Whisper",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mlops/mlops-whisper"
+        },
+        {
+          "id": "skill-optional-productivity-canvas",
+          "title": "Canvas",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/productivity/productivity-canvas"
+        },
+        {
+          "id": "skill-optional-productivity-here-now",
+          "title": "Here Now",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/productivity/productivity-here-now"
+        },
+        {
+          "id": "skill-optional-productivity-shop",
+          "title": "Shop",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/productivity/productivity-shop"
+        },
+        {
+          "id": "skill-optional-productivity-shopify",
+          "title": "Shopify",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/productivity/productivity-shopify"
+        },
+        {
+          "id": "skill-optional-productivity-siyuan",
+          "title": "Siyuan",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/productivity/productivity-siyuan"
+        },
+        {
+          "id": "skill-optional-productivity-telephony",
+          "title": "Telephony",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/productivity/productivity-telephony"
+        },
+        {
+          "id": "skill-optional-research-bioinformatics",
+          "title": "Bioinformatics",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-bioinformatics"
+        },
+        {
+          "id": "skill-optional-research-darwinian-evolver",
+          "title": "Darwinian Evolver",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-darwinian-evolver"
+        },
+        {
+          "id": "skill-optional-research-domain-intel",
+          "title": "Domain Intel",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-domain-intel"
+        },
+        {
+          "id": "skill-optional-research-drug-discovery",
+          "title": "Drug Discovery",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-drug-discovery"
+        },
+        {
+          "id": "skill-optional-research-duckduckgo-search",
+          "title": "Duckduckgo Search",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-duckduckgo-search"
+        },
+        {
+          "id": "skill-optional-research-gitnexus-explorer",
+          "title": "Gitnexus Explorer",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-gitnexus-explorer"
+        },
+        {
+          "id": "skill-optional-research-osint-investigation",
+          "title": "Osint Investigation",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-osint-investigation"
+        },
+        {
+          "id": "skill-optional-research-parallel-cli",
+          "title": "Parallel CLI",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-parallel-cli"
+        },
+        {
+          "id": "skill-optional-research-pinecone-research",
+          "title": "Pinecone Research",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-pinecone-research"
+        },
+        {
+          "id": "skill-optional-research-scrapling",
+          "title": "Scrapling",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-scrapling"
+        },
+        {
+          "id": "skill-optional-research-searxng-search",
+          "title": "Searxng Search",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-searxng-search"
+        },
+        {
+          "id": "skill-optional-security-1password",
+          "title": "1password",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/security/security-1password"
+        },
+        {
+          "id": "skill-optional-security-godmode",
+          "title": "Godmode",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/security/security-godmode"
+        },
+        {
+          "id": "skill-optional-security-oss-forensics",
+          "title": "OSS Forensics",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/security/security-oss-forensics"
+        },
+        {
+          "id": "skill-optional-security-sherlock",
+          "title": "Sherlock",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/security/security-sherlock"
+        },
+        {
+          "id": "skill-optional-security-unbroker",
+          "title": "Unbroker",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/security/security-unbroker"
+        },
+        {
+          "id": "skill-optional-security-web-pentest",
+          "title": "Web Pentest",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/security/security-web-pentest"
+        },
+        {
+          "id": "skill-optional-smart-home-openhue",
+          "title": "Openhue",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/smart-home/smart-home-openhue"
+        },
+        {
+          "id": "skill-optional-social-media-reddit-reading",
+          "title": "Reddit Reading",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/social-media/social-media-reddit-reading"
+        },
+        {
+          "id": "skill-optional-web-development-cloudflare-temporary-deploy",
+          "title": "Cloudflare Temporary Deploy",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/web-development/web-development-cloudflare-temporary-deploy"
+        },
+        {
+          "id": "skill-optional-web-development-har-derived-api-client",
+          "title": "HAR Derived API Client",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/web-development/web-development-har-derived-api-client"
+        },
+        {
+          "id": "skill-optional-web-development-page-agent",
+          "title": "Page Agent",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/web-development/web-development-page-agent"
+        },
+        {
+          "id": "skill-optional-web-development-publish-site",
+          "title": "Publish Site",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/web-development/web-development-publish-site"
+        },
+        {
+          "id": "skill-optional-web-development-scrollcraft",
+          "title": "Scrollcraft",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/web-development/web-development-scrollcraft"
+        },
+        {
+          "id": "skill-optional-other-agentmail",
+          "title": "Agentmail",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/email/email-agentmail"
+        },
+        {
+          "id": "skill-optional-other-mpp-agent",
+          "title": "Mpp Agent",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/payments/payments-mpp-agent"
+        },
+        {
+          "id": "skill-optional-other-stripe-link-cli",
+          "title": "Stripe Link CLI",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/payments/payments-stripe-link-cli"
+        },
+        {
+          "id": "skill-optional-other-stripe-projects",
+          "title": "Stripe Projects",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/payments/payments-stripe-projects"
+        },
+        {
+          "id": "skill-optional-other-yuanbao",
+          "title": "Yuanbao",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/yuanbao/yuanbao-yuanbao"
+        }
+      ]
+    },
+    {
+      "importedAt": "2026-10-09T00:00:00.000Z",
+      "what": "official",
+      "counts": {
+        "imported": 2
+      },
+      "imported": [
+        {
+          "id": "skill-optional-productivity-first-task",
+          "title": "First Task",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/productivity/productivity-first-task"
+        },
+        {
+          "id": "skill-optional-productivity-initiate-setup",
+          "title": "Initiate Setup",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/productivity/productivity-initiate-setup"
+        }
+      ]
+    },
+    {
+      "importedAt": "2026-10-09T00:00:00.000Z",
+      "what": "pack anthropics/skills",
+      "counts": {
+        "imported": 16
+      },
+      "imported": [
+        {
+          "id": "skill-pack-anthropic-academy-guide",
+          "title": "Academy Guide",
+          "url": "https://github.com/anthropics/skills/tree/main/skills/academy-guide"
+        },
+        {
+          "id": "skill-pack-anthropic-algorithmic-art",
+          "title": "Algorithmic Art",
+          "url": "https://github.com/anthropics/skills/tree/main/skills/algorithmic-art"
+        },
+        {
+          "id": "skill-pack-anthropic-brand-guidelines",
+          "title": "Brand Guidelines",
+          "url": "https://github.com/anthropics/skills/tree/main/skills/brand-guidelines"
+        },
+        {
+          "id": "skill-pack-anthropic-canvas-design",
+          "title": "Canvas Design",
+          "url": "https://github.com/anthropics/skills/tree/main/skills/canvas-design"
+        },
+        {
+          "id": "skill-pack-anthropic-claude-api",
+          "title": "Claude API",
+          "url": "https://github.com/anthropics/skills/tree/main/skills/claude-api"
+        },
+        {
+          "id": "skill-pack-anthropic-discernment-nudge",
+          "title": "Discernment Nudge",
+          "url": "https://github.com/anthropics/skills/tree/main/skills/discernment-nudge"
+        },
+        {
+          "id": "skill-pack-anthropic-doc-coauthoring",
+          "title": "Doc Coauthoring",
+          "url": "https://github.com/anthropics/skills/tree/main/skills/doc-coauthoring"
+        },
+        {
+          "id": "skill-pack-anthropic-frontend-design",
+          "title": "Frontend Design",
+          "url": "https://github.com/anthropics/skills/tree/main/skills/frontend-design"
+        },
+        {
+          "id": "skill-pack-anthropic-internal-comms",
+          "title": "Internal Comms",
+          "url": "https://github.com/anthropics/skills/tree/main/skills/internal-comms"
+        },
+        {
+          "id": "skill-pack-anthropic-mcp-builder",
+          "title": "MCP Builder",
+          "url": "https://github.com/anthropics/skills/tree/main/skills/mcp-builder"
+        },
+        {
+          "id": "skill-pack-anthropic-pptx",
+          "title": "PPTX",
+          "url": "https://github.com/anthropics/skills/tree/main/skills/pptx"
+        },
+        {
+          "id": "skill-pack-anthropic-skill-creator",
+          "title": "Skill Creator",
+          "url": "https://github.com/anthropics/skills/tree/main/skills/skill-creator"
+        },
+        {
+          "id": "skill-pack-anthropic-slack-gif-creator",
+          "title": "Slack GIF Creator",
+          "url": "https://github.com/anthropics/skills/tree/main/skills/slack-gif-creator"
+        },
+        {
+          "id": "skill-pack-anthropic-theme-factory",
+          "title": "Theme Factory",
+          "url": "https://github.com/anthropics/skills/tree/main/skills/theme-factory"
+        },
+        {
+          "id": "skill-pack-anthropic-web-artifacts-builder",
+          "title": "Web Artifacts Builder",
+          "url": "https://github.com/anthropics/skills/tree/main/skills/web-artifacts-builder"
+        },
+        {
+          "id": "skill-pack-anthropic-webapp-testing",
+          "title": "Webapp Testing",
+          "url": "https://github.com/anthropics/skills/tree/main/skills/webapp-testing"
+        }
+      ]
     }
-  ]
+  ],
+  "totalImported": 208
 }

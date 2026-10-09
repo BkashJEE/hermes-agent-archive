@@ -115,6 +115,16 @@ async function main() {
   const shelves = new Map();
   const seenIds = new Set();
   const seenTitles = new Set();
+
+  /* Anything deliberately removed stays removed. The fragment prune writes down every id it
+     took out so that a later import can be checked against the record — and this importer
+     never checked it. On 2026-10-09 a routine re-read brought back all 57 pruned fragments
+     ("Step 5: recommended config", "6. Start chatting", "Core") as "new entries". */
+  try {
+    const record = JSON.parse(await readFile(join(ROOT, 'scripts', 'pruned-doc-fragments.json'), 'utf8'));
+    const passes = record.passes ?? (record.items ? [record] : []);
+    for (const pass of passes) for (const r of pass.items || []) seenIds.add(r.id);
+  } catch { /* no record yet: nothing has been pruned */ }
   for (const [id, file] of files) {
     const original = await readFile(join(ROOT, 'data', file), 'utf8');
     const raw = JSON.parse(original);
