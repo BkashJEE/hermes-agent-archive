@@ -120,8 +120,14 @@ async function pooled(items, width, work) {
 
 /** A placeholder in the author field is worse than an empty one: it looks like a credit. */
 const PLACEHOLDER_AUTHORS = new Set(['hermes agent', 'community', 'unknown', 'anonymous', 'n/a']);
-export const namesSomeone = author =>
-  !!author && !PLACEHOLDER_AUTHORS.has(String(author).trim().toLowerCase());
+/** Co-authors arrive as an array; a credit is one string. */
+export const authorText = author =>
+  (Array.isArray(author) ? author.filter(Boolean).join(', ') : String(author ?? '')).trim();
+
+export const namesSomeone = author => {
+  const text = authorText(author);
+  return !!text && !PLACEHOLDER_AUTHORS.has(text.toLowerCase());
+};
 
 export function packEntry(skill, pack, verifiedAt) {
   const name = (skill.installIdentifier || '').slice(pack.prefix.length) || skill.name;
@@ -174,7 +180,7 @@ export function buildEntry(skill, verifiedAt) {
     /* Exempt for docs entries, but the catalogue names real people and this archive
        credits them wherever it can. `Hermes Agent` and `community` are not names and
        credit nobody; the source label already says where the entry came from. */
-    ...(namesSomeone(skill.author) ? { author: skill.author } : {}),
+    ...(namesSomeone(skill.author) ? { author: authorText(skill.author) } : {}),
     url: DOCS + skill.docsPath,
     verifiedAt
   };

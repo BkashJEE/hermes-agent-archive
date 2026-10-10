@@ -1,7 +1,14 @@
 /* Credit recorded authors; a GitHub account identifies the repository owner,
    not necessarily the person who wrote every contribution. */
+/** The author field as one string. Two catalogue skills listed co-authors as an array, and
+    `item.author?.trim` threw — only on the Dashboard, the one view that walks every shelf,
+    so production landed on an empty page while every shelf looked fine. */
+export const authorName = author =>
+  (Array.isArray(author) ? author.filter(Boolean).join(', ') : String(author ?? '')).trim();
+
 export function creditFor(item) {
-  if (item.author?.trim() && !/^r\//i.test(item.author.trim())) return { label: 'By', name: item.author.trim() };
+  const author = authorName(item.author);
+  if (author && !/^r\//i.test(author)) return { label: 'By', name: author };
   if (item.source === 'docs' && item.url) {
     try {
       if (new URL(item.url).hostname === 'hermes-agent.nousresearch.com')

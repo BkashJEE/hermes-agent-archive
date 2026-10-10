@@ -2589,11 +2589,7 @@
         "flux"
       ],
       "source": "docs",
-      "author": [
-        "kshitijk4poor",
-        "alt-glitch",
-        "purzbeats"
-      ],
+      "author": "kshitijk4poor, alt-glitch, purzbeats",
       "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-comfyui",
       "verifiedAt": "2026-10-05"
     },
@@ -2792,10 +2788,7 @@
         "orchestration"
       ],
       "source": "docs",
-      "author": [
-        "SHL0MS",
-        "alt-glitch"
-      ],
+      "author": "SHL0MS, alt-glitch",
       "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-kanban-video-orchestrator",
       "verifiedAt": "2026-10-05"
     },
