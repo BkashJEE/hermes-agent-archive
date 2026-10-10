@@ -6,6 +6,8 @@ import { archiveField } from './archive-field.js';
 import { sectionIcon } from './icons.js?v=launch-10';
 import { mergeLive, trendingItems } from './archive.js?v=hermes-50k';
 import { cardPoints, cardCategory } from './card-preview.js?v=launch-10';
+import { isTopicTag } from './tags.js?v=launch-10';
+import { ageLabel } from './relative-time.js?v=launch-10';
 import { formatDetails } from './details.js';
 import { creditFor } from './credits.js?v=launch-10';
 import { attachRankings, compareRankings, usefulnessLabel, popularityLabel } from './ranking.js';
@@ -24,7 +26,7 @@ const state = {
   cfg: null,
   data: {},          // sectionId -> items[]
   live: null,
-  section: 'use-cases',
+  section: 'dashboard',          // the nav calls it home; the root URL now agrees
   source: 'all',
   sort: 'recommended',
   q: '',
@@ -39,6 +41,9 @@ const state = {
 // Storage is optional: denied access must never prevent browsing.
 try {
   if (localStorage.getItem('hermes-density') === 'compact') state.density = 'compact';
+  /* The density toggle is hidden on phones to win back a row of the first screen, so
+     the phone gets the better default for one column. A saved choice still wins. */
+  else if (localStorage.getItem('hermes-density') === null && matchMedia('(max-width:640px)').matches) state.density = 'compact';
 } catch { /* Private windows may deny storage. */ }
 
 /* ---------------------------------------------------------------- utils */
@@ -159,16 +164,16 @@ function card(item, rank, iconName) {
   const category = cardCategory(item, iconName);
   const order = activeSort() === 'az' ? 'A–Z' : (item.ranking || activeSort() === 'trending') ? `#${rank}` : '';
   const action = iconName === 'stories' ? 'Read workflow' : iconName === 'prompts' ? 'View prompt' : 'View details';
-  const metric = item.metric ? `${num(item.metric.value)} ${item.metric.kind === 'stars' && item.metric.value === 1 ? 'star' : item.metric.kind}` : 'no public metric';
+  const metric = item.metric ? `${num(item.metric.value)} ${item.metric.kind === 'stars' && item.metric.value === 1 ? 'star' : item.metric.kind}` : '';
   return `<li><button class="card card-${category.tone}" data-id="${esc(item.id)}" aria-label="${esc(`${action}: ${item.title}`)}">
     <div class="card-heading"><span class="card-icon">${sectionIcon(category.icon)}</span><div class="card-heading-text">
       <h3>${esc(item.title)}</h3>
       <p class="card-byline">${esc(credit.label)} <strong>${esc(credit.name)}</strong><span class="card-source">${esc(SOURCE_LABEL[item.source] || 'CURATED')}${item.sourced ? ' · SOURCED' : ''}${item.communityException ? ' · OWNER-APPROVED EXCEPTION' : ''}</span></p>
     </div></div>
     <div class="card-preview"><p class="card-label">${item.cardPoints?.length || !(item.tags || []).includes('user-story') ? 'What it does' : 'From the source'}</p>
-      <ul class="card-points">${cardPoints(item).map(point => `<li>${esc(point)}</li>`).join('')}</ul>
+      <ul class="card-points">${cardPoints(item).map(point => `<li><span>${esc(point)}</span></li>`).join('')}</ul>
     </div>
-    <div class="card-tags">${(item.tags || []).filter(t => t !== 'user-story').slice(0, 2).map(t => `<span class="trow-tag">${esc(t)}</span>`).join('')}${order ? `<span class="rank" title="Position in the selected sort">${order}</span>` : ''}</div>
+    <div class="card-tags">${(item.tags || []).filter(isTopicTag).slice(0, 2).map(t => `<span class="trow-tag">${esc(t)}</span>`).join('')}${order ? `<span class="rank" title="Position in the selected sort">${order}</span>` : ''}</div>
     ${item.trend ? trendBadge(item.trend) : ''}
     <div class="card-foot"><span class="card-evidence">${esc(metric)}${item.credit ? `<span class="m-credit">${esc(item.credit)}</span>` : ''}</span><span class="card-action">${action} <span aria-hidden="true">→</span></span></div>
   </button></li>`;
@@ -216,7 +221,7 @@ function renderTags() {
   const counts = new Map();
   for (const s of state.cfg.sections)
     for (const it of state.data[s.id] || [])
-      for (const t of it.tags || []) counts.set(t, (counts.get(t) || 0) + 1);
+      for (const t of it.tags || []) if (isTopicTag(t)) counts.set(t, (counts.get(t) || 0) + 1);
 
   const top = [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).filter(([tag]) => tag.toLowerCase().includes(state.tagQuery.toLowerCase()));
   $('#tagList').innerHTML = top.map(([t, n]) => `
@@ -255,6 +260,11 @@ function render() {
   if (key !== state.viewKey) { state.limit = 24; state.viewKey = key; }
   $('#sortSel').disabled = sec.kind === 'trending';
   $('#sortSel').value = activeSort();
+  /* The box filters the shelf you are on. It used to say "Search the archive", and a
+     search for memory on Use Cases silently missed every Skill and Setting about memory.
+     Name the scope; the palette (⌘K, or the button on a phone) searches everything. */
+  $('#search').placeholder = isDash ? 'Search every shelf…' : `Search ${sec.label}…`;
+  $('#search').setAttribute('aria-label', isDash ? 'Search every shelf' : `Search ${sec.label}. Press Control or Command K to search every shelf.`);
   $('#loadMoreRow').hidden = true;
   $('#dashPanel').hidden = !isDash;
   $('#listbar').hidden = isDash;
@@ -284,7 +294,7 @@ function render() {
     : !classified ? 'Awaiting Jev classification. Unclassified entries are alphabetical; dates never affect the order.'
     : state.sort === 'popular' && !items.some(item => item.ranking && item.ranking.popularity !== 'unknown')
       ? 'Popularity is unknown on this shelf: no fetched engagement evidence. Ordered by Jev usefulness instead.'
-    : `${classified} of ${items.length} assessed by Jev (editorial ranking). ${state.sort === 'popular'
+    : `${classified} of ${items.length} ranked editorially by Jev, a judgment model. ${state.sort === 'popular'
       ? 'Public popularity first; unknown popularity last.'
       : 'Usefulness first; public popularity breaks ties.'} Dates never affect the order.`;
 
@@ -904,6 +914,7 @@ function openDrawer(id, trigger, updateUrl = true) {
       const profile = authorProfile(it);
       return profile ? `<a class="ghost-btn" href="${esc(profile.url)}" target="_blank" rel="noopener noreferrer">${esc(author.name)} on ${esc(profile.where)} &#8599;</a>` : '';
     })()}${author.label === 'Author' ? '' : `<button class="ghost-btn" data-author="${esc(author.name)}">More by ${esc(author.name)}</button>`}<button class="ghost-btn" id="shareCardBtn">Copy card link</button><span id="shareStatus" role="status"></span></div>
+    <p class="d-follow">Found this useful? <a href="https://x.com/BkashJosi" target="_blank" rel="noopener noreferrer">Follow @BkashJosi</a> for more Hermes craft.</p>
     <input class="d-share" id="shareCardUrl" aria-label="Link to this card" readonly hidden>
     <div class="d-meta">${it.metric ? metricBlock(it) : '<span class="trow-note">no public metric</span>'}</div>`;
 
@@ -986,8 +997,11 @@ function restoreRoute() {
 }
 
 function renderSourceStatus() {
-  $('#updatedAt').textContent = state.live?.generatedAt
-    ? new Date(state.live.generatedAt).toLocaleDateString() : 'Not fetched';
+  /* Relative, and gone past a fortnight. An absolute date here sat at 9/29 for a week
+     while a scheduled job was off, advertising the gap in the top-right corner. */
+  const age = state.live?.generatedAt ? ageLabel(state.live.generatedAt) : null;
+  $('#updatedAt').textContent = age || '';
+  $('.updated').hidden = !age;
   $('#footGen').textContent = state.live?.generatedAt
     ? `Public metrics last fetched ${new Date(state.live.generatedAt).toLocaleString()}.`
     : 'Public metrics have not been fetched yet.';
@@ -1033,6 +1047,7 @@ function wire() {
   wireStickyListbar();
   wirePalette();
   $('#jumpBtn').addEventListener('click', paletteOpen);
+  $('#searchAllBtn').addEventListener('click', paletteOpen);
   const applyTheme = theme => {
     document.documentElement.dataset.theme = theme === 'broadsheet' ? theme : 'dark';
     $('#themeBtn').setAttribute('aria-pressed', theme === 'broadsheet');

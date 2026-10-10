@@ -34,7 +34,7 @@
 <header class="topbar">
   <button class="icon-btn" id="menuBtn" aria-label="Toggle navigation" aria-controls="sidebar" aria-expanded="false">&#9776;</button>
 
-  <a class="brand" href="#use-cases">
+  <a class="brand" href="#dashboard">
     <span class="brand-mark" id="brandMark" aria-hidden="true"></span>
     <span class="brand-text">
       <strong>HERMES AGENT <em>ARCHIVE</em></strong>
@@ -53,6 +53,7 @@
   <label class="sr-only" for="sourceSel">Source</label>
   <select id="sourceSel" class="select" title="Filter by where it was shown"></select>
   <button class="icon-btn" id="jumpBtn" aria-label="Jump to a shelf or entry" title="Jump to (Ctrl/⌘ K)">⌘K</button>
+  <button class="icon-btn" id="searchAllBtn" aria-label="Search every shelf" title="Search every shelf">&#8981;</button>
   <button class="icon-btn" id="themeBtn" aria-label="Broadsheet layout" aria-pressed="false" title="Toggle broadsheet layout">▤</button>
   <button class="icon-btn" id="refreshBtn" title="Reload data" aria-label="Reload data">&#8635;</button>
   <!-- The archive sends people to other people's work all day; this is the one link back
@@ -82,8 +83,8 @@
 
     <nav id="nav" class="nav" aria-label="Sections"></nav>
 
-    <div class="side-block">
-      <h2 class="side-title">TAG WATCHLIST</h2>
+    <div class="side-block" role="region" aria-labelledby="tagHeading">
+      <p class="side-title" id="tagHeading">TAG WATCHLIST</p>
       <label class="sr-only" for="tagSearch">Find a tag</label>
       <input id="tagSearch" class="tag-search" type="search" placeholder="Find a tag…" autocomplete="off">
       <ul id="tagList" class="taglist"></ul>
@@ -104,7 +105,7 @@
         <p class="archive-headline" id="archiveIntro">Find your next<br><em>Hermes workflow.</em></p>
         <p class="archive-intro">Explore workflows, prompts, skills and projects.<br class="wide-only"> Follow the source. Make an idea your own.</p>
         <div class="archive-actions">
-          <a class="archive-primary" href="#prompts">Explore prompts <span aria-hidden="true">↗</span></a>
+          <a class="archive-primary" href="#use-cases">Browse use cases <span aria-hidden="true">→</span></a>
           <a class="archive-secondary" href="https://github.com/BkashJEE/hermes-agent-archive/issues/new?template=submit-entry.yml" target="_blank" rel="noopener noreferrer">Add yours <span aria-hidden="true">↗</span></a>
         </div>
       </div>
@@ -116,7 +117,7 @@
     <section class="hero">
       <div class="hero-icon" id="heroIcon" aria-hidden="true">&#9670;</div>
       <div class="hero-text">
-        <h1><span id="heroTitle" tabindex="-1">USE CASES THAT STICK</span><span class="badge" id="heroBadge">ARCHIVE</span></h1>
+        <h1><span id="heroTitle" tabindex="-1">USE CASES THAT STICK</span><span class="badge" id="heroBadge" aria-hidden="true">ARCHIVE</span></h1>
         <p id="heroBlurb">Workflows people run every day.</p>
       </div>
     </section>
@@ -168,7 +169,7 @@
         <a href="https://x.com/BkashJosi" target="_blank" rel="noopener noreferrer">X ↗</a> &middot;
         <a href="https://github.com/BkashJEE" target="_blank" rel="noopener noreferrer">GitHub ↗</a> &middot;
         <a href="https://bkashjee.github.io" target="_blank" rel="noopener noreferrer">Portfolio ↗</a></p>
-      <p><b>How the numbers work.</b> GitHub stars, Hacker News points and Reddit upvotes come from public API snapshots. The last successful fetch is shown below. Items with no public metric show their tags and <span class="trow-note">no public metric</span> &mdash; nothing on this page is a guessed number. My Work may show figures from the author’s analytics exports, explicitly credited on each card. GitHub repositories normally require more than <span id="githubFloor">50,000</span> verified stars and documented Hermes support; three owner-approved community exceptions are labelled on their cards. Unknown counts are excluded. Trending keeps the normal star minimum. Trending shows positive GitHub star growth between two public API snapshots, ordered by growth per day. It does not use publication dates.</p>
+      <p><b>How the numbers work.</b> GitHub stars, Hacker News points and Reddit upvotes come from public API snapshots. The last successful fetch is shown below. A card with no public metric shows no figure at all, and its detail view says so &mdash; nothing on this page is a guessed number. My Work may show figures from the author’s analytics exports, explicitly credited on each card. GitHub repositories normally require more than <span id="githubFloor">50,000</span> verified stars and documented Hermes support; three owner-approved community exceptions are labelled on their cards. Unknown counts are excluded. Trending keeps the normal star minimum. Trending shows positive GitHub star growth between two public API snapshots, ordered by growth per day. It does not use publication dates.</p>
       <p id="footGen" class="foot-gen"></p>
     </footer>
   </main>

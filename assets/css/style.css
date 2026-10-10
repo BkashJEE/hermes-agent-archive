@@ -132,14 +132,15 @@ code{font-family:var(--mono);font-size:.92em}
 .select:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
 
 .icon-btn{
-  display:grid;place-items:center;width:32px;height:32px;flex:none;
+  display:grid;place-items:center;width:36px;height:36px;flex:none;
   background:var(--panel-2);border:1px solid var(--line);border-radius:var(--r-sm);
   color:var(--ink-dim);cursor:pointer;transition:.15s;
 }
 .icon-btn:hover{color:var(--accent);border-color:var(--line-2)}
 #menuBtn{display:none}
+#searchAllBtn{display:none}
 
-.updated{font-family:var(--mono);font-size:9px;letter-spacing:.12em;color:var(--ink-mute);flex:none}
+.updated{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--ink-mute);flex:none}
 .updated b{color:var(--ink-dim);font-weight:500}
 
 .cta{
@@ -204,7 +205,7 @@ code{font-family:var(--mono);font-size:.92em}
 .taglist button.on{color:var(--accent);background:var(--accent-soft)}
 .taglist .t-dot{width:5px;height:5px;border-radius:50%;background:var(--line-2);flex:none}
 .taglist button.on .t-dot{background:var(--accent)}
-.taglist .t-n{margin-left:auto;font-family:var(--mono);font-size:9.5px;color:var(--ink-mute)}
+.taglist .t-n{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--ink-mute)}
 
 .side-note{margin:0 10px;font-size:10.5px;line-height:1.6;color:var(--ink-mute)}
 
@@ -235,17 +236,17 @@ code{font-family:var(--mono);font-size:.92em}
   font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;font-weight:700;
   padding:3px 7px;border-radius:3px;background:var(--accent);color:var(--accent-ink);
 }
-.hero p{margin:0;font-size:12.5px;color:var(--ink-dim);max-width:78ch}
+.hero p{margin:0;font-size:13.5px;color:var(--ink-dim);max-width:78ch}
 
 .listbar{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:12px}
 .listbar h2{margin:0;font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;color:var(--ink);font-weight:700}
 .listbar h2 span{color:var(--accent)}
-.listbar p{margin:2px 0 0;font-size:11px;color:var(--ink-mute)}
+.listbar p{margin:2px 0 0;font-size:12px;color:var(--ink-mute)}
 .listbar-right{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .density{display:flex;gap:2px;padding:3px;background:var(--panel);border:1px solid var(--line);border-radius:6px}
 .density .ghost-btn{border-color:transparent;background:none}
 .density [aria-pressed="true"]{background:var(--accent-soft);color:var(--accent);border-color:var(--accent-line)}
-.listbar-label{font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--ink-mute)}
+.listbar-label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-mute)}
 .ghost-btn{
   height:30px;padding:0 11px;background:var(--panel-2);border:1px solid var(--line);
   border-radius:var(--r-sm);color:var(--ink-dim);font-size:11px;cursor:pointer;transition:.15s;
@@ -305,12 +306,16 @@ code{font-family:var(--mono);font-size:.92em}
 .pill-sourced{color:var(--accent);border-style:dashed}
 
 .card h3{margin:0 0 5px;font-size:15px;font-weight:600;line-height:1.4;letter-spacing:-.01em;color:var(--ink);overflow-wrap:anywhere}
-.card-byline{margin:0;font-size:11.5px;line-height:1.6;color:var(--ink-dim);overflow-wrap:anywhere}
+.card-byline{margin:0;font-size:12.5px;line-height:1.6;color:var(--ink-dim);overflow-wrap:anywhere}
 .card-byline strong{font-weight:500;color:var(--ink-dim)}
-.card-source{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.04em;color:var(--ink-mute)}
+.card-source{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.04em;color:var(--ink-mute)}
 .card-preview{margin:16px 0}
-.card-label{margin:0 0 6px;font-size:11px;font-weight:600;letter-spacing:.02em;color:var(--ink-dim)}
-.card-points{margin:0;padding-left:16px;font-size:12.5px;line-height:1.6;color:var(--ink);overflow-wrap:anywhere}
+.card-label{margin:0 0 6px;font-size:12px;font-weight:600;letter-spacing:.02em;color:var(--ink-dim)}
+.card-points{margin:0;padding-left:16px;font-size:13px;line-height:1.6;color:var(--ink);overflow-wrap:anywhere}
+/* Imported summaries can run on for 300 characters and end wherever the source cut them
+   ("…/voice on in Telegr..."). Clamp at a line boundary; the card's own action link is
+   the affordance that there is more. */
+.card-points li>span{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
 .card-points li+li{margin-top:5px}
 .card-points li::marker{color:var(--card-accent)}
 .card-tags{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:4px}
@@ -324,7 +329,7 @@ code{font-family:var(--mono);font-size:.92em}
 .card-foot{
   display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;
   margin-top:14px;padding-top:12px;border-top:1px solid var(--line);
-  font-size:11px;
+  font-size:12px;
 }
 .card-evidence{color:var(--ink-mute)}
 .card-action{display:inline-flex;align-items:center;gap:6px;color:var(--ink);margin-left:auto;font-weight:500}
@@ -342,12 +347,12 @@ code{font-family:var(--mono);font-size:.92em}
 .empty .empty-kicker{font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--ink-mute)}
 .empty-link{display:inline-flex;align-items:center;margin-top:12px}
 
-.foot{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);color:var(--ink-mute);font-size:11px;max-width:92ch}
+.foot{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);color:var(--ink-mute);font-size:12.5px;max-width:92ch}
 .foot p{margin:0 0 6px}
 .foot b{color:var(--ink-dim)}
 .foot code{color:var(--teal)}
 .foot .pill{vertical-align:middle}
-.foot-gen{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em}
+.foot-gen{font-family:var(--mono);font-size:11px;letter-spacing:.08em}
 
 .tagrow{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin-top:auto;padding-top:10px}
 .trow-tag{
@@ -501,11 +506,14 @@ code{font-family:var(--mono);font-size:.92em}
 }
 @keyframes slide{from{transform:translateX(24px);opacity:.4}to{transform:none;opacity:1}}
 .drawer-close{
-  position:absolute;top:14px;right:16px;width:30px;height:30px;
+  position:absolute;top:14px;right:16px;width:36px;height:36px;
   background:var(--panel-2);border:1px solid var(--line);border-radius:var(--r-sm);
   color:var(--ink-dim);cursor:pointer;transition:.15s;
 }
 .drawer-close:hover{color:var(--accent);border-color:var(--line-2)}
+/* The ask comes after the value: it sits below READ THE ORIGINAL, once a card has earned it. */
+.d-follow{margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-dim)}
+.d-follow a{color:var(--accent);font-weight:500}
 .d-kicker{display:flex;align-items:center;gap:8px;margin:12px 24px 20px 0;flex-wrap:wrap}
 .drawer h3{margin:0 0 6px;font-size:24px;font-weight:600;line-height:1.35;overflow-wrap:anywhere;padding-right:36px}
 .d-story{margin:28px 0}
@@ -678,6 +686,8 @@ code{font-family:var(--mono);font-size:.92em}
   .search{order:0;flex:1 1 auto;min-width:0;height:36px}
   .search kbd{display:none}
   .topbar>.select,.topbar>.cta,#jumpBtn,#refreshBtn,#themeBtn{display:none}
+  #searchAllBtn{display:grid}
+  .density{display:none}
 
   /* Filters ride just under the bar and stay reachable while the grid scrolls. */
   .listbar{
@@ -711,7 +721,9 @@ code{font-family:var(--mono);font-size:.92em}
   .tag-search,.search input{min-height:40px}
   .hero-icon{width:30px;height:30px}
   .hero h1{font-size:17px}
-  .hero p{font-size:12px}
+  .hero p{font-size:13px}
+  .card-points{font-size:14px}
+  .card-byline{font-size:13px}
   .drawer h3{font-size:21px}
   .drawer-close{width:36px;height:36px}
   .grid{grid-template-columns:1fr}
@@ -730,7 +742,7 @@ code{font-family:var(--mono);font-size:.92em}
 .archive-status{width:6px;height:6px;border-radius:50%;background:var(--teal);flex:none}
 .archive-headline{margin:0;font:600 clamp(28px,3.1vw,44px)/1.08 var(--sans);letter-spacing:-.045em;color:var(--ink)}
 .archive-headline em{font-style:normal;color:var(--accent)}
-.archive-intro{margin:15px 0 20px;color:var(--ink-dim);font:400 13px/1.65 var(--sans);max-width:44ch}
+.archive-intro{margin:15px 0 20px;color:var(--ink-dim);font:400 14px/1.65 var(--sans);max-width:44ch}
 .archive-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
 .archive-actions a{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:42px;font:600 11px/1.4 var(--sans);text-decoration:none;border-radius:var(--r-sm)}
 .archive-primary{padding:10px 15px;color:var(--accent-ink);background:var(--accent);border:1px solid var(--accent)}
@@ -744,18 +756,22 @@ code{font-family:var(--mono);font-size:.92em}
 .field-docs{fill:var(--accent)}
 .field-github{fill:var(--teal)}
 .field-community{fill:var(--violet)}
-.archive-banner figcaption{margin-top:-8px;text-align:center;color:var(--ink-mute);font:400 9px/1.6 var(--mono)}
+.archive-banner figcaption{margin-top:-8px;text-align:center;color:var(--ink-mute);font:400 10.5px/1.6 var(--mono)}
 #archiveFieldCount{color:var(--ink)}
 :root[data-theme="broadsheet"] .archive-banner{border-radius:0;border-bottom:3px double var(--line-2)}
 @media(min-width:1600px){.archive-banner-copy{padding-left:44px}.archive-banner{grid-template-columns:1.3fr 1fr}}
 @media(max-width:900px){.archive-banner{grid-template-columns:1.25fr 1fr}.archive-banner-copy{padding:24px}.archive-eyebrow{font-size:8px;letter-spacing:.05em}.field-caption-detail{display:none}.archive-actions{gap:14px}}
-@media(max-width:640px){.archive-banner{grid-template-columns:1fr;margin-bottom:16px}.archive-banner-copy{padding:24px 22px 4px}.archive-headline{font-size:32px}.archive-intro{font-size:12px}.archive-eyebrow{font-size:8px}.archive-actions{gap:18px}.archive-actions a{min-height:44px}.archive-banner-figure{padding:0 18px 16px}.archive-field{height:150px;margin-top:0}.archive-banner figcaption{margin-top:-4px}.field-caption-detail{display:inline}.wide-only{display:none}}
+/* On a phone the first screen was the top bar, this banner with a decorative dot-sphere,
+   a section header, a density toggle and a sort control — and then one card title at
+   y≈660 of 812. Someone arriving from a post had to scroll to see what the site is. The
+   sphere and the eyebrow go; the headline, one line of intro and the two actions stay. */
+@media(max-width:640px){.archive-banner{grid-template-columns:1fr;margin-bottom:12px}.archive-banner-copy{padding:18px 18px 16px}.archive-headline{font-size:28px}.archive-intro{font-size:14px;margin:10px 0 14px}.archive-eyebrow{display:none}.archive-actions{gap:14px}.archive-actions a{min-height:44px;font-size:13px}.archive-banner-figure{display:none}.wide-only{display:none}}
 /* The introduction already explains the archive; keep the shelf heading compact. */
 .archive-banner:not([hidden]) + .hero{padding:0 0 14px;border:0;background:none;margin-bottom:0}
 .archive-banner:not([hidden]) + .hero h1{font-size:16px}
 .archive-banner:not([hidden]) + .hero p{display:none}
 .archive-banner:not([hidden]) + .hero .hero-icon{width:30px;height:30px}
-@media(max-width:640px){.archive-banner-copy{padding-top:20px}.archive-headline{font-size:30px}.archive-field{height:110px}.archive-banner:not([hidden]) + .hero h1{font-size:14px}}
+@media(max-width:640px){.archive-banner:not([hidden]) + .hero h1{font-size:14px}}
 
 /* Source link: an open archive should say so where people can see it. */
 .repo-link{display:grid;place-items:center;color:var(--ink-dim);text-decoration:none}
