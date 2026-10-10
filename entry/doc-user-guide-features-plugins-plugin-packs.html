@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plugin packs · Hermes Agent Archive</title>
+<meta name="description" content="A plugin pack is a declarative, shareable YAML file ( hermes-pack.yaml ) that pins a set of plugins - like sharing a modpack.">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-plugin-packs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Plugin packs">
+<meta property="og:description" content="A plugin pack is a declarative, shareable YAML file ( hermes-pack.yaml ) that pins a set of plugins - like sharing a modpack.">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-plugin-packs">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Plugin packs">
+<meta name="twitter:description" content="A plugin pack is a declarative, shareable YAML file ( hermes-pack.yaml ) that pins a set of plugins - like sharing a modpack.">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/skills">Skills</a></header>
+
+<article>
+<h1>Plugin packs</h1>
+
+<p class="meta">From Official Docs</p>
+<p>A plugin pack is a declarative, shareable YAML file ( hermes-pack.yaml ) that pins a set of plugins - like sharing a modpack. Installing a pack fans out to ordinary pinned installs; nothing new exists at runtime. Supply-chain posture. Every entry&#39;s ref must be an exact 40-character commit SHA - tags and branch names are rejected with an error naming the entry, the same rule as the plugin catalog. Pack installs ride the exact same pinned install path as hermes plugins install --ref &lt;sha&gt; and record the same provenance in plugins/.install-metadata.json , so two installs of the same pack resolve identically. Packs build on the manifest v2 fields ( manifest_version , api_version , requires_plugins ) - each plugin&#39;s own manifest still validates through the normal install path. Consent is never bulk-granted. pack install shows a mandatory review screen (every plugin, source, pinned ref, and the capabilities it declares), then asks one confirmation for the pack contents. After that, each plugin&#39;s declared capabilities go through the standard per-plugin capability-consent prompt - identical to a single hermes plugins install . There is no --yes , and non-interactive sessions cannot install…</p>
+<p>From the official Hermes Agent documentation.</p>
+<pre><code>name: voice-assistant-pack
+description: STT + streaming TTS + approval relay
+author: hyper
+version: 1.0.0
+plugins:
+  - name: hermes-telegram-business       # bare plugin-catalog name…
+    ref: e905f3bc5eeaa5a9dab9bc5155601b3ebec75757
+  - repo: owner/approval-relay           # …or explicit owner/repo (or git URL)
+    ref: 8f3c2d1a9b4e5f6071829304a5b6c7d8e9f00112
+    subdir: plugins/relay                # optional monorepo path
+config:                                  # optional, non-secret seeds only
+  hermes-media-studio:
+    default_model: flux-3
+skills: []                               # declared list only (not auto-installed yet)</code></pre>
+<ul class="tags"><li>#plugins</li><li>#docs</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#plugin-packs" rel="noopener">Read the original</a>
+<a href="/#skills?item=doc-user-guide-features-plugins-plugin-packs">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

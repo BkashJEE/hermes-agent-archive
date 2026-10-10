@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What the allow-list does NOT gate · Hermes Agent Archive</title>
+<meta name="description" content="Several categories of plugin bypass plugins.enabled - they&#39;re part of Hermes&#39; built-in surface and would break basic functionality if gated off by…">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-what-the-allow-list-does-not-gate">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What the allow-list does NOT gate">
+<meta property="og:description" content="Several categories of plugin bypass plugins.enabled - they&#39;re part of Hermes&#39; built-in surface and would break basic functionality if gated off by…">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-what-the-allow-list-does-not-gate">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What the allow-list does NOT gate">
+<meta name="twitter:description" content="Several categories of plugin bypass plugins.enabled - they&#39;re part of Hermes&#39; built-in surface and would break basic functionality if gated off by…">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/skills">Skills</a></header>
+
+<article>
+<h1>What the allow-list does NOT gate</h1>
+
+<p class="meta">From Official Docs</p>
+<p>Several categories of plugin bypass plugins.enabled - they&#39;re part of Hermes&#39; built-in surface and would break basic functionality if gated off by default: Plugin kind How it&#39;s activated instead Bundled platform plugins (IRC, Teams, etc. under plugins/platforms/ ) Auto-loaded so every shipped gateway channel is available. The actual channel turns on via gateway.platforms.&lt;name&gt;.enabled in config.yaml . Bundled backends (image-gen providers under plugins/image_gen/ , etc.) Auto-loaded so the default backend &quot;just works&quot;. Selection happens via &lt;category&gt;.provider in config.yaml (e.g. image_gen.provider: openai ). Memory providers ( plugins/memory/ ) All discovered; exactly one is active, chosen by memory.provider in config.yaml . Context engines ( plugins/context_engine/ ) All discovered; one is active, chosen by context.engine in config.yaml . Model providers ( plugins/model-providers/ ) All bundled providers under plugins/model-providers/ discover and register at the first get_provider_profile() call. The user picks one at a time via --provider or config.yaml . Pip-installed backend plugins Opt-in via plugins.enabled (same as general plugins). User-installed platforms (under ~/.her…</p>
+<p>From the official Hermes Agent documentation.</p>
+
+<ul class="tags"><li>#plugins</li><li>#docs</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#what-the-allow-list-does-not-gate" rel="noopener">Read the original</a>
+<a href="/#skills?item=doc-user-guide-features-plugins-what-the-allow-list-does-not-gate">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

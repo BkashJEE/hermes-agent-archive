@@ -10,6 +10,36 @@ export const COMMUNITY_EXCEPTIONS = Object.freeze({
 export const communityException = repo => Object.hasOwn(COMMUNITY_EXCEPTIONS, repo?.toLowerCase())
   ? COMMUNITY_EXCEPTIONS[repo.toLowerCase()] : null;
 export const HERMES_REPOSITORIES = {
+  "outsourc-e/hermes-workspace": {
+    "url": "https://github.com/outsourc-e/hermes-workspace/blob/main/README.md",
+    "note": "A browser workspace over an existing Hermes agent: chat, terminal, memory, skills and a request inspector. Attach to an agent you already run, or let its install script fetch hermes-agent through Nous's own installer, clone the repo, write .env and install dependencies; then run `hermes gateway run` alongside it. The README states v2 runs on vanilla NousResearch/hermes-agent without forking it.",
+    "reviewedAt": "2026-10-04"
+  },
+  "nesquena/hermes-webui": {
+    "url": "https://github.com/nesquena/hermes-webui/blob/main/README.md",
+    "note": "Reaches an existing Hermes install from a browser or phone, using your current models and documenting an SSH tunnel as the access path. Native Windows setup is separate: Python 3.11+ and a virtualenv from the hermes-agent root. Near-parity with the CLI is the author's claim, not a measurement.",
+    "reviewedAt": "2026-10-04"
+  },
+  "dodo-reach/hermes-desktop": {
+    "url": "https://github.com/dodo-reach/hermes-desktop/blob/main/README.md",
+    "note": "A Mac app managing Hermes locally or on another machine over plain SSH, with no gateway and no exposed port. Sessions Chat, terminal resume and workflow launch require the hermes CLI on whichever machine runs it. Shipped as a zipped app; first launch needs right-click then Open, which the README notes does not disable Gatekeeper and does not need sudo.",
+    "reviewedAt": "2026-10-04"
+  },
+  "eynzof/hermes-cn-desktop": {
+    "url": "https://github.com/Eynzof/Hermes-CN-Desktop/blob/main/README.md",
+    "note": "A Windows-first Hermes desktop app in Tauri, Rust and TypeScript with a Chinese interface. Ships a named Windows x64 installer; local dashboard development expects either Hermes-CN-Core or a Hermes CLI already on the machine.",
+    "reviewedAt": "2026-10-04"
+  },
+  "rlaope/oh-my-hermes": {
+    "url": "https://github.com/rlaope/oh-my-hermes/blob/main/README.md",
+    "note": "Bundles a coding layer, long-term memory and an operating layer onto Hermes without replacing it. One install script, curl-to-sh on Unix or PowerShell on Windows. The project publishes INSTALL_FOR_AGENTS.md pinned to a resolved commit SHA so an agent installs a fixed revision rather than a moving branch.",
+    "reviewedAt": "2026-10-04"
+  },
+  "mnemosyne-oss/mnemosyne": {
+    "url": "https://github.com/mnemosyne-oss/mnemosyne/blob/main/README.md",
+    "note": "A SQLite-backed memory layer describing itself as Hermes-first, reaching Hermes through both MCP and a plugin. Its own compatibility table marks the Hermes integration native and shipping enabled while other harnesses need setup, and its data directory defaults to ~/.hermes/mnemosyne/data. One pure-Python dependency; memory stays on the machine.",
+    "reviewedAt": "2026-10-04"
+  },
   "tt-a1i/archify": {
     "url": "https://github.com/tt-a1i/archify/blob/main/integrations/hermes-agent/README.md",
     "note": "Documents an opt-in Hermes skill installation for interactive architecture diagrams. Requires Node.js 18 or newer and a session restart. This community integration uses the Node renderer; it adds no native Python render tools and is not an agent-switcher target. Docker needs the installed files available inside the mounted volume. Generated diagrams are not live-infrastructure verification.",

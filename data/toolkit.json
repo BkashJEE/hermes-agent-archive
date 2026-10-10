@@ -343,6 +343,21 @@
       "author": "tt-a1i",
       "url": "https://github.com/tt-a1i/archify#readme",
       "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "kit-mnemosyne",
+      "title": "mnemosyne-oss/mnemosyne",
+      "summary": "A SQLite-backed memory layer that calls itself Hermes-first and ships its Hermes plugin enabled by default.",
+      "detail": "WHY\nAgent memory usually means a cloud service and another account. This keeps it in SQLite on your own machine, with one pure-Python dependency.\n\nHOW\nIt reaches Hermes two ways — MCP and a plugin — and its own compatibility table marks the Hermes integration \"Native, ships enabled\" while other harnesses need setup. Its data directory defaults to ~/.hermes/mnemosyne/data, which is a fair indication of which harness it was built around.\n\nUSE CASE\nYou want the agent to remember across sessions without sending that memory anywhere.\n\nVerified: the README describes it as \"a universal, Hermes-first memory layer\" and documents the Hermes plugin in its own section.",
+      "tags": [
+        "memory",
+        "mcp",
+        "local-first"
+      ],
+      "source": "github",
+      "repo": "mnemosyne-oss/mnemosyne",
+      "author": "mnemosyne-oss",
+      "date": "2026-10-04"
     }
   ]
 }

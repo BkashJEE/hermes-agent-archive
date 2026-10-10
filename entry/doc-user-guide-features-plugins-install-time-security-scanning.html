@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Install-time security scanning · Hermes Agent Archive</title>
+<meta name="description" content="Every hermes plugins install and hermes plugins update runs a static security scan over the plugin tree before it is activated (inspired by Claude…">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-install-time-security-scanning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Install-time security scanning">
+<meta property="og:description" content="Every hermes plugins install and hermes plugins update runs a static security scan over the plugin tree before it is activated (inspired by Claude…">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-install-time-security-scanning">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Install-time security scanning">
+<meta name="twitter:description" content="Every hermes plugins install and hermes plugins update runs a static security scan over the plugin tree before it is activated (inspired by Claude…">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/skills">Skills</a></header>
+
+<article>
+<h1>Install-time security scanning</h1>
+
+<p class="meta">From Official Docs</p>
+<p>Every hermes plugins install and hermes plugins update runs a static security scan over the plugin tree before it is activated (inspired by Claude Cowork&#39;s skill &amp; plugin security scanning). The scanner reuses the same threat-pattern engine as the Skills Hub guard - exfiltration of credential stores, reverse shells, destructive commands, persistence mechanisms, obfuscated execution, and prompt injection in documentation files - with plugin-aware exemptions: a provider plugin reading its own API key from the environment (the documented requires_env pattern) is not flagged. Three verdicts, matching Cowork&#39;s pass/warn/fail: Verdict Behavior safe Installs normally, no extra output caution Findings are shown; you confirm Install anyway? [y/N] (or pass --force ) dangerous Blocked. --force does not override On hermes plugins update , a dangerous verdict on the updated tree disables the plugin until you review the findings and re-enable it. A dangerous block names the critical findings that caused it (e.g. 1 critical of 42 findings (destructive_root_rm) ), so a single blocking line is not hidden behind the total. Text that cannot run on the host at install time is scored as context , not a…</p>
+<p>From the official Hermes Agent documentation.</p>
+<pre><code>plugins:
+  scan_on_install: false</code></pre>
+<ul class="tags"><li>#plugins</li><li>#docs</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#install-time-security-scanning" rel="noopener">Read the original</a>
+<a href="/#skills?item=doc-user-guide-features-plugins-install-time-security-scanning">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

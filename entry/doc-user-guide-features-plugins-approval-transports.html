@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Approval transports · Hermes Agent Archive</title>
+<meta name="description" content="An approval transport changes where a human sees and answers an existing Hermes tool-approval request.">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-approval-transports">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Approval transports">
+<meta property="og:description" content="An approval transport changes where a human sees and answers an existing Hermes tool-approval request.">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-approval-transports">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Approval transports">
+<meta name="twitter:description" content="An approval transport changes where a human sees and answers an existing Hermes tool-approval request.">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/skills">Skills</a></header>
+
+<article>
+<h1>Approval transports</h1>
+
+<p class="meta">From Official Docs</p>
+<p>An approval transport changes where a human sees and answers an existing Hermes tool-approval request. It does not decide whether a command needs approval and it is not an authorization-policy API. present may be synchronous or async. Hermes runs it on a bounded worker and enforces the canonical approvals.timeout even if the plugin does not. The request is immutable and contains redacted display text, its host presentation class ( cli or gateway ), the host timeout, allowed choices, and an opaque request ID/digest. Return the result of request.respond(choice) ; unbound dictionaries and stale or changed request IDs/digests are rejected. A plugin cannot return a scope that the host did not offer (for example, always on a once-only request). Registration alone does nothing. Enabling the plugin and explicitly selecting its transport are separate consent steps: Transport exceptions, timeouts, unavailable registrations, invalid choices, and stale responses deny by default. To deliberately show the prompt on the ordinary CLI/TUI/gateway/ACP surface when the selected transport fails, set transport_fallback: builtin . Without that exact opt-in, Hermes never materializes the prompt on anothe…</p>
+<p>From the official Hermes Agent documentation.</p>
+<pre><code>def present(request):
+    # Deliver request.command and request.description to your UI, wait for
+    # its authenticated human response, then return a request-bound decision.
+    choice = send_to_my_ui_and_wait(request)  # once/session/always/deny
+    return request.respond(choice)
+
+def register(ctx):
+    ctx.register_approval_transport(&quot;my-ui&quot;, present)</code></pre>
+<ul class="tags"><li>#plugins</li><li>#docs</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#approval-transports" rel="noopener">Read the original</a>
+<a href="/#skills?item=doc-user-guide-features-plugins-approval-transports">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

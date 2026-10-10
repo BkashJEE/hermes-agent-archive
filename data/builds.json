@@ -658,6 +658,66 @@
         "value": 8357
       },
       "credit": "jev-use-cases.com"
+    },
+    {
+      "id": "build-hermes-workspace",
+      "title": "outsourc-e/hermes-workspace",
+      "summary": "A web workspace for Hermes — chat, terminal, memory, skills and an inspector — that attaches to the agent you already run.",
+      "detail": "WHY\nHermes runs in a terminal, which is where the work happens and not where you want to read a long session back. This is a browser workspace over the same agent: chat, terminal, memory, skills and a request inspector in one place.\n\nHOW\nIts README documents two paths. If you already run Hermes Agent, attach to it — the project advertises about a minute for that. Otherwise its install script fetches hermes-agent through Nous's own installer, clones the repo, writes .env and installs dependencies. You then run `hermes gateway run` alongside it.\n\nUSE CASE\nYou want to read back what the agent did without scrolling a terminal, or hand a session to somebody who will not use a CLI.\n\nVerified: the README states v2 runs on vanilla NousResearch/hermes-agent without forking it.",
+      "tags": [
+        "workspace",
+        "web-ui",
+        "self-hosted"
+      ],
+      "source": "github",
+      "repo": "outsourc-e/hermes-workspace",
+      "author": "outsourc-e",
+      "date": "2026-10-04"
+    },
+    {
+      "id": "build-hermes-webui",
+      "title": "nesquena/hermes-webui",
+      "summary": "Hermes from a browser or a phone, claiming near parity with the CLI over an SSH tunnel.",
+      "detail": "WHY\nThe CLI is fine at a desk and useless on a phone. This exposes the same agent through a web interface reachable from any device.\n\nHOW\nIt uses your existing Hermes setup and models rather than asking for new configuration, and documents reaching it securely through an SSH tunnel. Native Windows setup is documented separately: Python 3.11+, then a virtualenv from the hermes-agent root.\n\nUSE CASE\nChecking on a long-running session from a phone, or driving the agent from a machine that has no Hermes install of its own.\n\nVerified: the README claims near 1:1 parity with the Hermes CLI and names the SSH tunnel as the access path. Parity is the author's claim, not a measurement.",
+      "tags": [
+        "web-ui",
+        "mobile",
+        "remote"
+      ],
+      "source": "github",
+      "repo": "nesquena/hermes-webui",
+      "author": "nesquena",
+      "date": "2026-10-04"
+    },
+    {
+      "id": "build-hermes-desktop-mac",
+      "title": "dodo-reach/hermes-desktop",
+      "summary": "A Mac app that manages Hermes locally or on another machine over plain SSH, with no gateway and no exposed port.",
+      "detail": "WHY\nRunning Hermes on a second machine usually means exposing something. This connects over SSH instead, so nothing new listens on the network.\n\nHOW\nDirect-local mode when Hermes is installed on the same Mac; SSH mode for another host. Sessions Chat, terminal resume and workflow launch need the `hermes` CLI present on whichever machine is running it. Distributed as a zipped app; first launch needs right-click → Open, which the README notes does not disable Gatekeeper and does not need sudo.\n\nUSE CASE\nYour agent lives on a server or a spare machine and you want a real window onto it rather than an SSH session.\n\nVerified: the README documents both modes and states that no gateway or exposed port is involved.",
+      "tags": [
+        "desktop",
+        "macos",
+        "ssh"
+      ],
+      "source": "github",
+      "repo": "dodo-reach/hermes-desktop",
+      "author": "dodo-reach",
+      "date": "2026-10-04"
+    },
+    {
+      "id": "build-hermes-cn-desktop",
+      "title": "Eynzof/Hermes-CN-Desktop",
+      "summary": "A Windows-first Hermes desktop app built with Tauri, Rust and TypeScript, aimed at Chinese-language users.",
+      "detail": "WHY\nMost Hermes front-ends assume macOS or Linux and English. This one leads with a Windows x64 installer and a Chinese interface.\n\nHOW\nShips a signed Windows installer. For local dashboard development it expects either Hermes-CN-Core or a Hermes CLI already installed on the machine.\n\nUSE CASE\nRunning Hermes on Windows without building from source, or working in Chinese.\n\nVerified: the README lists the Windows x64 installer by filename and names its Hermes CLI dependency.",
+      "tags": [
+        "desktop",
+        "windows",
+        "localisation"
+      ],
+      "source": "github",
+      "repo": "Eynzof/Hermes-CN-Desktop",
+      "author": "Eynzof",
+      "date": "2026-10-04"
     }
   ],
   "jevImportedAt": "2026-09-29T18:47:39.848Z"

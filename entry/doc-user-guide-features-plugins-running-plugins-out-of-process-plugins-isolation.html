@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Running plugins out of process (plugins.isolation) · Hermes Agent Archive</title>
+<meta name="description" content="By default third-party Python plugins are imported into the Hermes process, as they always have been.">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-running-plugins-out-of-process-plugins-isolation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Running plugins out of process (plugins.isolation)">
+<meta property="og:description" content="By default third-party Python plugins are imported into the Hermes process, as they always have been.">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-running-plugins-out-of-process-plugins-isolation">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Running plugins out of process (plugins.isolation)">
+<meta name="twitter:description" content="By default third-party Python plugins are imported into the Hermes process, as they always have been.">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/skills">Skills</a></header>
+
+<article>
+<h1>Running plugins out of process (plugins.isolation)</h1>
+
+<p class="meta">From Official Docs</p>
+<p>By default third-party Python plugins are imported into the Hermes process, as they always have been. Setting plugins.isolation: host moves them into a plugin host : one separate Python process per profile, started on demand, that imports the profile&#39;s user-installed plugins and talks to Hermes over a private pipe. Plugins do not change. They receive the same ctx and register tools, hooks, slash commands, skills and provider objects (image/video generation, web search, browser, TTS/STT, memory, context engines, model-provider profiles) exactly as before; Hermes registers matching entries on its side that call into the host. Dashboard plugin APIs are served by the host too. Bundled plugins keep running in-process. What changes in host mode: No shared interpreter. A plugin&#39;s module never enters the Hermes process, so it cannot read another profile&#39;s data from memory or patch Hermes internals. Under the multiplex gateway every profile gets its own host, started with only that profile&#39;s environment and secrets. Crashes stay contained. A plugin that crashes or exits kills its host, not Hermes; the call in flight returns a tool error and Hermes restarts the host and reloads its plugins (…</p>
+<p>From the official Hermes Agent documentation.</p>
+<pre><code>plugins:
+  isolation: host        # default: in_process
+  host:
+    launcher: []         # optional argv prefix for the host, e.g. a sandbox runner</code></pre>
+<ul class="tags"><li>#plugins</li><li>#docs</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#running-plugins-out-of-process-pluginsisolation" rel="noopener">Read the original</a>
+<a href="/#skills?item=doc-user-guide-features-plugins-running-plugins-out-of-process-plugins-isolation">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Minimal working example · Hermes Agent Archive</title>
+<meta name="description" content="Here is a complete plugin that adds a hello_world tool and logs every tool call via a hook.">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-minimal-working-example">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Minimal working example">
+<meta property="og:description" content="Here is a complete plugin that adds a hello_world tool and logs every tool call via a hook.">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-minimal-working-example">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Minimal working example">
+<meta name="twitter:description" content="Here is a complete plugin that adds a hello_world tool and logs every tool call via a hook.">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/skills">Skills</a></header>
+
+<article>
+<h1>Minimal working example</h1>
+
+<p class="meta">From Official Docs</p>
+<p>Here is a complete plugin that adds a hello_world tool and logs every tool call via a hook. ~/.hermes/plugins/hello-world/plugin.yaml ~/.hermes/plugins/hello-world/__init__.py Drop both files into ~/.hermes/plugins/hello-world/ , restart Hermes, and the model can immediately call hello_world . The hook prints a log line after every tool invocation. The model-facing tool description belongs in schema[&quot;description&quot;] . The optional ctx.register_tool(description=...) value is separate ToolEntry registry metadata: when omitted, it defaults to the schema description, but Hermes does not copy it back into a schema that lacks description . Prefer defining the text once in the schema. If you provide both values, keep them synchronized; the model sees the schema value. Project-local plugins under ./.hermes/plugins/ are disabled by default. Enable them only for trusted repositories by setting HERMES_ENABLE_PROJECT_PLUGINS=true before starting Hermes.</p>
+<p>From the official Hermes Agent documentation.</p>
+<pre><code>name: hello-world
+version: &quot;1.0&quot;
+description: A minimal example plugin</code></pre>
+<ul class="tags"><li>#plugins</li><li>#docs</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#minimal-working-example" rel="noopener">Read the original</a>
+<a href="/#skills?item=doc-user-guide-features-plugins-minimal-working-example">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

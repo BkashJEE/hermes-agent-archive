@@ -17,7 +17,7 @@ const TYPES = {
 export async function createArchiveServer(root = ROOT) {
   root = await realpath(root);
   const cfg = JSON.parse(await readFile(resolve(root, 'data/index.json'), 'utf8'));
-  const publicFiles = new Set(['index.html', 'robots.txt', 'sitemap.xml', 'data/index.json', 'data/live.json', 'data/rankings.json']);
+  const publicFiles = new Set(['index.html', 'robots.txt', 'sitemap.xml', 'data/index.json', 'data/live.json', 'data/rankings.json', 'data/added.json']);
   for (const section of cfg.sections) {
     if (!section.file) continue;
     if (!/^[a-z0-9-]+\.json$/i.test(section.file)) throw new Error('Invalid section file');

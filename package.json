@@ -24,7 +24,10 @@
     "tricks": "node scripts/extract-tricks.mjs",
     "plugin": "node scripts/install-plugin.mjs",
     "harvest": "node scripts/harvest.mjs",
-    "discover": "node scripts/discover-hermes-topic.mjs"
+    "discover": "node scripts/discover-hermes-topic.mjs",
+    "scout": "node scripts/scout-candidates.mjs",
+    "skills": "node --max-old-space-size=4096 scripts/import-official-skills.mjs",
+    "added": "node scripts/build-added-dates.mjs"
   },
   "engines": {
     "node": ">=20"
