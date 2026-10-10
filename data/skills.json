@@ -5500,6 +5500,230 @@
       "author": "Anthropic",
       "url": "https://github.com/anthropics/skills/tree/main/skills/webapp-testing",
       "verifiedAt": "2026-10-09"
+    },
+    {
+      "id": "plugin-official-claude-subscription-directsdk",
+      "title": "Claude Subscription Direct SDK",
+      "summary": "Experimental model provider that runs Hermes turns on a Claude Pro/Max subscription through the official Claude Code CLI (the Agent SDK path), so no separate API key or per-token bill. Requires the claude CLI installed and logged in; the plugin checks for it at load, in hermes model, in the pickers and before every request, and refuses cleanly with the install hint when it is missing. Disclosure — every turn is billed against your Claude subscription's Agent SDK allowance, and the provider inherits whatever account claude is logged into.",
+      "detail": "Experimental model provider that runs Hermes turns on a Claude Pro/Max subscription through the official Claude Code CLI (the Agent SDK path), so no separate API key or per-token bill. Requires the claude CLI installed and logged in; the plugin checks for it at load, in hermes model, in the pickers and before every request, and refuses cleanly with the install hint when it is missing. Disclosure — every turn is billed against your Claude subscription's Agent SDK allowance, and the provider inherits whatever account claude is logged into.\n\nRequires Hermes >=0.21.4. Version 0.3.3 at import.",
+      "snippet": "hermes plugins install claude-subscription-directsdk",
+      "tags": [
+        "skills",
+        "plugin",
+        "official-plugin",
+        "models"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/plugins/claude-subscription-directsdk",
+      "verifiedAt": "2026-10-10"
+    },
+    {
+      "id": "plugin-official-hermes-telegram-business",
+      "title": "Telegram Business",
+      "summary": "Observe-with-approval Telegram Business Mode (secretary bot): every drafted customer reply needs owner approval before it is sent.",
+      "detail": "Observe-with-approval Telegram Business Mode (secretary bot): every drafted customer reply needs owner approval before it is sent.",
+      "snippet": "hermes plugins install hermes-telegram-business",
+      "tags": [
+        "skills",
+        "plugin",
+        "official-plugin",
+        "platform"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/plugins/hermes-telegram-business",
+      "verifiedAt": "2026-10-10"
+    },
+    {
+      "id": "plugin-official-hermes-memory-wiki",
+      "title": "Memory Wiki",
+      "summary": "Memory Wiki dashboard tab: browsable subject pages and daily logs derived from local session history, plus a read-only Persistent Memory (MEMORY.md / USER.md) audit panel.",
+      "detail": "Memory Wiki dashboard tab: browsable subject pages and daily logs derived from local session history, plus a read-only Persistent Memory (MEMORY.md / USER.md) audit panel.\n\nRequires Hermes >=0.21.",
+      "snippet": "hermes plugins install hermes-memory-wiki",
+      "tags": [
+        "skills",
+        "plugin",
+        "official-plugin",
+        "desktop"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/plugins/hermes-memory-wiki",
+      "verifiedAt": "2026-10-10"
+    },
+    {
+      "id": "plugin-official-snyk",
+      "title": "Snyk",
+      "summary": "Scan code (SAST), dependencies, container images, IaC and SBOMs with Snyk through its first-party MCP server (pinned snyk@1.1306.0 over npx stdio, CLI analytics disabled), with the snyk-security-scan workflow skill bundled. Portable Agent Plugins v1 package (mcp.json + skills/); needs Node.js/npm on PATH and a free Snyk account (browser login via the snyk_auth tool).",
+      "detail": "Scan code (SAST), dependencies, container images, IaC and SBOMs with Snyk through its first-party MCP server (pinned snyk@1.1306.0 over npx stdio, CLI analytics disabled), with the snyk-security-scan workflow skill bundled. Portable Agent Plugins v1 package (mcp.json + skills/); needs Node.js/npm on PATH and a free Snyk account (browser login via the snyk_auth tool).",
+      "snippet": "hermes plugins install snyk",
+      "tags": [
+        "skills",
+        "plugin",
+        "official-plugin",
+        "tools"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/plugins/snyk",
+      "verifiedAt": "2026-10-10"
+    },
+    {
+      "id": "plugin-official-blender",
+      "title": "Blender",
+      "summary": "Official Blender Lab MCP server over stdio, pinned to upstream v1.0.3, with a Blender workflow skill. Requires Blender 5.1+, its separately installed MCP add-on, Git and uv. First startup downloads Python dependencies; prepare the uv environment before connecting. Disclosure — tools execute arbitrary Python in Blender with your privileges; first start downloads the pinned Blender Lab MCP server and its Python dependencies with uv; at install Hermes looks for Blender in the standard install locations (Windows uninstall registry and Program Files, /Applications and the Steam library on macOS, PATH, flatpak, snap and Steam on Linux) and refuses the install when it is missing. Server discovery does not prove scene readiness.",
+      "detail": "Official Blender Lab MCP server over stdio, pinned to upstream v1.0.3, with a Blender workflow skill. Requires Blender 5.1+, its separately installed MCP add-on, Git and uv. First startup downloads Python dependencies; prepare the uv environment before connecting. Disclosure — tools execute arbitrary Python in Blender with your privileges; first start downloads the pinned Blender Lab MCP server and its Python dependencies with uv; at install Hermes looks for Blender in the standard install locations (Windows uninstall registry and Program Files, /Applications and the Steam library on macOS, PATH, flatpak, snap and Steam on Linux) and refuses the install when it is missing. Server discovery does not prove scene readiness.\n\nPlatforms: windows, macos, linux. Version 0.2.0 at import.",
+      "snippet": "hermes plugins install blender",
+      "tags": [
+        "skills",
+        "plugin",
+        "official-plugin",
+        "tools"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/plugins/blender",
+      "verifiedAt": "2026-10-10"
+    },
+    {
+      "id": "plugin-official-touchdesigner",
+      "title": "TouchDesigner",
+      "summary": "Drive a live TouchDesigner session through the twozero MCP server (Streamable HTTP on 127.0.0.1:40404), with the touchdesigner-mcp workflow skill bundled. Portable Agent Plugins v1 package (mcp.json + skills/); TouchDesigner itself runs on macOS/Windows.",
+      "detail": "Drive a live TouchDesigner session through the twozero MCP server (Streamable HTTP on 127.0.0.1:40404), with the touchdesigner-mcp workflow skill bundled. Portable Agent Plugins v1 package (mcp.json + skills/); TouchDesigner itself runs on macOS/Windows.",
+      "snippet": "hermes plugins install touchdesigner",
+      "tags": [
+        "skills",
+        "plugin",
+        "official-plugin",
+        "tools"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/plugins/touchdesigner",
+      "verifiedAt": "2026-10-10"
+    },
+    {
+      "id": "plugin-official-homeassistant",
+      "title": "Home Assistant",
+      "summary": "Home Assistant gateway platform (state-change events in, persistent notifications and cron notify delivery out) plus the homeassistant toolset (ha_list_entities, ha_get_state, ha_list_services, ha_call_service). Formerly built into Hermes core; existing users are migrated automatically.",
+      "detail": "Home Assistant gateway platform (state-change events in, persistent notifications and cron notify delivery out) plus the homeassistant toolset (ha_list_entities, ha_get_state, ha_list_services, ha_call_service). Formerly built into Hermes core; existing users are migrated automatically.\n\nRequires Hermes >=0.21.5. Tools: ha_list_entities, ha_get_state, ha_list_services, ha_call_service. Environment: HASS_TOKEN. Version 2.0.1 at import.",
+      "snippet": "hermes plugins install homeassistant",
+      "tags": [
+        "skills",
+        "plugin",
+        "official-plugin",
+        "platform"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/plugins/homeassistant",
+      "verifiedAt": "2026-10-10"
+    },
+    {
+      "id": "plugin-official-nvidia-app",
+      "title": "NVIDIA App",
+      "summary": "NVIDIA App control through its local MCP server: overlay capture and state, driver status and release notes, game optimization, and app launch. Requires NVIDIA App 11.0 or newer on Windows; the install is refused when the app is absent, and the tools appear while the app's service is running. The plugin reads the endpoint and token NVIDIA App publishes in its own McpServer server.json on every connection, so a changed port or token needs no reconfiguration. Disclosure: the tools read and change NVIDIA App settings on this machine; nothing leaves loopback.",
+      "detail": "NVIDIA App control through its local MCP server: overlay capture and state, driver status and release notes, game optimization, and app launch. Requires NVIDIA App 11.0 or newer on Windows; the install is refused when the app is absent, and the tools appear while the app's service is running. The plugin reads the endpoint and token NVIDIA App publishes in its own McpServer server.json on every connection, so a changed port or token needs no reconfiguration. Disclosure: the tools read and change NVIDIA App settings on this machine; nothing leaves loopback.\n\nRequires Hermes >=0.21.4. Platforms: windows. Version 0.1.0 at import.",
+      "snippet": "hermes plugins install nvidia-app",
+      "tags": [
+        "skills",
+        "plugin",
+        "official-plugin",
+        "tools"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/plugins/nvidia-app",
+      "verifiedAt": "2026-10-10"
+    },
+    {
+      "id": "plugin-official-nvidia-broadcast",
+      "title": "NVIDIA Broadcast",
+      "summary": "NVIDIA Broadcast control through its local MCP gateway: camera, microphone and speaker effects, Studio Voice profiles, device selection, camera resolution, and effects on local media files. Requires NVIDIA Broadcast 2.3 or newer on Windows (2.2 and older have no gateway); the install is refused when the app is absent, and the tools appear while NVIDIA Broadcast is running in the user's desktop session. Disclosure: the tools change live audio and video effects on this machine; nothing leaves loopback.",
+      "detail": "NVIDIA Broadcast control through its local MCP gateway: camera, microphone and speaker effects, Studio Voice profiles, device selection, camera resolution, and effects on local media files. Requires NVIDIA Broadcast 2.3 or newer on Windows (2.2 and older have no gateway); the install is refused when the app is absent, and the tools appear while NVIDIA Broadcast is running in the user's desktop session. Disclosure: the tools change live audio and video effects on this machine; nothing leaves loopback.\n\nRequires Hermes >=0.21.4. Platforms: windows. Version 0.1.0 at import.",
+      "snippet": "hermes plugins install nvidia-broadcast",
+      "tags": [
+        "skills",
+        "plugin",
+        "official-plugin",
+        "tools"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/plugins/nvidia-broadcast",
+      "verifiedAt": "2026-10-10"
+    },
+    {
+      "id": "plugin-official-spotify",
+      "title": "Spotify",
+      "summary": "Spotify for Hermes: seven tools (playback, devices, queue, search, playlists, albums, library) over the Spotify Web API, plus `hermes spotify login|status|logout` (loopback PKCE with your own Spotify developer app; Premium needed for playback control). Formerly built into Hermes core; existing users are migrated automatically.",
+      "detail": "Spotify for Hermes: seven tools (playback, devices, queue, search, playlists, albums, library) over the Spotify Web API, plus `hermes spotify login|status|logout` (loopback PKCE with your own Spotify developer app; Premium needed for playback control). Formerly built into Hermes core; existing users are migrated automatically.\n\nRequires Hermes >=0.21.6. Tools: spotify_playback, spotify_devices, spotify_queue, spotify_search, spotify_playlists, spotify_albums, spotify_library. Version 2.0.0 at import.",
+      "snippet": "hermes plugins install spotify",
+      "tags": [
+        "skills",
+        "plugin",
+        "official-plugin",
+        "tools"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/plugins/spotify",
+      "verifiedAt": "2026-10-10"
+    },
+    {
+      "id": "plugin-community-mem0",
+      "title": "Mem0",
+      "summary": "Mem0 memory provider — server-side LLM fact extraction with semantic search, automatic deduplication and opt-in reranking, in platform, self-hosted or local OSS mode. Maintained by Mem0; the same provider that shipped in-tree. Disclosure — conversation turns and recall queries go to the configured Mem0 backend (api.mem0.ai in platform mode); at this pin the mem0ai library's anonymous PostHog usage telemetry stays on unless MEM0_TELEMETRY=false is set; `hermes memory setup` can start Docker (pgvector) and Ollama containers for local mode.",
+      "detail": "Mem0 memory provider — server-side LLM fact extraction with semantic search, automatic deduplication and opt-in reranking, in platform, self-hosted or local OSS mode. Maintained by Mem0; the same provider that shipped in-tree. Disclosure — conversation turns and recall queries go to the configured Mem0 backend (api.mem0.ai in platform mode); at this pin the mem0ai library's anonymous PostHog usage telemetry stays on unless MEM0_TELEMETRY=false is set; `hermes memory setup` can start Docker (pgvector) and Ollama containers for local mode.\n\nVersion 1.3.0 at import.\n\nMaintained by mem0ai and installed into Hermes from the official plugin catalogue.",
+      "snippet": "hermes plugins install mem0",
+      "tags": [
+        "skills",
+        "plugin",
+        "community-plugin",
+        "memory"
+      ],
+      "source": "github",
+      "repo": "mem0ai/mem0",
+      "author": "mem0ai",
+      "url": "https://github.com/mem0ai/mem0/tree/main/integrations/hermes-plugin-mem0#readme",
+      "verifiedAt": "2026-10-10"
+    },
+    {
+      "id": "plugin-community-mnemosyne",
+      "title": "Mnemosyne",
+      "summary": "Local-first memory layer for Hermes Agent — SQLite with vector + FTS5 hybrid recall, episodic consolidation, temporal knowledge graph. Zero cloud. Disclosure — the mnemosyne_remember_media tool refuses local file paths unless MNEMOSYNE_MEDIA_ALLOWED_PATHS is set and sends media only to an operator-configured OpenAI-compatible endpoint when modality_enabled is on; video uses ffmpeg/ffprobe from PATH; the embedding model (BAAI/bge-small-en-v1.5) downloads from Hugging Face on first use.",
+      "detail": "Local-first memory layer for Hermes Agent — SQLite with vector + FTS5 hybrid recall, episodic consolidation, temporal knowledge graph. Zero cloud. Disclosure — the mnemosyne_remember_media tool refuses local file paths unless MNEMOSYNE_MEDIA_ALLOWED_PATHS is set and sends media only to an operator-configured OpenAI-compatible endpoint when modality_enabled is on; video uses ffmpeg/ffprobe from PATH; the embedding model (BAAI/bge-small-en-v1.5) downloads from Hugging Face on first use.\n\nRequires Hermes >=0.21.4. Tools: mnemosyne_apply_pending, mnemosyne_batch, mnemosyne_diagnose, mnemosyne_export, mnemosyne_forget, mnemosyne_forget_canonical, mnemosyne_get, mnemosyne_graph_link, mnemosyne_graph_query, mnemosyne_import, mnemosyne_invalidate, mnemosyne_model_card, mnemosyne_model_refresh, mnemosyne_persona_demote, mnemosyne_persona_list, mnemosyne_persona_promote, mnemosyne_persona_reinforce, mnemosyne_recall, mnemosyne_recall_canonical, mnemosyne_recall_diagnostics, mnemosyne_remember, mnemosyne_remember_canonical, mnemosyne_remember_media, mnemosyne_scratchpad_clear, mnemosyne_scratchpad_read, mnemosyne_scratchpad_write, mnemosyne_shared_forget, mnemosyne_shared_recall, mnemosyne_shared_remember, mnemosyne_shared_stats, mnemosyne_sleep, mnemosyne_stats, mnemosyne_sync_pull, mnemosyne_sync_push, mnemosyne_sync_status, mnemosyne_task_progress, mnemosyne_triple_add, mnemosyne_triple_end, mnemosyne_triple_query, mnemosyne_update, mnemosyne_validate. Version 0.7.3 at import.\n\nMaintained by mnemosyne-oss and installed into Hermes from the official plugin catalogue.",
+      "snippet": "hermes plugins install mnemosyne",
+      "tags": [
+        "skills",
+        "plugin",
+        "community-plugin",
+        "memory"
+      ],
+      "source": "github",
+      "repo": "mnemosyne-oss/mnemosyne",
+      "author": "mnemosyne-oss",
+      "url": "https://github.com/mnemosyne-oss/mnemosyne",
+      "verifiedAt": "2026-10-10"
+    },
+    {
+      "id": "plugin-community-omh",
+      "title": "OMH",
+      "summary": "Oh My Hermes (OMH) bridge: routing hints and role context for OMH workflow skills, per-task delegation model routing, plan todos and a status tool, a Hermes Desktop status pane (off until enabled), bounded evidence probes that keep prepared work apart from observed results, and a file-backed memory provider. Disclosure — omh_delegate_route writes delegation.model/provider/reasoning_effort in $HERMES_HOME/config.yaml and the session hooks restore them; omh_gather_evidence runs allowlisted checks (python -m unittest with reporting flags only, python -m compileall, git diff --check, omh doctor/probe/docs/release checks) via subprocess on the host, outside any sandboxed terminal backend and without Hermes' terminal approval, in the agent working directory or below it, so it runs whatever test code that directory holds; omh_team (only with the separate OMH core package installed) asks once through the Hermes approval prompt for an exact list of up to 8 check commands from an accepted plan, then runs them on the host as each helper returns; omh_jev_ask posts model-supplied state and questions to api.typesafe.ai (openrouter.ai only when the operator opts in via ~/.omh/jev/settings.json) with the user's own TYPESAFE_API_KEY or OPENROUTER_API_KEY, only in a turn where the user names Jev; opt-in egress_attempts (re-registers chosen core tools, needs the operator's tool-override grant) and browser_adapter (vetoes core browser_* tools) settings; reads session and cost metadata from state.db read-only; state lives under ~/.omh and <project>/.omh.",
+      "detail": "Oh My Hermes (OMH) bridge: routing hints and role context for OMH workflow skills, per-task delegation model routing, plan todos and a status tool, a Hermes Desktop status pane (off until enabled), bounded evidence probes that keep prepared work apart from observed results, and a file-backed memory provider. Disclosure — omh_delegate_route writes delegation.model/provider/reasoning_effort in $HERMES_HOME/config.yaml and the session hooks restore them; omh_gather_evidence runs allowlisted checks (python -m unittest with reporting flags only, python -m compileall, git diff --check, omh doctor/probe/docs/release checks) via subprocess on the host, outside any sandboxed terminal backend and without Hermes' terminal approval, in the agent working directory or below it, so it runs whatever test code that directory holds; omh_team (only with the separate OMH core package installed) asks once through the Hermes approval prompt for an exact list of up to 8 check commands from an accepted plan, then runs them on the host as each helper returns; omh_jev_ask posts model-supplied state and questions to api.typesafe.ai (openrouter.ai only when the operator opts in via ~/.omh/jev/settings.json) with the user's own TYPESAFE_API_KEY or OPENROUTER_API_KEY, only in a turn where the user names Jev; opt-in egress_attempts (re-registers chosen core tools, needs the operator's tool-override grant) and browser_adapter (vetoes core browser_* tools) settings; reads session and cost metadata from state.db read-only; state lives under ~/.omh and <project>/.omh.\n\nRequires Hermes >=0.21.1. Tools: omh_agent_board, omh_capabilities, omh_context, omh_decision_gate, omh_delegate_route, omh_document_plan, omh_gather_evidence, omh_hud, omh_interact, omh_jev_ask, omh_loop, omh_memory, omh_probe, omh_recommend, omh_resume, omh_role, omh_route_answer, omh_run_summary, omh_source_trust, omh_status, omh_team, omh_todo. Version 3.0.0 at import.\n\nMaintained by rlaope and installed into Hermes from the official plugin catalogue.",
+      "snippet": "hermes plugins install omh",
+      "tags": [
+        "skills",
+        "plugin",
+        "community-plugin",
+        "tools"
+      ],
+      "source": "github",
+      "repo": "rlaope/oh-my-hermes",
+      "author": "rlaope",
+      "url": "https://github.com/rlaope/oh-my-hermes",
+      "verifiedAt": "2026-10-10"
     }
   ]
 }

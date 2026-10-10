@@ -167,7 +167,13 @@ on 2026-09-28 UTC: CliffWade/hermes-desktop-theme-pack, CliffWade/hermes-command
 and CliffWade/hermes-desktop-achievements. Keep this exact allowlist in
 `assets/js/github-policy.js`, label exceptions visibly, require fetched counts and
 documented Hermes support, and preserve the normal floor for discovery and Trending.
-Do not extend this exception to other repositories or all projects by the same author. Require upstream documentation of Hermes
+Do not extend this exception to other repositories or all projects by the same author.
+
+Official Nous Research plugins listed in the official catalogue (`tier: official` in
+`docs/api/plugins.json`) are first-party documentation, not third-party repositories:
+the owner admitted them on 2026-10-10 as `docs` entries linking to their page on the
+official site, imported by `scripts/import-official-plugins.mjs`. Community plugins
+stay under the normal floor and need a `HERMES_REPOSITORIES` record like any repo. Require upstream documentation of Hermes
 support in `assets/js/github-policy.js`; a keyword mention or Jev assessment alone
 is not evidence of integration. Unknown counts are excluded. Apply the same
 threshold to discovery and routing. Keep stored content so a later qualifying count

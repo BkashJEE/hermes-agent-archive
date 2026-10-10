@@ -27,7 +27,8 @@
     "discover": "node scripts/discover-hermes-topic.mjs",
     "scout": "node scripts/scout-candidates.mjs",
     "skills": "node --max-old-space-size=4096 scripts/import-official-skills.mjs",
-    "added": "node scripts/build-added-dates.mjs"
+    "added": "node scripts/build-added-dates.mjs",
+    "plugins": "node scripts/import-official-plugins.mjs"
   },
   "engines": {
     "node": ">=20"

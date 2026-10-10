@@ -1,0 +1,85 @@
+{
+  "source": "https://hermes-agent.nousresearch.com/docs/api/plugins.json",
+  "passes": [
+    {
+      "importedAt": "2026-10-10T19:18:14.049Z",
+      "counts": {
+        "catalogue": 540,
+        "official": 10,
+        "documented": 3,
+        "imported": 13,
+        "alreadyPresent": 0,
+        "deadLinks": 0
+      },
+      "imported": [
+        {
+          "id": "plugin-official-claude-subscription-directsdk",
+          "title": "Claude Subscription Direct SDK",
+          "url": "https://hermes-agent.nousresearch.com/docs/plugins/claude-subscription-directsdk"
+        },
+        {
+          "id": "plugin-official-hermes-telegram-business",
+          "title": "Telegram Business",
+          "url": "https://hermes-agent.nousresearch.com/docs/plugins/hermes-telegram-business"
+        },
+        {
+          "id": "plugin-official-hermes-memory-wiki",
+          "title": "Memory Wiki",
+          "url": "https://hermes-agent.nousresearch.com/docs/plugins/hermes-memory-wiki"
+        },
+        {
+          "id": "plugin-official-snyk",
+          "title": "Snyk",
+          "url": "https://hermes-agent.nousresearch.com/docs/plugins/snyk"
+        },
+        {
+          "id": "plugin-official-blender",
+          "title": "Blender",
+          "url": "https://hermes-agent.nousresearch.com/docs/plugins/blender"
+        },
+        {
+          "id": "plugin-official-touchdesigner",
+          "title": "Touchdesigner",
+          "url": "https://hermes-agent.nousresearch.com/docs/plugins/touchdesigner"
+        },
+        {
+          "id": "plugin-official-homeassistant",
+          "title": "Homeassistant",
+          "url": "https://hermes-agent.nousresearch.com/docs/plugins/homeassistant"
+        },
+        {
+          "id": "plugin-official-nvidia-app",
+          "title": "NVIDIA App",
+          "url": "https://hermes-agent.nousresearch.com/docs/plugins/nvidia-app"
+        },
+        {
+          "id": "plugin-official-nvidia-broadcast",
+          "title": "NVIDIA Broadcast",
+          "url": "https://hermes-agent.nousresearch.com/docs/plugins/nvidia-broadcast"
+        },
+        {
+          "id": "plugin-official-spotify",
+          "title": "Spotify",
+          "url": "https://hermes-agent.nousresearch.com/docs/plugins/spotify"
+        },
+        {
+          "id": "plugin-community-mem0",
+          "title": "Mem0",
+          "url": "https://github.com/mem0ai/mem0/tree/main/integrations/hermes-plugin-mem0#readme"
+        },
+        {
+          "id": "plugin-community-mnemosyne",
+          "title": "Mnemosyne",
+          "url": "https://github.com/mnemosyne-oss/mnemosyne"
+        },
+        {
+          "id": "plugin-community-omh",
+          "title": "Omh",
+          "url": "https://github.com/rlaope/oh-my-hermes"
+        }
+      ]
+    }
+  ],
+  "note": "Official Nous Research plugins shelved as first-party documentation (owner decision 2026-10-10), and community plugins whose repository has a HERMES_REPOSITORIES record, rendered only above the star floor. Every link verified to resolve at import. Catalogue presence alone is not a recommendation.",
+  "totalImported": 13
+}

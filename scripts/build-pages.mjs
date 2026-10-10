@@ -25,6 +25,8 @@
 import { readFile, writeFile, mkdir, rm } from 'node:fs/promises';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join } from 'node:path';
+import { githubRepo } from '../assets/js/archive.js';
+import { qualifiesRepository } from '../assets/js/github-policy.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://hermes-agent-archive.vercel.app';
@@ -144,27 +146,48 @@ ${items.map(i => `<li><a href="/entry/${esc(i.id)}">${esc(i.title)}</a><p>${esc(
   });
 }
 
+/**
+ * The shelf's own visibility rule, applied here too.
+ *
+ * A GitHub entry whose fetched star count does not clear the floor, or whose Hermes
+ * support nobody has documented, is stored but never rendered on a shelf. The first
+ * version of this generator paged every stored entry regardless, so thirteen repositories
+ * the archive refuses to show were crawlable anyway — a side door in the one rule this
+ * site is strictest about. A credited entry (an author's own figure) is exempt, as on the
+ * shelf.
+ */
+export async function visible(item, byRepo) {
+  const repo = githubRepo(item);
+  if (!repo || item.credit) return true;
+  return qualifiesRepository(repo, byRepo.get(repo)?.stars);
+}
+
 async function main() {
   const dry = process.argv.includes('--dry');
   const index = JSON.parse(await readFile(join(ROOT, 'data', 'index.json'), 'utf8'));
   const sourceLabels = new Map(index.sources.map(s => [s.id, s.label || s.name]));
+  const live = JSON.parse(await readFile(join(ROOT, 'data', 'live.json'), 'utf8').catch(() => '{"github":[]}'));
+  const byRepo = new Map((live.github || []).map(g => [g.repo.toLowerCase(), g]));
 
   const shelves = [];
   const skipped = [];
+  const withheld = [];
   for (const section of index.sections) {
     if (!section.file) continue;                 // a computed shelf has nothing on disk
     const { items } = JSON.parse(await readFile(join(ROOT, 'data', section.file), 'utf8'));
-    const usable = items.filter(i => {
-      if (SAFE_ID.test(i.id)) return true;
-      skipped.push(i.id);
-      return false;
-    });
+    const usable = [];
+    for (const i of items) {
+      if (!SAFE_ID.test(i.id)) { skipped.push(i.id); continue; }
+      if (!await visible(i, byRepo)) { withheld.push(i.id); continue; }
+      usable.push(i);
+    }
     shelves.push({ section, items: usable });
   }
 
   const total = shelves.reduce((n, s) => n + s.items.length, 0);
   console.log(`${total} entries across ${shelves.length} shelves`);
   if (skipped.length) console.log(`  ${skipped.length} id(s) unsafe for a path and skipped: ${skipped.slice(0, 5).join(', ')}`);
+  if (withheld.length) console.log(`  ${withheld.length} GitHub entr${withheld.length === 1 ? 'y' : 'ies'} below the floor or undocumented: stored, not paged`);
 
   if (dry) { console.log('\n--dry: nothing written.'); return; }
 
