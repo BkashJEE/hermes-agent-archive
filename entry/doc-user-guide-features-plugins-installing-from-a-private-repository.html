@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Installing from a private repository · Hermes Agent Archive</title>
+<meta name="description" content="hermes plugins install clones non-interactively (it never prompts for a username or password), so a private repo needs a credential Hermes can find on its…">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-installing-from-a-private-repository">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Installing from a private repository">
+<meta property="og:description" content="hermes plugins install clones non-interactively (it never prompts for a username or password), so a private repo needs a credential Hermes can find on its…">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-installing-from-a-private-repository">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Installing from a private repository">
+<meta name="twitter:description" content="hermes plugins install clones non-interactively (it never prompts for a username or password), so a private repo needs a credential Hermes can find on its…">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/skills">Skills</a></header>
+
+<article>
+<h1>Installing from a private repository</h1>
+
+<p class="meta">From Official Docs</p>
+<p>hermes plugins install clones non-interactively (it never prompts for a username or password), so a private repo needs a credential Hermes can find on its own. Every clone, pinned --ref fetch and hermes plugins update pull is attempted anonymously first - public repos never see your credential, so a stale or revoked token cannot break a public install. Only when the remote refuses anonymous access does Hermes look for a credential. For an https:// source it tries, in order: GITHUB_TOKEN or GH_TOKEN from your .env (GitHub hosts only). The gh CLI&#39;s login ( gh auth login ), GitHub hosts only. Your git credential helper ( git credential fill ) for that host - works for GitLab, Bitbucket and self-hosted servers if a credential is already stored. The credential is sent as a one-shot HTTP header for that install or update; it is never written into the plugin&#39;s .git/config or the install metadata. SSH sources ( git@host:owner/repo.git ) authenticate through your ssh-agent as before. The same resolution applies to hermes plugins update , catalog MCP installs from git, and profile distributions fetched from a git URL. hermes doctor sends a configured GITHUB_TOKEN / GH_TOKEN to api.github.com…</p>
+<p>From the official Hermes Agent documentation.</p>
+
+<ul class="tags"><li>#plugins</li><li>#docs</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#installing-from-a-private-repository" rel="noopener">Read the original</a>
+<a href="/#skills?item=doc-user-guide-features-plugins-installing-from-a-private-repository">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

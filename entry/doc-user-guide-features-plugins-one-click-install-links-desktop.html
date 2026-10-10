@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One-click install links (Desktop) · Hermes Agent Archive</title>
+<meta name="description" content="Hermes Desktop registers the hermes:// URL scheme, so a website, README, or chat message can link straight to a plugin install: The catalog=&lt;name&gt; form is…">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-one-click-install-links-desktop">
+<meta property="og:type" content="article">
+<meta property="og:title" content="One-click install links (Desktop)">
+<meta property="og:description" content="Hermes Desktop registers the hermes:// URL scheme, so a website, README, or chat message can link straight to a plugin install: The catalog=&lt;name&gt; form is…">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-one-click-install-links-desktop">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="One-click install links (Desktop)">
+<meta name="twitter:description" content="Hermes Desktop registers the hermes:// URL scheme, so a website, README, or chat message can link straight to a plugin install: The catalog=&lt;name&gt; form is…">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/skills">Skills</a></header>
+
+<article>
+<h1>One-click install links (Desktop)</h1>
+
+<p class="meta">From Official Docs</p>
+<p>Hermes Desktop registers the hermes:// URL scheme, so a website, README, or chat message can link straight to a plugin install: The catalog=&lt;name&gt; form is what the Open in Hermes Desktop button on every Plugin Catalog card uses. Desktop resolves the name against the live catalog (the same feed the Capabilities → Plugins picker shows) and opens the same reviewed catalog entry dialog an in-app pick does: the agent half installs at the catalog&#39;s pinned commit, never the branch tip. The link carries no repo URL, and a name that is not in the catalog shows an error toast and nothing else - it is never reinterpreted as a git path, so a link cannot smuggle an unreviewed repo behind a familiar-looking name. For a repo= link, clicking one opens Hermes and shows a confirmation dialog - the repo id, a &quot;Before you install&quot; note, and GitHub browse + clone links - then shallow-clones the repo to detect what it ships (an agent plugin - backend Python, a desktop plugin - app UI, or both). You pick the components with checkboxes and confirm. Nothing is installed until you do; deep links never auto-install, and agent-plugin installs go through the same install-time security scanning as hermes plugin…</p>
+<p>From the official Hermes Agent documentation.</p>
+<pre><code>hermes://plugin/install?catalog=NAME               # catalog entry, installs the reviewed pin
+hermes://plugin/install?repo=owner/repo            # any git repo
+hermes://plugin/install?repo=owner/repo&amp;enable=1   # enable the agent plugin after install
+hermes://plugin/install?repo=owner/repo&amp;force=1    # replace an existing install
+hermes://plugin/install?catalog=&lt;name&gt;             # reviewed catalog entry at its pinned commit</code></pre>
+<ul class="tags"><li>#plugins</li><li>#docs</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#one-click-install-links-desktop" rel="noopener">Read the original</a>
+<a href="/#skills?item=doc-user-guide-features-plugins-one-click-install-links-desktop">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

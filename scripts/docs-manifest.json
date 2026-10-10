@@ -1,12 +1,13 @@
 {
   "note": "Which documentation page feeds which shelf. Routing is declared here and reviewed by a person, never guessed by the importer. Hidden Tricks and Prompts are absent on purpose: calling something a non-obvious trick, or a prompt quoted verbatim, asserts something no parser can establish, so those shelves are filled only by reviewed extraction. See AGENTS.md and scripts/route-signals.mjs.",
   "source": "https://hermes-agent.nousresearch.com/docs/",
-  "reviewedAt": "2026-09-25",
+  "reviewedAt": "2026-10-05",
 
   "selection": "This archive indexes the documentation; it does not mirror it. Importing every page that parses cleanly yields about 616 entries and turns Settings into the largest shelf, most of it option-by-option reference that reads better upstream and would bury 326 community stories. The pages below are the ones that fill a genuine hole in a shelf.",
 
   "pages": [
     { "path": "user-guide/features/skills",        "shelf": "skills",    "tags": ["skills"],                          "why": "Skills held four entries. This is the page that explains what a skill is and how to install, write and scope one." },
+    { "path": "user-guide/features/plugins",       "shelf": "skills",    "tags": ["plugins"],                         "why": "The sibling concept to a skill, and it was skipped when the page served no headings. It does now, and the useful half is not reference: plugins are opt-in, the allow-list does not gate everything, and capabilities need consent. That is craft a reader will not guess." },
 
     { "path": "getting-started/quickstart",        "shelf": "commands",  "tags": ["quickstart", "getting-started"],   "why": "The first commands anyone runs; nothing in the archive covered getting started." },
     { "path": "getting-started/installation",      "shelf": "commands",  "tags": ["install", "getting-started"],      "why": "Install paths per platform, which the CLI reference does not carry." },
@@ -24,7 +25,6 @@
 
   "skipped": {
     "skills": "The public catalogue is at https://hermes-agent.nousresearch.com/docs/api/skills.json. It includes third-party listings as well as official skills; catalogue presence alone is not a recommendation. Twenty official optional skills were reviewed individually in scripts/reviewed-expansion.json and verified against their documentation pages by scripts/import-reviewed-expansion.mjs.",
-    "plugins": "Client-rendered for the same reason, with no headings at all in the served HTML.",
 
     "user-guide/configuration": "123 sections of option-by-option reference. It belongs upstream, where it is searchable and current.",
     "user-guide/security": "42 sections of policy reference. Linking to it beats copying it, and a stale security page in an archive is worse than none.",

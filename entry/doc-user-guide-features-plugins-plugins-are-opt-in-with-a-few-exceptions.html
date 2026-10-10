@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plugins are opt-in (with a few exceptions) · Hermes Agent Archive</title>
+<meta name="description" content="General plugins and user-installed backends are disabled by default - discovery finds them (so they show up in hermes plugins and /plugins ), but nothing…">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-plugins-are-opt-in-with-a-few-exceptions">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Plugins are opt-in (with a few exceptions)">
+<meta property="og:description" content="General plugins and user-installed backends are disabled by default - discovery finds them (so they show up in hermes plugins and /plugins ), but nothing…">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-plugins-are-opt-in-with-a-few-exceptions">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Plugins are opt-in (with a few exceptions)">
+<meta name="twitter:description" content="General plugins and user-installed backends are disabled by default - discovery finds them (so they show up in hermes plugins and /plugins ), but nothing…">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/skills">Skills</a></header>
+
+<article>
+<h1>Plugins are opt-in (with a few exceptions)</h1>
+
+<p class="meta">From Official Docs</p>
+<p>General plugins and user-installed backends are disabled by default - discovery finds them (so they show up in hermes plugins and /plugins ), but nothing with hooks or tools loads until you add the plugin&#39;s name to plugins.enabled in ~/.hermes/config.yaml . This stops third-party code from running without your explicit consent. plugins.enabled governs plugins only Gateway event hooks under ~/.hermes/hooks/&lt;name&gt;/ are not plugins and are not gated by plugins.enabled or plugins.disabled . That directory is trusted by placement: any subdirectory holding a valid HOOK.yaml + handler.py is imported by the gateway at startup, and placing the files there is the opt-in. See the gateway hook trust model . Three ways to flip state: After hermes plugins install owner/repo , you&#39;re asked Enable &#39;name&#39; now? [y/N] - defaults to no. Skip the prompt for scripted installs with --enable or --no-enable . For a reproducible install, pin a full immutable commit (tags, branches, and abbreviated SHAs are not accepted): Hermes checks out the commit detached, verifies that HEAD exactly matches the requested SHA, and records the canonical source, installed revision, and pin status in the current profile. her…</p>
+<p>From the official Hermes Agent documentation.</p>
+<pre><code>plugins:
+  enabled:
+    - my-tool-plugin
+    - disk-cleanup
+  disabled:       # optional deny-list — always wins if a name appears in both
+    - noisy-plugin
+  # Optional: deadline (seconds) for each Git clone, fetch or checkout
+  # during plugin installation, including automatic memory-provider migration.
+  # Default 300; values above 3600 are clamped. A subdirectory install
+  # (owner/repo/path/to/plugin) downloads only that folder&#39;s files.
+  clone_timeout_seconds: 300
+  # Optional: wall-clock cap (seconds) for timeout-bounded in-process Python
+  # plugin hook callbacks (hot-path observers + pre_tool_call). Default 30;
+  # set 0 to disable; values above 600 are clamped. Timed-out pre_tool_call
+  # callbacks fail closed (block the tool). Caller-thread hooks such as
+  # subagent_stop are never moved onto a timeout worker.
+  # Shell hooks keep their own per-entry timeout under the top-level hooks: key.
+  hook_callback_timeout: 30
+  # Optional: deadline (seconds) for one plugin&#39;s import + register() at load.
+  # A plugin that overruns it is skipped with the reason &quot;load timed out after
+  # Ns&quot; (reported like any other load failure: the startup warning and the
+  # in-session `/plugins` listing) and the remaining plugins keep loading; the
+  # stuck thread is abandoned. Default 10; set 0 to disable; values above 600
+  # are clamped.
+  load_timeout_seconds: 10</code></pre>
+<ul class="tags"><li>#plugins</li><li>#docs</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#plugins-are-opt-in-with-a-few-exceptions" rel="noopener">Read the original</a>
+<a href="/#skills?item=doc-user-guide-features-plugins-plugins-are-opt-in-with-a-few-exceptions">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

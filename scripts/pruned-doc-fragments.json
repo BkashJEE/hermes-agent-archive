@@ -1,324 +1,707 @@
 {
-  "removedAt": "2026-09-30T07:19:37.593Z",
-  "why": "Numbered procedure steps and bare section labels imported from the documentation. A step is meaningless outside its sequence and a one-word label is not an instruction. Deliberate reviewed removal of doc- entries only; no community-sourced entry is eligible.",
-  "items": [
+  "passes": [
     {
-      "shelf": "use-cases",
-      "id": "doc-user-guide-features-overview-core",
-      "title": "Core",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/overview#core"
+      "removedAt": "2026-09-30T07:19:37.593Z",
+      "why": "Numbered procedure steps and bare section labels imported from the documentation. A step is meaningless outside its sequence and a one-word label is not an instruction. Deliberate reviewed removal of doc- entries only; no community-sourced entry is eligible.",
+      "items": [
+        {
+          "shelf": "use-cases",
+          "id": "doc-user-guide-features-overview-core",
+          "title": "Core",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/overview#core"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-user-guide-features-overview-automation",
+          "title": "Automation",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/overview#automation"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-user-guide-features-overview-integrations",
+          "title": "Integrations",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/overview#integrations"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-user-guide-features-overview-customization",
+          "title": "Customization",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/overview#customization"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-guides-use-voice-mode-with-hermes-step-1-make-sure-normal-hermes-works-first",
+          "title": "Step 1: make sure normal Hermes works first",
+          "url": "https://hermes-agent.nousresearch.com/docs/guides/use-voice-mode-with-hermes#step-1-make-sure-normal-hermes-works-first"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-guides-use-voice-mode-with-hermes-step-5-recommended-config",
+          "title": "Step 5: recommended config",
+          "url": "https://hermes-agent.nousresearch.com/docs/guides/use-voice-mode-with-hermes#step-5-recommended-config"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-guides-use-voice-mode-with-hermes-recording-flow",
+          "title": "Recording flow",
+          "url": "https://hermes-agent.nousresearch.com/docs/guides/use-voice-mode-with-hermes#recording-flow"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-guides-run-nemotron-3-ultra-free-2-connect-nous-portal",
+          "title": "2. Connect Nous Portal",
+          "url": "https://hermes-agent.nousresearch.com/docs/guides/run-nemotron-3-ultra-free#2-connect-nous-portal"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-guides-run-nemotron-3-ultra-free-3-pick-the-free-nemotron-3-ultra-model",
+          "title": "3. Pick the free Nemotron 3 Ultra model",
+          "url": "https://hermes-agent.nousresearch.com/docs/guides/run-nemotron-3-ultra-free#3-pick-the-free-nemotron-3-ultra-model"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-guides-run-nemotron-3-ultra-free-1-install-hermes-agent",
+          "title": "1. Install Hermes Agent",
+          "url": "https://hermes-agent.nousresearch.com/docs/guides/run-nemotron-3-ultra-free#1-install-hermes-agent"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-guides-run-nemotron-3-ultra-free-2-run-quick-setup",
+          "title": "2. Run Quick Setup",
+          "url": "https://hermes-agent.nousresearch.com/docs/guides/run-nemotron-3-ultra-free#2-run-quick-setup"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-guides-run-nemotron-3-ultra-free-5-select-the-free-nemotron-3-ultra-model",
+          "title": "5. Select the free Nemotron 3 Ultra model",
+          "url": "https://hermes-agent.nousresearch.com/docs/guides/run-nemotron-3-ultra-free#5-select-the-free-nemotron-3-ultra-model"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-guides-run-nemotron-3-ultra-free-6-start-chatting",
+          "title": "6. Start chatting",
+          "url": "https://hermes-agent.nousresearch.com/docs/guides/run-nemotron-3-ultra-free#6-start-chatting"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-developer-guide-architecture-agent-loop",
+          "title": "Agent Loop",
+          "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#agent-loop"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-developer-guide-architecture-prompt-system",
+          "title": "Prompt System",
+          "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#prompt-system"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-developer-guide-architecture-provider-resolution",
+          "title": "Provider Resolution",
+          "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#provider-resolution"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-developer-guide-architecture-tool-system",
+          "title": "Tool System",
+          "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#tool-system"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-developer-guide-architecture-session-persistence",
+          "title": "Session Persistence",
+          "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#session-persistence"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-developer-guide-architecture-messaging-gateway",
+          "title": "Messaging Gateway",
+          "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#messaging-gateway"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-developer-guide-architecture-plugin-system",
+          "title": "Plugin System",
+          "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#plugin-system"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-developer-guide-architecture-design-principles",
+          "title": "Design Principles",
+          "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#design-principles"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-skills-precedence",
+          "title": "Precedence",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#precedence"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-skills-scan-time-quarantine",
+          "title": "Scan-time quarantine",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#scan-time-quarantine"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-skills-skill-bundles",
+          "title": "Skill Bundles",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#skill-bundles"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-skills-behavior",
+          "title": "Behavior",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#behavior"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-skills-actions",
+          "title": "Actions",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#actions"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-skills-skills-hub",
+          "title": "Skills Hub",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#skills-hub"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-skills-1-official-optional-skills-official",
+          "title": "1. Official optional skills (official)",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#1-official-optional-skills-official"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-skills-2-skills-sh-skills-sh",
+          "title": "2. skills.sh (skills-sh)",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#2-skillssh-skills-sh"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-skills-3-well-known-skill-endpoints-well-known",
+          "title": "3. Well-known skill endpoints (well-known)",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#3-well-known-skill-endpoints-well-known"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-skills-4-direct-github-skills-github",
+          "title": "4. Direct GitHub skills (github)",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#4-direct-github-skills-github"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-skills-6-lobehub-lobehub",
+          "title": "6. LobeHub (lobehub)",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#6-lobehub-lobehub"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-skills-7-browse-sh-browse-sh",
+          "title": "7. browse.sh (browse-sh)",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#7-browsesh-browse-sh"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-skills-8-direct-url-url",
+          "title": "8. Direct URL (url)",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#8-direct-url-url"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-skills-trust-levels",
+          "title": "Trust levels",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#trust-levels"
+        },
+        {
+          "shelf": "settings",
+          "id": "doc-getting-started-platform-support-tier-1",
+          "title": "Tier 1",
+          "url": "https://hermes-agent.nousresearch.com/docs/getting-started/platform-support#tier-1"
+        },
+        {
+          "shelf": "settings",
+          "id": "doc-getting-started-platform-support-tier-2",
+          "title": "Tier 2",
+          "url": "https://hermes-agent.nousresearch.com/docs/getting-started/platform-support#tier-2"
+        },
+        {
+          "shelf": "settings",
+          "id": "doc-getting-started-platform-support-unsupported",
+          "title": "Unsupported",
+          "url": "https://hermes-agent.nousresearch.com/docs/getting-started/platform-support#unsupported"
+        },
+        {
+          "shelf": "settings",
+          "id": "doc-getting-started-termux-limits",
+          "title": "Limits",
+          "url": "https://hermes-agent.nousresearch.com/docs/getting-started/termux#limits"
+        },
+        {
+          "shelf": "commands",
+          "id": "doc-getting-started-quickstart-2-choose-a-provider",
+          "title": "2. Choose a Provider",
+          "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#2-choose-a-provider"
+        },
+        {
+          "shelf": "commands",
+          "id": "doc-getting-started-quickstart-3-run-your-first-chat",
+          "title": "3. Run Your First Chat",
+          "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#3-run-your-first-chat"
+        },
+        {
+          "shelf": "commands",
+          "id": "doc-getting-started-quickstart-4-verify-sessions-work",
+          "title": "4. Verify Sessions Work",
+          "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#4-verify-sessions-work"
+        },
+        {
+          "shelf": "commands",
+          "id": "doc-getting-started-quickstart-slash-commands",
+          "title": "Slash commands",
+          "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#slash-commands"
+        },
+        {
+          "shelf": "commands",
+          "id": "doc-getting-started-quickstart-multi-line-input",
+          "title": "Multi-line input",
+          "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#multi-line-input"
+        },
+        {
+          "shelf": "commands",
+          "id": "doc-getting-started-quickstart-voice-mode",
+          "title": "Voice mode",
+          "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#voice-mode"
+        },
+        {
+          "shelf": "commands",
+          "id": "doc-getting-started-quickstart-recovery-toolkit",
+          "title": "Recovery Toolkit",
+          "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#recovery-toolkit"
+        },
+        {
+          "shelf": "commands",
+          "id": "doc-getting-started-quickstart-quick-reference",
+          "title": "Quick Reference",
+          "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#quick-reference"
+        },
+        {
+          "shelf": "commands",
+          "id": "doc-getting-started-installation-install-layout",
+          "title": "Install layout",
+          "url": "https://hermes-agent.nousresearch.com/docs/getting-started/installation#install-layout"
+        },
+        {
+          "shelf": "commands",
+          "id": "doc-user-guide-cli-interface-layout",
+          "title": "Interface Layout",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#interface-layout"
+        },
+        {
+          "shelf": "commands",
+          "id": "doc-user-guide-cli-keybindings",
+          "title": "Keybindings",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#keybindings"
+        },
+        {
+          "shelf": "commands",
+          "id": "doc-user-guide-cli-shift-enter-compatibility",
+          "title": "Shift+Enter compatibility",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#shiftenter-compatibility"
+        },
+        {
+          "shelf": "commands",
+          "id": "doc-user-guide-cli-session-storage",
+          "title": "Session Storage",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#session-storage"
+        },
+        {
+          "shelf": "commands",
+          "id": "doc-user-guide-cli-use-cases",
+          "title": "Use Cases",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#use-cases"
+        }
+      ]
     },
     {
-      "shelf": "use-cases",
-      "id": "doc-user-guide-features-overview-automation",
-      "title": "Automation",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/overview#automation"
+      "removedAt": "2026-10-05T17:06:21.896Z",
+      "why": "Numbered procedure steps and bare section labels imported from the documentation. A step is meaningless outside its sequence and a one-word label is not an instruction. Deliberate reviewed removal of doc- entries only; no community-sourced entry is eligible.",
+      "items": [
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-plugins-plugin-discovery",
+          "title": "Plugin discovery",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#plugin-discovery"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-plugins-plugin-sub-categories",
+          "title": "Plugin sub-categories",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#plugin-sub-categories"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-plugins-available-hooks",
+          "title": "Available hooks",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#available-hooks"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-plugins-plugin-types",
+          "title": "Plugin types",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#plugin-types"
+        }
+      ]
     },
     {
-      "shelf": "use-cases",
-      "id": "doc-user-guide-features-overview-integrations",
-      "title": "Integrations",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/overview#integrations"
-    },
-    {
-      "shelf": "use-cases",
-      "id": "doc-user-guide-features-overview-customization",
-      "title": "Customization",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/overview#customization"
-    },
-    {
-      "shelf": "use-cases",
-      "id": "doc-guides-use-voice-mode-with-hermes-step-1-make-sure-normal-hermes-works-first",
-      "title": "Step 1: make sure normal Hermes works first",
-      "url": "https://hermes-agent.nousresearch.com/docs/guides/use-voice-mode-with-hermes#step-1-make-sure-normal-hermes-works-first"
-    },
-    {
-      "shelf": "use-cases",
-      "id": "doc-guides-use-voice-mode-with-hermes-step-5-recommended-config",
-      "title": "Step 5: recommended config",
-      "url": "https://hermes-agent.nousresearch.com/docs/guides/use-voice-mode-with-hermes#step-5-recommended-config"
-    },
-    {
-      "shelf": "use-cases",
-      "id": "doc-guides-use-voice-mode-with-hermes-recording-flow",
-      "title": "Recording flow",
-      "url": "https://hermes-agent.nousresearch.com/docs/guides/use-voice-mode-with-hermes#recording-flow"
-    },
-    {
-      "shelf": "use-cases",
-      "id": "doc-guides-run-nemotron-3-ultra-free-2-connect-nous-portal",
-      "title": "2. Connect Nous Portal",
-      "url": "https://hermes-agent.nousresearch.com/docs/guides/run-nemotron-3-ultra-free#2-connect-nous-portal"
-    },
-    {
-      "shelf": "use-cases",
-      "id": "doc-guides-run-nemotron-3-ultra-free-3-pick-the-free-nemotron-3-ultra-model",
-      "title": "3. Pick the free Nemotron 3 Ultra model",
-      "url": "https://hermes-agent.nousresearch.com/docs/guides/run-nemotron-3-ultra-free#3-pick-the-free-nemotron-3-ultra-model"
-    },
-    {
-      "shelf": "use-cases",
-      "id": "doc-guides-run-nemotron-3-ultra-free-1-install-hermes-agent",
-      "title": "1. Install Hermes Agent",
-      "url": "https://hermes-agent.nousresearch.com/docs/guides/run-nemotron-3-ultra-free#1-install-hermes-agent"
-    },
-    {
-      "shelf": "use-cases",
-      "id": "doc-guides-run-nemotron-3-ultra-free-2-run-quick-setup",
-      "title": "2. Run Quick Setup",
-      "url": "https://hermes-agent.nousresearch.com/docs/guides/run-nemotron-3-ultra-free#2-run-quick-setup"
-    },
-    {
-      "shelf": "use-cases",
-      "id": "doc-guides-run-nemotron-3-ultra-free-5-select-the-free-nemotron-3-ultra-model",
-      "title": "5. Select the free Nemotron 3 Ultra model",
-      "url": "https://hermes-agent.nousresearch.com/docs/guides/run-nemotron-3-ultra-free#5-select-the-free-nemotron-3-ultra-model"
-    },
-    {
-      "shelf": "use-cases",
-      "id": "doc-guides-run-nemotron-3-ultra-free-6-start-chatting",
-      "title": "6. Start chatting",
-      "url": "https://hermes-agent.nousresearch.com/docs/guides/run-nemotron-3-ultra-free#6-start-chatting"
-    },
-    {
-      "shelf": "use-cases",
-      "id": "doc-developer-guide-architecture-agent-loop",
-      "title": "Agent Loop",
-      "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#agent-loop"
-    },
-    {
-      "shelf": "use-cases",
-      "id": "doc-developer-guide-architecture-prompt-system",
-      "title": "Prompt System",
-      "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#prompt-system"
-    },
-    {
-      "shelf": "use-cases",
-      "id": "doc-developer-guide-architecture-provider-resolution",
-      "title": "Provider Resolution",
-      "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#provider-resolution"
-    },
-    {
-      "shelf": "use-cases",
-      "id": "doc-developer-guide-architecture-tool-system",
-      "title": "Tool System",
-      "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#tool-system"
-    },
-    {
-      "shelf": "use-cases",
-      "id": "doc-developer-guide-architecture-session-persistence",
-      "title": "Session Persistence",
-      "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#session-persistence"
-    },
-    {
-      "shelf": "use-cases",
-      "id": "doc-developer-guide-architecture-messaging-gateway",
-      "title": "Messaging Gateway",
-      "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#messaging-gateway"
-    },
-    {
-      "shelf": "use-cases",
-      "id": "doc-developer-guide-architecture-plugin-system",
-      "title": "Plugin System",
-      "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#plugin-system"
-    },
-    {
-      "shelf": "use-cases",
-      "id": "doc-developer-guide-architecture-design-principles",
-      "title": "Design Principles",
-      "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#design-principles"
-    },
-    {
-      "shelf": "skills",
-      "id": "doc-user-guide-features-skills-precedence",
-      "title": "Precedence",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#precedence"
-    },
-    {
-      "shelf": "skills",
-      "id": "doc-user-guide-features-skills-scan-time-quarantine",
-      "title": "Scan-time quarantine",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#scan-time-quarantine"
-    },
-    {
-      "shelf": "skills",
-      "id": "doc-user-guide-features-skills-skill-bundles",
-      "title": "Skill Bundles",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#skill-bundles"
-    },
-    {
-      "shelf": "skills",
-      "id": "doc-user-guide-features-skills-behavior",
-      "title": "Behavior",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#behavior"
-    },
-    {
-      "shelf": "skills",
-      "id": "doc-user-guide-features-skills-actions",
-      "title": "Actions",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#actions"
-    },
-    {
-      "shelf": "skills",
-      "id": "doc-user-guide-features-skills-skills-hub",
-      "title": "Skills Hub",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#skills-hub"
-    },
-    {
-      "shelf": "skills",
-      "id": "doc-user-guide-features-skills-1-official-optional-skills-official",
-      "title": "1. Official optional skills (official)",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#1-official-optional-skills-official"
-    },
-    {
-      "shelf": "skills",
-      "id": "doc-user-guide-features-skills-2-skills-sh-skills-sh",
-      "title": "2. skills.sh (skills-sh)",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#2-skillssh-skills-sh"
-    },
-    {
-      "shelf": "skills",
-      "id": "doc-user-guide-features-skills-3-well-known-skill-endpoints-well-known",
-      "title": "3. Well-known skill endpoints (well-known)",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#3-well-known-skill-endpoints-well-known"
-    },
-    {
-      "shelf": "skills",
-      "id": "doc-user-guide-features-skills-4-direct-github-skills-github",
-      "title": "4. Direct GitHub skills (github)",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#4-direct-github-skills-github"
-    },
-    {
-      "shelf": "skills",
-      "id": "doc-user-guide-features-skills-6-lobehub-lobehub",
-      "title": "6. LobeHub (lobehub)",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#6-lobehub-lobehub"
-    },
-    {
-      "shelf": "skills",
-      "id": "doc-user-guide-features-skills-7-browse-sh-browse-sh",
-      "title": "7. browse.sh (browse-sh)",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#7-browsesh-browse-sh"
-    },
-    {
-      "shelf": "skills",
-      "id": "doc-user-guide-features-skills-8-direct-url-url",
-      "title": "8. Direct URL (url)",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#8-direct-url-url"
-    },
-    {
-      "shelf": "skills",
-      "id": "doc-user-guide-features-skills-trust-levels",
-      "title": "Trust levels",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#trust-levels"
-    },
-    {
-      "shelf": "settings",
-      "id": "doc-getting-started-platform-support-tier-1",
-      "title": "Tier 1",
-      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/platform-support#tier-1"
-    },
-    {
-      "shelf": "settings",
-      "id": "doc-getting-started-platform-support-tier-2",
-      "title": "Tier 2",
-      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/platform-support#tier-2"
-    },
-    {
-      "shelf": "settings",
-      "id": "doc-getting-started-platform-support-unsupported",
-      "title": "Unsupported",
-      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/platform-support#unsupported"
-    },
-    {
-      "shelf": "settings",
-      "id": "doc-getting-started-termux-limits",
-      "title": "Limits",
-      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/termux#limits"
-    },
-    {
-      "shelf": "commands",
-      "id": "doc-getting-started-quickstart-2-choose-a-provider",
-      "title": "2. Choose a Provider",
-      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#2-choose-a-provider"
-    },
-    {
-      "shelf": "commands",
-      "id": "doc-getting-started-quickstart-3-run-your-first-chat",
-      "title": "3. Run Your First Chat",
-      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#3-run-your-first-chat"
-    },
-    {
-      "shelf": "commands",
-      "id": "doc-getting-started-quickstart-4-verify-sessions-work",
-      "title": "4. Verify Sessions Work",
-      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#4-verify-sessions-work"
-    },
-    {
-      "shelf": "commands",
-      "id": "doc-getting-started-quickstart-slash-commands",
-      "title": "Slash commands",
-      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#slash-commands"
-    },
-    {
-      "shelf": "commands",
-      "id": "doc-getting-started-quickstart-multi-line-input",
-      "title": "Multi-line input",
-      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#multi-line-input"
-    },
-    {
-      "shelf": "commands",
-      "id": "doc-getting-started-quickstart-voice-mode",
-      "title": "Voice mode",
-      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#voice-mode"
-    },
-    {
-      "shelf": "commands",
-      "id": "doc-getting-started-quickstart-recovery-toolkit",
-      "title": "Recovery Toolkit",
-      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#recovery-toolkit"
-    },
-    {
-      "shelf": "commands",
-      "id": "doc-getting-started-quickstart-quick-reference",
-      "title": "Quick Reference",
-      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#quick-reference"
-    },
-    {
-      "shelf": "commands",
-      "id": "doc-getting-started-installation-install-layout",
-      "title": "Install layout",
-      "url": "https://hermes-agent.nousresearch.com/docs/getting-started/installation#install-layout"
-    },
-    {
-      "shelf": "commands",
-      "id": "doc-user-guide-cli-interface-layout",
-      "title": "Interface Layout",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#interface-layout"
-    },
-    {
-      "shelf": "commands",
-      "id": "doc-user-guide-cli-keybindings",
-      "title": "Keybindings",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#keybindings"
-    },
-    {
-      "shelf": "commands",
-      "id": "doc-user-guide-cli-shift-enter-compatibility",
-      "title": "Shift+Enter compatibility",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#shiftenter-compatibility"
-    },
-    {
-      "shelf": "commands",
-      "id": "doc-user-guide-cli-session-storage",
-      "title": "Session Storage",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#session-storage"
-    },
-    {
-      "shelf": "commands",
-      "id": "doc-user-guide-cli-use-cases",
-      "title": "Use Cases",
-      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#use-cases"
+      "removedAt": "2026-10-09T07:39:22.693Z",
+      "why": "Numbered procedure steps and bare section labels imported from the documentation. A step is meaningless outside its sequence and a one-word label is not an instruction. Deliberate reviewed removal of doc- entries only; no community-sourced entry is eligible.",
+      "items": [
+        {
+          "shelf": "use-cases",
+          "id": "doc-user-guide-features-overview-core",
+          "title": "Core",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/overview#core"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-user-guide-features-overview-automation",
+          "title": "Automation",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/overview#automation"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-user-guide-features-overview-integrations",
+          "title": "Integrations",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/overview#integrations"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-user-guide-features-overview-customization",
+          "title": "Customization",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/overview#customization"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-guides-use-voice-mode-with-hermes-step-1-make-sure-normal-hermes-works-first",
+          "title": "Step 1: make sure normal Hermes works first",
+          "url": "https://hermes-agent.nousresearch.com/docs/guides/use-voice-mode-with-hermes#step-1-make-sure-normal-hermes-works-first"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-guides-use-voice-mode-with-hermes-step-5-recommended-config",
+          "title": "Step 5: recommended config",
+          "url": "https://hermes-agent.nousresearch.com/docs/guides/use-voice-mode-with-hermes#step-5-recommended-config"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-guides-use-voice-mode-with-hermes-recording-flow",
+          "title": "Recording flow",
+          "url": "https://hermes-agent.nousresearch.com/docs/guides/use-voice-mode-with-hermes#recording-flow"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-guides-run-nemotron-3-ultra-free-2-connect-nous-portal",
+          "title": "2. Connect Nous Portal",
+          "url": "https://hermes-agent.nousresearch.com/docs/guides/run-nemotron-3-ultra-free#2-connect-nous-portal"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-guides-run-nemotron-3-ultra-free-3-pick-the-free-nemotron-3-ultra-model",
+          "title": "3. Pick the free Nemotron 3 Ultra model",
+          "url": "https://hermes-agent.nousresearch.com/docs/guides/run-nemotron-3-ultra-free#3-pick-the-free-nemotron-3-ultra-model"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-guides-run-nemotron-3-ultra-free-1-install-hermes-agent",
+          "title": "1. Install Hermes Agent",
+          "url": "https://hermes-agent.nousresearch.com/docs/guides/run-nemotron-3-ultra-free#1-install-hermes-agent"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-guides-run-nemotron-3-ultra-free-2-run-quick-setup",
+          "title": "2. Run Quick Setup",
+          "url": "https://hermes-agent.nousresearch.com/docs/guides/run-nemotron-3-ultra-free#2-run-quick-setup"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-guides-run-nemotron-3-ultra-free-5-select-the-free-nemotron-3-ultra-model",
+          "title": "5. Select the free Nemotron 3 Ultra model",
+          "url": "https://hermes-agent.nousresearch.com/docs/guides/run-nemotron-3-ultra-free#5-select-the-free-nemotron-3-ultra-model"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-guides-run-nemotron-3-ultra-free-6-start-chatting",
+          "title": "6. Start chatting",
+          "url": "https://hermes-agent.nousresearch.com/docs/guides/run-nemotron-3-ultra-free#6-start-chatting"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-developer-guide-architecture-agent-loop",
+          "title": "Agent Loop",
+          "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#agent-loop"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-developer-guide-architecture-prompt-system",
+          "title": "Prompt System",
+          "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#prompt-system"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-developer-guide-architecture-provider-resolution",
+          "title": "Provider Resolution",
+          "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#provider-resolution"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-developer-guide-architecture-tool-system",
+          "title": "Tool System",
+          "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#tool-system"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-developer-guide-architecture-session-persistence",
+          "title": "Session Persistence",
+          "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#session-persistence"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-developer-guide-architecture-messaging-gateway",
+          "title": "Messaging Gateway",
+          "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#messaging-gateway"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-developer-guide-architecture-plugin-system",
+          "title": "Plugin System",
+          "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#plugin-system"
+        },
+        {
+          "shelf": "use-cases",
+          "id": "doc-developer-guide-architecture-design-principles",
+          "title": "Design Principles",
+          "url": "https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#design-principles"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-skills-precedence",
+          "title": "Precedence",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#precedence"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-skills-scan-time-quarantine",
+          "title": "Scan-time quarantine",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#scan-time-quarantine"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-skills-skill-bundles",
+          "title": "Skill Bundles",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#skill-bundles"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-skills-behavior",
+          "title": "Behavior",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#behavior"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-skills-actions",
+          "title": "Actions",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#actions"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-skills-skills-hub",
+          "title": "Skills Hub",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#skills-hub"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-skills-1-official-optional-skills-official",
+          "title": "1. Official optional skills (official)",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#1-official-optional-skills-official"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-skills-2-skills-sh-skills-sh",
+          "title": "2. skills.sh (skills-sh)",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#2-skillssh-skills-sh"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-skills-3-well-known-skill-endpoints-well-known",
+          "title": "3. Well-known skill endpoints (well-known)",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#3-well-known-skill-endpoints-well-known"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-skills-4-direct-github-skills-github",
+          "title": "4. Direct GitHub skills (github)",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#4-direct-github-skills-github"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-skills-6-lobehub-lobehub",
+          "title": "6. LobeHub (lobehub)",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#6-lobehub-lobehub"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-skills-7-browse-sh-browse-sh",
+          "title": "7. browse.sh (browse-sh)",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#7-browsesh-browse-sh"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-skills-8-direct-url-url",
+          "title": "8. Direct URL (url)",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#8-direct-url-url"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-skills-trust-levels",
+          "title": "Trust levels",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#trust-levels"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-plugins-plugin-discovery",
+          "title": "Plugin discovery",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#plugin-discovery"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-plugins-plugin-sub-categories",
+          "title": "Plugin sub-categories",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#plugin-sub-categories"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-plugins-available-hooks",
+          "title": "Available hooks",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#available-hooks"
+        },
+        {
+          "shelf": "skills",
+          "id": "doc-user-guide-features-plugins-plugin-types",
+          "title": "Plugin types",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#plugin-types"
+        },
+        {
+          "shelf": "settings",
+          "id": "doc-getting-started-platform-support-tier-1",
+          "title": "Tier 1",
+          "url": "https://hermes-agent.nousresearch.com/docs/getting-started/platform-support#tier-1"
+        },
+        {
+          "shelf": "settings",
+          "id": "doc-getting-started-platform-support-tier-2",
+          "title": "Tier 2",
+          "url": "https://hermes-agent.nousresearch.com/docs/getting-started/platform-support#tier-2"
+        },
+        {
+          "shelf": "settings",
+          "id": "doc-getting-started-platform-support-unsupported",
+          "title": "Unsupported",
+          "url": "https://hermes-agent.nousresearch.com/docs/getting-started/platform-support#unsupported"
+        },
+        {
+          "shelf": "settings",
+          "id": "doc-getting-started-termux-limits",
+          "title": "Limits",
+          "url": "https://hermes-agent.nousresearch.com/docs/getting-started/termux#limits"
+        },
+        {
+          "shelf": "commands",
+          "id": "doc-getting-started-quickstart-2-choose-a-provider",
+          "title": "2. Choose a Provider",
+          "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#2-choose-a-provider"
+        },
+        {
+          "shelf": "commands",
+          "id": "doc-getting-started-quickstart-3-run-your-first-chat",
+          "title": "3. Run Your First Chat",
+          "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#3-run-your-first-chat"
+        },
+        {
+          "shelf": "commands",
+          "id": "doc-getting-started-quickstart-4-verify-sessions-work",
+          "title": "4. Verify Sessions Work",
+          "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#4-verify-sessions-work"
+        },
+        {
+          "shelf": "commands",
+          "id": "doc-getting-started-quickstart-slash-commands",
+          "title": "Slash commands",
+          "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#slash-commands"
+        },
+        {
+          "shelf": "commands",
+          "id": "doc-getting-started-quickstart-multi-line-input",
+          "title": "Multi-line input",
+          "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#multi-line-input"
+        },
+        {
+          "shelf": "commands",
+          "id": "doc-getting-started-quickstart-voice-mode",
+          "title": "Voice mode",
+          "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#voice-mode"
+        },
+        {
+          "shelf": "commands",
+          "id": "doc-getting-started-quickstart-recovery-toolkit",
+          "title": "Recovery Toolkit",
+          "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#recovery-toolkit"
+        },
+        {
+          "shelf": "commands",
+          "id": "doc-getting-started-quickstart-quick-reference",
+          "title": "Quick Reference",
+          "url": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#quick-reference"
+        },
+        {
+          "shelf": "commands",
+          "id": "doc-getting-started-installation-install-layout",
+          "title": "Install layout",
+          "url": "https://hermes-agent.nousresearch.com/docs/getting-started/installation#install-layout"
+        },
+        {
+          "shelf": "commands",
+          "id": "doc-user-guide-cli-interface-layout",
+          "title": "Interface Layout",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#interface-layout"
+        },
+        {
+          "shelf": "commands",
+          "id": "doc-user-guide-cli-keybindings",
+          "title": "Keybindings",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#keybindings"
+        },
+        {
+          "shelf": "commands",
+          "id": "doc-user-guide-cli-shift-enter-compatibility",
+          "title": "Shift+Enter compatibility",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#shiftenter-compatibility"
+        },
+        {
+          "shelf": "commands",
+          "id": "doc-user-guide-cli-session-storage",
+          "title": "Session Storage",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#session-storage"
+        },
+        {
+          "shelf": "commands",
+          "id": "doc-user-guide-cli-use-cases",
+          "title": "Use Cases",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#use-cases"
+        }
+      ]
     }
-  ]
+  ],
+  "totalRemoved": 114
 }

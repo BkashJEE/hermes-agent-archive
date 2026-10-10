@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dependency preparation and preservation · Hermes Agent Archive</title>
+<meta name="description" content="Python dependency installation has a separate consent/admission step.">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-dependency-preparation-and-preservation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dependency preparation and preservation">
+<meta property="og:description" content="Python dependency installation has a separate consent/admission step.">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-dependency-preparation-and-preservation">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dependency preparation and preservation">
+<meta name="twitter:description" content="Python dependency installation has a separate consent/admission step.">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/skills">Skills</a></header>
+
+<article>
+<h1>Dependency preparation and preservation</h1>
+
+<p class="meta">From Official Docs</p>
+<p>Python dependency installation has a separate consent/admission step. plugins install --enable does not bypass that step. A declined or non-interactive dependency install can leave the plugin installed but disabled. Node sidecar dependencies have a separate prompt and remain plugin-local. PM prepares Python dependencies with core and the enabled plugin set before publishing the new environment and configuration. A resolution failure preserves the previous selection. Restart Hermes when a new selected environment is not yet active in the running process. The enabled set is the union over the default home and every profile under profiles/ , read from each config.yaml ( plugins.enabled , plugins.disabled , memory.provider ). PM refuses to guess at a home it cannot read: a config.yaml that is not valid YAML, is not a mapping, or has a non-list plugins.enabled / plugins.disabled or non-string memory.provider fails dependency preparation for all homes ( could not parse plugin selection: &lt;path&gt; ), rather than silently dropping that profile&#39;s plugins from the next environment. Fix or remove the offending file; an empty config.yaml is fine. Ordinary Hermes application updates preserve user…</p>
+<p>From the official Hermes Agent documentation.</p>
+
+<ul class="tags"><li>#plugins</li><li>#docs</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#dependency-preparation-and-preservation" rel="noopener">Read the original</a>
+<a href="/#skills?item=doc-user-guide-features-plugins-dependency-preparation-and-preservation">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>
