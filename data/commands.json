@@ -3996,6 +3996,33 @@
       "author": "Nous Research",
       "url": "https://hermes-agent.nousresearch.com/docs/guides/team-telegram-assistant#approach-b-dm-pairing-recommended-for-teams",
       "verifiedAt": "2026-09-28"
+    },
+    {
+      "id": "doc-user-guide-cli-slash-commands",
+      "title": "Slash Commands",
+      "summary": "Type / to see the autocomplete dropdown.",
+      "detail": "Type / to see the autocomplete dropdown. Hermes supports a large set of CLI slash commands, dynamic skill commands, and user-defined quick commands. Common examples: Command Description /help Show command help /model Show or change the current model /tools List currently available tools /skills browse Browse the skills hub and official optional skills /bg <prompt> Run a prompt in a separate background session /btw <question> Ask a side question about the current conversation without interrupting it /skin Show or switch the active CLI skin /voice on Enable CLI voice mode (press Ctrl+B to record) /voice tts Toggle spoken playback for Hermes replies /reasoning high Increase reasoning effort /title My Session Name the current session /status Show session info - model/profile/tokens/duration - followed by a local Session recap block (recent turn counts, top tools used, files touched, latest user prompt + assistant reply). Pure local compute; no LLM call. /context [all] Visual context-usage breakdown - glyph block grid + per-category token table (system prompt / tools / skills / memory / conversation / free space). /context all adds per-skill and per-toolset costs. /sessions Open an inte\u2026\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#slash-commands",
+      "date": "2026-10-09"
+    },
+    {
+      "id": "doc-user-guide-cli-multi-line-input",
+      "title": "Multi-line Input",
+      "summary": "There are two ways to enter multi-line messages: Alt+Enter , Ctrl+J , or Shift+Enter - inserts a new line Backslash continuation - end a line with \\ to continue: Ctrl+J and backslash cont\u2026",
+      "detail": "There are two ways to enter multi-line messages: Alt+Enter , Ctrl+J , or Shift+Enter - inserts a new line Backslash continuation - end a line with \\ to continue: Ctrl+J and backslash continuation are enabled by default, matching Claude Code / Codex / OpenCode multiline shortcuts. On supported terminals such as iTerm2, Hermes also requests extended key reporting so Shift+Enter arrives as a distinct newline key. If your terminal sends LF for plain Enter and you need the legacy Ctrl+J -as-submit fallback, opt out: info Pasting multi-line text is supported - use any of the newline keys above, or simply paste content directly. In terminals using the Kitty keyboard protocol, Alt+Enter on the numeric keypad also inserts a newline, including next to a collapsed paste. Modified keypad navigation keys follow their non-keypad equivalents.\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "\u276f Write a function that:\\\n  1. Takes a list of numbers\\\n  2. Returns the sum",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#multi-line-input",
+      "date": "2026-10-09"
     }
   ]
 }

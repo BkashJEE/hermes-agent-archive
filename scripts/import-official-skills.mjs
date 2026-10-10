@@ -5,6 +5,7 @@
  *   npm run skills            # fetch the catalogue, import what is missing
  *   npm run skills -- --dry   # report, write nothing
  *   npm run skills -- --cached  # reuse the last download instead of fetching 63 MB
+ *   npm run skills -- --pack anthropic   # the one vendor pack that clears the star floor
  *
  * The Skills shelf held 66 entries. The official catalogue at
  * docs/api/skills.json holds 101,748, and almost all of that is other people's
@@ -43,6 +44,18 @@ const DOCS = 'https://hermes-agent.nousresearch.com/docs/user-guide/skills/';
 /* The two the site publishes itself. Every other value in `source` is a third-party
    directory the site indexes, and being listed in one says nothing about quality. */
 const OFFICIAL = new Set(['built-in', 'optional']);
+
+/*
+ * Vendor packs: skill sets a third party publishes and the Hermes catalogue mirrors, each
+ * installed by `hermes skills install <owner>/<repo>/skills/<name>`. They have no page on
+ * the Hermes site, so an entry links to the skill's source tree on GitHub — which makes it
+ * a GitHub entry, and the 50,000-star floor applies. On 2026-10-09: anthropics/skills
+ * 180,051 stars (admitted), openai/skills 27,953 and huggingface/skills 11,151 (not).
+ * The floor is checked at render time against the fetched count, not asserted here.
+ */
+const PACKS = {
+  anthropic: { source: 'Anthropic', repo: 'anthropics/skills', author: 'Anthropic', prefix: 'anthropics/skills/skills/' }
+};
 
 /**
  * Acronyms and proper names a word-by-word capitaliser gets wrong.
@@ -110,6 +123,30 @@ const PLACEHOLDER_AUTHORS = new Set(['hermes agent', 'community', 'unknown', 'an
 export const namesSomeone = author =>
   !!author && !PLACEHOLDER_AUTHORS.has(String(author).trim().toLowerCase());
 
+export function packEntry(skill, pack, verifiedAt) {
+  const name = (skill.installIdentifier || '').slice(pack.prefix.length) || skill.name;
+  const tags = ['skills', 'vendor-pack', pack.author.toLowerCase()];
+  if (skill.category) tags.push(skill.category);
+  for (const tag of skill.tags || []) {
+    const clean = String(tag).toLowerCase().trim();
+    if (clean && !tags.includes(clean) && tags.length < 7) tags.push(clean);
+  }
+  return {
+    id: `skill-pack-${pack.author.toLowerCase()}-${name}`,
+    title: titleCase(name),
+    summary: skill.description,
+    detail: [skill.overview || skill.description,
+             `Published by ${pack.author} in the ${pack.repo} repository and installed into Hermes from the official skill catalogue.`].join('\n\n'),
+    snippet: skill.installCmd,
+    tags,
+    source: 'github',
+    repo: pack.repo,
+    author: pack.author,
+    url: `https://github.com/${pack.repo}/tree/main/skills/${name}`,
+    verifiedAt
+  };
+}
+
 export function buildEntry(skill, verifiedAt) {
   const tags = ['skills', skill.source === 'built-in' ? 'built-in' : 'optional'];
   if (skill.category) tags.push(skill.category);
@@ -148,7 +185,12 @@ async function main() {
   const verifiedAt = new Date().toISOString().slice(0, 10);
 
   const all = await catalogue(process.argv.includes('--cached'));
-  const official = all.filter(s => OFFICIAL.has(s.source) && s.name && s.description && s.docsPath);
+  const packArg = process.argv.indexOf('--pack');
+  const pack = packArg > -1 ? PACKS[process.argv[packArg + 1]] : null;
+  if (packArg > -1 && !pack) throw new Error(`Unknown pack. Known: ${Object.keys(PACKS).join(', ')}`);
+  const official = pack
+    ? all.filter(s => s.source === pack.source && s.name && s.description && (s.installIdentifier || '').startsWith(pack.prefix))
+    : all.filter(s => OFFICIAL.has(s.source) && s.name && s.description && s.docsPath);
 
   const original = await readFile(SHELF, 'utf8');
   const shelf = JSON.parse(original);
@@ -164,7 +206,7 @@ async function main() {
   const fresh = [];
   const already = [];
   for (const skill of official) {
-    const entry = buildEntry(skill, verifiedAt);
+    const entry = pack ? packEntry(skill, pack, verifiedAt) : buildEntry(skill, verifiedAt);
     if (haveId.has(entry.id) || haveLink.has(sameLink(entry.url)) || haveTitle.has(entry.title.toLowerCase())) {
       already.push(entry.title);
       continue;
@@ -189,6 +231,7 @@ async function main() {
   for (const e of dead) console.log(`      dropped ${e.title} — ${e.url}`);
 
   const byTag = keep.reduce((m, e) => (m[e.tags[1]] = (m[e.tags[1]] || 0) + 1, m), {});
+  if (pack) console.log(`  pack ${pack.repo}: rendered only once its fetched star count clears the floor`);
   console.log(`  ${JSON.stringify(byTag)}`);
 
   if (dry) { console.log('\n--dry: nothing written.'); return; }
@@ -200,17 +243,27 @@ async function main() {
   await writeFile(`${SHELF}.tmp`, serialise(original, shelf));
   await rename(`${SHELF}.tmp`, SHELF);
 
+  /* The record accumulates. It is the audit trail for every skill this script has ever
+     shelved, and a run that replaced it would erase the previous runs — which the first
+     pack import did, leaving a file that listed 16 entries and forgot 192. */
   await mkdir(dirname(RECORD), { recursive: true });
-  await writeFile(RECORD, JSON.stringify({
+  let record = { source: CATALOGUE, note: '', passes: [] };
+  try {
+    const prior = JSON.parse(await readFile(RECORD, 'utf8'));
+    record.passes = prior.passes ?? (prior.imported ? [{ importedAt: prior.importedAt, what: 'official', counts: prior.counts, imported: prior.imported }] : []);
+  } catch { /* first run */ }
+  record.note = 'Skills shelved from the official Hermes catalogue: the built-in set, the official '
+    + 'optional catalogue, and vendor packs whose repository clears the GitHub star floor. '
+    + 'Admitted on provenance, not on a judgement of quality; every link verified to resolve at '
+    + 'import. Third-party directories indexed by the same catalogue are excluded.';
+  record.passes.push({
     importedAt: new Date().toISOString(),
-    source: CATALOGUE,
-    note: 'Official Hermes skills — the built-in set bundled with the agent and the official '
-        + 'optional catalogue. Admitted on provenance, not on a judgement of quality, and '
-        + 'every documentation link was verified to resolve at import. Third-party directories '
-        + 'indexed by the same catalogue are excluded: being listed in one is not a recommendation.',
-    counts: { catalogue: all.length, official: official.length, imported: keep.length, alreadyPresent: already.length, deadLinks: dead.length },
+    what: pack ? `pack ${pack.repo}` : 'official',
+    counts: { catalogue: all.length, candidates: official.length, imported: keep.length, alreadyPresent: already.length, deadLinks: dead.length },
     imported: keep.map(e => ({ id: e.id, title: e.title, url: e.url }))
-  }, null, 2) + '\n');
+  });
+  record.totalImported = record.passes.reduce((n, p) => n + p.imported.length, 0);
+  await writeFile(RECORD, JSON.stringify(record, null, 2) + '\n');
 
   console.log(`\nadded ${keep.length} to data/skills.json (${items.length} → ${items.length + keep.length})`);
   console.log(`wrote ${RECORD.replace(ROOT + '/', '')}`);

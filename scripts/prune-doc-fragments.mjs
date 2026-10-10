@@ -39,8 +39,11 @@ export function isFragment(item) {
   if (/^\d+[.)]\s/.test(item.title)) return true;          // "1. Install Hermes Agent"
   if (/^step\s+\d/i.test(item.title)) return true;         // "Step 5: recommended config"
   /* One or two words and no snippet: a section label, not an instruction. A short title
-     with a command attached is a different thing entirely and stays. */
-  return item.title.trim().split(/\s+/).length <= 2 && !item.snippet;
+     with a command attached is a different thing entirely and stays — and so does a short
+     title over a real body. "Slash Commands" with 1,248 characters of documentation under
+     it is an entry; "Core" over a list of feature names is a label. The body length is
+     what tells them apart, and a label rarely carries more than a few lines. */
+  return item.title.trim().split(/\s+/).length <= 2 && !item.snippet && (item.detail || '').length < 400;
 }
 
 async function main() {

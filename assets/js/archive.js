@@ -53,14 +53,22 @@ export function mergeLive(data, live, reviews = HERMES_REPOSITORIES) {
       item.hermesSupport = hermesSupport(repo, reviews);
       item.communityException = communityException(repo);
       // Qualification above guarantees a fetched observation for this seed.
-      if (item.repo) item.title = g.repo;                       // follow renames/transfers
+      //
+      // An entry can be the repository, or something that lives inside it. A card for
+      // obra/superpowers is the repository: its title follows a rename, its link is the
+      // repo root, its language is the repo's. A skill shelved from anthropics/skills is
+      // not — it has its own name, its own tree path, and "Python" says nothing about it.
+      // The stored title and URL say which case this is: a title that is itself a repo slug
+      // and a URL at the repo root mean the entry is the repository.
+      const isRepository = /^[\w.-]+\/[\w.-]+$/.test(item.title || '')
+        && (!item.url || item.url.replace(/\/+$/, '').toLowerCase() === `https://github.com/${repo}`);
+      if (item.repo && isRepository) item.title = g.repo;      // follow renames/transfers
       // A curated write-up outranks the repo's own one-liner.
       if (!item.detail) item.summary = g.description || item.summary;
       item.metric  = { kind: 'stars', value: g.stars };
       item.metric2 = { kind: 'forks', value: g.forks };
-      item.lang    = g.language;
-      item.url     = g.url;
-      item.date    = g.pushedAt || item.date;
+      if (isRepository) { item.lang = g.language; item.url = g.url; item.date = g.pushedAt || item.date; }
+      else if (!item.url) item.url = g.url;
       return true;
     });
   }

@@ -49,10 +49,15 @@ test('only skills Hermes publishes itself were imported', async () => {
   /* The same catalogue carries 79,491 ClawHub listings and 20,000 from skills.sh.
      Catalogue presence is not a recommendation, and none of it may reach a shelf. */
   const record = JSON.parse(await readFile(new URL('./imported-official-skills.json', import.meta.url), 'utf8'));
-  assert.equal(record.counts.imported, record.imported.length);
-  assert.ok(record.counts.imported <= record.counts.official,
-    'nothing outside the built-in and optional sets was imported');
-  for (const entry of record.imported)
-    assert.match(entry.url, /^https:\/\/hermes-agent\.nousresearch\.com\/docs\/user-guide\/skills\//,
-      `${entry.id} must link to the official documentation`);
+  assert.ok(record.passes.length >= 1, 'the record keeps every pass, not just the last');
+  assert.equal(record.totalImported, record.passes.reduce((n, p) => n + p.imported.length, 0));
+  for (const pass of record.passes) {
+    assert.equal(pass.counts.imported, pass.imported.length);
+    for (const entry of pass.imported) {
+      if (pass.what === 'official')
+        assert.match(entry.url, /^https:\/\/hermes-agent\.nousresearch\.com\/docs\/user-guide\/skills\//, `${entry.id} must link to the official documentation`);
+      else
+        assert.match(entry.url, /^https:\/\/github\.com\/anthropics\/skills\/tree\/main\/skills\//, `${entry.id} must link to its source tree`);
+    }
+  }
 });
