@@ -2,6 +2,11 @@
 !index.html
 !vercel.json
 !robots.txt
+!sitemap.xml
+!shelf/**
+!shelf
+!entry/**
+!entry
 !assets
 !assets/**
 !data

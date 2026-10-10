@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>hermes curator · Hermes Agent Archive</title>
+<meta name="description" content="Background skill maintenance — status, run, pause, pin. See Curator.">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/cli-hermes-curator">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hermes curator">
+<meta property="og:description" content="Background skill maintenance — status, run, pause, pin. See Curator.">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/cli-hermes-curator">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="hermes curator">
+<meta name="twitter:description" content="Background skill maintenance — status, run, pause, pin. See Curator.">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/commands">Commands</a></header>
+
+<article>
+<h1>hermes curator</h1>
+
+<p class="meta">From Official Docs</p>
+<p>Background skill maintenance — status, run, pause, pin. See Curator.</p>
+<p>The curator is an auxiliary-model background task that periodically reviews agent-created skills, prunes stale ones, consolidates overlaps, and archives obsolete skills. Bundled and hub-installed skills are never touched. Archives are recoverable; auto-deletion never happens.</p>
+<p>On a fresh install the first scheduled pass is deferred by one full interval_hours (7 days by default) — the gateway will not curate immediately on the first tick after hermes update. Use hermes curator run --dry-run to preview before that happens.</p>
+<p>See Curator for behavior and config.</p>
+<p>From the official Hermes Agent CLI reference.</p>
+<pre><code>hermes curator</code></pre>
+<ul class="tags"><li>#cli</li><li>#reference</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-curator" rel="noopener">Read the original</a>
+<a href="/#commands?item=cli-hermes-curator">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

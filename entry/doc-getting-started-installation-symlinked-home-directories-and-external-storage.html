@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Symlinked home directories and external storage · Hermes Agent Archive</title>
+<meta name="description" content="Hermes supports a symlinked HERMES_HOME and symlinked home subdirectories, including hooks , skills , sessions , and logs .">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-getting-started-installation-symlinked-home-directories-and-external-storage">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Symlinked home directories and external storage">
+<meta property="og:description" content="Hermes supports a symlinked HERMES_HOME and symlinked home subdirectories, including hooks , skills , sessions , and logs .">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-getting-started-installation-symlinked-home-directories-and-external-storage">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Symlinked home directories and external storage">
+<meta name="twitter:description" content="Hermes supports a symlinked HERMES_HOME and symlinked home subdirectories, including hooks , skills , sessions , and logs .">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/commands">Commands</a></header>
+
+<article>
+<h1>Symlinked home directories and external storage</h1>
+
+<p class="meta">From Official Docs</p>
+<p>Hermes supports a symlinked HERMES_HOME and symlinked home subdirectories, including hooks , skills , sessions , and logs . During home initialization, existing directory links are preserved, and permissions on linked directories (and descendants such as logs/curator ) are left to their owner. If a link target is missing, inaccessible, or not a directory, initialization stops with a storage error naming the path and link target. Hermes does not replace the link or create its missing target: doing so could write data onto the local disk while an external or NAS volume is unmounted. Check the reported link, restore the mount or correct its target, and verify access permissions before retrying. For a deliberately new dotfiles target, create it yourself only after confirming the intended storage is available. hermes doctor reports these failures as storage problems, not invalid YAML. Keep your existing config.yaml ; running hermes setup is not the repair for an unavailable directory. This is a directory-availability check, not a mount monitor: an existing directory cannot establish that the intended volume is mounted.</p>
+<p>From the official Hermes Agent documentation.</p>
+
+<ul class="tags"><li>#install</li><li>#getting-started</li><li>#docs</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/getting-started/installation#symlinked-home-directories-and-external-storage" rel="noopener">Read the original</a>
+<a href="/#commands?item=doc-getting-started-installation-symlinked-home-directories-and-external-storage">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

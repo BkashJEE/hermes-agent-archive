@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SQLite databases · Hermes Agent Archive</title>
+<meta name="description" content=".db members (state.db, kanban.db, response_store.db, …) are not published with a rename like ordinary files. Renaming would replace the file&#39;s inode while…">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/cli-sec-sqlite-databases">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQLite databases">
+<meta property="og:description" content=".db members (state.db, kanban.db, response_store.db, …) are not published with a rename like ordinary files. Renaming would replace the file&#39;s inode while…">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/cli-sec-sqlite-databases">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SQLite databases">
+<meta name="twitter:description" content=".db members (state.db, kanban.db, response_store.db, …) are not published with a rename like ordinary files. Renaming would replace the file&#39;s inode while…">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/commands">Commands</a></header>
+
+<article>
+<h1>SQLite databases</h1>
+
+<p class="meta">From Official Docs</p>
+<p>.db members (state.db, kanban.db, response_store.db, …) are not published with a rename like ordinary files. Renaming would replace the file&#39;s inode while a gateway, dashboard, or WebUI process still holds the old one open: that process would keep reading pre-import pages and keep writing sessions nobody else can see, and those sessions would simply be absent from the database everyone opens next — with nothing logged. Instead the imported pages are written into the existing database file, the same way /snapshot restore does it, so every open connection converges on the imported data.</p>
+<p>If the live database cannot be replaced safely — the page copy failed and another process still holds the file open — the import leaves that database untouched and lists it under Warnings (N files skipped). Stop the holding processes and re-run.</p>
+<p>Importing an older backup over newer work is still allowed, but it is no longer silent. When the imported state.db holds fewer messages than the one it replaced, the summary reports it:</p>
+<p>From the official Hermes Agent CLI reference.</p>
+
+<ul class="tags"><li>#cli</li><li>#reference</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/reference/cli-commands#sqlite-databases" rel="noopener">Read the original</a>
+<a href="/#commands?item=cli-sec-sqlite-databases">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

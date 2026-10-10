@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Persistent auto-load via config · Hermes Agent Archive</title>
+<meta name="description" content="To have the same skills active at the start of every new session - CLI, TUI, gateway, cron and API sessions alike - set skills.auto_load in config.yaml …">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-cli-persistent-auto-load-via-config">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Persistent auto-load via config">
+<meta property="og:description" content="To have the same skills active at the start of every new session - CLI, TUI, gateway, cron and API sessions alike - set skills.auto_load in config.yaml …">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-cli-persistent-auto-load-via-config">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Persistent auto-load via config">
+<meta name="twitter:description" content="To have the same skills active at the start of every new session - CLI, TUI, gateway, cron and API sessions alike - set skills.auto_load in config.yaml …">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/commands">Commands</a></header>
+
+<article>
+<h1>Persistent auto-load via config</h1>
+
+<p class="meta">From Official Docs</p>
+<p>To have the same skills active at the start of every new session - CLI, TUI, gateway, cron and API sessions alike - set skills.auto_load in config.yaml : Each entry is a skill name. The list is resolved once when a session&#39;s system prompt is first built and the rendered bytes are reused for the life of the conversation (model switches, compression), so prompt caching stays intact; config edits take effect in the next session. Missing or disabled skills log a warning and are skipped. -s names that overlap the list are loaded once. --ignore-rules (equivalently HERMES_IGNORE_RULES=1 ) skips auto-load together with AGENTS.md, SOUL.md, .cursorrules and memory injection; explicit -s skills still load. The setting is profile-scoped: each profile&#39;s config.yaml controls its own list.</p>
+<p>From the official Hermes Agent documentation.</p>
+<pre><code>skills:
+  auto_load:
+    - hermes-agent-dev
+    - github-pr-workflow</code></pre>
+<ul class="tags"><li>#cli</li><li>#docs</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/user-guide/cli#persistent-auto-load-via-config" rel="noopener">Read the original</a>
+<a href="/#commands?item=doc-user-guide-cli-persistent-auto-load-via-config">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

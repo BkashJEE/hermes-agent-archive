@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Busy Input Mode · Hermes Agent Archive</title>
+<meta name="description" content="The display.busy_input_mode config key controls what happens when you press Enter while the agent is working: Mode Behavior &quot;interrupt&quot; (default) Your…">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-cli-busy-input-mode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Busy Input Mode">
+<meta property="og:description" content="The display.busy_input_mode config key controls what happens when you press Enter while the agent is working: Mode Behavior &quot;interrupt&quot; (default) Your…">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-cli-busy-input-mode">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Busy Input Mode">
+<meta name="twitter:description" content="The display.busy_input_mode config key controls what happens when you press Enter while the agent is working: Mode Behavior &quot;interrupt&quot; (default) Your…">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/commands">Commands</a></header>
+
+<article>
+<h1>Busy Input Mode</h1>
+
+<p class="meta">From Official Docs</p>
+<p>The display.busy_input_mode config key controls what happens when you press Enter while the agent is working: Mode Behavior &quot;interrupt&quot; (default) Your message redirects the active turn. Model generation restarts with displayed reasoning and completed work preserved. A running foreground terminal command is moved to the background (not killed - you get a completion notification) so your message is read immediately; other running tools finish first &quot;queue&quot; Your message is silently queued and sent as the next turn after the agent finishes &quot;steer&quot; Your message is injected into the current run via /steer , arriving at the agent after the next tool call - no interrupt, no new turn &quot;queue&quot; mode prepares a separate follow-up turn. &quot;steer&quot; always waits for the next tool-result boundary. The default &quot;interrupt&quot; mode responds sooner during model generation while avoiding cancellation of a running tool; a long foreground terminal command (a build, a poller) is handed to the background so the agent sees your message right away instead of after the command exits. Use /stop when you want to cancel the turn and its foreground work. Unknown values fall back to &quot;interrupt&quot; . &quot;steer&quot; has two automati…</p>
+<p>From the official Hermes Agent documentation.</p>
+<pre><code># ~/.hermes/config.yaml
+display:
+  busy_input_mode: &quot;steer&quot;   # or &quot;queue&quot; or &quot;interrupt&quot; (default)</code></pre>
+<ul class="tags"><li>#cli</li><li>#docs</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/user-guide/cli#busy-input-mode" rel="noopener">Read the original</a>
+<a href="/#commands?item=doc-user-guide-cli-busy-input-mode">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

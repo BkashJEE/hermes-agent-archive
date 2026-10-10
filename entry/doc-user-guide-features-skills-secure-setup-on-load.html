@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Secure Setup on Load · Hermes Agent Archive</title>
+<meta name="description" content="Skills can declare required environment variables without disappearing from discovery: When a missing value is encountered, Hermes asks for it securely…">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-secure-setup-on-load">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Secure Setup on Load">
+<meta property="og:description" content="Skills can declare required environment variables without disappearing from discovery: When a missing value is encountered, Hermes asks for it securely…">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-secure-setup-on-load">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Secure Setup on Load">
+<meta name="twitter:description" content="Skills can declare required environment variables without disappearing from discovery: When a missing value is encountered, Hermes asks for it securely…">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/skills">Skills</a></header>
+
+<article>
+<h1>Secure Setup on Load</h1>
+
+<p class="meta">From Official Docs</p>
+<p>Skills can declare required environment variables without disappearing from discovery: When a missing value is encountered, Hermes asks for it securely only when the skill is actually loaded in the local CLI. You can skip setup and keep using the skill. Messaging surfaces never ask for secrets in chat - they tell you to use hermes setup or ~/.hermes/.env locally instead. Once set, declared env vars are automatically passed through to execute_code and terminal sandboxes - the skill&#39;s scripts can use $TENOR_API_KEY directly. For non-skill env vars, use the terminal.env_passthrough config option. See Environment Variable Passthrough for details.</p>
+<p>From the official Hermes Agent documentation.</p>
+<pre><code>required_environment_variables:
+  - name: TENOR_API_KEY
+    prompt: Tenor API key
+    help: Get a key from https://developers.google.com/tenor
+    required_for: full functionality</code></pre>
+<ul class="tags"><li>#skills</li><li>#docs</li></ul>
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#secure-setup-on-load" rel="noopener">Read the original</a>
+<a href="/#skills?item=doc-user-guide-features-skills-secure-setup-on-load">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>
