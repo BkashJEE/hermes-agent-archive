@@ -50,6 +50,10 @@ for (const section of cfg.sections) {
        leaving it off. `credit` carries a stated provenance for a figure the author
        supplied themselves. */
     if (!it.url && !it.repo)          errors.push(`${where}: no source link (needs url or repo)`);
+    /* A credit is rendered with .trim(). An array here took the Dashboard down in
+       production while every shelf page looked fine. */
+    if (it.author !== undefined && typeof it.author !== 'string')
+      errors.push(`${where}: author must be a string, got ${Array.isArray(it.author) ? 'an array' : typeof it.author}`);
     if (it.source !== 'docs' && !it.author && !it.credit)
       errors.push(`${where}: no author — name whoever made it, or use "credit" to state the provenance`);
   }

@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { buildEntry, namesSomeone } from './import-official-skills.mjs';
+import { buildEntry, namesSomeone, authorText } from './import-official-skills.mjs';
 
 const skill = (over = {}) => ({
   name: 'apple-notes', description: 'Manage Apple Notes via memo CLI.',
@@ -60,4 +60,13 @@ test('only skills Hermes publishes itself were imported', async () => {
         assert.match(entry.url, /^https:\/\/github\.com\/anthropics\/skills\/tree\/main\/skills\//, `${entry.id} must link to its source tree`);
     }
   }
+});
+
+test('co-authors listed as an array become one credit string', () => {
+  // Two catalogue skills shipped `author: ["a","b"]`; the credit code calls .trim() on it.
+  assert.equal(authorText(['kshitijk4poor', 'alt-glitch', 'purzbeats']), 'kshitijk4poor, alt-glitch, purzbeats');
+  assert.equal(namesSomeone(['SHL0MS', 'alt-glitch']), true);
+  const entry = buildEntry(skill({ author: ['SHL0MS', 'alt-glitch'] }), '2026-10-10');
+  assert.equal(typeof entry.author, 'string');
+  assert.equal(entry.author, 'SHL0MS, alt-glitch');
 });
