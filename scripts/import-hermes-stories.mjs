@@ -100,6 +100,7 @@ const prior = JSON.parse(await readFile(target, 'utf8').catch(error => {
 }));
 if (!Array.isArray(prior.items)) throw new Error('Existing archive has no items array; archive untouched.');
 const existing = prior.items;
+const previousImportedAt = prior.importedAt;
 const byId = new Map(existing.map(i => [i.id, i]));
 let added = 0, refreshed = 0;
 for (const item of items) {
@@ -108,14 +109,24 @@ for (const item of items) {
 }
 const kept = existing.length - refreshed;
 
+/* Keep the previous timestamp when nothing moved. Stamping every run made the file
+   differ on each harvest even when the upstream page was unchanged, so the scheduled job
+   opened a pull request titled "0 new entries" every time it ran — noise in the one
+   notification that is supposed to mean something arrived. */
+const merged = [...byId.values()];
+const unchanged = JSON.stringify(merged) === JSON.stringify(existing);
+
 const payload = {
   note: `Imported from ${URL_SRC} by scripts/import-hermes-stories.mjs. Every entry is a real post quoted and attributed on that page; the headline, quote, author and link are as published. Entries are merged, never replaced — nothing already archived is removed by a re-import.`,
-  importedAt: new Date().toISOString(),
-  items: [...byId.values()]
+  importedAt: unchanged && previousImportedAt ? previousImportedAt : new Date().toISOString(),
+  items: merged
 };
 
-await writeFile(`${target}.tmp`, JSON.stringify(payload, null, 2) + '\n');
-await rename(`${target}.tmp`, target);
+if (unchanged) console.log('\nNothing changed upstream; the file is left exactly as it was.');
+else {
+  await writeFile(`${target}.tmp`, JSON.stringify(payload, null, 2) + '\n');
+  await rename(`${target}.tmp`, target);
+}
 console.log(`\n${added} new · ${refreshed} refreshed · ${kept} kept from earlier imports.`);
 
 const byCat = items.reduce((m, i) => (m[i.tags[1]] = (m[i.tags[1]] || 0) + 1, m), {});

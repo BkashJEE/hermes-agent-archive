@@ -24,16 +24,21 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with: { node-version: "20" }
 
+      # An upstream source that is down must not discard what the healthy ones found.
+      # This step previously wrapped `npm run harvest` in a heredoc written to
+      # $GITHUB_OUTPUT. The runner uses `bash -e`, so a non-zero harvest — which is what
+      # one unreachable source produces — aborted the block before the closing delimiter
+      # was written, and the job died with "Matching delimiter not found". The harvest
+      # itself is unharmed and isolates its own failures; only the reporting was fragile.
       - name: Re-read the sources that grow
         id: harvest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          {
-            echo 'summary<<HARVEST_EOF'
-            npm run harvest --silent
-            echo HARVEST_EOF
-          } >> "$GITHUB_OUTPUT"
+          set +e
+          npm run harvest --silent > "$RUNNER_TEMP/harvest.log" 2>&1
+          echo "exit=$?" >> "$GITHUB_OUTPUT"
+          cat "$RUNNER_TEMP/harvest.log"
 
       - name: Classify whatever arrived
         env:
@@ -69,22 +74,46 @@ jobs:
           git switch -c "$branch"
           git commit -m "$title"
           git push origin "$branch"
-          cat > "$RUNNER_TEMP/harvest-pr.md" <<BODY
-          Re-read the upstream sources that grow and merged what was new.
-
-          \`\`\`
-          ${{ steps.harvest.outputs.summary }}
-          \`\`\`
-
-          Every importer here merges by id and never removes an entry; the harvest
-          restores the archive and fails if any shelf shrinks. Prompts, Hidden Tricks and
-          community submissions are deliberately absent — each asserts something a fetch
-          cannot establish, so they stay on reviewed manifests.
-
-          Validation: \`npm run check\` and \`npm test\` passed. New entries are classified
-          when a Jev key is available, and appear as unclassified otherwise.
-
-          Merging this does not publish it. The Vercel project has no Git integration, so
-          the site changes only when someone deploys from main.
-          BODY
+          # The summary is read from this file rather than through a workflow expression.
+          # Pasting program output into a shell script is a script-injection seam, and the
+          # text includes upstream error messages this repository does not control.
+          # (Writing that expression syntax literally here would not survive: the runner
+          # parses it anywhere in the file, comments included, and an empty one is a
+          # syntax error — which is exactly how this line broke the workflow once.)
+          {
+            echo 'Re-read the upstream sources that grow and merged what was new.'
+            echo
+            echo '```'
+            cat "$RUNNER_TEMP/harvest.log"
+            echo '```'
+          } > "$RUNNER_TEMP/harvest-pr.md"
+          # Echoes rather than a heredoc: an indented heredoc body keeps its leading
+          # whitespace, which markdown renders as a code block.
+          {
+            echo
+            echo 'Every importer here merges by id and never removes an entry; the harvest'
+            echo 'restores the archive and fails if any shelf shrinks. Prompts, Hidden Tricks'
+            echo 'and community submissions are deliberately absent — each asserts something a'
+            echo 'fetch cannot establish, so they stay on reviewed manifests.'
+            echo
+            echo 'Validation: `npm run check` and `npm test` passed. New entries are classified'
+            echo 'when a Jev key is available, and appear as unclassified otherwise.'
+            echo
+            if [ "${{ steps.harvest.outputs.exit }}" != "0" ]; then
+              echo '**A source was unreachable on this run.** The entries here are what the'
+              echo 'reachable importers found; nothing was removed, and the harvest log above'
+              echo 'names what failed. The job is marked failed after this pull request is'
+              echo 'opened, so the failure stays visible without discarding the work.'
+              echo
+            fi
+            echo 'Merging this does not publish it. The Vercel project has no Git integration,'
+            echo 'so the site changes only when someone deploys from main.'
+          } >> "$RUNNER_TEMP/harvest-pr.md"
           gh pr create --base main --head "$branch" --title "$title" --body-file "$RUNNER_TEMP/harvest-pr.md"
+
+      # Last, so an unreachable source is reported without costing the run its results.
+      - name: Report an unreachable source
+        if: steps.harvest.outputs.exit != '0'
+        run: |
+          echo "::error::A source was unreachable; see the harvest log in this run."
+          exit 1
