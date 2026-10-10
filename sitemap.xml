@@ -210,7 +210,6 @@
   <url><loc>https://hermes-agent-archive.vercel.app/entry/story-kanban-multi-agent-feature-is-game-changing</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/story-my-local-community-agent-runs-on-a-16gb-mac-mini</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/story-switched-from-openclaw-not-looking-back</loc></url>
-  <url><loc>https://hermes-agent-archive.vercel.app/entry/story-awesome-hermes-agent-community-curated-skills-list</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/story-hermes-over-imessage-on-my-always-on-mac-studio</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/story-hetzner-vps-at-10-mo-claude-opus-via-openrouter</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/story-built-a-vectorless-rag-workflow-with-pageindex-and-hermes</loc></url>
@@ -400,7 +399,6 @@
   <url><loc>https://hermes-agent-archive.vercel.app/entry/story-yc-backed-design-to-code-startup-made-a-hermes-agent-its-on-</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/story-media-company-agent-brings-7-months-of-company-memory-into-a</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/story-it-consultancy-deploys-hermes-for-sme-clients-crm-outreach-l</loc></url>
-  <url><loc>https://hermes-agent-archive.vercel.app/entry/story-a-real-service-business-ran-lead-to-payment-over-telegram-ow</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/story-company-agents-for-sales-and-sprint-reports-went-from-hackat</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/story-outbound-sales-agent-researches-accounts-and-queues-every-se</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/story-staff-forward-email-threads-to-an-update-inbox-and-hermes-fi</loc></url>
@@ -484,7 +482,6 @@
   <url><loc>https://hermes-agent-archive.vercel.app/entry/review-skills-research-paper-writing</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/review-skills-live-dashboard</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/review-skills-sketch</loc></url>
-  <url><loc>https://hermes-agent-archive.vercel.app/entry/skill-oh-my-hermes</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/skill-bundled-apple-apple-notes</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/skill-bundled-apple-apple-reminders</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/skill-bundled-apple-findmy</loc></url>
@@ -718,6 +715,17 @@
   <url><loc>https://hermes-agent-archive.vercel.app/entry/skill-pack-anthropic-theme-factory</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/skill-pack-anthropic-web-artifacts-builder</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/skill-pack-anthropic-webapp-testing</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/plugin-official-claude-subscription-directsdk</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/plugin-official-hermes-telegram-business</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/plugin-official-hermes-memory-wiki</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/plugin-official-snyk</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/plugin-official-blender</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/plugin-official-touchdesigner</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/plugin-official-homeassistant</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/plugin-official-nvidia-app</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/plugin-official-nvidia-broadcast</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/plugin-official-spotify</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/plugin-community-mem0</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/shelf/prompts</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/prompt-parallel-research</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/prompt-auth-review</loc></url>
@@ -1155,9 +1163,6 @@
   <url><loc>https://hermes-agent-archive.vercel.app/shelf/toolkit</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/kit-cc-switch</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/kit-codegraph</loc></url>
-  <url><loc>https://hermes-agent-archive.vercel.app/entry/kit-gbrain</loc></url>
-  <url><loc>https://hermes-agent-archive.vercel.app/entry/kit-claude-mem</loc></url>
-  <url><loc>https://hermes-agent-archive.vercel.app/entry/kit-ruflo</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/kit-caveman</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/kit-open-design</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/kit-unsloth</loc></url>
@@ -1171,7 +1176,6 @@
   <url><loc>https://hermes-agent-archive.vercel.app/entry/integration-garrytan-gstack</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/integration-multica-ai-multica</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/review-integration-archify</loc></url>
-  <url><loc>https://hermes-agent-archive.vercel.app/entry/kit-mnemosyne</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/shelf/builds</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/gh-hermes-agent</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/community-hermes-desktop-theme-pack</loc></url>
@@ -1209,10 +1213,6 @@
   <url><loc>https://hermes-agent-archive.vercel.app/entry/jev-jev-brain-cli-ships-as-terminal-agent-83846865</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/jev-hermes-skill-selection-jev</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/jev-hermes-claude-jev-sales-roundtable</loc></url>
-  <url><loc>https://hermes-agent-archive.vercel.app/entry/build-hermes-workspace</loc></url>
-  <url><loc>https://hermes-agent-archive.vercel.app/entry/build-hermes-webui</loc></url>
-  <url><loc>https://hermes-agent-archive.vercel.app/entry/build-hermes-desktop-mac</loc></url>
-  <url><loc>https://hermes-agent-archive.vercel.app/entry/build-hermes-cn-desktop</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/shelf/my-work</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/mine-jev-connect-skill</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/mine-jev-setup-walkthrough</loc></url>

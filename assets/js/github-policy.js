@@ -105,6 +105,11 @@ export const HERMES_REPOSITORIES = {
     "note": "Documents use of the Hermes Desktop SDK and existing hermes-achievements backend. Requires the backend to be enabled; the author recommends Desktop v0.19 or newer.",
     "reviewedAt": "2026-09-28"
   },
+  "mem0ai/mem0": {
+    "url": "https://github.com/mem0ai/mem0/tree/main/integrations/hermes-plugin-mem0#readme",
+    "note": "Ships a dedicated Hermes plugin (integrations/hermes-plugin-mem0) listed in the official Hermes plugin catalogue and installed with `hermes plugins install mem0`: a server-side memory provider with LLM fact extraction. 66,922 stars on 2026-10-10.",
+    "reviewedAt": "2026-10-10"
+  },
   "anthropics/skills": {
     "url": "https://hermes-agent.nousresearch.com/docs/skills/",
     "note": "Anthropic's published skill pack, mirrored into the official Hermes skill catalogue and installed with `hermes skills install anthropics/skills/skills/<name>`. Sixteen of its nineteen skills are shelved from the catalogue; the other three share a title with a built-in skill. 180,051 stars on 2026-10-09.",

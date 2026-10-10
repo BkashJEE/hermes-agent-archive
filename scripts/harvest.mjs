@@ -33,11 +33,16 @@ const DATA = join(ROOT, 'data');
 /* Sources that genuinely grow, in the order that costs least if one fails early. */
 const IMPORTERS = [
   { script: 'import-hermes-stories.mjs', what: "Nous Research's published community stories" },
-  { script: 'import-jev-hermes.mjs',     what: 'Hermes entries in the Jev builder directory' }
+  { script: 'import-jev-hermes.mjs',     what: 'Hermes entries in the Jev builder directory' },
+  /* The official catalogues grow between runs — two optional skills and one official plugin
+     arrived in the week before these were added. Both importers verify every link, dedupe
+     by id, link and title, and shelve only what Hermes itself publishes. */
+  { script: 'import-official-skills.mjs',  what: 'skills published in the official Hermes catalogue', nodeArgs: ['--max-old-space-size=4096'] },
+  { script: 'import-official-plugins.mjs', what: 'official plugins, and documented community plugins above the star floor' }
 ];
 
-const run = (script) => new Promise(resolve => {
-  const child = spawn(process.execPath, [join(ROOT, 'scripts', script)], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
+const run = (script, nodeArgs = []) => new Promise(resolve => {
+  const child = spawn(process.execPath, [...nodeArgs, join(ROOT, 'scripts', script)], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
   let out = '';
   child.stdout.on('data', d => { out += d; });
   child.stderr.on('data', d => { out += d; });
@@ -89,8 +94,8 @@ async function main() {
   await cp(DATA, join(backup, 'data'), { recursive: true });
 
   const failed = [];
-  for (const { script, what } of IMPORTERS) {
-    const result = await run(script);
+  for (const { script, what, nodeArgs } of IMPORTERS) {
+    const result = await run(script, nodeArgs);
     if (!result.ok) {
       failed.push([script, reason(result.out)]);
       console.error(`  ${script} failed — ${what}`);

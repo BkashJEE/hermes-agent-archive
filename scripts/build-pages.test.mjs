@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile, readdir } from 'node:fs/promises';
-import { entryPage, shelfPage } from './build-pages.mjs';
+import { entryPage, shelfPage, visible } from './build-pages.mjs';
 
 const ROOT = new URL('../', import.meta.url);
 const read = p => readFile(new URL(p, ROOT), 'utf8');
@@ -14,10 +14,13 @@ test('every current entry has a page, and no page outlives its entry', async () 
      entry nobody can find, or an id is renamed and the old page keeps answering as if it
      were current. Both are invisible without this check. */
   const index = await json('data/index.json');
+  const live = await json('data/live.json').catch(() => ({ github: [] }));
+  const byRepo = new Map((live.github || []).map(g => [g.repo.toLowerCase(), g]));
   const ids = new Set();
   for (const s of index.sections) {
     if (!s.file) continue;
-    for (const item of (await json(`data/${s.file}`)).items) ids.add(item.id);
+    // Only what a shelf would render: a repository under the floor has no page either.
+    for (const item of (await json(`data/${s.file}`)).items) if (await visible(item, byRepo)) ids.add(item.id);
   }
   const pages = new Set((await readdir(new URL('entry/', ROOT))).map(f => f.replace(/\.html$/, '')));
 
@@ -81,4 +84,12 @@ test('a shelf page lists its entries and links to each one', async () => {
   assert.match(html, /href="\/entry\/a"/);
   assert.match(html, /href="\/entry\/b"/);
   assert.match(html, /2 entries/);
+});
+
+test('a repository the shelf hides under the floor gets no page', async () => {
+  const byRepo = new Map([['tiny/plugin', { stars: 3000 }], ['big/known', { stars: 90000 }]]);
+  assert.equal(await visible({ id: 'x', repo: 'tiny/plugin', url: 'https://github.com/tiny/plugin' }, byRepo), false);
+  assert.equal(await visible({ id: 'y', repo: 'big/known', url: 'https://github.com/big/known' }, byRepo), false, 'stars alone are not enough without documented support');
+  assert.equal(await visible({ id: 'z', title: 'A story', url: 'https://reddit.com/r/x/1' }, byRepo), true, 'non-GitHub entries are unaffected');
+  assert.equal(await visible({ id: 'w', repo: 'tiny/plugin', credit: 'author analytics' }, byRepo), true, 'a credited figure is exempt, as on the shelf');
 });
