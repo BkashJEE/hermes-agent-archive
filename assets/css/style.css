@@ -35,6 +35,33 @@
   --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
   --side-w:238px;
   --top-h:56px;
+  color-scheme:dark;
+}
+
+/* Light: the same tokens, second values. Everything below :root reads tokens — there is
+   not one hex literal outside this block — so a light reader needs no component changes.
+   The amber stays the accent, darkened so it holds 4.5:1 as text on the warm off-white;
+   teal and violet likewise. Two routes in: the system preference, unless the reader has
+   chosen, and an explicit choice stored on the html element. */
+@media (prefers-color-scheme:light){
+  :root:not([data-scheme="dark"]){
+    --bg:#f7f6f2; --panel:#ffffff; --panel-2:#f1f0ea; --panel-3:#e9e7df;
+    --line:#dcdad2; --line-2:#c9c6bb;
+    --ink:#1a1a1f; --ink-dim:#4a4a55;
+    --accent:#9a6700; --accent-ink:#ffffff; --teal:#0f766e; --violet:#5b4bd6;
+    --shadow:rgba(20,20,30,.16);
+    --ink-mute:color-mix(in srgb,var(--ink) 68%,var(--bg));   /* 10px labels measured 4.48:1 at 62% */
+    color-scheme:light;
+  }
+}
+:root[data-scheme="light"]{
+  --bg:#f7f6f2; --panel:#ffffff; --panel-2:#f1f0ea; --panel-3:#e9e7df;
+  --line:#dcdad2; --line-2:#c9c6bb;
+  --ink:#1a1a1f; --ink-dim:#4a4a55;
+  --accent:#9a6700; --accent-ink:#ffffff; --teal:#0f766e; --violet:#5b4bd6;
+  --shadow:rgba(20,20,30,.16);
+  --ink-mute:color-mix(in srgb,var(--ink) 68%,var(--bg));
+  color-scheme:light;
 }
 
 *,*::before,*::after{box-sizing:border-box}
@@ -689,7 +716,7 @@ code{font-family:var(--mono);font-size:.92em}
   .brand-text{display:none}          /* the mark alone identifies it at this size */
   .search{order:0;flex:1 1 auto;min-width:0;height:36px}
   .search kbd{display:none}
-  .topbar>.select,.topbar>.cta,#jumpBtn,#refreshBtn,#themeBtn{display:none}
+  .topbar>.select,.topbar>.cta,#jumpBtn,#refreshBtn,#themeBtn,#schemeBtn{display:none}
   #searchAllBtn{display:grid}
   .density{display:none}
 

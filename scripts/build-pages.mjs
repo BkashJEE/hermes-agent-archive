@@ -49,7 +49,7 @@ const trim = (s, n = 155) => {
 const SAFE_ID = /^[A-Za-z0-9][A-Za-z0-9._-]*$/;
 
 const page = ({ title, description, canonical, body, breadcrumb }) => `<!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
