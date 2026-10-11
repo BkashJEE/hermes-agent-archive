@@ -12,7 +12,7 @@ deploying are separate steps. No installation into the owner's Desktop was perfo
 - Issue forms, contributor guidance, code of conduct and private vulnerability reporting.
 - Owner-reviewed changes and separate Vercel publication. Visitors receive no editing access.
 - Reviewed prompt and Hidden Tricks extractors with offline evidence; no classifier routing into either shelf.
-- A manual-install Desktop plugin that frames the website. Its code is **statically verified** against the shipped `hermes-desktop 2026.8.31-3` build (every SDK import present, entry and export shape as the host loads them; `desktop-plugin/VERIFICATION.md`). The runtime smoke test remains **pending**.
+- A manual-install Desktop plugin that frames the website. Its code is **statically verified** against the shipped `hermes-desktop 2026.8.31-3` build and the dev build `d94b70f` the maintainer runs (every SDK import present, entry and export shape as the host loads them; `desktop-plugin/VERIFICATION.md`). The runtime smoke test remains **pending**.
 
 ## Changes prepared in this branch
 
