@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://hermes-agent-archive.vercel.app/</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/whats-new</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/shelf/use-cases</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/story-solo-building-a-job-site-app-where-the-agent-files-its-own-t</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/story-28-cron-jobs-30-skills-and-a-3am-dreaming-job-that-writes-to</loc></url>

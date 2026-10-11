@@ -3,6 +3,8 @@
 !vercel.json
 !robots.txt
 !sitemap.xml
+!whats-new.html
+!feed.xml
 !shelf/**
 !shelf
 !entry/**
