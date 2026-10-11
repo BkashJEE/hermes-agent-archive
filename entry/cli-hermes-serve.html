@@ -35,6 +35,7 @@
 <p>Port conflicts: if the requested port (default 9119) is already held by another process (e.g. a second hermes serve or the gateway), the command prints a machine-readable sentinel line BACKEND_PORT_IN_USE port=&lt;port&gt; to stdout, a human hint naming the likely holder, and exits with code 75 (EX_TEMPFAIL) instead of a generic error — so scripts and the desktop app can tell &quot;port occupied&quot; apart from &quot;backend broken&quot;. Pass --port 0 to bind a free ephemeral port (the successful boot announces the chosen port via HERMES_BACKEND_READY port=&lt;port&gt;).</p>
 <p>From the official Hermes Agent CLI reference.</p>
 <pre><code>hermes serve</code></pre>
+
 <ul class="tags"><li>#cli</li><li>#reference</li></ul>
 <div class="actions">
 <a href="https://hermes-agent.nousresearch.com/docs/reference/cli-commands#hermes-serve" rel="noopener">Read the original</a>

@@ -33,6 +33,7 @@
 <p>The scripts clone the source, bootstrap uv, and delegate dependency preparation to PM. PM provides pinned Python, Node.js, npm, ripgrep, and FFmpeg. The source installation selects the all Python extra, not every optional extra. PM also installs the browser tools ( agent-browser and its pinned Chromium) by default. If that download fails, the install still completes and prints the command to retry. Other optional tools use their feature-specific installation paths. To leave the browser tools out, pass --skip-browser on POSIX or -SkipBrowser on Windows. Hermes remembers this choice: later installs and hermes update do not add them back. Run hermes pm install agent-browser to install them and undo the choice. The scripts create a launcher and prepare the data directory. Interactive runs also invoke setup and gateway configuration. --non-interactive on POSIX, or -NonInteractive on Windows, skips stages that need input. The optional --include-desktop / -IncludeDesktop stage builds the desktop from source. On a terminal the scripts show one status line per step and write the output of git, uv and the builds to logs/install.log under the Hermes data directory; a failed step prints its la…</p>
 <p>From the official Hermes Agent documentation.</p>
 
+
 <ul class="tags"><li>#install</li><li>#getting-started</li><li>#docs</li></ul>
 <div class="actions">
 <a href="https://hermes-agent.nousresearch.com/docs/getting-started/installation#what-the-source-installer-does" rel="noopener">Read the original</a>

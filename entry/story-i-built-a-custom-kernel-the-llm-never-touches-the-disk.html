@@ -33,6 +33,7 @@
 <p>Letting an LLM directly read/write flat .md files is a nightmare for scale. If you let an LLM rewrite markdown to maintain a complex graph, it inevitably hallucinates wiki links, breaks formatting, or drops paragraphs when context gets tight. Markdown isn&#39;t a database. I built a custom kernel instead. In my stack, the LLM never touches the disk — it only extracts structured semantic signals. The Python backend compiles those into typed nodes/edges and commits them to an SQLite FTS5 graph DB.</p>
 <p>— @lauratom, 2026-04-04, via Discord.</p>
 
+
 <ul class="tags"><li>#user-story</li><li>#dev-workflow</li></ul>
 <div class="actions">
 <a href="https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent.txt" rel="noopener">Read the original</a>

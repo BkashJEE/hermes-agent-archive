@@ -91,7 +91,10 @@ const paragraphs = text => String(text || '').split(/\n{2,}/)
   .map(p => p.trim()).filter(Boolean)
   .map(p => `<p>${esc(p).replace(/\n/g, '<br>')}</p>`).join('\n');
 
-export function entryPage(item, section, sourceLabel) {
+export function entryPage(item, section, sourceLabel, lookup = new Map()) {
+  /* Entries this story names, each a link to its own page. Only ones that resolve: a
+     reference to an entry withheld under the floor would be a dead link. */
+  const uses = (item.uses || []).map(id => lookup.get(id)).filter(Boolean);
   const link = item.url || (item.repo ? `https://github.com/${item.repo}` : null);
   const credit = item.author ? `By ${esc(item.author)}`
                : item.credit ? esc(item.credit)
@@ -111,6 +114,7 @@ ${echoesDetail ? '' : `<p class="lede">${esc(item.summary)}</p>`}
 ${credit ? `<p class="meta">${credit}${sourceLabel && item.author ? ` · ${esc(sourceLabel)}` : ''}</p>` : ''}
 ${item.detail ? paragraphs(item.detail) : ''}
 ${item.snippet ? `<pre><code>${esc(item.snippet)}</code></pre>` : ''}
+${uses.length ? `<p class="meta">Mentioned in this story</p><ul class="entries uses">${uses.map(u => `<li><a href="/entry/${esc(u.id)}">${esc(u.title)}</a><p>${esc(u.shelf)}</p></li>`).join('')}</ul>` : ''}
 ${item.tags?.length ? `<ul class="tags">${item.tags.map(t => `<li>#${esc(t)}</li>`).join('')}</ul>` : ''}
 <div class="actions">
 ${link ? `<a href="${esc(link)}" rel="noopener">Read the original</a>` : ''}
@@ -260,6 +264,9 @@ async function main() {
       dayMap.get(day).push({ ...item, shelf: section.id });
     }
   const days = [...dayMap.entries()].sort((a, b) => b[0].localeCompare(a[0]));
+  /* Every paged entry by id, so a story's `uses` can link by title and shelf. */
+  const lookup = new Map();
+  for (const { section, items } of shelves) for (const i of items) lookup.set(i.id, { id: i.id, title: i.title, shelf: section.label });
   const urls = [`${SITE}/`];
   if (days.length) {
     await writeFile(join(ROOT, 'whats-new.html'), whatsNewPage(days.slice(0, 30), index.sections));
@@ -270,7 +277,7 @@ async function main() {
     await writeFile(join(ROOT, 'shelf', `${section.id}.html`), shelfPage(section, items));
     urls.push(`${SITE}/shelf/${section.id}`);
     for (const item of items) {
-      await writeFile(join(ROOT, 'entry', `${item.id}.html`), entryPage(item, section, sourceLabels.get(item.source)));
+      await writeFile(join(ROOT, 'entry', `${item.id}.html`), entryPage(item, section, sourceLabels.get(item.source), lookup));
       urls.push(`${SITE}/entry/${item.id}`);
     }
   }

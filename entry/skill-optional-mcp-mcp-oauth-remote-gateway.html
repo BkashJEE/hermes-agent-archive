@@ -33,6 +33,7 @@
 <p>Hermes&#39; built-in MCP OAuth client runs a one-shot HTTP listener on `127.0.0.1:&lt;port&gt;`<br>inside the Hermes process and registers that loopback address as the OAuth<br>`redirect_uri`. That works perfectly for a local CLI on the user&#39;s own machine.<br>It breaks completely when Hermes runs as a remote gateway (container, VPS,<br>messaging bot), because the user&#39;s browser resolves `127.0.0.1` to the user&#39;s own<br>laptop, not the remote container — so the authorization code never reaches Hermes.</p>
 <p>Platforms: linux, macos.</p>
 <pre><code>hermes skills install official/mcp/mcp-oauth-remote-gateway</code></pre>
+
 <ul class="tags"><li>#skills</li><li>#optional</li><li>#mcp</li><li>#oauth</li><li>#pkce</li><li>#remote-deployment</li></ul>
 <div class="actions">
 <a href="https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/mcp/mcp-mcp-oauth-remote-gateway" rel="noopener">Read the original</a>

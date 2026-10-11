@@ -33,6 +33,7 @@
 <p>hermes plugins install clones non-interactively (it never prompts for a username or password), so a private repo needs a credential Hermes can find on its own. Every clone, pinned --ref fetch and hermes plugins update pull is attempted anonymously first - public repos never see your credential, so a stale or revoked token cannot break a public install. Only when the remote refuses anonymous access does Hermes look for a credential. For an https:// source it tries, in order: GITHUB_TOKEN or GH_TOKEN from your .env (GitHub hosts only). The gh CLI&#39;s login ( gh auth login ), GitHub hosts only. Your git credential helper ( git credential fill ) for that host - works for GitLab, Bitbucket and self-hosted servers if a credential is already stored. The credential is sent as a one-shot HTTP header for that install or update; it is never written into the plugin&#39;s .git/config or the install metadata. SSH sources ( git@host:owner/repo.git ) authenticate through your ssh-agent as before. The same resolution applies to hermes plugins update , catalog MCP installs from git, and profile distributions fetched from a git URL. hermes doctor sends a configured GITHUB_TOKEN / GH_TOKEN to api.github.com…</p>
 <p>From the official Hermes Agent documentation.</p>
 
+
 <ul class="tags"><li>#plugins</li><li>#docs</li></ul>
 <div class="actions">
 <a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#installing-from-a-private-repository" rel="noopener">Read the original</a>
