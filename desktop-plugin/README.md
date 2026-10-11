@@ -5,8 +5,10 @@ sidebar entry, a status-bar launcher and command-palette shelf shortcuts. It ope
 the published archive by default; no local server, API key or archive account is needed.
 Internet access is required for the hosted copy.
 
-**Release status:** code and installer tests pass against SDK stand-ins. A versioned
-smoke test inside the real Hermes Desktop app is still pending. This is an early
+**Release status:** code and installer tests pass against SDK stand-ins, and the plugin was
+verified statically against the shipped `hermes-desktop 2026.8.31-3` build (app 0.17.0,
+Electron 40.10.2) — see [VERIFICATION.md](VERIFICATION.md). A versioned runtime smoke test
+inside the real app is still pending. This is an early
 preview, not a catalog-listed or cross-platform-certified plugin. Installing the
 file successfully does not establish that Hermes loaded it.
 
