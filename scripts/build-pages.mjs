@@ -162,6 +162,59 @@ export async function visible(item, byRepo) {
   return qualifiesRepository(repo, byRepo.get(repo)?.stars);
 }
 
+/**
+ * The two ways a follower learns what changed without opening the site.
+ *
+ * /whats-new is the "What arrived recently" panel as a static page: every arrival grouped
+ * by the day it landed, newest first, each linking to its entry page. A crawler can read
+ * it and a reader can send it. /feed.xml is the same list as RSS 2.0, so a feed reader or
+ * an automation can subscribe. Both use the arrival date — the first commit holding the
+ * id — which is measured, unlike the `date` field, which is when the source was published.
+ */
+export function whatsNewPage(days, sections) {
+  const label = id => sections.find(s => s.id === id)?.label || id;
+  const when = day => new Date(`${day}T12:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+  const total = days.reduce((n, [, items]) => n + items.length, 0);
+  const body = `
+<h1>What arrived recently</h1>
+<p class="lede">${total} entries across the last ${days.length} days the archive grew. Dates are when each entry arrived here, not when its source was published.</p>
+<p class="meta"><a href="/feed.xml">Subscribe by RSS</a> · <a href="/">Browse the archive</a></p>
+${days.map(([day, items]) => {
+  const byShelf = items.reduce((m, i) => ((m[i.shelf] ||= []).push(i), m), {});
+  return `<section>
+<h2>${esc(when(day))} <span class="meta">+${items.length}</span></h2>
+${Object.entries(byShelf).map(([shelf, list]) => `<p class="meta">${esc(label(shelf).toUpperCase())} · ${list.length}</p>
+<ul class="entries">${list.slice(0, 10).map(i => `<li><a href="/entry/${esc(i.id)}">${esc(i.title)}</a><p>${esc(trim(i.summary, 160))}</p></li>`).join('\n')}${list.length > 10 ? `
+<li><a href="/shelf/${esc(shelf)}">+ ${list.length - 10} more on ${esc(label(shelf))} →</a></li>` : ''}</ul>`).join('\n')}
+</section>`; }).join('\n')}`;
+  return page({ title: 'What arrived recently', description: trim(`${total} entries added to the Hermes Agent Archive over the last ${days.length} days it grew, newest first.`), canonical: `${SITE}/whats-new`, breadcrumb: ' / What arrived recently', body });
+}
+
+export function feedXml(days, sections, limit = 60) {
+  const label = id => sections.find(s => s.id === id)?.label || id;
+  const items = days.flatMap(([day, list]) => list.map(i => ({ ...i, day }))).slice(0, limit);
+  const rfc = day => new Date(`${day}T12:00:00Z`).toUTCString();
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>Hermes Agent Archive — what arrived</title>
+<link>${SITE}/whats-new</link>
+<atom:link href="${SITE}/feed.xml" rel="self" type="application/rss+xml"/>
+<description>Sourced Hermes Agent workflows, prompts, skills and projects, as they are added. Dates are arrival dates.</description>
+<language>en</language>
+${items.map(i => `<item>
+<title>${esc(i.title)}</title>
+<link>${SITE}/entry/${esc(i.id)}</link>
+<guid isPermaLink="true">${SITE}/entry/${esc(i.id)}</guid>
+<pubDate>${rfc(i.day)}</pubDate>
+<category>${esc(label(i.shelf))}</category>
+<description>${esc(trim(i.summary, 300))}</description>
+</item>`).join('\n')}
+</channel>
+</rss>
+`;
+}
+
 async function main() {
   const dry = process.argv.includes('--dry');
   const index = JSON.parse(await readFile(join(ROOT, 'data', 'index.json'), 'utf8'));
@@ -197,7 +250,22 @@ async function main() {
   await mkdir(join(ROOT, 'entry'), { recursive: true });
   await mkdir(join(ROOT, 'shelf'), { recursive: true });
 
+  /* Arrival dates, if they have been generated. Only entries this build pages. */
+  const added = JSON.parse(await readFile(join(ROOT, 'data', 'added.json'), 'utf8').catch(() => '{"added":{}}')).added || {};
+  const dayMap = new Map();
+  for (const { section, items } of shelves)
+    for (const item of items) {
+      const day = added[item.id]; if (!day) continue;
+      if (!dayMap.has(day)) dayMap.set(day, []);
+      dayMap.get(day).push({ ...item, shelf: section.id });
+    }
+  const days = [...dayMap.entries()].sort((a, b) => b[0].localeCompare(a[0]));
   const urls = [`${SITE}/`];
+  if (days.length) {
+    await writeFile(join(ROOT, 'whats-new.html'), whatsNewPage(days.slice(0, 30), index.sections));
+    await writeFile(join(ROOT, 'feed.xml'), feedXml(days, index.sections));
+    urls.push(`${SITE}/whats-new`);
+  }
   for (const { section, items } of shelves) {
     await writeFile(join(ROOT, 'shelf', `${section.id}.html`), shelfPage(section, items));
     urls.push(`${SITE}/shelf/${section.id}`);
@@ -215,7 +283,7 @@ async function main() {
     + urls.map(u => `  <url><loc>${esc(u)}</loc></url>`).join('\n')
     + '\n</urlset>\n');
 
-  console.log(`wrote ${total} entry pages, ${shelves.length} shelf pages, sitemap.xml (${urls.length} urls)`);
+  console.log(`wrote ${total} entry pages, ${shelves.length} shelf pages, sitemap.xml (${urls.length} urls)${days.length ? `, whats-new.html and feed.xml (${days.length} arrival days)` : ', no arrival dates — run npm run added'}`);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) await main();

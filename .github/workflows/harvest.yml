@@ -21,6 +21,9 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           ref: main
+          # The arrival-date generator walks every commit that touched data/. A depth-1
+          # checkout has one, so every entry would be dated today.
+          fetch-depth: 0
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with: { node-version: "20" }
 
@@ -53,6 +56,12 @@ jobs:
       # Entries and their pages ship together. A harvest that adds an entry without
       # regenerating leaves it with no URL a crawler can reach, and the page test below
       # fails rather than letting that merge quietly.
+      # "What arrived recently" reads data/added.json, which is built from git history and
+      # was never rebuilt after content landed — the badge said "updated today" beside a
+      # panel whose newest day was a week old.
+      - name: Record arrival dates
+        run: npm run added
+
       - name: Rebuild the crawlable pages
         run: npm run pages
 
@@ -69,7 +78,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/ entry/ shelf/ sitemap.xml
+          git add data/ entry/ shelf/ sitemap.xml whats-new.html feed.xml
           if git diff --staged --quiet; then
             echo "The sources had nothing new; no proposal to make."
             exit 0

@@ -514,6 +514,8 @@ code{font-family:var(--mono);font-size:.92em}
 /* The ask comes after the value: it sits below READ THE ORIGINAL, once a card has earned it. */
 .d-follow{margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-dim)}
 .d-follow a{color:var(--accent);font-weight:500}
+.wn-links{margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-dim)}
+.wn-links a{color:var(--accent);font-weight:500}
 .d-kicker{display:flex;align-items:center;gap:8px;margin:12px 24px 20px 0;flex-wrap:wrap}
 .drawer h3{margin:0 0 6px;font-size:24px;font-weight:600;line-height:1.35;overflow-wrap:anywhere;padding-right:36px}
 .d-story{margin:28px 0}

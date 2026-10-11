@@ -17,7 +17,7 @@ const TYPES = {
 export async function createArchiveServer(root = ROOT) {
   root = await realpath(root);
   const cfg = JSON.parse(await readFile(resolve(root, 'data/index.json'), 'utf8'));
-  const publicFiles = new Set(['index.html', 'robots.txt', 'sitemap.xml', 'data/index.json', 'data/live.json', 'data/rankings.json', 'data/added.json']);
+  const publicFiles = new Set(['index.html', 'robots.txt', 'sitemap.xml', 'whats-new.html', 'feed.xml', 'data/index.json', 'data/live.json', 'data/rankings.json', 'data/added.json']);
   for (const section of cfg.sections) {
     if (!section.file) continue;
     if (!/^[a-z0-9-]+\.json$/i.test(section.file)) throw new Error('Invalid section file');
@@ -42,7 +42,7 @@ export async function createArchiveServer(root = ROOT) {
          and production disagree about every link in the sitemap. The id pattern is the
          one build-pages.mjs enforces, and the traversal, symlink and root checks below
          still apply to whatever it produces. */
-      const generated = /^(entry|shelf)\/[A-Za-z0-9][A-Za-z0-9._-]*$/.test(path)
+      const generated = (/^(entry|shelf)\/[A-Za-z0-9][A-Za-z0-9._-]*$/.test(path) || path === 'whats-new')
         && !path.endsWith('.html') ? `${path}.html` : null;
       const served = generated ?? path;
       const isGenerated = /^(entry|shelf)\/[A-Za-z0-9][A-Za-z0-9._-]*\.html$/.test(served);

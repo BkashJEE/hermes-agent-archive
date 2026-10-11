@@ -35,7 +35,8 @@ test('the sitemap lists exactly what exists', async () => {
   const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
   const pages = (await readdir(new URL('entry/', ROOT))).length
               + (await readdir(new URL('shelf/', ROOT))).length;
-  assert.equal(locs.length, pages + 1, 'one url per page, plus the root');
+  const changelog = await read('whats-new.html').then(() => 1).catch(() => 0);
+  assert.equal(locs.length, pages + 1 + changelog, 'one url per page, plus the root and the changelog');
   assert.ok(locs.every(u => u.startsWith('https://hermes-agent-archive.vercel.app/')), 'absolute, canonical host');
   assert.equal(new Set(locs).size, locs.length, 'no duplicate urls');
   // A <lastmod> here would be a date nobody measured: `date` is when the described thing
@@ -92,4 +93,22 @@ test('a repository the shelf hides under the floor gets no page', async () => {
   assert.equal(await visible({ id: 'y', repo: 'big/known', url: 'https://github.com/big/known' }, byRepo), false, 'stars alone are not enough without documented support');
   assert.equal(await visible({ id: 'z', title: 'A story', url: 'https://reddit.com/r/x/1' }, byRepo), true, 'non-GitHub entries are unaffected');
   assert.equal(await visible({ id: 'w', repo: 'tiny/plugin', credit: 'author analytics' }, byRepo), true, 'a credited figure is exempt, as on the shelf');
+});
+
+test('the changelog page and the feed exist and agree with the sitemap', async () => {
+  /* A follower learns what changed from /whats-new or by subscribing to /feed.xml. Both
+     are generated with the pages, from arrival dates, so they must be present and well
+     formed whenever arrival dates are. */
+  const added = await json('data/added.json').catch(() => null);
+  if (!added) return;                                     // no arrival history yet
+  const feed = await read('feed.xml');
+  const items = [...feed.matchAll(/<item>/g)].length;
+  assert.ok(items > 0 && items <= 60, `feed holds ${items} items`);
+  assert.match(feed, /<pubDate>[A-Z][a-z]{2}, \d{2} [A-Z][a-z]{2} \d{4}/, 'RFC 822 dates');
+  assert.ok(!/<lastBuildDate>/.test(feed), 'no build date: it is not a measured fact about the content');
+  const page = await read('whats-new.html');
+  assert.match(page, /<h1>What arrived recently<\/h1>/);
+  assert.match(page, /href="\/feed\.xml"/, 'the page offers the feed');
+  const sitemap = await read('sitemap.xml');
+  assert.match(sitemap, /<loc>https:\/\/hermes-agent-archive\.vercel\.app\/whats-new<\/loc>/);
 });
