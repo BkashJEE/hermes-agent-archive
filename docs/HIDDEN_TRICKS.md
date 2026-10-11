@@ -25,6 +25,22 @@ smaller shelf is intentional: ordinary documented features, unresolved source
 attribution, proposals and insufficiently detailed claims were not stretched to
 meet a target count. Existing use cases are preserved.
 
+A second review on 2026-10-11 resolved 98 of the 116 Discord-sourced stories to their
+exact archived message (author, id, date, line range) at the same pinned archive
+commit, read the fifteen that an editorial triage put first, accepted 3 and rejected
+12 with reasons. Two rejections are worth naming because they looked strongest:
+a `STANDING.md` plugin that injects a file into the system prompt every turn, which
+is what the documented context files already do; and the RTK rewrite plugin, which the
+documentation names directly. The triage only ordered reading; every acceptance rests
+on the quotation, the permalink and the searches recorded in the candidate file.
+
+Refreshing the corpus for that review found one upstream page deleted. A refresh
+refuses to shrink coverage on its own, so the removal was reviewed — it appeared in no
+closest-doc comparison, only in the lists of pages searched — and is recorded in
+`scripts/trick-docs-removed.json`; only a path listed there is tolerated. All seven
+accepted candidates were then re-searched and their excerpts re-checked against the
+new revision (1f2b9e0, 451 pages) before their reviews were stamped.
+
 ## Corpus and scope
 
 `scripts/prompt-excerpts.json` currently covers six guides. Searching only those

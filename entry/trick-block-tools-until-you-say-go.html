@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Block every tool at the hook level until you say go · Hermes Agent Archive</title>
+<meta name="description" content="A two-command plugin keeps the agent in discussion-only mode — questions, trade-offs, a running plan — and physically cannot execute until /go.">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/trick-block-tools-until-you-say-go">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Block every tool at the hook level until you say go">
+<meta property="og:description" content="A two-command plugin keeps the agent in discussion-only mode — questions, trade-offs, a running plan — and physically cannot execute until /go.">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/trick-block-tools-until-you-say-go">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Block every tool at the hook level until you say go">
+<meta name="twitter:description" content="A two-command plugin keeps the agent in discussion-only mode — questions, trade-offs, a running plan — and physically cannot execute until /go.">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/tricks">Hidden Tricks</a></header>
+
+<article>
+<h1>Block every tool at the hook level until you say go</h1>
+<p class="lede">A two-command plugin keeps the agent in discussion-only mode — questions, trade-offs, a running plan — and physically cannot execute until /go.</p>
+<p class="meta">By @ibrandis · Discord</p>
+<p>`/converse` flips the agent into discussion-only mode. It asks clarifying questions, surfaces tradeoffs, pushes back on unclear requirements. Tools are blocked at the hook level. It physically cannot execute even if the model tries.</p>
+<p>— @ibrandis, 2026-05-06, via the public Nous Discord archive.</p>
+<p>The contributor describes a plugin with two slash commands. /converse puts the agent into a discussion-only mode by blocking tool calls in a hook and injecting scoping instructions before each model call, so the model can ask questions and surface trade-offs but cannot act. Each reply ends with a structured plan recap. /go re-enables execution with the whole conversation already in context, so nothing has to be re-explained.</p>
+<p>Limitations: A community plugin, not a built-in mode. The source describes the design and the two hooks it uses; the archive has not run it. The built-in /plan command covers the different case of writing a plan file instead of executing.</p>
+<p>Documentation check: this specific community technique was not found in the official English reference snapshot (1f2b9e0) or the cached prompt guides. Related built-in features are documented. This is a bounded source review, not a claim about every document or independent execution testing.</p>
+
+
+<ul class="tags"><li>#dev-workflow</li><li>#safety</li></ul>
+<div class="actions">
+<a href="https://github.com/teknium1/nous-discord-archive/blob/00e34c284fc9ec2571acc43d6f3e9b8ef1fe2c8a/archives/plugins-skills-and-skins/1501531131734917170-Converse--chat-before-your-agent-acts.txt#L5-L63" rel="noopener">Read the original</a>
+<a href="/#tricks?item=trick-block-tools-until-you-say-go">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

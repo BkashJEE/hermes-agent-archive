@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-10-10T19:22:17.575Z",
+  "classifiedAt": "2026-10-11T03:09:09.248Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -5471,28 +5471,28 @@
       "confidence": 0.58
     },
     "trick-audit-the-skill-auditor": {
-      "input": "4e6e07f3e13f6073d53d644cfcde57b7770d43a0acb10a0af3df89b0c5fb34c6",
+      "input": "cff940f48a1ddab123e252a79b0c9a9d0b100a071edaf829694d75eedf8a13b8",
       "usefulness": 1.09,
       "popularity": "unknown",
-      "confidence": 0.86
+      "confidence": 0.87
     },
     "trick-generate-a-read-only-memory-vault": {
-      "input": "3f778854bd86bce3b4763eced549ef5e895df33512f3592d3a6d7a826dff894d",
-      "usefulness": 1.53,
+      "input": "9628bb8677763cf2984e1d5e7206ad863c0f488059b091e74e107c3c9b8bf528",
+      "usefulness": 1.52,
       "popularity": "unknown",
-      "confidence": 0.55
+      "confidence": 0.56
     },
     "trick-navigate-document-structure-before-retrieval": {
-      "input": "fc2c6dd96f8d91ead04b109e4b020fb759e13824038ef92a8605d768b672f283",
-      "usefulness": 1.51,
+      "input": "931c07e9d2502efe6e79a7ef6c0d7c86d7abc47347f86df80bb4d8f02d80f951",
+      "usefulness": 1.49,
       "popularity": "unknown",
       "confidence": 0.57
     },
     "trick-bridge-a-serial-terminal-through-a-login-shell": {
-      "input": "eeaf98995092233832c636b98a1432807ff7f2536f9b0c635ef33eec66494753",
-      "usefulness": 1.33,
+      "input": "70016c72a79c86d9d64d4c88e9fe6f63fcd6d5a77b1f7e74bb32a0e293b8ba7b",
+      "usefulness": 1.31,
       "popularity": "unknown",
-      "confidence": 0.71
+      "confidence": 0.72
     },
     "community-hermes-desktop-theme-pack": {
       "input": "95c489980b03287cb7e0d03e82cf8aa12d09b8ee31bac0cc9a8d8b2bb6244608",
@@ -8085,6 +8085,24 @@
       "usefulness": 1.91,
       "popularity": "widespread",
       "confidence": 0.55
+    },
+    "trick-block-tools-until-you-say-go": {
+      "input": "edad045b81bfd63b959da74e89305bb59a325030953b0781f44b0fb25401bcad",
+      "usefulness": 2.32,
+      "popularity": "unknown",
+      "confidence": 0.43
+    },
+    "trick-subclass-the-api-gateway-for-chat-clients": {
+      "input": "8c0e4897d5363bf92534433a6c2291651aee7f01433bea9d221ef60d23bdf450",
+      "usefulness": 2.4,
+      "popularity": "unknown",
+      "confidence": 0.56
+    },
+    "trick-audit-each-memory-file-against-written-principles": {
+      "input": "481f41fb903eaa90cbe3956d69164a68cdb5345c643f407421a2a4969602532d",
+      "usefulness": 1.86,
+      "popularity": "unknown",
+      "confidence": 0.62
     }
   }
 }

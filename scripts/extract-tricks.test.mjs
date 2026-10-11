@@ -147,3 +147,16 @@ test('a truncated upstream tree cannot create an incomplete absence corpus', asy
 test('every shipped trick matches its attributed source and recomputed absence evidence offline', async () => {
   await run({ offline: true, fetcher: () => assert.fail('Shipped evidence verification must stay offline') });
 });
+
+test('a refresh tolerates only a reviewed removal', async () => {
+  const commit = 'b'.repeat(40);
+  const previous = { commit: 'a'.repeat(40), pages: { 'website/docs/kept.md': 'kept', 'website/docs/gone.md': 'gone' } };
+  const tree = { truncated: false, tree: [{ type: 'blob', path: 'website/docs/kept.md', sha: 'k1' }] };
+  const fetcher = async url => ({ ok: true, json: async () => url.includes('/commits/main') ? { sha: commit }
+    : url.includes('/git/trees/') ? tree : { encoding: 'base64', content: Buffer.from('kept').toString('base64') } });
+  await assert.rejects(refreshCorpus(previous, fetcher), /review removed paths.*gone\.md/, 'an unreviewed removal refuses');
+  const reviewed = new Map([['website/docs/gone.md', { path: 'website/docs/gone.md', reason: 'deleted upstream', reviewedAt: '2026-10-11' }]]);
+  const updated = await refreshCorpus(previous, fetcher, reviewed);
+  assert.equal(updated.commit, commit);
+  assert.deepEqual(Object.keys(updated.pages), ['website/docs/kept.md']);
+});

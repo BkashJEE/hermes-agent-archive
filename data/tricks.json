@@ -5,7 +5,7 @@
       "id": "trick-audit-the-skill-auditor",
       "title": "Use a skill auditor as its own test subject",
       "summary": "An experimental loop tests another skill to evaluate and improve the auditor itself.",
-      "detail": "but if i run the skill-audit on the skill-audit skill itself then it just picks a random skill to improve\n\n— @.salt555, 2026-04-23, via the public Nous Discord archive.\n\nThe contributor describes running a custom audit skill against itself. It chooses another skill as a test case, executes that skill in a sandbox, and uses the outcome to revise both the tested skill and the auditor. They schedule the experiment with cron.\n\nLimitations: A community experiment, not a demonstrated guarantee of improvement. The source does not supply a complete implementation. Review proposed skill edits before using them; this is distinct from the built-in security audit command.\n\nDocumentation check: this specific community technique was not found in the official English reference snapshot (5458de9) or the cached prompt guides. Related built-in features are documented. This is a bounded source review, not a claim about every document or independent execution testing.",
+      "detail": "but if i run the skill-audit on the skill-audit skill itself then it just picks a random skill to improve\n\n— @.salt555, 2026-04-23, via the public Nous Discord archive.\n\nThe contributor describes running a custom audit skill against itself. It chooses another skill as a test case, executes that skill in a sandbox, and uses the outcome to revise both the tested skill and the auditor. They schedule the experiment with cron.\n\nLimitations: A community experiment, not a demonstrated guarantee of improvement. The source does not supply a complete implementation. Review proposed skill edits before using them; this is distinct from the built-in security audit command.\n\nDocumentation check: this specific community technique was not found in the official English reference snapshot (1f2b9e0) or the cached prompt guides. Related built-in features are documented. This is a bounded source review, not a claim about every document or independent execution testing.",
       "tags": [
         "dev-workflow",
         "automation"
@@ -19,7 +19,7 @@
       "id": "trick-generate-a-read-only-memory-vault",
       "title": "Generate the memory vault from a database instead of letting the agent edit it",
       "summary": "Use structured model output as input to a deterministic store, then render a read-only Obsidian view.",
-      "detail": "I just have my DB auto-generate a read-only Markdown vault\n\n— @lauratom, 2026-04-04, via the public Nous Discord archive.\n\nThe contributor uses the model to extract structured semantic signals. A Python backend turns those signals into typed nodes and edges in SQLite FTS5, handles memory changes in SQL, and generates Markdown for viewing in Obsidian. The generated vault is an output, not the writable source of truth.\n\nLimitations: Requires a custom memory backend; no complete implementation is supplied in the message. Read-only generated files alone do not establish a security boundary. Built-in Hermes session search already uses SQLite; that alone is not the trick.\n\nDocumentation check: this specific community technique was not found in the official English reference snapshot (5458de9) or the cached prompt guides. Related built-in features are documented. This is a bounded source review, not a claim about every document or independent execution testing.",
+      "detail": "I just have my DB auto-generate a read-only Markdown vault\n\n— @lauratom, 2026-04-04, via the public Nous Discord archive.\n\nThe contributor uses the model to extract structured semantic signals. A Python backend turns those signals into typed nodes and edges in SQLite FTS5, handles memory changes in SQL, and generates Markdown for viewing in Obsidian. The generated vault is an output, not the writable source of truth.\n\nLimitations: Requires a custom memory backend; no complete implementation is supplied in the message. Read-only generated files alone do not establish a security boundary. Built-in Hermes session search already uses SQLite; that alone is not the trick.\n\nDocumentation check: this specific community technique was not found in the official English reference snapshot (1f2b9e0) or the cached prompt guides. Related built-in features are documented. This is a bounded source review, not a claim about every document or independent execution testing.",
       "tags": [
         "memory",
         "dev-workflow"
@@ -33,7 +33,7 @@
       "id": "trick-navigate-document-structure-before-retrieval",
       "title": "Let Hermes choose document sections before retrieving pages",
       "summary": "A community demo uses a document hierarchy and targeted tools instead of nearest-vector chunks.",
-      "detail": "The agent first understands how the document is organized, then decides which pages to inspect before answering.\n\n— @lemoussel, 2026-05-06, via the public Nous Discord archive.\n\nThe contributor indexes a PDF with PageIndex, waits for indexing, then gives Hermes a toolset dedicated to that document. The agent inspects the hierarchy and chooses relevant pages before answering. This records the retrieval technique, not a recommendation or popularity claim for the project.\n\nLimitations: A custom demonstration, not a built-in Hermes feature or a benchmark against other retrieval systems. It requires indexing and document-specific tools; the workflow has not been execution-tested here.\n\nDocumentation check: this specific community technique was not found in the official English reference snapshot (5458de9) or the cached prompt guides. Related built-in features are documented. This is a bounded source review, not a claim about every document or independent execution testing.",
+      "detail": "The agent first understands how the document is organized, then decides which pages to inspect before answering.\n\n— @lemoussel, 2026-05-06, via the public Nous Discord archive.\n\nThe contributor indexes a PDF with PageIndex, waits for indexing, then gives Hermes a toolset dedicated to that document. The agent inspects the hierarchy and chooses relevant pages before answering. This records the retrieval technique, not a recommendation or popularity claim for the project.\n\nLimitations: A custom demonstration, not a built-in Hermes feature or a benchmark against other retrieval systems. It requires indexing and document-specific tools; the workflow has not been execution-tested here.\n\nDocumentation check: this specific community technique was not found in the official English reference snapshot (1f2b9e0) or the cached prompt guides. Related built-in features are documented. This is a bounded source review, not a claim about every document or independent execution testing.",
       "tags": [
         "research",
         "dev-workflow"
@@ -47,7 +47,7 @@
       "id": "trick-bridge-a-serial-terminal-through-a-login-shell",
       "title": "Bridge a serial terminal to Hermes with a minimal login shell",
       "summary": "A community hardware experiment connects a serial getty to a shell backed by Hermes.",
-      "detail": "Hooked the shell up to an autologin getty on a serial port.\n\n— @hugh1979, 2026-04-23, via the public Nous Discord archive.\n\nThe contributor built a minimal login shell that talks to Hermes through the gateway web service or hermes chat, then connected that shell to a serial getty. This let a physical teletype act as the input/output device without using the normal terminal interface.\n\nLimitations: A niche hardware experiment requiring a custom shell and serial setup. Autologin grants access to the attached session, so use a dedicated restricted account and control physical access. The standard CLI and API are documented; the serial-terminal bridge is the discovery.\n\nDocumentation check: this specific community technique was not found in the official English reference snapshot (5458de9) or the cached prompt guides. Related built-in features are documented. This is a bounded source review, not a claim about every document or independent execution testing.",
+      "detail": "Hooked the shell up to an autologin getty on a serial port.\n\n— @hugh1979, 2026-04-23, via the public Nous Discord archive.\n\nThe contributor built a minimal login shell that talks to Hermes through the gateway web service or hermes chat, then connected that shell to a serial getty. This let a physical teletype act as the input/output device without using the normal terminal interface.\n\nLimitations: A niche hardware experiment requiring a custom shell and serial setup. Autologin grants access to the attached session, so use a dedicated restricted account and control physical access. The standard CLI and API are documented; the serial-terminal bridge is the discovery.\n\nDocumentation check: this specific community technique was not found in the official English reference snapshot (1f2b9e0) or the cached prompt guides. Related built-in features are documented. This is a bounded source review, not a claim about every document or independent execution testing.",
       "tags": [
         "creative",
         "dev-workflow"
@@ -56,6 +56,48 @@
       "url": "https://github.com/teknium1/nous-discord-archive/blob/00e34c284fc9ec2571acc43d6f3e9b8ef1fe2c8a/archives/community-projects-showcase/1496700201526759494-Hardcopy-TUI.txt#L5-L7",
       "author": "@hugh1979",
       "date": "2026-04-23"
+    },
+    {
+      "id": "trick-block-tools-until-you-say-go",
+      "title": "Block every tool at the hook level until you say go",
+      "summary": "A two-command plugin keeps the agent in discussion-only mode — questions, trade-offs, a running plan — and physically cannot execute until /go.",
+      "detail": "`/converse` flips the agent into discussion-only mode. It asks clarifying questions, surfaces tradeoffs, pushes back on unclear requirements. Tools are blocked at the hook level. It physically cannot execute even if the model tries.\n\n— @ibrandis, 2026-05-06, via the public Nous Discord archive.\n\nThe contributor describes a plugin with two slash commands. /converse puts the agent into a discussion-only mode by blocking tool calls in a hook and injecting scoping instructions before each model call, so the model can ask questions and surface trade-offs but cannot act. Each reply ends with a structured plan recap. /go re-enables execution with the whole conversation already in context, so nothing has to be re-explained.\n\nLimitations: A community plugin, not a built-in mode. The source describes the design and the two hooks it uses; the archive has not run it. The built-in /plan command covers the different case of writing a plan file instead of executing.\n\nDocumentation check: this specific community technique was not found in the official English reference snapshot (1f2b9e0) or the cached prompt guides. Related built-in features are documented. This is a bounded source review, not a claim about every document or independent execution testing.",
+      "tags": [
+        "dev-workflow",
+        "safety"
+      ],
+      "source": "discord",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/00e34c284fc9ec2571acc43d6f3e9b8ef1fe2c8a/archives/plugins-skills-and-skins/1501531131734917170-Converse--chat-before-your-agent-acts.txt#L5-L63",
+      "author": "@ibrandis",
+      "date": "2026-05-06"
+    },
+    {
+      "id": "trick-subclass-the-api-gateway-for-chat-clients",
+      "title": "Subclass the OpenAI-compatible gateway so third-party chat clients keep markdown and slash commands",
+      "summary": "A drop-in plugin runs a second gateway port that renders full markdown and intercepts /help, /status and the rest instead of forwarding them to the model.",
+      "detail": "So I built a small drop-in plugin that fixes both. It's a separate gateway adapter (subclasses the official one, doesn't fork it), runs on its own port\n\n— @dworfd, 2026-05-08, via the public Nous Discord archive.\n\nThird-party OpenAI-compatible clients such as BoltAI reach Hermes through the API server, where the contributor found markdown flattened to plain text and slash commands passed to the model as ordinary messages. Rather than fork the gateway, the plugin subclasses the official adapter, listens on a second port, renders markdown and handles slash commands locally, and preserves streaming. The client is pointed at the new port and otherwise configured as the official guide describes.\n\nLimitations: A third-party plugin tested by its author with BoltAI; other OpenAI-compatible clients are stated as untested. It depends on the official gateway class it subclasses, so an upstream change could break it. Review the code before installing.\n\nDocumentation check: this specific community technique was not found in the official English reference snapshot (1f2b9e0) or the cached prompt guides. Related built-in features are documented. This is a bounded source review, not a claim about every document or independent execution testing.",
+      "tags": [
+        "integrations",
+        "dev-workflow"
+      ],
+      "source": "discord",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/00e34c284fc9ec2571acc43d6f3e9b8ef1fe2c8a/archives/plugins-skills-and-skins/1502296506735268102-gateway-plugin-for-BoltAI--and-other-OpenAI-API-clients----full-markdown---slash-commands.txt#L5-L27",
+      "author": "@dworfd",
+      "date": "2026-05-08"
+    },
+    {
+      "id": "trick-audit-each-memory-file-against-written-principles",
+      "title": "Audit every profile's memory file weekly against written principles",
+      "summary": "One sub-profile per project, each with its own memory, and a weekly pass that checks each memory file against a written rule of what belongs there.",
+      "detail": "The weekly memory cleanup goes through each memory file to audit it against our 'principles of what belongs into each profile's memory'\n\n— @ogiberstein, 2026-04-21, via the public Nous Discord archive.\n\nThe contributor runs a main agent plus one sub-profile per project, each keeping its own memory file. Memory still accumulates stray entries, so a scheduled weekly cleanup reads every memory file and audits it against a written statement of what belongs in each profile's memory, pruning the rest so the main agent's memory stays high-level and each project's stays specific.\n\nLimitations: A process the author runs, described in outline; the source does not include the principles document or the audit prompt. Memory files have a size cap, and what counts as belonging is the author's judgement, not a measured rule.\n\nDocumentation check: this specific community technique was not found in the official English reference snapshot (1f2b9e0) or the cached prompt guides. Related built-in features are documented. This is a bounded source review, not a claim about every document or independent execution testing.",
+      "tags": [
+        "memory",
+        "automation"
+      ],
+      "source": "discord",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/00e34c284fc9ec2571acc43d6f3e9b8ef1fe2c8a/archives/community-projects-showcase/1496117910287024159-Running-Hermes-as-a-Hardcore-Project-Operating-System.txt#L5-L20",
+      "author": "@ogiberstein",
+      "date": "2026-04-21"
     }
   ]
 }
