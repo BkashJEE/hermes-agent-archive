@@ -58,9 +58,42 @@ allow-popups-to-escape-sandbox`, which is the plugin's own choice and broader th
 host's own embedded frames; the README's warning stands: plugin code runs in the
 renderer with the preload bridge, not as Node.
 
+## The build the plugin actually runs in
+
+The maintainer's running Hermes Desktop is not the installed package: it is a dev build
+from the source checkout, `Hermes 0.0.0` at `d94b70f` (2026-10-08), Electron 40.10.2,
+`app.asar` SHA-256 `783913d8…`, at `~/.hermes/hermes-agent/apps/desktop/release/linux-unpacked/`.
+The same checks were re-run against it with the same method:
+
+| | 2026.8.31-3 (installed) | dev `d94b70f` (running) |
+|---|---|---|
+| SDK named exports | 152 | **190** (adds `APPEARANCE_AREAS`, `SETTINGS_PLUGINS_AREA`, `SIDEBAR_NAV_PREFS_AREA`, `WORKSPACE_PAGE_HEADER_AREA` and others) |
+| Plugin's six imports present | all | all |
+| Import allow-list (`@hermes/plugin-sdk`, `react`) | same text, `assets/session-list-density-*.js@118150` | same text, `assets/sdk-Cz4StWqA.js@266847` |
+| Entry rule `plugin.js` then `desktop/plugin.js` | `electron-main.mjs@173954` | identical, `electron-main.mjs` |
+| SDK global mapping `__HERMES_PLUGIN_SDK__` | `@116874` | `@262326` |
+
+## Runtime observation: attempted 2026-10-11, not obtained
+
+What was tried, and why each route stopped, so the next attempt starts further along:
+
+- A second instance in a disposable `HERMES_HOME` exited at once: the host takes
+  `app.requestSingleInstanceLock()` (`electron-main.mjs@32593`), so a smoke test in a
+  disposable home needs the running app closed first. It had been up for 3h40m; it was
+  not closed.
+- The GUI driver (cua-driver 0.34.0) enumerates no top-level windows on this Wayland
+  compositor, and the X11 route sees none because the app runs native Wayland.
+- AT-SPI is enabled on the session and lists a `Hermes` application, but the window
+  frame exposes no descendants: this Electron build does not publish its renderer tree
+  until accessibility is forced on, which means a restart with that flag.
+- Full-display capture would show every other window on the desktop and needs the
+  owner's explicit approval; it was not requested silently.
+
+So the record stands at: **statically verified against both builds; runtime not yet
+observed.** The README checklist remains pending.
+
 ## Unknown
 
-- The host exposes no SDK version constant, so "SDK version" cannot be stated from the
-  artifact; the pin is the app and package versions above.
-- Whether the plugin **renders** in this host: static evidence cannot show execution.
-  The runtime smoke test in README.md remains pending until someone records it.
+- Neither build exposes an SDK version constant, so "SDK version" cannot be stated from
+  the artifact; the pins are the app, package and commit identities above.
+- Whether the plugin **renders** in either host: static evidence cannot show execution.
