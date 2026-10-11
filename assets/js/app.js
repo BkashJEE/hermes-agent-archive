@@ -1130,6 +1130,25 @@ function wire() {
     $('#themeBtn').setAttribute('aria-pressed', theme === 'broadsheet');
   };
   try { applyTheme(localStorage.getItem('ha-theme')); } catch { applyTheme('dark'); }
+  /* Colour scheme is a separate axis from the broadsheet layout. Absent = follow the
+     system; a stored choice wins. The CSS reads data-scheme; nothing here paints. */
+  const SCHEMES = [null, 'light', 'dark'];
+  const schemeLabel = s => s === 'light' ? 'Colour scheme: light' : s === 'dark' ? 'Colour scheme: dark' : 'Colour scheme: follows your system';
+  const applyScheme = s => {
+    if (s) document.documentElement.dataset.scheme = s; else delete document.documentElement.dataset.scheme;
+    $('#schemeBtn').textContent = s === 'light' ? '☀' : s === 'dark' ? '☾' : '◐';
+    $('#schemeBtn').setAttribute('aria-label', schemeLabel(s));
+    $('#schemeBtn').title = schemeLabel(s) + ' — click to change';
+  };
+  let scheme = null;
+  try { const saved = localStorage.getItem('hermes-scheme'); if (saved === 'light' || saved === 'dark') scheme = saved; } catch { /* storage optional */ }
+  applyScheme(scheme);
+  $('#schemeBtn').addEventListener('click', () => {
+    scheme = SCHEMES[(SCHEMES.indexOf(scheme) + 1) % SCHEMES.length];
+    applyScheme(scheme);
+    try { if (scheme) localStorage.setItem('hermes-scheme', scheme); else localStorage.removeItem('hermes-scheme'); } catch { /* storage optional */ }
+  });
+
   $('#themeBtn').addEventListener('click', () => {
     const next = document.documentElement.dataset.theme === 'broadsheet' ? 'dark' : 'broadsheet';
     applyTheme(next);
