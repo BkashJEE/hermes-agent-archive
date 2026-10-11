@@ -12,6 +12,7 @@
  */
 
 import { readFile } from 'node:fs/promises';
+import { pickFor } from '../assets/js/daily-pick.js';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -39,6 +40,18 @@ export function compose({ added, items, sections, days = 7, now = Date.now() }) 
   return lines.join('\n');
 }
 
+/** Today's pick as a post: the day's entry, its own words, a copyable step if it has one. */
+export function composePick(item, shelfLabel, max = 280) {
+  if (!item) return null;
+  const link = `${SITE}/entry/${item.id}`;
+  const head = `Hermes tip of the day — ${item.title}`;
+  const step = item.snippet ? `\n\n${item.snippet.split('\n')[0].slice(0, 90)}` : '';
+  const room = max - head.length - step.length - link.length - 6;
+  let body = String(item.summary || '').replace(/\s+/g, ' ').trim();
+  if (body.length > room) body = room > 40 ? body.slice(0, body.lastIndexOf(' ', room - 1)) + '…' : '';
+  return `${head}${body ? `\n\n${body}` : ''}${step}\n\n${link}`;
+}
+
 async function main() {
   const arg = process.argv.indexOf('--days');
   const days = arg > -1 ? Math.max(1, Number(process.argv[arg + 1]) || 7) : 7;
@@ -50,6 +63,19 @@ async function main() {
     if (!s.file) continue;
     for (const it of JSON.parse(await readFile(join(ROOT, 'data', s.file), 'utf8')).items)
       items.push({ ...it, shelf: s.id, ranking: rankings[it.id] });
+  }
+  if (process.argv.includes('--pick')) {
+    const { visible } = await import('./build-pages.mjs');
+    const live = JSON.parse(await readFile(join(ROOT, 'data', 'live.json'), 'utf8').catch(() => '{"github":[]}'));
+    const byRepo = new Map((live.github || []).map(g => [g.repo.toLowerCase(), g]));
+    const shown = [];
+    for (const it of items) if (await visible(it, byRepo)) shown.push({ ...it, usefulness: it.ranking?.usefulness });
+    const id = pickFor(shown);
+    const item = shown.find(i => i.id === id);
+    const text = composePick(item, index.sections.find(s => s.id === item?.shelf)?.label);
+    console.log(text ?? 'No ranked entry is eligible for a pick.');
+    if (text) console.log(`\n(${text.length} characters)`);
+    return;
   }
   const post = compose({ added, items, sections: index.sections, days });
   console.log(post ?? `Nothing arrived in the last ${days} day${days === 1 ? '' : 's'}.`);

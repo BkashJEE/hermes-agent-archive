@@ -79,6 +79,14 @@ async function main() {
   }
   for (const id of Object.keys(added)) if (!current.has(id)) delete added[id];
 
+  /* An entry in the working tree that no commit holds yet is arriving now. The daily harvest
+     runs this before it commits, so treating those as unknown left every day's arrivals out
+     of that day's changelog and feed until the next run. The commit that follows carries
+     today's date, so today is exactly what history will say. */
+  const today = new Date().toISOString().slice(0, 10);
+  let arriving = 0;
+  for (const id of current) if (!added[id]) { added[id] = today; arriving++; }
+
   const byDate = {};
   for (const date of Object.values(added)) byDate[date] = (byDate[date] || 0) + 1;
   const dates = Object.entries(byDate).sort((a, b) => b[0].localeCompare(a[0]));
@@ -86,8 +94,7 @@ async function main() {
   console.log(`${commits.length} commits read, ${Object.keys(added).length} current entries dated`);
   console.log('\nmost recent arrivals:');
   for (const [date, n] of dates.slice(0, 8)) console.log(`  ${date}  +${n}`);
-  const undated = current.size - Object.keys(added).length;
-  if (undated) console.log(`\n${undated} current entries found in no commit — unexpected; investigate before trusting the panel.`);
+  if (arriving) console.log(`\n${arriving} entr${arriving === 1 ? 'y' : 'ies'} in the working tree and no commit yet: dated today (${today}).`);
 
   if (dry) { console.log('\n--dry: nothing written.'); return; }
   await writeFile(OUT, JSON.stringify({

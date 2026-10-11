@@ -1,0 +1,93 @@
+name: Deploy to production
+
+# Every merge to main publishes, so a daily harvest reaches readers without anyone
+# deploying by hand. The sequence is the one AGENTS.md prescribes — check the file list,
+# deploy with --skip-domain, promote — plus what an unattended run needs: verify the live
+# domain against the checkout and, if it does not match, put the previous deployment back.
+#
+# Inert until configured: without VERCEL_TOKEN the job says so and publishes nothing.
+# A merge by a person triggers this on push. A merge by the harvest's own token does not
+# (GitHub does not start workflows from GITHUB_TOKEN pushes), so the harvest dispatches it.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    if: github.repository == 'BkashJEE/hermes-agent-archive'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      SITE: https://hermes-agent-archive.vercel.app
+    steps:
+      - name: Is deployment configured?
+        id: cfg
+        run: |
+          if [ -z "$VERCEL_TOKEN" ] || [ -z "$VERCEL_ORG_ID" ] || [ -z "$VERCEL_PROJECT_ID" ]; then
+            echo "::notice::Not configured: add the VERCEL_TOKEN repository secret to publish on merge. Nothing was deployed."
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        if: steps.cfg.outputs.ready == 'true'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        if: steps.cfg.outputs.ready == 'true'
+        with: { node-version: "20" }
+
+      - name: Validate
+        if: steps.cfg.outputs.ready == 'true'
+        run: |
+          npm run check
+          npm test
+
+      - name: Check what would ship
+        if: steps.cfg.outputs.ready == 'true'
+        run: npx --yes vercel@63.1.2 deploy --dry --json --token "$VERCEL_TOKEN" 2>/dev/null | node scripts/deploy-manifest-check.mjs
+
+      - name: Remember the live deployment
+        id: prev
+        if: steps.cfg.outputs.ready == 'true'
+        run: |
+          set +e
+          prev=$(npx --yes vercel@63.1.2 inspect "$SITE" --token "$VERCEL_TOKEN" 2>&1 | grep -oE 'https://hermes-agent-archive-[a-z0-9]+-[a-z0-9-]+\.vercel\.app' | head -1)
+          echo "url=$prev" >> "$GITHUB_OUTPUT"
+          echo "live before this run: ${prev:-unknown}"
+
+      - name: Stage
+        id: stage
+        if: steps.cfg.outputs.ready == 'true'
+        run: |
+          url=$(npx --yes vercel@63.1.2 deploy --prod --skip-domain --yes --token "$VERCEL_TOKEN" 2>/dev/null | grep -oE 'https://hermes-agent-archive-[a-z0-9]+-[a-z0-9-]+\.vercel\.app' | head -1)
+          if [ -z "$url" ]; then echo "::error::Deploy returned no URL; nothing was promoted."; exit 1; fi
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+          echo "staged: $url"
+
+      - name: Promote
+        if: steps.cfg.outputs.ready == 'true'
+        run: npx --yes vercel@63.1.2 promote "${{ steps.stage.outputs.url }}" --yes --token "$VERCEL_TOKEN"
+
+      - name: Verify the live domain
+        if: steps.cfg.outputs.ready == 'true'
+        run: node scripts/verify-live.mjs "$SITE"
+
+      # The previous site was serving; a promoted deploy that fails verification must not
+      # stay up. Only runs when this job promoted something and a previous deployment is known.
+      - name: Roll back on failed verification
+        if: failure() && steps.stage.outputs.url != '' && steps.prev.outputs.url != ''
+        run: |
+          npx --yes vercel@63.1.2 promote "${{ steps.prev.outputs.url }}" --yes --token "$VERCEL_TOKEN"
+          echo "::error::Live verification failed; production was returned to ${{ steps.prev.outputs.url }}."

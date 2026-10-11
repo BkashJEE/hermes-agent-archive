@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-10-11T03:09:09.248Z",
+  "classifiedAt": "2026-10-11T07:40:47.542Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -8103,6 +8103,234 @@
       "usefulness": 1.86,
       "popularity": "unknown",
       "confidence": 0.62
+    },
+    "doc-user-guide-features-skills-skills-added-during-a-conversation": {
+      "input": "b291e3db9d7e1dc1fc0890c40e8c60e9739235193a0f58a480df9cb5dd3aa147",
+      "usefulness": 1.75,
+      "popularity": "unknown",
+      "confidence": 0.42
+    },
+    "release-v0-21-6": {
+      "input": "49c119aa019fa25aa35a48debdef98cd855f2227e81f0e15cf35de3bc65b0446",
+      "usefulness": 0.68,
+      "popularity": "unknown",
+      "confidence": 0.44
+    },
+    "release-v2026-9-24": {
+      "input": "3b95322eb45dabfcd2ded61be290645fa90d544461129c09303a6f2584ff97ba",
+      "usefulness": 0.02,
+      "popularity": "unknown",
+      "confidence": 0.99
+    },
+    "release-v2026-9-21": {
+      "input": "9c668236c869b68776e2c428dd1286e1e97697b663f21805657161866a2854ec",
+      "usefulness": 0.56,
+      "popularity": "unknown",
+      "confidence": 0.56
+    },
+    "release-v2026-9-14": {
+      "input": "aa6c578866243688a79303877147ba9582ed8f274852983635d504ef01b12efb",
+      "usefulness": 1.86,
+      "popularity": "unknown",
+      "confidence": 0.24
+    },
+    "release-v2026-9-11": {
+      "input": "0de1d0d8c57bfc6144e306c9174535f056243e4f5cc352cec9bdcd12e32311ac",
+      "usefulness": 1.02,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "release-v2026-9-7": {
+      "input": "f225e63ee3b94810c209a179c8eb2eef9a5db9abc00e3def8c003d13fdbd664c",
+      "usefulness": 0.08,
+      "popularity": "unknown",
+      "confidence": 0.94
+    },
+    "release-v2026-8-31": {
+      "input": "ec70c0838e173ce707230027b64ee635e04a3b994c72c4086e79711403bd6189",
+      "usefulness": 0.57,
+      "popularity": "unknown",
+      "confidence": 0.53
+    },
+    "release-v2026-8-27": {
+      "input": "b688dfcc008f22abaf1228394f85d8bbf31809338204ffafddd930655142035a",
+      "usefulness": 0.95,
+      "popularity": "unknown",
+      "confidence": 0.22
+    },
+    "release-v2026-8-19": {
+      "input": "5bb11eb5c5efae1f8842e343c09643829ed1998dbafb48fadf9db53718206ce8",
+      "usefulness": 0.6,
+      "popularity": "unknown",
+      "confidence": 0.48
+    },
+    "release-v2026-8-18": {
+      "input": "e9b583dff71a6f5f57da42fccdd6ff85a3fd43f5bce140fe9c74ce153a1d7a40",
+      "usefulness": 0.54,
+      "popularity": "unknown",
+      "confidence": 0.56
+    },
+    "release-v2026-8-16-2": {
+      "input": "969357054db8d6bc80854784eadeddb89d090c7b760dde44f8396fbc07244266",
+      "usefulness": 0.53,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "release-v2026-8-16": {
+      "input": "8b42a1ae94de7bf7c2e93cc2ddee09022a8f06fd8e0d3f82b5bef5b56d45c77a",
+      "usefulness": 0.41,
+      "popularity": "unknown",
+      "confidence": 0.68
+    },
+    "release-v2026-8-13": {
+      "input": "5f681043a60a82587fcef4b92b76501eb9f3892c24d158f8fbec82f7e84ce0f4",
+      "usefulness": 0.03,
+      "popularity": "unknown",
+      "confidence": 0.98
+    },
+    "release-v2026-8-3": {
+      "input": "5aa2fc23977180fd14c1b9c940e2464b0b97c3d2e5e91d4f2cabd0cc765fb31b",
+      "usefulness": 0.32,
+      "popularity": "unknown",
+      "confidence": 0.76
+    },
+    "release-v2026-7-30": {
+      "input": "37769002c6ec71192fb7c1ce60ebe099c661af063e90d625535df79f879cbe56",
+      "usefulness": 0.12,
+      "popularity": "unknown",
+      "confidence": 0.91
+    },
+    "release-v2026-7-20": {
+      "input": "6405d67c30e7429921e5afbf3ef385442aa90c37ae234e90e8c834646769adf6",
+      "usefulness": 0.5,
+      "popularity": "unknown",
+      "confidence": 0.58
+    },
+    "release-v2026-7-7": {
+      "input": "7680389d26a8e87c5e54f333cbc9344c57922b9d5fd6eb5bbccb8205cf9de667",
+      "usefulness": 0.14,
+      "popularity": "unknown",
+      "confidence": 0.88
+    },
+    "release-v2026-7-7-2": {
+      "input": "cda2e3759647f714c1f3c572e666604690fed1d4c2d1a888bd78a7590ad7e562",
+      "usefulness": 1.64,
+      "popularity": "unknown",
+      "confidence": 0.3
+    },
+    "release-v2026-7-1": {
+      "input": "3b1b1afe485bf5ebf93a6e6b4c912aef66731a7414d580cd533da4f6c0318929",
+      "usefulness": 0.82,
+      "popularity": "unknown",
+      "confidence": 0.52
+    },
+    "release-v2026-6-19": {
+      "input": "e9c9017d59e562f0ff8caacf3c79957f1673155d2a41016e28208d40c297e822",
+      "usefulness": 0.86,
+      "popularity": "unknown",
+      "confidence": 0.3
+    },
+    "release-v2026-6-5": {
+      "input": "aa8afbee1b14fa3e78f352744b5a544052f8372c294f6db41aa5dd159bd4b962",
+      "usefulness": 0.67,
+      "popularity": "unknown",
+      "confidence": 0.45
+    },
+    "release-v2026-5-29": {
+      "input": "ecc529cfd04652f6c424fe55494b474b2a595cffc399b75f98082d645577112e",
+      "usefulness": 0.94,
+      "popularity": "unknown",
+      "confidence": 0.52
+    },
+    "release-v2026-5-29-2": {
+      "input": "38ff33f5b6897bd66350678ea0258ed1f34278b3e6f97fe482cf62a1023d88ae",
+      "usefulness": 0.55,
+      "popularity": "unknown",
+      "confidence": 0.55
+    },
+    "release-v2026-5-28": {
+      "input": "360e1af71c589bc648fad1c152f40293cacbb8248e57cec147430371d30641b1",
+      "usefulness": 0.79,
+      "popularity": "unknown",
+      "confidence": 0.34
+    },
+    "release-v2026-5-16": {
+      "input": "cb072482f6b2532546aa41a925e3bd3797eb4c9704057f5bfc4234e91552e5bb",
+      "usefulness": 0.89,
+      "popularity": "unknown",
+      "confidence": 0.26
+    },
+    "release-v2026-5-7": {
+      "input": "6d40210e31b0f4c13d200546ab61ac49898004cbc0de8fa7c710930a2d6e1760",
+      "usefulness": 1.75,
+      "popularity": "unknown",
+      "confidence": 0.4
+    },
+    "release-v2026-4-30": {
+      "input": "8c32af4b802c280f5534fb90eb4b7c83e4fa33c5ec120c28d6f33f6cbb4d9ff9",
+      "usefulness": 2.43,
+      "popularity": "unknown",
+      "confidence": 0.47
+    },
+    "release-v2026-4-23": {
+      "input": "c3c65902f9c28b3278607b02597be9c6e7b10760734f7933925c425aa01c7870",
+      "usefulness": 0.44,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "release-v2026-4-16": {
+      "input": "72e3fd7ba93aac7efa0477873639bb354ad68f6f7ac00e9a54aa10578af06993",
+      "usefulness": 1.69,
+      "popularity": "unknown",
+      "confidence": 0.21
+    },
+    "release-v2026-4-13": {
+      "input": "3a6ae4a2968c5f9ff746d6ae88ca83bd9665d01140483d27f5e245bc72d4dbd2",
+      "usefulness": 0.7,
+      "popularity": "unknown",
+      "confidence": 0.41
+    },
+    "release-v2026-4-8": {
+      "input": "f689978c39d9421dd125ce4a9ab5e7276f09333f15633ee772f3da236e66519a",
+      "usefulness": 1.43,
+      "popularity": "unknown",
+      "confidence": 0.23
+    },
+    "release-v2026-4-3": {
+      "input": "59884d8f322d39b1ae3620e8355fac92cbf2dd1702086fb83b51837888616d1f",
+      "usefulness": 1.98,
+      "popularity": "unknown",
+      "confidence": 0.38
+    },
+    "release-v2026-3-30": {
+      "input": "ccf5b9288254a755a11068d245eab659da2d18fda679fcffa31d16d00100e597",
+      "usefulness": 2.13,
+      "popularity": "unknown",
+      "confidence": 0.18
+    },
+    "release-v2026-3-28": {
+      "input": "87a8be36917d6f539dac1d3657c5a302a72bd779f6ffc2d3ce131e127d4b262f",
+      "usefulness": 1.08,
+      "popularity": "unknown",
+      "confidence": 0.41
+    },
+    "release-v2026-3-23": {
+      "input": "ea738171510a9d025d3172390c607b67a24a0f0aa607ed6fc68ff7e33ed04ff0",
+      "usefulness": 1.2,
+      "popularity": "unknown",
+      "confidence": 0.37
+    },
+    "release-v2026-3-17": {
+      "input": "34dc4b31a62a595f7da6d2b18a7abf1f8969d54a8a3ee2fed305feec775dab7f",
+      "usefulness": 1.32,
+      "popularity": "unknown",
+      "confidence": 0.31
+    },
+    "release-v2026-3-12": {
+      "input": "e392faf5104bea6c1ea55ddd8eb9483d2c62141233e8e7002fc004568102b442",
+      "usefulness": 1.03,
+      "popularity": "unknown",
+      "confidence": 0.48
     }
   }
 }

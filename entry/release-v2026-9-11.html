@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hermes Agent v0.21.2 (v2026.9.11) · Hermes Agent Archive</title>
+<meta name="description" content="Hermes Agent v0.21.2 (v2026.9.11) — The state.db Patch Release">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/release-v2026-9-11">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hermes Agent v0.21.2 (v2026.9.11)">
+<meta property="og:description" content="Hermes Agent v0.21.2 (v2026.9.11) — The state.db Patch Release">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/release-v2026-9-11">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hermes Agent v0.21.2 (v2026.9.11)">
+<meta name="twitter:description" content="Hermes Agent v0.21.2 (v2026.9.11) — The state.db Patch Release">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/releases">Releases</a></header>
+
+<article>
+<h1>Hermes Agent v0.21.2 (v2026.9.11)</h1>
+
+<p class="meta">By Nous Research · GitHub</p>
+<p>Hermes Agent v0.21.2 (v2026.9.11) — The state.db Patch Release</p>
+<p>Patch release. v0.21.0 shipped a large rewrite of the session store&#39;s connection handling, and for some installs it made `state.db` fragile: second writers cancelling each other&#39;s locks, healthy databases reported as corrupt, one bad row killing `sessions list`. This release closes that class and rolls up everything else that landed on `main` in the four days since v0.21.1.</p>
+<p>About this release</p>
+<p>Measured at commit `04dd80a977f40b05e5b2054111747af07a61886a`, the window since v0.21.1 contains 947 non-merge commits across 1,869 changed files (+182,504 / −15,564) and 312 merged PRs. 140 contributors appear in commits, co-author trailers, or salvage credits.</p>
+<p>✨ Highlights</p>
+<p>state.db reliability campaign (six PRs, 44 issues closed)</p>
+<p>If your `state.db` broke after 0.21.0, this is the release for you. Six PRs fix the root causes rather than the symptoms:</p>
+<p>…</p>
+<p>Full release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.9.11</p>
+
+
+<ul class="tags"><li>#release</li></ul>
+<div class="actions">
+<a href="https://github.com/NousResearch/hermes-agent/releases/tag/v2026.9.11" rel="noopener">Read the original</a>
+<a href="/#releases?item=release-v2026-9-11">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

@@ -543,6 +543,16 @@ code{font-family:var(--mono);font-size:.92em}
 .d-follow a{color:var(--accent);font-weight:500}
 .wn-links{margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-dim)}
 .wn-links a{color:var(--accent);font-weight:500}
+/* Today's pick: the one thing on the Dashboard that changes every day. */
+.dash-pick{margin:0 0 22px}
+.dash-pick-kicker{margin:0 0 8px;font:700 11px/1.5 var(--mono);letter-spacing:.14em;color:var(--accent)}
+.dash-pick-kicker span{font-weight:400;letter-spacing:.02em;color:var(--ink-mute);text-transform:none}
+.dash-pick-card{display:flex;flex-direction:column;gap:6px;width:100%;text-align:left;padding:16px 18px;cursor:pointer;
+  border:1px solid var(--accent-line);border-radius:var(--r-md);background:linear-gradient(120deg,var(--accent-soft),transparent 55%),var(--panel);color:var(--ink);font:inherit}
+.dash-pick-card:is(:hover,:focus-visible){border-color:var(--accent)}
+.dash-pick-card strong{font-size:16px;font-weight:600;line-height:1.35}
+.dash-pick-card span{font-size:13.5px;line-height:1.55;color:var(--ink-dim)}
+.dash-pick-card code{font:12px/1.5 var(--mono);color:var(--teal);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .d-uses{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0 4px}
 .d-uses .d-attribution{flex-basis:100%;margin:0 0 2px}
 .d-kicker{display:flex;align-items:center;gap:8px;margin:12px 24px 20px 0;flex-wrap:wrap}

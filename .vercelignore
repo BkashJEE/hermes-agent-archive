@@ -19,6 +19,7 @@
 !data/settings.json
 !data/commands.json
 !data/tricks.json
+!data/releases.json
 !data/toolkit.json
 !data/builds.json
 !data/my-work.json

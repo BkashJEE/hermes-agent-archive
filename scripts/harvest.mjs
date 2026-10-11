@@ -39,6 +39,10 @@ const IMPORTERS = [
      by id, link and title, and shelve only what Hermes itself publishes. */
   { script: 'import-official-skills.mjs',  what: 'skills published in the official Hermes catalogue', nodeArgs: ['--max-old-space-size=4096'] },
   { script: 'import-official-plugins.mjs', what: 'official plugins, and documented community plugins above the star floor' },
+  /* Weekly-ish and official: the source most likely to have something on a quiet day. */
+  { script: 'import-hermes-releases.mjs',  what: 'Hermes Agent releases and the opening of their notes' },
+  /* Manifest pages only, fragments refused at import and pruned ids never re-added. */
+  { script: 'import-hermes-docs.mjs',      what: 'new sections on the reviewed documentation pages' },
   /* After everything has arrived: a new story names the entries it used, and a new skill
      may be named by stories already here. Writes `uses`, never an entry. */
   { script: 'link-story-uses.mjs',         what: 'links from stories to the entries they name' }

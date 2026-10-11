@@ -5,12 +5,13 @@ on:
   # other half — the upstream sources themselves gain entries, and nothing re-read them
   # unless somebody remembered to. Offset from the refresh so the two never collide.
   schedule:
-    - cron: '41 7 */2 * *'
+    - cron: '41 7 * * *'          # daily: every source is checked every day; a quiet day opens no PR
   workflow_dispatch:
 
 permissions:
   contents: write
   pull-requests: write
+  actions: write
 
 jobs:
   harvest:
@@ -73,6 +74,7 @@ jobs:
           npm test
 
       - name: Propose the new entries for owner review
+        id: propose
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -125,6 +127,23 @@ jobs:
             echo 'so the site changes only when someone deploys from main.'
           } >> "$RUNNER_TEMP/harvest-pr.md"
           gh pr create --base main --head "$branch" --title "$title" --body-file "$RUNNER_TEMP/harvest-pr.md"
+          echo "branch=$branch" >> "$GITHUB_OUTPUT"
+
+      # Off unless the owner sets the repository variable AUTO_PUBLISH to true. The proposal
+      # above already passed npm run check and npm test in this job; this only decides
+      # whether it waits for a person. If main still requires a review that this token
+      # cannot give, the merge is refused and the pull request simply waits, as before.
+      - name: Publish without waiting, if the owner has opted in
+        if: vars.AUTO_PUBLISH == 'true' && steps.propose.outputs.branch != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if gh pr merge "${{ steps.propose.outputs.branch }}" --merge --delete-branch; then
+            gh workflow run deploy.yml --ref main
+            echo "::notice::Merged and dispatched the production deploy."
+          else
+            echo "::notice::Auto-merge was refused by the branch rules; the pull request waits for review."
+          fi
 
       # Last, so an unreachable source is reported without costing the run its results.
       - name: Report an unreachable source
