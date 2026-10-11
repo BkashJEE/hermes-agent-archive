@@ -24,13 +24,36 @@ export async function githubJson(path, fetcher = fetch) {
   if (!res.ok) throw new Error(`GitHub HTTP ${res.status} reading ${path}; no files changed`);
   return res.json();
 }
-export async function refreshCorpus(previous, fetcher = fetch) {
+/**
+ * Removed upstream pages a reviewer has looked at.
+ *
+ * A refresh refuses to replace the corpus when a pinned page has vanished upstream, so a
+ * deleted reference cannot quietly shrink what "not documented" was checked against. The
+ * review is recorded here — path, the upstream commit it was gone at, who looked and why
+ * it is safe — and only a listed path is tolerated. On 2026-10-11 one page had been
+ * deleted; it appeared in no candidate's closest-doc review, only in the lists of pages
+ * searched, which the extractor rebuilds.
+ */
+export async function reviewedRemovals(readFile) {
+  try {
+    const record = JSON.parse(await readFile(new URL('./trick-docs-removed.json', import.meta.url), 'utf8'));
+    return new Map((record.removed ?? []).filter(r => r.path && r.reason && r.reviewedAt).map(r => [r.path, r]));
+  } catch (error) {
+    if (error.code === 'ENOENT') return new Map();
+    throw error;
+  }
+}
+
+export async function refreshCorpus(previous, fetcher = fetch, removals = new Map()) {
   const commit = (await githubJson(`${DOC_REPO}/commits/main`, fetcher)).sha;
   const tree = await githubJson(`${DOC_REPO}/git/trees/${commit}?recursive=1`, fetcher);
   if (tree.truncated || !Array.isArray(tree.tree)) throw new Error('Incomplete upstream documentation tree');
   const files = tree.tree.filter(x => x.type === 'blob' && referencePath(x.path));
-  if (!files.length || Object.keys(previous?.pages ?? {}).some(p => !files.some(f => f.path === p)))
-    throw new Error('Documentation coverage shrank; review removed paths before replacing the corpus');
+  const missing = Object.keys(previous?.pages ?? {}).filter(p => !files.some(f => f.path === p));
+  const unreviewed = missing.filter(p => !removals.has(p));
+  if (!files.length || unreviewed.length)
+    throw new Error(`Documentation coverage shrank; review removed paths before replacing the corpus: ${unreviewed.join(', ')}`);
+  for (const p of missing) console.log(`  reviewed removal: ${p} — ${removals.get(p).reason}`);
   const pages = {};
   // Sequential requests fail immediately on authentication/rate-limit errors.
   for (const file of files) {

@@ -1,0 +1,11 @@
+{
+  "note": "Upstream reference pages that vanished and were reviewed before the corpus was refreshed without them. A refresh tolerates only the paths listed here; anything else still refuses.",
+  "removed": [
+    {
+      "path": "website/docs/developer-guide/onboarding-recommendations.md",
+      "upstreamCommit": "1f2b9e0",
+      "reviewedAt": "2026-10-11",
+      "reason": "Deleted upstream, not moved (no file of that name anywhere in the tree). It appears in no candidate's closest-doc review; it is listed only among pages searched, which the extractor rebuilds on the next run."
+    }
+  ]
+}

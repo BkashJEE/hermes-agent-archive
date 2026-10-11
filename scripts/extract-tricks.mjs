@@ -4,7 +4,7 @@ import { readFile, writeFile, rename, unlink } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { serialise } from './json-format.mjs';
-import { digest, unpackCorpus, packCorpus, docUrl, refreshCorpus, githubJson, DOC_REPO } from './trick-docs.mjs';
+import { digest, unpackCorpus, packCorpus, docUrl, refreshCorpus, reviewedRemovals, githubJson, DOC_REPO } from './trick-docs.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const normalise = text => text.normalize('NFKC').toLowerCase().replace(/[‘’]/g, "'")
@@ -118,7 +118,7 @@ export async function run({ root = ROOT, offline = false, report = false, refres
   let corpus = unpackCorpus(corpusBytes);
   if (refreshDocs) {
     requireThat(!offline && !report, '--refresh-docs cannot be combined with --offline/--report');
-    const updated = await refreshCorpus(corpus, fetcher);
+    const updated = await refreshCorpus(corpus, fetcher, await reviewedRemovals(readFile));
     // Corpus refresh cannot publish entries or silently renew editorial review.
     await commitFiles([{ path: join(root, 'scripts/trick-docs.json.gz'), before: corpusBytes, next: packCorpus(updated) }]);
     console.log(`Cached ${Object.keys(updated.pages).length} reference pages at ${updated.commit}. Review candidates before extraction.`);

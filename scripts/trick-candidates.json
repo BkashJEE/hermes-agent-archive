@@ -36,7 +36,7 @@
         ]
       ],
       "review": {
-        "commit": "5458de948379badc5b84ba624dc029367a28ece4",
+        "commit": "1f2b9e08644c6de4a5b5c50d0e4676a19c5577c5",
         "reason": "The distinctive step is recursive evaluation of the auditor using a different skill as its test case. Documentation describes security scans, normal skill testing and automatic skill updates, but not that feedback experiment.",
         "closestDocs": [
           {
@@ -87,7 +87,7 @@
         ]
       ],
       "review": {
-        "commit": "5458de948379badc5b84ba624dc029367a28ece4",
+        "commit": "1f2b9e08644c6de4a5b5c50d0e4676a19c5577c5",
         "reason": "The unusual inversion is a database-owned memory graph generating a read-only Obsidian view. SQLite session search and memory provider extensibility are documented, but not this specific separation of model output, SQL mutation and a generated vault.",
         "closestDocs": [
           {
@@ -136,7 +136,7 @@
         ]
       ],
       "review": {
-        "commit": "5458de948379badc5b84ba624dc029367a28ece4",
+        "commit": "1f2b9e08644c6de4a5b5c50d0e4676a19c5577c5",
         "reason": "Generic tool calls and document reading are documented; choosing pages through an explicit document hierarchy instead of vector-nearest chunks is the distinct reviewed mechanism.",
         "closestDocs": [
           {
@@ -181,13 +181,173 @@
         ]
       ],
       "review": {
-        "commit": "5458de948379badc5b84ba624dc029367a28ece4",
+        "commit": "1f2b9e08644c6de4a5b5c50d0e4676a19c5577c5",
         "reason": "Official docs cover CLI and HTTP frontends but do not describe a serial getty connected to a custom Hermes login shell.",
         "closestDocs": [
           {
             "path": "website/docs/user-guide/features/api-server.md",
             "excerpt": "The API server exposes hermes-agent as an OpenAI-compatible HTTP endpoint.",
             "distinction": "A generic HTTP frontend capability does not document the serial getty/login-shell bridge."
+          }
+        ]
+      }
+    },
+    {
+      "id": "trick-block-tools-until-you-say-go",
+      "storyId": "story-built-converse-mode-so-my-agent-thinks-before-it-acts",
+      "title": "Block every tool at the hook level until you say go",
+      "summary": "A two-command plugin keeps the agent in discussion-only mode — questions, trade-offs, a running plan — and physically cannot execute until /go.",
+      "author": "@ibrandis",
+      "date": "2026-05-06",
+      "quote": "`/converse` flips the agent into discussion-only mode. It asks clarifying questions, surfaces tradeoffs, pushes back on unclear requirements. Tools are blocked at the hook level. It physically cannot execute even if the model tries.",
+      "explanation": "The contributor describes a plugin with two slash commands. /converse puts the agent into a discussion-only mode by blocking tool calls in a hook and injecting scoping instructions before each model call, so the model can ask questions and surface trade-offs but cannot act. Each reply ends with a structured plan recap. /go re-enables execution with the whole conversation already in context, so nothing has to be re-explained.",
+      "limitations": "A community plugin, not a built-in mode. The source describes the design and the two hooks it uses; the archive has not run it. The built-in /plan command covers the different case of writing a plan file instead of executing.",
+      "tags": [
+        "dev-workflow",
+        "safety"
+      ],
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/00e34c284fc9ec2571acc43d6f3e9b8ef1fe2c8a/archives/plugins-skills-and-skins/1501531131734917170-Converse--chat-before-your-agent-acts.txt#L5-L63",
+      "source": {
+        "repo": "teknium1/nous-discord-archive",
+        "commit": "00e34c284fc9ec2571acc43d6f3e9b8ef1fe2c8a",
+        "path": "archives/plugins-skills-and-skins/1501531131734917170-Converse--chat-before-your-agent-acts.txt",
+        "messageId": "1501531131734917170"
+      },
+      "searches": [
+        [
+          "/converse"
+        ],
+        [
+          "converse mode"
+        ],
+        [
+          "discussion-only"
+        ],
+        [
+          "tools",
+          "blocked",
+          "/go"
+        ]
+      ],
+      "review": {
+        "commit": "1f2b9e08644c6de4a5b5c50d0e4676a19c5577c5",
+        "reason": "The distinctive mechanism is a persistent discussion-only state enforced by blocking tool calls at the hook level, with a second command that resumes execution carrying the conversation forward. Documentation describes /plan, which writes an implementation plan instead of executing a single request, and documents hooks and slash commands as plugin capabilities, but not a hook-enforced no-execution mode with a resume command.",
+        "closestDocs": [
+          {
+            "path": "website/docs/user-guide/features/skills.md",
+            "excerpt": "(Plan mode works the same way but is a built-in command now: `/plan [request]` tells Hermes to inspect context if needed, write a markdown implementation plan instead of executing the task, and save the result under `.hermes/plans/` relative to the active workspace/backend working directory.)",
+            "distinction": "/plan produces a markdown plan for one request and stops; it is not a mode that stays on across turns, blocks every tool at the hook level, and is lifted by a second command that keeps the discussion in context."
+          },
+          {
+            "path": "website/docs/user-guide/features/plugins.md",
+            "excerpt": "| Add slash commands | `ctx.register_command(name, handler, description)` — adds `/name` in CLI and gateway sessions |",
+            "distinction": "Plugins may add slash commands; the documentation does not describe a command pair that switches tool execution off and on."
+          }
+        ]
+      }
+    },
+    {
+      "id": "trick-subclass-the-api-gateway-for-chat-clients",
+      "storyId": "story-wired-boltai-v2-into-hermes-with-full-markdown-and-slash-com",
+      "title": "Subclass the OpenAI-compatible gateway so third-party chat clients keep markdown and slash commands",
+      "summary": "A drop-in plugin runs a second gateway port that renders full markdown and intercepts /help, /status and the rest instead of forwarding them to the model.",
+      "author": "@dworfd",
+      "date": "2026-05-08",
+      "quote": "So I built a small drop-in plugin that fixes both. It's a separate gateway adapter (subclasses the official one, doesn't fork it), runs on its own port",
+      "explanation": "Third-party OpenAI-compatible clients such as BoltAI reach Hermes through the API server, where the contributor found markdown flattened to plain text and slash commands passed to the model as ordinary messages. Rather than fork the gateway, the plugin subclasses the official adapter, listens on a second port, renders markdown and handles slash commands locally, and preserves streaming. The client is pointed at the new port and otherwise configured as the official guide describes.",
+      "limitations": "A third-party plugin tested by its author with BoltAI; other OpenAI-compatible clients are stated as untested. It depends on the official gateway class it subclasses, so an upstream change could break it. Review the code before installing.",
+      "tags": [
+        "integrations",
+        "dev-workflow"
+      ],
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/00e34c284fc9ec2571acc43d6f3e9b8ef1fe2c8a/archives/plugins-skills-and-skins/1502296506735268102-gateway-plugin-for-BoltAI--and-other-OpenAI-API-clients----full-markdown---slash-commands.txt#L5-L27",
+      "source": {
+        "repo": "teknium1/nous-discord-archive",
+        "commit": "00e34c284fc9ec2571acc43d6f3e9b8ef1fe2c8a",
+        "path": "archives/plugins-skills-and-skins/1502296506735268102-gateway-plugin-for-BoltAI--and-other-OpenAI-API-clients----full-markdown---slash-commands.txt",
+        "messageId": "1502296506735268102"
+      },
+      "searches": [
+        [
+          "BoltAI"
+        ],
+        [
+          "markdown",
+          "flattened"
+        ],
+        [
+          "slash commands",
+          "intercepted"
+        ],
+        [
+          "gateway",
+          "subclasses"
+        ]
+      ],
+      "review": {
+        "commit": "1f2b9e08644c6de4a5b5c50d0e4676a19c5577c5",
+        "reason": "The distinctive step is subclassing the official OpenAI-compatible gateway in a plugin to add slash-command interception and markdown rendering on a second port. Documentation routes OpenAI-compatible frontends to the API server and reserves slash commands for the TUI gateway; it describes platform adapters and registering slash commands, not extending the API server for an existing chat client.",
+        "closestDocs": [
+          {
+            "path": "website/docs/developer-guide/programmatic-integration.md",
+            "excerpt": "- **You want any OpenAI-compatible frontend, a language-agnostic HTTP client, or curl-driven automation** → API server.",
+            "distinction": "The documentation sends OpenAI-compatible clients to the API server and lists slash commands under the TUI gateway, which is the gap the plugin closes."
+          },
+          {
+            "path": "website/docs/user-guide/features/plugins.md",
+            "excerpt": "plugins/platforms/<name>/` | Gateway channel adapters (`ctx.register_platform()`) | `PluginManager` (kind: `platform`, one level deeper) |",
+            "distinction": "Platform adapters add new messaging channels; the plugin instead wraps the existing OpenAI-compatible server for clients that already speak it."
+          }
+        ]
+      }
+    },
+    {
+      "id": "trick-audit-each-memory-file-against-written-principles",
+      "storyId": "story-hermes-as-my-chief-of-staff-with-sub-agents-per-project",
+      "title": "Audit every profile's memory file weekly against written principles",
+      "summary": "One sub-profile per project, each with its own memory, and a weekly pass that checks each memory file against a written rule of what belongs there.",
+      "author": "@ogiberstein",
+      "date": "2026-04-21",
+      "quote": "The weekly memory cleanup goes through each memory file to audit it against our 'principles of what belongs into each profile's memory'",
+      "explanation": "The contributor runs a main agent plus one sub-profile per project, each keeping its own memory file. Memory still accumulates stray entries, so a scheduled weekly cleanup reads every memory file and audits it against a written statement of what belongs in each profile's memory, pruning the rest so the main agent's memory stays high-level and each project's stays specific.",
+      "limitations": "A process the author runs, described in outline; the source does not include the principles document or the audit prompt. Memory files have a size cap, and what counts as belonging is the author's judgement, not a measured rule.",
+      "tags": [
+        "memory",
+        "automation"
+      ],
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/00e34c284fc9ec2571acc43d6f3e9b8ef1fe2c8a/archives/community-projects-showcase/1496117910287024159-Running-Hermes-as-a-Hardcore-Project-Operating-System.txt#L5-L20",
+      "source": {
+        "repo": "teknium1/nous-discord-archive",
+        "commit": "00e34c284fc9ec2571acc43d6f3e9b8ef1fe2c8a",
+        "path": "archives/community-projects-showcase/1496117910287024159-Running-Hermes-as-a-Hardcore-Project-Operating-System.txt",
+        "messageId": "1496117910287024159"
+      },
+      "searches": [
+        [
+          "principles",
+          "memory"
+        ],
+        [
+          "memory cleanup"
+        ],
+        [
+          "audit",
+          "memory file"
+        ]
+      ],
+      "review": {
+        "commit": "1f2b9e08644c6de4a5b5c50d0e4676a19c5577c5",
+        "reason": "The distinctive mechanism is a recurring audit of each profile's memory file against a written principles document, across per-project sub-profiles. Documentation describes MEMORY.md and USER.md, their size caps, and distillation when a session ends; it does not describe a scheduled review of memory contents against stated criteria.",
+        "closestDocs": [
+          {
+            "path": "website/docs/user-guide/features/memory.md",
+            "excerpt": "| **MEMORY.md** | Agent's personal notes — environment facts, conventions, things learned | 2,200 chars (~800 tokens) |",
+            "distinction": "The documented memory is one file per agent with a character cap; the technique is a per-project set of memory files and a weekly audit of each against written principles."
+          },
+          {
+            "path": "website/docs/user-guide/sessions.md",
+            "excerpt": "Memory distillation (the save before reset) also only happens when a",
+            "distinction": "Distillation happens when a session ends; the audit is a separate scheduled pass over the saved files."
           }
         ]
       }
@@ -298,6 +458,90 @@
       "url": "https://tessakriesel.com/how-i-deployed-hermes-agent-on-railway-with-telegram-and-every-gotcha-i-hit-along-the-way/",
       "reason": "documented-or-outdated",
       "detail": "Reviewed the linked Railway article. Gateway run, persistent home mounts, MCP keys and tini now have official coverage; other claims need current-version verification. An old claim that something is undocumented is insufficient."
+    },
+    {
+      "storyId": "story-a-standing-md-plugin-so-my-agent-stops-guessing",
+      "title": "A STANDING.md plugin so my agent stops guessing",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent.txt",
+      "reason": "documented",
+      "detail": "Context files (SOUL.md, .hermes.md, AGENTS.md) are automatically injected into every conversation; user-guide/features/context-files.md."
+    },
+    {
+      "storyId": "story-cut-60-90-of-context-tokens-with-an-rtk-integration",
+      "title": "Cut 60–90% of context tokens with an RTK integration",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/plugins-skills-and-skins/1490184342507491489-RTK-Hermes---60---Token-Savings.txt",
+      "reason": "documented",
+      "detail": "rtk-hermes is named in getting-started/nix-setup.md and pre_tool_call modify/rewrite is documented in user-guide/features/hooks.md."
+    },
+    {
+      "storyId": "story-running-4-hermes-agents-24-7-on-a-32gb-ubuntu-laptop",
+      "title": "Running 4 Hermes agents 24/7 on a 32GB Ubuntu laptop",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/community-projects-showcase/1499716570878840882-Hermes-Multi-Agent-Setup---4-Agents-on-a-Laptop.txt",
+      "reason": "insufficient-detail",
+      "detail": "Lists the components of a custom lesson-recording and distillation system without enough to reproduce it; no source provided in the message."
+    },
+    {
+      "storyId": "story-claude-for-chat-hermes-24-7-on-a-mini-pc-for-real-world-stuf",
+      "title": "Claude for chat, Hermes 24/7 on a mini PC for real-world stuff",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/plugins-skills-and-skins/1503091259760316436-Claude-Hermes-MCP.txt",
+      "reason": "documented",
+      "detail": "Exposing Hermes to another client over MCP is documented (hermes mcp serve); the cost split is advice, not a mechanism."
+    },
+    {
+      "storyId": "story-built-a-22k-line-memory-kernel-underneath-hermes",
+      "title": "Built a 22k-line memory kernel underneath Hermes",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent.txt",
+      "reason": "duplicate",
+      "detail": "Same author and mechanism as the accepted trick-generate-a-read-only-memory-vault."
+    },
+    {
+      "storyId": "story-got-tired-of-paying-perplexity-built-my-own-research-stack",
+      "title": "Got tired of paying Perplexity, built my own research stack",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/plugins-skills-and-skins/1501578622350393404-Gigaxity--low-cost-research-stack.txt",
+      "reason": "out-of-scope",
+      "detail": "A separate research stack; the message's cost technique relies on rotating free-tier accounts, which this archive will not recommend."
+    },
+    {
+      "storyId": "story-my-hermes-lives-on-a-vps-talks-home-over-tailscale",
+      "title": "My Hermes lives on a VPS, talks home over Tailscale",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent.txt",
+      "reason": "documented",
+      "detail": "Tailscale access is documented; the remainder is posture advice."
+    },
+    {
+      "storyId": "story-twice-daily-tidal-curation-built-for-an-avid-music-lover",
+      "title": "Twice-daily Tidal curation built for an avid music lover",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/plugins-skills-and-skins/1494297717420199996-Tidal-Music-Player-Skills.txt",
+      "reason": "showcase",
+      "detail": "A skill set description; the only technique is a Tidal API rate-limit note, not a Hermes mechanism."
+    },
+    {
+      "storyId": "story-free-gpt-4-1-via-copilot-hermes-delegates-coding-to-opencode",
+      "title": "Free GPT-4.1 via Copilot, Hermes delegates coding to OpenCode",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent.txt",
+      "reason": "insufficient-detail",
+      "detail": "A reply asserting a model choice and delegation without a reproducible mechanism."
+    },
+    {
+      "storyId": "story-cronjobs-nudging-me-on-discord-and-signal-for-executive-func",
+      "title": "Cronjobs nudging me on Discord and Signal for executive function",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent.txt",
+      "reason": "not-a-technique",
+      "detail": "A discussion of needs and token cost; no mechanism described."
+    },
+    {
+      "storyId": "story-got-fed-up-with-a-million-api-keys-so-i-bundled-them",
+      "title": "Got fed up with a million API keys, so I bundled them",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/plugins-skills-and-skins/1502170319215923240-Bundled-API-endpoints-for-agents.txt",
+      "reason": "insufficient-detail",
+      "detail": "Bundling endpoints is stated as an outcome without how it is done."
+    },
+    {
+      "storyId": "story-built-zeroid-to-fix-sub-agent-scope-delegation-and-context-c",
+      "title": "Built ZeroID to fix sub-agent scope delegation and context costs",
+      "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/community-projects-showcase/1499443650847969370-ZeroID---Agent-Identity-Layer.txt",
+      "reason": "proposal-not-demonstration",
+      "detail": "The author states a Hermes integration is still to be added."
     }
   ]
 }
