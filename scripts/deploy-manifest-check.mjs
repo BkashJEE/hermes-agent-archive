@@ -34,7 +34,12 @@ export function problemsIn(list, need) {
 
 async function main() {
   let raw = ''; for await (const chunk of process.stdin) raw += chunk;
-  const start = raw.indexOf('{'); const dry = JSON.parse(raw.slice(start));
+  const start = raw.indexOf('{');
+  let dry;
+  try { dry = JSON.parse(raw.slice(start)); } catch { dry = null; }
+  /* No JSON means the dry run itself failed; say so instead of crashing on a parse error. */
+  if (start < 0 || !dry) { console.error(`✗ deploy refused: the dry run produced no file list (${raw.trim() ? 'unparseable output' : 'empty output'})`); process.exitCode = 1; return; }
+  if (dry.status === 'error') { console.error(`✗ deploy refused: ${dry.message || dry.reason || 'the dry run reported an error'}`); process.exitCode = 1; return; }
   const list = (dry.files || dry.included || []).map(x => typeof x === 'string' ? x : x.file || x.path);
   const problems = problemsIn(list, await required());
   if (problems.length) { console.error(`✗ deploy refused:\n  ${problems.slice(0, 20).join('\n  ')}`); process.exitCode = 1; return; }

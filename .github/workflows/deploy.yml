@@ -54,9 +54,19 @@ jobs:
           npm run check
           npm test
 
+      # The CLI's own messages go to a file, not to /dev/null: the first live run failed
+      # here with nothing on stdout, and discarding stderr left no way to say why.
       - name: Check what would ship
         if: steps.cfg.outputs.ready == 'true'
-        run: npx --yes vercel@63.1.2 deploy --dry --json --token "$VERCEL_TOKEN" 2>/dev/null | node scripts/deploy-manifest-check.mjs
+        run: |
+          set +e
+          npx --yes vercel@63.1.2 deploy --dry --json --token "$VERCEL_TOKEN" >"$RUNNER_TEMP/dry.json" 2>"$RUNNER_TEMP/dry.err"
+          code=$?
+          if [ $code -ne 0 ] || ! node scripts/deploy-manifest-check.mjs <"$RUNNER_TEMP/dry.json"; then
+            echo "::error::The dry run did not produce an acceptable file list (CLI exit $code). Its messages:"
+            grep -viE 'npm warn|EBADENGINE' "$RUNNER_TEMP/dry.err" | tail -25
+            exit 1
+          fi
 
       - name: Remember the live deployment
         id: prev
@@ -71,8 +81,13 @@ jobs:
         id: stage
         if: steps.cfg.outputs.ready == 'true'
         run: |
-          url=$(npx --yes vercel@63.1.2 deploy --prod --skip-domain --yes --token "$VERCEL_TOKEN" 2>/dev/null | grep -oE 'https://hermes-agent-archive-[a-z0-9]+-[a-z0-9-]+\.vercel\.app' | head -1)
-          if [ -z "$url" ]; then echo "::error::Deploy returned no URL; nothing was promoted."; exit 1; fi
+          npx --yes vercel@63.1.2 deploy --prod --skip-domain --yes --token "$VERCEL_TOKEN" >"$RUNNER_TEMP/stage.out" 2>"$RUNNER_TEMP/stage.err"
+          url=$(grep -ohE 'https://hermes-agent-archive-[a-z0-9]+-[a-z0-9-]+\.vercel\.app' "$RUNNER_TEMP/stage.out" "$RUNNER_TEMP/stage.err" | head -1)
+          if [ -z "$url" ]; then
+            echo "::error::Deploy returned no URL; nothing was promoted. Its messages:"
+            grep -viE 'npm warn|EBADENGINE' "$RUNNER_TEMP/stage.out" "$RUNNER_TEMP/stage.err" | tail -25
+            exit 1
+          fi
           echo "url=$url" >> "$GITHUB_OUTPUT"
           echo "staged: $url"
 
