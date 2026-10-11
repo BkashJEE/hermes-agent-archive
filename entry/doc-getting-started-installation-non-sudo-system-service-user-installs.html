@@ -33,6 +33,7 @@
 <p>Run the source installer as the intended service user. Its home, tool store, configuration, and launcher must belong to that user. As an administrator, install the source-build prerequisites and any Linux libraries needed by the selected browser backend. As the service user, run the regular installer: Add the actual launcher directory to the service user&#39;s shell environment: Run hermes doctor from that account. Use the installed wrapper, not a hardcoded venv/bin/hermes path. For a Linux user service that must survive logout, enable lingering as an administrator: The current source installer does not run Playwright&#39;s --with-deps step or provide a package-manager-specific sudo fallback. PM manages tool binaries; the administrator supplies system libraries. See Browser automation and Messaging Gateway .</p>
 <p>From the official Hermes Agent documentation.</p>
 <pre><code>curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash</code></pre>
+
 <ul class="tags"><li>#install</li><li>#getting-started</li><li>#docs</li></ul>
 <div class="actions">
 <a href="https://hermes-agent.nousresearch.com/docs/getting-started/installation#non-sudo--system-service-user-installs" rel="noopener">Read the original</a>

@@ -33,6 +33,7 @@
 <p>Hermes records Git install source and revision in .install-metadata.json . Unpinned tracked installs compare the saved source&#39;s remote HEAD, or a matching saved update_url feed. Pinned installs remain pinned. Self-cloned directories need hermes plugins adopt NAME before they become tracked installations. Manually copied or provenance-drifted directories receive diagnostic guidance. Pip entry-point plugins can report an owning distribution&#39;s available version; that check does not turn them into Git-managed installs. hermes plugins check-updates leaves plugin files unchanged. A scheduled gateway check runs when plugins.auto_update_check_hours is due: default 24 hours, 0 disables it. Its receipt is available through hermes pm status and the desktop sync-status view. This is not a hard once-per-day limit if you configure a different interval. By default, updates require hermes plugins update NAME . Setting plugins.auto_apply: true opts tracked Git plugins into unattended updates. Both routes use the update security scan. Auto-apply does not manage pinned, manual, drifted, or pip-distribution rows. If a manifest changes or introduces update_url , Hermes refuses the new address until you…</p>
 <p>From the official Hermes Agent documentation.</p>
 
+
 <ul class="tags"><li>#plugins</li><li>#docs</li></ul>
 <div class="actions">
 <a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#update-checks-and-provenance" rel="noopener">Read the original</a>

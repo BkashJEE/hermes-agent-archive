@@ -516,6 +516,8 @@ code{font-family:var(--mono);font-size:.92em}
 .d-follow a{color:var(--accent);font-weight:500}
 .wn-links{margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-dim)}
 .wn-links a{color:var(--accent);font-weight:500}
+.d-uses{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0 4px}
+.d-uses .d-attribution{flex-basis:100%;margin:0 0 2px}
 .d-kicker{display:flex;align-items:center;gap:8px;margin:12px 24px 20px 0;flex-wrap:wrap}
 .drawer h3{margin:0 0 6px;font-size:24px;font-weight:600;line-height:1.35;overflow-wrap:anywhere;padding-right:36px}
 .d-story{margin:28px 0}

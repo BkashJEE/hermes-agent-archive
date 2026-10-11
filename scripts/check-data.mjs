@@ -11,6 +11,7 @@ const read = async f => JSON.parse(await readFile(join(ROOT, 'data', f), 'utf8')
 const cfg = await read('index.json');
 const okSources = new Set(cfg.sources.map(s => s.id).concat('community'));
 const ids = new Set();
+const pendingUses = [];            // checked after every shelf is read: a use may point across shelves
 let titles = new Map();
 const errors = [];
 let total = 0;
@@ -54,11 +55,18 @@ for (const section of cfg.sections) {
        production while every shelf page looked fine. */
     if (it.author !== undefined && typeof it.author !== 'string')
       errors.push(`${where}: author must be a string, got ${Array.isArray(it.author) ? 'an array' : typeof it.author}`);
+    /* A story's `uses` are ids of entries it names. A dangling one renders as a dead chip. */
+    if (it.uses !== undefined) {
+      if (!Array.isArray(it.uses) || it.uses.some(u => typeof u !== 'string')) errors.push(`${where}: uses must be an array of ids`);
+      else for (const u of it.uses) pendingUses.push([where, u]);
+    }
     if (it.source !== 'docs' && !it.author && !it.credit)
       errors.push(`${where}: no author — name whoever made it, or use "credit" to state the provenance`);
   }
   console.log(`  ✓ ${section.file.padEnd(16)} ${items.length} items`);
 }
+
+for (const [where, u] of pendingUses) if (!ids.has(u)) errors.push(`${where}: uses "${u}", which is not an entry`);
 
 await read('live.json');
 try {

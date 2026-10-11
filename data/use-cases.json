@@ -158,7 +158,10 @@
       "source": "reddit",
       "url": "https://www.reddit.com/r/hermesagent/comments/1urri8w/",
       "author": "u/stan_frbd",
-      "date": "2026-07-09"
+      "date": "2026-07-09",
+      "uses": [
+        "skill-bundled-other-obsidian"
+      ]
     },
     {
       "id": "story-one-installer-that-turns-a-fresh-install-into-a-9-role-dev-t",
@@ -218,6 +221,9 @@
       "cardPoints": [
         "Collects apartment alerts in a dedicated Gmail inbox.",
         "Reads alerts daily through the Himalaya email CLI."
+      ],
+      "uses": [
+        "skill-bundled-other-himalaya"
       ]
     },
     {
@@ -362,7 +368,11 @@
       "source": "reddit",
       "url": "https://www.reddit.com/r/hermesagent/comments/1u45ywh/",
       "author": "u/fxa3bah",
-      "date": "2026-06-12"
+      "date": "2026-06-12",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-claude-code",
+        "skill-bundled-autonomous-ai-agents-codex"
+      ]
     },
     {
       "id": "story-gave-seven-agents-a-shared-kanban-board-and-they-started-man",
@@ -408,6 +418,9 @@
       "cardPoints": [
         "Compiles a pet-toxicology reference spreadsheet in an Obsidian vault.",
         "The author reports checking the generated treatment information."
+      ],
+      "uses": [
+        "skill-bundled-other-obsidian"
       ]
     },
     {
@@ -590,7 +603,10 @@
       "source": "reddit",
       "url": "https://www.reddit.com/r/hermesagent/comments/1v0gqpg/",
       "author": "u/slowmotionrunner",
-      "date": "2026-07-19"
+      "date": "2026-07-19",
+      "uses": [
+        "plugin-official-spotify"
+      ]
     },
     {
       "id": "story-design-skills-so-agent-generated-ui-stops-looking-generic",
@@ -660,7 +676,10 @@
       "source": "x",
       "url": "https://x.com/milesdeutscher/status/2068133236052730347",
       "author": "@milesdeutscher",
-      "date": "2026-06-20"
+      "date": "2026-06-20",
+      "uses": [
+        "skill-bundled-other-obsidian"
+      ]
     },
     {
       "id": "story-gumroad-runs-much-of-the-business-through-an-agent-on-a-dedi",
@@ -860,7 +879,10 @@
       "source": "x",
       "url": "https://x.com/fpostigo/status/2065468128906383452",
       "author": "@fpostigo",
-      "date": "2026-06-12"
+      "date": "2026-06-12",
+      "uses": [
+        "plugin-official-spotify"
+      ]
     },
     {
       "id": "story-three-agents-split-by-job-the-grunt-work-that-needs-speed",
@@ -1053,7 +1075,10 @@
       "source": "x",
       "url": "https://x.com/gkisokay/status/2045048092341555639",
       "author": "@gkisokay",
-      "date": "2026-04-17"
+      "date": "2026-04-17",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-codex"
+      ]
     },
     {
       "id": "story-i-can-t-type-well-voice-from-the-terminal-is-huge-for-me",
@@ -1215,7 +1240,10 @@
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent.txt",
       "author": "@jezza2463",
-      "date": "2026-03-29"
+      "date": "2026-03-29",
+      "uses": [
+        "skill-bundled-other-obsidian"
+      ]
     },
     {
       "id": "story-qq-bot-adapter-for-china",
@@ -1241,7 +1269,10 @@
       ],
       "source": "podcast",
       "url": "https://open.spotify.com/episode/7tF7zf5GKcxqe2Q2BRRNfn",
-      "author": "Tool Use — AI Conversations (Spotify)"
+      "author": "Tool Use — AI Conversations (Spotify)",
+      "uses": [
+        "plugin-official-spotify"
+      ]
     },
     {
       "id": "story-latex-math-renders-properly-in-the-tui",
@@ -1307,7 +1338,10 @@
       ],
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/community-projects-showcase/1492970295915446524-Meet-Hermes-Conrad....-GUI.txt",
-      "author": "@petllama"
+      "author": "@petllama",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-claude-code"
+      ]
     },
     {
       "id": "story-got-tired-of-paying-perplexity-built-my-own-research-stack",
@@ -1386,7 +1420,10 @@
       ],
       "source": "github",
       "url": "https://github.com/NousResearch/hermes-agent/pull/16768",
-      "author": "@SHL0MS"
+      "author": "@SHL0MS",
+      "uses": [
+        "plugin-official-touchdesigner"
+      ]
     },
     {
       "id": "story-hermes-manages-my-tasks-across-obsidian-apple-calendar-and-s",
@@ -1400,7 +1437,10 @@
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent/",
       "author": "@kouff",
-      "date": "2026-04-11"
+      "date": "2026-04-11",
+      "uses": [
+        "skill-bundled-other-obsidian"
+      ]
     },
     {
       "id": "story-vertex-ai-for-gcp-standardized-enterprises",
@@ -1471,6 +1511,9 @@
       "cardPoints": [
         "Exposes Hermes tools through an MCP server for Claude Desktop, Cursor and other clients.",
         "Makes terminal, file, search, memory and agent tools available through MCP."
+      ],
+      "uses": [
+        "cli-hermes-tools"
       ]
     },
     {
@@ -1515,6 +1558,9 @@
       "cardPoints": [
         "Checks the inbox and manages state with a Python script.",
         "Starts an LLM session only when new email arrives."
+      ],
+      "uses": [
+        "skill-bundled-other-himalaya"
       ]
     },
     {
@@ -1556,7 +1602,10 @@
       ],
       "source": "github",
       "url": "https://github.com/NousResearch/hermes-agent/pull/17445",
-      "author": "@scotttrinh"
+      "author": "@scotttrinh",
+      "uses": [
+        "skill-optional-mlops-modal"
+      ]
     },
     {
       "id": "story-give-hermes-hands-inside-feishu-lark",
@@ -1622,7 +1671,10 @@
       ],
       "source": "github",
       "url": "https://github.com/NousResearch/hermes-agent/issues/4837",
-      "author": "@autholykos"
+      "author": "@autholykos",
+      "uses": [
+        "skill-optional-mlops-qdrant"
+      ]
     },
     {
       "id": "story-i-built-a-custom-kernel-the-llm-never-touches-the-disk",
@@ -1789,7 +1841,11 @@
       "source": "x",
       "url": "https://x.com/gkisokay/status/2050026869274395020",
       "author": "@gkisokay",
-      "date": "2026-05-01"
+      "date": "2026-05-01",
+      "uses": [
+        "skill-bundled-productivity-notion",
+        "skill-bundled-other-obsidian"
+      ]
     },
     {
       "id": "story-hermes-lab-is-the-bookkeeper-for-running-experiments-autonom",
@@ -1981,7 +2037,10 @@
       "source": "blog",
       "url": "https://medium.com/@jsong_49820/how-i-built-a-self-improving-llm-wiki-with-hermes-agent-and-why-im-not-using-obsidian-1e9a7fa438c1",
       "author": "Jsong (Medium)",
-      "date": "2026-04-16"
+      "date": "2026-04-16",
+      "uses": [
+        "skill-bundled-research-llm-wiki"
+      ]
     },
     {
       "id": "story-built-a-dashboard-so-hermes-config-and-management-is-easier",
@@ -1994,7 +2053,10 @@
       ],
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/community-projects-showcase/1492427034541162517-Hermes-Control-Interface-Web-UI.txt",
-      "author": "@kysiv"
+      "author": "@kysiv",
+      "uses": [
+        "cli-hermes-config"
+      ]
     },
     {
       "id": "story-polymarket-trading-4-layers-in-parallel",
@@ -2008,7 +2070,10 @@
       "source": "x",
       "url": "https://x.com/adiix_official/status/2046702189469450616",
       "author": "@adiix_official",
-      "date": "2026-04-21"
+      "date": "2026-04-21",
+      "uses": [
+        "skill-optional-finance-polymarket"
+      ]
     },
     {
       "id": "story-apple-health-threads-analytics-gmail-calendar-in-one-cli",
@@ -2022,7 +2087,10 @@
       "source": "blog",
       "url": "https://rumjahn.substack.com/p/complete-guide-to-mastering-hermes",
       "author": "Keith Rumjahn (Substack)",
-      "date": "2026-04-26"
+      "date": "2026-04-26",
+      "uses": [
+        "skill-bundled-other-obsidian"
+      ]
     },
     {
       "id": "story-horse-racing-telegram-community-bot",
@@ -2076,7 +2144,11 @@
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent.txt",
       "author": "@modest.maoist",
-      "date": "2026-04-27"
+      "date": "2026-04-27",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-codex",
+        "skill-bundled-autonomous-ai-agents-opencode"
+      ]
     },
     {
       "id": "story-my-agent-dreams-at-night-for-0-014",
@@ -2117,7 +2189,10 @@
       "source": "youtube",
       "url": "https://www.youtube.com/watch?v=cu2fgknmemA",
       "author": "WorldofAI (YouTube)",
-      "date": "2026-04-07"
+      "date": "2026-04-07",
+      "uses": [
+        "skill-bundled-other-obsidian"
+      ]
     },
     {
       "id": "story-azure-compliant-prompt-patch-so-the-safety-filter-doesn-t-ki",
@@ -2266,7 +2341,11 @@
       ],
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/community-projects-showcase/1493589434971717763-Small-Win---Hermes---Claude-Code-managing-my-Tickets.txt",
-      "author": "@dalekc72"
+      "author": "@dalekc72",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-claude-code",
+        "skill-bundled-other-obsidian"
+      ]
     },
     {
       "id": "story-proactive-check-ins-anything-you-want-me-to-watch-this-after",
@@ -2361,7 +2440,10 @@
       "url": "https://www.reddit.com/r/hermesagent/comments/1stz6gd/how_i_use_obsidian_as_the_longterm_memory/",
       "author": "u/Jonathan_Rivera",
       "date": "2026-04-23",
-      "credit": "Engagement claim quoted from Nous Research user stories; not verified via API."
+      "credit": "Engagement claim quoted from Nous Research user stories; not verified via API.",
+      "uses": [
+        "skill-bundled-other-obsidian"
+      ]
     },
     {
       "id": "story-fat-agent-thin-tool-provider-via-hermes-mcp-serve",
@@ -2374,7 +2456,11 @@
       ],
       "source": "github",
       "url": "https://gist.github.com/nazt/849e29cd25c148b6cebafdbcc38bb6cc",
-      "author": "nazt (GitHub Gist)"
+      "author": "nazt (GitHub Gist)",
+      "uses": [
+        "cli-hermes-mcp",
+        "review-commands-start-hermes-as-an-mcp-server"
+      ]
     },
     {
       "id": "story-i-don-t-know-how-to-write-code-codex-built-me-a-vpn-service",
@@ -2388,7 +2474,10 @@
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent.txt",
       "author": "@_atomlib_",
-      "date": "2026-05-06"
+      "date": "2026-05-06",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-codex"
+      ]
     },
     {
       "id": "story-asked-hermes-to-write-a-skill-that-auto-plays-minecraft",
@@ -2429,7 +2518,10 @@
       "source": "blog",
       "url": "https://medium.com/@0xmega/hermes-agent-the-complete-setup-guide-telegram-discord-vps-no-mac-mini-required-dda315a702d3",
       "author": "Alex P. (Medium)",
-      "date": "2026-03-30"
+      "date": "2026-03-30",
+      "uses": [
+        "skill-optional-productivity-first-task"
+      ]
     },
     {
       "id": "story-create-and-edit-google-slides-decks",
@@ -2442,7 +2534,10 @@
       ],
       "source": "github",
       "url": "https://github.com/NousResearch/hermes-agent/issues/15600",
-      "author": "@zednik-max"
+      "author": "@zednik-max",
+      "uses": [
+        "skill-bundled-productivity-google-workspace"
+      ]
     },
     {
       "id": "story-free-gpt-4-1-via-copilot-hermes-delegates-coding-to-opencode",
@@ -2456,7 +2551,10 @@
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent.txt",
       "author": "@mulkproject",
-      "date": "2026-04-12"
+      "date": "2026-04-12",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-opencode"
+      ]
     },
     {
       "id": "story-hermes-very-good-as-personal-agent-on-qwen3-5-27b",
@@ -2470,7 +2568,10 @@
       "source": "reddit",
       "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ro9lph/anybody_who_tried_hermesagent/",
       "author": "u/Suitable_Currency440",
-      "date": "2026-03-08"
+      "date": "2026-03-08",
+      "uses": [
+        "skill-optional-mlops-guidance"
+      ]
     },
     {
       "id": "story-local-gitea-fork-watchtower-auto-restarts-my-hermes-in-10-mi",
@@ -2568,7 +2669,11 @@
       ],
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/community-projects-showcase/1495354913205780661-Cartographer--Fully-Configurable-Semantic-Knowledge---Memory-Substrate.txt",
-      "author": "@modest.maoist"
+      "author": "@modest.maoist",
+      "uses": [
+        "cli-hermes-sessions",
+        "skill-bundled-other-obsidian"
+      ]
     },
     {
       "id": "story-monica-that-writes-in-my-voice",
@@ -2780,7 +2885,10 @@
       ],
       "source": "github",
       "url": "https://github.com/NousResearch/hermes-agent/issues/6715",
-      "author": "@rohitg00"
+      "author": "@rohitg00",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-claude-code"
+      ]
     },
     {
       "id": "story-i-made-a-skill-to-remote-start-my-car",
@@ -2913,7 +3021,10 @@
       ],
       "source": "github",
       "url": "https://github.com/NousResearch/hermes-agent/issues/6430",
-      "author": "@trevorgordon981"
+      "author": "@trevorgordon981",
+      "uses": [
+        "skill-bundled-apple-imessage"
+      ]
     },
     {
       "id": "story-hetzner-vps-at-10-mo-claude-opus-via-openrouter",
@@ -3006,7 +3117,10 @@
       ],
       "source": "github",
       "url": "https://gist.github.com/michaeloboyle/10461598db36066e4c366413d5416f83",
-      "author": "michaeloboyle (GitHub Gist)"
+      "author": "michaeloboyle (GitHub Gist)",
+      "uses": [
+        "skill-bundled-apple-imessage"
+      ]
     },
     {
       "id": "story-linkedin-posts-that-remember-my-style",
@@ -3032,7 +3146,10 @@
       ],
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/community-projects-showcase/1498955668311248948-Herm---Chat-and-Dashboard-TUI.txt",
-      "author": "@liftaris"
+      "author": "@liftaris",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-opencode"
+      ]
     },
     {
       "id": "story-built-an-android-app-for-hermes-because-i-wanted-no-middlema",
@@ -3084,7 +3201,10 @@
       ],
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/community-projects-showcase/1500131734178762814-OpenConcho---a-Honcho-Memory-UI.txt",
-      "author": "@offendingcommit"
+      "author": "@offendingcommit",
+      "uses": [
+        "skill-optional-autonomous-ai-agents-honcho"
+      ]
     },
     {
       "id": "story-blind-since-birth-i-built-an-nvda-translator-addon-with-nous",
@@ -3119,6 +3239,9 @@
       "cardPoints": [
         "Uses Telegram to control execution on Modal serverless.",
         "Describes VPS and SSH backends for persistent or private-network work."
+      ],
+      "uses": [
+        "skill-optional-mlops-modal"
       ]
     },
     {
@@ -3203,7 +3326,10 @@
       ],
       "source": "github",
       "url": "https://github.com/NousResearch/hermes-agent/issues/11653",
-      "author": "@Xwm1234"
+      "author": "@Xwm1234",
+      "uses": [
+        "skill-optional-finance-stocks"
+      ]
     },
     {
       "id": "story-twice-daily-tidal-curation-built-for-an-avid-music-lover",
@@ -3286,7 +3412,10 @@
       ],
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/community-projects-showcase/1502519565144428605-Hermes-to-read-the-internet-for-me.txt",
-      "author": "@awais_h"
+      "author": "@awais_h",
+      "uses": [
+        "review-skills-rss-feeds"
+      ]
     },
     {
       "id": "story-got-hermes-running-on-aws-vps-with-google-workspace-automati",
@@ -3312,7 +3441,10 @@
       ],
       "source": "hn",
       "url": "https://news.ycombinator.com/item?id=47786673",
-      "author": "rnxrx (Hacker News)"
+      "author": "rnxrx (Hacker News)",
+      "uses": [
+        "skill-bundled-other-obsidian"
+      ]
     },
     {
       "id": "story-multi-agent-hermes-on-ollama-because-it-s-cheaper",
@@ -3325,7 +3457,10 @@
       ],
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/plugins-skills-and-skins/1496175277120950332-Hermes-Multi-Agent-with-Ollama-cloud-models.txt",
-      "author": "@anibal3608"
+      "author": "@anibal3608",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-opencode"
+      ]
     },
     {
       "id": "story-a-plugin-that-lets-hermes-think-while-i-m-away",
@@ -3393,7 +3528,10 @@
       ],
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/plugins-skills-and-skins/1500463136182898709-Hermes-Oprations.txt",
-      "author": "@roach_jeong"
+      "author": "@roach_jeong",
+      "uses": [
+        "cli-hermes-kanban"
+      ]
     },
     {
       "id": "story-scraped-the-entire-hermes-ecosystem-hermesatlas-com",
@@ -3421,7 +3559,10 @@
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent.txt",
       "author": "@zedosplasticos008",
-      "date": "2026-03-21"
+      "date": "2026-03-21",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-codex"
+      ]
     },
     {
       "id": "story-cut-60-90-of-context-tokens-with-an-rtk-integration",
@@ -3447,7 +3588,10 @@
       ],
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/community-projects-showcase/1487152060465156216-Hermes-Agent-Home-Assistant-Add-on.txt",
-      "author": "@wolframravenwolf"
+      "author": "@wolframravenwolf",
+      "uses": [
+        "plugin-official-homeassistant"
+      ]
     },
     {
       "id": "story-hermes-is-openclaw-with-a-week-of-debug-rag-memory",
@@ -3559,7 +3703,10 @@
       "source": "blog",
       "url": "https://juliangoldieseo1.substack.com/p/hermes-agent-v012-just-changed-ai",
       "author": "Julian Goldie (Substack)",
-      "date": "2026-04-30"
+      "date": "2026-04-30",
+      "uses": [
+        "plugin-official-spotify"
+      ]
     },
     {
       "id": "story-standalone-but-i-built-it-to-use-with-hermes",
@@ -3603,7 +3750,10 @@
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent.txt",
       "author": "@l_acie",
-      "date": "2026-04-03"
+      "date": "2026-04-03",
+      "uses": [
+        "skill-bundled-productivity-notion"
+      ]
     },
     {
       "id": "story-3-000-logs-of-self-improvement-on-a-custom-harness",
@@ -3670,7 +3820,10 @@
       "source": "x",
       "url": "https://x.com/NickSpisak_/status/2042709705991295221",
       "author": "@NickSpisak_",
-      "date": "2026-04-10"
+      "date": "2026-04-10",
+      "uses": [
+        "skill-bundled-research-llm-wiki"
+      ]
     },
     {
       "id": "story-my-hermes-runs-on-my-home-server-i-reach-it-from-anywhere",
@@ -3709,7 +3862,10 @@
       ],
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/plugins-skills-and-skins/1498020050047729806-Whoop-Plugin.txt",
-      "author": "@wysie_"
+      "author": "@wysie_",
+      "uses": [
+        "cli-hermes-tools"
+      ]
     },
     {
       "id": "story-bringing-ai-assisted-drug-discovery-to-africa-as-a-pharmacy-",
@@ -3722,7 +3878,10 @@
       ],
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/community-projects-showcase/1493141848527474841-Pharma-skills-covering-ChEMBL--AlphaFold--OpenFDA--QSAR-workflows..txt",
-      "author": "@bennytimz"
+      "author": "@bennytimz",
+      "uses": [
+        "skill-optional-research-drug-discovery"
+      ]
     },
     {
       "id": "story-skill-factory-silently-watches-workflows-and-writes-skill-md",
@@ -3761,7 +3920,10 @@
       ],
       "source": "x",
       "url": "https://x.com/WolframRvnwlf/status/2037583878009889013",
-      "author": "@WolframRvnwlf"
+      "author": "@WolframRvnwlf",
+      "uses": [
+        "plugin-official-homeassistant"
+      ]
     },
     {
       "id": "story-built-a-web-proxy-so-i-can-hand-off-hermes-sessions-to-mobil",
@@ -3827,7 +3989,10 @@
       "source": "x",
       "url": "https://x.com/agentmail/status/2041605207704895810",
       "author": "@agentmail",
-      "date": "2026-04-07"
+      "date": "2026-04-07",
+      "uses": [
+        "skill-optional-other-agentmail"
+      ]
     },
     {
       "id": "story-spare-laptop-hermes-iris-builds-a-renpy-visual-novel-autonom",
@@ -3841,7 +4006,10 @@
       "source": "x",
       "url": "https://x.com/ExileAI_0/status/2046197309495533698",
       "author": "@ExileAI_0",
-      "date": "2026-04-20"
+      "date": "2026-04-20",
+      "uses": [
+        "skill-optional-creative-comfyui"
+      ]
     },
     {
       "id": "story-built-a-browser-extension-for-translation-and-summarization-",
@@ -3868,7 +4036,11 @@
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent.txt",
       "author": "@luminousix",
-      "date": "2026-03-30"
+      "date": "2026-03-30",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-claude-code",
+        "skill-bundled-autonomous-ai-agents-codex"
+      ]
     },
     {
       "id": "story-all-my-knowledge-on-making-models-run-as-a-skill",
@@ -3948,7 +4120,11 @@
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/hermes-agent.txt",
       "author": "@tranquilflow",
-      "date": "2026-04-07"
+      "date": "2026-04-07",
+      "uses": [
+        "cli-hermes-setup",
+        "skill-bundled-autonomous-ai-agents-claude-code"
+      ]
     },
     {
       "id": "story-gladiator-9-hermes-agents-two-rival-ai-companies-one-github-",
@@ -4042,7 +4218,10 @@
       ],
       "source": "youtube",
       "url": "https://www.youtube.com/watch?v=jmtpYUOr7_U",
-      "author": "Leon van Zyl (YouTube)"
+      "author": "Leon van Zyl (YouTube)",
+      "uses": [
+        "skill-optional-mlops-whisper"
+      ]
     },
     {
       "id": "story-jarvis-at-home-in-2026",
@@ -4138,7 +4317,10 @@
       ],
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/community-projects-showcase/1492657008539730010-Hypercubed-Agent-Knowledge-Starter-Kit.txt",
-      "author": "@.hypercubed"
+      "author": "@.hypercubed",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-codex"
+      ]
     },
     {
       "id": "story-one-agent-many-roles-nutritionist-developer-finance-advisor",
@@ -4193,7 +4375,10 @@
       "source": "x",
       "url": "https://x.com/IBuzovskyi/status/2060773706574479754",
       "author": "@IBuzovskyi",
-      "date": "2026-05-30"
+      "date": "2026-05-30",
+      "uses": [
+        "cli-hermes-profile"
+      ]
     },
     {
       "id": "story-the-anatomy-of-the-hermes-folder-one-folder-controls-everyth",
@@ -4235,7 +4420,10 @@
       "source": "x",
       "url": "https://x.com/aakashgupta/status/2050349093969694825",
       "author": "@aakashgupta",
-      "date": "2026-05-01"
+      "date": "2026-05-01",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-claude-code"
+      ]
     },
     {
       "id": "story-open-source-web-ui-for-hermes-with-1-1-terminal-parity-in-th",
@@ -4337,7 +4525,10 @@
       "source": "blog",
       "url": "https://blog.dailydoseofds.com/p/hermes-agent-masterclass",
       "author": "Avi Chawla",
-      "date": "2026-05-13"
+      "date": "2026-05-13",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-claude-code"
+      ]
     },
     {
       "id": "story-compounding-autonomy-is-a-property-you-manage-not-just-enjoy",
@@ -4443,6 +4634,9 @@
       "cardPoints": [
         "Monitors unusual market movement and volume spikes.",
         "Sends a brief with links, possible causes and related news; never places trades."
+      ],
+      "uses": [
+        "skill-optional-finance-polymarket"
       ]
     },
     {
@@ -4499,7 +4693,10 @@
       "source": "youtube",
       "url": "https://www.youtube.com/watch?v=AQHlyGA2cZM",
       "author": "Alex Finn (YouTube)",
-      "date": "2026-05-22"
+      "date": "2026-05-22",
+      "uses": [
+        "plugin-official-hermes-memory-wiki"
+      ]
     },
     {
       "id": "story-recursively-built-a-supabase-backed-crm-dashboard-where-each",
@@ -4527,7 +4724,10 @@
       ],
       "source": "docs",
       "url": "https://hermes-agent.nousresearch.com/docs/getting-started/learning-path#how-to-use-this-page",
-      "date": "2026-09-25"
+      "date": "2026-09-25",
+      "uses": [
+        "doc-user-guide-features-plugins-quick-overview"
+      ]
     },
     {
       "id": "doc-getting-started-learning-path-by-experience-level",
@@ -4639,7 +4839,10 @@
       ],
       "source": "docs",
       "url": "https://hermes-agent.nousresearch.com/docs/getting-started/learning-path#key-features-at-a-glance",
-      "date": "2026-09-25"
+      "date": "2026-09-25",
+      "uses": [
+        "cli-hermes-tools"
+      ]
     },
     {
       "id": "doc-getting-started-learning-path-what-to-read-next",
@@ -4666,7 +4869,10 @@
       ],
       "source": "docs",
       "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/overview#media--web",
-      "date": "2026-09-25"
+      "date": "2026-09-25",
+      "uses": [
+        "cli-hermes-tools"
+      ]
     },
     {
       "id": "doc-guides-use-voice-mode-with-hermes-what-voice-mode-is-good-for",
@@ -4810,7 +5016,10 @@
       ],
       "source": "docs",
       "url": "https://hermes-agent.nousresearch.com/docs/guides/use-voice-mode-with-hermes#suggested-first-week-setup",
-      "date": "2026-09-25"
+      "date": "2026-09-25",
+      "uses": [
+        "cli-hermes-setup"
+      ]
     },
     {
       "id": "doc-guides-use-voice-mode-with-hermes-where-to-read-next",
@@ -4824,7 +5033,10 @@
       ],
       "source": "docs",
       "url": "https://hermes-agent.nousresearch.com/docs/guides/use-voice-mode-with-hermes#where-to-read-next",
-      "date": "2026-09-25"
+      "date": "2026-09-25",
+      "uses": [
+        "cli-hermes-setup"
+      ]
     },
     {
       "id": "doc-guides-run-nemotron-3-ultra-free-switching-to-it-later",
@@ -4839,7 +5051,10 @@
       ],
       "source": "docs",
       "url": "https://hermes-agent.nousresearch.com/docs/guides/run-nemotron-3-ultra-free#switching-to-it-later",
-      "date": "2026-09-25"
+      "date": "2026-09-25",
+      "uses": [
+        "cli-sec-model-slash-command-mid-session"
+      ]
     },
     {
       "id": "doc-developer-guide-architecture-recommended-reading-order",
@@ -5039,7 +5254,10 @@
       "source": "docs",
       "author": "Nous Research",
       "url": "https://hermes-agent.nousresearch.com/docs/guides/automation-blueprints#paper-digest-with-notes",
-      "verifiedAt": "2026-09-28"
+      "verifiedAt": "2026-09-28",
+      "uses": [
+        "skill-bundled-research-arxiv"
+      ]
     },
     {
       "id": "review-use-cases-issue-auto-labeling-with-hermes",
@@ -5191,7 +5409,10 @@
       "source": "docs",
       "author": "Nous Research",
       "url": "https://hermes-agent.nousresearch.com/docs/guides/agent-email-address#3-poll-the-inbox-on-a-schedule",
-      "verifiedAt": "2026-09-28"
+      "verifiedAt": "2026-09-28",
+      "uses": [
+        "skill-bundled-other-himalaya"
+      ]
     },
     {
       "id": "review-use-cases-check-a-website-only-when-it-changes",
@@ -5248,7 +5469,13 @@
       "source": "docs",
       "author": "Nous Research",
       "url": "https://hermes-agent.nousresearch.com/docs/guides/pipe-script-output#long-running-tasks-ping-when-done",
-      "verifiedAt": "2026-09-28"
+      "verifiedAt": "2026-09-28",
+      "uses": [
+        "cli-hermes-send",
+        "review-commands-send-or-pipe-a-result-through-hermes",
+        "review-commands-check-delivery-results-in-a-shell-script",
+        "review-commands-discover-configured-message-destinations"
+      ]
     },
     {
       "id": "story-razorpay-gives-220-employees-their-own-isolated-always-on-he",
@@ -5458,7 +5685,10 @@
       "source": "x",
       "url": "https://x.com/jaredclucas/status/2069767899523276865",
       "author": "@jaredclucas",
-      "date": "2026-06-24"
+      "date": "2026-06-24",
+      "uses": [
+        "skill-bundled-productivity-google-workspace"
+      ]
     },
     {
       "id": "story-construction-company-owner-runs-bidding-legal-drafts-and-erp",
@@ -5486,7 +5716,10 @@
       "source": "blog",
       "url": "https://stewartmedia.com.au/ai-agents-are-changing-how-we-run-our-agency/",
       "author": "Stewart Media",
-      "date": "2026-05-11"
+      "date": "2026-05-11",
+      "uses": [
+        "skill-optional-productivity-shopify"
+      ]
     },
     {
       "id": "story-podcast-hosting-founder-shares-his-agent-with-the-team-to-mi",
@@ -5654,7 +5887,10 @@
       "source": "reddit",
       "url": "https://www.reddit.com/r/AI_Agents/comments/1va9pww/",
       "author": "u/Osamu-Dazai-12",
-      "date": "2026-07-29"
+      "date": "2026-07-29",
+      "uses": [
+        "skill-bundled-productivity-notion"
+      ]
     },
     {
       "id": "story-outbound-sales-agent-researches-accounts-and-queues-every-se",
@@ -5822,7 +6058,12 @@
       "source": "reddit",
       "url": "https://www.reddit.com/r/hermesagent/comments/1uz77ew/comment/oycbh84/",
       "author": "u/bluffman",
-      "date": "2026-07-18"
+      "date": "2026-07-18",
+      "uses": [
+        "skill-bundled-productivity-notion",
+        "skill-bundled-other-obsidian",
+        "skill-optional-productivity-shopify"
+      ]
     },
     {
       "id": "story-a-first-time-founder-uses-hermes-as-a-daily-boss-for-fundrai",
@@ -5864,7 +6105,10 @@
       "source": "blog",
       "url": "https://charliehills.substack.com/p/hermes-agent-beginner-advanced",
       "author": "MarTech AI",
-      "date": "2026-07-26"
+      "date": "2026-07-26",
+      "uses": [
+        "skill-bundled-productivity-notion"
+      ]
     },
     {
       "id": "story-a-daily-work-setup-on-hermes-for-meetings-prospects-and-comm",

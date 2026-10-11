@@ -42,6 +42,7 @@ hermes send --to telegram --quiet &quot;keepalive&quot; || {
 # Capture the message ID for later editing / threading
 msg_id=$(hermes send --to discord:#ops --json &quot;build started&quot; \
   | jq -r .message_id)</code></pre>
+
 <ul class="tags"><li>#docs</li><li>#commands</li><li>#recipe</li></ul>
 <div class="actions">
 <a href="https://hermes-agent.nousresearch.com/docs/guides/pipe-script-output#scripting-with---json-and---quiet" rel="noopener">Read the original</a>

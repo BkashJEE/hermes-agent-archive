@@ -33,6 +33,7 @@
 <p>Python dependency installation has a separate consent/admission step. plugins install --enable does not bypass that step. A declined or non-interactive dependency install can leave the plugin installed but disabled. Node sidecar dependencies have a separate prompt and remain plugin-local. PM prepares Python dependencies with core and the enabled plugin set before publishing the new environment and configuration. A resolution failure preserves the previous selection. Restart Hermes when a new selected environment is not yet active in the running process. The enabled set is the union over the default home and every profile under profiles/ , read from each config.yaml ( plugins.enabled , plugins.disabled , memory.provider ). PM refuses to guess at a home it cannot read: a config.yaml that is not valid YAML, is not a mapping, or has a non-list plugins.enabled / plugins.disabled or non-string memory.provider fails dependency preparation for all homes ( could not parse plugin selection: &lt;path&gt; ), rather than silently dropping that profile&#39;s plugins from the next environment. Fix or remove the offending file; an empty config.yaml is fine. Ordinary Hermes application updates preserve user…</p>
 <p>From the official Hermes Agent documentation.</p>
 
+
 <ul class="tags"><li>#plugins</li><li>#docs</li></ul>
 <div class="actions">
 <a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#dependency-preparation-and-preservation" rel="noopener">Read the original</a>

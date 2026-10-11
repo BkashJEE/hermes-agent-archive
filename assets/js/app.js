@@ -911,6 +911,13 @@ function openDrawer(id, trigger, updateUrl = true) {
     ${it.snippet ? `<div class="d-snip">
         <button class="copy-btn" id="copyBtn">${copyLabel}</button>
         <pre><code>${esc(it.snippet)}</code></pre></div>` : ''}
+    ${(() => {
+      /* The entries this story names — each one click from a copyable step. A story is
+         narrative and rarely carries a command; the things it used are entries here. */
+      const uses = (it.uses || []).map(id => findItem(id)).filter(Boolean);
+      return uses.length ? `<div class="d-uses"><p class="d-attribution">Mentioned in this story</p>${uses.map(u =>
+        `<button class="ghost-btn" data-open-entry="${esc(u.id)}">${esc(u.title)}</button>`).join('')}</div>` : '';
+    })()}
     ${(it.tags || []).length ? `<div class="d-tags">${it.tags.map(t => `<button class="d-tag" data-tag="${esc(t)}">#${esc(t)}</button>`).join('')}</div>` : ''}
     <div class="d-actions">${it.url ? `<a class="d-link" href="${esc(it.url)}" target="_blank" rel="noopener noreferrer">READ THE ORIGINAL &#8599;</a>` : ''}${(() => {
       /* The archive is worth being listed in only if being listed leads somewhere. */
@@ -1212,6 +1219,11 @@ function wire() {
     if (c) openDrawer(c.dataset.id, c);
   });
 
+  /* A "mentioned in this story" chip opens that entry's own drawer in place. */
+  $('#drawerBody').addEventListener('click', e => {
+    const use = e.target.closest('[data-open-entry]');
+    if (use) openDrawer(use.dataset.openEntry, use);
+  });
   $('#whatsNewBtn').addEventListener('click', () => $('#whatsNew').hidden ? openWhatsNew() : closeWhatsNew());
   $('#whatsNewClose').addEventListener('click', () => closeWhatsNew());
   $('#newScrim').addEventListener('click', () => closeWhatsNew());

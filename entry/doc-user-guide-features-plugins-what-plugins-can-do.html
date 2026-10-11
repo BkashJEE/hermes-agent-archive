@@ -33,6 +33,7 @@
 <p>Every ctx.* API below is available inside a plugin&#39;s register(ctx) function. Capability How Add tools ctx.register_tool(name=..., toolset=..., schema=..., handler=...) Add hooks ctx.register_hook(&quot;post_tool_call&quot;, callback) Add slash commands ctx.register_command(name, handler, description) - adds /name in CLI and gateway sessions Dispatch tools from commands ctx.dispatch_tool(name, args) - invokes a registered tool with parent-agent context auto-wired Add CLI commands ctx.register_cli_command(name, help, setup_fn, handler_fn) - adds hermes &lt;plugin&gt; &lt;subcommand&gt; Inject messages ctx.inject_message(content, role=&quot;user&quot;, session_key=...) - see Injecting Messages Ship data files Path(__file__).parent / &quot;data&quot; / &quot;file.yaml&quot; Bundle skills ctx.register_skill(name, path) - namespaced as plugin:skill , loaded via skill_view(&quot;plugin:skill&quot;) Gate on env vars requires_env: [API_KEY] in plugin.yaml - prompted during hermes plugins install Distribute via pip [project.entry-points.&quot;hermes_agent.plugins&quot;] Register a gateway platform (Discord, Telegram, IRC, …) ctx.register_platform(name, label, adapter_factory, check_fn, ...) - see Adding Platform Adapters Register an image-generation backend ctx.…</p>
 <p>From the official Hermes Agent documentation.</p>
 
+
 <ul class="tags"><li>#plugins</li><li>#docs</li></ul>
 <div class="actions">
 <a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#what-plugins-can-do" rel="noopener">Read the original</a>

@@ -36,6 +36,7 @@
 <p>When chat answers and exits (-Q, chat --oneshot, or a query with non-TTY stdio) the process exit code reports the turn&#39;s outcome, on both the quiet and the non-quiet path: 0 the turn completed; 1 it failed, stopped partway (partial), hit the iteration budget, or never ran (credentials / agent init failed); 130 it was interrupted. A Kanban dispatcher-spawned worker (HERMES_KANBAN_TASK set) whose turn failed only because the provider was rate-limited, overloaded, returning 5xx, timing out, or the account hit a billing/quota wall, exits 75 (EX_TEMPFAIL) so the dispatcher requeues the task without counting a failure. With --format stream-json the terminal result record carries the same exit_code.</p>
 <p>From the official Hermes Agent CLI reference.</p>
 
+
 <ul class="tags"><li>#cli</li><li>#reference</li></ul>
 <div class="actions">
 <a href="https://hermes-agent.nousresearch.com/docs/reference/cli-commands#--format-stream-json--structured-jsonl-output" rel="noopener">Read the original</a>

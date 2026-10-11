@@ -33,6 +33,7 @@
 <p>Hermes supports a symlinked HERMES_HOME and symlinked home subdirectories, including hooks , skills , sessions , and logs . During home initialization, existing directory links are preserved, and permissions on linked directories (and descendants such as logs/curator ) are left to their owner. If a link target is missing, inaccessible, or not a directory, initialization stops with a storage error naming the path and link target. Hermes does not replace the link or create its missing target: doing so could write data onto the local disk while an external or NAS volume is unmounted. Check the reported link, restore the mount or correct its target, and verify access permissions before retrying. For a deliberately new dotfiles target, create it yourself only after confirming the intended storage is available. hermes doctor reports these failures as storage problems, not invalid YAML. Keep your existing config.yaml ; running hermes setup is not the repair for an unavailable directory. This is a directory-availability check, not a mount monitor: an existing directory cannot establish that the intended volume is mounted.</p>
 <p>From the official Hermes Agent documentation.</p>
 
+
 <ul class="tags"><li>#install</li><li>#getting-started</li><li>#docs</li></ul>
 <div class="actions">
 <a href="https://hermes-agent.nousresearch.com/docs/getting-started/installation#symlinked-home-directories-and-external-storage" rel="noopener">Read the original</a>
