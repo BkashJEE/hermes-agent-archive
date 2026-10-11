@@ -1,0 +1,486 @@
+{
+  "note": "Imported from the NousResearch/hermes-agent GitHub releases by scripts/import-hermes-releases.mjs. One card per published release; the summary and detail are the opening of the official notes, linked in full. Entries are merged, never replaced.",
+  "items": [
+    {
+      "id": "release-v0-21-6",
+      "title": "Hermes Agent v0.21.6",
+      "summary": "Patch release. This tag rolls up the ~2,100 PRs merged since v0.21.5 into a stable tagged release for Docker and Hermes Cloud. Full curated notes for this window ship with v0.22.0.",
+      "detail": "Patch release. This tag rolls up the ~2,100 PRs merged since v0.21.5 into a stable tagged release for Docker and Hermes Cloud. Full curated notes for this window ship with v0.22.0.\n\nAbout this release\n\nThis is the first release cut by the new stable release pipeline: one attempt ref, a tested Docker image, and a receipt tag at publish. It ships the tag, this GitHub release and the Docker image. The desktop app, Termux packages and the Microsoft Store stay on their current build for now and move with the next bundled release.\n\nMeasured at commit `818c13be1dc4fd28987e1e881a9408224afd4535`, the window since v0.21.5 contains 8,867 non-merge commits across 8,342 changed files (+772,490 / −225,600), 2,106 merged PRs and 3,027 closed issues.\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v0.21.6",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v0.21.6",
+      "date": "2026-10-08"
+    },
+    {
+      "id": "release-v2026-9-24",
+      "title": "Hermes Agent v0.21.5 (v2026.9.24)",
+      "summary": "Patch release. This tag rolls up the ~460 PRs merged since v0.21.4 into a stable tagged release for downstream consumers (Docker images, Hermes Cloud, hosted deployments). Full curated notes for this window are…",
+      "detail": "Patch release. This tag rolls up the ~460 PRs merged since v0.21.4 into a stable tagged release for downstream consumers (Docker images, Hermes Cloud, hosted deployments). Full curated notes for this window are deferred to v0.22.0.\n\nAbout this release\n\nMeasured at commit `f97608f178d1ffeca59860195ab7da295f7c8e5f`, the window since v0.21.4 contains 1,610 non-merge commits across 4,828 changed files (+164,132 / −149,440), 460 merged PRs and 475 closed issues.\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.9.24",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.9.24",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "release-v2026-9-21",
+      "title": "Hermes Agent v0.21.4 (v2026.9.21)",
+      "summary": "Patch release. This tag rolls up the ~1,800 PRs merged since v0.21.3 into a stable tagged release for downstream consumers (Docker images, Hermes Cloud, hosted deployments). Full curated notes for this window are…",
+      "detail": "Patch release. This tag rolls up the ~1,800 PRs merged since v0.21.3 into a stable tagged release for downstream consumers (Docker images, Hermes Cloud, hosted deployments). Full curated notes for this window are deferred to v0.22.0.\n\nAbout this release\n\nMeasured at commit `4b8a8134009a8727a289bcabeb0019fedd353128`, the window since v0.21.3 contains 5,071 non-merge commits across 5,169 changed files (+312,961 / −62,855), 1,812 merged PRs and 2,116 closed issues.\n\nAlso in the window, undocumented here on purpose: a host-wide gateway singleton lock with a rendezvous record, and Desktop attaching to the running host backend instead of spawning a second one; one backend-owned connector operation with a setup card on Desktop, TUI and CLI; `--format stream-json` structured JSONL output for the CLI; `skills.auto_load` pinning skills into every new session's prompt; a Desktop chat/UI font picker, one-click local engine updates, and plugin uninstall from the Plugins hub; a `decline` unauthorized-DM behavior for the gateway; a configurable MCP discovery connect cap (`mcp.discovery_concurrency`); `session_search` after/before bounds plus OR-relaxed recall retry; `hermes sessions set-journal-mode`; LTX 2.5 and Kling O3 in the video catalogs; a website page for every catalog plugin and author, with pinned-commit READMEs and added/updated sorting; a dozen new community plugins in the catalog (tailscale, ssh, shodan, terminal, rss, resetwatch, done-bell, kiwi, cognee, Octen); and a large run of profile/multiplex isolation, cron, kanban, Desktop and state.db fixes.\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.9.21",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.9.21",
+      "date": "2026-09-21"
+    },
+    {
+      "id": "release-v2026-9-14",
+      "title": "Hermes Agent v0.21.3 (v2026.9.14)",
+      "summary": "Patch release. This tag rolls up the ~338 PRs merged since v0.21.2 into a stable tagged release for downstream consumers (Docker images, Hermes Cloud, hosted deployments). It exists so the remote-gateway sign-in fixes…",
+      "detail": "Patch release. This tag rolls up the ~338 PRs merged since v0.21.2 into a stable tagged release for downstream consumers (Docker images, Hermes Cloud, hosted deployments). It exists so the remote-gateway sign-in fixes below reach Cloud agents, which auto-update to the newest release tag.\n\nWhat this patch ships for remote Desktop / Cloud users\n\n• Remote dashboard sessions no longer expire on refresh bursts (#110061, fixes #55712; salvage #71548 @Doud-FR, #55717 @liuhao1024). Both refresh paths on the gateway (cookie gate and the desktop's native bearer route) now coalesce concurrent requests carrying the same rotating refresh token, so a Desktop wake burst can no longer replay an already-rotated token into the Portal's reuse detection and revoke the whole session. Refresh also runs off the event loop, so a slow identity provider no longer freezes `/api/status`. Pairs with Portal-side NousResearch/hermes-portal#1209 (sliding 30-day idle horizon, 5-minute rotated-token grace).\n\nAlso requested for this tag\n\n• Long-lived processes stop leaking duplicate state.db writer handles (#110934, fixes #100896 #103339; salvage #107974 @kshitijk4poor, mapping @Rroven): gateway, dashboard/Desktop backend, ACP and CLI readers attach read-only and in-process writers share the registry handle, so the `N live SessionDB handles` precursor stops firing on a healthy topology.\n\nAbout this release\n\nMeasured at commit `9b419a2d3c2657c192008e732149d61170b32c01`, the window since v0.21.2 contains 1,036 non-merge commits across 2,642 changed files (+131,690 / −37,096) and 338 merged PRs.\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.9.14",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.9.14",
+      "date": "2026-09-14"
+    },
+    {
+      "id": "release-v2026-9-11",
+      "title": "Hermes Agent v0.21.2 (v2026.9.11)",
+      "summary": "Hermes Agent v0.21.2 (v2026.9.11) — The state.db Patch Release",
+      "detail": "Hermes Agent v0.21.2 (v2026.9.11) — The state.db Patch Release\n\nPatch release. v0.21.0 shipped a large rewrite of the session store's connection handling, and for some installs it made `state.db` fragile: second writers cancelling each other's locks, healthy databases reported as corrupt, one bad row killing `sessions list`. This release closes that class and rolls up everything else that landed on `main` in the four days since v0.21.1.\n\nAbout this release\n\nMeasured at commit `04dd80a977f40b05e5b2054111747af07a61886a`, the window since v0.21.1 contains 947 non-merge commits across 1,869 changed files (+182,504 / −15,564) and 312 merged PRs. 140 contributors appear in commits, co-author trailers, or salvage credits.\n\n✨ Highlights\n\nstate.db reliability campaign (six PRs, 44 issues closed)\n\nIf your `state.db` broke after 0.21.0, this is the release for you. Six PRs fix the root causes rather than the symptoms:\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.9.11",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.9.11",
+      "date": "2026-09-11"
+    },
+    {
+      "id": "release-v2026-9-7",
+      "title": "Hermes Agent v0.21.1 (v2026.9.7)",
+      "summary": "Patch release. This tag rolls up current main since v0.21.0 for tagged deployments and downstream consumers.",
+      "detail": "Patch release. This tag rolls up current main since v0.21.0 for tagged deployments and downstream consumers.\n\nAbout this release\n\nMeasured at commit `6178e9f4eed8d99f4fc550add939d58c7bed6206`, the window since v0.21.0 contains 5,139 non-merge commits across 4,364 changed files (+601,014 / −768,419). GitHub reports 632 merged PRs in the release window at preparation time. These figures exclude the release-version commit.\n\nThe rollup includes the codebase modularization, file-operation and startup performance work, provider and model updates, desktop session controls and browser annotations, MCP authorization improvements, cron scheduling and delivery fixes, and delegation reliability improvements. This patch does not attempt to enumerate or announce every feature in the window.\n\nFull curated release notes for this window will ship with v0.22.0, covering everything since v0.21.0, including the intervening patch releases, feature details, and complete contributor credits.\n\nUpdating\n\n• Existing install: `hermes update`\n• Fresh install: `curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash`\n• Managed deployments should update through their deployment tooling using the new tag.\n\nFull Changelog: [v2026.8.31...v2026.9.7](https://github.com/NousResearch/hermes-agent/compare/v2026.8.31...v2026.9.7)\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.9.7",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.9.7",
+      "date": "2026-09-07"
+    },
+    {
+      "id": "release-v2026-8-31",
+      "title": "Hermes Agent v0.21.0 (v2026.8.31)",
+      "summary": "The Pantheon Release. v0.20.0 made Hermes the herald — he spoke, and he carried word to other agents. In v0.21.0 the gods assemble. Bot Mode ships built into the desktop app: a society of named agents with their own…",
+      "detail": "The Pantheon Release. v0.20.0 made Hermes the herald — he spoke, and he carried word to other agents. In v0.21.0 the gods assemble. Bot Mode ships built into the desktop app: a society of named agents with their own faces and group chats, where your bots talk to each other — and to you — like a team, not a toolbox. Around that spine: cron jobs gained memory and continuity so scheduled agents actually learn between runs, subagents can be steered live mid-flight, the MCP surface became a real command center, and the agent can now drive the desktop's own browser. This release rolls up everything from the v0.20.1–v0.20.6 infrastructure patch tags — those windows are fully documented here.\n\n---\n\n✨ Highlights\n\n• Bot Mode — your agents become a society, built in — Bot Mode is now a bundled, default-on part of the desktop app: every agent profile gets a name, a deterministic avatar face (with randomize/lock controls), and a place in a shared roster. Create Discord-style group chats where multiple bots and you talk in one room, @-mention any bot from the composer, and give rooms names and pictures. Before, \"multi-agent\" meant plumbing; now it looks like a chat app full of coworkers. ([#87886](https://github.com/NousResearch/hermes-agent/pull/87886), [#88243](https://github.com/NousResearch/hermes-agent/pull/88243), [#89386](https://github.com/NousResearch/hermes-agent/pull/89386), [#96726](https://github.com/NousResearch/hermes-agent/pull/96726) — @teknium1, @OutThisLife, @dokterdok)\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.31",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.31",
+      "date": "2026-08-31"
+    },
+    {
+      "id": "release-v2026-8-27",
+      "title": "Hermes Agent v0.20.6 (v2026.8.27)",
+      "summary": "Patch release. This tag rolls up the ~525 PRs merged since v0.20.5 into a stable tagged release for downstream consumers (Docker images, hosted deployments, fresh installs).",
+      "detail": "Patch release. This tag rolls up the ~525 PRs merged since v0.20.5 into a stable tagged release for downstream consumers (Docker images, hosted deployments, fresh installs).\n\n---\n\nAbout this release\n\nSince v0.20.5 (v2026.8.19, tagged August 21), this window landed ~1,313 commits across ~1,557 files (+177,113 / −21,682) — ~525 merged PRs including consent-gated real-profile browsing (use your default Chromium profile for local browsing, with Windows close-with-approval flow); the desktop Browser getting its own OS window plus a managed SSH remote-update engine and fleet profile rail; a large remote MCP catalog expansion (50+ live-verified vendor-hosted servers incl. Cloudflare, Grafana Cloud, Better Stack, Railway); TTL result caching for web_search/web_extract; lean-tail compression as the default; multi-query tool_search with stemming; opt-in OS-keychain encryption for stored secrets (no more per-launch macOS Keychain prompts); updaters pausing gateways over the control socket instead of tree-killing them; image/package-managed installs refusing unsafe in-place updates (#91277 Phase 3); cron durable-incident acks and clearer code-skew failures; Slack link-unfurl controls; shared Docker container identities; pluggable terminal environment backends; and new models across the pickers (GLM-5.3-Flash, MiniMax M3 free, MiniMax H3 Max video).\n\nFull curated release notes for this window will ship with v0.21.0, which will document everything from v0.20.0 onward — highlights, feature areas, and complete contributor credits. Nothing in this window is skipped.\n\nUpdating\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.27",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.27",
+      "date": "2026-08-27"
+    },
+    {
+      "id": "release-v2026-8-19",
+      "title": "Hermes Agent v0.20.5 (v2026.8.19)",
+      "summary": "Patch release. This tag rolls up the ~323 PRs merged since v0.20.4 into a stable tagged release for downstream consumers (Docker images, hosted deployments, fresh installs).",
+      "detail": "Patch release. This tag rolls up the ~323 PRs merged since v0.20.4 into a stable tagged release for downstream consumers (Docker images, hosted deployments, fresh installs).\n\n---\n\nAbout this release\n\nSince v0.20.4 (v2026.8.18, tagged August 18), this window landed ~746 commits across ~1,250 files (+111,500 / −20,701) — ~323 merged PRs including Bot Mode group-room threads, foldable conversation summaries, blob-face avatars, and PDF/file attachments with drag & drop; the keyless web tier (5-vendor free rotation with ring failover, web search on fresh installs with zero keys); a CLI polish wave (fuzzy /model picker, Ctrl+P command palette, richer /status); execution-discipline and runtime stall guards from the Composio eval findings; `hermes update` receipts and fleet `--plan` verification; `hermes worktree list/prune`; the opencode-free zero-auth provider; multi-question clarify; desktop perf work (paint-first Bot Mode hydration, compositor spinners, React Compiler in both renderers); and cron jobs gaining persistent memory and per-job reasoning effort.\n\nFull curated release notes for this window will ship with v0.21.0, which will document everything from v0.20.0 onward — highlights, feature areas, and complete contributor credits. Nothing in this window is skipped.\n\nUpdating\n\n• `hermes update` from an existing install\n• Fresh install: `curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash`\n\nFull Changelog: https://github.com/NousResearch/hermes-agent/compare/v2026.8.18...v2026.8.19\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.19",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.19",
+      "date": "2026-08-21"
+    },
+    {
+      "id": "release-v2026-8-18",
+      "title": "Hermes Agent v0.20.4 (2026.8.18)",
+      "summary": "Patch release. This tag rolls up the ~74 PRs merged since v0.20.3 into a stable tagged release for downstream consumers (Docker images, hosted deployments, fresh installs).",
+      "detail": "Hermes Agent v0.20.4 (v2026.8.18)\n\nPatch release. This tag rolls up the ~74 PRs merged since v0.20.3 into a stable tagged release for downstream consumers (Docker images, hosted deployments, fresh installs).\n\n---\n\nAbout this release\n\nSince v0.20.3 (v2026.8.16.2, tagged August 17), this window landed ~146 commits across ~265 files (+21,697 / −2,217) — ~74 merged PRs including the desktop glass/translucency surface work (matte glass, frost picker, macOS pre-select), the tabbed SESSIONS|BOTS sidebar with per-bot hide/unhide, Bot Mode group-chat fixes (long-running member turns, Markdown rendering, cross-machine routing), NVIDIA SkillEvaluator Tier 1 advisory scanning on skill installs (license + security checks), cron media-send hardening (configurable timeout, manual-run attachments, missed-fire surfacing), SessionDB event-loop-thread and contention fixes, `hermes update` parked-branch honesty, and kanban native OS notifications.\n\nFull curated release notes for this window will ship with v0.21.0, which will document everything from v0.20.0 onward — highlights, feature areas, and complete contributor credits. Nothing in this window is skipped.\n\nUpdating\n\n• `hermes update` from an existing install\n• Fresh install: `curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash`\n\nFull Changelog: https://github.com/NousResearch/hermes-agent/compare/v2026.8.16.2...v2026.8.18\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.18",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.18",
+      "date": "2026-08-18"
+    },
+    {
+      "id": "release-v2026-8-16-2",
+      "title": "Hermes Agent v0.20.3 (2026.8.16.2)",
+      "summary": "Patch release. This tag rolls up the ~125 PRs merged since v0.20.2 into a stable tagged release for downstream consumers (Docker images, hosted deployments, fresh installs).",
+      "detail": "Hermes Agent v0.20.3 (v2026.8.16.2)\n\nPatch release. This tag rolls up the ~125 PRs merged since v0.20.2 into a stable tagged release for downstream consumers (Docker images, hosted deployments, fresh installs).\n\n---\n\nAbout this release\n\nSince v0.20.2 (v2026.8.16, tagged earlier today), this window landed ~250 commits across ~461 files (+42,613 / −1,641) — ~125 merged PRs including the MCP 2.x SDK migration and 2026-07-28 stateless protocol support, the bundled Bot Mode (hermes-bots) plugin with the core teammate protocol, the CommandCode provider plugin, subprocess Python runtime ownership hardening (PYTHONHOME/PYTHONPATH isolation), Cua Driver 0.20 runtime contracts for computer use, kanban worktree/dispatch fixes, cron continuity flags, desktop remote-gateway headers and connection self-healing, cron scheduler self-heal (EMFILE recovery, stale-claim reconciliation, wedged-job re-arm), session handoff data-loss fixes, plus a wave of ports from the ecosystem scout slate (plugin install security scanning, /worktree, /rollback hand-edit preservation, UTF-16 file reads, Gemini 3 tool-call ID preservation, and more).\n\nFull curated release notes for this window will ship with v0.21.0, which will document everything from v0.20.0 onward — highlights, feature areas, and complete contributor credits. Nothing in this window is skipped.\n\nUpdating\n\n• `hermes update` from an existing install\n• Fresh install: `curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash`\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.16.2",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.16.2",
+      "date": "2026-08-17"
+    },
+    {
+      "id": "release-v2026-8-16",
+      "title": "Hermes Agent v0.20.2 (2026.8.16)",
+      "summary": "Patch release. This tag rolls up the ~397 PRs merged since v0.20.1 into a stable tagged release for downstream consumers (Docker images, hosted deployments, fresh installs).",
+      "detail": "Hermes Agent v0.20.2 (v2026.8.16)\n\nPatch release. This tag rolls up the ~397 PRs merged since v0.20.1 into a stable tagged release for downstream consumers (Docker images, hosted deployments, fresh installs).\n\n---\n\nAbout this release\n\nSince v0.20.1 (v2026.8.13, tagged August 13), this window landed ~967 commits across ~1,279 files (+128,522 / −7,622) — ~397 merged PRs of fixes and improvements spanning the desktop app (multi-gateway Connections registry, profile-scoped refreshes, MCP health checks and deep links), the CLI (Windows update probes, Kitty keyboard protocol, chat `-c` hardening), the gateway (persisted model routes, /loop completion, Telegram DM topics), prompt caching for LiteLLM Claude on the OpenAI wire, cron hardening, auth resolution through profile scopes, and installer robustness on both Linux and Windows.\n\nFull curated release notes for this window will ship with v0.21.0, which will document everything from v0.20.0 onward — highlights, feature areas, and complete contributor credits. Nothing in this window is skipped.\n\nUpdating\n\n• `hermes update` from an existing install\n• Fresh install: `curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash`\n\nFull Changelog: https://github.com/NousResearch/hermes-agent/compare/v2026.8.13...v2026.8.16\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.16",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.16",
+      "date": "2026-08-16"
+    },
+    {
+      "id": "release-v2026-8-13",
+      "title": "Hermes Agent v0.20.1 (2026.8.13)",
+      "summary": "Patch release. This tag rolls up the ~656 PRs merged since v0.20.0 into a stable tagged release for downstream consumers (Docker images, hosted deployments, and anyone installing from the latest tag).",
+      "detail": "Hermes Agent v0.20.1 (v2026.8.13)\n\nPatch release. This tag rolls up the ~656 PRs merged since v0.20.0 into a stable tagged release for downstream consumers (Docker images, hosted deployments, and anyone installing from the latest tag).\n\n---\n\nAbout this release\n\nSince v0.20.0 (August 3), this window landed 1,444 commits across ~656 merged PRs, touching 2,172 files (+233,872 / −75,244), and closed ~481 issues. It is a broad stabilization-and-fixes rollup spanning the desktop app, gateway platforms, installers, tool system, and provider catalogs.\n\nFull curated release notes for this window will ship with v0.21.0, which will document everything from v0.20.0 onward — highlights, feature areas, and complete contributor credits. Nothing in this window is skipped.\n\nUpdating\n\n• Existing installs: `hermes update`\n• Fresh install: see the installer one-liner in the [README](https://github.com/NousResearch/hermes-agent#readme)\n\nFull Changelog: [v2026.8.3...v2026.8.13](https://github.com/NousResearch/hermes-agent/compare/v2026.8.3...v2026.8.13)\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.13",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.13",
+      "date": "2026-08-13"
+    },
+    {
+      "id": "release-v2026-8-3",
+      "title": "Hermes Agent v0.20.0 (2026.8.3)",
+      "summary": "The Herald Release. Hermes is the herald of the gods, and this release makes him one in earnest: he speaks (real-time conversational voice with streaming TTS, barge-in, on-device wake words, and hands-free control…",
+      "detail": "Hermes Agent v0.20.0 (v2026.8.3)\n\nThe Herald Release. Hermes is the herald of the gods, and this release makes him one in earnest: he speaks (real-time conversational voice with streaming TTS, barge-in, on-device wake words, and hands-free control across the CLI, desktop, and every audio-capable gateway platform), he carries word to other agents (A2A v1.0), he announces events to your systems (signed outbound webhooks), and he cites his sources (grounded research with verifiable citations and fact-checking). Around that spine: the desktop app became a platform (artifacts with live preview, a plugin SDK, quick-entry from anywhere, multiple windows), the CLI got a wave of power commands (`!` shell mode, `/init`, `/diff`, `/context`, `/focus`), compression got smarter and gentler, and the tools themselves now recover from their own failures instead of making the model guess. This release rolls up everything from the v0.19.1 infrastructure patch tag — that window is fully documented here.\n\n---\n\n✨ Highlights\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.3",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.3",
+      "date": "2026-08-03"
+    },
+    {
+      "id": "release-v2026-7-30",
+      "title": "Hermes Agent v0.19.1 (v2026.7.30)",
+      "summary": "Patch release. This tag rolls up the ~1,000+ PRs merged since v0.19.0 into a stable tagged release for downstream consumers (Docker images, hosted deployments, fresh installs).",
+      "detail": "Patch release. This tag rolls up the ~1,000+ PRs merged since v0.19.0 into a stable tagged release for downstream consumers (Docker images, hosted deployments, fresh installs).\n\n---\n\nAbout this release\n\nSince v2026.7.20 (v0.19.0, July 20): ~2,789 commits · ~4,748 files changed · ~442,000 insertions · ~392,300 deletions on `main`. This window is dominated by bug-fix and salvage waves across the gateway, voice subsystem, desktop app, and installer, plus continued platform work (Buzz/Nostr channel, FLUX3 video generation and delivery, Telegram media reliability, voice-mode regressions).\n\nFull curated release notes for this window will ship with v0.20.0, which will document everything from v0.19.0 onward — highlights, feature areas, and complete contributor credits. Nothing in this window is skipped.\n\nUpdating\n\n```bash\nhermes update\nor fresh install:\ncurl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash\n```\n\nFull Changelog: [v2026.7.20...v2026.7.30](https://github.com/NousResearch/hermes-agent/compare/v2026.7.20...v2026.7.30)\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.7.30",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.7.30",
+      "date": "2026-07-30"
+    },
+    {
+      "id": "release-v2026-7-20",
+      "title": "Hermes Agent v0.19.0 (2026.7.20) — The Quicksilver Release",
+      "summary": "The Quicksilver Release. Hermes is the messenger god, and this window we made him move like it. First-turn time-to-first-token dropped ~80% on every platform, reasoning streams live by default, the desktop app got a…",
+      "detail": "Hermes Agent v0.19.0 (v2026.7.20)\n\nThe Quicksilver Release. Hermes is the messenger god, and this window we made him move like it. First-turn time-to-first-token dropped ~80% on every platform, reasoning streams live by default, the desktop app got a ~20-PR speed overhaul (14× faster streaming markdown, virtualized diffs, snappy session switching), and the TUI renders markdown incrementally. Around that speed spine: you can now manage your Nous subscription without leaving the terminal, plug Bitwarden and 1Password straight into Hermes, let smart approvals judge flagged commands for you by default, watch your subagents work live, and trust that a finished response survives a gateway crash thanks to a durable delivery ledger. This release also rolls up everything from the v0.18.1 and v0.18.2 infrastructure patch tags — those windows are fully documented here.\n\n---\n\n✨ Highlights\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.7.20",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.7.20",
+      "date": "2026-07-20"
+    },
+    {
+      "id": "release-v2026-7-7",
+      "title": "Hermes Agent v0.18.1 (2026.7.7)",
+      "summary": "Patch release. This tag rolls up the ~660 PRs merged since v0.18.0 (July 1) — bug fixes, hardening, and in-progress feature work — into a stable tagged release for downstream consumers (Docker images, hosted…",
+      "detail": "Hermes Agent v0.18.1 (v2026.7.7)\n\nPatch release. This tag rolls up the ~660 PRs merged since v0.18.0 (July 1) — bug fixes, hardening, and in-progress feature work — into a stable tagged release for downstream consumers (Docker images, hosted deployments, PyPI installs).\n\n---\n\nAbout this release\n\nThis is an infrastructure-driven patch tag rather than a fully curated release. Since v0.18.0 shipped six days ago, main has accumulated roughly 667 commits across ~990 files (+89.5k/−10.4k lines), including installer/updater self-healing on Windows, dashboard and gateway fixes, WhatsApp dashboard pairing, MCP and provider fixes, and a large volume of stability work.\n\nFull curated release notes for this window will ship with v0.19.0, which will document everything from v0.18.0 onward — highlights, feature areas, and complete contributor credits. Nothing in this window is skipped; it's documented in the next minor release.\n\nUpdating\n\n```bash\nhermes update        # existing installs\npip install -U hermes-agent\n```\n\nFull Changelog: [v2026.7.1...v2026.7.7](https://github.com/NousResearch/hermes-agent/compare/v2026.7.1...v2026.7.7)\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.7.7",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.7.7",
+      "date": "2026-07-08"
+    },
+    {
+      "id": "release-v2026-7-7-2",
+      "title": "Hermes Agent v0.18.2 (2026.7.7.2)",
+      "summary": "Same-day patch on top of v0.18.1, picking up the WhatsApp Baileys dependency fix needed for tagged-release Docker builds.",
+      "detail": "Hermes Agent v0.18.2 (v2026.7.7.2)\n\nSame-day patch on top of v0.18.1, picking up the WhatsApp Baileys dependency fix needed for tagged-release Docker builds.\n\n---\n\nWhat's in this patch\n\n• fix(whatsapp): unpin Baileys from git commit, use published 7.0.0-rc13 ([#60643](https://github.com/NousResearch/hermes-agent/pull/60643)) — the WhatsApp bridge dependency now installs from the published npm release instead of a pinned git commit, making installs and Docker image builds reliable.\n\nFull curated release notes for the entire post-v0.18.0 window ship with v0.19.0.\n\nUpdating\n\n```bash\nhermes update        # existing installs\npip install -U hermes-agent\n```\n\nFull Changelog: [v2026.7.7...v2026.7.7.2](https://github.com/NousResearch/hermes-agent/compare/v2026.7.7...v2026.7.7.2)\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.7.7.2",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.7.7.2",
+      "date": "2026-07-08"
+    },
+    {
+      "id": "release-v2026-7-1",
+      "title": "Hermes Agent v0.18.0 (2026.7.1) — The Judgment Release",
+      "summary": "The Judgment Release. Over the last week and a half the team put nearly all of its effort into one goal: resolve every P0 and P1 issue and PR in the entire Hermes Agent repo — and as of this release, 100% of them are…",
+      "detail": "Hermes Agent v0.18.0 (v2026.7.1)\n\nThe Judgment Release. Over the last week and a half the team put nearly all of its effort into one goal: resolve every P0 and P1 issue and PR in the entire Hermes Agent repo — and as of this release, 100% of them are closed. Zero open P0s. Zero open P1s. That's ~700 highest-priority items cleared as part of ~1,950 total issues and PRs closed this window. We intend to keep P0/P1 at zero from here on.\n\nOn top of that clean-sweep, v0.18.0 is about how *well* Hermes thinks and how it *knows when its work is actually done*. Mixture-of-Agents became a first-class citizen — named ensembles of models you can pick like any other model, with every reference model's reasoning shown to you and the aggregator's answer streamed live. The agent learned to verify its own work against evidence instead of vibes, `/goal` gained completion contracts, and `/learn` + `/journey` turned self-improvement into something you can see and steer. Underneath, the gateway became genuinely deployable-at-scale (scale-to-zero, drain coordination), the desktop grew first-class coding projects and a playable memory graph, and subagents can now fan out in the background.\n\n🎯 The P0/P1 Clean Sweep — 100% resolved\n\nThis is the release headline. For a week and a half the team hammered the priority backlog day and night, and every single P0 and P1 across the whole repo is now closed:\n\n| Priority | Issues closed | PRs merged |\n|---|---|---|\n| P0 (critical) | 3 | 8 |\n| P1 (high) | 493 | 188 |\n| Total | 496 | 196 |\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.7.1",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.7.1",
+      "date": "2026-07-01"
+    },
+    {
+      "id": "release-v2026-6-19",
+      "title": "Hermes Agent v0.17.0 (v2026.6.19)",
+      "summary": "The Reach Release. v0.16.0 put Hermes on your desktop. v0.17.0 is about how far that reach extends — across new places to talk to it, deeper into the tools you already use, and out to the people running Hermes for a…",
+      "detail": "The Reach Release. v0.16.0 put Hermes on your desktop. v0.17.0 is about how far that reach extends — across new places to talk to it, deeper into the tools you already use, and out to the people running Hermes for a team. Hermes reached two new channels (iMessage via Photon, and the Raft agent network), the desktop app gained substantial new capability, subagents can now run in the background, image generation learned to edit, and Cursor's Composer model is reachable through an xAI Grok subscription. The dashboard got a full profile builder and secure login, the Skills Hub browser was rehauled, the `memory` tool got a major upgrade, and the curator stopped spending aux-model budget on every routine run. 300+ issues closed ride along, plus a security round.\n\n✨ Highlights\n\n• Hermes reaches iMessage — Photon Spectrum, no Mac relay required — There's now an iMessage platform plugin built on Photon's managed line pool. Run `hermes photon login`, authenticate with a device code, and Hermes can send and receive iMessage — no Mac sitting in a closet running a relay, no BlueBubbles bridge to babysit. It's positioned as the successor to BlueBubbles: free to start, nothing to self-host. If your friends and family live in the blue bubbles, Hermes lives there now too. ([#32348](https://github.com/NousResearch/hermes-agent/pull/32348), [#42582](https://github.com/NousResearch/hermes-agent/pull/42582), [#44713](https://github.com/NousResearch/hermes-agent/pull/44713) — @teknium1)\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.6.19",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.6.19",
+      "date": "2026-06-19"
+    },
+    {
+      "id": "release-v2026-6-5",
+      "title": "Hermes Agent v0.16.0 (2026.6.5) — The Surface Release",
+      "summary": "The Surface Release. Hermes meets you wherever you work. A brand-new native desktop app — built across 100 PRs and 159 commits in a single week — gives you Hermes as a real macOS/Linux/Windows application: one-click…",
+      "detail": "Hermes Agent v0.16.0 (v2026.6.5)\n\nThe Surface Release. Hermes meets you wherever you work. A brand-new native desktop app — built across 100 PRs and 159 commits in a single week — gives you Hermes as a real macOS/Linux/Windows application: one-click install, in-app self-update, drag-and-drop files into chat, an inline model picker in the status bar, concurrent multi-profile sessions, a full Simplified Chinese translation, and the ability to connect to a remote Hermes gateway over OAuth or username/password. Alongside it, the web dashboard grew a full browser-based administration panel (MCP catalog, messaging channels, credentials, webhooks, memory, pluggable OIDC / username-password login), and first-time setup got a \"Quick Setup via Nous Portal\" path that gets you from install to first message in seconds. The default skill set was trimmed to what you actually need, NVIDIA/skills joined the trusted Skills Hub taps, the model picker is now fuzzy-searchable everywhere (desktop, web, TUI, CLI), and `/undo` finally lets you take back the last N turns. 2 P0 and 62 P1 closures ride along, plus a security round (CVE-2026-48710 Starlette pin, SSRF off-loop hardening, subprocess credential stripping).\n\n---\n\n✨ Highlights\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.6.5",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.6.5",
+      "date": "2026-06-06"
+    },
+    {
+      "id": "release-v2026-5-29",
+      "title": "Hermes Agent v0.15.1 (2026.5.29) — The Patch Release",
+      "summary": "The Patch Release. A same-day hotfix for v0.15.0. Headline fix: the dashboard infinite-reload loop that hit anyone running v0.15.0 in loopback mode (Docker, hosted Hermes, fresh installs). A handful of other v0.15.0…",
+      "detail": "Hermes Agent v0.15.1 (v2026.5.29)\n\nThe Patch Release. A same-day hotfix for v0.15.0. Headline fix: the dashboard infinite-reload loop that hit anyone running v0.15.0 in loopback mode (Docker, hosted Hermes, fresh installs). A handful of other v0.15.0 follow-ups go along for the ride — kanban worker SIGTERM, `/model` picker unification, `/yolo` session bypass, the full 19,932-entry skills.sh catalog, `.md` media delivery restoration, gateway probe-stepdown safety, web-URL redaction passthrough, kanban worker vision on referenced images, hindsight observation-default. Docker users get an explicit `--insecure` opt-in env var (no more bind-host inference), MCP server bare-command PATH resolution, and arm64 PR-build cache fixes.\n\n---\n\n✨ Highlights\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.5.29",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.5.29",
+      "date": "2026-05-29"
+    },
+    {
+      "id": "release-v2026-5-29-2",
+      "title": "Hermes Agent v0.15.2 (2026.5.29.2)",
+      "summary": "• Packaging): ship bundled plugin.yaml manifests in wheel and sdist ([`827f7f07`](https://github.com/NousResearch/hermes-agent/commit/827f7f07825be57108cbea18325e8f5e9fb5d2f2))",
+      "detail": "Hermes Agent v0.15.2 (v2026.5.29.2)\n\n🐛 Bug Fixes\n\n• Packaging): ship bundled plugin.yaml manifests in wheel and sdist ([`827f7f07`](https://github.com/NousResearch/hermes-agent/commit/827f7f07825be57108cbea18325e8f5e9fb5d2f2))\n\n👥 Contributors\n\nThank you to everyone who contributed to this release!\n\n• @outsourc-e (1 commit)\n• @dparikh79 (1 commit)\n• @ousiaresearch (1 commit)\n• @libre-7 (1 commit)\n\nFull Changelog: [v2026.5.29...v2026.5.29.2](https://github.com/NousResearch/hermes-agent/compare/v2026.5.29...v2026.5.29.2)\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.5.29.2",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.5.29.2",
+      "date": "2026-05-29"
+    },
+    {
+      "id": "release-v2026-5-28",
+      "title": "Hermes Agent v0.15.0 (2026.5.28) — The Velocity Release",
+      "summary": "The Velocity Release. Hermes gets dramatically faster — to start, to run, to ship work, and to grow. The 16,083-line `run_agent.py` collapses to 3,821 (-76%) across 14 cohesive `agent/*` modules. Kanban grew into a…",
+      "detail": "Hermes Agent v0.15.0 (v2026.5.28)\n\nThe Velocity Release. Hermes gets dramatically faster — to start, to run, to ship work, and to grow. The 16,083-line `run_agent.py` collapses to 3,821 (-76%) across 14 cohesive `agent/*` modules. Kanban grew into a real multi-agent platform across 104 PRs — orchestrator auto-decomposition, swarm topology, scheduled tasks, worktree-per-task, per-task model overrides. The cold-start perf wave keeps going: another second shaved off launch, 47% fewer per-conversation function calls, `hermes --version` flipping the head-to-head benchmark against Codex CLI. `session_search` is 4,500× faster and free now. Promptware defense lands against Brainworm-class attacks. Bitwarden Secrets Manager replaces N per-provider API keys with one bootstrap token. Skill bundles let one slash command load a whole workflow. The Ink TUI gets a multi-session orchestrator. Two new image_gen providers (Krea 2 Medium + Large, FAL ported to plugin), the Nous-approved MCP catalog with an interactive picker, an OpenHands orchestration skill, ntfy as the 23rd messaging platform, and a deep xAI integration round (Web Search plugin, xai-oauth `hermes proxy` upstream, retired-May-15 model detection + `hermes migrate xai`, natural TTS speech-tag pauses, base_url leak guard, OpenAI-style execution guidance for Grok). 15 P0 + 65 P1 closures alongside.\n\n---\n\n✨ Highlights\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.5.28",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.5.28",
+      "date": "2026-05-28"
+    },
+    {
+      "id": "release-v2026-5-16",
+      "title": "Hermes Agent v0.14.0 (2026.5.16)",
+      "summary": "The Foundation Release — Hermes installs and runs anywhere, ships with the things you actually want to use, and stops shipping the things you don't. xAI Grok lands as a SuperGrok OAuth provider with grok-4.3 bumped to…",
+      "detail": "Hermes Agent v0.14.0 (v2026.5.16)\n\nThe Foundation Release — Hermes installs and runs anywhere, ships with the things you actually want to use, and stops shipping the things you don't. xAI Grok lands as a SuperGrok OAuth provider with grok-4.3 bumped to a 1M context window. A new OpenAI-compatible local proxy turns any OAuth-authed Hermes provider — Claude Pro, ChatGPT Pro, SuperGrok — into an endpoint that Codex / Aider / Cline / Continue can hit. `x_search` lands as a first-class X (Twitter) search tool with OAuth-or-API-key auth. The Microsoft Teams stack is wired end-to-end (Graph auth + webhook listener + pipeline runtime + outbound delivery). A debloating wave makes installs dramatically lighter — heavyweight backends now lazy-install on first use, the `[all]` extras drop everything covered by lazy-deps, and a tiered install falls back when a wheel rejects on your platform. `pip install hermes-agent` works from PyPI. The cold-start wave shaves ~19 seconds off `hermes` launch. Browser CDP calls are 180x faster. Two new messaging platforms (LINE + SimpleX Chat) bring the total to 22. Cross-session 1-hour Claude prompt caching, `/handoff` that actually transfers sessions live, native button UI for `clarify` on Telegram and Discord, Discord channel history backfill, LSP semantic diagnostics on every write, a unified pluggable `video_generate`, a `computer_use` cua-driver backend that finally works with non-Anthropic providers, clickable URLs in any terminal, Zed ACP Registry integration via `uvx`, native Windows beta, 9 new optional skills, OpenRouter Pareto Code router, h\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.5.16",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.5.16",
+      "date": "2026-05-16"
+    },
+    {
+      "id": "release-v2026-5-7",
+      "title": "Hermes Agent v0.13.0 (2026.5.7) — The Tenacity Release",
+      "summary": "The Tenacity Release — Hermes Agent now finishes what it starts. Kanban ships as a durable multi-agent board (heartbeat, reclaim, zombie detection, auto-block on incomplete exit, per-task retries, hallucination…",
+      "detail": "Hermes Agent v0.13.0 (v2026.5.7)\n\nThe Tenacity Release — Hermes Agent now finishes what it starts. Kanban ships as a durable multi-agent board (heartbeat, reclaim, zombie detection, auto-block on incomplete exit, per-task retries, hallucination recovery). `/goal` keeps the agent locked on a target across turns (Ralph loop). Checkpoints v2 rewrites state persistence with real pruning. Gateway auto-resumes interrupted sessions after restart. Cron grows a `no_agent` watchdog mode. A security wave closes 8 P0s — redaction is now ON by default, Discord role-allowlists are guild-scoped, WhatsApp rejects strangers by default, and TOCTOU windows close across auth.json and MCP OAuth. Google Chat becomes the 20th platform. Providers become a pluggable surface. Seven i18n locales ship.\n\n---\n\n✨ Highlights\n\n• Multi-agent Kanban — delegate to an AI team that actually finishes — Spin up a durable board, drop tasks on it, and let multiple Hermes workers pick them up, hand off, and close them out. Heartbeats, reclaim, zombie detection, retry budgets, and a hallucination gate keep the team honest. One install, many kanbans. ([#17805](https://github.com/NousResearch/hermes-agent/pull/17805), [#19653](https://github.com/NousResearch/hermes-agent/pull/19653), [#20232](https://github.com/NousResearch/hermes-agent/pull/20232), [#20332](https://github.com/NousResearch/hermes-agent/pull/20332), [#21330](https://github.com/NousResearch/hermes-agent/pull/21330), [#21183](https://github.com/NousResearch/hermes-agent/pull/21183), [#21214](https://github.com/NousResearch/hermes-agent/pull/21214))\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.5.7",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.5.7",
+      "date": "2026-05-07"
+    },
+    {
+      "id": "release-v2026-4-30",
+      "title": "Hermes Agent v0.12.0 (2026.4.30)",
+      "summary": "The Curator release — Hermes Agent now maintains itself. An autonomous background Curator grades, prunes, and consolidates your skill library on its own schedule. The self-improvement loop that reviews what to save…",
+      "detail": "Hermes Agent v0.12.0 (v2026.4.30)\n\nThe Curator release — Hermes Agent now maintains itself. An autonomous background Curator grades, prunes, and consolidates your skill library on its own schedule. The self-improvement loop that reviews what to save got a substantial upgrade. Four new inference providers, a 18th messaging platform, a 19th via Teams plugin, native Spotify + Google Meet integrations, ComfyUI and TouchDesigner-MCP moved from optional to bundled-by-default, and a ~57% cut to visible TUI cold start.\n\n---\n\n✨ Highlights\n\n• Autonomous Curator — `hermes curator` runs as a background agent on the gateway's cron ticker (7-day cycle default). It grades your skill library, consolidates related skills, prunes dead ones, and writes per-run reports to `logs/curator/run.json` + `REPORT.md`. Archived skills are classified consolidated-vs-pruned via model + heuristic. Defense-in-depth gates protect bundled/hub skills from mutation. Unified under `auxiliary.curator` — pick the curator's model in `hermes model`, manage it from the dashboard. `hermes curator status` ranks skills by usage (most-used / least-used). ([#17277](https://github.com/NousResearch/hermes-agent/pull/17277), [#17307](https://github.com/NousResearch/hermes-agent/pull/17307), [#17941](https://github.com/NousResearch/hermes-agent/pull/17941), [#17868](https://github.com/NousResearch/hermes-agent/pull/17868), [#18033](https://github.com/NousResearch/hermes-agent/pull/18033))\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.4.30",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.4.30",
+      "date": "2026-04-30"
+    },
+    {
+      "id": "release-v2026-4-23",
+      "title": "Hermes Agent v0.11.0 (2026.4.23)",
+      "summary": "The Interface release — a full React/Ink rewrite of the interactive CLI, a pluggable transport architecture underneath every provider, native AWS Bedrock support, five new inference paths, a 17th messaging platform…",
+      "detail": "Hermes Agent v0.11.0 (v2026.4.23)\n\nThe Interface release — a full React/Ink rewrite of the interactive CLI, a pluggable transport architecture underneath every provider, native AWS Bedrock support, five new inference paths, a 17th messaging platform (QQBot), a dramatically expanded plugin surface, and GPT-5.5 via Codex OAuth.\n\nThis release also folds in all the highlights deferred from v0.10.0 (which shipped only the Nous Tool Gateway) — so it covers roughly two weeks of work across the whole stack.\n\n---\n\n✨ Highlights\n\n• New Ink-based TUI — `hermes --tui` is now a full React/Ink rewrite of the interactive CLI, with a Python JSON-RPC backend (`tui_gateway`). Sticky composer, live streaming with OSC-52 clipboard support, stable picker keys, status bar with per-turn stopwatch and git branch, `/clear` confirm, light-theme preset, and a subagent spawn observability overlay. ~310 commits to `ui-tui/` + `tui_gateway/`. (@OutThisLife + Teknium)\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.4.23",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.4.23",
+      "date": "2026-04-23"
+    },
+    {
+      "id": "release-v2026-4-16",
+      "title": "Hermes Agent v0.10.0 (2026.4.16)",
+      "summary": "The Tool Gateway release — paid Nous Portal subscribers can now use web search, image generation, text-to-speech, and browser automation through their existing subscription with zero additional API keys.",
+      "detail": "Hermes Agent v0.10.0 (v2026.4.16)\n\nThe Tool Gateway release — paid Nous Portal subscribers can now use web search, image generation, text-to-speech, and browser automation through their existing subscription with zero additional API keys.\n\n---\n\n✨ Highlights\n\n• Nous Tool Gateway — Paid [Nous Portal](https://portal.nousresearch.com) subscribers now get automatic access to web search (Firecrawl), image generation (FAL / FLUX 2 Pro), text-to-speech (OpenAI TTS), and browser automation (Browser Use) through their existing subscription. No separate API keys needed — just run `hermes model`, select Nous Portal, and pick which tools to enable. Per-tool opt-in via `use_gateway` config, full integration with `hermes tools` and `hermes status`, and the runtime correctly prefers the gateway even when direct API keys exist. Replaces the old hidden `HERMES_ENABLE_NOUS_MANAGED_TOOLS` env var with clean subscription-based detection. ([#11206](https://github.com/NousResearch/hermes-agent/pull/11206), based on work by @jquesnelle; docs: [#11208](https://github.com/NousResearch/hermes-agent/pull/11208))\n\n---\n\n🐛 Bug Fixes & Improvements\n\nThis release includes 180+ commits with numerous bug fixes, platform improvements, and reliability enhancements across the agent core, gateway, CLI, and tool system. Full details will be published in the v0.11.0 changelog.\n\n---\n\n👥 Contributors\n\n• @jquesnelle (emozilla) — Original Tool Gateway implementation ([#10799](https://github.com/NousResearch/hermes-agent/pull/10799)), salvaged and shipped in this release\n\n---\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.4.16",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.4.16",
+      "date": "2026-04-16"
+    },
+    {
+      "id": "release-v2026-4-13",
+      "title": "Hermes Agent v0.9.0 (v2026.4.13)",
+      "summary": "The everywhere release — Hermes goes mobile with Termux/Android, adds iMessage and WeChat, ships Fast Mode for OpenAI and Anthropic, introduces background process monitoring, launches a local web dashboard for…",
+      "detail": "The everywhere release — Hermes goes mobile with Termux/Android, adds iMessage and WeChat, ships Fast Mode for OpenAI and Anthropic, introduces background process monitoring, launches a local web dashboard for managing your agent, and delivers the deepest security hardening pass yet across 16 supported platforms.\n\n---\n\n✨ Highlights\n\n• Local Web Dashboard — A new browser-based dashboard for managing your Hermes Agent locally. Configure settings, monitor sessions, browse skills, and manage your gateway — all from a clean web interface without touching config files or the terminal. The easiest way to get started with Hermes.\n\n• Fast Mode (`/fast`) — Priority processing for OpenAI and Anthropic models. Toggle `/fast` to route through priority queues for significantly lower latency on supported models (GPT-5.4, Codex, Claude). Expands across all OpenAI Priority Processing models and Anthropic's fast tier. ([#6875](https://github.com/NousResearch/hermes-agent/pull/6875), [#6960](https://github.com/NousResearch/hermes-agent/pull/6960), [#7037](https://github.com/NousResearch/hermes-agent/pull/7037))\n\n• iMessage via BlueBubbles — Full iMessage integration through BlueBubbles, bringing Hermes to Apple's messaging ecosystem. Auto-webhook registration, setup wizard integration, and crash resilience. ([#6437](https://github.com/NousResearch/hermes-agent/pull/6437), [#6460](https://github.com/NousResearch/hermes-agent/pull/6460), [#6494](https://github.com/NousResearch/hermes-agent/pull/6494))\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.4.13",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.4.13",
+      "date": "2026-04-13"
+    },
+    {
+      "id": "release-v2026-4-8",
+      "title": "Hermes Agent v0.8.0 (v2026.4.8)",
+      "summary": "The intelligence release — background task auto-notifications, free MiMo v2 Pro on Nous Portal, live model switching across all platforms, self-optimized GPT/Codex guidance, native Google AI Studio, smart inactivity…",
+      "detail": "The intelligence release — background task auto-notifications, free MiMo v2 Pro on Nous Portal, live model switching across all platforms, self-optimized GPT/Codex guidance, native Google AI Studio, smart inactivity timeouts, approval buttons, MCP OAuth 2.1, and 209 merged PRs with 82 resolved issues.\n\n---\n\n✨ Highlights\n\n• Background Process Auto-Notifications (`notify_on_complete`) — Background tasks can now automatically notify the agent when they finish. Start a long-running process (AI model training, test suites, deployments, builds) and the agent gets notified on completion — no polling needed. The agent can keep working on other things and pick up results when they land. ([#5779](https://github.com/NousResearch/hermes-agent/pull/5779))\n\n• Free Xiaomi MiMo v2 Pro on Nous Portal — Nous Portal now supports the free-tier Xiaomi MiMo v2 Pro model for auxiliary tasks (compression, vision, summarization), with free-tier model gating and pricing display in model selection. ([#6018](https://github.com/NousResearch/hermes-agent/pull/6018), [#5880](https://github.com/NousResearch/hermes-agent/pull/5880))\n\n• Live Model Switching (`/model` Command) — Switch models and providers mid-session from CLI, Telegram, Discord, Slack, or any gateway platform. Aggregator-aware resolution keeps you on OpenRouter/Nous when possible, with automatic cross-provider fallback when needed. Interactive model pickers on Telegram and Discord with inline buttons. ([#5181](https://github.com/NousResearch/hermes-agent/pull/5181), [#5742](https://github.com/NousResearch/hermes-agent/pull/5742))\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.4.8",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.4.8",
+      "date": "2026-04-08"
+    },
+    {
+      "id": "release-v2026-4-3",
+      "title": "Hermes Agent v0.7.0 (v2026.4.3)",
+      "summary": "The resilience release — pluggable memory providers, credential pool rotation, Camofox anti-detection browser, inline diff previews, gateway hardening across race conditions and approval routing, and deep security…",
+      "detail": "The resilience release — pluggable memory providers, credential pool rotation, Camofox anti-detection browser, inline diff previews, gateway hardening across race conditions and approval routing, and deep security fixes across 168 PRs and 46 resolved issues.\n\n---\n\n✨ Highlights\n\n• Pluggable Memory Provider Interface — Memory is now an extensible plugin system. Third-party memory backends (Honcho, vector stores, custom DBs) implement a simple provider ABC and register via the plugin system. Built-in memory is the default provider. Honcho integration restored to full parity as the reference plugin with profile-scoped host/peer resolution. ([#4623](https://github.com/NousResearch/hermes-agent/pull/4623), [#4616](https://github.com/NousResearch/hermes-agent/pull/4616), [#4355](https://github.com/NousResearch/hermes-agent/pull/4355))\n\n• Same-Provider Credential Pools — Configure multiple API keys for the same provider with automatic rotation. Thread-safe `least_used` strategy distributes load across keys, and 401 failures trigger automatic rotation to the next credential. Set up via the setup wizard or `credential_pool` config. ([#4188](https://github.com/NousResearch/hermes-agent/pull/4188), [#4300](https://github.com/NousResearch/hermes-agent/pull/4300), [#4361](https://github.com/NousResearch/hermes-agent/pull/4361))\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.4.3",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.4.3",
+      "date": "2026-04-03"
+    },
+    {
+      "id": "release-v2026-3-30",
+      "title": "Hermes Agent v0.6.0 (v2026.3.30)",
+      "summary": "The multi-instance release — Profiles for running isolated agent instances, MCP server mode, Docker container, fallback provider chains, two new messaging platforms (Feishu/Lark and WeCom), Telegram webhook mode,…",
+      "detail": "The multi-instance release — Profiles for running isolated agent instances, MCP server mode, Docker container, fallback provider chains, two new messaging platforms (Feishu/Lark and WeCom), Telegram webhook mode, Slack multi-workspace OAuth, 95 PRs and 16 resolved issues in 2 days.\n\n---\n\n✨ Highlights\n\n• Profiles — Multi-Instance Hermes — Run multiple isolated Hermes instances from the same installation. Each profile gets its own config, memory, sessions, skills, and gateway service. Create with `hermes profile create`, switch with `hermes -p <name>`, export/import for sharing. Full token-lock isolation prevents two profiles from using the same bot credential. ([#3681](https://github.com/NousResearch/hermes-agent/pull/3681))\n\n• MCP Server Mode — Expose Hermes conversations and sessions to any MCP-compatible client (Claude Desktop, Cursor, VS Code, etc.) via `hermes mcp serve`. Browse conversations, read messages, search across sessions, and manage attachments — all through the Model Context Protocol. Supports both stdio and Streamable HTTP transports. ([#3795](https://github.com/NousResearch/hermes-agent/pull/3795))\n\n• Docker Container — Official Dockerfile for running Hermes Agent in a container. Supports both CLI and gateway modes with volume-mounted config. ([#3668](https://github.com/NousResearch/hermes-agent/pull/3668), closes [#850](https://github.com/NousResearch/hermes-agent/issues/850))\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.3.30",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.3.30",
+      "date": "2026-03-30"
+    },
+    {
+      "id": "release-v2026-3-28",
+      "title": "Hermes Agent v0.5.0 (v2026.3.28)",
+      "summary": "The hardening release — Hugging Face provider, /model command overhaul, Telegram Private Chat Topics, native Modal SDK, plugin lifecycle hooks, tool-use enforcement for GPT models, Nix flake, 50+ security and…",
+      "detail": "The hardening release — Hugging Face provider, /model command overhaul, Telegram Private Chat Topics, native Modal SDK, plugin lifecycle hooks, tool-use enforcement for GPT models, Nix flake, 50+ security and reliability fixes, and a comprehensive supply chain audit.\n\n---\n\n✨ Highlights\n\n• Nous Portal now supports 400+ models — The Nous Research inference portal has expanded dramatically, giving Hermes Agent users access to over 400 models through a single provider endpoint\n\n• Hugging Face as a first-class inference provider — Full integration with HF Inference API including curated agentic model picker that maps to OpenRouter analogues, live `/models` endpoint probe, and setup wizard flow ([#3419](https://github.com/NousResearch/hermes-agent/pull/3419), [#3440](https://github.com/NousResearch/hermes-agent/pull/3440))\n\n• Telegram Private Chat Topics — Project-based conversations with functional skill binding per topic, enabling isolated workflows within a single Telegram chat ([#3163](https://github.com/NousResearch/hermes-agent/pull/3163))\n\n• Native Modal SDK backend — Replaced swe-rex dependency with native Modal SDK (`Sandbox.create.aio` + `exec.aio`), eliminating tunnels and simplifying the Modal terminal backend ([#3538](https://github.com/NousResearch/hermes-agent/pull/3538))\n\n• Plugin lifecycle hooks activated — `pre_llm_call`, `post_llm_call`, `on_session_start`, and `on_session_end` hooks now fire in the agent loop and CLI/gateway, completing the plugin hook system ([#3542](https://github.com/NousResearch/hermes-agent/pull/3542))\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.3.28",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.3.28",
+      "date": "2026-03-28"
+    },
+    {
+      "id": "release-v2026-3-23",
+      "title": "Hermes Agent v0.4.0 (v2026.3.23)",
+      "summary": "The platform expansion release — OpenAI-compatible API server, 6 new messaging adapters, 4 new inference providers, MCP server management with OAuth 2.1, @ context references, gateway prompt caching, streaming enabled…",
+      "detail": "The platform expansion release — OpenAI-compatible API server, 6 new messaging adapters, 4 new inference providers, MCP server management with OAuth 2.1, @ context references, gateway prompt caching, streaming enabled by default, and a sweeping reliability pass with 200+ bug fixes.\n\n---\n\n✨ Highlights\n\n• OpenAI-compatible API server — Expose Hermes as an `/v1/chat/completions` endpoint with a new `/api/jobs` REST API for cron job management, hardened with input limits, field whitelists, SQLite-backed response persistence, and CORS origin protection ([#1756](https://github.com/NousResearch/hermes-agent/pull/1756), [#2450](https://github.com/NousResearch/hermes-agent/pull/2450), [#2456](https://github.com/NousResearch/hermes-agent/pull/2456), [#2451](https://github.com/NousResearch/hermes-agent/pull/2451), [#2472](https://github.com/NousResearch/hermes-agent/pull/2472))\n\n• 6 new messaging platform adapters — Signal, DingTalk, SMS (Twilio), Mattermost, Matrix, and Webhook adapters join Telegram, Discord, and WhatsApp. Gateway auto-reconnects failed platforms with exponential backoff ([#2206](https://github.com/NousResearch/hermes-agent/pull/2206), [#1685](https://github.com/NousResearch/hermes-agent/pull/1685), [#1688](https://github.com/NousResearch/hermes-agent/pull/1688), [#1683](https://github.com/NousResearch/hermes-agent/pull/1683), [#2166](https://github.com/NousResearch/hermes-agent/pull/2166), [#2584](https://github.com/NousResearch/hermes-agent/pull/2584))\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.3.23",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.3.23",
+      "date": "2026-03-24"
+    },
+    {
+      "id": "release-v2026-3-17",
+      "title": "Hermes Agent v0.3.0 (v2026.3.17)",
+      "summary": "The streaming, plugins, and provider release — unified real-time token delivery, first-class plugin architecture, rebuilt provider system with Vercel AI Gateway, native Anthropic provider, smart approvals, live Chrome…",
+      "detail": "The streaming, plugins, and provider release — unified real-time token delivery, first-class plugin architecture, rebuilt provider system with Vercel AI Gateway, native Anthropic provider, smart approvals, live Chrome CDP browser connect, ACP IDE integration, Honcho memory, voice mode, persistent shell, and 50+ bug fixes across every platform.\n\n---\n\n✨ Highlights\n\n• Unified Streaming Infrastructure — Real-time token-by-token delivery in CLI and all gateway platforms. Responses stream as they're generated instead of arriving as a block. ([#1538](https://github.com/NousResearch/hermes-agent/pull/1538))\n\n• First-Class Plugin Architecture — Drop Python files into `~/.hermes/plugins/` to extend Hermes with custom tools, commands, and hooks. No forking required. ([#1544](https://github.com/NousResearch/hermes-agent/pull/1544), [#1555](https://github.com/NousResearch/hermes-agent/pull/1555))\n\n• Native Anthropic Provider — Direct Anthropic API calls with Claude Code credential auto-discovery, OAuth PKCE flows, and native prompt caching. No OpenRouter middleman needed. ([#1097](https://github.com/NousResearch/hermes-agent/pull/1097))\n\n• Smart Approvals + /stop Command — Codex-inspired approval system that learns which commands are safe and remembers your preferences. `/stop` kills the current agent run immediately. ([#1543](https://github.com/NousResearch/hermes-agent/pull/1543))\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.3.17",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.3.17",
+      "date": "2026-03-17"
+    },
+    {
+      "id": "release-v2026-3-12",
+      "title": "Hermes Agent v0.2.0 (2026.3.12)",
+      "summary": "First tagged release since v0.1.0 (the initial pre-public foundation). In just over two weeks, Hermes Agent went from a small internal project to a full-featured AI agent platform — thanks to an explosion of community…",
+      "detail": "Hermes Agent v0.2.0 (v2026.3.12)\n\nFirst tagged release since v0.1.0 (the initial pre-public foundation). In just over two weeks, Hermes Agent went from a small internal project to a full-featured AI agent platform — thanks to an explosion of community contributions. This release covers 216 merged pull requests from 63 contributors, resolving 119 issues.\n\n---\n\n✨ Highlights\n\n• Multi-Platform Messaging Gateway — Telegram, Discord, Slack, WhatsApp, Signal, Email (IMAP/SMTP), and Home Assistant platforms with unified session management, media attachments, and per-platform tool configuration.\n\n• MCP (Model Context Protocol) Client — Native MCP support with stdio and HTTP transports, reconnection, resource/prompt discovery, and sampling (server-initiated LLM requests). ([#291](https://github.com/NousResearch/hermes-agent/pull/291) — @0xbyt4, [#301](https://github.com/NousResearch/hermes-agent/pull/301), [#753](https://github.com/NousResearch/hermes-agent/pull/753))\n\n• Skills Ecosystem — 70+ bundled and optional skills across 15+ categories with a Skills Hub for community discovery, per-platform enable/disable, conditional activation based on tool availability, and prerequisite validation. ([#743](https://github.com/NousResearch/hermes-agent/pull/743) — @teyrebaz33, [#785](https://github.com/NousResearch/hermes-agent/pull/785) — @teyrebaz33)\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.3.12",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.3.12",
+      "date": "2026-03-12"
+    }
+  ]
+}

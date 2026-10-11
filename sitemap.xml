@@ -727,6 +727,7 @@
   <url><loc>https://hermes-agent-archive.vercel.app/entry/plugin-official-nvidia-broadcast</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/plugin-official-spotify</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/plugin-community-mem0</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-skills-added-during-a-conversation</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/shelf/prompts</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/prompt-parallel-research</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/prompt-auth-review</loc></url>
@@ -1164,6 +1165,44 @@
   <url><loc>https://hermes-agent-archive.vercel.app/entry/trick-block-tools-until-you-say-go</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/trick-subclass-the-api-gateway-for-chat-clients</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/trick-audit-each-memory-file-against-written-principles</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/shelf/releases</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v0-21-6</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-9-24</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-9-21</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-9-14</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-9-11</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-9-7</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-8-31</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-8-27</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-8-19</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-8-18</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-8-16-2</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-8-16</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-8-13</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-8-3</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-7-30</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-7-20</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-7-7</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-7-7-2</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-7-1</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-6-19</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-6-5</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-5-29</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-5-29-2</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-5-28</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-5-16</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-5-7</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-4-30</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-4-23</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-4-16</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-4-13</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-4-8</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-4-3</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-3-30</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-3-28</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-3-23</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-3-17</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v2026-3-12</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/shelf/toolkit</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/kit-cc-switch</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/kit-codegraph</loc></url>

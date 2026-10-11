@@ -5724,6 +5724,19 @@
       "author": "rlaope",
       "url": "https://github.com/rlaope/oh-my-hermes",
       "verifiedAt": "2026-10-10"
+    },
+    {
+      "id": "doc-user-guide-features-skills-skills-added-during-a-conversation",
+      "title": "Skills added during a conversation",
+      "summary": "The list of skills the agent picks from is part of the conversation's system prompt, which stays fixed so the provider's prompt cache keeps working.",
+      "detail": "The list of skills the agent picks from is part of the conversation's system prompt, which stays fixed so the provider's prompt cache keeps working. When a skill is installed, created or removed while a conversation is open (from the Skills Hub, hermes skills install in another terminal, a plugin, the curator, or the agent itself), your next message to the agent carries a short note naming the new skills with their descriptions and the removed ones. The note is sent once per change; the system prompt itself picks up the change at the next compaction. /reload-skills is not needed for this, it still refreshes the /skill-name slash commands.\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "skills",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#skills-added-during-a-conversation",
+      "date": "2026-10-11"
     }
   ]
 }

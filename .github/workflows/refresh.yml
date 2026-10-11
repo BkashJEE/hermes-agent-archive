@@ -11,6 +11,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  actions: write
 
 jobs:
   refresh:
@@ -56,6 +57,7 @@ jobs:
           npm run check
           npm test
       - name: Propose update for owner review
+        id: propose
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -76,6 +78,23 @@ jobs:
           git commit -m "$title"
           git push origin "$branch"
           gh pr create --base main --head "$branch" --title "$title" --body-file "$RUNNER_TEMP/refresh-pr.md"
+          echo "branch=$branch" >> "$GITHUB_OUTPUT"
+
+      # Off unless the owner sets the repository variable AUTO_PUBLISH to true. The proposal
+      # above already passed npm run check and npm test in this job; this only decides
+      # whether it waits for a person. If main still requires a review that this token
+      # cannot give, the merge is refused and the pull request simply waits, as before.
+      - name: Publish without waiting, if the owner has opted in
+        if: vars.AUTO_PUBLISH == 'true' && steps.propose.outputs.branch != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if gh pr merge "${{ steps.propose.outputs.branch }}" --merge --delete-branch; then
+            gh workflow run deploy.yml --ref main
+            echo "::notice::Merged and dispatched the production deploy."
+          else
+            echo "::notice::Auto-merge was refused by the branch rules; the pull request waits for review."
+          fi
 
       # Last, so a broken source is reported without costing the run the figures it did get.
       - name: Report a failed source

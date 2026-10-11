@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hermes Agent v0.7.0 (v2026.4.3) · Hermes Agent Archive</title>
+<meta name="description" content="The resilience release — pluggable memory providers, credential pool rotation, Camofox anti-detection browser, inline diff previews, gateway hardening…">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/release-v2026-4-3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hermes Agent v0.7.0 (v2026.4.3)">
+<meta property="og:description" content="The resilience release — pluggable memory providers, credential pool rotation, Camofox anti-detection browser, inline diff previews, gateway hardening…">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/release-v2026-4-3">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hermes Agent v0.7.0 (v2026.4.3)">
+<meta name="twitter:description" content="The resilience release — pluggable memory providers, credential pool rotation, Camofox anti-detection browser, inline diff previews, gateway hardening…">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/releases">Releases</a></header>
+
+<article>
+<h1>Hermes Agent v0.7.0 (v2026.4.3)</h1>
+
+<p class="meta">By Nous Research · GitHub</p>
+<p>The resilience release — pluggable memory providers, credential pool rotation, Camofox anti-detection browser, inline diff previews, gateway hardening across race conditions and approval routing, and deep security fixes across 168 PRs and 46 resolved issues.</p>
+<p>---</p>
+<p>✨ Highlights</p>
+<p>• Pluggable Memory Provider Interface — Memory is now an extensible plugin system. Third-party memory backends (Honcho, vector stores, custom DBs) implement a simple provider ABC and register via the plugin system. Built-in memory is the default provider. Honcho integration restored to full parity as the reference plugin with profile-scoped host/peer resolution. ([#4623](https://github.com/NousResearch/hermes-agent/pull/4623), [#4616](https://github.com/NousResearch/hermes-agent/pull/4616), [#4355](https://github.com/NousResearch/hermes-agent/pull/4355))</p>
+<p>• Same-Provider Credential Pools — Configure multiple API keys for the same provider with automatic rotation. Thread-safe `least_used` strategy distributes load across keys, and 401 failures trigger automatic rotation to the next credential. Set up via the setup wizard or `credential_pool` config. ([#4188](https://github.com/NousResearch/hermes-agent/pull/4188), [#4300](https://github.com/NousResearch/hermes-agent/pull/4300), [#4361](https://github.com/NousResearch/hermes-agent/pull/4361))</p>
+<p>…</p>
+<p>Full release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v2026.4.3</p>
+
+
+<ul class="tags"><li>#release</li></ul>
+<div class="actions">
+<a href="https://github.com/NousResearch/hermes-agent/releases/tag/v2026.4.3" rel="noopener">Read the original</a>
+<a href="/#releases?item=release-v2026-4-3">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>

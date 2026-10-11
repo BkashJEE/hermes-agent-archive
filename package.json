@@ -30,7 +30,8 @@
     "added": "node scripts/build-added-dates.mjs",
     "plugins": "node scripts/import-official-plugins.mjs",
     "post": "node scripts/whats-new-post.mjs",
-    "uses": "node scripts/link-story-uses.mjs"
+    "uses": "node scripts/link-story-uses.mjs",
+    "releases": "node scripts/import-hermes-releases.mjs"
   },
   "engines": {
     "node": ">=20"

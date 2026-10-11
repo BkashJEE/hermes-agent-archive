@@ -1,10 +1,10 @@
 {
   "site": {
     "name": "HERMES AGENT ARCHIVE",
-    "tagline": "Sourced Hermes Agent workflows, prompts and projects — curated by usefulness.",
+    "tagline": "Sourced Hermes Agent workflows, prompts and projects \u2014 curated by usefulness.",
     "curator": "@BkashJosi",
     "quote": "Ship the trick, not the hype.",
-    "quoteAuthor": "— HERMES AGENT ARCHIVE"
+    "quoteAuthor": "\u2014 HERMES AGENT ARCHIVE"
   },
   "sections": [
     {
@@ -13,7 +13,7 @@
       "icon": "dashboard",
       "kind": "dashboard",
       "title": "WHAT IS IN THE ARCHIVE",
-      "blurb": "Counted live from what is loaded right now — nothing here is stored, and nothing is estimated."
+      "blurb": "Counted live from what is loaded right now \u2014 nothing here is stored, and nothing is estimated."
     },
     {
       "id": "use-cases",
@@ -21,7 +21,7 @@
       "icon": "stories",
       "file": "use-cases.json",
       "title": "WHAT PEOPLE ACTUALLY BUILD",
-      "blurb": "Sourced community workflows and official Hermes Agent examples — with attribution, setup notes and links to the original."
+      "blurb": "Sourced community workflows and official Hermes Agent examples \u2014 with attribution, setup notes and links to the original."
     },
     {
       "id": "trending",
@@ -37,7 +37,7 @@
       "icon": "skills",
       "file": "skills.json",
       "title": "SKILLS WORTH INSTALLING",
-      "blurb": "Hermes Agent skills — packaged capabilities you install rather than re-prompt."
+      "blurb": "Hermes Agent skills \u2014 packaged capabilities you install rather than re-prompt."
     },
     {
       "id": "prompts",
@@ -72,12 +72,20 @@
       "blurb": "Non-obvious Hermes Agent moves most people never find."
     },
     {
+      "id": "releases",
+      "label": "Releases",
+      "icon": "releases",
+      "file": "releases.json",
+      "title": "WHAT CHANGED IN HERMES",
+      "blurb": "Every Hermes Agent release, with the opening of its official notes and a link to the full text."
+    },
+    {
       "id": "toolkit",
       "label": "Works With",
       "icon": "toolkit",
       "file": "toolkit.json",
       "title": "WHAT WORKS WITH HERMES",
-      "blurb": "Repos worth pairing with Hermes Agent — why it helps, how to wire it up, and the job it actually does. Each one was read before it was listed."
+      "blurb": "Repos worth pairing with Hermes Agent \u2014 why it helps, how to wire it up, and the job it actually does. Each one was read before it was listed."
     },
     {
       "id": "builds",
@@ -93,7 +101,7 @@
       "icon": "builds",
       "file": "my-work.json",
       "title": "WHAT I HAVE BUILT AND POSTED",
-      "blurb": "The archive author’s own Hermes work. Impression counts come from their X analytics exports, carried over as published — everywhere else on this site the numbers are fetched from public APIs."
+      "blurb": "The archive author\u2019s own Hermes work. Impression counts come from their X analytics exports, carried over as published \u2014 everywhere else on this site the numbers are fetched from public APIs."
     }
   ],
   "sources": [
@@ -165,11 +173,11 @@
     },
     {
       "id": "trending",
-      "label": "Trending · star growth"
+      "label": "Trending \u00b7 star growth"
     },
     {
       "id": "az",
-      "label": "A → Z"
+      "label": "A \u2192 Z"
     }
   ]
 }

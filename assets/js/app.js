@@ -8,6 +8,7 @@ import { mergeLive, trendingItems } from './archive.js?v=hermes-50k';
 import { cardPoints, cardCategory } from './card-preview.js?v=launch-10';
 import { isTopicTag } from './tags.js?v=launch-10';
 import { ageLabel } from './relative-time.js?v=launch-10';
+import { pickFor } from './daily-pick.js?v=launch-10';
 import { formatDetails } from './details.js';
 import { creditFor } from './credits.js?v=launch-10';
 import { attachRankings, compareRankings, usefulnessLabel, popularityLabel } from './ranking.js';
@@ -555,6 +556,27 @@ function shelfPreviews() {
     </section>`).join('')}</div>`;
 }
 
+/* One entry a day from the most useful, in rotation (assets/js/daily-pick.js). Labelled as
+   a rotation: it is what changes on a day no source published anything, not news. */
+function todaysPick() {
+  const items = [];
+  for (const [shelf, list] of Object.entries(state.data || {}))
+    for (const it of list) items.push({ id: it.id, usefulness: it.ranking?.usefulness, shelf, it });
+  const id = pickFor(items);
+  const hit = id && items.find(x => x.id === id);
+  if (!hit) return '';
+  const { it, shelf } = hit;
+  const label = state.cfg.sections.find(s => s.id === shelf)?.label || shelf;
+  return `<section class="dash-pick" aria-labelledby="pickTitle">
+    <p class="dash-pick-kicker">TODAY'S PICK <span>· ${esc(label)} · a different entry every day, in rotation from the archive's most useful</span></p>
+    <button class="dash-pick-card" data-open-entry="${esc(it.id)}">
+      <strong id="pickTitle">${esc(it.title)}</strong>
+      <span>${esc(it.summary || '')}</span>
+      ${it.snippet ? `<code>${esc(it.snippet.split('\n')[0].slice(0, 120))}</code>` : ''}
+    </button>
+  </section>`;
+}
+
 function renderDashboard() {
   const st = dashboardStats();
   const live = state.live || {};
@@ -577,6 +599,7 @@ function renderDashboard() {
     : '<p class="dash-none">No fetched metrics loaded.</p>';
 
   $('#dashPanel').innerHTML = `
+    ${todaysPick()}
     ${shelfPreviews()}
     <h2 class="dash-section-title">BY THE NUMBERS</h2>
     <div class="dash-tiles">

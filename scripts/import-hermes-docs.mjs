@@ -27,6 +27,7 @@ import { dirname, join } from 'node:path';
 import { codeBlocks, proseSections } from './extract-prompts.mjs';
 import { makeAnchorSlugger } from './import-hermes-cli.mjs';
 import { serialise } from './json-format.mjs';
+import { isFragment } from './prune-doc-fragments.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BASE = 'https://hermes-agent.nousresearch.com/docs/';
@@ -135,7 +136,7 @@ async function main() {
 
   const today = new Date().toISOString().slice(0, 10);
   const added = {};
-  let skippedDuplicate = 0, failed = [];
+  let skippedDuplicate = 0, skippedFragment = 0, failed = [];
 
   for (const page of pages) {
     let html;
@@ -157,6 +158,10 @@ async function main() {
       /* Never replace what is already archived, and never introduce a duplicate title:
          two cards for one subject read as a bug even when both ids are unique. */
       if (seenIds.has(item.id) || seenTitles.has(titleKey)) { skippedDuplicate++; continue; }
+      /* The prune record stops a removed fragment coming back; this stops a new one arriving.
+         The importer now runs in the daily harvest, unattended, so it applies the same rule
+         the prune would rather than leaving the cleanup for a person to notice. */
+      if (isFragment(item)) { skippedFragment++; continue; }
       seenIds.add(item.id); seenTitles.add(titleKey);
       target.items.push(item);
       added[shelf] = (added[shelf] || 0) + 1;
@@ -166,7 +171,7 @@ async function main() {
   }
 
   const total = Object.values(added).reduce((a, b) => a + b, 0);
-  console.log(`\n${total} new entries${skippedDuplicate ? `, ${skippedDuplicate} already archived` : ''}.`);
+  console.log(`\n${total} new entries${skippedDuplicate ? `, ${skippedDuplicate} already archived` : ''}${skippedFragment ? `, ${skippedFragment} fragments refused` : ''}.`);
   for (const [shelf, n] of Object.entries(added)) console.log(`  ${shelf.padEnd(12)} +${n}`);
   for (const [path, why] of failed) console.log(`  unreadable: ${path} — ${why}`);
 

@@ -7,6 +7,310 @@
 <description>Sourced Hermes Agent workflows, prompts, skills and projects, as they are added. Dates are arrival dates.</description>
 <language>en</language>
 <item>
+<title>Skills added during a conversation</title>
+<link>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-skills-added-during-a-conversation</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-skills-added-during-a-conversation</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Skills</category>
+<description>The list of skills the agent picks from is part of the conversation&#39;s system prompt, which stays fixed so the provider&#39;s prompt cache keeps working.</description>
+</item>
+<item>
+<title>Hermes Agent v0.21.6</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v0-21-6</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v0-21-6</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>Patch release. This tag rolls up the ~2,100 PRs merged since v0.21.5 into a stable tagged release for Docker and Hermes Cloud. Full curated notes for this window ship with v0.22.0.</description>
+</item>
+<item>
+<title>Hermes Agent v0.21.5 (v2026.9.24)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-9-24</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-9-24</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>Patch release. This tag rolls up the ~460 PRs merged since v0.21.4 into a stable tagged release for downstream consumers (Docker images, Hermes Cloud, hosted deployments). Full curated notes for this window are…</description>
+</item>
+<item>
+<title>Hermes Agent v0.21.4 (v2026.9.21)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-9-21</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-9-21</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>Patch release. This tag rolls up the ~1,800 PRs merged since v0.21.3 into a stable tagged release for downstream consumers (Docker images, Hermes Cloud, hosted deployments). Full curated notes for this window are…</description>
+</item>
+<item>
+<title>Hermes Agent v0.21.3 (v2026.9.14)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-9-14</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-9-14</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>Patch release. This tag rolls up the ~338 PRs merged since v0.21.2 into a stable tagged release for downstream consumers (Docker images, Hermes Cloud, hosted deployments). It exists so the remote-gateway sign-in fixes…</description>
+</item>
+<item>
+<title>Hermes Agent v0.21.2 (v2026.9.11)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-9-11</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-9-11</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>Hermes Agent v0.21.2 (v2026.9.11) — The state.db Patch Release</description>
+</item>
+<item>
+<title>Hermes Agent v0.21.1 (v2026.9.7)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-9-7</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-9-7</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>Patch release. This tag rolls up current main since v0.21.0 for tagged deployments and downstream consumers.</description>
+</item>
+<item>
+<title>Hermes Agent v0.21.0 (v2026.8.31)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-8-31</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-8-31</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>The Pantheon Release. v0.20.0 made Hermes the herald — he spoke, and he carried word to other agents. In v0.21.0 the gods assemble. Bot Mode ships built into the desktop app: a society of named agents with their own…</description>
+</item>
+<item>
+<title>Hermes Agent v0.20.6 (v2026.8.27)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-8-27</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-8-27</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>Patch release. This tag rolls up the ~525 PRs merged since v0.20.5 into a stable tagged release for downstream consumers (Docker images, hosted deployments, fresh installs).</description>
+</item>
+<item>
+<title>Hermes Agent v0.20.5 (v2026.8.19)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-8-19</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-8-19</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>Patch release. This tag rolls up the ~323 PRs merged since v0.20.4 into a stable tagged release for downstream consumers (Docker images, hosted deployments, fresh installs).</description>
+</item>
+<item>
+<title>Hermes Agent v0.20.4 (2026.8.18)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-8-18</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-8-18</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>Patch release. This tag rolls up the ~74 PRs merged since v0.20.3 into a stable tagged release for downstream consumers (Docker images, hosted deployments, fresh installs).</description>
+</item>
+<item>
+<title>Hermes Agent v0.20.3 (2026.8.16.2)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-8-16-2</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-8-16-2</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>Patch release. This tag rolls up the ~125 PRs merged since v0.20.2 into a stable tagged release for downstream consumers (Docker images, hosted deployments, fresh installs).</description>
+</item>
+<item>
+<title>Hermes Agent v0.20.2 (2026.8.16)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-8-16</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-8-16</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>Patch release. This tag rolls up the ~397 PRs merged since v0.20.1 into a stable tagged release for downstream consumers (Docker images, hosted deployments, fresh installs).</description>
+</item>
+<item>
+<title>Hermes Agent v0.20.1 (2026.8.13)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-8-13</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-8-13</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>Patch release. This tag rolls up the ~656 PRs merged since v0.20.0 into a stable tagged release for downstream consumers (Docker images, hosted deployments, and anyone installing from the latest tag).</description>
+</item>
+<item>
+<title>Hermes Agent v0.20.0 (2026.8.3)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-8-3</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-8-3</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>The Herald Release. Hermes is the herald of the gods, and this release makes him one in earnest: he speaks (real-time conversational voice with streaming TTS, barge-in, on-device wake words, and hands-free control…</description>
+</item>
+<item>
+<title>Hermes Agent v0.19.1 (v2026.7.30)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-7-30</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-7-30</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>Patch release. This tag rolls up the ~1,000+ PRs merged since v0.19.0 into a stable tagged release for downstream consumers (Docker images, hosted deployments, fresh installs).</description>
+</item>
+<item>
+<title>Hermes Agent v0.19.0 (2026.7.20) — The Quicksilver Release</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-7-20</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-7-20</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>The Quicksilver Release. Hermes is the messenger god, and this window we made him move like it. First-turn time-to-first-token dropped ~80% on every platform, reasoning streams live by default, the desktop app got a…</description>
+</item>
+<item>
+<title>Hermes Agent v0.18.1 (2026.7.7)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-7-7</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-7-7</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>Patch release. This tag rolls up the ~660 PRs merged since v0.18.0 (July 1) — bug fixes, hardening, and in-progress feature work — into a stable tagged release for downstream consumers (Docker images, hosted…</description>
+</item>
+<item>
+<title>Hermes Agent v0.18.2 (2026.7.7.2)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-7-7-2</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-7-7-2</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>Same-day patch on top of v0.18.1, picking up the WhatsApp Baileys dependency fix needed for tagged-release Docker builds.</description>
+</item>
+<item>
+<title>Hermes Agent v0.18.0 (2026.7.1) — The Judgment Release</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-7-1</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-7-1</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>The Judgment Release. Over the last week and a half the team put nearly all of its effort into one goal: resolve every P0 and P1 issue and PR in the entire Hermes Agent repo — and as of this release, 100% of them are…</description>
+</item>
+<item>
+<title>Hermes Agent v0.17.0 (v2026.6.19)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-6-19</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-6-19</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>The Reach Release. v0.16.0 put Hermes on your desktop. v0.17.0 is about how far that reach extends — across new places to talk to it, deeper into the tools you already use, and out to the people running Hermes for a…</description>
+</item>
+<item>
+<title>Hermes Agent v0.16.0 (2026.6.5) — The Surface Release</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-6-5</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-6-5</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>The Surface Release. Hermes meets you wherever you work. A brand-new native desktop app — built across 100 PRs and 159 commits in a single week — gives you Hermes as a real macOS/Linux/Windows application: one-click…</description>
+</item>
+<item>
+<title>Hermes Agent v0.15.1 (2026.5.29) — The Patch Release</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-5-29</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-5-29</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>The Patch Release. A same-day hotfix for v0.15.0. Headline fix: the dashboard infinite-reload loop that hit anyone running v0.15.0 in loopback mode (Docker, hosted Hermes, fresh installs). A handful of other v0.15.0…</description>
+</item>
+<item>
+<title>Hermes Agent v0.15.2 (2026.5.29.2)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-5-29-2</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-5-29-2</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>• Packaging): ship bundled plugin.yaml manifests in wheel and sdist ([`827f7f07`](https://github.com/NousResearch/hermes-agent/commit/827f7f07825be57108cbea18325e8f5e9fb5d2f2))</description>
+</item>
+<item>
+<title>Hermes Agent v0.15.0 (2026.5.28) — The Velocity Release</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-5-28</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-5-28</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>The Velocity Release. Hermes gets dramatically faster — to start, to run, to ship work, and to grow. The 16,083-line `run_agent.py` collapses to 3,821 (-76%) across 14 cohesive `agent/*` modules. Kanban grew into a…</description>
+</item>
+<item>
+<title>Hermes Agent v0.14.0 (2026.5.16)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-5-16</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-5-16</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>The Foundation Release — Hermes installs and runs anywhere, ships with the things you actually want to use, and stops shipping the things you don&#39;t. xAI Grok lands as a SuperGrok OAuth provider with grok-4.3 bumped to…</description>
+</item>
+<item>
+<title>Hermes Agent v0.13.0 (2026.5.7) — The Tenacity Release</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-5-7</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-5-7</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>The Tenacity Release — Hermes Agent now finishes what it starts. Kanban ships as a durable multi-agent board (heartbeat, reclaim, zombie detection, auto-block on incomplete exit, per-task retries, hallucination…</description>
+</item>
+<item>
+<title>Hermes Agent v0.12.0 (2026.4.30)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-4-30</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-4-30</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>The Curator release — Hermes Agent now maintains itself. An autonomous background Curator grades, prunes, and consolidates your skill library on its own schedule. The self-improvement loop that reviews what to save…</description>
+</item>
+<item>
+<title>Hermes Agent v0.11.0 (2026.4.23)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-4-23</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-4-23</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>The Interface release — a full React/Ink rewrite of the interactive CLI, a pluggable transport architecture underneath every provider, native AWS Bedrock support, five new inference paths, a 17th messaging platform…</description>
+</item>
+<item>
+<title>Hermes Agent v0.10.0 (2026.4.16)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-4-16</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-4-16</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>The Tool Gateway release — paid Nous Portal subscribers can now use web search, image generation, text-to-speech, and browser automation through their existing subscription with zero additional API keys.</description>
+</item>
+<item>
+<title>Hermes Agent v0.9.0 (v2026.4.13)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-4-13</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-4-13</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>The everywhere release — Hermes goes mobile with Termux/Android, adds iMessage and WeChat, ships Fast Mode for OpenAI and Anthropic, introduces background process monitoring, launches a local web dashboard for…</description>
+</item>
+<item>
+<title>Hermes Agent v0.8.0 (v2026.4.8)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-4-8</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-4-8</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>The intelligence release — background task auto-notifications, free MiMo v2 Pro on Nous Portal, live model switching across all platforms, self-optimized GPT/Codex guidance, native Google AI Studio, smart inactivity…</description>
+</item>
+<item>
+<title>Hermes Agent v0.7.0 (v2026.4.3)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-4-3</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-4-3</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>The resilience release — pluggable memory providers, credential pool rotation, Camofox anti-detection browser, inline diff previews, gateway hardening across race conditions and approval routing, and deep security…</description>
+</item>
+<item>
+<title>Hermes Agent v0.6.0 (v2026.3.30)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-3-30</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-3-30</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>The multi-instance release — Profiles for running isolated agent instances, MCP server mode, Docker container, fallback provider chains, two new messaging platforms (Feishu/Lark and WeCom), Telegram webhook mode,…</description>
+</item>
+<item>
+<title>Hermes Agent v0.5.0 (v2026.3.28)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-3-28</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-3-28</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>The hardening release — Hugging Face provider, /model command overhaul, Telegram Private Chat Topics, native Modal SDK, plugin lifecycle hooks, tool-use enforcement for GPT models, Nix flake, 50+ security and…</description>
+</item>
+<item>
+<title>Hermes Agent v0.4.0 (v2026.3.23)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-3-23</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-3-23</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>The platform expansion release — OpenAI-compatible API server, 6 new messaging adapters, 4 new inference providers, MCP server management with OAuth 2.1, @ context references, gateway prompt caching, streaming enabled…</description>
+</item>
+<item>
+<title>Hermes Agent v0.3.0 (v2026.3.17)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-3-17</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-3-17</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>The streaming, plugins, and provider release — unified real-time token delivery, first-class plugin architecture, rebuilt provider system with Vercel AI Gateway, native Anthropic provider, smart approvals, live Chrome…</description>
+</item>
+<item>
+<title>Hermes Agent v0.2.0 (2026.3.12)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v2026-3-12</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v2026-3-12</guid>
+<pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>First tagged release since v0.1.0 (the initial pre-public foundation). In just over two weeks, Hermes Agent went from a small internal project to a full-featured AI agent platform — thanks to an explosion of community…</description>
+</item>
+<item>
 <title>Claude Subscription Direct SDK</title>
 <link>https://hermes-agent-archive.vercel.app/entry/plugin-official-claude-subscription-directsdk</link>
 <guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/plugin-official-claude-subscription-directsdk</guid>
@@ -95,6 +399,30 @@
 <description>Mem0 memory provider — server-side LLM fact extraction with semantic search, automatic deduplication and opt-in reranking, in platform, self-hosted or local OSS mode. Maintained by Mem0; the same provider that shipped in-tree. Disclosure — conversation turns and recall queries go to the configured…</description>
 </item>
 <item>
+<title>Block every tool at the hook level until you say go</title>
+<link>https://hermes-agent-archive.vercel.app/entry/trick-block-tools-until-you-say-go</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/trick-block-tools-until-you-say-go</guid>
+<pubDate>Sat, 10 Oct 2026 12:00:00 GMT</pubDate>
+<category>Hidden Tricks</category>
+<description>A two-command plugin keeps the agent in discussion-only mode — questions, trade-offs, a running plan — and physically cannot execute until /go.</description>
+</item>
+<item>
+<title>Subclass the OpenAI-compatible gateway so third-party chat clients keep markdown and slash commands</title>
+<link>https://hermes-agent-archive.vercel.app/entry/trick-subclass-the-api-gateway-for-chat-clients</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/trick-subclass-the-api-gateway-for-chat-clients</guid>
+<pubDate>Sat, 10 Oct 2026 12:00:00 GMT</pubDate>
+<category>Hidden Tricks</category>
+<description>A drop-in plugin runs a second gateway port that renders full markdown and intercepts /help, /status and the rest instead of forwarding them to the model.</description>
+</item>
+<item>
+<title>Audit every profile&#39;s memory file weekly against written principles</title>
+<link>https://hermes-agent-archive.vercel.app/entry/trick-audit-each-memory-file-against-written-principles</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/trick-audit-each-memory-file-against-written-principles</guid>
+<pubDate>Sat, 10 Oct 2026 12:00:00 GMT</pubDate>
+<category>Hidden Tricks</category>
+<description>One sub-profile per project, each with its own memory, and a weekly pass that checks each memory file against a written rule of what belongs there.</description>
+</item>
+<item>
 <title>Razorpay gives 220+ employees their own isolated, always-on Hermes agent</title>
 <link>https://hermes-agent-archive.vercel.app/entry/story-razorpay-gives-220-employees-their-own-isolated-always-on-he</link>
 <guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-razorpay-gives-220-employees-their-own-isolated-always-on-he</guid>
@@ -157,334 +485,6 @@
 <pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
 <category>Use Cases</category>
 <description>I am US-based, an attorney (16 years), and my wife and I own a local brick-and-mortar business (a few locations in our city). … So I added a few more seemingly complex automatio…</description>
-</item>
-<item>
-<title>Swiss web agency drafts client invoices from Harvest and ClickUp, a human sends them</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-swiss-web-agency-drafts-client-invoices-from-harvest-and-cli</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-swiss-web-agency-drafts-client-invoices-from-harvest-and-cli</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>We&#39;ve pretty much automated our entire invoice drafting process with Hermes Agent. … It reviews task statuses, history, checks the completed work, creates the draft in Harvest,…</description>
-</item>
-<item>
-<title>Two-person video startup lets Hermes PM and engineer agents run most of its SDLC</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-two-person-video-startup-lets-hermes-pm-and-engineer-agents-</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-two-person-video-startup-lets-hermes-pm-and-engineer-agents-</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>We’re Moosky AI - two humans building an agentic multimodal video platform. … Internally, Hermes runs most of our SDLC: grooming, pick up work, implement, test, PR, gate, ship.…</description>
-</item>
-<item>
-<title>A PR agency runs sales ops in Slack: CRM lookups, lead research notes and email triage</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-a-pr-agency-runs-sales-ops-in-slack-crm-lookups-lead-researc</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-a-pr-agency-runs-sales-ops-in-slack-crm-lookups-lead-researc</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>we run it on Slack. So, I&#39;m going to show you some examples from Slack how I query it, how you can search for emails, contacts, invoices, whatever you can imagine. And we use th…</description>
-</item>
-<item>
-<title>Ad agency team runs spend audits and creative refreshes with Hermes in Slack</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-ad-agency-team-runs-spend-audits-and-creative-refreshes-with</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-ad-agency-team-runs-spend-audits-and-creative-refreshes-with</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>I can ask for a 78-post audit on ads. The agent pulls the spend performance data. Someone else jumps in and asks for creative refresh ideas. The analytics agent explains where w…</description>
-</item>
-<item>
-<title>Nontechnical teammates query BigQuery, Stripe and Amplitude through Hermes in Slack</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-nontechnical-teammates-query-bigquery-stripe-and-amplitude-t</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-nontechnical-teammates-query-bigquery-stripe-and-amplitude-t</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>I set up a Hermes agent for our company and connected it to BigQuery, Stripe, Amplitude, etc so that our nontechnical teammates can ask and answer their own data questions via S…</description>
-</item>
-<item>
-<title>Fin-crime platform reworked 2,500+ rule scenarios so client config changes skip a deploy</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-fin-crime-platform-reworked-2-500-rule-scenarios-so-client-c</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-fin-crime-platform-reworked-2-500-rule-scenarios-so-client-c</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>We essentially apply rules to payments looking for signs of money laundering, people trafficking and fraud. … for every scenario of every rule in the system. (2,500+ changes). ……</description>
-</item>
-<item>
-<title>Managed agent cut a real estate client&#39;s accounting fees by $18k a year</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-managed-agent-cut-a-real-estate-client-s-accounting-fees-by-</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-managed-agent-cut-a-real-estate-client-s-accounting-fees-by-</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>Helped a real estate agent drop $18k a year in accounting fees … Stood up a managed @NousResearch Hermes agent on my infrastructure, connected it to his Google Workspace and Qui…</description>
-</item>
-<item>
-<title>Construction company owner runs bidding, legal drafts and ERP invoicing with seven agents</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-construction-company-owner-runs-bidding-legal-drafts-and-erp</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-construction-company-owner-runs-bidding-legal-drafts-and-erp</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>i have 15 years of experience in construction industry, i fed to the system all my company knowledge, bidding and legal agents use RAG to generate what i need it to generate. ……</description>
-</item>
-<item>
-<title>An e-commerce SEO agency splits Hermes into Shopify, search and client-prep agents</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-an-e-commerce-seo-agency-splits-hermes-into-shopify-search-a</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-an-e-commerce-seo-agency-splits-hermes-into-shopify-search-a</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>Inside Hermes, I’ve already got different sub-agents split out and dedicated to specific roles. One is a Shopify engineering agent. One is a search engineering agent. I have ano…</description>
-</item>
-<item>
-<title>Podcast hosting founder shares his agent with the team to mine support tickets</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-podcast-hosting-founder-shares-his-agent-with-the-team-to-mi</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-podcast-hosting-founder-shares-his-agent-with-the-team-to-mi</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>i shared the Hermes agent, and KB with our team. … it&#39;s starting with support &amp; dev, just cause I feel like they&#39;re tightly coupled, but also because they can be pretty determin…</description>
-</item>
-<item>
-<title>Bookstore runs a staff agent on Discord and a customer agent on iMessage for under $10/mo</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-bookstore-runs-a-staff-agent-on-discord-and-a-customer-agent</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-bookstore-runs-a-staff-agent-on-discord-and-a-customer-agent</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>i have two agent setups: customer facing on oracle cloud pay as you go, costs nothing. and internal one on my cheap beelink PC … my provider is neuralwatt and i spend less than…</description>
-</item>
-<item>
-<title>Replaced the helpdesk: Hermes briefs a local support agent and escalates to the team</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-replaced-the-helpdesk-hermes-briefs-a-local-support-agent-an</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-replaced-the-helpdesk-hermes-briefs-a-local-support-agent-an</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>We replaced our helpdesk with Hermes. It has long term memory about our business. When a customer messages us, Hermes gets all the relevant details about the customer and create…</description>
-</item>
-<item>
-<title>A 50-developer team uses Hermes for code review, incident notes and ticket triage</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-a-50-developer-team-uses-hermes-for-code-review-incident-not</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-a-50-developer-team-uses-hermes-for-code-review-incident-not</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>Hermes is doing an increasing amount of work for our engineering team (~50 devs) -- multi-agent code review flows, coding internal tools and simple fixes, it&#39;s becoming our sten…</description>
-</item>
-<item>
-<title>Deployed LinkedIn prospecting agents for consulting firms and web agencies</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-deployed-linkedin-prospecting-agents-for-consulting-firms-an</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-deployed-linkedin-prospecting-agents-for-consulting-firms-an</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>Over the past months I deployed prospecting agents for several clients: consulting firms, web agencies, and similar companies. … When a prospect replies on LinkedIn, Lemlist pus…</description>
-</item>
-<item>
-<title>Family collectibles shop on a $12 VPS gets inbox triage and stock alerts across 4,000 SKUs</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-family-collectibles-shop-on-a-12-vps-gets-inbox-triage-and-s</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-family-collectibles-shop-on-a-12-vps-gets-inbox-triage-and-s</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>The setup hooks to their email accounts and scans them for emails on sales, questions, and other items. … It reads from an inventory system of over 4000 SKUS that can change and…</description>
-</item>
-<item>
-<title>A three-person software house uses Hermes for lead research and competitor analysis</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-a-three-person-software-house-uses-hermes-for-lead-research-</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-a-three-person-software-house-uses-hermes-for-lead-research-</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>We&#39;re a software house. Three people, Ostrów Wielkopolski. And an AI agent that&#39;s been in every strategic conversation for months. … It did full research on 24 leads. Each one g…</description>
-</item>
-<item>
-<title>YC-backed design-to-code startup made a Hermes agent its on-call engineer</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-yc-backed-design-to-code-startup-made-a-hermes-agent-its-on-</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-yc-backed-design-to-code-startup-made-a-hermes-agent-its-on-</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>It started by tracing unwanted behaviour and bugs, and now it also solves them, ending up with a PR (Pushing code updates, pending dev approval) - It wakes up on user feedback,…</description>
-</item>
-<item>
-<title>Media company agent brings 7 months of company memory into a shared team workspace</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-media-company-agent-brings-7-months-of-company-memory-into-a</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-media-company-agent-brings-7-months-of-company-memory-into-a</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>Our agent (Martin) has 7 months of built up company knowledge and memory that he’s been able to bring to the other agents running in Buzz. … Task delegation is much easier now t…</description>
-</item>
-<item>
-<title>IT consultancy deploys Hermes for SME clients: CRM outreach, lead vetting, ERP support</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-it-consultancy-deploys-hermes-for-sme-clients-crm-outreach-l</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-it-consultancy-deploys-hermes-for-sme-clients-crm-outreach-l</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>I run a small IT and automation consultancy. My work ranges from fractional IT Director support and operational diagnostics through to implementing the automations that come out…</description>
-</item>
-<item>
-<title>Company agents for sales and sprint reports went from hackathon to daily CEO and CMO use</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-company-agents-for-sales-and-sprint-reports-went-from-hackat</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-company-agents-for-sales-and-sprint-reports-went-from-hackat</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>Started as a hackathon project, ended up in production with our CEO and CMO using the agents daily. … Ben (sales) — finds leads via Tavily, drafts emails + LinkedIn messages, st…</description>
-</item>
-<item>
-<title>Outbound sales agent researches accounts and queues every send for approval in Telegram</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-outbound-sales-agent-researches-accounts-and-queues-every-se</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-outbound-sales-agent-researches-accounts-and-queues-every-se</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>Instead of starting every day with another prospecting list, you open Telegram to a queue of accounts Hermes has already researched, scored, and prepared for action. … Approve t…</description>
-</item>
-<item>
-<title>Staff forward email threads to an update@ inbox and Hermes files them into the wiki</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-staff-forward-email-threads-to-an-update-inbox-and-hermes-fi</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-staff-forward-email-threads-to-an-update-inbox-and-hermes-fi</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>I gave Hermes an email inbox to monitor, and it&#39;s job was to monitor that inbox for internal-only emails and scan email body for information that should be added to company wiki…</description>
-</item>
-<item>
-<title>A software consultancy built an internal Slack assistant that knows the company</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-a-software-consultancy-built-an-internal-slack-assistant-tha</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-a-software-consultancy-built-an-internal-slack-assistant-tha</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>Since we want Hermes to always &quot;know&quot; about Echobind, we need to decide how to set up its knowledge internally … We went from an empty DigitalOcean Droplet to a fully functional…</description>
-</item>
-<item>
-<title>Marketing business owner has Hermes find 50 prospects a day and run weekly SEO checks</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-marketing-business-owner-has-hermes-find-50-prospects-a-day-</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-marketing-business-owner-has-hermes-find-50-prospects-a-day-</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>I have it scrape every single day for 50 prospects for my products and services and reach out to 25. … I use Hermes on a cron to automatically scan competitor sites once a week…</description>
-</item>
-<item>
-<title>A daily SEO loop: Search Console analysis, drafts, approval, then publishing</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-a-daily-seo-loop-search-console-analysis-drafts-approval-the</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-a-daily-seo-loop-search-console-analysis-drafts-approval-the</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>For the last couple of months, I&#39;ve been using Hermes to do my SEO, and I got to say, I&#39;m very impressed. Every day, it checks my analytics, my Google Search Console data for SE…</description>
-</item>
-<item>
-<title>20-developer software agency hands PR notices, client status and app builds to Hermes</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-20-developer-software-agency-hands-pr-notices-client-status-</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-20-developer-software-agency-hands-pr-notices-client-status-</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>So, I run a small software development company having 20ish devs spanning over 4-5 enterprise grade client systems. … For PRs and daily status and daily ios/apk builds for clien…</description>
-</item>
-<item>
-<title>Startup founder runs support, banking, Stripe and SEO through Hermes agents</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-startup-founder-runs-support-banking-stripe-and-seo-through-</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-startup-founder-runs-support-banking-stripe-and-seo-through-</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>I&#39;ve been running Hermes as the backbone of my company for months now. Support systems, banking, Stripe, analytics, marketing, SEO, and everything else. It&#39;s all managed by agen…</description>
-</item>
-<item>
-<title>Managed-service firm runs a separate Hermes agent per client to produce deliverables</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-managed-service-firm-runs-a-separate-hermes-agent-per-client</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-managed-service-firm-runs-a-separate-hermes-agent-per-client</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>For the past two years I’ve been building a &#39;managed service&#39; business and have created a big collection of skills, SOPs, and processes that output specific deliverables for our…</description>
-</item>
-<item>
-<title>A startup&#39;s company brain runs daily standups and GTM tracking in Discord</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-a-startup-s-company-brain-runs-daily-standups-and-gtm-tracki</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-a-startup-s-company-brain-runs-daily-standups-and-gtm-tracki</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>So I built a company brain. It&#39;s an AI agent that lives in our Discord, runs daily standups, tracks our GTM numbers, and generates dashboards. We named it Dojo. It costs about $…</description>
-</item>
-<item>
-<title>Owner of three commercial real estate firms runs a Hermes chief of staff over specialists</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-owner-of-three-commercial-real-estate-firms-runs-a-hermes-ch</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-owner-of-three-commercial-real-estate-firms-runs-a-hermes-ch</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>Quick context: I use hermes for my business operations as an assistant as i have 3 commercial real estate businesses. I went with multi profile setup, Nyx (gave it a name so i f…</description>
-</item>
-<item>
-<title>Asking internal business tools about orders and inventory over Telegram</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-asking-internal-business-tools-about-orders-and-inventory-ov</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-asking-internal-business-tools-about-orders-and-inventory-ov</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>I&#39;ve added MCP servers to my internal business tools (Elixir apps) and can chat with the Nous Hermes agent over Telegram about pending orders, inventory level, historical produc…</description>
-</item>
-<item>
-<title>Niche online store owner has Hermes turn B2B client emails into Shopify draft orders</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-niche-online-store-owner-has-hermes-turn-b2b-client-emails-i</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-niche-online-store-owner-has-hermes-turn-b2b-client-emails-i</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>I use obsidian and notion. Notion more for project management, crm and to keep a more visual overview of my business. one thing I love about Hermes, is when b2b clients sends an…</description>
-</item>
-<item>
-<title>A first-time founder uses Hermes as a daily boss for fundraising and compliance</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-a-first-time-founder-uses-hermes-as-a-daily-boss-for-fundrai</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-a-first-time-founder-uses-hermes-as-a-daily-boss-for-fundrai</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>I&#39;m a first time founder, and there are so many unknowns when you&#39;re getting started. I&#39;ve been using a Hermes agent to act as my &quot;boss&quot;, giving me three tasks to do each day /…</description>
-</item>
-<item>
-<title>Consultant wires Hermes to a self-hosted CRM and gets an 8-page meeting prep brief</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-consultant-wires-hermes-to-a-self-hosted-crm-and-gets-an-8-p</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-consultant-wires-hermes-to-a-self-hosted-crm-and-gets-an-8-p</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>I am seeing a new client next week - and wanted to test a user case end to end for myself to assist me with prepping for the meeting. … Hermes (Deepseek v4 Pro) did the research…</description>
-</item>
-<item>
-<title>A marketing founder runs WhatsApp replies, approval-gated jobs and Notion team check-ins</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-a-marketing-founder-runs-whatsapp-replies-approval-gated-job</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-a-marketing-founder-runs-whatsapp-replies-approval-gated-job</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>Two weeks in, Hermes is the best hire I have made all year. … Now it replies in my WhatsApp, runs real jobs on my Mac behind an approval gate, and checks my team in on Notion, e…</description>
-</item>
-<item>
-<title>A daily work setup on Hermes for meetings, prospects and commercial proposals</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-a-daily-work-setup-on-hermes-for-meetings-prospects-and-comm</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-a-daily-work-setup-on-hermes-for-meetings-prospects-and-comm</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>It&#39;s now become the set up that I use for work every day and it has significantly increased my productivity. … I use it every day to keep track of projects and tasks, prepare fo…</description>
-</item>
-<item>
-<title>Duplicate skill names</title>
-<link>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-duplicate-skill-names</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-duplicate-skill-names</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Skills</category>
-<description>Every surface resolves a skill name the same way: Across directories , the higher-precedence directory wins ( project → local → skills.create_dir → external_dirs ), including for the same…</description>
-</item>
-<item>
-<title>First Task</title>
-<link>https://hermes-agent-archive.vercel.app/entry/skill-optional-productivity-first-task</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/skill-optional-productivity-first-task</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Skills</category>
-<description>Run the first task chat that setup hands off.</description>
-</item>
-<item>
-<title>Initiate Setup</title>
-<link>https://hermes-agent-archive.vercel.app/entry/skill-optional-productivity-initiate-setup</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/skill-optional-productivity-initiate-setup</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Skills</category>
-<description>Run the first-run setup chat in the Hermes desktop app.</description>
-</item>
-<item>
-<title>Academy Guide</title>
-<link>https://hermes-agent-archive.vercel.app/entry/skill-pack-anthropic-academy-guide</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/skill-pack-anthropic-academy-guide</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Skills</category>
-<description>Stop and check this skill before finishing any reply to a question about how to use Claude or a Claude product — it recommends matching courses, tutorials, and use cases from Claude Academy (academy.claude.com), Anthropic&#39;s learning hub. Trigger on: &quot;how do I&quot;, &quot;how can I&quot;, &quot;g…</description>
-</item>
-<item>
-<title>Algorithmic Art</title>
-<link>https://hermes-agent-archive.vercel.app/entry/skill-pack-anthropic-algorithmic-art</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/skill-pack-anthropic-algorithmic-art</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Skills</category>
-<description>Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields, or particle systems. Create original algorithmic art rather than copying existi…</description>
 </item>
 </channel>
 </rss>

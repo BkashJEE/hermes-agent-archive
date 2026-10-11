@@ -10,6 +10,7 @@ const paths = {
   prompts: '<path d="M6 18H3V4h18v14H11l-5 4Z M7 8l3 3-3 3 M13 14h4"/>',
   settings: '<path d="M3 6h4 M11 6h10 M3 12h10 M17 12h4 M3 18h4 M11 18h10"/><rect x="7" y="3" width="4" height="6" rx="1"/><rect x="13" y="9" width="4" height="6" rx="1"/><rect x="7" y="15" width="4" height="6" rx="1"/>',
   commands: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 3 3-3 3 M13 15h4"/>',
+  releases: '<path d="M3 4v7l10 10 8-8L11 3H4a1 1 0 0 0-1 1Z"/><circle cx="7.5" cy="7.5" r="1.5"/>',
   tricks: '<path d="m3 18 11-11 3 3L6 21Z M11 10l3 3 M18 2v4 M16 4h4 M20 14v4 M18 16h4 M6 3v4 M4 5h4"/>',
   toolkit: '<path d="M8 3v5 M16 3v5 M5 8h14v3a7 7 0 0 1-14 0Z M12 18v3"/>',
   builds: '<path d="m12 2 5 3-5 3-5-3Z M7 5v6l5 3 5-3V5 M12 8v6 M7 11l-5 3 5 3 5-3 5 3 5-3-5-3 M2 14v5l5 3 5-3 5 3 5-3v-5 M7 17v5 M12 14v5 M17 17v5"/>'
