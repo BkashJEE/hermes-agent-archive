@@ -68,14 +68,16 @@ jobs:
             exit 1
           fi
 
+      # Through the REST API, not the CLI: the CLI's inspect and promote look up the current
+      # user first, which a team-scoped token cannot answer ("User not found (404)").
       - name: Remember the live deployment
         id: prev
         if: steps.cfg.outputs.ready == 'true'
         run: |
-          set +e
-          prev=$(npx --yes vercel@63.1.2 inspect "$SITE" --token "$VERCEL_TOKEN" 2>&1 | grep -oE 'https://hermes-agent-archive-[a-z0-9]+-[a-z0-9-]+\.vercel\.app' | head -1)
-          echo "url=$prev" >> "$GITHUB_OUTPUT"
-          echo "live before this run: ${prev:-unknown}"
+          prev=$(node scripts/vercel-promote.mjs live)
+          if [ -z "$prev" ]; then echo "::error::Could not read the live deployment, so a rollback would have no target; nothing was staged."; exit 1; fi
+          echo "id=$prev" >> "$GITHUB_OUTPUT"
+          echo "live before this run: $prev"
 
       - name: Stage
         id: stage
@@ -93,7 +95,7 @@ jobs:
 
       - name: Promote
         if: steps.cfg.outputs.ready == 'true'
-        run: npx --yes vercel@63.1.2 promote "${{ steps.stage.outputs.url }}" --yes --token "$VERCEL_TOKEN"
+        run: node scripts/vercel-promote.mjs promote "${{ steps.stage.outputs.url }}"
 
       - name: Verify the live domain
         if: steps.cfg.outputs.ready == 'true'
@@ -102,7 +104,7 @@ jobs:
       # The previous site was serving; a promoted deploy that fails verification must not
       # stay up. Only runs when this job promoted something and a previous deployment is known.
       - name: Roll back on failed verification
-        if: failure() && steps.stage.outputs.url != '' && steps.prev.outputs.url != ''
+        if: failure() && steps.stage.outputs.url != '' && steps.prev.outputs.id != ''
         run: |
-          npx --yes vercel@63.1.2 promote "${{ steps.prev.outputs.url }}" --yes --token "$VERCEL_TOKEN"
-          echo "::error::Live verification failed; production was returned to ${{ steps.prev.outputs.url }}."
+          node scripts/vercel-promote.mjs promote "${{ steps.prev.outputs.id }}"
+          echo "::error::Live verification failed; production was returned to ${{ steps.prev.outputs.id }}."
