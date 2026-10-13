@@ -2,6 +2,19 @@
   "note": "Imported from the NousResearch/hermes-agent GitHub releases by scripts/import-hermes-releases.mjs. One card per published release; the summary and detail are the opening of the official notes, linked in full. Entries are merged, never replaced.",
   "items": [
     {
+      "id": "release-v0-21-7",
+      "title": "Hermes Agent v0.21.7",
+      "summary": "Patch release. This tag rolls up the ~204 PRs merged since v0.21.6 into a stable release for the desktop app (macOS Apple silicon, Windows), the Microsoft Store and MSIX, the installer, Docker and Hermes Cloud. Full…",
+      "detail": "Patch release. This tag rolls up the ~204 PRs merged since v0.21.6 into a stable release for the desktop app (macOS Apple silicon, Windows), the Microsoft Store and MSIX, the installer, Docker and Hermes Cloud. Full curated notes for this window ship with v0.22.0.\n\nWhat this patch ships for source installs (`hermes update` and the desktop app's updater on a git checkout):\n\n• Updates now follow tagged releases. A source install of the official repository updates to the latest published `vX.Y.Z` release instead of every commit on `main`. An install already newer than the latest release stays where it is and waits for the next one; nothing is moved back. To keep following every commit: `hermes update --set-channel main`. Forks and mirrors keep following `main`. Store, MSIX and bundled desktop installs are unchanged.\n• Choose the channel in the desktop app. Settings ▸ About ▸ Updates has an *Update channel* switch (Stable releases / Every commit) for source installs, and the update dialog now shows which channel you are on.\n• Reasoning survives resume. Signed thinking replays after `hermes chat --resume` and on the next gateway turn, and Bedrock Converse reasoning models no longer get rejected on resumed sessions.\n• Updates no longer fail behind some firewalls. Installs on `main` no longer fetch a release record that regional firewalls could answer with 403. The stable check uses your GitHub token when one is set (`GITHUB_TOKEN` or `gh auth login`) and reports a GitHub rate limit as a rate limit.\n\nAbout this release\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v0.21.7",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v0.21.7",
+      "date": "2026-10-12"
+    },
+    {
       "id": "release-v0-21-6",
       "title": "Hermes Agent v0.21.6",
       "summary": "Patch release. This tag rolls up the ~2,100 PRs merged since v0.21.5 into a stable tagged release for Docker and Hermes Cloud. Full curated notes for this window ship with v0.22.0.",

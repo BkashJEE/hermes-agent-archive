@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-10-11T07:40:47.542Z",
+  "classifiedAt": "2026-10-13T15:14:40.293Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -8331,6 +8331,30 @@
       "usefulness": 1.03,
       "popularity": "unknown",
       "confidence": 0.48
+    },
+    "skill-optional-creative-anatomy": {
+      "input": "67f79705943088e43283ce4800c7f216e751e5979dcd4ffc7ea426024b67bd71",
+      "usefulness": 1.46,
+      "popularity": "unknown",
+      "confidence": 0.53
+    },
+    "plugin-official-accent-picker": {
+      "input": "8685178d6b71e96643b1427fbef874348d30c291b4745b01e12eeb12cae0f516",
+      "usefulness": 1.76,
+      "popularity": "unknown",
+      "confidence": 0.56
+    },
+    "plugin-official-langfuse": {
+      "input": "3d394ca24a798706d3b25edf2ebffb204e26cd208e7a4702b03afd82f6fd58a5",
+      "usefulness": 2.4,
+      "popularity": "unknown",
+      "confidence": 0.43
+    },
+    "release-v0-21-7": {
+      "input": "90e68b9c0fe1a5f8fc50786216ae0f19b94115745706e6de4e472babd1952e86",
+      "usefulness": 2.16,
+      "popularity": "unknown",
+      "confidence": 0.24
     }
   }
 }

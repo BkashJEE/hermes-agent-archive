@@ -7,6 +7,38 @@
 <description>Sourced Hermes Agent workflows, prompts, skills and projects, as they are added. Dates are arrival dates.</description>
 <language>en</language>
 <item>
+<title>Anatomy</title>
+<link>https://hermes-agent-archive.vercel.app/entry/skill-optional-creative-anatomy</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/skill-optional-creative-anatomy</guid>
+<pubDate>Tue, 13 Oct 2026 12:00:00 GMT</pubDate>
+<category>Skills</category>
+<description>Explain an idea as an interactive isometric machine figure.</description>
+</item>
+<item>
+<title>Accent Picker</title>
+<link>https://hermes-agent-archive.vercel.app/entry/plugin-official-accent-picker</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/plugin-official-accent-picker</guid>
+<pubDate>Tue, 13 Oct 2026 12:00:00 GMT</pubDate>
+<category>Skills</category>
+<description>OKLCH accent colour picker for the Hermes Desktop status bar: drag it and the whole theme retints live, with palette commands to reset to the theme default or copy the current colour. A theme-authoring tool; the colour is scratch state and is never persisted. Desktop-only (desktop/plugin.js inside…</description>
+</item>
+<item>
+<title>Langfuse</title>
+<link>https://hermes-agent-archive.vercel.app/entry/plugin-official-langfuse</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/plugin-official-langfuse</guid>
+<pubDate>Tue, 13 Oct 2026 12:00:00 GMT</pubDate>
+<category>Skills</category>
+<description>Langfuse observability for Hermes: one trace per turn, one generation per LLM call (usage and cost from Hermes&#39; own pricing, cache and reasoning tokens included), one observation per tool call and subagent. Content capture is sanitized by default (metadata-only and full are opt-in); sends traces…</description>
+</item>
+<item>
+<title>Hermes Agent v0.21.7</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v0-21-7</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v0-21-7</guid>
+<pubDate>Tue, 13 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>Patch release. This tag rolls up the ~204 PRs merged since v0.21.6 into a stable release for the desktop app (macOS Apple silicon, Windows), the Microsoft Store and MSIX, the installer, Docker and Hermes Cloud. Full…</description>
+</item>
+<item>
 <title>Skills added during a conversation</title>
 <link>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-skills-added-during-a-conversation</link>
 <guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-skills-added-during-a-conversation</guid>
@@ -453,38 +485,6 @@
 <pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
 <category>Use Cases</category>
 <description>engine-cleaning shop: Hermes reads the Facebook Messenger leads every 15 min, sums each one up and asks the owner what to reply … coffee machine dealer dictates his quotes strai…</description>
-</item>
-<item>
-<title>Film production company owner runs budgets, deal memos and sales follow-ups via Hermes</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-film-production-company-owner-runs-budgets-deal-memos-and-sa</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-film-production-company-owner-runs-budgets-deal-memos-and-sa</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>I use Hermes for the office around those jobs: production paperwork, sales follow-up, research, content, studio operations, and the records that keep the whole thing from living…</description>
-</item>
-<item>
-<title>A maternal-fetal medicine specialist runs clinical documentation through 94 skills</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-a-maternal-fetal-medicine-specialist-runs-clinical-documenta</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-a-maternal-fetal-medicine-specialist-runs-clinical-documenta</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>I have a Telegram bot that knows my clinical practice, my content voice, my theology writing, and my codebase. … Clinical documentation. The highest-value cluster. These are the…</description>
-</item>
-<item>
-<title>Korean AI company runs dozens of Hermes agents on a Mac Mini farm across every team</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-korean-ai-company-runs-dozens-of-hermes-agents-on-a-mac-mini</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-korean-ai-company-runs-dozens-of-hermes-agents-on-a-mac-mini</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>our CEO went absolute beast mode and bought a ton of Mac Minis to set up a full Mac Mini farm—literally building a Hermes production factory for us. We already have dozens of ag…</description>
-</item>
-<item>
-<title>Attorney who also runs a local multi-site business automates payment reconciliation</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-attorney-who-also-runs-a-local-multi-site-business-automates</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-attorney-who-also-runs-a-local-multi-site-business-automates</guid>
-<pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>I am US-based, an attorney (16 years), and my wife and I own a local brick-and-mortar business (a few locations in our city). … So I added a few more seemingly complex automatio…</description>
 </item>
 </channel>
 </rss>
