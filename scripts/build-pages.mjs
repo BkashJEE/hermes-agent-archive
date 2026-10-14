@@ -48,7 +48,11 @@ const trim = (s, n = 155) => {
    a silently renamed page is a broken link nobody notices. */
 const SAFE_ID = /^[A-Za-z0-9][A-Za-z0-9._-]*$/;
 
-const page = ({ title, description, canonical, body, breadcrumb }) => `<!doctype html>
+/* Each shelf has its own social card (scripts/make-og.mjs), so a pasted entry link shows
+   that shelf's count rather than the whole archive's. Pages without a shelf use the archive card. */
+const social = sectionId => sectionId ? `${SITE}/assets/social/${sectionId}.png` : `${SITE}/assets/social-preview.png`;
+
+const page = ({ title, description, canonical, body, breadcrumb, image = social() }) => `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -60,11 +64,13 @@ const page = ({ title, description, canonical, body, breadcrumb }) => `<!doctype
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${esc(canonical)}">
-<meta property="og:image" content="${SITE}/assets/social-preview.png">
+<meta property="og:image" content="${esc(image)}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(description)}">
-<meta name="twitter:image" content="${SITE}/assets/social-preview.png">
+<meta name="twitter:image" content="${esc(image)}">
 <link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -127,6 +133,7 @@ ${link ? `<a href="${esc(link)}" rel="noopener">Read the original</a>` : ''}
     description: trim(item.summary),
     canonical: `${SITE}/entry/${item.id}`,
     breadcrumb: ` / <a href="/shelf/${esc(section.id)}">${esc(section.label)}</a>`,
+    image: social(section.id),
     body
   });
 }
@@ -146,6 +153,7 @@ ${items.map(i => `<li><a href="/entry/${esc(i.id)}">${esc(i.title)}</a><p>${esc(
     description: trim(section.blurb || `${items.length} entries in the Hermes Agent Archive.`),
     canonical: `${SITE}/shelf/${section.id}`,
     breadcrumb: '',
+    image: social(section.id),
     body
   });
 }

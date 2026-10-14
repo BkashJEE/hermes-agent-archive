@@ -16,6 +16,8 @@
     "rank:ideas": "node scripts/rank-with-jev.mjs",
     "test": "node --test scripts/*.test.mjs",
     "hero": "node scripts/make-hero.mjs",
+    "og": "node scripts/make-og.mjs",
+    "art": "npm run og && npm run hero",
     "prompts": "node scripts/extract-prompts.mjs",
     "links": "node scripts/check-links.mjs",
     "shots": "node scripts/make-shots.mjs",
