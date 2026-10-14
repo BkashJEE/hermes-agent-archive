@@ -66,6 +66,16 @@ jobs:
       - name: Rebuild the crawlable pages
         run: npm run pages
 
+      # The social cards and the hero state the entry count, so they are re-rendered after
+      # every arrival; a card showing a number the site no longer has is an invented one.
+      # The runner's Chrome renders them; if it is missing the script writes nothing and
+      # the previous images stay, which is reported rather than hidden.
+      - name: Re-render the count-bearing images
+        run: |
+          if ! npm run art; then
+            echo "::warning::The social cards and hero could not be re-rendered; the previous images are unchanged."
+          fi
+
       # A harvest that breaks the archive is worse than one that finds nothing, so this
       # gate runs before anything is proposed rather than after review.
       - name: Validate

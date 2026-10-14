@@ -20,6 +20,7 @@ import { dirname, join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { mergeLive } from '../assets/js/archive.js';
 import { creditFor } from '../assets/js/credits.js';
+import { visible } from './build-pages.mjs';
 
 const run = promisify(execFile);
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -45,7 +46,11 @@ for (const section of cfg.sections) {
   data[section.id] = (await read(section.file)).items;
 }
 mergeLive(data, live);
-const items = Object.values(data).flat();
+/* Only what the site shows: an entry withheld by the star floor is on no shelf, so it is
+   no dot — the same filter the social cards and the static pages apply. */
+const byRepo = new Map((live.github || []).map(g => [g.repo.toLowerCase(), g]));
+const items = [];
+for (const item of Object.values(data).flat()) if (await visible(item, byRepo)) items.push(item);
 const entries = items.map(item => FAMILY[item.source] || 'Other');
 const authors = new Set(items.map(creditFor).filter(c => c.label !== 'Author').map(c => c.name));
 const tokens = (await readFile(join(ROOT, 'assets/css/style.css'), 'utf8')).match(/:root\s*\{[\s\S]*?\}/)[0];
