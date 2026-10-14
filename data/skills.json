@@ -5737,6 +5737,60 @@
       "source": "docs",
       "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#skills-added-during-a-conversation",
       "date": "2026-10-11"
+    },
+    {
+      "id": "skill-optional-creative-anatomy",
+      "title": "Anatomy",
+      "summary": "Explain an idea as an interactive isometric machine figure.",
+      "detail": "This skill builds figures that work like a small instrument on a bench: a heavy base on feet, rails with tick rulers, a carriage on bushings, knurled knobs, coil springs, a dial gauge whose needle moves, and screws drawn as tiny dots. The reader understands the idea because they recognise the machine. Every number the figure shows comes from the same model that moves its parts.\n\nPlatforms: linux, macos, windows.",
+      "snippet": "hermes skills install official/creative/anatomy",
+      "tags": [
+        "skills",
+        "optional",
+        "creative",
+        "isometric",
+        "svg",
+        "webgl",
+        "3d"
+      ],
+      "source": "docs",
+      "author": "Ryan (wheresryan22), ported to Hermes by Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/creative/creative-anatomy",
+      "verifiedAt": "2026-10-14"
+    },
+    {
+      "id": "plugin-official-accent-picker",
+      "title": "Accent Picker",
+      "summary": "OKLCH accent colour picker for the Hermes Desktop status bar: drag it and the whole theme retints live, with palette commands to reset to the theme default or copy the current colour. A theme-authoring tool; the colour is scratch state and is never persisted. Desktop-only (desktop/plugin.js inside the plugin SDK surface); no agent tools, hooks, middleware or env vars.",
+      "detail": "OKLCH accent colour picker for the Hermes Desktop status bar: drag it and the whole theme retints live, with palette commands to reset to the theme default or copy the current colour. A theme-authoring tool; the colour is scratch state and is never persisted. Desktop-only (desktop/plugin.js inside the plugin SDK surface); no agent tools, hooks, middleware or env vars.\n\nVersion 1.0.0 at import.",
+      "snippet": "hermes plugins install accent-picker",
+      "tags": [
+        "skills",
+        "plugin",
+        "official-plugin",
+        "desktop"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/plugins/accent-picker",
+      "verifiedAt": "2026-10-14"
+    },
+    {
+      "id": "plugin-official-langfuse",
+      "title": "Langfuse",
+      "summary": "Langfuse observability for Hermes: one trace per turn, one generation per LLM call (usage and cost from Hermes' own pricing, cache and reasoning tokens included), one observation per tool call and subagent. Content capture is sanitized by default (metadata-only and full are opt-in); sends traces only to the Langfuse project whose keys you set. Formerly built into Hermes core as observability/langfuse; existing users are migrated automatically.",
+      "detail": "Langfuse observability for Hermes: one trace per turn, one generation per LLM call (usage and cost from Hermes' own pricing, cache and reasoning tokens included), one observation per tool call and subagent. Content capture is sanitized by default (metadata-only and full are opt-in); sends traces only to the Langfuse project whose keys you set. Formerly built into Hermes core as observability/langfuse; existing users are migrated automatically.\n\nRequires Hermes >=0.21.7. Environment: HERMES_LANGFUSE_PUBLIC_KEY, HERMES_LANGFUSE_SECRET_KEY. Version 2.0.0 at import.",
+      "snippet": "hermes plugins install langfuse",
+      "tags": [
+        "skills",
+        "plugin",
+        "official-plugin",
+        "general"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/plugins/langfuse",
+      "verifiedAt": "2026-10-14"
     }
   ]
 }

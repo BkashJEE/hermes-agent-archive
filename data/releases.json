@@ -2,6 +2,32 @@
   "note": "Imported from the NousResearch/hermes-agent GitHub releases by scripts/import-hermes-releases.mjs. One card per published release; the summary and detail are the opening of the official notes, linked in full. Entries are merged, never replaced.",
   "items": [
     {
+      "id": "release-v0-22-0",
+      "title": "Hermes Agent v0.22.0 — The Threshold Release",
+      "summary": "The Threshold Release. Hermes was the god of thresholds: the doorway, the crossing, the boundary stone. v0.21.0 assembled the pantheon; v0.22.0 is about getting through the door. A fresh desktop install now opens on a…",
+      "detail": "Hermes Agent v0.22.0\n\nThe Threshold Release. Hermes was the god of thresholds: the doorway, the crossing, the boundary stone. v0.21.0 assembled the pantheon; v0.22.0 is about getting through the door. A fresh desktop install now opens on a guided setup chat that runs on a free trial model, so a newcomer is talking to Hermes before they own an API key. Connectors carry the agent across into the apps you already use, with no account needed to start. Local models bring it home to your own hardware with a one-click llama.cpp runtime. And the threshold itself got sturdier: tested SemVer stable releases that installs follow by default, signed desktop packages (including the Microsoft Store), and one package manager underneath everything. Around that spine: a 600-plugin catalog, the Claude 5.5 / GPT-6 model wave, password-manager sign-in for the browser, a bot screen you can take over, one backend and one gateway for every profile, and a codebase a third smaller. This is the largest window Hermes has shipped, about 2.5x the v0.21.0 cycle, and it rolls up and fully documents the v0.21.1–v0.21.7 patch releases.\n\n---\n\n✨ Highlights\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.0",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.0",
+      "date": "2026-10-14"
+    },
+    {
+      "id": "release-v0-21-7",
+      "title": "Hermes Agent v0.21.7",
+      "summary": "Patch release. This tag rolls up the ~204 PRs merged since v0.21.6 into a stable release for the desktop app (macOS Apple silicon, Windows), the Microsoft Store and MSIX, the installer, Docker and Hermes Cloud. Full…",
+      "detail": "Patch release. This tag rolls up the ~204 PRs merged since v0.21.6 into a stable release for the desktop app (macOS Apple silicon, Windows), the Microsoft Store and MSIX, the installer, Docker and Hermes Cloud. Full curated notes for this window ship with v0.22.0.\n\nWhat this patch ships for source installs (`hermes update` and the desktop app's updater on a git checkout):\n\n• Updates now follow tagged releases. A source install of the official repository updates to the latest published `vX.Y.Z` release instead of every commit on `main`. An install already newer than the latest release stays where it is and waits for the next one; nothing is moved back. To keep following every commit: `hermes update --set-channel main`. Forks and mirrors keep following `main`. Store, MSIX and bundled desktop installs are unchanged.\n• Choose the channel in the desktop app. Settings ▸ About ▸ Updates has an *Update channel* switch (Stable releases / Every commit) for source installs, and the update dialog now shows which channel you are on.\n• Reasoning survives resume. Signed thinking replays after `hermes chat --resume` and on the next gateway turn, and Bedrock Converse reasoning models no longer get rejected on resumed sessions.\n• Updates no longer fail behind some firewalls. Installs on `main` no longer fetch a release record that regional firewalls could answer with 403. The stable check uses your GitHub token when one is set (`GITHUB_TOKEN` or `gh auth login`) and reports a GitHub rate limit as a rate limit.\n\nAbout this release\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v0.21.7",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v0.21.7",
+      "date": "2026-10-12"
+    },
+    {
       "id": "release-v0-21-6",
       "title": "Hermes Agent v0.21.6",
       "summary": "Patch release. This tag rolls up the ~2,100 PRs merged since v0.21.5 into a stable tagged release for Docker and Hermes Cloud. Full curated notes for this window ship with v0.22.0.",
