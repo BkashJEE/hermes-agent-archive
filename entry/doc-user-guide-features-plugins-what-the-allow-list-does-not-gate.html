@@ -23,6 +23,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What the allow-list does NOT gate","description":"Several categories of plugin bypass plugins.enabled - they're part of Hermes' built-in surface and would break basic functionality if gated off by…","url":"https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-what-the-allow-list-does-not-gate","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/skills.png","datePublished":"2026-10-05","citation":"https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#what-the-allow-list-does-not-gate","keywords":"plugins, docs"}</script>
 </head>
 <body>
 <div class="doc">
@@ -31,12 +32,13 @@
 <article>
 <h1>What the allow-list does NOT gate</h1>
 
-<p class="meta">From Official Docs</p>
+<p class="meta">From Official Docs · October 5, 2026</p>
 <p>Several categories of plugin bypass plugins.enabled - they&#39;re part of Hermes&#39; built-in surface and would break basic functionality if gated off by default: Plugin kind How it&#39;s activated instead Bundled platform plugins (IRC, Teams, etc. under plugins/platforms/ ) Auto-loaded so every shipped gateway channel is available. The actual channel turns on via gateway.platforms.&lt;name&gt;.enabled in config.yaml . Bundled backends (image-gen providers under plugins/image_gen/ , etc.) Auto-loaded so the default backend &quot;just works&quot;. Selection happens via &lt;category&gt;.provider in config.yaml (e.g. image_gen.provider: openai ). Memory providers ( plugins/memory/ ) All discovered; exactly one is active, chosen by memory.provider in config.yaml . Context engines ( plugins/context_engine/ ) All discovered; one is active, chosen by context.engine in config.yaml . Model providers ( plugins/model-providers/ ) All bundled providers under plugins/model-providers/ discover and register at the first get_provider_profile() call. The user picks one at a time via --provider or config.yaml . Pip-installed backend plugins Opt-in via plugins.enabled (same as general plugins). User-installed platforms (under ~/.her…</p>
 <p>From the official Hermes Agent documentation.</p>
 
 
 <ul class="tags"><li>#plugins</li><li>#docs</li></ul>
+
 <div class="actions">
 <a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#what-the-allow-list-does-not-gate" rel="noopener">Read the original</a>
 <a href="/#skills?item=doc-user-guide-features-plugins-what-the-allow-list-does-not-gate">Open in the archive</a>
@@ -45,7 +47,7 @@
 <footer>
 <p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
 prompts and projects, each one linked to where it came from.</p>
-<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
 </footer>
 </div>
 </body>

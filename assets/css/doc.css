@@ -11,7 +11,11 @@ body { margin: 0; padding: 0 16px 64px; }
 .doc, .doc * { overflow-wrap: anywhere; }
 .doc pre, .doc code { overflow-wrap: normal; }
 .doc { max-width: 46rem; margin: 0 auto; }
-.doc header { padding: 24px 0 8px; border-bottom: 1px solid var(--line, #2a2a2a); margin-bottom: 28px; }
+.doc header { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; padding: 24px 0 8px; border-bottom: 1px solid var(--line, #2a2a2a); margin-bottom: 28px; }
+.doc header .support-btn { margin-left: auto; padding: 6px 12px; border-radius: 6px; background: var(--accent, #f5a524); color: var(--accent-ink, #17120a); font: 700 .72rem/1 'JetBrains Mono', ui-monospace, monospace; letter-spacing: .1em; text-decoration: none; white-space: nowrap; }
+.doc header .support-btn:is(:hover, :focus-visible) { filter: brightness(1.12); }
+.doc .coffee { margin-top: 28px; }
+.doc .actions a small { display: block; margin-top: 4px; font-size: .78rem; opacity: .75; }
 .doc h1 { font-size: clamp(1.5rem, 4vw, 2.1rem); line-height: 1.25; margin: 20px 0 8px; }
 .doc .lede { font-size: 1.05rem; opacity: .9; }
 .doc pre { overflow-x: auto; padding: 14px; border: 1px solid var(--line, #2a2a2a); border-radius: 8px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: .85rem; }
@@ -23,3 +27,32 @@ body { margin: 0; padding: 0 16px 64px; }
 .doc ul.entries li { padding: 14px 0; border-bottom: 1px solid var(--line, #2a2a2a); }
 .doc ul.entries p { margin: 4px 0 0; opacity: .8; font-size: .92rem; }
 .doc footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line, #2a2a2a); font-size: .85rem; opacity: .8; }
+
+/* /support — the tip page. Tokens from style.css; nothing here is a literal colour. */
+.support-hero { text-align: center; padding: 28px 0 8px; }
+.support-mark { display: inline-grid; place-items: center; width: 56px; height: 56px; border-radius: 14px; background: var(--accent-soft); border: 1px solid var(--accent-line); color: var(--accent); }
+.support-mark svg { width: 30px; height: 30px; }
+.support-kicker { margin: 14px 0 0; font: 700 .7rem/1.5 'JetBrains Mono', ui-monospace, monospace; letter-spacing: .26em; color: var(--accent); }
+.support-hero h1 { margin: 6px 0 10px; font-size: clamp(1.8rem, 5vw, 2.6rem); letter-spacing: -.02em; }
+.support-hero .lede { max-width: 38rem; margin: 0 auto; }
+.support-stats { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 26px 0 0; padding: 0; }
+.support-stats li { padding: 14px 10px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
+.support-stats b { display: block; font: 700 1.5rem/1.1 'JetBrains Mono', ui-monospace, monospace; color: var(--accent); }
+.support-stats span { display: block; margin-top: 4px; font-size: .78rem; color: var(--ink-dim); }
+.doc h2 { margin: 36px 0 12px; font-size: 1.05rem; letter-spacing: -.01em; }
+.tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
+.tier { display: flex; flex-direction: column; gap: 6px; padding: 18px 16px; border: 1px solid var(--accent-line); border-radius: 14px; background: var(--panel); text-decoration: none; color: inherit; transition: transform .15s, border-color .15s; }
+.tier:is(:hover, :focus-visible) { transform: translateY(-2px); border-color: var(--accent); }
+.tier-amount { font: 700 1.35rem/1.1 'JetBrains Mono', ui-monospace, monospace; color: var(--accent); }
+.tier-note { font-size: .86rem; color: var(--ink-dim); }
+.tier-cta { margin-top: auto; padding-top: 8px; font: 700 .72rem/1 'JetBrains Mono', ui-monospace, monospace; letter-spacing: .12em; color: var(--accent); }
+.support-list { margin: 0; padding-left: 1.1rem; }
+.support-list li { margin: 8px 0; }
+.support-never { margin-top: 32px; padding: 16px 18px; border-left: 3px solid var(--accent); background: var(--panel); border-radius: 0 12px 12px 0; }
+.support-never h2 { margin-top: 0; }
+.support-never p { margin: 0; }
+.ways { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.way { display: flex; flex-direction: column; gap: 6px; padding: 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); text-decoration: none; color: inherit; }
+.way:is(:hover, :focus-visible) { border-color: var(--accent); }
+.way span { font-size: .86rem; color: var(--ink-dim); }
+@media (max-width: 520px) { .support-stats { grid-template-columns: 1fr; } }

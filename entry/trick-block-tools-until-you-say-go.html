@@ -23,6 +23,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Block every tool at the hook level until you say go","description":"A two-command plugin keeps the agent in discussion-only mode — questions, trade-offs, a running plan — and physically cannot execute until /go.","url":"https://hermes-agent-archive.vercel.app/entry/trick-block-tools-until-you-say-go","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/tricks.png","datePublished":"2026-05-06","author":{"@type":"Person","name":"@ibrandis"},"citation":"https://github.com/teknium1/nous-discord-archive/blob/00e34c284fc9ec2571acc43d6f3e9b8ef1fe2c8a/archives/plugins-skills-and-skins/1501531131734917170-Converse--chat-before-your-agent-acts.txt#L5-L63","keywords":"dev-workflow, safety"}</script>
 </head>
 <body>
 <div class="doc">
@@ -31,7 +32,7 @@
 <article>
 <h1>Block every tool at the hook level until you say go</h1>
 <p class="lede">A two-command plugin keeps the agent in discussion-only mode — questions, trade-offs, a running plan — and physically cannot execute until /go.</p>
-<p class="meta">By @ibrandis · Discord</p>
+<p class="meta">By @ibrandis · Discord · May 6, 2026</p>
 <p>`/converse` flips the agent into discussion-only mode. It asks clarifying questions, surfaces tradeoffs, pushes back on unclear requirements. Tools are blocked at the hook level. It physically cannot execute even if the model tries.</p>
 <p>— @ibrandis, 2026-05-06, via the public Nous Discord archive.</p>
 <p>The contributor describes a plugin with two slash commands. /converse puts the agent into a discussion-only mode by blocking tool calls in a hook and injecting scoping instructions before each model call, so the model can ask questions and surface trade-offs but cannot act. Each reply ends with a structured plan recap. /go re-enables execution with the whole conversation already in context, so nothing has to be re-explained.</p>
@@ -40,6 +41,7 @@
 
 
 <ul class="tags"><li>#dev-workflow</li><li>#safety</li></ul>
+
 <div class="actions">
 <a href="https://github.com/teknium1/nous-discord-archive/blob/00e34c284fc9ec2571acc43d6f3e9b8ef1fe2c8a/archives/plugins-skills-and-skins/1501531131734917170-Converse--chat-before-your-agent-acts.txt#L5-L63" rel="noopener">Read the original</a>
 <a href="/#tricks?item=trick-block-tools-until-you-say-go">Open in the archive</a>
@@ -48,7 +50,7 @@
 <footer>
 <p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
 prompts and projects, each one linked to where it came from.</p>
-<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
 </footer>
 </div>
 </body>

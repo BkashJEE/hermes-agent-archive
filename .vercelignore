@@ -4,6 +4,7 @@
 !robots.txt
 !sitemap.xml
 !whats-new.html
+!support.html
 !feed.xml
 !shelf/**
 !shelf
@@ -26,3 +27,4 @@
 !data/live.json
 !data/rankings.json
 !data/added.json
+!data/support.json

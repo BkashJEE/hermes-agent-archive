@@ -33,7 +33,8 @@
     "plugins": "node scripts/import-official-plugins.mjs",
     "post": "node scripts/whats-new-post.mjs",
     "uses": "node scripts/link-story-uses.mjs",
-    "releases": "node scripts/import-hermes-releases.mjs"
+    "releases": "node scripts/import-hermes-releases.mjs",
+    "hn": "node scripts/import-hn-stories.mjs"
   },
   "engines": {
     "node": ">=20"

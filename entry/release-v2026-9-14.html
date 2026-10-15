@@ -23,6 +23,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Hermes Agent v0.21.3 (v2026.9.14)","description":"Patch release. This tag rolls up the ~338 PRs merged since v0.21.2 into a stable tagged release for downstream consumers (Docker images, Hermes Cloud…","url":"https://hermes-agent-archive.vercel.app/entry/release-v2026-9-14","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/releases.png","datePublished":"2026-09-14","author":{"@type":"Person","name":"Nous Research"},"citation":"https://github.com/NousResearch/hermes-agent/releases/tag/v2026.9.14","keywords":"release"}</script>
 </head>
 <body>
 <div class="doc">
@@ -31,7 +32,7 @@
 <article>
 <h1>Hermes Agent v0.21.3 (v2026.9.14)</h1>
 
-<p class="meta">By Nous Research · GitHub</p>
+<p class="meta">By Nous Research · GitHub · September 14, 2026</p>
 <p>Patch release. This tag rolls up the ~338 PRs merged since v0.21.2 into a stable tagged release for downstream consumers (Docker images, Hermes Cloud, hosted deployments). It exists so the remote-gateway sign-in fixes below reach Cloud agents, which auto-update to the newest release tag.</p>
 <p>What this patch ships for remote Desktop / Cloud users</p>
 <p>• Remote dashboard sessions no longer expire on refresh bursts (#110061, fixes #55712; salvage #71548 @Doud-FR, #55717 @liuhao1024). Both refresh paths on the gateway (cookie gate and the desktop&#39;s native bearer route) now coalesce concurrent requests carrying the same rotating refresh token, so a Desktop wake burst can no longer replay an already-rotated token into the Portal&#39;s reuse detection and revoke the whole session. Refresh also runs off the event loop, so a slow identity provider no longer freezes `/api/status`. Pairs with Portal-side NousResearch/hermes-portal#1209 (sliding 30-day idle horizon, 5-minute rotated-token grace).</p>
@@ -44,6 +45,7 @@
 
 
 <ul class="tags"><li>#release</li></ul>
+
 <div class="actions">
 <a href="https://github.com/NousResearch/hermes-agent/releases/tag/v2026.9.14" rel="noopener">Read the original</a>
 <a href="/#releases?item=release-v2026-9-14">Open in the archive</a>
@@ -52,7 +54,7 @@
 <footer>
 <p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
 prompts and projects, each one linked to where it came from.</p>
-<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
 </footer>
 </div>
 </body>

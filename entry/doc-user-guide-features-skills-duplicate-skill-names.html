@@ -23,6 +23,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Duplicate skill names","description":"Every surface resolves a skill name the same way: Across directories , the higher-precedence directory wins ( project → local → skills.create_dir →…","url":"https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-duplicate-skill-names","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/skills.png","datePublished":"2026-10-09","citation":"https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#duplicate-skill-names","keywords":"skills, docs"}</script>
 </head>
 <body>
 <div class="doc">
@@ -31,12 +32,13 @@
 <article>
 <h1>Duplicate skill names</h1>
 
-<p class="meta">From Official Docs</p>
+<p class="meta">From Official Docs · October 9, 2026</p>
 <p>Every surface resolves a skill name the same way: Across directories , the higher-precedence directory wins ( project → local → skills.create_dir → external_dirs ), including for the same relative path ( productivity/xdup local and external loads the local copy). The shadowed copy is hidden and a warning is logged. Inside one directory , two different skills that share a name are never guessed between. Both are listed under their exact relative path (for example a/one and b/two ), and loading the bare name fails with Ambiguous skill name dup-demo: use one of a/one, b/two . That message is also what hermes -s dup-demo and cron jobs report. Identical copies of one skill (a symlink view or byte-identical copy) resolve to the shallowest path. Plugin skills use their own plugin:skill names and never collide with these.</p>
 <p>From the official Hermes Agent documentation.</p>
 
 
 <ul class="tags"><li>#skills</li><li>#docs</li></ul>
+
 <div class="actions">
 <a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#duplicate-skill-names" rel="noopener">Read the original</a>
 <a href="/#skills?item=doc-user-guide-features-skills-duplicate-skill-names">Open in the archive</a>
@@ -45,7 +47,7 @@
 <footer>
 <p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
 prompts and projects, each one linked to where it came from.</p>
-<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
 </footer>
 </div>
 </body>
