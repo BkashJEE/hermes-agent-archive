@@ -132,8 +132,11 @@ test('an entry without a date says so instead of leaving a gap, and carries stru
 test('the support page has no payment button until a real link is configured', async () => {
   const { supportPage } = await import('./build-pages.mjs');
   const bare = supportPage([]);
-  assert.doesNotMatch(bare, /coffee/i);
+  assert.doesNotMatch(bare, /class="tier"/, 'no tip button without a link');
+  assert.match(bare, /There is no sponsored placement/);
   assert.match(bare, /Star the repository/);
+  const counted = supportPage([], null, { entries: 1256, shelves: 10, people: 466 });
+  assert.match(counted, /1,256/);
   const linked = supportPage([{ label: '$5 one-time', url: 'https://example.com/coffee', note: 'pays for one entry checked' }], 'mailto:a@b.c?subject=x');
   assert.match(linked, /href="https:\/\/example.com\/coffee"/);
   assert.match(linked, /pays for one entry checked/);

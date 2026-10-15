@@ -27,6 +27,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join } from 'node:path';
 import { githubRepo } from '../assets/js/archive.js';
 import { qualifiesRepository } from '../assets/js/github-policy.js';
+import { creditFor } from '../assets/js/credits.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://hermes-agent-archive.vercel.app';
@@ -235,27 +236,60 @@ ${Object.entries(byShelf).map(([shelf, list]) => `<p class="meta">${esc(label(sh
 }
 
 /**
- * /support — what actually helps a one-person archive, with a payment link only when the
- * curator has configured a real one in data/support.json. An empty list renders the page
- * without a button; a dead "buy me a coffee" would be worse than none.
+ * /support — a tip page that reads like one. Free to browse, always; what a tip pays for,
+ * what it never buys, and the ways to help that cost nothing. Every figure on it is
+ * counted from the loaded archive at build time. A payment link renders only when the
+ * curator has configured a real one in data/support.json — a dead button would say the
+ * opposite of what the page says.
  */
-export function supportPage(links = [], sponsor = null) {
+export function supportPage(links = [], sponsor = null, stats = null) {
+  const tier = l => `<a class="tier" href="${esc(l.url)}" rel="noopener">
+    <span class="tier-amount">${esc(l.label)}</span>
+    ${l.note ? `<span class="tier-note">${esc(l.note)}</span>` : ''}
+    <span class="tier-cta">Tip →</span></a>`;
+  const n = v => Number(v || 0).toLocaleString('en-US');
   const body = `
-<h1>Support the archive</h1>
-<p class="lede">The archive is free, open source, and kept by one person in the evenings. These are the things that help, in the order they help.</p>
-<h2>Share one entry</h2>
-<p>Every entry has its own page. Sending a single useful one to a Hermes user is what grows this more than anything else.</p>
-<h2>Star the repository</h2>
-<p>A star on <a href="${OWNER_GH}/hermes-agent-archive" rel="noopener">GitHub</a> is how new readers find it, and how the curator knows it is read.</p>
-<h2>Add to it</h2>
-<p><a href="${OWNER_GH}/hermes-agent-archive/issues/new?template=submit-entry.yml" rel="noopener">Suggest an entry</a> or <a href="${OWNER_GH}/hermes-agent-archive/issues/new?template=correction.yml" rel="noopener">correct a credit</a>. Both are reviewed before publishing, and both are credited.</p>
-${links.length ? `<h2>Buy the curator a coffee</h2>
-<p>Free to browse, always. If it saved you an evening, these are the two amounts that keep it running.</p>
-<div class="actions">${links.map(l => `<a href="${esc(l.url)}" rel="noopener">${esc(l.label)}${l.note ? ` <small>${esc(l.note)}</small>` : ''}</a>`).join('')}</div>` : ''}
-${sponsor ? `<h2>Sponsor slot</h2>
-<p>One labelled slot, always marked <em>Sponsored</em>, never on a shelf and never in the ranking. <a href="${esc(sponsor)}">Ask about it</a>.</p>` : ''}
-<p class="meta">Nothing here changes what is listed. Sponsorship and support never buy a place on a shelf or a position in the ranking.</p>`;
-  return page({ title: 'Support the archive', description: 'How to support the Hermes Agent Archive: share an entry, star the repository, add to it.', canonical: `${SITE}/support`, breadcrumb: ' / Support', body,
+<section class="support-hero">
+  <span class="support-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="5" rx="1"/><path d="M5 8v12h14V8 M9 12h6 M10 16h4"/></svg></span>
+  <p class="support-kicker">TIP JAR</p>
+  <h1>Keep the archive running.</h1>
+  <p class="lede">Free to browse, always. One person reads every source, checks every credit and keeps the daily harvest honest. If it saved you an evening, a tip keeps the lights on.</p>
+  ${stats ? `<ul class="support-stats" aria-label="What the archive holds today">
+    <li><b>${n(stats.entries)}</b><span>entries, each linked to its source</span></li>
+    <li><b>${n(stats.people)}</b><span>people credited by name</span></li>
+    <li><b>${n(stats.shelves)}</b><span>shelves, refreshed daily</span></li>
+  </ul>` : ''}
+</section>
+${links.length ? `<section class="support-tiers" aria-labelledby="tipTitle">
+  <h2 id="tipTitle">Leave a tip</h2>
+  <div class="tiers">${links.map(tier).join('')}</div>
+  <p class="meta">Payments open on the curator's own page. Nothing is collected here.</p>
+</section>` : ''}
+<section class="support-pays" aria-labelledby="paysTitle">
+  <h2 id="paysTitle">What a tip pays for</h2>
+  <ul class="support-list">
+    <li><b>The editorial API calls</b> that triage and rank every arrival, so the shelves stay ordered by usefulness rather than by date.</li>
+    <li><b>The evenings</b> spent reading sources, resolving quotes to the exact message and checking that every credit names the right person.</li>
+    <li><b>Keeping it free</b> — no paywall, no account, no tracking script, and the whole thing open source.</li>
+  </ul>
+</section>
+<section class="support-never" aria-labelledby="neverTitle">
+  <h2 id="neverTitle">What a tip never buys</h2>
+  <p>A place on a shelf. A position in the ranking. A number on a card. ${sponsor ? 'The one sponsor slot is always labelled <em>Sponsored</em> and sits outside every shelf.' : 'There is no sponsored placement.'}</p>
+</section>
+<section class="support-free" aria-labelledby="freeTitle">
+  <h2 id="freeTitle">Help without spending anything</h2>
+  <div class="ways">
+    <a class="way" href="/"><b>Share one entry</b><span>Every entry has its own page. Sending one useful page to a Hermes user grows this more than anything else.</span></a>
+    <a class="way" href="${OWNER_GH}/hermes-agent-archive" rel="noopener"><b>Star the repository</b><span>A star is how new readers find it, and how the curator knows it is read.</span></a>
+    <a class="way" href="${OWNER_GH}/hermes-agent-archive/issues/new?template=submit-entry.yml" rel="noopener"><b>Add to it</b><span>Suggest an entry or correct a credit. Both are reviewed before publishing, and both are credited.</span></a>
+  </div>
+</section>
+${sponsor ? `<section class="support-sponsor" aria-labelledby="sponsorTitle">
+  <h2 id="sponsorTitle">Sponsor slot</h2>
+  <p>One labelled slot, always marked <em>Sponsored</em>, never on a shelf and never in the ranking. <a href="${esc(sponsor)}">Ask about it</a>.</p>
+</section>` : ''}`;
+  return page({ title: 'Support the archive', description: 'Tip jar for the Hermes Agent Archive: free to browse, kept by one person. What a tip pays for, what it never buys, and the ways to help that cost nothing.', canonical: `${SITE}/support`, breadcrumb: ' / Support', body,
     jsonld: { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Support the archive', url: `${SITE}/support`, isPartOf: WEBSITE } });
 }
 
@@ -334,7 +368,11 @@ async function main() {
   for (const { section, items } of shelves) for (const i of items) lookup.set(i.id, { id: i.id, title: i.title, shelf: section.label });
   const urls = [`${SITE}/`];
   const support = JSON.parse(await readFile(join(ROOT, 'data', 'support.json'), 'utf8').catch(() => '{"links":[]}'));
-  await writeFile(join(ROOT, 'support.html'), supportPage(Array.isArray(support.links) ? support.links : [], typeof support.sponsor === 'string' ? support.sponsor : null));
+  /* The page's figures are the same counts the cards and the dashboard carry. */
+  const paged = shelves.flatMap(s => s.items);
+  const stats = { entries: paged.length, shelves: shelves.length,
+    people: new Set(paged.map(creditFor).filter(c => c.label !== 'Author').map(c => c.name)).size };
+  await writeFile(join(ROOT, 'support.html'), supportPage(Array.isArray(support.links) ? support.links : [], typeof support.sponsor === 'string' ? support.sponsor : null, stats));
   urls.push(`${SITE}/support`);
   if (days.length) {
     await writeFile(join(ROOT, 'whats-new.html'), whatsNewPage(days.slice(0, 30), index.sections));
