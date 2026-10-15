@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Occasionally I weigh in with an opinion or pick a recommendation · Hermes Agent Archive</title>
+<meta name="description" content="VPS is production. Linux dev box is my local big box. Macbook just lets me move about and do iOS development. Orca lets me run agents either on linux box…">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/hn-49742023">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Occasionally I weigh in with an opinion or pick a recommendation">
+<meta property="og:description" content="VPS is production. Linux dev box is my local big box. Macbook just lets me move about and do iOS development. Orca lets me run agents either on linux box…">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/hn-49742023">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social/use-cases.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Occasionally I weigh in with an opinion or pick a recommendation">
+<meta name="twitter:description" content="VPS is production. Linux dev box is my local big box. Macbook just lets me move about and do iOS development. Orca lets me run agents either on linux box…">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social/use-cases.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Occasionally I weigh in with an opinion or pick a recommendation","description":"VPS is production. Linux dev box is my local big box. Macbook just lets me move about and do iOS development. Orca lets me run agents either on linux box…","url":"https://hermes-agent-archive.vercel.app/entry/hn-49742023","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/use-cases.png","datePublished":"2026-09-17","author":{"@type":"Person","name":"browningstreet"},"citation":"https://news.ycombinator.com/item?id=49742023","keywords":"user-story, hn-comment"}</script>
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/use-cases">Use Cases</a></header>
+
+<article>
+<h1>Occasionally I weigh in with an opinion or pick a recommendation</h1>
+
+<p class="meta">By browningstreet · Hacker News · September 17, 2026</p>
+<p>VPS is production. Linux dev box is my local big box. Macbook just lets me move about and do iOS development. Orca lets me run agents either on linux box or locally on the macbook depending on how I&#39;m feeling, and Orca handles all the worktrees &amp; sub-agents for me (via Opencode). Everything runs in a tailscale network, ssh connects all the things.</p>
+<p>My github repos all have CONSTITUTION.md files that keep multi-agent dev grounded. Production runs trigger github actions that automatically check logs daily, file bug reports, etc. I launch Orca and literally just type &quot;checking in&quot; and the CONSTITUTION.md file governs the scanning of github issues and prioritization of which issues need to be addressed. Another process prioritizes and bundles them. When I type &quot;checking in&quot; the Orca worktree handles the launching of sub-agents that fix things. Occasionally I weigh in with an opinion or pick a recommendation. If I&#39;m in the mood to pay attention I&#39;ll ask it to find another round of bugs and let&#39;s keep going. Often I just let it close after the first round. When I tell it &quot;done?&quot; it does a full regression and a production box review. Code auto-deploys to production twice/day. I don&#39;t regularly push to production manually.</p>
+<p>On Fridays the CONSTITUTION.md kicks off a strategy and roadmap review when I type &quot;checking in&quot;. As I have ideas I add them to the roadmap in one of the worktrees. Generally nothing happens until they&#39;re reviewed on Fridays together, unless I push one manually.. which happens.</p>
+<p>Hermes runs on the production box. I have a few skills and quick commands that lets me check in on production runs and the status of things. It&#39;s read-only by design, basically my version of a dashboard. If I have a thought, idea, research link, or question it&#39;ll write to a github issue and we&#39;ll deal with it in the next check-in.</p>
+<p>Orca lets me do all this remotely from an iPhone, and I talk to Hermes via Telegram. I generally don&#39;t INITIATE new work using either of these. I report issues/ideas and let the process do the things. But I can, and have.. I just tend not to. The whole thing churns, and so my inclination to &quot;jump in and do a thing&quot; is less than before. My inclination now is to toss things into the machine and let the machine work the schedule. I&#39;m at a point where I could easily automate 80% of this and do my manual things 1x/2x week and I think progress would stay steady. I&#39;ll get there at some point, but I like the level of engagement I&#39;m participating in now.</p>
+<p>Occasionally I use Claude Code as a watchtower review of things, or do a wholesale code review, or do a review of logs. But deepseek is much better at building this machine -- I built something manually over time and through a ship of theseus process it got ugly. Deepseek reviewed the situation and wrote the CONSTITUTION.md and designed the processes independently. It favors deterministic scripts for process but launches them via LLM and monitors for exceptions; also, no memory system which also disqualifies Claude from being at the center of this. Memory plugins didn&#39;t work well because instructions start accumulating all through the chain of instruction files (AGENTS.md, memory, etc) and that gets very undeterministic very quickly. Instructions are written once, reviewed/audited intentionally.. it&#39;s best not to let LLMs learn and write their own dynamically (yet).</p>
+<p>I&#39;ve since used it as a template for other projects I&#39;ve started -- they work the same. Currently building the GTM agent that will handle all SEO, marketing, keywording, etc for my projects -- it&#39;ll be a significantly autonomous Hermes agent. Don&#39;t really need Claude for any of this and my Deepseek bill is $50-100/mo.</p>
+<p>— browningstreet, 2026-09-17, in the Hacker News thread “Claude Cowork and chat are now one Claude”.</p>
+
+
+<ul class="tags"><li>#user-story</li><li>#hn-comment</li></ul>
+
+<div class="actions">
+<a href="https://news.ycombinator.com/item?id=49742023" rel="noopener">Read the original</a>
+<a href="/#use-cases?item=hn-49742023">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
+</footer>
+</div>
+</body>
+</html>

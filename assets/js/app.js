@@ -582,6 +582,30 @@ function todaysPick() {
   </section>`;
 }
 
+/* The official skills and plugins worth installing first, by Jev's usefulness judgment.
+   Every one of them is on the Skills shelf already; this is the shortlist a newcomer asks
+   for. Labelled as editorial: the order is a judgment of substance, never a popularity
+   figure, and it says so. */
+function bestOfNous() {
+  const official = (state.data?.skills || [])
+    .filter(it => /^(skill-optional-|skill-bundled-|plugin-official-)/.test(it.id) && it.ranking?.usefulness != null);
+  const top = kind => official
+    .filter(it => kind === 'plugin' ? it.id.startsWith('plugin-official-') : !it.id.startsWith('plugin-official-'))
+    .sort((a, b) => b.ranking.usefulness - a.ranking.usefulness);
+  const skills = top('skill').slice(0, 6), plugins = top('plugin').slice(0, 3);
+  if (!skills.length) return '';
+  const row = it => `<li><button data-open-entry="${esc(it.id)}">
+      <strong>${esc(it.title)}</strong><span>${esc(it.summary || '')}</span></button></li>`;
+  return `<section class="dash-best" aria-labelledby="bestTitle">
+    <p class="dash-pick-kicker" id="bestTitle">BEST OF NOUS <span>· official skills and plugins to install first · ordered by Jev's usefulness judgment, which is editorial, not a popularity figure</span></p>
+    <div class="dash-best-cols">
+      <div><h3>Skills</h3><ul>${skills.map(row).join('')}</ul></div>
+      ${plugins.length ? `<div><h3>Plugins</h3><ul>${plugins.map(row).join('')}</ul></div>` : ''}
+    </div>
+    <a class="dash-preview-all" href="#skills">See every official skill &rarr;</a>
+  </section>`;
+}
+
 function renderDashboard() {
   const st = dashboardStats();
   const live = state.live || {};
@@ -605,6 +629,7 @@ function renderDashboard() {
 
   $('#dashPanel').innerHTML = `
     ${todaysPick()}
+    ${bestOfNous()}
     ${shelfPreviews()}
     <h2 class="dash-section-title">BY THE NUMBERS</h2>
     <div class="dash-tiles">

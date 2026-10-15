@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The VPS hosts a Hermes installation, and for more complicated tasks or for ongoing projects the… · Hermes Agent Archive</title>
+<meta name="description" content="I have a Pebble Time 2, which is an open source watch. I built a voice operated AI assistant for it. It&#39;s hosted on a VPS, connected over Tailscale, and…">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/hn-49234527">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The VPS hosts a Hermes installation, and for more complicated tasks or for ongoing projects the…">
+<meta property="og:description" content="I have a Pebble Time 2, which is an open source watch. I built a voice operated AI assistant for it. It&#39;s hosted on a VPS, connected over Tailscale, and…">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/hn-49234527">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social/use-cases.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The VPS hosts a Hermes installation, and for more complicated tasks or for ongoing projects the…">
+<meta name="twitter:description" content="I have a Pebble Time 2, which is an open source watch. I built a voice operated AI assistant for it. It&#39;s hosted on a VPS, connected over Tailscale, and…">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social/use-cases.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The VPS hosts a Hermes installation, and for more complicated tasks or for ongoing projects the…","description":"I have a Pebble Time 2, which is an open source watch. I built a voice operated AI assistant for it. It's hosted on a VPS, connected over Tailscale, and…","url":"https://hermes-agent-archive.vercel.app/entry/hn-49234527","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/use-cases.png","datePublished":"2026-08-09","author":{"@type":"Person","name":"SamPatt"},"citation":"https://news.ycombinator.com/item?id=49234527","keywords":"user-story, hn-comment"}</script>
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/use-cases">Use Cases</a></header>
+
+<article>
+<h1>The VPS hosts a Hermes installation, and for more complicated tasks or for ongoing projects the…</h1>
+
+<p class="meta">By SamPatt · Hacker News · August 9, 2026</p>
+<p>I have a Pebble Time 2, which is an open source watch. I built a voice operated AI assistant for it.</p>
+<p>It&#39;s hosted on a VPS, connected over Tailscale, and has a realtime TTS server (Piper).</p>
+<p>The Pebble has built in transcription, so my app takes the transcript, hits the server endpoint with three possible paths:</p>
+<p>1. Deterministic response</p>
+<p>The server looks for certain triggers from the transcript like &quot;Add task,&quot; &quot;Complete task,&quot; &quot;Set a timer,&quot; etc that will run a simple function on server and write / retrieve to a database, no LLM call needed. It then responds with the TTS output and the watch speaks. This path is nearly instant.</p>
+<p>2. Fast response</p>
+<p>If no trigger is found, then it hits a gpt5.6 Luna endpoint, which decides if it can answer the query itself, or if it needs to defer to the big brother model. If it can handle a query itself, it usually responds to simple questions in less than 8 seconds. It&#39;s also good about properly deferring, very close to 100% after a few weeks.</p>
+<p>3. Deferred response</p>
+<p>The VPS hosts a Hermes installation, and for more complicated tasks or for ongoing projects the Luna router sends it to the Hermes agent. This is typically quite slow, as you&#39;d expect, but remarkably capable. I built the voice app to cache a few lines like &quot;this will take some time&quot; which will automatically trigger if the router indicates it&#39;s deferring, and then will respond with the full response from Hermes once it&#39;s finished (sometimes minutes later).</p>
+<p>Pebble has a quiet mode, and my app will only display the text response if it&#39;s on, otherwise all responses are run through the TTS. Piper is so fast that this adds almost no time to the response.</p>
+<p>In only a few weeks this has become the primary way I set up tasks, review and close them, set timers and reminders, log my weight, check in on the progress of projects I&#39;m running on Hermes, and ask simple day to day AI questions.</p>
+<p>Since Pebble is open source, AI tools are very good at building it, and it&#39;s trivially easy to set it up so that you can just ask the model to deploy it live. It&#39;s an awesome experience to tell it to change something, and two minutes later, that change is on your wrist.</p>
+<p>Very fun project!</p>
+<p>— SamPatt, 2026-08-09, in the Hacker News thread “Ask HN: What are you working on? (August 2026)”.</p>
+
+
+<ul class="tags"><li>#user-story</li><li>#hn-comment</li></ul>
+
+<div class="actions">
+<a href="https://news.ycombinator.com/item?id=49234527" rel="noopener">Read the original</a>
+<a href="/#use-cases?item=hn-49234527">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
+</footer>
+</div>
+</body>
+</html>

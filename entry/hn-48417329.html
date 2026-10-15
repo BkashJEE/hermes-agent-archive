@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I also use it at work (integrated at Slack) and at this point it answers most of both my emails… · Hermes Agent Archive</title>
+<meta name="description" content="I use PI ( https://pi.dev ) and ( https://hermes-agent.nousresearch.com/ ) as the main drivers together with deepseek-v4-pro as the main model (~10M/day…">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/hn-48417329">
+<meta property="og:type" content="article">
+<meta property="og:title" content="I also use it at work (integrated at Slack) and at this point it answers most of both my emails…">
+<meta property="og:description" content="I use PI ( https://pi.dev ) and ( https://hermes-agent.nousresearch.com/ ) as the main drivers together with deepseek-v4-pro as the main model (~10M/day…">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/hn-48417329">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social/use-cases.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="I also use it at work (integrated at Slack) and at this point it answers most of both my emails…">
+<meta name="twitter:description" content="I use PI ( https://pi.dev ) and ( https://hermes-agent.nousresearch.com/ ) as the main drivers together with deepseek-v4-pro as the main model (~10M/day…">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social/use-cases.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"I also use it at work (integrated at Slack) and at this point it answers most of both my emails…","description":"I use PI ( https://pi.dev ) and ( https://hermes-agent.nousresearch.com/ ) as the main drivers together with deepseek-v4-pro as the main model (~10M/day…","url":"https://hermes-agent-archive.vercel.app/entry/hn-48417329","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/use-cases.png","datePublished":"2026-06-05","author":{"@type":"Person","name":"igorhvr"},"citation":"https://news.ycombinator.com/item?id=48417329","keywords":"user-story, hn-comment"}</script>
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/use-cases">Use Cases</a></header>
+
+<article>
+<h1>I also use it at work (integrated at Slack) and at this point it answers most of both my emails…</h1>
+
+<p class="meta">By igorhvr · Hacker News · June 5, 2026</p>
+<p>I use PI ( https://pi.dev ) and ( https://hermes-agent.nousresearch.com/ ) as the main drivers together with deepseek-v4-pro as the main model (~10M/day tokens overall there).</p>
+<p>Hermes basically rules my personal life at this point - it is a _very_ useful personal assistant.</p>
+<p>I also use it at work (integrated at Slack) and at this point it answers most of both my emails and slack messages (I calibrated https://github.com/blader/humanizer with a large corpus of my own voice to make it less annoying for the others). My routine now involving walking in circles while exchanging messages with hermes directing it how to answer this or that... Hermes uses an llm-wiki ( https://gist.github.com/karpathy/442a6bf555914893e9891c11519... ) as a source of information when drafting suggested replies - I have a cronjob that feeds it all emails, slack messages, meeting minutes every single day.</p>
+<p>Claude Code with Opus 4.6 for multimodal/vision, design and writing tasks (&quot;Create a crisp memo from this meeting transcription&quot; is a prompt that will bring great results with either Opus 4.6 or GLM-5.1) - very recently I started to use https://github.com/anomalyco/opencode occasionally with opus models too (I am forcing myself a little bit because it is hard to help people with a tool you are unfamiliar with).</p>
+<p>For building software automatically I currently use one of the harness above for for launching https://tamandua-tetradactyla.nfshost.com/ feature-dev-merge-worktree runs (it provides workflows on top of PI+deepseek).</p>
+<p>Where it comes from: until recently I used https://steve-yegge.medium.com/welcome-to-gas-town-4f25ee16d... for automatic software building but while planning an AI bootcamp I concluded that teaching Gas Town along with everything else would be impossible (too hard/complex), and decided to teach https://github.com/snarktank/antfarm instead but did not want to add OpenClaw as one more dependency - so I built Tamandua ( https://github.com/igorhvr/tamandua ) and I ended up using it all the time! I now every single day before going to sleep launch a couple of runs and it is very cool waking up to see them done.</p>
+<p>For autoresearch-like, optimization, and other tasks with a very clear measurable goal (such as increasing test coverage, changing things from one programming language to another, etc) I use https://github.com/davebcn87/pi-autoresearch (100% of the time on top of deepseek-v4-pro).</p>
+<p>For debugging or very hard problems I use codex w/ GPT5.5. I don´t like its personality (lazy) but I do think it is smartest model available. As evidence, here is a commit of a problem where I tried Opus 4.8, Deepseek-v4-pro and a couple of other models and they all failed to understand what the bug was: https://github.com/NousResearch/hermes-agent/pull/38198/chan... - once the bug was found within codex I launched from it a tamandua bug-fix-merge-worktree run on top of deepseek-v4-pro that created the commit itself...</p>
+<p>As a web application I use OpenWebUI and I am specially fond of the notes feature ( https://docs.openwebui.com/features/notes/ ) which I did not find anywhere else.</p>
+<p>Last but not least, I love playing with local models. https://huggingface.co/Qwen/Qwen3-Coder-480B-A35B-Instruct is my current favorite for coding and deepseek-r1 for general tasks. I also started yesterday testing https://github.com/antirez/ds4 - it works _very_ well from what I could see so far.</p>
+<p>What comes next? Trying to figure out what is the &quot;deepseek-v4-pro of multimodal&quot; model (frontier performance, efficient/comparatively cheap to run, support for image/audio/video/etc). Currently using kimi-k2.6, will test Minimax M3 soon.</p>
+<p>Ah, almost forgot: https://huggingface.co/microsoft/VibeVoice-ASR will give you AMAZINGLY good meeting transcriptions (my hermes vibecoded a program to use it). Seriously, night and day difference from what the big players provide natively in their platforms. Have 8 people talking in 3 different languages? No problem - you will need a bit of patience and beefy hardware, only..</p>
+<p>— igorhvr, 2026-06-05, in the Hacker News thread “Ask HN: What is your (AI) dev tech stack / workflow?”.</p>
+
+
+<ul class="tags"><li>#user-story</li><li>#hn-comment</li></ul>
+
+<div class="actions">
+<a href="https://news.ycombinator.com/item?id=48417329" rel="noopener">Read the original</a>
+<a href="/#use-cases?item=hn-48417329">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
+</footer>
+</div>
+</body>
+</html>

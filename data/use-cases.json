@@ -1,6 +1,6 @@
 {
   "note": "Imported from https://hermes-agent.nousresearch.com/docs/user-stories by scripts/import-hermes-stories.mjs. Every entry is a real post quoted and attributed on that page; the headline, quote, author and link are as published. Entries are merged, never replaced — nothing already archived is removed by a re-import.",
-  "importedAt": "2026-10-09T07:36:45.653Z",
+  "importedAt": "2026-10-14T07:02:00.436Z",
   "items": [
     {
       "id": "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t",
@@ -6123,6 +6123,692 @@
       "url": "https://news.ycombinator.com/item?id=49628094",
       "author": "SchezHugo (Hacker News)",
       "date": "2026-09-09"
+    },
+    {
+      "id": "hn-50070852",
+      "title": "So, one of the first things that I have put my Hermes agent to work doing is populating my home…",
+      "summary": "So, one of the first things that I have put my Hermes agent to work doing is populating my home lab inventory and documentation in Netbox. Documentation and inventory are two…",
+      "detail": "So, one of the first things that I have put my Hermes agent to work doing is populating my home lab inventory and documentation in Netbox. Documentation and inventory are two things that most of us are lazy about keeping updated. However, this was one of the first things that I wanted to use Hermes for in the home lab as it can work tirelessly to gather info, import and update that info in Netbox, and most importantly, keep it updated. Are you using Hermes for this as well? Let me know what tasks you have delegated to it for your home lab?\n\n— bleevht, 2026-10-13, in the Hacker News thread “[dead]”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=50070852",
+      "author": "bleevht",
+      "date": "2026-10-13"
+    },
+    {
+      "id": "hn-49810576",
+      "title": "On top of that I also run Hermes Agent and have set up there one agent to be responsible for…",
+      "summary": "One is pi.dev on the console, but because the KB is a git repository I have it on each computer. On top of that I also run Hermes Agent and have set up there one agent to be…",
+      "detail": "One is pi.dev on the console, but because the KB is a git repository I have it on each computer. On top of that I also run Hermes Agent and have set up there one agent to be responsible for the KB stuff and that one I connected to a Matrix channel and can use it from the phone and any device where I have a matrix client like Element set up.\n\nWith pi.dev I use it in a container https://git.jeena.net/jeena/agent-container and selectively give it access to Firefox via https://github.com/ThinkerYzu/foxmcp when I want it to help me with something in the browser (doing taxes, applying for things online in a foreign language, etc.)\n\n— jeena, 2026-09-23, in the Hacker News thread “The new CC, an AI agent built for families”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=49810576",
+      "author": "jeena",
+      "date": "2026-09-23"
+    },
+    {
+      "id": "hn-49787187",
+      "title": "I told it to keep an eye on prices",
+      "summary": "I've been looking for a new cooker. I have a Hermes agent running on VM that does this. I told it to keep an eye on prices. It created a cron job that triggers the scrapes and…",
+      "detail": "> So for example, i have a conversation in Proactive Messaging asking claude to follow the lowest price of something and let me now if it goes below a certain value. Then a few weeks down the line, i get a popup from claude about this if it happens. There should also be a menu in this case with what tasks like this have been defined.\n\nI've been looking for a new cooker. I have a Hermes agent running on VM that does this. I told it to keep an eye on prices. It created a cron job that triggers the scrapes and messages me if anything interesting happened since the last time it checked.\n\n— cassianoleal, 2026-09-21, in the Hacker News thread “Show HN: Lossless-memory – a personal AI memory that never summarizes”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=49787187",
+      "author": "cassianoleal",
+      "date": "2026-09-21"
+    },
+    {
+      "id": "hn-49742023",
+      "title": "Occasionally I weigh in with an opinion or pick a recommendation",
+      "summary": "VPS is production. Linux dev box is my local big box. Macbook just lets me move about and do iOS development. Orca lets me run agents either on linux box or locally on the…",
+      "detail": "VPS is production. Linux dev box is my local big box. Macbook just lets me move about and do iOS development. Orca lets me run agents either on linux box or locally on the macbook depending on how I'm feeling, and Orca handles all the worktrees & sub-agents for me (via Opencode). Everything runs in a tailscale network, ssh connects all the things.\n\nMy github repos all have CONSTITUTION.md files that keep multi-agent dev grounded. Production runs trigger github actions that automatically check logs daily, file bug reports, etc. I launch Orca and literally just type \"checking in\" and the CONSTITUTION.md file governs the scanning of github issues and prioritization of which issues need to be addressed. Another process prioritizes and bundles them. When I type \"checking in\" the Orca worktree handles the launching of sub-agents that fix things. Occasionally I weigh in with an opinion or pick a recommendation. If I'm in the mood to pay attention I'll ask it to find another round of bugs and let's keep going. Often I just let it close after the first round. When I tell it \"done?\" it does a full regression and a production box review. Code auto-deploys to production twice/day. I don't regularly push to production manually.\n\nOn Fridays the CONSTITUTION.md kicks off a strategy and roadmap review when I type \"checking in\". As I have ideas I add them to the roadmap in one of the worktrees. Generally nothing happens until they're reviewed on Fridays together, unless I push one manually.. which happens.\n\nHermes runs on the production box. I have a few skills and quick commands that lets me check in on production runs and the status of things. It's read-only by design, basically my version of a dashboard. If I have a thought, idea, research link, or question it'll write to a github issue and we'll deal with it in the next check-in.\n\nOrca lets me do all this remotely from an iPhone, and I talk to Hermes via Telegram. I generally don't INITIATE new work using either of these. I report issues/ideas and let the process do the things. But I can, and have.. I just tend not to. The whole thing churns, and so my inclination to \"jump in and do a thing\" is less than before. My inclination now is to toss things into the machine and let the machine work the schedule. I'm at a point where I could easily automate 80% of this and do my manual things 1x/2x week and I think progress would stay steady. I'll get there at some point, but I like the level of engagement I'm participating in now.\n\nOccasionally I use Claude Code as a watchtower review of things, or do a wholesale code review, or do a review of logs. But deepseek is much better at building this machine -- I built something manually over time and through a ship of theseus process it got ugly. Deepseek reviewed the situation and wrote the CONSTITUTION.md and designed the processes independently. It favors deterministic scripts for process but launches them via LLM and monitors for exceptions; also, no memory system which also disqualifies Claude from being at the center of this. Memory plugins didn't work well because instructions start accumulating all through the chain of instruction files (AGENTS.md, memory, etc) and that gets very undeterministic very quickly. Instructions are written once, reviewed/audited intentionally.. it's best not to let LLMs learn and write their own dynamically (yet).\n\nI've since used it as a template for other projects I've started -- they work the same. Currently building the GTM agent that will handle all SEO, marketing, keywording, etc for my projects -- it'll be a significantly autonomous Hermes agent. Don't really need Claude for any of this and my Deepseek bill is $50-100/mo.\n\n— browningstreet, 2026-09-17, in the Hacker News thread “Claude Cowork and chat are now one Claude”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=49742023",
+      "author": "browningstreet",
+      "date": "2026-09-17"
+    },
+    {
+      "id": "hn-49477413",
+      "title": "All of this is sidestepped somewhat by using good isolation primitives - I'm running a Hermes…",
+      "summary": "This article smells AI generated, which is _very_ funny given the argument being made.\n\nEither way, while this is true in the absolute, this is the value of building good MCP…",
+      "detail": "This article smells AI generated, which is _very_ funny given the argument being made.\n\nEither way, while this is true in the absolute, this is the value of building good MCP servers: they should expose only exactly the surface you expect your agent to need, and adding functionality should be carefully considered. The best MCP servers I use day to day (Cloudflare sticks out) do a really good job of exposing only what an agent might actually want to do on my behalf, rather than just all and sundry. Unfortunately the Chrome Dev tools MCP is less discriminating and is only as secure as a browser sandbox with full JS access (not fatal but not as strong as a well scoped REST API).\n\nAll of this is sidestepped somewhat by using good isolation primitives - I'm running a Hermes agent as of recently on a DigitalOcean VM that only accepts connections from my devices over tailscale, and it has all its own credentials so I can revoke them easily should they be used maliciously. Giving an agent root on a box is not _necessarily_ a huge deal, you just have to make sure that box has nothing valuable on it.\n\nI kinda feel like we're rediscovering \"Cattle, not Pets\" when it comes to the environments we run our agents: give it root, sure, but a root that is almost meaningless outside of the functionality you granted it.\n\n— nameless912, 2026-08-28, in the Hacker News thread “AI Agent Has Root”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=49477413",
+      "author": "nameless912",
+      "date": "2026-08-28"
+    },
+    {
+      "id": "hn-49367636",
+      "title": "I tried to have a Hermes agent that I talk to throught telegram (had some cron jobs to check in…",
+      "summary": "What i did (been doing it for like 5 months so far) is keep track of my day (just using Logseq just type in things like: \"5:00 -> 5:30 checking Email\" and such .. for the whole…",
+      "detail": "What i did (been doing it for like 5 months so far) is keep track of my day (just using Logseq just type in things like: \"5:00 -> 5:30 checking Email\" and such .. for the whole day, but i found that when i'm not home there will be some gaps, and that I usully fill back form memroy at the end of the day (which leads to maybe some gaps?)\n\nusully what I do I track (in the md file) day by day: my mood, what I eat, do, play, nootropics, waking up time and all that) and the goal was to see any trends (was planning to do it for like 1-2 weeks but then turned out to in a way keep me gorunded and more aware?) (the last 3 months logs md file was 5k long)\n\nI tried to have a Hermes agent that I talk to throught telegram (had some cron jobs to check in multiple times a day) and some script to pull things like browser data and other data points to see time spent on certain things, and it would generate an md report at the end of the day for that day, but idk, it misses a lot of things (like it hard to tell how many hours I spent on X or Y and such reltative to other day and/or the break down of tasks and such).\n\nfor the md file I do upload to Claude or such and then try to find correlation (I dont tend to read it back my self), I did find out that lactose give me bit of a brain fog (that was never too strong that I could tell it's lactose directly) and that when on caffine I tend to think I achevie more than what I actully did (among many other thigns here and there), I also have smart ring data taht I also upload to claude too.\n\nI do use habits app (been using it for like ~5 years but with some gaps.\n\nMy main thing that would make me use somethig external is if it pulls data form various sources directly into the logs. \nlike browsing history, sleep data, location data, phone usage hisory, spotify, tempreture, air quality, water drank (Idk maybe usign some smart water bottle or something) and such (althougth it might be iatrogenic)\n\n— SamDc73, 2026-08-19, in the Hacker News thread “Ask HN: I've quit six systems for tracking my illness. What works?”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=49367636",
+      "author": "SamDc73",
+      "date": "2026-08-19"
+    },
+    {
+      "id": "hn-49308721",
+      "title": "However, I ended up using the accessibility tree to create a semantic, ephemeral ref API as the…",
+      "summary": "I didn't end up needing to go full scrcpy because my use case just runs Android in an emulator (Waydroid) for my Hermes agent to run apps. If I need vision or (x,y) coordinate…",
+      "detail": "I didn't end up needing to go full scrcpy because my use case just runs Android in an emulator (Waydroid) for my Hermes agent to run apps. If I need vision or (x,y) coordinate interaction, I can just screenshot the emulator window and interact via ADB. However, I ended up using the accessibility tree to create a semantic, ephemeral ref API as the preferred mechanism for interaction. Basically more 'Playwright for Android' than 'Remote Desktop for Android'. But, unfortunately, the accessibility tree is often incomplete or inaccurate.\n\nhttps://www.djfa.ai/articles/clawdroid\n\n— jeffnash, 2026-08-15, in the Hacker News thread “Show HN: Deltix – AI Driven Testing”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=49308721",
+      "author": "jeffnash",
+      "date": "2026-08-15"
+    },
+    {
+      "id": "hn-49294464",
+      "title": "Tron, my Hermes agent, uses agent storming to orchestrate openCode agents and hermes subagents…",
+      "summary": "$0. but I use at least $8,000 worth of monthly tokens.\n\nI used to have:\n$200 Claude-max\n$10 github copilot\n$20 chatgpt\n$20 Cursor\n\n---\n\nthen, I spent roughly $5000 in tokens…",
+      "detail": "$0. but I use at least $8,000 worth of monthly tokens.\n\nI used to have:\n$200 Claude-max\n$10 github copilot\n$20 chatgpt\n$20 Cursor\n\n---\n\nthen, I spent roughly $5000 in tokens for a project which turned out to be a dud.\nFigured, inference wasn't going anywhere as its now 80% of my day. So, I built a 4x DGX Spark cluster and put GLM5.2 on it. Then put a few qwen models for vision and embedding purposes on my original DGX Spark and completely went local. Tron, my Hermes agent, uses agent storming to orchestrate openCode agents and hermes subagents to handle most of my daily tasks.\n\nFor fun, I reworked a public Github vLLM Dashboard to track my usage and cloud cost avoided. \noriginal dashboard was by github.com/niklasfrick but I extended it. \ngithub.com/Wpnx330/spark-dashboard\n\n---\n\nFor my day job I spend about $1000 + $20 a month in cursor costs.\n\n— Wpnx330, 2026-08-14, in the Hacker News thread “Ask HN: How much money do you spend monthly on subscriptions for AI models?”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=49294464",
+      "author": "Wpnx330",
+      "date": "2026-08-14"
+    },
+    {
+      "id": "hn-49282085",
+      "title": "I gave it a reverse SSH tunnel to a remote-debugging Chrome profile on my local Mac and now it…",
+      "summary": "Interesting. A residential IP was enough for me to get my Hermes agent grocery shopping successfully on a website with quite aggressive bot protection.\n\nI run Hermes on a VPS,…",
+      "detail": "Interesting. A residential IP was enough for me to get my Hermes agent grocery shopping successfully on a website with quite aggressive bot protection.\n\nI run Hermes on a VPS, and the website was blocking its IP. I gave it a reverse SSH tunnel to a remote-debugging Chrome profile on my local Mac and now it works fine.\n\n— thenbrent, 2026-08-13, in the Hacker News thread “Grok Bot”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=49282085",
+      "author": "thenbrent",
+      "date": "2026-08-13"
+    },
+    {
+      "id": "hn-49254792",
+      "title": "I am getting to know Hermes agent and in the last couple of days I used it for searching the…",
+      "summary": "I am getting to know Hermes agent and in the last couple of days I used it for searching the web for medical specialists or finding the best deal for a product online,…",
+      "detail": "I am getting to know Hermes agent and in the last couple of days I used it for searching the web for medical specialists or finding the best deal for a product online, manipulate with excel and word documents, gather data from APIs, finding stuff in my computer or keeping track of itself running in another process and keep the computer awake and when detecting the process is finished, put computer to sleep.\n\n— l3x4ur1n, 2026-08-11, in the Hacker News thread “LFM2.5 2.6B model competitive with 4x larger models”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=49254792",
+      "author": "l3x4ur1n",
+      "date": "2026-08-11"
+    },
+    {
+      "id": "hn-49234527",
+      "title": "The VPS hosts a Hermes installation, and for more complicated tasks or for ongoing projects the…",
+      "summary": "I have a Pebble Time 2, which is an open source watch. I built a voice operated AI assistant for it.\n\nIt's hosted on a VPS, connected over Tailscale, and has a realtime TTS…",
+      "detail": "I have a Pebble Time 2, which is an open source watch. I built a voice operated AI assistant for it.\n\nIt's hosted on a VPS, connected over Tailscale, and has a realtime TTS server (Piper).\n\nThe Pebble has built in transcription, so my app takes the transcript, hits the server endpoint with three possible paths:\n\n1. Deterministic response\n\nThe server looks for certain triggers from the transcript like \"Add task,\" \"Complete task,\" \"Set a timer,\" etc that will run a simple function on server and write / retrieve to a database, no LLM call needed. It then responds with the TTS output and the watch speaks. This path is nearly instant.\n\n2. Fast response\n\nIf no trigger is found, then it hits a gpt5.6 Luna endpoint, which decides if it can answer the query itself, or if it needs to defer to the big brother model. If it can handle a query itself, it usually responds to simple questions in less than 8 seconds. It's also good about properly deferring, very close to 100% after a few weeks.\n\n3. Deferred response\n\nThe VPS hosts a Hermes installation, and for more complicated tasks or for ongoing projects the Luna router sends it to the Hermes agent. This is typically quite slow, as you'd expect, but remarkably capable. I built the voice app to cache a few lines like \"this will take some time\" which will automatically trigger if the router indicates it's deferring, and then will respond with the full response from Hermes once it's finished (sometimes minutes later).\n\nPebble has a quiet mode, and my app will only display the text response if it's on, otherwise all responses are run through the TTS. Piper is so fast that this adds almost no time to the response.\n\nIn only a few weeks this has become the primary way I set up tasks, review and close them, set timers and reminders, log my weight, check in on the progress of projects I'm running on Hermes, and ask simple day to day AI questions.\n\nSince Pebble is open source, AI tools are very good at building it, and it's trivially easy to set it up so that you can just ask the model to deploy it live. It's an awesome experience to tell it to change something, and two minutes later, that change is on your wrist.\n\nVery fun project!\n\n— SamPatt, 2026-08-09, in the Hacker News thread “Ask HN: What are you working on? (August 2026)”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=49234527",
+      "author": "SamPatt",
+      "date": "2026-08-09"
+    },
+    {
+      "id": "hn-49218146",
+      "title": "We've just spun up our first Hermes agent, with direct API access to our main inventory system…",
+      "summary": "To put actual numbers on it, since using AI to start solving all kinds of bottlenecks/inefficiencies in our small business, we've seen monthly net profit go up by around $4,000…",
+      "detail": "To put actual numbers on it, since using AI to start solving all kinds of bottlenecks/inefficiencies in our small business, we've seen monthly net profit go up by around $4,000 USD. These are semi-permanent fixes, and the tech is only partially deployed. I am the only one using it, and I only use it part time.\n\nWe've just spun up our first Hermes agent, with direct API access to our main inventory system and that's expected to find another few grand per month in misallocation/inefficiency.\n\nI wouldn't be surprised if we were doing more like $10k/mo higher in 6-9 months' time.\n\nWhen you're talking about numbers like this, the fact that one AI is $100/mo and another is $10/mo or $40/mo doesn't matter. They could make GLM-5.2, or any other Opus 4.5-class model free and it still wouldn't make sense to deploy in a commercial context.\n\nThe other angle I'd approach things from is that Opus 4.5 (and I'd agree with you that that model was the saddle point) was \"good enough\" for the types of things we were asking it to do back then, but as the models have become more capable the tasks we're asking them to do have also expanded with it.\n\nI know I've personally gone from \"hey can fix this race condition with a Redis mutex\" 6 months ago to \"Independently redesign this full embedded USB stack and QA it end-to-end, working around a specific Kernel bug in macOS Tahoe that requires decompilation to find the source of, while keeping in mind the constraints of our 8-bit AVR chip from 2011\" now.\n\nBut that said, yes, maybe in 5 years' time we will reach an \"intelligence saturation\" where the average person won't be able to even conceive of how to use the new SOTA.\n\n— AussieWog93, 2026-08-08, in the Hacker News thread “DeepSeek V4 Flash 0731”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=49218146",
+      "author": "AussieWog93",
+      "date": "2026-08-08"
+    },
+    {
+      "id": "hn-49214369",
+      "title": "So i created an mcp, that is fetching the newest hackernews articles - stores them in memory -…",
+      "summary": "I was playing with channels in golang and then i saw the hackernews api. So i created an mcp, that is fetching the newest hackernews articles - stores them in memory - halves…",
+      "detail": "I was playing with channels in golang and then i saw the hackernews api. So i created an mcp, that is fetching the newest hackernews articles - stores them in memory - halves them after 30 minutes and gives you an mcp over port 133333 for hermes agent or what ever and you have a nice frontend made by sonnet 5, backend was done by myself.\n\ni think hackernews should look like the claude frontend -> https://hackernews.marcokittel.de\n\nWhat do you think?\n\n— evlute, 2026-08-07, in the Hacker News thread “Hacker News MCP and Debug View”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=49214369",
+      "author": "evlute",
+      "date": "2026-08-07"
+    },
+    {
+      "id": "hn-49189025",
+      "title": "I have been driving a hermes agent off a VM in a proxmox from my slack and wondering how to…",
+      "summary": "I just deployed it on my cloudflare workers, it went live in a minute, worked through my CF Access SSO. Wasn't able to configure providers easily. But reading the blog this is…",
+      "detail": "I just deployed it on my cloudflare workers, it went live in a minute, worked through my CF Access SSO. Wasn't able to configure providers easily. But reading the blog this is wild! I have been driving a hermes agent off a VM in a proxmox from my slack and wondering how to handle security.\n\nIf this takes off, this is really how enterprise agents should end up looking like. The dynamic workers hosting applications is the AI Appsmith/Retool that I need for internal dashboards.\n\n— arush15june, 2026-08-05, in the Hacker News thread “Cloudflare OS: an open platform for agents, apps, and work”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=49189025",
+      "author": "arush15june",
+      "date": "2026-08-05"
+    },
+    {
+      "id": "hn-49159530",
+      "title": "So, I recently started using the Hermes agent and hooked it up with Step 3.5 Flash",
+      "summary": "So, I recently started using the Hermes agent and hooked it up with Step 3.5 Flash. It’s a cheap and fast model, so I thought it would be enough for my workflow. However, I…",
+      "detail": "So, I recently started using the Hermes agent and hooked it up with Step 3.5 Flash. It’s a cheap and fast model, so I thought it would be enough for my workflow. However, I soon found that it hallucinates during a lot of tasks, and the output quality isn’t something to write home about.\n\nOn the other hand, using an expensive or frontier-level model means I’ll burn through cash fast. I went down the rabbit hole to find a solution and discovered I could solve this using a model router. Dedicating a capable model like Kimi K3 for complex tasks while Step handles the busywork.\n\nInitially, I tried LiteLLM, but I noticed a significant delay in the routing process. I thought that latency was just a sacrifice I had to make. Then, while browsing GitHub one day, I came across Bifrost and decided to give it a shot. Honestly, it is super fast, and I haven’t faced any of the delay issues that were prevalent in LiteLLM.\n\nSo my question is: is using a model router the most practical choice when running Hermes or OpenClaw? What do you guys usually do?\n\n— Swapnoneel, 2026-08-03, in the Hacker News thread “Is Hermes Agent unusable without a model router?”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=49159530",
+      "author": "Swapnoneel",
+      "date": "2026-08-03"
+    },
+    {
+      "id": "hn-49097260",
+      "title": "Its been a great driver for Hermes Agent, serving local MoE and dense models up to 122B",
+      "summary": "I purchased my Spark back in March before the RAM price increase. My use case is local self-sovereign AI in Healthcare (https://hcvc.net), so I haven't done any gaming. Its…",
+      "detail": "I purchased my Spark back in March before the RAM price increase. My use case is local self-sovereign AI in Healthcare (https://hcvc.net), so I haven't done any gaming. Its been a great driver for Hermes Agent, serving local MoE and dense models up to 122B. It now handles about 90% of my inference load (more complex devops/coding tasks are still routed to cloud). LoRa works well. All my models are open source. There is no NVIDIA dependency in my build. Its also a backend server for my PoC app (https://proforta.com). Zero issues so far. Extremely reliable and gives me straight path to production for VPS deployment.\n\n— enbarca, 2026-07-29, in the Hacker News thread “Nvidia DGX Spark as a daily driver”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=49097260",
+      "author": "enbarca",
+      "date": "2026-07-29"
+    },
+    {
+      "id": "hn-49064389",
+      "title": "I just built my own voice assistant with my Pebble Time 2 watch and it uses a VPS hosted TTS…",
+      "summary": "I just built my own voice assistant with my Pebble Time 2 watch and it uses a VPS hosted TTS (Piper) and Hermes agent.\n\nI learned about all of these projects on HN at one point…",
+      "detail": "I just built my own voice assistant with my Pebble Time 2 watch and it uses a VPS hosted TTS (Piper) and Hermes agent.\n\nI learned about all of these projects on HN at one point or another.\n\n— SamPatt, 2026-07-27, in the Hacker News thread “Inflect-Micro-v2: complete voice in 9.36M parameters”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=49064389",
+      "author": "SamPatt",
+      "date": "2026-07-27"
+    },
+    {
+      "id": "hn-48969451",
+      "title": "\"Make this work on Hermes agent and message me when you're done\" and an hour later or so, I can…",
+      "summary": "It depends on what you mean by \"unsupervised\" - I've been strictly working through the agent, through specs the entire time, but it's been very supervised, I just leave the…",
+      "detail": "It depends on what you mean by \"unsupervised\" - I've been strictly working through the agent, through specs the entire time, but it's been very supervised, I just leave the mistakes in-place and have it work from there.\n\nHowever at this point it can completely maintain itself. When a new version of Claude or OpenCode is released, it updates itself to work on the latest version. It can also add new implementations for harnesses pretty reliably. It's actually pretty fun to watch it at this point. \"Make this work on Hermes agent and message me when you're done\" and an hour later or so, I can go play with it in Hermes.\n\n— planckscnst, 2026-07-19, in the Hacker News thread “OpenAI reduces Codex Model Context Size from 372k to 272k”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=48969451",
+      "author": "planckscnst",
+      "date": "2026-07-19"
+    },
+    {
+      "id": "hn-48930884",
+      "title": "now, when I connect local hermes agent that uses deepseek v4 flash via their api, latency jumps…",
+      "summary": "nice, are you using webrtc aec3 or sth custom?\n\nto your question i did a thorough benchmarking (hence late reply)\nused 18gb m3 pro macpro\n\nfull on-device with gemma 4 e2b is…",
+      "detail": "nice, are you using webrtc aec3 or sth custom?\n\nto your question i did a thorough benchmarking (hence late reply)\nused 18gb m3 pro macpro\n\nfull on-device with gemma 4 e2b is ~1.5s since last utterance. vad silence th is set to 600ms\n\nnow, when I connect local hermes agent that uses deepseek v4 flash via their api, latency jumps to 3.5s (this of course includes 600s of silence to even trigger pipeline)\n\nbtw, suggestions are throttled to one every 20s by default, it's configurable from the app\n\nafaik cluely is waaaaay over 5s, but it makes sense because their users need lots of ai reasoning to answer interview qs :D different target audience then stagewhisper\n\n— piotraleksander, 2026-07-16, in the Hacker News thread “Show HN: BYO AI free notetaking with optional screen reading for OpenClaw/hermes”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=48930884",
+      "author": "piotraleksander",
+      "date": "2026-07-16"
+    },
+    {
+      "id": "hn-48840097",
+      "title": "I have built out something similar that let's me use my phone's hardware buttons to open an…",
+      "summary": "I have built out something similar that let's me use my phone's hardware buttons to open an input stream with the mic for my Hermes agent over my matrix gateway and then has it…",
+      "detail": "I have built out something similar that let's me use my phone's hardware buttons to open an input stream with the mic for my Hermes agent over my matrix gateway and then has it play back with a local TTS model on my Pixel 10 Pro.\n\nBut the Deepseek v4 flash model I am using through OpenRouter is killing me on latency. Any suggestions to improve that?\n\n— shostack, 2026-07-09, in the Hacker News thread “GPT‑Live”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=48840097",
+      "author": "shostack",
+      "date": "2026-07-09"
+    },
+    {
+      "id": "hn-48726398",
+      "title": "I have an older laptop I run a hermes agent on backed by an API based open (non-local) model…",
+      "summary": "In general if you're setting up a local LLM you should assume it's going to be primarily working as a server and talking to various clients. I use my MBP, but that's because I…",
+      "detail": "In general if you're setting up a local LLM you should assume it's going to be primarily working as a server and talking to various clients. I use my MBP, but that's because I don't travel much anymore so it can happily work as a server at all times. With the right agent setup you can probably manage most things from your phone even if you don't have a seperate machine to use as a client.\n\nI have an older laptop I run a hermes agent on backed by an API based open (non-local) model and Macbook Pro M4 for running another model locally (also using hermes). The agents have a Mattermost (open source version of slack) server they run and I run Mattermost on my phone so I can talk to them and task them with things. In fact, it was through the hermes WhatsApp endpoint that I got the first agent (non-local) to setup the Mattermost server and unboard the second agent (local mbp).\n\nThen I can just chat with them through Mattermost when I need work done. Whenever I need something done I just hope on the Mattermost server and chat with them. I've had them build me multiple research reports (the fully local agent did awesome at this), learn how to use Stable Diffusion on my desktop to generate images, install and perform maintenance on various local services I run (including Open WebUI).\n\n— roadside_picnic, 2026-06-29, in the Hacker News thread “Qwen 3.6 27B is the sweet spot for local development”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=48726398",
+      "author": "roadside_picnic",
+      "date": "2026-06-29"
+    },
+    {
+      "id": "hn-48664038",
+      "title": "Recently I gave a Nix OS vm to my hermes agent and it has been a good experience",
+      "summary": "And yet having an agent able yo use a computer on your behalf is really useful.\n\nRecently I gave a Nix OS vm to my hermes agent and it has been a good experience. I don't…",
+      "detail": "> Computer use is such a terrible idea. It's slow, insecure, error prone, expensive.\n\nAnd yet having an agent able yo use a computer on your behalf is really useful.\n\nRecently I gave a Nix OS vm to my hermes agent and it has been a good experience. I don't really care if destroy the machine I can just rollback to an earlier version, and for any meaningful data he creates for me I make sure he creates a repo, commit and pushes to my private Gitea instance.\n\n— nzach, 2026-06-24, in the Hacker News thread “Computer use in Gemini 3.5 Flash”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=48664038",
+      "author": "nzach",
+      "date": "2026-06-24"
+    },
+    {
+      "id": "hn-48650822",
+      "title": "In fact it was an agent powered by the same model that setup the open webui server and took…",
+      "summary": "I have a home server that runs Qwen3.6-35B-A3B through llama.cpp with Open WebUI for the user facing interface.\n\nMy teen isn't super interested in AI, but whenever they do feel…",
+      "detail": "I have a home server that runs Qwen3.6-35B-A3B through llama.cpp with Open WebUI for the user facing interface.\n\nMy teen isn't super interested in AI, but whenever they do feel curious they have their own account they can use on our home network. As far as chatting goes local models are more than capable for handling standard chat questions, doing research, helping troubleshoot problems etc. In fact it was an agent powered by the same model that setup the open webui server and took care of all the account management features through my phone (using Hermes agent).\n\nIf you're building AI powered features and using sophisticated agent setups for coding for work, then it make sense to use SoTA from these providers. But I've been using local models increasingly for personal use and am starting to find them preferable (I run an uncensored, ephemeral model for my own use and it's an entirely different experience than anything you can pay for).\n\nStill haven't cancelled my personal Anthropic subscription, but considering it soon.\n\n— roadside_picnic, 2026-06-23, in the Hacker News thread “Anthropic updates their terms to verify age or identity”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=48650822",
+      "author": "roadside_picnic",
+      "date": "2026-06-23"
+    },
+    {
+      "id": "hn-48602964",
+      "title": "Built on Hermes Agent + Baileys + Chroma + nomic-embed-text-v2-moe + Claude Sonnet 4.6 via…",
+      "summary": "Author here. This is a personal weekend project that grew into a working WhatsApp bot. It replies as me to two allowlisted contacts (myself + one friend who knew about the…",
+      "detail": "Author here. This is a personal weekend project that grew into a working WhatsApp bot. It replies as me to two allowlisted contacts (myself + one friend who knew about the experiment). The interesting part is not the agent framework but the retrieval I eventually got the best results with: every reply gets generated by Claude after pulling 8 of my real past replies to that specific contact, filtered by recency.\n\nBuilt on Hermes Agent + Baileys + Chroma + nomic-embed-text-v2-moe + Claude Sonnet 4.6 via Azure AI Foundry. About 2 hours of work plus an hour debugging a WhatsApp multi-device LID issue. Total runtime cost: ~$0.005 per reply.\n\nThe bot is not running on a dedicated number. It is hooked to my primary WhatsApp, which is a ban risk I accepted in exchange for being able to test with real contacts. The killswitch (Telegram command that empties the allowlist and restarts the gateway) takes about 10 seconds. There is also\na hard kill: unlink the device from WhatsApp on the phone, ~5 seconds, severs the bridge session entirely.\n\nHappy to answer questions.\n\n— dandinu, 2026-06-19, in the Hacker News thread “I built a WhatsApp clone of myself; a friend agreed on a password with it”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=48602964",
+      "author": "dandinu",
+      "date": "2026-06-19"
+    },
+    {
+      "id": "hn-48590990",
+      "title": "I have two Hermes Profiles running, one is a personal assistant that manages my backlog and…",
+      "summary": "I haven't done any in-depth synthetic benchmarks but I had my Hermes agent run some and I ran a couple directly on the LLM Gateway that showed similar results.\n\nHermes reported…",
+      "detail": "I haven't done any in-depth synthetic benchmarks but I had my Hermes agent run some and I ran a couple directly on the LLM Gateway that showed similar results.\n\nHermes reported 18.45 tok/s consuming the llama-swap endpoint across the wire. Locally I got 19-19.1 tok/s on the gateway. I'm running the Qwen 3.6 27B Q6 model (qwen3-6-27b-q6-k) off LM Studio and it's less than 0.3s to first token.\n\nIt's not good for conversational use cases as it can take 1-2 minutes to respond to a prompt.\n\nI have two Hermes Profiles running, one is a personal assistant that manages my backlog and provides me morning reminders, solicits for evening updates, and will run overnight research projects for me. The other profile is a coding helper for personal projects. I can ask it to make changes and it will churn for 15 minutes, submit a PR, and notify me that the PR is ready to review. It's faster than me at basic coding tasks.\n\n— cptskippy, 2026-06-18, in the Hacker News thread “Local Qwen isn't a worse Opus, it's a different tool”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=48590990",
+      "author": "cptskippy",
+      "date": "2026-06-18"
+    },
+    {
+      "id": "hn-48581502",
+      "title": "It is a combination of Hermes agent as the orchestrator and a custom extractor script (that…",
+      "summary": "It is a combination of Hermes agent as the orchestrator and a custom extractor script (that uses qwen or any other LLM) that runs every 2 mins (on Mac via launchd). I had the…",
+      "detail": "It is a combination of Hermes agent as the orchestrator and a custom extractor script (that uses qwen or any other LLM) that runs every 2 mins (on Mac via launchd). I had the code + skill written by Hermes.\n\nThe beauty of it is that Hermes itself has a cron too - every 4h Hermes will wake up and check if the email ingestion is working fine. If not, it will fix it. Funnily this is one of the most robust setups I've seen in a while, it is like having your own little DevOps waking up at night, fixing the infra when needed.\n\n— iagooar, 2026-06-18, in the Hacker News thread “Running local models is good now”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=48581502",
+      "author": "iagooar",
+      "date": "2026-06-18"
+    },
+    {
+      "id": "hn-48509609",
+      "title": "At home I'm managing a Hermes agent that can spin up a whole fleet of purpose-tuned agents for…",
+      "summary": "Your experiences must be much different from mine.\n\nThree years ago, AI was barely able to provide sort-of reliable command completion.\n\nTwo years ago, it could extrapolate a…",
+      "detail": "Your experiences must be much different from mine.\n\nThree years ago, AI was barely able to provide sort-of reliable command completion.\n\nTwo years ago, it could extrapolate a single function from a docstring - but the docstring had to be so verbose that it wasn't practical to use in that way.\n\nA year ago, I was tinkering with Devin to try to find a way to get it to reliably implement small, isolated features from verbose Jira tickets.\n\nSix months ago, I started using AI to generate the majority of my code output. Most of my time was spent reviewing, and I was ecstatic to reach ~2x output because I could run the next task while reviewing the last.\n\nNow, at work I'm managing a half dozen Claude Code instances, Devin sessions, and orchestrating a review loop between Claude, Devin, and CodeRabbit. It's not uncommon for me to be working on four or more discrete features at once. My output is approximately 15x my pre-AI baseline - and I've not sat down and written a line of code directly in six months.\n\nAt home I'm managing a Hermes agent that can spin up a whole fleet of purpose-tuned agents for whatever purpose I'd like. I've implemented spec-driven development a'la Acai, and extended it to the point that my agent creates specs from text or voice conversation, I review them, and it handles implementation end-to-end. The code itself is an almost disposable artifact - useful primarily to ensure no regressions have been introduced between rounds.\n\n... I simply don't understand how you can assert that \"it's been basically the same for 3 years\". It absolutely has not.\n\n— Ancapistani, 2026-06-12, in the Hacker News thread “\"Don't You Just Upload It to ChatGPT?\"”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=48509609",
+      "author": "Ancapistani",
+      "date": "2026-06-12"
+    },
+    {
+      "id": "hn-48494430",
+      "title": "A lightweight REST + SSE bridge that exposes Hermes Agent to mobile apps and any HTTP client",
+      "summary": "A lightweight REST + SSE bridge that exposes Hermes Agent to mobile apps and any HTTP client. Built for the Agentfy iOS app, but provider-agnostic — it's plain HTTP, no…",
+      "detail": "A lightweight REST + SSE bridge that exposes Hermes Agent to mobile apps and any HTTP client. Built for the Agentfy iOS app, but provider-agnostic — it's plain HTTP, no WebSocket or custom handshake required.\n\nThe bridge runs alongside a Hermes installation, discovers the agents and skills configured under ~/.hermes/, and streams agent responses over Server-Sent Events.\n\n— jcnh74, 2026-06-11, in the Hacker News thread “Hermes Bridge API”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=48494430",
+      "author": "jcnh74",
+      "date": "2026-06-11"
+    },
+    {
+      "id": "hn-48417329",
+      "title": "I also use it at work (integrated at Slack) and at this point it answers most of both my emails…",
+      "summary": "I use PI ( https://pi.dev ) and ( https://hermes-agent.nousresearch.com/ ) as the main drivers together with deepseek-v4-pro as the main model (~10M/day tokens overall there).…",
+      "detail": "I use PI ( https://pi.dev ) and ( https://hermes-agent.nousresearch.com/ ) as the main drivers together with deepseek-v4-pro as the main model (~10M/day tokens overall there).\n\nHermes basically rules my personal life at this point - it is a _very_ useful personal assistant.\n\nI also use it at work (integrated at Slack) and at this point it answers most of both my emails and slack messages (I calibrated https://github.com/blader/humanizer with a large corpus of my own voice to make it less annoying for the others). My routine now involving walking in circles while exchanging messages with hermes directing it how to answer this or that... Hermes uses an llm-wiki ( https://gist.github.com/karpathy/442a6bf555914893e9891c11519... ) as a source of information when drafting suggested replies - I have a cronjob that feeds it all emails, slack messages, meeting minutes every single day.\n\nClaude Code with Opus 4.6 for multimodal/vision, design and writing tasks (\"Create a crisp memo from this meeting transcription\" is a prompt that will bring great results with either Opus 4.6 or GLM-5.1) - very recently I started to use https://github.com/anomalyco/opencode occasionally with opus models too (I am forcing myself a little bit because it is hard to help people with a tool you are unfamiliar with).\n\nFor building software automatically I currently use one of the harness above for for launching https://tamandua-tetradactyla.nfshost.com/ feature-dev-merge-worktree runs (it provides workflows on top of PI+deepseek).\n\nWhere it comes from: until recently I used https://steve-yegge.medium.com/welcome-to-gas-town-4f25ee16d... for automatic software building but while planning an AI bootcamp I concluded that teaching Gas Town along with everything else would be impossible (too hard/complex), and decided to teach https://github.com/snarktank/antfarm instead but did not want to add OpenClaw as one more dependency - so I built Tamandua ( https://github.com/igorhvr/tamandua ) and I ended up using it all the time! I now every single day before going to sleep launch a couple of runs and it is very cool waking up to see them done.\n\nFor autoresearch-like, optimization, and other tasks with a very clear measurable goal (such as increasing test coverage, changing things from one programming language to another, etc) I use https://github.com/davebcn87/pi-autoresearch (100% of the time on top of deepseek-v4-pro).\n\nFor debugging or very hard problems I use codex w/ GPT5.5. I don´t like its personality (lazy) but I do think it is smartest model available. As evidence, here is a commit of a problem where I tried Opus 4.8, Deepseek-v4-pro and a couple of other models and they all failed to understand what the bug was: https://github.com/NousResearch/hermes-agent/pull/38198/chan... - once the bug was found within codex I launched from it a tamandua bug-fix-merge-worktree run on top of deepseek-v4-pro that created the commit itself...\n\nAs a web application I use OpenWebUI and I am specially fond of the notes feature ( https://docs.openwebui.com/features/notes/ ) which I did not find anywhere else.\n\nLast but not least, I love playing with local models. https://huggingface.co/Qwen/Qwen3-Coder-480B-A35B-Instruct is my current favorite for coding and deepseek-r1 for general tasks. I also started yesterday testing https://github.com/antirez/ds4 - it works _very_ well from what I could see so far.\n\nWhat comes next? Trying to figure out what is the \"deepseek-v4-pro of multimodal\" model (frontier performance, efficient/comparatively cheap to run, support for image/audio/video/etc). Currently using kimi-k2.6, will test Minimax M3 soon.\n\nAh, almost forgot: https://huggingface.co/microsoft/VibeVoice-ASR will give you AMAZINGLY good meeting transcriptions (my hermes vibecoded a program to use it). Seriously, night and day difference from what the big players provide natively in their platforms. Have 8 people talking in 3 different languages? No problem - you will need a bit of patience and beefy hardware, only..\n\n— igorhvr, 2026-06-05, in the Hacker News thread “Ask HN: What is your (AI) dev tech stack / workflow?”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=48417329",
+      "author": "igorhvr",
+      "date": "2026-06-05"
+    },
+    {
+      "id": "hn-48332832",
+      "title": "I’m using Hermes Agent and this MCP to orchestrate 5 models (DS4 Flash, GPT 5.5, Opus 4.8, Grok…",
+      "summary": "I’m using Hermes Agent and this MCP to orchestrate 5 models (DS4 Flash, GPT 5.5, Opus 4.8, Grok Build, Gemini 3.5 Flash). Basically these 5 models are making mock trades every…",
+      "detail": "I’m using Hermes Agent and this MCP to orchestrate 5 models (DS4 Flash, GPT 5.5, Opus 4.8, Grok Build, Gemini 3.5 Flash). Basically these 5 models are making mock trades every day and keeping track of their potential losses and profit. Hermes keeps them going and making trades throughout the day.\n\nAfter a month, I’m going to check their mock trading sheet and see which one was the most “profitable” and then give that agent $500/day to make trades.\n\n— theturtletalks, 2026-05-30, in the Hacker News thread “Robinhood now lets your AI agents trade stocks”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=48332832",
+      "author": "theturtletalks",
+      "date": "2026-05-30"
+    },
+    {
+      "id": "hn-48231142",
+      "title": "It upgraded everything that needed to be upgraded, patched what needed to be patched, then…",
+      "summary": "Oh wow. I did the same thing a couple of weeks ago. The server hadn't been updated since ~2015, running a blog on Ghost from that time with node 0.10 installed.\n\nI was a bit…",
+      "detail": "Oh wow. I did the same thing a couple of weeks ago. The server hadn't been updated since ~2015, running a blog on Ghost from that time with node 0.10 installed.\n\nI was a bit rougher though: I just took a backup, then let my Hermes agent (Gemini 3.1 Pro) loose on it. It upgraded everything that needed to be upgraded, patched what needed to be patched, then proceeded to migrate everything to it's most recent equivalents. After that, a fair bit of server hardening was carried out followed by debloating of unused services. Likely would have continued to procrastinate doing this if it wasn't for AI support.\n\n— someotherperson, 2026-05-22, in the Hacker News thread “Blog ran on Ubuntu 16.04 for 10 years. I migrated it to FreeBSD”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=48231142",
+      "author": "someotherperson",
+      "date": "2026-05-22"
+    },
+    {
+      "id": "hn-48187544",
+      "title": "Unassisted but for handing it a pile of PDFs of relevant academic papers and my initial…",
+      "summary": "Bad is mystifying. Unassisted but for handing it a pile of PDFs of relevant academic papers and my initial codebase, I had hermes agent based on qwen-3.6 27B implement…",
+      "detail": "Bad is mystifying. Unassisted but for handing it a pile of PDFs of relevant academic papers and my initial codebase, I had hermes agent based on qwen-3.6 27B implement karatsuba multiplication of characteristic-2 polynomials in C++ in an existing codebase with an internal field arithmetic library. It correctly found the 'obvious' optimizations using the field properties. Then I had it implement the recursive halfgcd algorithm for these polynomials using it.\n\nIt wrote extensive test cases and validated them with mutation testing (per my standard instructions)-- took many tries getting the algorithms right but with the tests handy it found and fixed the errors.\n\nIt's inconceivable to me to call it bad!\n\n— nullc, 2026-05-18, in the Hacker News thread “Qwen 3.7 Preview”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=48187544",
+      "author": "nullc",
+      "date": "2026-05-18"
+    },
+    {
+      "id": "hn-48131458",
+      "title": "I've been trying to build something similar as a side project: Hermes agent + plugins (MCP…",
+      "summary": "That's interesting. I've been trying to build something similar as a side project: Hermes agent + plugins (MCP, skills, and agents) + a Postgres DB for auditing and state. The…",
+      "detail": "That's interesting. I've been trying to build something similar as a side project: Hermes agent + plugins (MCP, skills, and agents) + a Postgres DB for auditing and state. The idea is essentially to make all of that a black box and present a simple “work queue” to a desk assistant.\n\nGood validation that this is indeed a space the frontier firms are thinking about along similar lines.\n\n— abhis3798, 2026-05-14, in the Hacker News thread “Claude for Small Business”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=48131458",
+      "author": "abhis3798",
+      "date": "2026-05-14"
+    },
+    {
+      "id": "hn-48026905",
+      "title": "It reads everything I write on the Internet, extracts durable opinions, merges them into the…",
+      "summary": "OPINIONS.md is a compact, living map of what you actually believe. I manage mine with the Hermes agent (OpenClaw would work too) and GPT 5.5. It is a markdown file in my…",
+      "detail": "OPINIONS.md is a compact, living map of what you actually believe. I manage mine with the Hermes agent (OpenClaw would work too) and GPT 5.5. It is a markdown file in my dotfiles, updated daily by a cron job. It reads everything I write on the Internet, extracts durable opinions, merges them into the existing structure, and commits the result back to GitHub. I did it as an experiment, but it turned out to be a lot more helpful than I expected. I can now interrogate my own beliefs, and have them available as context to all my agents.\n\n— akane8, 2026-05-05, in the Hacker News thread “[dead]”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=48026905",
+      "author": "akane8",
+      "date": "2026-05-05"
+    },
+    {
+      "id": "hn-47975048",
+      "title": "So rather than having to go to a bunch of different websites or apps to get things done, I've…",
+      "summary": "I have a similar set up. I communicate/chat with the Hermes agent via Matrix chat client.\n\nSo rather than having to go to a bunch of different websites or apps to get things…",
+      "detail": "I have a similar set up. I communicate/chat with the Hermes agent via Matrix chat client.\n\nSo rather than having to go to a bunch of different websites or apps to get things done, I've linked them all to Hermes\n(via skills) and chat with the Hermes agent on my phone.\n\nI want a movie? I just say download XYZ. Shows up in Plex 5 min later.\n\nI want to research something with multiple different perspectives? Rather than going to OpenWebUI and using that, I just asked a Hermes agent to examine an issue from multiple different viewpoints and get back to me with a conclusion.\n\n— dumbmrblah, 2026-05-01, in the Hacker News thread “Apple Says Mac Studio and Mac Mini Will Be in Short Supply for Months”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=47975048",
+      "author": "dumbmrblah",
+      "date": "2026-05-01"
+    },
+    {
+      "id": "hn-47862826",
+      "title": "I run Hermes inside a container, on a dedicated VPS as a coding agent for complex tasks and so…",
+      "summary": "I am on Google's $20/month plan, and I usually get about three half-hour coding sessions a week with AntiGravity using the Claude models. The limit using Gemini Pro models is…",
+      "detail": "I am on Google's $20/month plan, and I usually get about three half-hour coding sessions a week with AntiGravity using the Claude models. The limit using Gemini Pro models is much higher. I am retired so Google's $20 plan is sufficient for me, but I understand that people who are still working would need higher limits.\n\nI am also on a $10/month plan with Nous Research for supplying open models for their open source Hermes Agent. I run Hermes inside a container, on a dedicated VPS as a coding agent for complex tasks and so far I find the $10/month plan is enough for about five to ten major tasks a month. I think it is also a good deal.\n\n— mark_l_watson, 2026-04-22, in the Hacker News thread “Claude Code to be removed from Anthropic's Pro plan?”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=47862826",
+      "author": "mark_l_watson",
+      "date": "2026-04-22"
+    },
+    {
+      "id": "hn-47845312",
+      "title": "I have Hermes agent run a cron each hour to check if the Steam Controller if finally on sale",
+      "summary": "I have Hermes agent run a cron each hour to check if the Steam Controller if finally on sale. I don’t if that resonates with you, I quite like that use case personally :)",
+      "detail": "I have Hermes agent run a cron each hour to check if the Steam Controller if finally on sale. I don’t if that resonates with you, I quite like that use case personally :)\n\n— jdkoeck, 2026-04-21, in the Hacker News thread “OpenClaw isn't fooling me. I remember MS-DOS”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=47845312",
+      "author": "jdkoeck",
+      "date": "2026-04-21"
+    },
+    {
+      "id": "hn-47833262",
+      "title": "Similarly, I have been using Hermes Agent also inside a container, and on a VPS with only…",
+      "summary": "I ran OpenClaw in a container, on a VPS without connection to messaging systems, so perhaps that is why I didn't get value.\n\nSimilarly, I have been using Hermes Agent also…",
+      "detail": "I ran OpenClaw in a container, on a VPS without connection to messaging systems, so perhaps that is why I didn't get value.\n\nSimilarly, I have been using Hermes Agent also inside a container, and on a VPS with only access to a local directory in the VPS with a dozen active projects on GitHub. I don't give it access to my GitHub credentials, but allow it to work in whatever branch is checked out.\n\nThis setup is fabulously productive. I use it about every other day to perform some meaningful task for me. It is inexpensive also. A task might take 20 minutes and cost $0.25 in GLP-5.1 API costs.\n\nSo TLDR: out of the box, I use Hermes at least one hour a week and find it to be a wonderful tool.\n\n— mark_l_watson, 2026-04-20, in the Hacker News thread “OpenClaw isn't fooling me. I remember MS-DOS”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=47833262",
+      "author": "mark_l_watson",
+      "date": "2026-04-20"
+    },
+    {
+      "id": "hn-47786818",
+      "title": "Personally, I am comfortable running OpenClaw and Hermes Agent on a rented VPS (preferably in a…",
+      "summary": "I find OpenClaw and (more so) Hermes Agent useful for software development, research, and writing - but I refuse to run them anywhere that is not deeply-sandboxed and has no…",
+      "detail": "I find OpenClaw and (more so) Hermes Agent useful for software development, research, and writing - but I refuse to run them anywhere that is not deeply-sandboxed and has no access to most of my digital life data.\n\nOK, everyone makes their own decisions re: privacy and security. Personally, I am comfortable running OpenClaw and Hermes Agent on a rented VPS (preferably in a docker container on a VPS) and allow limited access to (some of) my GitHub repos. Both tools are useful, even in such a limited mode of operation. I just don't see value vs. risk allowing access to email, messaging apps, access to my personal computer, etc.\n\nIt is close to zero overhead to SSH/Mosh to a VPS, get inside a container to work. Why risk infecting your personal or corporate computer?\n\n— mark_l_watson, 2026-04-15, in the Hacker News thread “Ask HN: Who is using OpenClaw?”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=47786818",
+      "author": "mark_l_watson",
+      "date": "2026-04-15"
+    },
+    {
+      "id": "hn-47785939",
+      "title": "I basically just use it as a personal assistant and a way to centralize a lot of other…",
+      "summary": "I don't use OpenClaw I tried but found it fragile and it's personality off putting. I then tried NanoClaw, but found the lack of communication channels limiting and could never…",
+      "detail": "I don't use OpenClaw I tried but found it fragile and it's personality off putting. I then tried NanoClaw, but found the lack of communication channels limiting and could never really get it to create skills that felt solid. I recently just switched to Hermes Agent (like last week) and it's the first one where it didn't feel like I was constantly needing to fix it, so at the moment I'm happy with it.\n\nWhat do I use it for? I basically just use it as a personal assistant and a way to centralize a lot of other automations that I have elsewhere.\n\n- I have an automation that rolls everything on my todo list over to the next day at 11:59pm\n\n- I have one that checks the weather and tells me if it's going to be windy in the next few days since I need to bring the lawn furniture in\n\n- I have it set up so that I can forward it email with invoices and it will extract the data from a PDF and enter it into a cost tracking sheet\n\n- I have it check my outlook calendar and tell me if there are any 1:1 meetings where the other person has declined the invite (since Outlook doesn't show that clearly and I'd often show up to meetings and sit for 5 minutes before realizing the other person cancelled)\n\nNothing I'm doing is life changing, it all could be done using other tools, and honestly, for anything important, I want something more deterministic anyway, but I kind of love. It's just a low lift way to automate away minor annoyances through a single interface that I can access from just about anywhere. It's far from perfect, but I don't use it for anything where I need to to be perfect, so I'm happy.\n\n— superfrank, 2026-04-15, in the Hacker News thread “Ask HN: Who is using OpenClaw?”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=47785939",
+      "author": "superfrank",
+      "date": "2026-04-15"
+    },
+    {
+      "id": "hn-47504530",
+      "title": "I've set it up with it's own mailbox, and a git token to make PRs etc",
+      "summary": "Honestly, I installed Hermes Agent last weekend, and while there isn't any \"killer use case\", the combination of \"your little assistant agent on it's own machine\" and good…",
+      "detail": "Honestly, I installed Hermes Agent last weekend, and while there isn't any \"killer use case\", the combination of \"your little assistant agent on it's own machine\" and good messaging integration is really quite cool.\n\nI've set it up with it's own mailbox, and a git token to make PRs etc. So far I've set up a few automations (check thing X and message me if Y) but the combination of enough \"intelligence\" to be able to triage/suggest solutions, messaging via a standard messaging app, and a sandboxed environment for code execution, all packaged as \"this is your helpful assistant\" is fun.\n\nIn theory it's nothing I couldn't do with Claude Code + some integrations, but having all of that out of the box + setting the expectation that this is legitimately a helpful assistant you can message and email with any mad request you have does shift the way I see it.\n\nThough yes, the more fun you have with it, the more of a security threat the whole thing becomes, and it's slightly terrifying. I briefly considered giving it view only access to my emails and decided that was just too high risk. But treat it as a vaguely clueless but not incompetent intern and works?\n\n— crimsoneer, 2026-03-24, in the Hacker News thread “NanoClaw Adopts OneCLI Agent Vault”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=47504530",
+      "author": "crimsoneer",
+      "date": "2026-03-24"
+    },
+    {
+      "id": "hn-47304268",
+      "title": "hermes-lite takes the open-source Hermes Agent, strips it to a focused local coding tool, then…",
+      "summary": "hermes-lite takes the open-source Hermes Agent, strips it to a focused local coding tool, then extends it with:\n\nRust FSM — PyO3 state machine replacing the Python conversation…",
+      "detail": "hermes-lite takes the open-source Hermes Agent, strips it to a focused local coding tool, then extends it with:\n\nRust FSM — PyO3 state machine replacing the Python conversation loop (12 states, 5 actions)\nRust SessionDB — rusqlite + FTS5 + WAL replacing the Python SQLite layer\nNative TUI — ratatui terminal UI with multi-agent panes, @mentions, delegation, and inter-agent routing\nPersistent memory — global + project-level memories shared across all swarm agents via filesystem\nSkills system — reusable expertise modules agents load on demand for specialized tasks\nSubprocess protocol — JSON-over-pipes connecting TUI to Python agent processes\nIntegration test suite — 26 live end-to-end tests driving the agent via subprocess protocol\n\n— sfffs, 2026-03-09, in the Hacker News thread “Open source Claude Code swarms WTF”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=47304268",
+      "author": "sfffs",
+      "date": "2026-03-09"
+    },
+    {
+      "id": "hn-48455781",
+      "title": "I have Hermes and set it up so that it works on a self-hosted Matrix instance",
+      "summary": "I have Hermes and set it up so that it works on a self-hosted Matrix instance. It was pretty simple to set up after some back and forth with a more powerful model. It's…",
+      "detail": "I have Hermes and set it up so that it works on a self-hosted Matrix instance. It was pretty simple to set up after some back and forth with a more powerful model. It's primarily how I interact with Hermes. I don't really use a command line on my computer with it.\n\nJust open up a Matrix Element chat window and go at it. I've been replacing more and more apps on my phone with this setup, and it's pretty streamlined. It's nice knowing that everything is local. The Matrix server is local, the local AI inference is local, etc.\n\n— dumbmrblah, 2026-06-09, in the Hacker News thread “Hermes Agent – Open-source AI agent with persistent memory”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=48455781",
+      "author": "dumbmrblah",
+      "date": "2026-06-09"
+    },
+    {
+      "id": "hn-48457429",
+      "title": "But what I do do: it's a sysadmin for my homelab",
+      "summary": "I use Hermes at home. Swapped out Openclaw for this. It seems to work better with smaller contexts, chuncking it up in smaller pieces.\n\nI don't code with it, I use Claude for…",
+      "detail": "I use Hermes at home. Swapped out Openclaw for this. It seems to work better with smaller contexts, chuncking it up in smaller pieces.\n\nI don't code with it, I use Claude for that. But what I do do: it's a sysadmin for my homelab. It has a read-only mcp server to check the k8s status and has it's own ssh access to fix stuff after I approve it per session.\n\nIt's magical. Each morning I get a small update whether the backup ran, if pods are stuck or behaving weirdly etc... Since the entire homelab is GitOps I can always reverse a change made by the agent.\n\nI am now adding Nextcloud and moving calendar offline, from Google to my own hw. I barely touch it anymore, manually. In stead I sent a quick voice note on Telegram and 30 sec later I get a screenshot 'proving' it worked.\n\n— apexalpha, 2026-06-09, in the Hacker News thread “Hermes Agent – Open-source AI agent with persistent memory”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=48457429",
+      "author": "apexalpha",
+      "date": "2026-06-09"
+    },
+    {
+      "id": "hn-49368474",
+      "title": "The Arduino UNO Q is an almost perfect Hermes Agent host",
+      "summary": "I’ve wanted to try out Hermes agent for a while now but I never wanted to run it on my own personal machine. I thought about maybe using a hosted VPS but I wasn’t keen on the…",
+      "detail": "I’ve wanted to try out Hermes agent for a while now but I never wanted to run it on my own personal machine. I thought about maybe using a hosted VPS but I wasn’t keen on the ongoing cost. Then I looked a recently acquired Arduino UNO Q. A weird arduino board that has an arduino on one side and Linux on the other side. The Linux chip can communicate to the arduino chip. The board I have has 4GB of ram and 32GB of storage. Plenty of power to run the Hermes agent client. I never intended to run a local LLM on the arduino. I wanted an isolated machine where I could run it that was more affordable than buying a new computer. The Q offered all of this. Affordable, cheap on power and isolated.\n\nSo I plugged it in and ssh’d into the board and installed Hermes, setup was pretty straightforward. I connected my ChatGPT subscription and we were in business.\n\nThe first thing I asked the agent to do was flash a LED on the board, and it did just that. I then asked it to run the game of life on its 8x13 LED Matrix. Which would need it to interface with the arduino side of the board. After it searched docs for a bit, it had Conways game of life running on the board. Wow.\n\nAfter setting up messaging it had me thinking, I can plug a whole bunch of electronic components to this thing. The Arduino UNO has these things called Modulino which are electronic components like temperature sensors that can be daisy chained from the board. This creates a whole world of possibilities creating a Hermes IOT agent like thing.\n\n— etoxin, 2026-08-19, posted to Hacker News.",
+      "tags": [
+        "user-story",
+        "hn-story"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=49368474",
+      "author": "etoxin",
+      "date": "2026-08-19"
+    },
+    {
+      "id": "hn-48592879",
+      "title": "Show HN: Hermzner – Provisioning an Hardened Hermes Agent on Hetzner VPS",
+      "summary": "Hello,\n\nI've created this project to simplify the provisioning of Hermes on Hetzner VPS.\n\nThe goal is adopting good security defaults to deploy Hermes Agent on Ubuntu 24 LTS +…",
+      "detail": "Hello,\n\nI've created this project to simplify the provisioning of Hermes on Hetzner VPS.\n\nThe goal is adopting good security defaults to deploy Hermes Agent on Ubuntu 24 LTS + Tailscale. \nI've added also backups and the optional installation of Mnemosyne as light memory provider.\nI'm currently working on it, any feedback is appreciated\n\n— _zendar_, 2026-06-18, posted to Hacker News.",
+      "tags": [
+        "user-story",
+        "hn-story"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=48592879",
+      "author": "_zendar_",
+      "date": "2026-06-18"
+    },
+    {
+      "id": "hn-48887244",
+      "title": "Pet works on Mac and talks to my Hermes VPS via tailscale",
+      "summary": "So I ended up building it since Petdex isn't good enough for me.\n\nPet works on Mac and talks to my Hermes VPS via tailscale.\n\nIt utilizes TTS whenever a long task completes or…",
+      "detail": "So I ended up building it since Petdex isn't good enough for me.\n\nPet works on Mac and talks to my Hermes VPS via tailscale.\n\nIt utilizes TTS whenever a long task completes or a cron fires.\n\nIt's nowhere close to production ready, but feel free to try it out and tweak it to your liking using your own hermes :)\n\nrepo: https://github.com/Soundpulse/hermes-live2d\n\n— totallyscout, 2026-07-13, in the Hacker News thread “Live2D Body for Hermes Agent”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=48887244",
+      "author": "totallyscout",
+      "date": "2026-07-13"
+    },
+    {
+      "id": "hn-48904884",
+      "title": "Show HN: BYO AI free notetaking with optional screen reading for OpenClaw/hermes",
+      "summary": "I've built fully on-device (macOS) meeting transcription/summaries/action-items app. It uses parakeet and gemma 4 or OpenClaw or Hermes Agent to drive main functionalities.…",
+      "detail": "I've built fully on-device (macOS) meeting transcription/summaries/action-items app. It uses parakeet and gemma 4 or OpenClaw or Hermes Agent to drive main functionalities. It's free, requires no account or email, and is source available.\nYou can also natively connect your own local/VPS OpenClaw or Hermes to use them, their memory and context, as a notetaker.\n\nAbout me: my name is Piotr. I'm having plenty of calls as a freelancing programmer, and have interest in audio domain, so it was natural for me to pick this as my side project. I struggled a bit with echo cancellation, and writing idiomatic plugins to let users use their OpenClaw or Hermes agents as BYO AI (basically backend). I started project coding Tauri app by hand, only after establishing architecture I started leaning on AI coding agents. I use Claude Code with https://github.com/openai/codex-plugin-cc for \"adversarial-reviews\".\n\nOn the website I've included an offer to upgrade StageWhisper Lite to Founders edition with one-time payment: this give screen reading (via accessibility tree) and proactive, two-way communication - that is, your connected agent can provide suggestions by listening to audio (Cluely style), and you can chat with it during the call. Again, you bring your own AI, so Founders is a single payment, no subscription offer.\n\nBoth apps include MCP and in-app chat with your transcripts and meeting notes. Both also allow to connect any model downloaded from HF or connecting OpenClaw/Hermes.\n\nI created StageWhisper Lite & Founders to test business feasibility of one-time payment AI apps that have no marginal costs (you either use local model or your own assistant).\n\nI hope you will enjoy free Lite app and consider upgrading to Founders.\n\n— piotraleksander, 2026-07-14, posted to Hacker News.",
+      "tags": [
+        "user-story",
+        "hn-story"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=48904884",
+      "author": "piotraleksander",
+      "date": "2026-07-14"
+    },
+    {
+      "id": "hn-47740042",
+      "title": "Show HN: Agent-Notifications – Real-Time Alerts for OpenClaw and Hermes Agents",
+      "summary": "I hated the fact that my Hermes Agent can't check emails unprompted without burning tokens uselessly on heartbeats so I asked it to make this.\n\nIt's a skill to set up…",
+      "detail": "I hated the fact that my Hermes Agent can't check emails unprompted without burning tokens uselessly on heartbeats so I asked it to make this.\n\nIt's a skill to set up customized cron jobs for apps you care about that runs every 5 minutes and only wakes your agent up when there's a real notification\n\nEven works for delegated subagents notifying the orchestrator directly\n\n— kuberwastaken, 2026-04-12, posted to Hacker News.",
+      "tags": [
+        "user-story",
+        "hn-story"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=47740042",
+      "author": "kuberwastaken",
+      "date": "2026-04-12"
     }
   ]
 }

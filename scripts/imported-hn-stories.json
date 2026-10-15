@@ -1,0 +1,2189 @@
+{
+  "judged": {
+    "47304268": {
+      "hash": "a44d413fa2d63e5c",
+      "use": 0.78,
+      "worth": 2.82,
+      "judgedAt": "2026-10-14T06:57:45.471Z",
+      "titleIndex": 0
+    },
+    "47341910": {
+      "hash": "63156e87b0a2b071",
+      "use": 0.1,
+      "worth": 1.4,
+      "judgedAt": "2026-10-14T06:57:47.756Z"
+    },
+    "47456023": {
+      "hash": "c5372c5fbf3d3307",
+      "use": 0.54,
+      "worth": 1.65,
+      "judgedAt": "2026-10-14T06:59:59.592Z"
+    },
+    "47504530": {
+      "hash": "12cd64d5f364b71a",
+      "use": 0.98,
+      "worth": 2.8,
+      "judgedAt": "2026-10-14T06:59:59.487Z",
+      "titleIndex": 1
+    },
+    "47640748": {
+      "hash": "b761f35c34bb9452",
+      "use": 0.04,
+      "worth": 0.75,
+      "judgedAt": "2026-10-14T06:59:59.379Z"
+    },
+    "47644401": {
+      "hash": "7b0bbde614dbb0b1",
+      "use": 0.04,
+      "worth": 1.42,
+      "judgedAt": "2026-10-14T07:00:00.318Z"
+    },
+    "47696273": {
+      "hash": "31086afe4c5ded99",
+      "use": 0.55,
+      "worth": 1.22,
+      "judgedAt": "2026-10-14T07:00:00.702Z"
+    },
+    "47740042": {
+      "hash": "0b2f0b4e35b2c2ff",
+      "use": 0.91,
+      "worth": 2.43,
+      "judgedAt": "2026-10-14T06:57:48.832Z"
+    },
+    "47771498": {
+      "hash": "7d01baf9c29aaa71",
+      "use": 0.04,
+      "worth": 0.76,
+      "judgedAt": "2026-10-14T06:59:59.268Z"
+    },
+    "47785939": {
+      "hash": "1dc313b906f50735",
+      "use": 0.96,
+      "worth": 2.96,
+      "judgedAt": "2026-10-14T06:57:44.939Z",
+      "titleIndex": 3
+    },
+    "47786818": {
+      "hash": "944627eb8c5ab316",
+      "use": 0.87,
+      "worth": 2.32,
+      "judgedAt": "2026-10-14T06:59:59.162Z",
+      "titleIndex": 2
+    },
+    "47789150": {
+      "hash": "5260644e26e1d7ca",
+      "use": 0.51,
+      "worth": 0.36,
+      "judgedAt": "2026-10-14T06:57:44.722Z"
+    },
+    "47807473": {
+      "hash": "211499940bb50b80",
+      "use": 0.82,
+      "worth": 1.57,
+      "judgedAt": "2026-10-14T06:59:59.048Z"
+    },
+    "47808662": {
+      "hash": "576ad5e16da62c11",
+      "use": 0.63,
+      "worth": 0.84,
+      "judgedAt": "2026-10-14T06:57:44.514Z"
+    },
+    "47812842": {
+      "hash": "01c86e799396b5b2",
+      "use": 0.08,
+      "worth": 1.02,
+      "judgedAt": "2026-10-14T06:59:58.945Z"
+    },
+    "47830045": {
+      "hash": "fcdf4711a3ae70af",
+      "use": 0.11,
+      "worth": 0.72,
+      "judgedAt": "2026-10-14T06:59:58.839Z"
+    },
+    "47833262": {
+      "hash": "788c881c829e8410",
+      "use": 0.97,
+      "worth": 3.12,
+      "judgedAt": "2026-10-14T06:57:44.133Z",
+      "titleIndex": 1
+    },
+    "47844344": {
+      "hash": "6c2ab8760ff43974",
+      "use": 0.55,
+      "worth": 2.12,
+      "judgedAt": "2026-10-14T06:59:58.737Z"
+    },
+    "47845312": {
+      "hash": "9f0057e95d3d266d",
+      "use": 0.96,
+      "worth": 2.2,
+      "judgedAt": "2026-10-14T06:57:43.874Z",
+      "titleIndex": 0
+    },
+    "47862826": {
+      "hash": "6451441307d460b3",
+      "use": 0.96,
+      "worth": 2.3,
+      "judgedAt": "2026-10-14T06:59:58.601Z",
+      "titleIndex": 4
+    },
+    "47884477": {
+      "hash": "7b6204df7d4aee31",
+      "use": 0.1,
+      "worth": 1.63,
+      "judgedAt": "2026-10-14T06:57:43.654Z"
+    },
+    "47901252": {
+      "hash": "df9695b3e7639987",
+      "use": 0.84,
+      "worth": 1.61,
+      "judgedAt": "2026-10-14T06:57:43.549Z"
+    },
+    "47903299": {
+      "hash": "8574f05ad50a84bb",
+      "use": 0.06,
+      "worth": 1.18,
+      "judgedAt": "2026-10-14T06:57:43.306Z"
+    },
+    "47906460": {
+      "hash": "b229562059cb366e",
+      "use": 0.02,
+      "worth": 0.01,
+      "judgedAt": "2026-10-14T06:59:58.494Z"
+    },
+    "47910135": {
+      "hash": "18d7af012733be5b",
+      "use": 0.04,
+      "worth": 0.5,
+      "judgedAt": "2026-10-14T06:59:58.386Z"
+    },
+    "47963032": {
+      "hash": "a486d4448bc4c46e",
+      "use": 0.02,
+      "worth": 0.4,
+      "judgedAt": "2026-10-14T06:59:58.291Z"
+    },
+    "47963936": {
+      "hash": "da371e1e1754678c",
+      "use": 0.31,
+      "worth": 1.44,
+      "judgedAt": "2026-10-14T06:59:58.198Z"
+    },
+    "47966000": {
+      "hash": "b801ee5481b04bcf",
+      "use": 0.94,
+      "worth": 1.84,
+      "judgedAt": "2026-10-14T06:57:41.775Z"
+    },
+    "47975048": {
+      "hash": "867bcd03d5a307af",
+      "use": 0.97,
+      "worth": 2.97,
+      "judgedAt": "2026-10-14T06:59:58.077Z",
+      "titleIndex": 1
+    },
+    "48008451": {
+      "hash": "32d48df3bea77d42",
+      "use": 0.86,
+      "worth": 1.13,
+      "judgedAt": "2026-10-14T06:57:41.547Z"
+    },
+    "48014141": {
+      "hash": "c5cde49065f794ca",
+      "use": 0.32,
+      "worth": 1.15,
+      "judgedAt": "2026-10-14T06:57:41.432Z"
+    },
+    "48026905": {
+      "hash": "05a1e0d196baf8b4",
+      "use": 0.95,
+      "worth": 3.25,
+      "judgedAt": "2026-10-14T06:57:41.327Z",
+      "titleIndex": 3
+    },
+    "48058537": {
+      "hash": "20a195c6f0dae6b4",
+      "use": 0.05,
+      "worth": 0.86,
+      "judgedAt": "2026-10-14T06:59:57.907Z"
+    },
+    "48089935": {
+      "hash": "c46efe6359840341",
+      "use": 0.59,
+      "worth": 1.07,
+      "judgedAt": "2026-10-14T06:57:41.107Z"
+    },
+    "48123146": {
+      "hash": "96152ad0f61b5470",
+      "use": 0.03,
+      "worth": 1.06,
+      "judgedAt": "2026-10-14T06:57:40.994Z"
+    },
+    "48131458": {
+      "hash": "fa0e492d4409e3e4",
+      "use": 0.95,
+      "worth": 2.61,
+      "judgedAt": "2026-10-14T06:57:40.866Z",
+      "titleIndex": 0
+    },
+    "48170202": {
+      "hash": "478d57aaba5a2722",
+      "use": 0.06,
+      "worth": 1.68,
+      "judgedAt": "2026-10-14T06:59:57.806Z"
+    },
+    "48171373": {
+      "hash": "cbf8d3891a21b531",
+      "use": 0.58,
+      "worth": 1.5,
+      "judgedAt": "2026-10-14T06:57:40.613Z"
+    },
+    "48181789": {
+      "hash": "3d04282eaf9a90e0",
+      "use": 0.02,
+      "worth": 0.09,
+      "judgedAt": "2026-10-14T06:57:40.489Z"
+    },
+    "48185316": {
+      "hash": "61df5db21f21d3bc",
+      "use": 0.04,
+      "worth": 0.82,
+      "judgedAt": "2026-10-14T06:57:40.369Z"
+    },
+    "48187544": {
+      "hash": "cbd7b45f4c505a5d",
+      "use": 0.92,
+      "worth": 3.49,
+      "judgedAt": "2026-10-14T06:57:40.248Z",
+      "titleIndex": 0
+    },
+    "48231142": {
+      "hash": "0b1bd8cb3f74135c",
+      "use": 0.84,
+      "worth": 2.65,
+      "judgedAt": "2026-10-14T06:57:40.142Z",
+      "titleIndex": 3
+    },
+    "48247828": {
+      "hash": "c9b0454f0c2964aa",
+      "use": 0.39,
+      "worth": 0.8,
+      "judgedAt": "2026-10-14T06:57:48.410Z"
+    },
+    "48248877": {
+      "hash": "912f6c7a508db0c4",
+      "use": 0.03,
+      "worth": 0.13,
+      "judgedAt": "2026-10-14T06:57:40.049Z"
+    },
+    "48318706": {
+      "hash": "b23a789a27da633a",
+      "use": 0.02,
+      "worth": 0.02,
+      "judgedAt": "2026-10-14T06:59:57.692Z"
+    },
+    "48321078": {
+      "hash": "c06b7ef1be142d61",
+      "use": 0.37,
+      "worth": 0.93,
+      "judgedAt": "2026-10-14T06:57:39.843Z"
+    },
+    "48332832": {
+      "hash": "20e20c30d17ece8c",
+      "use": 0.95,
+      "worth": 2.73,
+      "judgedAt": "2026-10-14T06:59:57.595Z",
+      "titleIndex": 0
+    },
+    "48333944": {
+      "hash": "e319885e2d74c884",
+      "use": 0.03,
+      "worth": 0.68,
+      "judgedAt": "2026-10-14T06:59:57.482Z"
+    },
+    "48357949": {
+      "hash": "bb6d3922123e8cba",
+      "use": 0.11,
+      "worth": 0.38,
+      "judgedAt": "2026-10-14T06:57:39.517Z"
+    },
+    "48374938": {
+      "hash": "2750412826bea036",
+      "use": 0.02,
+      "worth": 0.05,
+      "judgedAt": "2026-10-14T06:57:48.929Z"
+    },
+    "48376686": {
+      "hash": "137771a17e568135",
+      "use": 0.05,
+      "worth": 1.57,
+      "judgedAt": "2026-10-14T07:00:00.911Z"
+    },
+    "48377880": {
+      "hash": "921dee353ab5184c",
+      "use": 0.48,
+      "worth": 0.8,
+      "judgedAt": "2026-10-14T06:57:49.302Z"
+    },
+    "48382053": {
+      "hash": "e1df938b888a6b10",
+      "use": 0.51,
+      "worth": 0.55,
+      "judgedAt": "2026-10-14T06:57:49.413Z"
+    },
+    "48382112": {
+      "hash": "1c8c111aa61a2844",
+      "use": 0.02,
+      "worth": 0.17,
+      "judgedAt": "2026-10-14T06:57:49.518Z"
+    },
+    "48404967": {
+      "hash": "76879c34f95fe84f",
+      "use": 0.42,
+      "worth": 2.2,
+      "judgedAt": "2026-10-14T06:59:57.392Z"
+    },
+    "48417329": {
+      "hash": "a60ef4be69140d87",
+      "use": 0.98,
+      "worth": 3.93,
+      "judgedAt": "2026-10-14T06:59:57.293Z",
+      "titleIndex": 2
+    },
+    "48455273": {
+      "hash": "aa39690c752658ab",
+      "use": 0.03,
+      "worth": 0.09,
+      "judgedAt": "2026-10-14T06:59:59.702Z"
+    },
+    "48455365": {
+      "hash": "c2dc4ed667ca970c",
+      "use": 0.02,
+      "worth": 0.04,
+      "judgedAt": "2026-10-14T06:59:57.188Z"
+    },
+    "48455432": {
+      "hash": "53e1b8835ea26690",
+      "use": 0.62,
+      "worth": 1.07,
+      "judgedAt": "2026-10-14T06:59:57.082Z"
+    },
+    "48455454": {
+      "hash": "70fadc67035d2e22",
+      "use": 0.04,
+      "worth": 0.05,
+      "judgedAt": "2026-10-14T06:59:56.981Z"
+    },
+    "48455504": {
+      "hash": "b6a7f18ea38fbc82",
+      "use": 0.03,
+      "worth": 0.31,
+      "judgedAt": "2026-10-14T06:59:59.804Z"
+    },
+    "48455556": {
+      "hash": "67110dcf456eb18b",
+      "use": 0.02,
+      "worth": 0.02,
+      "judgedAt": "2026-10-14T06:59:59.899Z"
+    },
+    "48455560": {
+      "hash": "c4e85ee1de6baa81",
+      "use": 0.08,
+      "worth": 1.01,
+      "judgedAt": "2026-10-14T06:57:46.276Z"
+    },
+    "48455631": {
+      "hash": "efacb490ce5f5359",
+      "use": 0.5,
+      "worth": 0.33,
+      "judgedAt": "2026-10-14T07:00:00.108Z"
+    },
+    "48455650": {
+      "hash": "80c9ce5026313ff4",
+      "use": 0.36,
+      "worth": 0.1,
+      "judgedAt": "2026-10-14T06:57:46.163Z"
+    },
+    "48455659": {
+      "hash": "b82fa8f7b5e64256",
+      "use": 0.02,
+      "worth": 0.18,
+      "judgedAt": "2026-10-14T06:59:56.884Z"
+    },
+    "48455669": {
+      "hash": "1bf868fe6fb4e3ef",
+      "use": 0.02,
+      "worth": 0.08,
+      "judgedAt": "2026-10-14T06:57:46.707Z"
+    },
+    "48455780": {
+      "hash": "d8c28f8c03bafc60",
+      "use": 0.06,
+      "worth": 0.24,
+      "judgedAt": "2026-10-14T06:57:45.959Z"
+    },
+    "48455781": {
+      "hash": "b055c216e87dca53",
+      "use": 0.97,
+      "worth": 2.66,
+      "judgedAt": "2026-10-14T06:57:46.884Z",
+      "titleIndex": 0
+    },
+    "48455892": {
+      "hash": "a28be740c83aa45f",
+      "use": 0.03,
+      "worth": 0.02,
+      "judgedAt": "2026-10-14T06:57:46.489Z"
+    },
+    "48457429": {
+      "hash": "87cda78b9611f55c",
+      "use": 0.98,
+      "worth": 3.52,
+      "judgedAt": "2026-10-14T06:57:47.073Z",
+      "titleIndex": 3
+    },
+    "48458138": {
+      "hash": "e9d8b21fb0dce53e",
+      "use": 0.25,
+      "worth": 0.36,
+      "judgedAt": "2026-10-14T07:00:00.212Z"
+    },
+    "48459219": {
+      "hash": "55c218fa412d1633",
+      "use": 0.03,
+      "worth": 0.04,
+      "judgedAt": "2026-10-14T07:00:00.008Z"
+    },
+    "48459374": {
+      "hash": "2ec70970391abe21",
+      "use": 0.01,
+      "worth": 0.04,
+      "judgedAt": "2026-10-14T06:59:56.772Z"
+    },
+    "48459564": {
+      "hash": "33387b058b1af63a",
+      "use": 0.04,
+      "worth": 0.34,
+      "judgedAt": "2026-10-14T06:57:46.794Z"
+    },
+    "48459767": {
+      "hash": "b373a72f69718cf4",
+      "use": 0.08,
+      "worth": 0.37,
+      "judgedAt": "2026-10-14T06:59:56.631Z"
+    },
+    "48466908": {
+      "hash": "b27447cb1c3f28d3",
+      "use": 0.06,
+      "worth": 0.25,
+      "judgedAt": "2026-10-14T06:57:46.972Z"
+    },
+    "48473221": {
+      "hash": "acf32f7fdb99e887",
+      "use": 0.09,
+      "worth": 1.95,
+      "judgedAt": "2026-10-14T06:57:47.285Z"
+    },
+    "48474004": {
+      "hash": "55c77b41b9a319ff",
+      "use": 0.12,
+      "worth": 1.48,
+      "judgedAt": "2026-10-14T06:57:47.383Z"
+    },
+    "48494430": {
+      "hash": "cc630e51f0e0f230",
+      "use": 0.85,
+      "worth": 2.67,
+      "judgedAt": "2026-10-14T06:59:56.538Z",
+      "titleIndex": 0
+    },
+    "48496410": {
+      "hash": "af4d9acd5ebaeafe",
+      "use": 0.03,
+      "worth": 0.29,
+      "judgedAt": "2026-10-14T06:59:56.418Z"
+    },
+    "48509609": {
+      "hash": "095d7d68d5a7ff42",
+      "use": 0.95,
+      "worth": 3.03,
+      "judgedAt": "2026-10-14T06:57:37.897Z",
+      "titleIndex": 9
+    },
+    "48518315": {
+      "hash": "e537a1244b5f6e5b",
+      "use": 0.16,
+      "worth": 0.82,
+      "judgedAt": "2026-10-14T06:59:56.322Z"
+    },
+    "48532932": {
+      "hash": "257233960a5eb3d8",
+      "use": 0.11,
+      "worth": 1.52,
+      "judgedAt": "2026-10-14T06:59:56.216Z"
+    },
+    "48545371": {
+      "hash": "6cf3ca95bbbc23b1",
+      "use": 0.88,
+      "worth": 1.87,
+      "judgedAt": "2026-10-14T06:59:56.116Z"
+    },
+    "48548043": {
+      "hash": "be1f7da98597a8f7",
+      "use": 0.48,
+      "worth": 0.99,
+      "judgedAt": "2026-10-14T06:57:36.644Z"
+    },
+    "48558426": {
+      "hash": "6f4411e208d9c448",
+      "use": 0.63,
+      "worth": 1.98,
+      "judgedAt": "2026-10-14T06:59:56.008Z"
+    },
+    "48581502": {
+      "hash": "9b6af7ca89b481d5",
+      "use": 0.92,
+      "worth": 3.14,
+      "judgedAt": "2026-10-14T06:57:36.411Z",
+      "titleIndex": 0
+    },
+    "48582937": {
+      "hash": "a963aadf4f06ed51",
+      "use": 0.22,
+      "worth": 0.82,
+      "judgedAt": "2026-10-14T06:59:55.907Z"
+    },
+    "48586326": {
+      "hash": "eebc5a2e091653db",
+      "use": 0.04,
+      "worth": 0.5,
+      "judgedAt": "2026-10-14T06:59:55.804Z"
+    },
+    "48586498": {
+      "hash": "b43fa38d2f2119c8",
+      "use": 0.08,
+      "worth": 0.15,
+      "judgedAt": "2026-10-14T06:57:36.068Z"
+    },
+    "48586519": {
+      "hash": "96ade01f9164a61f",
+      "use": 0.88,
+      "worth": 1.47,
+      "judgedAt": "2026-10-14T06:57:35.942Z"
+    },
+    "48586579": {
+      "hash": "3591baab4c975e6a",
+      "use": 0.04,
+      "worth": 1.25,
+      "judgedAt": "2026-10-14T06:59:55.706Z"
+    },
+    "48586744": {
+      "hash": "09c53f46074efeab",
+      "use": 0.12,
+      "worth": 1.05,
+      "judgedAt": "2026-10-14T06:59:55.583Z"
+    },
+    "48586847": {
+      "hash": "ac0ac1e8878b6114",
+      "use": 0.05,
+      "worth": 0.03,
+      "judgedAt": "2026-10-14T06:57:35.634Z"
+    },
+    "48587219": {
+      "hash": "c9b67b4bcb58f350",
+      "use": 0.04,
+      "worth": 0.37,
+      "judgedAt": "2026-10-14T06:57:35.518Z"
+    },
+    "48589745": {
+      "hash": "ef8b6cf3d3e132b7",
+      "use": 0.03,
+      "worth": 0.03,
+      "judgedAt": "2026-10-14T06:59:55.481Z"
+    },
+    "48590990": {
+      "hash": "25de234651bd14bf",
+      "use": 0.96,
+      "worth": 3.14,
+      "judgedAt": "2026-10-14T06:59:55.384Z",
+      "titleIndex": 5
+    },
+    "48592879": {
+      "hash": "35a3860ae91622d5",
+      "use": 0.96,
+      "worth": 2.34,
+      "judgedAt": "2026-10-14T06:57:48.188Z"
+    },
+    "48602964": {
+      "hash": "5872c8020424a368",
+      "use": 0.96,
+      "worth": 3.36,
+      "judgedAt": "2026-10-14T06:57:35.202Z",
+      "titleIndex": 3
+    },
+    "48611674": {
+      "hash": "9cff7a657d9ea68b",
+      "use": 0.02,
+      "worth": 1.1,
+      "judgedAt": "2026-10-14T06:57:35.068Z"
+    },
+    "48650822": {
+      "hash": "c6a12a9a244e7f24",
+      "use": 0.95,
+      "worth": 2.16,
+      "judgedAt": "2026-10-14T06:57:34.926Z",
+      "titleIndex": 3
+    },
+    "48651753": {
+      "hash": "47ed0ea125137da7",
+      "use": 0.05,
+      "worth": 0.87,
+      "judgedAt": "2026-10-14T06:59:55.262Z"
+    },
+    "48654105": {
+      "hash": "6ab943feda62ab76",
+      "use": 0.03,
+      "worth": 0.15,
+      "judgedAt": "2026-10-14T06:57:47.173Z"
+    },
+    "48664038": {
+      "hash": "01d178408cecdc83",
+      "use": 0.96,
+      "worth": 3.09,
+      "judgedAt": "2026-10-14T06:57:34.705Z",
+      "titleIndex": 1
+    },
+    "48726398": {
+      "hash": "0a33035a4eb5686c",
+      "use": 0.97,
+      "worth": 3.47,
+      "judgedAt": "2026-10-14T06:57:34.592Z",
+      "titleIndex": 3
+    },
+    "48755145": {
+      "hash": "089443dd4288d758",
+      "use": 0.04,
+      "worth": 0.51,
+      "judgedAt": "2026-10-14T06:59:55.153Z"
+    },
+    "48827811": {
+      "hash": "e6c544acec474877",
+      "use": 0.08,
+      "worth": 0.91,
+      "judgedAt": "2026-10-14T06:59:55.047Z"
+    },
+    "48840097": {
+      "hash": "654b125c55f02d91",
+      "use": 0.96,
+      "worth": 2.82,
+      "judgedAt": "2026-10-14T06:57:34.237Z",
+      "titleIndex": 0
+    },
+    "48855849": {
+      "hash": "4ce94209a001c4d2",
+      "use": 0.35,
+      "worth": 1.34,
+      "judgedAt": "2026-10-14T06:59:54.937Z"
+    },
+    "48867513": {
+      "hash": "b5eb263c50992135",
+      "use": 0.04,
+      "worth": 0.02,
+      "judgedAt": "2026-10-14T06:57:34.013Z"
+    },
+    "48882163": {
+      "hash": "71f9f0f6d6a0e540",
+      "use": 0.03,
+      "worth": 0.15,
+      "judgedAt": "2026-10-14T06:57:33.914Z"
+    },
+    "48887244": {
+      "hash": "720f9b605926c42b",
+      "use": 0.96,
+      "worth": 2.88,
+      "judgedAt": "2026-10-14T07:00:00.578Z",
+      "titleIndex": 1
+    },
+    "48896396": {
+      "hash": "24fb5dcbedcd94d7",
+      "use": 0.78,
+      "worth": 1.61,
+      "judgedAt": "2026-10-14T06:59:54.838Z"
+    },
+    "48904884": {
+      "hash": "78e620cbf2338e3b",
+      "use": 0.93,
+      "worth": 2.63,
+      "judgedAt": "2026-10-14T07:00:00.812Z"
+    },
+    "48907260": {
+      "hash": "451b26b9ff166b34",
+      "use": 0.14,
+      "worth": 0.79,
+      "judgedAt": "2026-10-14T06:57:48.736Z"
+    },
+    "48930884": {
+      "hash": "93a832a5efc7db4e",
+      "use": 0.71,
+      "worth": 2.68,
+      "judgedAt": "2026-10-14T06:57:33.707Z",
+      "titleIndex": 4
+    },
+    "48936274": {
+      "hash": "700f7414857bbf04",
+      "use": 0.02,
+      "worth": 0.01,
+      "judgedAt": "2026-10-14T06:57:33.606Z"
+    },
+    "48948359": {
+      "hash": "1f0393e9f5b81c20",
+      "use": 0.03,
+      "worth": 0.01,
+      "judgedAt": "2026-10-14T06:59:54.743Z"
+    },
+    "48951167": {
+      "hash": "9630f30ffb6cdaae",
+      "use": 0.24,
+      "worth": 3.34,
+      "judgedAt": "2026-10-14T07:00:00.416Z"
+    },
+    "48969451": {
+      "hash": "2ad0681995771d78",
+      "use": 0.8,
+      "worth": 2.06,
+      "judgedAt": "2026-10-14T06:57:33.402Z",
+      "titleIndex": 5
+    },
+    "49023451": {
+      "hash": "d7c8dcb11d79c863",
+      "use": 0.16,
+      "worth": 0.45,
+      "judgedAt": "2026-10-14T06:57:33.309Z"
+    },
+    "49064389": {
+      "hash": "67a787b37d2108c7",
+      "use": 0.9,
+      "worth": 2,
+      "judgedAt": "2026-10-14T06:57:33.197Z",
+      "titleIndex": 0
+    },
+    "49097260": {
+      "hash": "f1a09791de77c98a",
+      "use": 0.86,
+      "worth": 2.48,
+      "judgedAt": "2026-10-14T06:59:54.626Z",
+      "titleIndex": 2
+    },
+    "49127622": {
+      "hash": "615eb1c43e413c26",
+      "use": 0.09,
+      "worth": 0.18,
+      "judgedAt": "2026-10-14T06:57:32.984Z"
+    },
+    "49142619": {
+      "hash": "520bc49b2b3edb2a",
+      "use": 0.91,
+      "worth": 1.83,
+      "judgedAt": "2026-10-14T06:59:54.299Z"
+    },
+    "49150034": {
+      "hash": "a2464ece5843ad39",
+      "use": 0.61,
+      "worth": 1.04,
+      "judgedAt": "2026-10-14T06:57:32.744Z"
+    },
+    "49159530": {
+      "hash": "03770ad6e6357558",
+      "use": 0.94,
+      "worth": 3.08,
+      "judgedAt": "2026-10-14T06:57:32.639Z",
+      "titleIndex": 0
+    },
+    "49184096": {
+      "hash": "560c7cade0b56f03",
+      "use": 0.03,
+      "worth": 0.37,
+      "judgedAt": "2026-10-14T06:59:54.183Z"
+    },
+    "49189025": {
+      "hash": "cc5980b31f5d572f",
+      "use": 0.93,
+      "worth": 2.19,
+      "judgedAt": "2026-10-14T06:59:54.089Z",
+      "titleIndex": 3
+    },
+    "49198198": {
+      "hash": "b77f84ae33ad80ed",
+      "use": 0.05,
+      "worth": 0.62,
+      "judgedAt": "2026-10-14T06:59:53.988Z"
+    },
+    "49214369": {
+      "hash": "da6415b7b070ecaf",
+      "use": 0.7,
+      "worth": 2.61,
+      "judgedAt": "2026-10-14T06:59:53.878Z",
+      "titleIndex": 1
+    },
+    "49218146": {
+      "hash": "5fd63526811a94af",
+      "use": 0.92,
+      "worth": 2.01,
+      "judgedAt": "2026-10-14T06:59:53.782Z",
+      "titleIndex": 3
+    },
+    "49223778": {
+      "hash": "2788fae7e5b8bfaf",
+      "use": 0.74,
+      "worth": 1.68,
+      "judgedAt": "2026-10-14T06:57:31.990Z"
+    },
+    "49234527": {
+      "hash": "0c2134071852de86",
+      "use": 0.95,
+      "worth": 3.15,
+      "judgedAt": "2026-10-14T06:59:53.644Z",
+      "titleIndex": 9
+    },
+    "49237274": {
+      "hash": "dc9ca705b4c1de34",
+      "use": 0.02,
+      "worth": 0.25,
+      "judgedAt": "2026-10-14T06:59:53.537Z"
+    },
+    "49239244": {
+      "hash": "70b0d253dd42b98a",
+      "use": 0.85,
+      "worth": 1.7,
+      "judgedAt": "2026-10-14T06:57:31.638Z"
+    },
+    "49246262": {
+      "hash": "317e563b4fa0226b",
+      "use": 0.83,
+      "worth": 1.95,
+      "judgedAt": "2026-10-14T06:59:53.432Z"
+    },
+    "49254792": {
+      "hash": "183945689f873004",
+      "use": 0.94,
+      "worth": 2.18,
+      "judgedAt": "2026-10-14T06:57:31.442Z",
+      "titleIndex": null
+    },
+    "49282085": {
+      "hash": "0d5284f15d472b2c",
+      "use": 0.96,
+      "worth": 3.05,
+      "judgedAt": "2026-10-14T06:57:31.342Z",
+      "titleIndex": 2
+    },
+    "49294464": {
+      "hash": "e1bbf19d3a1473de",
+      "use": 0.92,
+      "worth": 2.1,
+      "judgedAt": "2026-10-14T06:59:53.332Z",
+      "titleIndex": 5
+    },
+    "49298960": {
+      "hash": "366dc2a28f50c918",
+      "use": 0.64,
+      "worth": 1.85,
+      "judgedAt": "2026-10-14T06:57:31.133Z"
+    },
+    "49308721": {
+      "hash": "c01d224b538195b6",
+      "use": 0.89,
+      "worth": 3.04,
+      "judgedAt": "2026-10-14T06:59:53.232Z",
+      "titleIndex": 2
+    },
+    "49353850": {
+      "hash": "76281cc271a3a266",
+      "use": 0.61,
+      "worth": 2.35,
+      "judgedAt": "2026-10-14T06:57:30.907Z"
+    },
+    "49357942": {
+      "hash": "47ab1adec92f0209",
+      "use": 0.01,
+      "worth": 0.03,
+      "judgedAt": "2026-10-14T06:57:47.954Z"
+    },
+    "49365750": {
+      "hash": "247e0000d4719f88",
+      "use": 0.02,
+      "worth": 0.41,
+      "judgedAt": "2026-10-14T06:57:30.811Z"
+    },
+    "49367636": {
+      "hash": "92014c2891cdb54e",
+      "use": 0.94,
+      "worth": 2.88,
+      "judgedAt": "2026-10-14T06:59:53.133Z",
+      "titleIndex": 3
+    },
+    "49368474": {
+      "hash": "a19ac5b121d0613a",
+      "use": 0.97,
+      "worth": 3.15,
+      "judgedAt": "2026-10-14T06:57:48.075Z"
+    },
+    "49394316": {
+      "hash": "9e9f9d990a94a954",
+      "use": 0.24,
+      "worth": 0.94,
+      "judgedAt": "2026-10-14T06:57:30.588Z"
+    },
+    "49398418": {
+      "hash": "2b3f58c70f618029",
+      "use": 0.78,
+      "worth": 1.54,
+      "judgedAt": "2026-10-14T06:57:30.479Z"
+    },
+    "49399992": {
+      "hash": "14335a7c769f8c7e",
+      "use": 0.02,
+      "worth": 0.09,
+      "judgedAt": "2026-10-14T06:57:30.372Z"
+    },
+    "49424644": {
+      "hash": "1e2a358f663571b9",
+      "use": 0.02,
+      "worth": 0.03,
+      "judgedAt": "2026-10-14T06:57:47.649Z"
+    },
+    "49459453": {
+      "hash": "baa8715a4a8f12a1",
+      "use": 0.45,
+      "worth": 0.75,
+      "judgedAt": "2026-10-14T06:57:30.234Z"
+    },
+    "49477413": {
+      "hash": "0904ce8017dd748d",
+      "use": 0.94,
+      "worth": 2.54,
+      "judgedAt": "2026-10-14T06:57:30.138Z",
+      "titleIndex": 4
+    },
+    "49508739": {
+      "hash": "eab36c95fc248ee0",
+      "use": 0.89,
+      "worth": 1.54,
+      "judgedAt": "2026-10-14T06:57:30.034Z"
+    },
+    "49511382": {
+      "hash": "d25f750188a1284d",
+      "use": 0.34,
+      "worth": 2.63,
+      "judgedAt": "2026-10-14T06:59:53.035Z"
+    },
+    "49528152": {
+      "hash": "f0af8a9155dc1022",
+      "use": 0.51,
+      "worth": 1.37,
+      "judgedAt": "2026-10-14T06:57:29.808Z"
+    },
+    "49664352": {
+      "hash": "f45c1b735ef22bfb",
+      "use": 0.04,
+      "worth": 0.61,
+      "judgedAt": "2026-10-14T06:59:52.931Z"
+    },
+    "49672444": {
+      "hash": "ba97f8805fb9cebd",
+      "use": 0.03,
+      "worth": 0.35,
+      "judgedAt": "2026-10-14T06:59:52.819Z"
+    },
+    "49703705": {
+      "hash": "5fd4e2a5d6509610",
+      "use": 0.02,
+      "worth": 0.19,
+      "judgedAt": "2026-10-14T06:57:29.418Z"
+    },
+    "49712103": {
+      "hash": "0b30f49fccaafd93",
+      "use": 0.06,
+      "worth": 0.74,
+      "judgedAt": "2026-10-14T06:59:52.713Z"
+    },
+    "49742023": {
+      "hash": "a572f22778bc45f0",
+      "use": 0.89,
+      "worth": 3.44,
+      "judgedAt": "2026-10-14T06:59:52.587Z",
+      "titleIndex": 9
+    },
+    "49787187": {
+      "hash": "f81a458ed67a98d2",
+      "use": 0.93,
+      "worth": 2.7,
+      "judgedAt": "2026-10-14T06:55:46.879Z",
+      "titleIndex": 2
+    },
+    "49793735": {
+      "hash": "a09337087140aef4",
+      "use": 0.08,
+      "worth": 0.96,
+      "judgedAt": "2026-10-14T06:55:46.760Z"
+    },
+    "49810576": {
+      "hash": "75d319bbe8974ae1",
+      "use": 0.97,
+      "worth": 2.67,
+      "judgedAt": "2026-10-14T06:59:52.470Z",
+      "titleIndex": 1
+    },
+    "49947431": {
+      "hash": "873b379f824b5514",
+      "use": 0.03,
+      "worth": 0.63,
+      "judgedAt": "2026-10-14T06:59:52.363Z"
+    },
+    "49954026": {
+      "hash": "d29e7762d7a473f4",
+      "use": 0.49,
+      "worth": 1.15,
+      "judgedAt": "2026-10-14T06:59:52.248Z"
+    },
+    "49954133": {
+      "hash": "605d95e89ccd520a",
+      "use": 0.87,
+      "worth": 1.56,
+      "judgedAt": "2026-10-14T06:55:46.320Z"
+    },
+    "49960636": {
+      "hash": "ace99b9ac12ec48c",
+      "use": 0.73,
+      "worth": 1.55,
+      "judgedAt": "2026-10-14T06:55:46.067Z"
+    },
+    "49965220": {
+      "hash": "fea632156abfd241",
+      "use": 0.46,
+      "worth": 0.64,
+      "judgedAt": "2026-10-14T06:55:45.946Z"
+    },
+    "49976992": {
+      "hash": "95dc63596861cc5d",
+      "use": 0.4,
+      "worth": 1.59,
+      "judgedAt": "2026-10-14T06:59:52.146Z"
+    },
+    "49991939": {
+      "hash": "867fd83108ea5f31",
+      "use": 0.06,
+      "worth": 1,
+      "judgedAt": "2026-10-14T06:55:45.734Z"
+    },
+    "50060826": {
+      "hash": "a3d24978d844a304",
+      "use": 0.19,
+      "worth": 0.97,
+      "judgedAt": "2026-10-14T06:55:45.629Z"
+    },
+    "50063940": {
+      "hash": "76114bd334753281",
+      "use": 0.05,
+      "worth": 1.72,
+      "judgedAt": "2026-10-14T06:55:45.520Z"
+    },
+    "50066689": {
+      "hash": "c5fb20d777671763",
+      "use": 0.87,
+      "worth": 1.84,
+      "judgedAt": "2026-10-14T06:55:45.423Z"
+    },
+    "50070852": {
+      "hash": "71d23ff612f1f002",
+      "use": 0.96,
+      "worth": 2.1,
+      "judgedAt": "2026-10-14T06:55:45.317Z",
+      "titleIndex": 0
+    }
+  },
+  "passes": [
+    {
+      "importedAt": "2026-10-14T06:55:46.882Z",
+      "counts": {
+        "candidates": 182,
+        "fresh": 176,
+        "judged": 14,
+        "failed": 0,
+        "accepted": 0,
+        "imported": 0
+      },
+      "imported": []
+    },
+    {
+      "importedAt": "2026-10-14T06:57:49.531Z",
+      "counts": {
+        "candidates": 182,
+        "fresh": 176,
+        "judged": 162,
+        "failed": 0,
+        "accepted": 49,
+        "imported": 49
+      },
+      "imported": [
+        {
+          "id": "hn-50070852",
+          "title": "So, one of the first things that I have put my Hermes agent to work doing is populating my home…",
+          "url": "https://news.ycombinator.com/item?id=50070852",
+          "use": 0.96,
+          "worth": 2.1
+        },
+        {
+          "id": "hn-49810576",
+          "title": "One is pi.dev on the console, but because the KB is a git repository I have it on each computer",
+          "url": "https://news.ycombinator.com/item?id=49810576",
+          "use": 0.96,
+          "worth": 2.66
+        },
+        {
+          "id": "hn-49787187",
+          "title": "> So for example, i have a conversation in Proactive Messaging asking claude to follow the…",
+          "url": "https://news.ycombinator.com/item?id=49787187",
+          "use": 0.93,
+          "worth": 2.7
+        },
+        {
+          "id": "hn-49742023",
+          "title": "VPS is production",
+          "url": "https://news.ycombinator.com/item?id=49742023",
+          "use": 0.89,
+          "worth": 3.5
+        },
+        {
+          "id": "hn-49477413",
+          "title": "This article smells AI generated, which is _very_ funny given the argument being made",
+          "url": "https://news.ycombinator.com/item?id=49477413",
+          "use": 0.94,
+          "worth": 2.54
+        },
+        {
+          "id": "hn-49367636",
+          "title": "What i did (been doing it for like 5 months so far) is keep track of my day (just using Logseq…",
+          "url": "https://news.ycombinator.com/item?id=49367636",
+          "use": 0.94,
+          "worth": 2.91
+        },
+        {
+          "id": "hn-49308721",
+          "title": "I didn't end up needing to go full scrcpy because my use case just runs Android in an emulator…",
+          "url": "https://news.ycombinator.com/item?id=49308721",
+          "use": 0.92,
+          "worth": 3.06
+        },
+        {
+          "id": "hn-49294464",
+          "title": "$0",
+          "url": "https://news.ycombinator.com/item?id=49294464",
+          "use": 0.92,
+          "worth": 2.06
+        },
+        {
+          "id": "hn-49282085",
+          "title": "Interesting",
+          "url": "https://news.ycombinator.com/item?id=49282085",
+          "use": 0.96,
+          "worth": 3.05
+        },
+        {
+          "id": "hn-49254792",
+          "title": "I am getting to know Hermes agent and in the last couple of days I used it for searching the…",
+          "url": "https://news.ycombinator.com/item?id=49254792",
+          "use": 0.94,
+          "worth": 2.18
+        },
+        {
+          "id": "hn-49234527",
+          "title": "I have a Pebble Time 2, which is an open source watch",
+          "url": "https://news.ycombinator.com/item?id=49234527",
+          "use": 0.95,
+          "worth": 3.11
+        },
+        {
+          "id": "hn-49218146",
+          "title": "To put actual numbers on it, since using AI to start solving all kinds of…",
+          "url": "https://news.ycombinator.com/item?id=49218146",
+          "use": 0.91,
+          "worth": 2.03
+        },
+        {
+          "id": "hn-49214369",
+          "title": "I was playing with channels in golang and then i saw the hackernews api",
+          "url": "https://news.ycombinator.com/item?id=49214369",
+          "use": 0.7,
+          "worth": 2.59
+        },
+        {
+          "id": "hn-49189025",
+          "title": "I just deployed it on my cloudflare workers, it went live in a minute, worked through my CF…",
+          "url": "https://news.ycombinator.com/item?id=49189025",
+          "use": 0.93,
+          "worth": 2.12
+        },
+        {
+          "id": "hn-49159530",
+          "title": "So, I recently started using the Hermes agent and hooked it up with Step 3.5 Flash",
+          "url": "https://news.ycombinator.com/item?id=49159530",
+          "use": 0.94,
+          "worth": 3.08
+        },
+        {
+          "id": "hn-49097260",
+          "title": "I purchased my Spark back in March before the RAM price increase",
+          "url": "https://news.ycombinator.com/item?id=49097260",
+          "use": 0.88,
+          "worth": 2.46
+        },
+        {
+          "id": "hn-49064389",
+          "title": "I just built my own voice assistant with my Pebble Time 2 watch and it uses a VPS hosted TTS…",
+          "url": "https://news.ycombinator.com/item?id=49064389",
+          "use": 0.9,
+          "worth": 2
+        },
+        {
+          "id": "hn-48969451",
+          "title": "It depends on what you mean by \"unsupervised\" - I've been strictly working through the agent…",
+          "url": "https://news.ycombinator.com/item?id=48969451",
+          "use": 0.8,
+          "worth": 2.06
+        },
+        {
+          "id": "hn-48930884",
+          "title": "nice, are you using webrtc aec3 or sth custom?",
+          "url": "https://news.ycombinator.com/item?id=48930884",
+          "use": 0.71,
+          "worth": 2.68
+        },
+        {
+          "id": "hn-48840097",
+          "title": "I have built out something similar that let's me use my phone's hardware buttons to open an…",
+          "url": "https://news.ycombinator.com/item?id=48840097",
+          "use": 0.96,
+          "worth": 2.82
+        },
+        {
+          "id": "hn-48726398",
+          "title": "In general if you're setting up a local LLM you should assume it's going to be primarily…",
+          "url": "https://news.ycombinator.com/item?id=48726398",
+          "use": 0.97,
+          "worth": 3.47
+        },
+        {
+          "id": "hn-48664038",
+          "title": "> Computer use is such a terrible idea",
+          "url": "https://news.ycombinator.com/item?id=48664038",
+          "use": 0.96,
+          "worth": 3.09
+        },
+        {
+          "id": "hn-48650822",
+          "title": "I have a home server that runs Qwen3.6-35B-A3B through llama.cpp with Open WebUI for the user…",
+          "url": "https://news.ycombinator.com/item?id=48650822",
+          "use": 0.95,
+          "worth": 2.16
+        },
+        {
+          "id": "hn-48602964",
+          "title": "Author here",
+          "url": "https://news.ycombinator.com/item?id=48602964",
+          "use": 0.96,
+          "worth": 3.36
+        },
+        {
+          "id": "hn-48590990",
+          "title": "I haven't done any in-depth synthetic benchmarks but I had my Hermes agent run some and I ran a…",
+          "url": "https://news.ycombinator.com/item?id=48590990",
+          "use": 0.96,
+          "worth": 3.11
+        },
+        {
+          "id": "hn-48581502",
+          "title": "It is a combination of Hermes agent as the orchestrator and a custom extractor script (that…",
+          "url": "https://news.ycombinator.com/item?id=48581502",
+          "use": 0.92,
+          "worth": 3.14
+        },
+        {
+          "id": "hn-48509609",
+          "title": "Your experiences must be much different from mine",
+          "url": "https://news.ycombinator.com/item?id=48509609",
+          "use": 0.95,
+          "worth": 3.03
+        },
+        {
+          "id": "hn-48494430",
+          "title": "A lightweight REST + SSE bridge that exposes Hermes Agent to mobile apps and any HTTP client",
+          "url": "https://news.ycombinator.com/item?id=48494430",
+          "use": 0.83,
+          "worth": 2.68
+        },
+        {
+          "id": "hn-48417329",
+          "title": "I use PI ( https:&#x2F;&#x2F;pi.dev ) and (…",
+          "url": "https://news.ycombinator.com/item?id=48417329",
+          "use": 0.98,
+          "worth": 3.93
+        },
+        {
+          "id": "hn-48332832",
+          "title": "I’m using Hermes Agent and this MCP to orchestrate 5 models (DS4 Flash, GPT 5.5, Opus 4.8, Grok…",
+          "url": "https://news.ycombinator.com/item?id=48332832",
+          "use": 0.95,
+          "worth": 2.76
+        },
+        {
+          "id": "hn-48231142",
+          "title": "Oh wow",
+          "url": "https://news.ycombinator.com/item?id=48231142",
+          "use": 0.84,
+          "worth": 2.65
+        },
+        {
+          "id": "hn-48187544",
+          "title": "Bad is mystifying",
+          "url": "https://news.ycombinator.com/item?id=48187544",
+          "use": 0.92,
+          "worth": 3.49
+        },
+        {
+          "id": "hn-48131458",
+          "title": "That's interesting",
+          "url": "https://news.ycombinator.com/item?id=48131458",
+          "use": 0.95,
+          "worth": 2.61
+        },
+        {
+          "id": "hn-48026905",
+          "title": "OPINIONS.md is a compact, living map of what you actually believe",
+          "url": "https://news.ycombinator.com/item?id=48026905",
+          "use": 0.95,
+          "worth": 3.25
+        },
+        {
+          "id": "hn-47975048",
+          "title": "I have a similar set up",
+          "url": "https://news.ycombinator.com/item?id=47975048",
+          "use": 0.97,
+          "worth": 3.01
+        },
+        {
+          "id": "hn-47862826",
+          "title": "I am on Google's $20&#x2F;month plan, and I usually get about three half-hour coding sessions a…",
+          "url": "https://news.ycombinator.com/item?id=47862826",
+          "use": 0.96,
+          "worth": 2.29
+        },
+        {
+          "id": "hn-47845312",
+          "title": "I have Hermes agent run a cron each hour to check if the Steam Controller if finally on sale",
+          "url": "https://news.ycombinator.com/item?id=47845312",
+          "use": 0.96,
+          "worth": 2.2
+        },
+        {
+          "id": "hn-47833262",
+          "title": "I ran OpenClaw in a container, on a VPS without connection to messaging systems, so perhaps…",
+          "url": "https://news.ycombinator.com/item?id=47833262",
+          "use": 0.97,
+          "worth": 3.12
+        },
+        {
+          "id": "hn-47786818",
+          "title": "I find OpenClaw and (more so) Hermes Agent useful for software development, research, and…",
+          "url": "https://news.ycombinator.com/item?id=47786818",
+          "use": 0.85,
+          "worth": 2.27
+        },
+        {
+          "id": "hn-47785939",
+          "title": "I don't use OpenClaw I tried but found it fragile and it's personality off putting",
+          "url": "https://news.ycombinator.com/item?id=47785939",
+          "use": 0.96,
+          "worth": 2.96
+        },
+        {
+          "id": "hn-47504530",
+          "title": "Honestly, I installed Hermes Agent last weekend, and while there isn't any \"killer use case\"…",
+          "url": "https://news.ycombinator.com/item?id=47504530",
+          "use": 0.98,
+          "worth": 2.78
+        },
+        {
+          "id": "hn-47304268",
+          "title": "hermes-lite takes the open-source Hermes Agent, strips it to a focused local coding tool, then…",
+          "url": "https://news.ycombinator.com/item?id=47304268",
+          "use": 0.78,
+          "worth": 2.82
+        },
+        {
+          "id": "hn-48455781",
+          "title": "I have Hermes and set it up so that it works on a self-hosted Matrix instance",
+          "url": "https://news.ycombinator.com/item?id=48455781",
+          "use": 0.97,
+          "worth": 2.66
+        },
+        {
+          "id": "hn-48457429",
+          "title": "I use Hermes at home",
+          "url": "https://news.ycombinator.com/item?id=48457429",
+          "use": 0.98,
+          "worth": 3.52
+        },
+        {
+          "id": "hn-49368474",
+          "title": "The Arduino UNO Q is an almost perfect Hermes Agent host",
+          "url": "https://news.ycombinator.com/item?id=49368474",
+          "use": 0.97,
+          "worth": 3.15
+        },
+        {
+          "id": "hn-48592879",
+          "title": "Show HN: Hermzner – Provisioning an Hardened Hermes Agent on Hetzner VPS",
+          "url": "https://news.ycombinator.com/item?id=48592879",
+          "use": 0.96,
+          "worth": 2.34
+        },
+        {
+          "id": "hn-48887244",
+          "title": "So I ended up building it since Petdex isn't good enough for me",
+          "url": "https://news.ycombinator.com/item?id=48887244",
+          "use": 0.97,
+          "worth": 2.87
+        },
+        {
+          "id": "hn-48904884",
+          "title": "Show HN: BYO AI free notetaking with optional screen reading for OpenClaw/hermes",
+          "url": "https://news.ycombinator.com/item?id=48904884",
+          "use": 0.93,
+          "worth": 2.6
+        },
+        {
+          "id": "hn-47740042",
+          "title": "Show HN: Agent-Notifications – Real-Time Alerts for OpenClaw and Hermes Agents",
+          "url": "https://news.ycombinator.com/item?id=47740042",
+          "use": 0.91,
+          "worth": 2.43
+        }
+      ]
+    },
+    {
+      "importedAt": "2026-10-14T07:00:00.923Z",
+      "counts": {
+        "candidates": 179,
+        "fresh": 173,
+        "judged": 80,
+        "failed": 0,
+        "accepted": 49,
+        "imported": 49
+      },
+      "imported": [
+        {
+          "id": "hn-50070852",
+          "title": "So, one of the first things that I have put my Hermes agent to work doing is populating my home…",
+          "url": "https://news.ycombinator.com/item?id=50070852",
+          "use": 0.96,
+          "worth": 2.1
+        },
+        {
+          "id": "hn-49810576",
+          "title": "One is pi.dev on the console, but because the KB is a git repository I have it on each computer",
+          "url": "https://news.ycombinator.com/item?id=49810576",
+          "use": 0.97,
+          "worth": 2.67
+        },
+        {
+          "id": "hn-49787187",
+          "title": "I've been looking for a new cooker. I have a Hermes agent running on VM that does this",
+          "url": "https://news.ycombinator.com/item?id=49787187",
+          "use": 0.93,
+          "worth": 2.7
+        },
+        {
+          "id": "hn-49742023",
+          "title": "VPS is production. Linux dev box is my local big box",
+          "url": "https://news.ycombinator.com/item?id=49742023",
+          "use": 0.89,
+          "worth": 3.44
+        },
+        {
+          "id": "hn-49477413",
+          "title": "This article smells AI generated, which is _very_ funny given the argument being made",
+          "url": "https://news.ycombinator.com/item?id=49477413",
+          "use": 0.94,
+          "worth": 2.54
+        },
+        {
+          "id": "hn-49367636",
+          "title": "What i did (been doing it for like 5 months so far) is keep track of my day (just using Logseq…",
+          "url": "https://news.ycombinator.com/item?id=49367636",
+          "use": 0.94,
+          "worth": 2.88
+        },
+        {
+          "id": "hn-49308721",
+          "title": "I didn't end up needing to go full scrcpy because my use case just runs Android in an emulator…",
+          "url": "https://news.ycombinator.com/item?id=49308721",
+          "use": 0.89,
+          "worth": 3.04
+        },
+        {
+          "id": "hn-49294464",
+          "title": "$0. but I use at least $8,000 worth of monthly tokens",
+          "url": "https://news.ycombinator.com/item?id=49294464",
+          "use": 0.92,
+          "worth": 2.1
+        },
+        {
+          "id": "hn-49282085",
+          "title": "Interesting. A residential IP was enough for me to get my Hermes agent grocery shopping…",
+          "url": "https://news.ycombinator.com/item?id=49282085",
+          "use": 0.96,
+          "worth": 3.05
+        },
+        {
+          "id": "hn-49254792",
+          "title": "I am getting to know Hermes agent and in the last couple of days I used it for searching the…",
+          "url": "https://news.ycombinator.com/item?id=49254792",
+          "use": 0.94,
+          "worth": 2.18
+        },
+        {
+          "id": "hn-49234527",
+          "title": "I have a Pebble Time 2, which is an open source watch",
+          "url": "https://news.ycombinator.com/item?id=49234527",
+          "use": 0.95,
+          "worth": 3.15
+        },
+        {
+          "id": "hn-49218146",
+          "title": "To put actual numbers on it, since using AI to start solving all kinds of…",
+          "url": "https://news.ycombinator.com/item?id=49218146",
+          "use": 0.92,
+          "worth": 2.01
+        },
+        {
+          "id": "hn-49214369",
+          "title": "I was playing with channels in golang and then i saw the hackernews api",
+          "url": "https://news.ycombinator.com/item?id=49214369",
+          "use": 0.7,
+          "worth": 2.61
+        },
+        {
+          "id": "hn-49189025",
+          "title": "I just deployed it on my cloudflare workers, it went live in a minute, worked through my CF…",
+          "url": "https://news.ycombinator.com/item?id=49189025",
+          "use": 0.93,
+          "worth": 2.19
+        },
+        {
+          "id": "hn-49159530",
+          "title": "So, I recently started using the Hermes agent and hooked it up with Step 3.5 Flash",
+          "url": "https://news.ycombinator.com/item?id=49159530",
+          "use": 0.94,
+          "worth": 3.08
+        },
+        {
+          "id": "hn-49097260",
+          "title": "I purchased my Spark back in March before the RAM price increase",
+          "url": "https://news.ycombinator.com/item?id=49097260",
+          "use": 0.86,
+          "worth": 2.48
+        },
+        {
+          "id": "hn-49064389",
+          "title": "I just built my own voice assistant with my Pebble Time 2 watch and it uses a VPS hosted TTS…",
+          "url": "https://news.ycombinator.com/item?id=49064389",
+          "use": 0.9,
+          "worth": 2
+        },
+        {
+          "id": "hn-48969451",
+          "title": "It depends on what you mean by \"unsupervised\" - I've been strictly working through the agent…",
+          "url": "https://news.ycombinator.com/item?id=48969451",
+          "use": 0.8,
+          "worth": 2.06
+        },
+        {
+          "id": "hn-48930884",
+          "title": "nice, are you using webrtc aec3 or sth custom? to your question i did a thorough benchmarking…",
+          "url": "https://news.ycombinator.com/item?id=48930884",
+          "use": 0.71,
+          "worth": 2.68
+        },
+        {
+          "id": "hn-48840097",
+          "title": "I have built out something similar that let's me use my phone's hardware buttons to open an…",
+          "url": "https://news.ycombinator.com/item?id=48840097",
+          "use": 0.96,
+          "worth": 2.82
+        },
+        {
+          "id": "hn-48726398",
+          "title": "In general if you're setting up a local LLM you should assume it's going to be primarily…",
+          "url": "https://news.ycombinator.com/item?id=48726398",
+          "use": 0.97,
+          "worth": 3.47
+        },
+        {
+          "id": "hn-48664038",
+          "title": "And yet having an agent able yo use a computer on your behalf is really useful",
+          "url": "https://news.ycombinator.com/item?id=48664038",
+          "use": 0.96,
+          "worth": 3.09
+        },
+        {
+          "id": "hn-48650822",
+          "title": "I have a home server that runs Qwen3.6-35B-A3B through llama.cpp with Open WebUI for the user…",
+          "url": "https://news.ycombinator.com/item?id=48650822",
+          "use": 0.95,
+          "worth": 2.16
+        },
+        {
+          "id": "hn-48602964",
+          "title": "Author here. This is a personal weekend project that grew into a working WhatsApp bot",
+          "url": "https://news.ycombinator.com/item?id=48602964",
+          "use": 0.96,
+          "worth": 3.36
+        },
+        {
+          "id": "hn-48590990",
+          "title": "I haven't done any in-depth synthetic benchmarks but I had my Hermes agent run some and I ran a…",
+          "url": "https://news.ycombinator.com/item?id=48590990",
+          "use": 0.96,
+          "worth": 3.14
+        },
+        {
+          "id": "hn-48581502",
+          "title": "It is a combination of Hermes agent as the orchestrator and a custom extractor script (that…",
+          "url": "https://news.ycombinator.com/item?id=48581502",
+          "use": 0.92,
+          "worth": 3.14
+        },
+        {
+          "id": "hn-48509609",
+          "title": "Your experiences must be much different from mine",
+          "url": "https://news.ycombinator.com/item?id=48509609",
+          "use": 0.95,
+          "worth": 3.03
+        },
+        {
+          "id": "hn-48494430",
+          "title": "A lightweight REST + SSE bridge that exposes Hermes Agent to mobile apps and any HTTP client",
+          "url": "https://news.ycombinator.com/item?id=48494430",
+          "use": 0.85,
+          "worth": 2.67
+        },
+        {
+          "id": "hn-48417329",
+          "title": "I use PI ( https://pi.dev ) and ( https://hermes-agent.nousresearch.com/ ) as the main drivers…",
+          "url": "https://news.ycombinator.com/item?id=48417329",
+          "use": 0.98,
+          "worth": 3.93
+        },
+        {
+          "id": "hn-48332832",
+          "title": "I’m using Hermes Agent and this MCP to orchestrate 5 models (DS4 Flash, GPT 5.5, Opus 4.8, Grok…",
+          "url": "https://news.ycombinator.com/item?id=48332832",
+          "use": 0.95,
+          "worth": 2.73
+        },
+        {
+          "id": "hn-48231142",
+          "title": "Oh wow. I did the same thing a couple of weeks ago",
+          "url": "https://news.ycombinator.com/item?id=48231142",
+          "use": 0.84,
+          "worth": 2.65
+        },
+        {
+          "id": "hn-48187544",
+          "title": "Bad is mystifying. Unassisted but for handing it a pile of PDFs of relevant academic papers and…",
+          "url": "https://news.ycombinator.com/item?id=48187544",
+          "use": 0.92,
+          "worth": 3.49
+        },
+        {
+          "id": "hn-48131458",
+          "title": "That's interesting. I've been trying to build something similar as a side project: Hermes agent…",
+          "url": "https://news.ycombinator.com/item?id=48131458",
+          "use": 0.95,
+          "worth": 2.61
+        },
+        {
+          "id": "hn-48026905",
+          "title": "OPINIONS.md is a compact, living map of what you actually believe",
+          "url": "https://news.ycombinator.com/item?id=48026905",
+          "use": 0.95,
+          "worth": 3.25
+        },
+        {
+          "id": "hn-47975048",
+          "title": "I have a similar set up. I communicate/chat with the Hermes agent via Matrix chat client",
+          "url": "https://news.ycombinator.com/item?id=47975048",
+          "use": 0.97,
+          "worth": 2.97
+        },
+        {
+          "id": "hn-47862826",
+          "title": "I am on Google's $20/month plan, and I usually get about three half-hour coding sessions a week…",
+          "url": "https://news.ycombinator.com/item?id=47862826",
+          "use": 0.96,
+          "worth": 2.3
+        },
+        {
+          "id": "hn-47845312",
+          "title": "I have Hermes agent run a cron each hour to check if the Steam Controller if finally on sale",
+          "url": "https://news.ycombinator.com/item?id=47845312",
+          "use": 0.96,
+          "worth": 2.2
+        },
+        {
+          "id": "hn-47833262",
+          "title": "I ran OpenClaw in a container, on a VPS without connection to messaging systems, so perhaps…",
+          "url": "https://news.ycombinator.com/item?id=47833262",
+          "use": 0.97,
+          "worth": 3.12
+        },
+        {
+          "id": "hn-47786818",
+          "title": "I find OpenClaw and (more so) Hermes Agent useful for software development, research, and…",
+          "url": "https://news.ycombinator.com/item?id=47786818",
+          "use": 0.87,
+          "worth": 2.32
+        },
+        {
+          "id": "hn-47785939",
+          "title": "I don't use OpenClaw I tried but found it fragile and it's personality off putting",
+          "url": "https://news.ycombinator.com/item?id=47785939",
+          "use": 0.96,
+          "worth": 2.96
+        },
+        {
+          "id": "hn-47504530",
+          "title": "Honestly, I installed Hermes Agent last weekend, and while there isn't any \"killer use case\"…",
+          "url": "https://news.ycombinator.com/item?id=47504530",
+          "use": 0.98,
+          "worth": 2.8
+        },
+        {
+          "id": "hn-47304268",
+          "title": "hermes-lite takes the open-source Hermes Agent, strips it to a focused local coding tool, then…",
+          "url": "https://news.ycombinator.com/item?id=47304268",
+          "use": 0.78,
+          "worth": 2.82
+        },
+        {
+          "id": "hn-48455781",
+          "title": "I have Hermes and set it up so that it works on a self-hosted Matrix instance",
+          "url": "https://news.ycombinator.com/item?id=48455781",
+          "use": 0.97,
+          "worth": 2.66
+        },
+        {
+          "id": "hn-48457429",
+          "title": "I use Hermes at home. Swapped out Openclaw for this",
+          "url": "https://news.ycombinator.com/item?id=48457429",
+          "use": 0.98,
+          "worth": 3.52
+        },
+        {
+          "id": "hn-49368474",
+          "title": "The Arduino UNO Q is an almost perfect Hermes Agent host",
+          "url": "https://news.ycombinator.com/item?id=49368474",
+          "use": 0.97,
+          "worth": 3.15
+        },
+        {
+          "id": "hn-48592879",
+          "title": "Show HN: Hermzner – Provisioning an Hardened Hermes Agent on Hetzner VPS",
+          "url": "https://news.ycombinator.com/item?id=48592879",
+          "use": 0.96,
+          "worth": 2.34
+        },
+        {
+          "id": "hn-48887244",
+          "title": "So I ended up building it since Petdex isn't good enough for me",
+          "url": "https://news.ycombinator.com/item?id=48887244",
+          "use": 0.96,
+          "worth": 2.88
+        },
+        {
+          "id": "hn-48904884",
+          "title": "Show HN: BYO AI free notetaking with optional screen reading for OpenClaw/hermes",
+          "url": "https://news.ycombinator.com/item?id=48904884",
+          "use": 0.93,
+          "worth": 2.63
+        },
+        {
+          "id": "hn-47740042",
+          "title": "Show HN: Agent-Notifications – Real-Time Alerts for OpenClaw and Hermes Agents",
+          "url": "https://news.ycombinator.com/item?id=47740042",
+          "use": 0.91,
+          "worth": 2.43
+        }
+      ]
+    },
+    {
+      "importedAt": "2026-10-14T07:02:00.443Z",
+      "counts": {
+        "candidates": 179,
+        "fresh": 173,
+        "judged": 0,
+        "failed": 0,
+        "accepted": 49,
+        "imported": 49
+      },
+      "imported": [
+        {
+          "id": "hn-50070852",
+          "title": "So, one of the first things that I have put my Hermes agent to work doing is populating my home…",
+          "url": "https://news.ycombinator.com/item?id=50070852",
+          "use": 0.96,
+          "worth": 2.1
+        },
+        {
+          "id": "hn-49810576",
+          "title": "On top of that I also run Hermes Agent and have set up there one agent to be responsible for…",
+          "url": "https://news.ycombinator.com/item?id=49810576",
+          "use": 0.97,
+          "worth": 2.67
+        },
+        {
+          "id": "hn-49787187",
+          "title": "I told it to keep an eye on prices",
+          "url": "https://news.ycombinator.com/item?id=49787187",
+          "use": 0.93,
+          "worth": 2.7
+        },
+        {
+          "id": "hn-49742023",
+          "title": "Occasionally I weigh in with an opinion or pick a recommendation",
+          "url": "https://news.ycombinator.com/item?id=49742023",
+          "use": 0.89,
+          "worth": 3.44
+        },
+        {
+          "id": "hn-49477413",
+          "title": "All of this is sidestepped somewhat by using good isolation primitives - I'm running a Hermes…",
+          "url": "https://news.ycombinator.com/item?id=49477413",
+          "use": 0.94,
+          "worth": 2.54
+        },
+        {
+          "id": "hn-49367636",
+          "title": "I tried to have a Hermes agent that I talk to throught telegram (had some cron jobs to check in…",
+          "url": "https://news.ycombinator.com/item?id=49367636",
+          "use": 0.94,
+          "worth": 2.88
+        },
+        {
+          "id": "hn-49308721",
+          "title": "However, I ended up using the accessibility tree to create a semantic, ephemeral ref API as the…",
+          "url": "https://news.ycombinator.com/item?id=49308721",
+          "use": 0.89,
+          "worth": 3.04
+        },
+        {
+          "id": "hn-49294464",
+          "title": "Tron, my Hermes agent, uses agent storming to orchestrate openCode agents and hermes subagents…",
+          "url": "https://news.ycombinator.com/item?id=49294464",
+          "use": 0.92,
+          "worth": 2.1
+        },
+        {
+          "id": "hn-49282085",
+          "title": "I gave it a reverse SSH tunnel to a remote-debugging Chrome profile on my local Mac and now it…",
+          "url": "https://news.ycombinator.com/item?id=49282085",
+          "use": 0.96,
+          "worth": 3.05
+        },
+        {
+          "id": "hn-49254792",
+          "title": "I am getting to know Hermes agent and in the last couple of days I used it for searching the…",
+          "url": "https://news.ycombinator.com/item?id=49254792",
+          "use": 0.94,
+          "worth": 2.18
+        },
+        {
+          "id": "hn-49234527",
+          "title": "The VPS hosts a Hermes installation, and for more complicated tasks or for ongoing projects the…",
+          "url": "https://news.ycombinator.com/item?id=49234527",
+          "use": 0.95,
+          "worth": 3.15
+        },
+        {
+          "id": "hn-49218146",
+          "title": "We've just spun up our first Hermes agent, with direct API access to our main inventory system…",
+          "url": "https://news.ycombinator.com/item?id=49218146",
+          "use": 0.92,
+          "worth": 2.01
+        },
+        {
+          "id": "hn-49214369",
+          "title": "So i created an mcp, that is fetching the newest hackernews articles - stores them in memory -…",
+          "url": "https://news.ycombinator.com/item?id=49214369",
+          "use": 0.7,
+          "worth": 2.61
+        },
+        {
+          "id": "hn-49189025",
+          "title": "I have been driving a hermes agent off a VM in a proxmox from my slack and wondering how to…",
+          "url": "https://news.ycombinator.com/item?id=49189025",
+          "use": 0.93,
+          "worth": 2.19
+        },
+        {
+          "id": "hn-49159530",
+          "title": "So, I recently started using the Hermes agent and hooked it up with Step 3.5 Flash",
+          "url": "https://news.ycombinator.com/item?id=49159530",
+          "use": 0.94,
+          "worth": 3.08
+        },
+        {
+          "id": "hn-49097260",
+          "title": "Its been a great driver for Hermes Agent, serving local MoE and dense models up to 122B",
+          "url": "https://news.ycombinator.com/item?id=49097260",
+          "use": 0.86,
+          "worth": 2.48
+        },
+        {
+          "id": "hn-49064389",
+          "title": "I just built my own voice assistant with my Pebble Time 2 watch and it uses a VPS hosted TTS…",
+          "url": "https://news.ycombinator.com/item?id=49064389",
+          "use": 0.9,
+          "worth": 2
+        },
+        {
+          "id": "hn-48969451",
+          "title": "\"Make this work on Hermes agent and message me when you're done\" and an hour later or so, I can…",
+          "url": "https://news.ycombinator.com/item?id=48969451",
+          "use": 0.8,
+          "worth": 2.06
+        },
+        {
+          "id": "hn-48930884",
+          "title": "now, when I connect local hermes agent that uses deepseek v4 flash via their api, latency jumps…",
+          "url": "https://news.ycombinator.com/item?id=48930884",
+          "use": 0.71,
+          "worth": 2.68
+        },
+        {
+          "id": "hn-48840097",
+          "title": "I have built out something similar that let's me use my phone's hardware buttons to open an…",
+          "url": "https://news.ycombinator.com/item?id=48840097",
+          "use": 0.96,
+          "worth": 2.82
+        },
+        {
+          "id": "hn-48726398",
+          "title": "I have an older laptop I run a hermes agent on backed by an API based open (non-local) model…",
+          "url": "https://news.ycombinator.com/item?id=48726398",
+          "use": 0.97,
+          "worth": 3.47
+        },
+        {
+          "id": "hn-48664038",
+          "title": "Recently I gave a Nix OS vm to my hermes agent and it has been a good experience",
+          "url": "https://news.ycombinator.com/item?id=48664038",
+          "use": 0.96,
+          "worth": 3.09
+        },
+        {
+          "id": "hn-48650822",
+          "title": "In fact it was an agent powered by the same model that setup the open webui server and took…",
+          "url": "https://news.ycombinator.com/item?id=48650822",
+          "use": 0.95,
+          "worth": 2.16
+        },
+        {
+          "id": "hn-48602964",
+          "title": "Built on Hermes Agent + Baileys + Chroma + nomic-embed-text-v2-moe + Claude Sonnet 4.6 via…",
+          "url": "https://news.ycombinator.com/item?id=48602964",
+          "use": 0.96,
+          "worth": 3.36
+        },
+        {
+          "id": "hn-48590990",
+          "title": "I have two Hermes Profiles running, one is a personal assistant that manages my backlog and…",
+          "url": "https://news.ycombinator.com/item?id=48590990",
+          "use": 0.96,
+          "worth": 3.14
+        },
+        {
+          "id": "hn-48581502",
+          "title": "It is a combination of Hermes agent as the orchestrator and a custom extractor script (that…",
+          "url": "https://news.ycombinator.com/item?id=48581502",
+          "use": 0.92,
+          "worth": 3.14
+        },
+        {
+          "id": "hn-48509609",
+          "title": "At home I'm managing a Hermes agent that can spin up a whole fleet of purpose-tuned agents for…",
+          "url": "https://news.ycombinator.com/item?id=48509609",
+          "use": 0.95,
+          "worth": 3.03
+        },
+        {
+          "id": "hn-48494430",
+          "title": "A lightweight REST + SSE bridge that exposes Hermes Agent to mobile apps and any HTTP client",
+          "url": "https://news.ycombinator.com/item?id=48494430",
+          "use": 0.85,
+          "worth": 2.67
+        },
+        {
+          "id": "hn-48417329",
+          "title": "I also use it at work (integrated at Slack) and at this point it answers most of both my emails…",
+          "url": "https://news.ycombinator.com/item?id=48417329",
+          "use": 0.98,
+          "worth": 3.93
+        },
+        {
+          "id": "hn-48332832",
+          "title": "I’m using Hermes Agent and this MCP to orchestrate 5 models (DS4 Flash, GPT 5.5, Opus 4.8, Grok…",
+          "url": "https://news.ycombinator.com/item?id=48332832",
+          "use": 0.95,
+          "worth": 2.73
+        },
+        {
+          "id": "hn-48231142",
+          "title": "It upgraded everything that needed to be upgraded, patched what needed to be patched, then…",
+          "url": "https://news.ycombinator.com/item?id=48231142",
+          "use": 0.84,
+          "worth": 2.65
+        },
+        {
+          "id": "hn-48187544",
+          "title": "Unassisted but for handing it a pile of PDFs of relevant academic papers and my initial…",
+          "url": "https://news.ycombinator.com/item?id=48187544",
+          "use": 0.92,
+          "worth": 3.49
+        },
+        {
+          "id": "hn-48131458",
+          "title": "I've been trying to build something similar as a side project: Hermes agent + plugins (MCP…",
+          "url": "https://news.ycombinator.com/item?id=48131458",
+          "use": 0.95,
+          "worth": 2.61
+        },
+        {
+          "id": "hn-48026905",
+          "title": "It reads everything I write on the Internet, extracts durable opinions, merges them into the…",
+          "url": "https://news.ycombinator.com/item?id=48026905",
+          "use": 0.95,
+          "worth": 3.25
+        },
+        {
+          "id": "hn-47975048",
+          "title": "So rather than having to go to a bunch of different websites or apps to get things done, I've…",
+          "url": "https://news.ycombinator.com/item?id=47975048",
+          "use": 0.97,
+          "worth": 2.97
+        },
+        {
+          "id": "hn-47862826",
+          "title": "I run Hermes inside a container, on a dedicated VPS as a coding agent for complex tasks and so…",
+          "url": "https://news.ycombinator.com/item?id=47862826",
+          "use": 0.96,
+          "worth": 2.3
+        },
+        {
+          "id": "hn-47845312",
+          "title": "I have Hermes agent run a cron each hour to check if the Steam Controller if finally on sale",
+          "url": "https://news.ycombinator.com/item?id=47845312",
+          "use": 0.96,
+          "worth": 2.2
+        },
+        {
+          "id": "hn-47833262",
+          "title": "Similarly, I have been using Hermes Agent also inside a container, and on a VPS with only…",
+          "url": "https://news.ycombinator.com/item?id=47833262",
+          "use": 0.97,
+          "worth": 3.12
+        },
+        {
+          "id": "hn-47786818",
+          "title": "Personally, I am comfortable running OpenClaw and Hermes Agent on a rented VPS (preferably in a…",
+          "url": "https://news.ycombinator.com/item?id=47786818",
+          "use": 0.87,
+          "worth": 2.32
+        },
+        {
+          "id": "hn-47785939",
+          "title": "I basically just use it as a personal assistant and a way to centralize a lot of other…",
+          "url": "https://news.ycombinator.com/item?id=47785939",
+          "use": 0.96,
+          "worth": 2.96
+        },
+        {
+          "id": "hn-47504530",
+          "title": "I've set it up with it's own mailbox, and a git token to make PRs etc",
+          "url": "https://news.ycombinator.com/item?id=47504530",
+          "use": 0.98,
+          "worth": 2.8
+        },
+        {
+          "id": "hn-47304268",
+          "title": "hermes-lite takes the open-source Hermes Agent, strips it to a focused local coding tool, then…",
+          "url": "https://news.ycombinator.com/item?id=47304268",
+          "use": 0.78,
+          "worth": 2.82
+        },
+        {
+          "id": "hn-48455781",
+          "title": "I have Hermes and set it up so that it works on a self-hosted Matrix instance",
+          "url": "https://news.ycombinator.com/item?id=48455781",
+          "use": 0.97,
+          "worth": 2.66
+        },
+        {
+          "id": "hn-48457429",
+          "title": "But what I do do: it's a sysadmin for my homelab",
+          "url": "https://news.ycombinator.com/item?id=48457429",
+          "use": 0.98,
+          "worth": 3.52
+        },
+        {
+          "id": "hn-49368474",
+          "title": "The Arduino UNO Q is an almost perfect Hermes Agent host",
+          "url": "https://news.ycombinator.com/item?id=49368474",
+          "use": 0.97,
+          "worth": 3.15
+        },
+        {
+          "id": "hn-48592879",
+          "title": "Show HN: Hermzner – Provisioning an Hardened Hermes Agent on Hetzner VPS",
+          "url": "https://news.ycombinator.com/item?id=48592879",
+          "use": 0.96,
+          "worth": 2.34
+        },
+        {
+          "id": "hn-48887244",
+          "title": "Pet works on Mac and talks to my Hermes VPS via tailscale",
+          "url": "https://news.ycombinator.com/item?id=48887244",
+          "use": 0.96,
+          "worth": 2.88
+        },
+        {
+          "id": "hn-48904884",
+          "title": "Show HN: BYO AI free notetaking with optional screen reading for OpenClaw/hermes",
+          "url": "https://news.ycombinator.com/item?id=48904884",
+          "use": 0.93,
+          "worth": 2.63
+        },
+        {
+          "id": "hn-47740042",
+          "title": "Show HN: Agent-Notifications – Real-Time Alerts for OpenClaw and Hermes Agents",
+          "url": "https://news.ycombinator.com/item?id=47740042",
+          "use": 0.91,
+          "worth": 2.43
+        }
+      ]
+    }
+  ],
+  "source": "https://hn.algolia.com/api/v1/search?query=\"hermes agent\"",
+  "judgement": "Editorial triage by jev-latest: does the comment describe a real use of Hermes by its author, and how much a reader gains. Thresholds use >= 0.7, worth >= 2. Judgments order and admit; they are never shown as engagement."
+}
