@@ -63,6 +63,13 @@ export const dateLabel = d => d
 const ldJson = data => JSON.stringify(data).replace(/<\//g, '<\\/');
 const WEBSITE = { '@type': 'WebSite', name: 'Hermes Agent Archive', url: `${SITE}/` };
 
+/** A tier is live when it has a real link; the tip surface across the site follows. */
+export const liveTiers = links => (Array.isArray(links) ? links : []).filter(l => l && typeof l.url === 'string' && /^https?:\/\//.test(l.url));
+/* Set once per build from data/support.json. Until a tier is live, no page shows a ☕
+   button or a "buy a coffee" line: a call to tip with nowhere to tip would be a lie. */
+let TIPS_LIVE = false;
+export const setTipsLive = v => { TIPS_LIVE = Boolean(v); };
+
 const page = ({ title, description, canonical, body, breadcrumb, image = social(), jsonld = null }) => `<!doctype html>
 <html lang="en">
 <head>
@@ -92,7 +99,7 @@ ${jsonld ? `<script type="application/ld+json">${ldJson(jsonld)}</script>` : ''}
 </head>
 <body>
 <div class="doc">
-<header><a href="/">Hermes Agent Archive</a>${breadcrumb}<a class="support-btn" href="/support" aria-label="Support the archive">☕ Support</a></header>
+<header><a href="/">Hermes Agent Archive</a>${breadcrumb}${TIPS_LIVE ? '<a class="support-btn" href="/support" aria-label="Support the archive">☕ Support</a>' : ''}</header>
 ${body}
 <footer>
 <p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
@@ -134,7 +141,7 @@ ${item.detail ? paragraphs(item.detail) : ''}
 ${item.snippet ? `<pre><code>${esc(item.snippet)}</code></pre>` : ''}
 ${uses.length ? `<p class="meta">Mentioned in this story</p><ul class="entries uses">${uses.map(u => `<li><a href="/entry/${esc(u.id)}">${esc(u.title)}</a><p>${esc(u.shelf)}</p></li>`).join('')}</ul>` : ''}
 ${item.tags?.length ? `<ul class="tags">${item.tags.map(t => `<li>#${esc(t)}</li>`).join('')}</ul>` : ''}
-<p class="meta coffee">Saved you time? <a href="/support">Buy the curator a coffee ☕</a></p>
+${TIPS_LIVE ? '<p class="meta coffee">Saved you time? <a href="/support">Buy the curator a coffee ☕</a></p>' : ''}
 <div class="actions">
 ${link ? `<a href="${esc(link)}" rel="noopener">Read the original</a>` : ''}
 <a href="/#${esc(section.id)}?item=${encodeURIComponent(item.id)}">Open in the archive</a>
@@ -243,7 +250,7 @@ ${Object.entries(byShelf).map(([shelf, list]) => `<p class="meta">${esc(label(sh
  * opposite of what the page says.
  */
 export function supportPage(links = [], sponsor = null, stats = null) {
-  links = links.filter(l => l && typeof l.url === 'string' && /^https?:\/\//.test(l.url));   // a tier without a real link is not a button
+  links = liveTiers(links);   // a tier without a real link is not a button
   const tier = l => `<a class="tier" href="${esc(l.url)}" rel="noopener">
     <span class="tier-amount">${esc(l.label)}</span>
     ${l.note ? `<span class="tier-note">${esc(l.note)}</span>` : ''}
@@ -369,6 +376,7 @@ async function main() {
   for (const { section, items } of shelves) for (const i of items) lookup.set(i.id, { id: i.id, title: i.title, shelf: section.label });
   const urls = [`${SITE}/`];
   const support = JSON.parse(await readFile(join(ROOT, 'data', 'support.json'), 'utf8').catch(() => '{"links":[]}'));
+  setTipsLive(liveTiers(support.links).length);
   /* The page's figures are the same counts the cards and the dashboard carry. */
   const paged = shelves.flatMap(s => s.items);
   const stats = { entries: paged.length, shelves: shelves.length,

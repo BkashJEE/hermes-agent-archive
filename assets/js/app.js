@@ -84,6 +84,11 @@ async function load() {
   $('#archiveFieldCount').textContent = num(bannerItems.length);
   $('#githubFloor').textContent = num(githubStarFloor(state.live?.githubMinStars));
   const rankings = await getJSON('data/rankings.json').catch(() => null);
+  /* The ☕ button is in the markup but hidden: it shows only when data/support.json has a
+     tier with a real payment link, the same rule the static pages apply at build time. */
+  getJSON('data/support.json').then(s => {
+    if ((s?.links || []).some(l => /^https?:\/\//.test(l?.url || ''))) $('#supportBtn').hidden = false;
+  }).catch(() => {});
   await attachRankings(Object.values(state.data).flat(), rankings);
 }
 

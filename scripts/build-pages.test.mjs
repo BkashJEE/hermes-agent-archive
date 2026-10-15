@@ -143,3 +143,17 @@ test('the support page has no payment button until a real link is configured', a
   assert.match(linked, /href="mailto:a@b.c\?subject=x"/);
   assert.doesNotMatch(bare, /Sponsor slot/);
 });
+
+test('no page invites a tip until a tier has a real link', async () => {
+  const { setTipsLive, liveTiers } = await import('./build-pages.mjs');
+  const section = { id: 'use-cases', label: 'Use Cases' };
+  const item = { id: 'x3', title: 'T', summary: 'S', detail: 'D', source: 'x', url: 'https://x.com/a/status/3' };
+  assert.equal(liveTiers([{ label: '$1', url: '' }, { label: '$1', url: 'https://pay.example/1' }]).length, 1);
+  setTipsLive(false);
+  assert.doesNotMatch(entryPage(item, section, 'X'), /coffee|support-btn/);
+  setTipsLive(true);
+  const html = entryPage(item, section, 'X');
+  assert.match(html, /support-btn/);
+  assert.match(html, /Buy the curator a coffee/);
+  setTipsLive(false);
+});
