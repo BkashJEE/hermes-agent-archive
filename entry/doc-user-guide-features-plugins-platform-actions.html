@@ -23,6 +23,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Platform actions","description":"ctx.platform_actions gives a plugin a minimal, capability-gated verb set for acting on connected chat platforms through the live gateway adapter registry…","url":"https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-platform-actions","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/skills.png","datePublished":"2026-10-05","citation":"https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#platform-actions","keywords":"plugins, docs"}</script>
 </head>
 <body>
 <div class="doc">
@@ -31,7 +32,7 @@
 <article>
 <h1>Platform actions</h1>
 
-<p class="meta">From Official Docs</p>
+<p class="meta">From Official Docs · October 5, 2026</p>
 <p>ctx.platform_actions gives a plugin a minimal, capability-gated verb set for acting on connected chat platforms through the live gateway adapter registry - the sanctioned alternative to monkeypatching an adapter. It is off by default : every call re-checks the gateway.platform_actions capability (legacy key plugins.entries.&lt;id&gt;.allow_platform_actions ), and an ungranted call returns a structured error instead of acting. v1 verbs (both async , both return a plain dict, and neither ever raises into hook dispatch): Success is {&quot;ok&quot;: True, &quot;action&quot;: &lt;verb&gt;} . Failures are {&quot;ok&quot;: False, &quot;error&quot;: &lt;code&gt;, &quot;detail&quot;: &lt;str&gt;} with stable error codes: capability_not_granted , invalid_argument , gateway_unavailable , unknown_platform , adapter_not_registered , adapter_disconnected , unsupported_platform_action , action_failed . Actions validate that the target adapter exists and is connected before acting; a disconnected or missing adapter degrades to a structured error, never an exception. Platforms supported in v1: Telegram and Discord. Telegram&#39;s add_reaction sets the bot&#39;s reaction (the Bot API replaces a previous bot reaction rather than stacking). Every action - allowed or denied - is wri…</p>
 <p>From the official Hermes Agent documentation.</p>
 <pre><code>result = await ctx.platform_actions.add_reaction(
@@ -52,7 +53,7 @@ if not result[&quot;ok&quot;]:
 <footer>
 <p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
 prompts and projects, each one linked to where it came from.</p>
-<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
 </footer>
 </div>
 </body>

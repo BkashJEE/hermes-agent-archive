@@ -23,6 +23,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"File Dependency Chain","description":"This chain means tool registration happens at import time, before any agent instance is created.","url":"https://hermes-agent-archive.vercel.app/entry/doc-developer-guide-architecture-file-dependency-chain","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/use-cases.png","datePublished":"2026-09-25","citation":"https://hermes-agent.nousresearch.com/docs/developer-guide/architecture#file-dependency-chain","keywords":"architecture, developer, docs"}</script>
 </head>
 <body>
 <div class="doc">
@@ -31,7 +32,7 @@
 <article>
 <h1>File Dependency Chain</h1>
 
-<p class="meta">From Official Docs</p>
+<p class="meta">From Official Docs · September 25, 2026</p>
 <p>This chain means tool registration happens at import time, before any agent instance is created. Any tools/*.py file with a top-level registry.register() call is auto-discovered - no manual import list needed. System Overview Directory Structure Data Flow CLI Session Gateway Message Cron Job Recommended Reading Order Major Subsystems Agent Loop Prompt System Provider Resolution Tool System Session Persistence Messaging Gateway Plugin System Cron ACP Integration Trajectories Design Principles File Dependency Chain</p>
 <p>From the official Hermes Agent documentation.</p>
 <pre><code>tools/registry.py  (no deps — imported by all tool files)
@@ -51,7 +52,7 @@ run_agent.py, cli.py, batch_runner.py, environments/</code></pre>
 <footer>
 <p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
 prompts and projects, each one linked to where it came from.</p>
-<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
 </footer>
 </div>
 </body>

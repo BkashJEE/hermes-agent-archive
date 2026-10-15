@@ -23,6 +23,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Symlinked home directories and external storage","description":"Hermes supports a symlinked HERMES_HOME and symlinked home subdirectories, including hooks , skills , sessions , and logs .","url":"https://hermes-agent-archive.vercel.app/entry/doc-getting-started-installation-symlinked-home-directories-and-external-storage","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/commands.png","datePublished":"2026-09-25","citation":"https://hermes-agent.nousresearch.com/docs/getting-started/installation#symlinked-home-directories-and-external-storage","keywords":"install, getting-started, docs"}</script>
 </head>
 <body>
 <div class="doc">
@@ -31,7 +32,7 @@
 <article>
 <h1>Symlinked home directories and external storage</h1>
 
-<p class="meta">From Official Docs</p>
+<p class="meta">From Official Docs · September 25, 2026</p>
 <p>Hermes supports a symlinked HERMES_HOME and symlinked home subdirectories, including hooks , skills , sessions , and logs . During home initialization, existing directory links are preserved, and permissions on linked directories (and descendants such as logs/curator ) are left to their owner. If a link target is missing, inaccessible, or not a directory, initialization stops with a storage error naming the path and link target. Hermes does not replace the link or create its missing target: doing so could write data onto the local disk while an external or NAS volume is unmounted. Check the reported link, restore the mount or correct its target, and verify access permissions before retrying. For a deliberately new dotfiles target, create it yourself only after confirming the intended storage is available. hermes doctor reports these failures as storage problems, not invalid YAML. Keep your existing config.yaml ; running hermes setup is not the repair for an unavailable directory. This is a directory-availability check, not a mount monitor: an existing directory cannot establish that the intended volume is mounted.</p>
 <p>From the official Hermes Agent documentation.</p>
 
@@ -45,7 +46,7 @@
 <footer>
 <p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
 prompts and projects, each one linked to where it came from.</p>
-<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
 </footer>
 </div>
 </body>

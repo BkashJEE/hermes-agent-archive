@@ -23,6 +23,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Advisory SkillEvaluator scan","description":"In addition to the built-in security scanner (which enforces the install policy above), Hermes can run NVIDIA SkillEvaluator Tier 1 checks on every hub…","url":"https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-advisory-skillevaluator-scan","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/skills.png","datePublished":"2026-09-25","citation":"https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#advisory-skillevaluator-scan","keywords":"skills, docs"}</script>
 </head>
 <body>
 <div class="doc">
@@ -31,7 +32,7 @@
 <article>
 <h1>Advisory SkillEvaluator scan</h1>
 
-<p class="meta">From Official Docs</p>
+<p class="meta">From Official Docs · September 25, 2026</p>
 <p>In addition to the built-in security scanner (which enforces the install policy above), Hermes can run NVIDIA SkillEvaluator Tier 1 checks on every hub install as a second opinion. Tier 1 is deterministic and keyless - PII detection (leaked emails, personal paths, connection strings), unicode-smuggling detection, script lint, license compliance, and a static security scan via NVIDIA SkillSpector . The scan is advisory only : findings are printed with file and line before the install confirmation, and the install continues. Findings that look like real credentials (private keys, cloud access keys, tokens, credentialed connection strings) are highlighted in red so you can review the flagged lines before deciding. PII-class findings are informational - the upstream scanner has known false-positive classes (e.g. git@github.com SSH syntax, documentation example emails), so they never block anything. To enable it, install the optional scanner binaries (the second one powers the security check; without it that check simply reports &quot;not run&quot;): Without the binary on PATH the scan is silently skipped. To turn it off entirely: The dashboard&#39;s Browse-hub scan button returns the same advisory d…</p>
 <p>From the official Hermes Agent documentation.</p>
 <pre><code>uv tool install --python 3.13 \
@@ -47,7 +48,7 @@ uv tool install &quot;git+https://github.com/NVIDIA/SkillSpector.git@v2.9.5&quot
 <footer>
 <p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
 prompts and projects, each one linked to where it came from.</p>
-<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
 </footer>
 </div>
 </body>

@@ -23,6 +23,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"One-click install links (Desktop)","description":"Hermes Desktop registers the hermes:// URL scheme, so a website, README, or chat message can link straight to a plugin install: The catalog=<name> form is…","url":"https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-one-click-install-links-desktop","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/skills.png","datePublished":"2026-10-05","citation":"https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#one-click-install-links-desktop","keywords":"plugins, docs"}</script>
 </head>
 <body>
 <div class="doc">
@@ -31,7 +32,7 @@
 <article>
 <h1>One-click install links (Desktop)</h1>
 
-<p class="meta">From Official Docs</p>
+<p class="meta">From Official Docs · October 5, 2026</p>
 <p>Hermes Desktop registers the hermes:// URL scheme, so a website, README, or chat message can link straight to a plugin install: The catalog=&lt;name&gt; form is what the Open in Hermes Desktop button on every Plugin Catalog card uses. Desktop resolves the name against the live catalog (the same feed the Capabilities → Plugins picker shows) and opens the same reviewed catalog entry dialog an in-app pick does: the agent half installs at the catalog&#39;s pinned commit, never the branch tip. The link carries no repo URL, and a name that is not in the catalog shows an error toast and nothing else - it is never reinterpreted as a git path, so a link cannot smuggle an unreviewed repo behind a familiar-looking name. For a repo= link, clicking one opens Hermes and shows a confirmation dialog - the repo id, a &quot;Before you install&quot; note, and GitHub browse + clone links - then shallow-clones the repo to detect what it ships (an agent plugin - backend Python, a desktop plugin - app UI, or both). You pick the components with checkboxes and confirm. Nothing is installed until you do; deep links never auto-install, and agent-plugin installs go through the same install-time security scanning as hermes plugin…</p>
 <p>From the official Hermes Agent documentation.</p>
 <pre><code>hermes://plugin/install?catalog=NAME               # catalog entry, installs the reviewed pin
@@ -49,7 +50,7 @@ hermes://plugin/install?catalog=&lt;name&gt;             # reviewed catalog entr
 <footer>
 <p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
 prompts and projects, each one linked to where it came from.</p>
-<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
 </footer>
 </div>
 </body>

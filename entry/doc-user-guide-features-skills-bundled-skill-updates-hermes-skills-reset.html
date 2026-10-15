@@ -23,6 +23,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Bundled skill updates (hermes skills reset)","description":"Hermes ships with a set of bundled skills in skills/ inside the repo.","url":"https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-bundled-skill-updates-hermes-skills-reset","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/skills.png","datePublished":"2026-09-25","citation":"https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#bundled-skill-updates-hermes-skills-reset","keywords":"skills, docs"}</script>
 </head>
 <body>
 <div class="doc">
@@ -31,7 +32,7 @@
 <article>
 <h1>Bundled skill updates (hermes skills reset)</h1>
 
-<p class="meta">From Official Docs</p>
+<p class="meta">From Official Docs · September 25, 2026</p>
 <p>Hermes ships with a set of bundled skills in skills/ inside the repo. On install and on every hermes update , a sync pass copies those into ~/.hermes/skills/ and records a manifest at ~/.hermes/skills/.bundled_manifest mapping each skill name to the content hash at the time it was synced (the origin hash ). On each sync, Hermes recomputes the hash of your local copy and compares it to the origin hash: Unchanged → safe to pull upstream changes, copy the new bundled version in, record the new origin hash. Changed → treated as user-modified and skipped forever, so your edits never get stomped. Generated runtime caches inside a skill ( __pycache__/ , .pytest_cache/ , .mypy_cache/ , .ruff_cache/ , and a .pyc sitting next to its .py ) are not part of the hash, so running a skill&#39;s helper script never marks it user-modified or hides it from hermes skills list-modified / diff . The protection is good, but it has one sharp edge. If you edit a bundled skill and then later want to abandon your changes and go back to the bundled version by just copy-pasting from ~/.hermes/hermes-agent/skills/ , the manifest still holds the old origin hash from whenever the last successful sync ran. Your fresh…</p>
 <p>From the official Hermes Agent documentation.</p>
 <pre><code># Safe: clears the manifest entry for this skill. Your current copy is preserved,
@@ -54,7 +55,7 @@ hermes skills reset google-workspace --restore --yes</code></pre>
 <footer>
 <p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
 prompts and projects, each one linked to where it came from.</p>
-<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
 </footer>
 </div>
 </body>

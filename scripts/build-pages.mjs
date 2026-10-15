@@ -52,7 +52,17 @@ const SAFE_ID = /^[A-Za-z0-9][A-Za-z0-9._-]*$/;
    that shelf's count rather than the whole archive's. Pages without a shelf use the archive card. */
 const social = sectionId => sectionId ? `${SITE}/assets/social/${sectionId}.png` : `${SITE}/assets/social-preview.png`;
 
-const page = ({ title, description, canonical, body, breadcrumb, image = social() }) => `<!doctype html>
+/** "October 11, 2026", or the honest label when the source carries no date. */
+export const dateLabel = d => d
+  ? new Date(`${String(d).slice(0, 10)}T12:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })
+  : 'Date unknown';
+
+/* JSON-LD is JSON inside a script element: a "</script" in any string would end the
+   element early, so the one sequence that matters is escaped and nothing else is. */
+const ldJson = data => JSON.stringify(data).replace(/<\//g, '<\\/');
+const WEBSITE = { '@type': 'WebSite', name: 'Hermes Agent Archive', url: `${SITE}/` };
+
+const page = ({ title, description, canonical, body, breadcrumb, image = social(), jsonld = null }) => `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -77,6 +87,7 @@ const page = ({ title, description, canonical, body, breadcrumb, image = social(
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/doc.css">
+${jsonld ? `<script type="application/ld+json">${ldJson(jsonld)}</script>` : ''}
 </head>
 <body>
 <div class="doc">
@@ -85,7 +96,7 @@ ${body}
 <footer>
 <p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
 prompts and projects, each one linked to where it came from.</p>
-<p>Curated by <a href="${OWNER_X}" rel="me">@BkashJosi</a> · <a href="${OWNER_GH}" rel="me">GitHub</a></p>
+<p>Curated by <a href="${OWNER_X}" rel="me">@BkashJosi</a> · <a href="${OWNER_GH}" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
 </footer>
 </div>
 </body>
@@ -117,7 +128,7 @@ export function entryPage(item, section, sourceLabel, lookup = new Map()) {
 <article>
 <h1>${esc(item.title)}</h1>
 ${echoesDetail ? '' : `<p class="lede">${esc(item.summary)}</p>`}
-${credit ? `<p class="meta">${credit}${sourceLabel && item.author ? ` · ${esc(sourceLabel)}` : ''}</p>` : ''}
+<p class="meta">${[credit, sourceLabel && item.author ? esc(sourceLabel) : '', esc(dateLabel(item.date))].filter(Boolean).join(' · ')}</p>
 ${item.detail ? paragraphs(item.detail) : ''}
 ${item.snippet ? `<pre><code>${esc(item.snippet)}</code></pre>` : ''}
 ${uses.length ? `<p class="meta">Mentioned in this story</p><ul class="entries uses">${uses.map(u => `<li><a href="/entry/${esc(u.id)}">${esc(u.title)}</a><p>${esc(u.shelf)}</p></li>`).join('')}</ul>` : ''}
@@ -128,12 +139,24 @@ ${link ? `<a href="${esc(link)}" rel="noopener">Read the original</a>` : ''}
 </div>
 </article>`;
 
+  /* Structured data says only what the entry says: a date only when the source carries
+     one, an author only when one is credited, the original link as the citation. */
+  const jsonld = {
+    '@context': 'https://schema.org', '@type': 'Article',
+    headline: item.title, description: trim(item.summary), url: `${SITE}/entry/${item.id}`,
+    inLanguage: 'en', isPartOf: WEBSITE, image: social(section.id),
+    ...(item.date ? { datePublished: String(item.date).slice(0, 10) } : {}),
+    ...(item.author ? { author: { '@type': 'Person', name: item.author } } : {}),
+    ...(link ? { citation: link } : {}),
+    ...(item.tags?.length ? { keywords: item.tags.join(', ') } : {})
+  };
   return page({
     title: item.title,
     description: trim(item.summary),
     canonical: `${SITE}/entry/${item.id}`,
     breadcrumb: ` / <a href="/shelf/${esc(section.id)}">${esc(section.label)}</a>`,
     image: social(section.id),
+    jsonld,
     body
   });
 }
@@ -148,12 +171,19 @@ ${items.map(i => `<li><a href="/entry/${esc(i.id)}">${esc(i.title)}</a><p>${esc(
 </ul>
 <div class="actions"><a href="/#${esc(section.id)}">Browse this shelf in the archive</a></div>`;
 
+  const jsonld = {
+    '@context': 'https://schema.org', '@type': 'CollectionPage',
+    name: section.title || section.label, url: `${SITE}/shelf/${section.id}`, isPartOf: WEBSITE,
+    mainEntity: { '@type': 'ItemList', numberOfItems: items.length,
+      itemListElement: items.slice(0, 100).map((i, n) => ({ '@type': 'ListItem', position: n + 1, name: i.title, url: `${SITE}/entry/${i.id}` })) }
+  };
   return page({
     title: section.label,
     description: trim(section.blurb || `${items.length} entries in the Hermes Agent Archive.`),
     canonical: `${SITE}/shelf/${section.id}`,
     breadcrumb: '',
     image: social(section.id),
+    jsonld,
     body
   });
 }
@@ -199,7 +229,30 @@ ${Object.entries(byShelf).map(([shelf, list]) => `<p class="meta">${esc(label(sh
 <ul class="entries">${list.slice(0, 10).map(i => `<li><a href="/entry/${esc(i.id)}">${esc(i.title)}</a><p>${esc(trim(i.summary, 160))}</p></li>`).join('\n')}${list.length > 10 ? `
 <li><a href="/shelf/${esc(shelf)}">+ ${list.length - 10} more on ${esc(label(shelf))} →</a></li>` : ''}</ul>`).join('\n')}
 </section>`; }).join('\n')}`;
-  return page({ title: 'What arrived recently', description: trim(`${total} entries added to the Hermes Agent Archive over the last ${days.length} days it grew, newest first.`), canonical: `${SITE}/whats-new`, breadcrumb: ' / What arrived recently', body });
+  return page({ title: 'What arrived recently', description: trim(`${total} entries added to the Hermes Agent Archive over the last ${days.length} days it grew, newest first.`), canonical: `${SITE}/whats-new`, breadcrumb: ' / What arrived recently', body,
+    jsonld: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'What arrived recently', url: `${SITE}/whats-new`, isPartOf: WEBSITE } });
+}
+
+/**
+ * /support — what actually helps a one-person archive, with a payment link only when the
+ * curator has configured a real one in data/support.json. An empty list renders the page
+ * without a button; a dead "buy me a coffee" would be worse than none.
+ */
+export function supportPage(links = []) {
+  const body = `
+<h1>Support the archive</h1>
+<p class="lede">The archive is free, open source, and kept by one person in the evenings. These are the things that help, in the order they help.</p>
+<h2>Share one entry</h2>
+<p>Every entry has its own page. Sending a single useful one to a Hermes user is what grows this more than anything else.</p>
+<h2>Star the repository</h2>
+<p>A star on <a href="${OWNER_GH}/hermes-agent-archive" rel="noopener">GitHub</a> is how new readers find it, and how the curator knows it is read.</p>
+<h2>Add to it</h2>
+<p><a href="${OWNER_GH}/hermes-agent-archive/issues/new?template=submit-entry.yml" rel="noopener">Suggest an entry</a> or <a href="${OWNER_GH}/hermes-agent-archive/issues/new?template=correction.yml" rel="noopener">correct a credit</a>. Both are reviewed before publishing, and both are credited.</p>
+${links.length ? `<h2>Buy the curator a coffee</h2>
+<div class="actions">${links.map(l => `<a href="${esc(l.url)}" rel="noopener">${esc(l.label)}</a>`).join('')}</div>` : ''}
+<p class="meta">Nothing here changes what is listed. Sponsorship and support never buy a place on a shelf.</p>`;
+  return page({ title: 'Support the archive', description: 'How to support the Hermes Agent Archive: share an entry, star the repository, add to it.', canonical: `${SITE}/support`, breadcrumb: ' / Support', body,
+    jsonld: { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Support the archive', url: `${SITE}/support`, isPartOf: WEBSITE } });
 }
 
 export function feedXml(days, sections, limit = 60) {
@@ -276,6 +329,9 @@ async function main() {
   const lookup = new Map();
   for (const { section, items } of shelves) for (const i of items) lookup.set(i.id, { id: i.id, title: i.title, shelf: section.label });
   const urls = [`${SITE}/`];
+  const support = JSON.parse(await readFile(join(ROOT, 'data', 'support.json'), 'utf8').catch(() => '{"links":[]}'));
+  await writeFile(join(ROOT, 'support.html'), supportPage(Array.isArray(support.links) ? support.links : []));
+  urls.push(`${SITE}/support`);
   if (days.length) {
     await writeFile(join(ROOT, 'whats-new.html'), whatsNewPage(days.slice(0, 30), index.sections));
     await writeFile(join(ROOT, 'feed.xml'), feedXml(days, index.sections));

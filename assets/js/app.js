@@ -916,7 +916,7 @@ function openDrawer(id, trigger, updateUrl = true) {
     ? paragraphs.pop().replace(/^— /, '') : null;
   const body = formatDetails(paragraphs);
   const date = it.date ? new Date(`${it.date.slice(0, 10)}T12:00:00Z`).toLocaleDateString('en-US',
-    { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }) : '';
+    { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }) : 'Date unknown';
   const author = creditFor(it);
   const credit = (author.label === 'Author' ? null : attribution) || [`${author.label} ${author.name}`, SOURCE_LABEL[it.source], date].filter(Boolean).join(' · ');
 

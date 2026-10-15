@@ -15,7 +15,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 export async function required(root = ROOT) {
   const index = JSON.parse(await readFile(join(root, 'data', 'index.json'), 'utf8'));
-  const files = ['index.html', 'robots.txt', 'sitemap.xml', 'feed.xml', 'whats-new.html', 'vercel.json',
+  const files = ['index.html', 'robots.txt', 'sitemap.xml', 'feed.xml', 'whats-new.html', 'support.html', 'vercel.json',
     'assets/css/style.css', 'assets/css/doc.css', 'assets/js/app.js',
     'data/index.json', 'data/live.json', 'data/rankings.json', 'data/added.json',
     ...index.sections.filter(s => s.file).map(s => `data/${s.file}`)];

@@ -23,6 +23,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Persistent auto-load via config","description":"To have the same skills active at the start of every new session - CLI, TUI, gateway, cron and API sessions alike - set skills.auto_load in config.yaml …","url":"https://hermes-agent-archive.vercel.app/entry/doc-user-guide-cli-persistent-auto-load-via-config","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/commands.png","datePublished":"2026-09-25","citation":"https://hermes-agent.nousresearch.com/docs/user-guide/cli#persistent-auto-load-via-config","keywords":"cli, docs"}</script>
 </head>
 <body>
 <div class="doc">
@@ -31,7 +32,7 @@
 <article>
 <h1>Persistent auto-load via config</h1>
 
-<p class="meta">From Official Docs</p>
+<p class="meta">From Official Docs · September 25, 2026</p>
 <p>To have the same skills active at the start of every new session - CLI, TUI, gateway, cron and API sessions alike - set skills.auto_load in config.yaml : Each entry is a skill name. The list is resolved once when a session&#39;s system prompt is first built and the rendered bytes are reused for the life of the conversation (model switches, compression), so prompt caching stays intact; config edits take effect in the next session. Missing or disabled skills log a warning and are skipped. -s names that overlap the list are loaded once. --ignore-rules (equivalently HERMES_IGNORE_RULES=1 ) skips auto-load together with AGENTS.md, SOUL.md, .cursorrules and memory injection; explicit -s skills still load. The setting is profile-scoped: each profile&#39;s config.yaml controls its own list.</p>
 <p>From the official Hermes Agent documentation.</p>
 <pre><code>skills:
@@ -48,7 +49,7 @@
 <footer>
 <p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
 prompts and projects, each one linked to where it came from.</p>
-<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
 </footer>
 </div>
 </body>

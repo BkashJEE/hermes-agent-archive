@@ -23,6 +23,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Minimal working example","description":"Here is a complete plugin that adds a hello_world tool and logs every tool call via a hook.","url":"https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-minimal-working-example","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/skills.png","datePublished":"2026-10-05","citation":"https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#minimal-working-example","keywords":"plugins, docs"}</script>
 </head>
 <body>
 <div class="doc">
@@ -31,7 +32,7 @@
 <article>
 <h1>Minimal working example</h1>
 
-<p class="meta">From Official Docs</p>
+<p class="meta">From Official Docs · October 5, 2026</p>
 <p>Here is a complete plugin that adds a hello_world tool and logs every tool call via a hook. ~/.hermes/plugins/hello-world/plugin.yaml ~/.hermes/plugins/hello-world/__init__.py Drop both files into ~/.hermes/plugins/hello-world/ , restart Hermes, and the model can immediately call hello_world . The hook prints a log line after every tool invocation. The model-facing tool description belongs in schema[&quot;description&quot;] . The optional ctx.register_tool(description=...) value is separate ToolEntry registry metadata: when omitted, it defaults to the schema description, but Hermes does not copy it back into a schema that lacks description . Prefer defining the text once in the schema. If you provide both values, keep them synchronized; the model sees the schema value. Project-local plugins under ./.hermes/plugins/ are disabled by default. Enable them only for trusted repositories by setting HERMES_ENABLE_PROJECT_PLUGINS=true before starting Hermes.</p>
 <p>From the official Hermes Agent documentation.</p>
 <pre><code>name: hello-world
@@ -47,7 +48,7 @@ description: A minimal example plugin</code></pre>
 <footer>
 <p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
 prompts and projects, each one linked to where it came from.</p>
-<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
 </footer>
 </div>
 </body>

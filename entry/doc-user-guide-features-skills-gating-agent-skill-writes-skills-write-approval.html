@@ -23,6 +23,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Gating agent skill writes (skills.write_approval)","description":"By default the agent writes skills freely - including from the background self-improvement review that runs after a turn.","url":"https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-gating-agent-skill-writes-skills-write-approval","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/skills.png","datePublished":"2026-09-25","citation":"https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#gating-agent-skill-writes-skillswrite_approval","keywords":"skills, docs"}</script>
 </head>
 <body>
 <div class="doc">
@@ -31,7 +32,7 @@
 <article>
 <h1>Gating agent skill writes (skills.write_approval)</h1>
 
-<p class="meta">From Official Docs</p>
+<p class="meta">From Official Docs · September 25, 2026</p>
 <p>By default the agent writes skills freely - including from the background self-improvement review that runs after a turn. If you&#39;d rather approve every skill write first (small models that misjudge what they learned, secure environments, or just wanting eyes on the self-improvement loop), turn on the write-approval gate: When write_approval: true , every skill_manage write (create / edit / patch / delete / write_file / remove_file) is staged instead of committed - a SKILL.md is too large to review inline, so staging applies regardless of whether the write came from a foreground turn or the background review. Staged writes survive restarts under ~/.hermes/pending/skills/ and are reviewed with the same familiar approve/deny flow as dangerous commands: The review surface works in the interactive CLI and on messaging platforms (diff output is truncated for chat bubbles - read the full diff on the CLI or in the pending JSON file). Memory writes have the same gate under memory.write_approval - see Controlling memory writes . The separate skills.guard_agent_created setting is a content scanner (dangerous-pattern heuristics), not an approval gate - the two are independent. See Guard on age…</p>
 <p>From the official Hermes Agent documentation.</p>
 <pre><code>skills:
@@ -46,7 +47,7 @@
 <footer>
 <p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
 prompts and projects, each one linked to where it came from.</p>
-<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
 </footer>
 </div>
 </body>

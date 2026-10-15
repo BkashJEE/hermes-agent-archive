@@ -23,6 +23,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Non-interactive surfaces (cron, API, ACP)","description":"Cron jobs and other non-interactive surfaces inherit your interactive trust decision - they never prompt and never auto-trust.","url":"https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-non-interactive-surfaces-cron-api-acp","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/skills.png","datePublished":"2026-09-25","citation":"https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#non-interactive-surfaces-cron-api-acp","keywords":"skills, docs"}</script>
 </head>
 <body>
 <div class="doc">
@@ -31,7 +32,7 @@
 <article>
 <h1>Non-interactive surfaces (cron, API, ACP)</h1>
 
-<p class="meta">From Official Docs</p>
+<p class="meta">From Official Docs · September 25, 2026</p>
 <p>Cron jobs and other non-interactive surfaces inherit your interactive trust decision - they never prompt and never auto-trust. The project root resolves from the surface&#39;s working directory (a cron job&#39;s workdir , via the same mechanism the terminal tool uses). A cron job whose workdir is inside a repo you previously trusted loads that repo&#39;s project skills; a job in an untrusted or undecided repo loads none. In the TUI and Desktop the project root follows each session&#39;s workspace (the directory shown in the sidebar / set with the workspace picker), so starting hermes --tui inside a trusted repo registers its project skills as slash commands even when terminal.cwd is left at the default placeholder . ; two sessions open in two repos each see their own.</p>
 <p>From the official Hermes Agent documentation.</p>
 
@@ -45,7 +46,7 @@
 <footer>
 <p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
 prompts and projects, each one linked to where it came from.</p>
-<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
 </footer>
 </div>
 </body>
