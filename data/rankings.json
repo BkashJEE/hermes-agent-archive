@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-10-15T20:44:35.652Z",
+  "classifiedAt": "2026-10-15T20:48:12.930Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -8379,6 +8379,300 @@
       "usefulness": 2.11,
       "popularity": "unknown",
       "confidence": 0.19
+    },
+    "hn-50070852": {
+      "input": "40697e27f3cda534f43cb0863bb4509dcb4784708ed87c3d8d9bc2fc28ca629a",
+      "usefulness": 1.3,
+      "popularity": "unknown",
+      "confidence": 0.69
+    },
+    "hn-49810576": {
+      "input": "5c06907b16688377090b13d61b4d761297926987ff27c034f237bfc952438d72",
+      "usefulness": 2.12,
+      "popularity": "unknown",
+      "confidence": 0.64
+    },
+    "hn-49787187": {
+      "input": "7cad057bb529669439d461de502819fa5aacf532f0e6604b1cbb88584617a5c9",
+      "usefulness": 1.68,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "hn-49742023": {
+      "input": "58aa9b94d9cd136e078c96f81a8df702506f98da44428f738e004c1fcb124a18",
+      "usefulness": 2.77,
+      "popularity": "unknown",
+      "confidence": 0.7
+    },
+    "hn-49477413": {
+      "input": "39342823abe5474e37a95eb6a2017dbf9bc35e4cc499ec2761a6002d80da4a6d",
+      "usefulness": 1.92,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "hn-49367636": {
+      "input": "4a4f77b6dc822c253818bf7bd260754a26593cdb8c2e27d33614354853eb7e18",
+      "usefulness": 1.5,
+      "popularity": "unknown",
+      "confidence": 0.53
+    },
+    "hn-49308721": {
+      "input": "f154994ad91fb5dad4817b6930c7a20a6d7efe4754b3423bb56a33fee8b5adce",
+      "usefulness": 2.02,
+      "popularity": "unknown",
+      "confidence": 0.77
+    },
+    "hn-49294464": {
+      "input": "b77cd07fa5d4eeb014fcf3b368194e4e522dfa29027e2bc91cb82d56c26c6b94",
+      "usefulness": 1.23,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "hn-49282085": {
+      "input": "4b1104b68ba826cb1aac8abc6b7a8b8570ad0e9f36461abb574814661262ccac",
+      "usefulness": 2.02,
+      "popularity": "unknown",
+      "confidence": 0.74
+    },
+    "hn-49254792": {
+      "input": "341bc88c2a7eeaec4e8ccdad81f1de519b015410c2d43e2430c4d93a8b2cedc7",
+      "usefulness": 0.8,
+      "popularity": "unknown",
+      "confidence": 0.67
+    },
+    "hn-49234527": {
+      "input": "db55a6058181ef8620bb8dad37ffd4535048ec619478d9e7b8ecc0c16705af3d",
+      "usefulness": 2.47,
+      "popularity": "unknown",
+      "confidence": 0.51
+    },
+    "hn-49218146": {
+      "input": "49a74a6ab5a9d057b81c62105f44a42625692c61382067b48747f76bbae8c9af",
+      "usefulness": 0.48,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "hn-49214369": {
+      "input": "7835f60c4a84fcdb6f2840309c427f130f6c50a6f8a56e893c6ee1be8fd294f0",
+      "usefulness": 1.22,
+      "popularity": "unknown",
+      "confidence": 0.73
+    },
+    "hn-49189025": {
+      "input": "231057a82317f723aac1baef6296d4e3f6a8c04eda7d6f13e287d890910cada5",
+      "usefulness": 0.69,
+      "popularity": "unknown",
+      "confidence": 0.66
+    },
+    "hn-49159530": {
+      "input": "5ef51469bb05f535f56edc531b197957314b2454d6c8353176c6482d5febe993",
+      "usefulness": 2.06,
+      "popularity": "unknown",
+      "confidence": 0.65
+    },
+    "hn-49097260": {
+      "input": "2e9091c4c1788f3b138e1142349dde028fae4b020f35bc852e92fa66b17f5b15",
+      "usefulness": 1.5,
+      "popularity": "unknown",
+      "confidence": 0.55
+    },
+    "hn-49064389": {
+      "input": "5c56ce2796d8b2d9fe1218da06727ac41142af95ec8b0d7246b46e19b6a5c7eb",
+      "usefulness": 0.47,
+      "popularity": "unknown",
+      "confidence": 0.61
+    },
+    "hn-48969451": {
+      "input": "7f3c36c5485eb846af004fa3d0c44501d6b0a239865e6fe9fd26e32a333eb764",
+      "usefulness": 1,
+      "popularity": "unknown",
+      "confidence": 0.65
+    },
+    "hn-48930884": {
+      "input": "d66590b37a9d9e6e40f05d5ee2a6394bbb00b258dfd15d87781c3516407bb9c5",
+      "usefulness": 1.55,
+      "popularity": "unknown",
+      "confidence": 0.56
+    },
+    "hn-48840097": {
+      "input": "0fc27aa5f2bf2984bad4a6fe0f00157e127f28258a0bb58aa83caf28ac19fffa",
+      "usefulness": 1.53,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "hn-48726398": {
+      "input": "bb56ca19a830da32580f354fc10f209ea5a12d8385c49ad665dc1646a79303c2",
+      "usefulness": 2.28,
+      "popularity": "unknown",
+      "confidence": 0.65
+    },
+    "hn-48664038": {
+      "input": "b4b5234e4056d0c7c1ae625a37bee20bf57a0c55c08f6268844a62b1f5324acd",
+      "usefulness": 2.08,
+      "popularity": "unknown",
+      "confidence": 0.63
+    },
+    "hn-48650822": {
+      "input": "806dc15c1f6f8e4b8fca7e342a1ab7cb77f3df90c88a675be97addc4e302f8b4",
+      "usefulness": 0.95,
+      "popularity": "unknown",
+      "confidence": 0.71
+    },
+    "hn-48602964": {
+      "input": "7cc82d37f9d3f8ac8b42fb21a2dcc9e2c447d2b13bc30b660905cf943a24ddc3",
+      "usefulness": 2.3,
+      "popularity": "unknown",
+      "confidence": 0.65
+    },
+    "hn-48590990": {
+      "input": "ace54f2c88b1e5c4fde5959c18afeebdb5e9a66ac9a2c2352a58c460018b3958",
+      "usefulness": 1.8,
+      "popularity": "unknown",
+      "confidence": 0.67
+    },
+    "hn-48581502": {
+      "input": "56eb622478c81d743b8f972f43aba82b7941c3dc188fbcff01e443b78772861b",
+      "usefulness": 1.73,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "hn-48509609": {
+      "input": "5a1acf9fbe703cb74c42fe0ad6fa851b06839df11c7c80b4652b4e185a0ae415",
+      "usefulness": 1.75,
+      "popularity": "unknown",
+      "confidence": 0.46
+    },
+    "hn-48494430": {
+      "input": "d79dbeb3ed20cfae2e774bf59bb93a514604fa3acc9aacf30a50e5cc4b1395fa",
+      "usefulness": 1.81,
+      "popularity": "unknown",
+      "confidence": 0.66
+    },
+    "hn-48417329": {
+      "input": "1af7bbbaa4d1f0f4e0675002739315157e09e6764f3129d683e9ee48b53b2a0d",
+      "usefulness": 2.87,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "hn-48332832": {
+      "input": "2bb79a8c3588cb09a2418946a8a0a2ad12b886b8a6c2d7685a13ce8c149937fc",
+      "usefulness": 0.9,
+      "popularity": "unknown",
+      "confidence": 0.87
+    },
+    "hn-48231142": {
+      "input": "ba444bb45c3e73b6a7b98f8e90bf27b7e03e6ae4016a31200aa914d75b0d569a",
+      "usefulness": 1.44,
+      "popularity": "unknown",
+      "confidence": 0.54
+    },
+    "hn-48187544": {
+      "input": "226751645f88337a7997982d2c6963e5a9c5a143e6f416071c176db85bc20bbd",
+      "usefulness": 1.96,
+      "popularity": "unknown",
+      "confidence": 0.67
+    },
+    "hn-48131458": {
+      "input": "67450859978a337b7575d9a1681b0d60efea2d3996cc0535634aef18817a95b0",
+      "usefulness": 0.96,
+      "popularity": "unknown",
+      "confidence": 0.87
+    },
+    "hn-48026905": {
+      "input": "6bf8160cc8ca86efdda84ba77dec4f603fcc4473f7787ac81a161df6c1aa087b",
+      "usefulness": 2.19,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "hn-47975048": {
+      "input": "8e1c38e13bd5f05eb79777c36b535290d3f6d6ddacf665e191a52248412cc492",
+      "usefulness": 2.14,
+      "popularity": "unknown",
+      "confidence": 0.66
+    },
+    "hn-47862826": {
+      "input": "ffe1e284db53b48ddac8eb1059ee68ef5d92105559a1f8a61e3a3815ad143165",
+      "usefulness": 1.07,
+      "popularity": "unknown",
+      "confidence": 0.69
+    },
+    "hn-47845312": {
+      "input": "8c88c98e9f78c2e871e1a4256d43d7bff82cfdc0b551fb860e62f4bb554aa3c7",
+      "usefulness": 1,
+      "popularity": "unknown",
+      "confidence": 0.91
+    },
+    "hn-47833262": {
+      "input": "ca6d9b8e504bd0bbb518418beee88816a94c8576fdc67357d1fdeb3d391915b7",
+      "usefulness": 1.99,
+      "popularity": "unknown",
+      "confidence": 0.68
+    },
+    "hn-47786818": {
+      "input": "0a92acb887731c2fb8c0b918d39771498c45d053d85af0367c277fd2eceac491",
+      "usefulness": 1.73,
+      "popularity": "unknown",
+      "confidence": 0.5
+    },
+    "hn-47785939": {
+      "input": "0ec78816f649a637ba917e2666f35cb122c99938dea16f3cd8d315a30cb3308e",
+      "usefulness": 2.43,
+      "popularity": "unknown",
+      "confidence": 0.51
+    },
+    "hn-47504530": {
+      "input": "a3eaec84ea3f06f95d5b93acc003a564b6f8482adee0b628ebf0feb56293c16c",
+      "usefulness": 1.07,
+      "popularity": "unknown",
+      "confidence": 0.83
+    },
+    "hn-47304268": {
+      "input": "57ff5d9e094353a29dbd0abf097fd9d11c7b8b438e1de8a3df579cd8f65ae4fd",
+      "usefulness": 2.21,
+      "popularity": "unknown",
+      "confidence": 0.51
+    },
+    "hn-48455781": {
+      "input": "42079afc74401b9421f25ce8ebf98fde1c47e0b21e390b786bfffd1fe419e7e7",
+      "usefulness": 1.3,
+      "popularity": "unknown",
+      "confidence": 0.66
+    },
+    "hn-48457429": {
+      "input": "1341c00d3a4957e26a584fa01e6ee6ae782abbfbd5c3aab8d54ff793cbccc9d3",
+      "usefulness": 2.56,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "hn-49368474": {
+      "input": "5e80d095821aa9ddba777db3ca4670066c82cbfb4f41a491ad97e83d6172b6bd",
+      "usefulness": 1.86,
+      "popularity": "unknown",
+      "confidence": 0.72
+    },
+    "hn-48592879": {
+      "input": "320d4f8054abf3d4cd60a3c4bc76e3a871cdeb5238f90a7696cd51c5ffc7397f",
+      "usefulness": 1.14,
+      "popularity": "unknown",
+      "confidence": 0.76
+    },
+    "hn-48887244": {
+      "input": "20bfa4cfaab0e4479e96d4b5abb9497b594f4f10d9ed5ea361be51ec93c54e05",
+      "usefulness": 1.21,
+      "popularity": "unknown",
+      "confidence": 0.78
+    },
+    "hn-48904884": {
+      "input": "6adfae77d833259d1840848e27a6675ff542efc84eb009d0cf00a06687cdfa55",
+      "usefulness": 1.98,
+      "popularity": "unknown",
+      "confidence": 0.58
+    },
+    "hn-47740042": {
+      "input": "ef791a43dd112e395c50800f3dc407c2a983ffa8dfa66b15692a51fb5c94cbc5",
+      "usefulness": 1.96,
+      "popularity": "unknown",
+      "confidence": 0.61
     }
   }
 }

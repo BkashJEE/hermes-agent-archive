@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Arduino UNO Q is an almost perfect Hermes Agent host · Hermes Agent Archive</title>
+<meta name="description" content="I’ve wanted to try out Hermes agent for a while now but I never wanted to run it on my own personal machine. I thought about maybe using a hosted VPS but…">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/hn-49368474">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Arduino UNO Q is an almost perfect Hermes Agent host">
+<meta property="og:description" content="I’ve wanted to try out Hermes agent for a while now but I never wanted to run it on my own personal machine. I thought about maybe using a hosted VPS but…">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/hn-49368474">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social/use-cases.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Arduino UNO Q is an almost perfect Hermes Agent host">
+<meta name="twitter:description" content="I’ve wanted to try out Hermes agent for a while now but I never wanted to run it on my own personal machine. I thought about maybe using a hosted VPS but…">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social/use-cases.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/use-cases">Use Cases</a></header>
+
+<article>
+<h1>The Arduino UNO Q is an almost perfect Hermes Agent host</h1>
+
+<p class="meta">By etoxin · Hacker News</p>
+<p>I’ve wanted to try out Hermes agent for a while now but I never wanted to run it on my own personal machine. I thought about maybe using a hosted VPS but I wasn’t keen on the ongoing cost. Then I looked a recently acquired Arduino UNO Q. A weird arduino board that has an arduino on one side and Linux on the other side. The Linux chip can communicate to the arduino chip. The board I have has 4GB of ram and 32GB of storage. Plenty of power to run the Hermes agent client. I never intended to run a local LLM on the arduino. I wanted an isolated machine where I could run it that was more affordable than buying a new computer. The Q offered all of this. Affordable, cheap on power and isolated.</p>
+<p>So I plugged it in and ssh’d into the board and installed Hermes, setup was pretty straightforward. I connected my ChatGPT subscription and we were in business.</p>
+<p>The first thing I asked the agent to do was flash a LED on the board, and it did just that. I then asked it to run the game of life on its 8x13 LED Matrix. Which would need it to interface with the arduino side of the board. After it searched docs for a bit, it had Conways game of life running on the board. Wow.</p>
+<p>After setting up messaging it had me thinking, I can plug a whole bunch of electronic components to this thing. The Arduino UNO has these things called Modulino which are electronic components like temperature sensors that can be daisy chained from the board. This creates a whole world of possibilities creating a Hermes IOT agent like thing.</p>
+<p>— etoxin, 2026-08-19, posted to Hacker News.</p>
+
+
+<ul class="tags"><li>#user-story</li><li>#hn-story</li></ul>
+<div class="actions">
+<a href="https://news.ycombinator.com/item?id=49368474" rel="noopener">Read the original</a>
+<a href="/#use-cases?item=hn-49368474">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+</footer>
+</div>
+</body>
+</html>
