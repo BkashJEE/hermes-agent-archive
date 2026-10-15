@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-10-11T07:40:47.542Z",
+  "classifiedAt": "2026-10-15T12:50:11.979Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -8331,6 +8331,54 @@
       "usefulness": 1.03,
       "popularity": "unknown",
       "confidence": 0.48
+    },
+    "skill-optional-creative-anatomy": {
+      "input": "67f79705943088e43283ce4800c7f216e751e5979dcd4ffc7ea426024b67bd71",
+      "usefulness": 1.41,
+      "popularity": "unknown",
+      "confidence": 0.55
+    },
+    "plugin-official-accent-picker": {
+      "input": "8685178d6b71e96643b1427fbef874348d30c291b4745b01e12eeb12cae0f516",
+      "usefulness": 1.71,
+      "popularity": "unknown",
+      "confidence": 0.53
+    },
+    "plugin-official-langfuse": {
+      "input": "3d394ca24a798706d3b25edf2ebffb204e26cd208e7a4702b03afd82f6fd58a5",
+      "usefulness": 2.38,
+      "popularity": "unknown",
+      "confidence": 0.4
+    },
+    "plugin-official-rea": {
+      "input": "6d75b454819d651abb80b41f41d99571b26ac97dd26a8e79eab492ca6c34890e",
+      "usefulness": 2.21,
+      "popularity": "unknown",
+      "confidence": 0.47
+    },
+    "release-v0-22-2": {
+      "input": "b40a4fa71c58c70e0be9af0168c6b345d41d3b6bd9eb13de0153fddd48c05e07",
+      "usefulness": 1.62,
+      "popularity": "unknown",
+      "confidence": 0.27
+    },
+    "release-v0-22-0": {
+      "input": "091f4eb42e11daea0ea805270dc7d115a44ea77544bbb55cba270602ff781829",
+      "usefulness": 0.37,
+      "popularity": "unknown",
+      "confidence": 0.69
+    },
+    "release-v0-22-1": {
+      "input": "20022947f43c2ca29dcbb49057b5f7b7a62a4b8635470db0ece33679fc764284",
+      "usefulness": 0.24,
+      "popularity": "unknown",
+      "confidence": 0.81
+    },
+    "release-v0-21-7": {
+      "input": "90e68b9c0fe1a5f8fc50786216ae0f19b94115745706e6de4e472babd1952e86",
+      "usefulness": 2.11,
+      "popularity": "unknown",
+      "confidence": 0.19
     }
   }
 }
