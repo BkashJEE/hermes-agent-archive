@@ -1,4 +1,5 @@
 {
-  "note": "Links shown on /support. Each is a real page the curator controls; an empty list renders the page without a payment button rather than with a dead one.",
+  "note": "Shown on /support. `links` are payment pages the curator controls ({label, url, note}); `sponsor` is a mailto: or page for the sponsor slot. Empty renders the page without buttons rather than with dead ones.",
+  "sponsor": null,
   "links": []
 }

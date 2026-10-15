@@ -134,6 +134,9 @@ test('the support page has no payment button until a real link is configured', a
   const bare = supportPage([]);
   assert.doesNotMatch(bare, /coffee/i);
   assert.match(bare, /Star the repository/);
-  const linked = supportPage([{ label: 'Buy me a coffee', url: 'https://example.com/coffee' }]);
+  const linked = supportPage([{ label: '$5 one-time', url: 'https://example.com/coffee', note: 'pays for one entry checked' }], 'mailto:a@b.c?subject=x');
   assert.match(linked, /href="https:\/\/example.com\/coffee"/);
+  assert.match(linked, /pays for one entry checked/);
+  assert.match(linked, /href="mailto:a@b.c\?subject=x"/);
+  assert.doesNotMatch(bare, /Sponsor slot/);
 });

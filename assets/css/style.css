@@ -727,6 +727,8 @@ code{font-family:var(--mono);font-size:.92em}
   .search{order:0;flex:1 1 auto;min-width:0;height:36px}
   .search kbd{display:none}
   .topbar>.select,.topbar>.cta,#jumpBtn,#refreshBtn,#themeBtn,#schemeBtn{display:none}
+  /* The one call to action that stays on a phone: the cup alone, labelled for readers. */
+  #supportBtn{display:inline-flex;height:36px;padding:0 9px}
   #searchAllBtn{display:grid}
   .density{display:none}
 

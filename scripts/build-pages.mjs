@@ -91,7 +91,7 @@ ${jsonld ? `<script type="application/ld+json">${ldJson(jsonld)}</script>` : ''}
 </head>
 <body>
 <div class="doc">
-<header><a href="/">Hermes Agent Archive</a>${breadcrumb}</header>
+<header><a href="/">Hermes Agent Archive</a>${breadcrumb}<a class="support-btn" href="/support" aria-label="Support the archive">☕ Support</a></header>
 ${body}
 <footer>
 <p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
@@ -133,6 +133,7 @@ ${item.detail ? paragraphs(item.detail) : ''}
 ${item.snippet ? `<pre><code>${esc(item.snippet)}</code></pre>` : ''}
 ${uses.length ? `<p class="meta">Mentioned in this story</p><ul class="entries uses">${uses.map(u => `<li><a href="/entry/${esc(u.id)}">${esc(u.title)}</a><p>${esc(u.shelf)}</p></li>`).join('')}</ul>` : ''}
 ${item.tags?.length ? `<ul class="tags">${item.tags.map(t => `<li>#${esc(t)}</li>`).join('')}</ul>` : ''}
+<p class="meta coffee">Saved you time? <a href="/support">Buy the curator a coffee ☕</a></p>
 <div class="actions">
 ${link ? `<a href="${esc(link)}" rel="noopener">Read the original</a>` : ''}
 <a href="/#${esc(section.id)}?item=${encodeURIComponent(item.id)}">Open in the archive</a>
@@ -238,7 +239,7 @@ ${Object.entries(byShelf).map(([shelf, list]) => `<p class="meta">${esc(label(sh
  * curator has configured a real one in data/support.json. An empty list renders the page
  * without a button; a dead "buy me a coffee" would be worse than none.
  */
-export function supportPage(links = []) {
+export function supportPage(links = [], sponsor = null) {
   const body = `
 <h1>Support the archive</h1>
 <p class="lede">The archive is free, open source, and kept by one person in the evenings. These are the things that help, in the order they help.</p>
@@ -249,8 +250,11 @@ export function supportPage(links = []) {
 <h2>Add to it</h2>
 <p><a href="${OWNER_GH}/hermes-agent-archive/issues/new?template=submit-entry.yml" rel="noopener">Suggest an entry</a> or <a href="${OWNER_GH}/hermes-agent-archive/issues/new?template=correction.yml" rel="noopener">correct a credit</a>. Both are reviewed before publishing, and both are credited.</p>
 ${links.length ? `<h2>Buy the curator a coffee</h2>
-<div class="actions">${links.map(l => `<a href="${esc(l.url)}" rel="noopener">${esc(l.label)}</a>`).join('')}</div>` : ''}
-<p class="meta">Nothing here changes what is listed. Sponsorship and support never buy a place on a shelf.</p>`;
+<p>Free to browse, always. If it saved you an evening, these are the two amounts that keep it running.</p>
+<div class="actions">${links.map(l => `<a href="${esc(l.url)}" rel="noopener">${esc(l.label)}${l.note ? ` <small>${esc(l.note)}</small>` : ''}</a>`).join('')}</div>` : ''}
+${sponsor ? `<h2>Sponsor slot</h2>
+<p>One labelled slot, always marked <em>Sponsored</em>, never on a shelf and never in the ranking. <a href="${esc(sponsor)}">Ask about it</a>.</p>` : ''}
+<p class="meta">Nothing here changes what is listed. Sponsorship and support never buy a place on a shelf or a position in the ranking.</p>`;
   return page({ title: 'Support the archive', description: 'How to support the Hermes Agent Archive: share an entry, star the repository, add to it.', canonical: `${SITE}/support`, breadcrumb: ' / Support', body,
     jsonld: { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Support the archive', url: `${SITE}/support`, isPartOf: WEBSITE } });
 }
@@ -330,7 +334,7 @@ async function main() {
   for (const { section, items } of shelves) for (const i of items) lookup.set(i.id, { id: i.id, title: i.title, shelf: section.label });
   const urls = [`${SITE}/`];
   const support = JSON.parse(await readFile(join(ROOT, 'data', 'support.json'), 'utf8').catch(() => '{"links":[]}'));
-  await writeFile(join(ROOT, 'support.html'), supportPage(Array.isArray(support.links) ? support.links : []));
+  await writeFile(join(ROOT, 'support.html'), supportPage(Array.isArray(support.links) ? support.links : [], typeof support.sponsor === 'string' ? support.sponsor : null));
   urls.push(`${SITE}/support`);
   if (days.length) {
     await writeFile(join(ROOT, 'whats-new.html'), whatsNewPage(days.slice(0, 30), index.sections));
