@@ -243,6 +243,7 @@ ${Object.entries(byShelf).map(([shelf, list]) => `<p class="meta">${esc(label(sh
  * opposite of what the page says.
  */
 export function supportPage(links = [], sponsor = null, stats = null) {
+  links = links.filter(l => l && typeof l.url === 'string' && /^https?:\/\//.test(l.url));   // a tier without a real link is not a button
   const tier = l => `<a class="tier" href="${esc(l.url)}" rel="noopener">
     <span class="tier-amount">${esc(l.label)}</span>
     ${l.note ? `<span class="tier-note">${esc(l.note)}</span>` : ''}

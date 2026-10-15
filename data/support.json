@@ -1,5 +1,16 @@
 {
-  "note": "Shown on /support. `links` are payment pages the curator controls ({label, url, note}); `sponsor` is a mailto: or page for the sponsor slot. Empty renders the page without buttons rather than with dead ones.",
+  "note": "Shown on /support. `links` are the tip tiers ({label, note, url}); a tier without a url is kept here but not rendered, so the curator's payment link is the only thing left to paste. `sponsor` is a mailto: or page for the sponsor slot, or null for none.",
   "sponsor": null,
-  "links": []
+  "links": [
+    {
+      "label": "$1",
+      "note": "one entry, checked",
+      "url": ""
+    },
+    {
+      "label": "Any amount",
+      "note": "whatever an evening was worth",
+      "url": ""
+    }
+  ]
 }
