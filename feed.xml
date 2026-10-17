@@ -7,6 +7,30 @@
 <description>Sourced Hermes Agent workflows, prompts, skills and projects, as they are added. Dates are arrival dates.</description>
 <language>en</language>
 <item>
+<title>Xchat</title>
+<link>https://hermes-agent-archive.vercel.app/entry/plugin-official-xchat</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/plugin-official-xchat</guid>
+<pubDate>Sat, 17 Oct 2026 12:00:00 GMT</pubDate>
+<category>Skills</category>
+<description>X Chat gateway platform: talk to Hermes in X&#39;s end-to-end encrypted DMs. Hermes runs as the X account you connect: chat with it in your own self-chat (&quot;message yourself&quot;), or give it a separate account and DM that. Messages are decrypted and encrypted locally with X&#39;s official Chat XDK, so X only…</description>
+</item>
+<item>
+<title>Project-local plugins (./.hermes/plugins/)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-project-local-plugins-hermes-plugins</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-project-local-plugins-hermes-plugins</guid>
+<pubDate>Sat, 17 Oct 2026 12:00:00 GMT</pubDate>
+<category>Skills</category>
+<description>The gateway does not load project-local plugins.</description>
+</item>
+<item>
+<title>Plugin code inside the gateway</title>
+<link>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-plugin-code-inside-the-gateway</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-plugin-code-inside-the-gateway</guid>
+<pubDate>Sat, 17 Oct 2026 12:00:00 GMT</pubDate>
+<category>Skills</category>
+<description>Hooks, tools and injected turns of every chat and every local session (CLI, TUI, Desktop) run in the one gateway process, not in the client you launched.</description>
+</item>
+<item>
 <title>Anatomy</title>
 <link>https://hermes-agent-archive.vercel.app/entry/skill-optional-creative-anatomy</link>
 <guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/skill-optional-creative-anatomy</guid>
@@ -461,30 +485,6 @@
 <pubDate>Sat, 10 Oct 2026 12:00:00 GMT</pubDate>
 <category>Skills</category>
 <description>Mem0 memory provider — server-side LLM fact extraction with semantic search, automatic deduplication and opt-in reranking, in platform, self-hosted or local OSS mode. Maintained by Mem0; the same provider that shipped in-tree. Disclosure — conversation turns and recall queries go to the configured…</description>
-</item>
-<item>
-<title>Block every tool at the hook level until you say go</title>
-<link>https://hermes-agent-archive.vercel.app/entry/trick-block-tools-until-you-say-go</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/trick-block-tools-until-you-say-go</guid>
-<pubDate>Sat, 10 Oct 2026 12:00:00 GMT</pubDate>
-<category>Hidden Tricks</category>
-<description>A two-command plugin keeps the agent in discussion-only mode — questions, trade-offs, a running plan — and physically cannot execute until /go.</description>
-</item>
-<item>
-<title>Subclass the OpenAI-compatible gateway so third-party chat clients keep markdown and slash commands</title>
-<link>https://hermes-agent-archive.vercel.app/entry/trick-subclass-the-api-gateway-for-chat-clients</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/trick-subclass-the-api-gateway-for-chat-clients</guid>
-<pubDate>Sat, 10 Oct 2026 12:00:00 GMT</pubDate>
-<category>Hidden Tricks</category>
-<description>A drop-in plugin runs a second gateway port that renders full markdown and intercepts /help, /status and the rest instead of forwarding them to the model.</description>
-</item>
-<item>
-<title>Audit every profile&#39;s memory file weekly against written principles</title>
-<link>https://hermes-agent-archive.vercel.app/entry/trick-audit-each-memory-file-against-written-principles</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/trick-audit-each-memory-file-against-written-principles</guid>
-<pubDate>Sat, 10 Oct 2026 12:00:00 GMT</pubDate>
-<category>Hidden Tricks</category>
-<description>One sub-profile per project, each with its own memory, and a weekly pass that checks each memory file against a written rule of what belongs there.</description>
 </item>
 </channel>
 </rss>

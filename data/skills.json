@@ -5808,6 +5808,49 @@
       "author": "Nous Research",
       "url": "https://hermes-agent.nousresearch.com/docs/plugins/rea",
       "verifiedAt": "2026-10-15"
+    },
+    {
+      "id": "plugin-official-xchat",
+      "title": "Xchat",
+      "summary": "X Chat gateway platform: talk to Hermes in X's end-to-end encrypted DMs. Hermes runs as the X account you connect: chat with it in your own self-chat (\"message yourself\"), or give it a separate account and DM that. Messages are decrypted and encrypted locally with X's official Chat XDK, so X only routes ciphertext. Encrypted media, threaded replies, group mention gating and cron delivery.",
+      "detail": "X Chat gateway platform: talk to Hermes in X's end-to-end encrypted DMs. Hermes runs as the X account you connect: chat with it in your own self-chat (\"message yourself\"), or give it a separate account and DM that. Messages are decrypted and encrypted locally with X's official Chat XDK, so X only routes ciphertext. Encrypted media, threaded replies, group mention gating and cron delivery.\n\nRequires Hermes >=0.21.5. Environment: XCHAT_ACCESS_TOKEN. Version 0.1.0 at import.",
+      "snippet": "hermes plugins install xchat",
+      "tags": [
+        "skills",
+        "plugin",
+        "official-plugin",
+        "platform"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/plugins/xchat",
+      "verifiedAt": "2026-10-17"
+    },
+    {
+      "id": "doc-user-guide-features-plugins-project-local-plugins-hermes-plugins",
+      "title": "Project-local plugins (./.hermes/plugins/)",
+      "summary": "The gateway does not load project-local plugins.",
+      "detail": "The gateway does not load project-local plugins. Every Hermes session ( hermes , hermes --tui , the Desktop app, messaging and cron) runs in the one gateway, which discovers plugins once for the whole process and never from the folder you started a session in. Setting HERMES_ENABLE_PROJECT_PLUGINS=true therefore has no effect on sessions: when a CLI or TUI session on the gateway's machine starts with it set in a folder whose ./.hermes/plugins/ has plugins, Hermes shows a warning at the start of that session and writes the same line to gateway.log . To use a plugin, install it as a user plugin ( ~/.hermes/plugins/ or hermes plugins install ) and enable it with hermes plugins enable <name> .\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "plugins",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#project-local-plugins",
+      "date": "2026-10-17"
+    },
+    {
+      "id": "doc-user-guide-features-plugins-plugin-code-inside-the-gateway",
+      "title": "Plugin code inside the gateway",
+      "summary": "Hooks, tools and injected turns of every chat and every local session (CLI, TUI, Desktop) run in the one gateway process, not in the client you launched.",
+      "detail": "Hooks, tools and injected turns of every chat and every local session (CLI, TUI, Desktop) run in the one gateway process, not in the client you launched. Some process-level habits from the classic CLI do not carry over: os.getcwd() is the gateway's own directory, shared by every session; Hermes never changes it. Use ctx.session_cwd() for the working directory of the session the hook or tool runs for: the workspace a CLI/TUI/Desktop session was started in, or the profile's terminal cwd for a chat ( \"\" when there is none). Pass it as cwd= to subprocesses. It reads the session from the running turn, so it works in code that runs for a session: turn hooks, tool handlers and approval hooks. Ingress hooks such as pre_gateway_dispatch run before the message is admitted to any session; there it returns the profile's terminal cwd, or \"\" when none is configured. ctx.session_surface() names the calling session's client: \"cli\" , \"tui\" , \"desktop\" , \"acp\" , or the messaging platform ( \"telegram\" , …); \"\" outside a session. print() output goes to the gateway's gateway-stdio.log , not to your terminal. Use logging instead. input() gets end-of-file: the gateway has no terminal. Ask through a tool…\n\nFrom the official Hermes Agent documentation.",
+      "tags": [
+        "plugins",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#plugin-code-inside-the-gateway",
+      "date": "2026-10-17"
     }
   ]
 }
