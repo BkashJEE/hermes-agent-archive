@@ -4,6 +4,7 @@
 const paths = {
   archive: '<rect x="3" y="3" width="18" height="5" rx="1"/><path d="M5 8v12h14V8 M9 12h6 M10 16h4"/>',
   trending: '<path d="M3 17 9 11l4 4 8-10 M15 5h6v6"/>',
+  leaderboard: '<path d="M3 21h18 M9 21v-9h6v9 M3 21v-5h6 M15 21v-7h6 M12 3l1.2 2.4 2.6.4-1.9 1.8.5 2.6L12 9l-2.4 1.2.5-2.6-1.9-1.8 2.6-.4Z"/>',
   dashboard: '<rect x="3" y="3" width="7" height="10" rx="1.5"/><rect x="14" y="3" width="7" height="6" rx="1.5"/><rect x="3" y="17" width="7" height="4" rx="1.5"/><rect x="14" y="13" width="7" height="8" rx="1.5"/>',
   stories: '<path d="M12 6 3 3v15l9 3 9-3V3l-9 3v15 M6 8l3 1 M6 12l3 1 M15 9l3-1 M15 13l3-1"/>',
   skills: '<path d="m12 2 8 4.5v11L12 22l-8-4.5v-11Z M13 6l-5 7h4l-1 5 5-7h-4Z"/>',

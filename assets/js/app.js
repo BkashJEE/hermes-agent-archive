@@ -9,6 +9,8 @@ import { cardPoints, cardCategory } from './card-preview.js?v=launch-10';
 import { isTopicTag } from './tags.js?v=launch-10';
 import { ageLabel } from './relative-time.js?v=launch-10';
 import { pickFor } from './daily-pick.js?v=launch-10';
+import { rankPrompts, promptText } from './leaderboard.js';
+import { movement } from './weekly-board.js';
 import { formatDetails } from './details.js';
 import { creditFor } from './credits.js?v=launch-10';
 import { attachRankings, compareRankings, usefulnessLabel, popularityLabel } from './ranking.js';
@@ -30,6 +32,7 @@ const state = {
   section: 'dashboard',          // the nav calls it home; the root URL now agrees
   source: 'all',
   sort: 'recommended',
+  boardTab: 'week',             // the leaderboard opens on what arrived this week
   q: '',
   tag: null,
   author: null,
@@ -74,6 +77,9 @@ async function load() {
   /* When each entry arrived, from git history. Optional: the archive reads fine without
      it and the what's-new panel simply says it has nothing to show. */
   state.added = await getJSON('data/added.json').then(d => d?.added || null).catch(() => null);
+  /* The weekly board: one scored snapshot per ISO week, written by npm run board. Optional
+     in the same way — without it the leaderboard shows all time and says the week is unscored. */
+  state.board = await getJSON('data/leaderboard.json').then(d => Array.isArray(d?.weeks) ? d.weeks : []).catch(() => []);
   mergeLive(state.data, state.live);
   const bannerItems = [];
   for (const section of state.cfg.sections) {
@@ -210,6 +216,7 @@ function filtersActive() {
 /* Shown as "12 / 326" while a filter is on, so the shelf's real size stays
    visible beside what the filter left. */
 function countFor(section) {
+  if (section.kind === 'leaderboard') return `<span class="nav-n">${num(boardShelves().reduce((n, s) => n + visible(s.id).length, 0))}</span>`;
   if (!section.file && section.kind !== 'trending') return '<span class="nav-n"></span>';
   const shown = visible(section.id).length;
   if (!filtersActive()) return `<span class="nav-n">${num(shown)}</span>`;
@@ -264,10 +271,11 @@ function render() {
     : focused?.dataset.section ? ['section', focused.dataset.section] : null;
   const sec = state.cfg.sections.find(s => s.id === state.section) || state.cfg.sections[0];
   const isDash = sec.kind === 'dashboard';
+  const isBoard = sec.kind === 'leaderboard';
   $('#archiveBanner').hidden = !isDash && sec.id !== 'use-cases';
   const key = JSON.stringify([state.section, state.q, state.source, state.tag, state.author, activeSort()]);
   if (key !== state.viewKey) { state.limit = 24; state.viewKey = key; }
-  $('#sortSel').disabled = sec.kind === 'trending';
+  $('#sortSel').disabled = sec.kind === 'trending' || isBoard;
   $('#sortSel').value = activeSort();
   /* The box filters the shelf you are on. It used to say "Search the archive", and a
      search for memory on Use Cases silently missed every Skill and Setting about memory.
@@ -276,8 +284,18 @@ function render() {
   $('#search').setAttribute('aria-label', isDash ? 'Search every shelf' : `Search ${sec.label}. Press Control or Command K to search every shelf.`);
   $('#loadMoreRow').hidden = true;
   $('#dashPanel').hidden = !isDash;
-  $('#listbar').hidden = isDash;
-  $('#grid').hidden = isDash;
+  $('#boardPanel').hidden = !isBoard;
+  $('#listbar').hidden = isDash || isBoard;
+  $('#grid').hidden = isDash || isBoard;
+  if (isBoard) {
+    $('#heroIcon').innerHTML = sectionIcon(sec.icon);
+    $('#heroTitle').textContent = sec.title;
+    $('#heroBlurb').textContent = sec.blurb;
+    $('#empty').hidden = true;
+    document.title = `${sec.label} · Hermes Agent Archive`;
+    renderLeaderboard(); renderNav(); renderTags(); renderFilters();
+    return;
+  }
   if (isDash) {
     $('#heroIcon').innerHTML = sectionIcon(sec.icon);
     $('#heroTitle').textContent = sec.title;
@@ -604,6 +622,84 @@ function bestOfNous() {
     </div>
     <a class="dash-preview-all" href="#skills">See every official skill &rarr;</a>
   </section>`;
+}
+
+/* The leaderboard: the whole archive as one ranked list a reader can copy from, with the
+   order named in its own words. Two periods — what arrived this week, and all time — and
+   a shelf filter; the ranking itself lives in assets/js/leaderboard.js. */
+const BOARD_PAGE = 25;
+function boardShelves() { return state.cfg.sections.filter(s => s.file && (state.data[s.id] || []).length); }
+function renderLeaderboard() {
+  const shelves = boardShelves();
+  const label = Object.fromEntries(shelves.map(s => [s.id, s.label]));
+  const pool = (state.boardShelf && state.boardShelf !== 'all' ? [state.boardShelf] : shelves.map(s => s.id))
+    .flatMap(id => visible(id).map(it => ({ ...it, shelf: id })));
+  /* "This week" is the latest written-down board, filtered to the pool on screen; the
+     arrows are its ranks against the week before. "All time" is the live order. */
+  const weeks = state.board || [];
+  const latest = weeks.at(-1), previous = weeks.at(-2);
+  const byId = new Map(pool.map(it => [it.id, it]));
+  /* Filtered to one shelf, the week is that shelf's own written-down top ten, not the
+     overall fifty with the rest hidden — otherwise a shelf of stories could show an empty
+     week while the documentation shelves hold every overall place. */
+  const shelfId = state.boardShelf && state.boardShelf !== 'all' ? state.boardShelf : null;
+  const list = w => !w ? null : shelfId ? (w.shelves?.[shelfId] || null) : w;
+  const moved = latest ? movement(list(latest), list(previous)) : {};
+  const week = list(latest) ? list(latest).entries.map(e => byId.get(e.id)).filter(Boolean).map(it => ({ ...it, move: moved[it.id] })) : [];
+  const all = rankPrompts(pool);
+  const tab = state.boardTab === 'week' && week.length ? 'week' : 'all';
+  const rows = tab === 'week' ? week : all;
+  const scoredOn = latest ? new Date(latest.scoredAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', timeZone: 'UTC' }) : null;
+  const arrow = m => m === undefined ? '' : m === 'new' ? '<span class="board-move is-new" title="Not on last week\'s board">new</span>'
+    : m > 0 ? `<span class="board-move is-up" title="Up ${m} since last week">▲${m}</span>`
+    : m < 0 ? `<span class="board-move is-down" title="Down ${-m} since last week">▼${-m}</span>`
+    : '<span class="board-move" title="Same rank as last week">=</span>';
+  const shown = rows.slice(0, state.boardLimit || BOARD_PAGE);
+  const copyWord = shelf => shelf === 'prompts' ? 'Copy prompt' : shelf === 'commands' ? 'Copy command' : 'Copy snippet';
+  const chips = it => (it.tags || []).filter(isTopicTag).slice(0, 2).map(t => `<button class="chip chip-tag" data-tag="${esc(t)}">${esc(t)}</button>`).join('');
+  const row = (it, i) => {
+    const text = it.snippet ? promptText(it) : '';
+    const long = text.length > 420 || text.split('\n').length > 8;
+    return `<li class="board-row">
+      <span class="board-rank" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span>
+      <div class="board-main">
+        <div class="board-head">
+          <button class="board-title" data-open-entry="${esc(it.id)}">${esc(it.title)}</button>${tab === 'week' && previous ? arrow(it.move) : ''}
+          <span class="board-chips"><span class="chip chip-shelf">${esc(label[it.shelf] || it.shelf)}</span>${pill(it.source)}${chips(it)}</span>
+        </div>
+        ${text ? `<pre class="board-prompt${long ? ' is-long' : ''}" id="prompt-${esc(it.id)}"><code>${esc(text)}</code></pre>` : `<p class="board-summary">${esc(it.summary || '')}</p>`}
+        <div class="board-actions">
+          ${text ? `<button class="ghost-btn" data-copy-prompt="${esc(it.id)}">${copyWord(it.shelf)}</button>` : ''}
+          ${long ? `<button class="ghost-btn" data-expand-prompt="${esc(it.id)}" aria-expanded="false">Show full text</button>` : ''}
+          <button class="ghost-btn" data-open-entry="${esc(it.id)}">Source &amp; credit</button>
+          ${it.ranking ? `<span class="board-band">${esc(usefulnessLabel(it.ranking.usefulness))}</span>` : '<span class="board-band">awaiting classification</span>'}
+        </div>
+      </div>
+    </li>`;
+  };
+  const shelfChip = (id, name, n) => `<button class="chip${(state.boardShelf || 'all') === id ? ' on' : ''}" data-board-shelf="${esc(id)}" aria-pressed="${(state.boardShelf || 'all') === id}">${esc(name)} <b>${num(n)}</b></button>`;
+  $('#boardPanel').innerHTML = `
+    <div class="board-bar">
+      <div class="board-tabs" role="tablist" aria-label="Leaderboard period">
+        <button role="tab" aria-selected="${tab === 'week'}" data-board-tab="week"${week.length ? '' : ' disabled title="This week has not been scored yet"'}>This week <span>${num(week.length)}</span></button>
+        <button role="tab" aria-selected="${tab === 'all'}" data-board-tab="all">All time <span>${num(all.length)}</span></button>
+      </div>
+      <p class="board-note">${tab === 'week'
+        ? `Week ${esc(latest.week.slice(-2))}, scored ${esc(scoredOn)}: the top ${num(list(latest).entries.length)} of ${num(list(latest).of)} classified entries${shelfId ? ' on this shelf' : ' across every shelf'}, written down so next week can show what moved.${previous ? '' : ' First board: movement appears from next week.'}`
+        : state.boardTab === 'week' ? 'This week has not been scored yet; showing all time. The board is scored every Monday.' : 'Everything on the shelves, live.'}
+        The order is Jev\'s usefulness judgment with public popularity breaking ties — editorial, not a vote. Dates never affect it.</p>
+    </div>
+    <div class="board-shelves" role="group" aria-label="Shelf">
+      ${shelfChip('all', 'All', shelves.reduce((n, s) => n + visible(s.id).length, 0))}
+      ${shelves.map(s => shelfChip(s.id, s.label, visible(s.id).length)).join('')}
+    </div>
+    ${rows.length ? `<ol class="board-list">${shown.map(row).join('')}</ol>` : '<p class="dash-none">Nothing matches the current filters.</p>'}
+    ${rows.length > shown.length ? `<div class="board-more"><button class="ghost-btn" data-board-more>Show more <b>${num(shown.length)} of ${num(rows.length)}</b></button></div>` : ''}
+    <div class="board-foot">
+      <strong>Got something that works with Hermes?</strong>
+      <span>Submit it with the source it came from. Every submission is reviewed and credited before it goes on the board.</span>
+      <a class="archive-primary" href="https://github.com/BkashJEE/hermes-agent-archive/issues/new?template=submit-entry.yml" target="_blank" rel="noopener noreferrer">Submit an entry</a>
+    </div>`;
 }
 
 function renderDashboard() {
@@ -1342,3 +1438,31 @@ load()
        Run <code>npm start</code> (or <code>python3 -m http.server</code>) instead of opening the file directly.</span></li>`;
     $('#empty').hidden = true;
   });
+
+/* Leaderboard controls: the period tabs, copying a prompt, and unfolding a long one. The
+   copied text is exactly the prompt on screen; the button says so for a moment. */
+document.addEventListener('click', async e => {
+  const tab = e.target.closest('[data-board-tab]');
+  if (tab) { state.boardTab = tab.dataset.boardTab; state.boardLimit = BOARD_PAGE; renderLeaderboard(); return; }
+  const shelf = e.target.closest('[data-board-shelf]');
+  if (shelf) { state.boardShelf = shelf.dataset.boardShelf; state.boardLimit = BOARD_PAGE; renderLeaderboard(); return; }
+  if (e.target.closest('[data-board-more]')) { state.boardLimit = (state.boardLimit || BOARD_PAGE) + BOARD_PAGE; renderLeaderboard(); return; }
+  const expand = e.target.closest('[data-expand-prompt]');
+  if (expand) {
+    const pre = document.getElementById(`prompt-${expand.dataset.expandPrompt}`);
+    const open = pre.classList.toggle('is-open');
+    expand.setAttribute('aria-expanded', open);
+    expand.textContent = open ? 'Show less' : 'Show full prompt';
+    return;
+  }
+  const copy = e.target.closest('[data-copy-prompt]');
+  if (!copy) return;
+  const it = Object.values(state.data).flat().find(p => p.id === copy.dataset.copyPrompt);
+  if (!it) return;
+  try {
+    await navigator.clipboard.writeText(promptText(it));
+    const label = copy.textContent;
+    copy.textContent = 'Copied'; copy.classList.add('done');
+    setTimeout(() => { copy.textContent = label; copy.classList.remove('done'); }, 1400);
+  } catch { copy.textContent = 'Select and copy'; }
+});

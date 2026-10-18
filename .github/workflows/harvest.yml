@@ -63,6 +63,12 @@ jobs:
       - name: Record arrival dates
         run: npm run added
 
+      # Once per ISO week the whole archive is scored and the top of it written down, so
+      # the leaderboard's "This week" names a measurement and next week can show what moved.
+      # Six days out of seven this writes nothing.
+      - name: Score the weekly board
+        run: npm run board
+
       - name: Rebuild the crawlable pages
         run: npm run pages
 
