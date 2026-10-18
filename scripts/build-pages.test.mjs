@@ -36,7 +36,8 @@ test('the sitemap lists exactly what exists', async () => {
   const pages = (await readdir(new URL('entry/', ROOT))).length
               + (await readdir(new URL('shelf/', ROOT))).length;
   const changelog = await read('whats-new.html').then(() => 1).catch(() => 0);
-  assert.equal(locs.length, pages + 1 + changelog, 'one url per page, plus the root and the changelog');
+  const support = await read('support.html').then(() => 1).catch(() => 0);
+  assert.equal(locs.length, pages + 1 + changelog + support, 'one url per page, plus the root, the changelog and the support page');
   assert.ok(locs.every(u => u.startsWith('https://hermes-agent-archive.vercel.app/')), 'absolute, canonical host');
   assert.equal(new Set(locs).size, locs.length, 'no duplicate urls');
   // A <lastmod> here would be a date nobody measured: `date` is when the described thing
@@ -111,4 +112,48 @@ test('the changelog page and the feed exist and agree with the sitemap', async (
   assert.match(page, /href="\/feed\.xml"/, 'the page offers the feed');
   const sitemap = await read('sitemap.xml');
   assert.match(sitemap, /<loc>https:\/\/hermes-agent-archive\.vercel\.app\/whats-new<\/loc>/);
+});
+
+test('an entry without a date says so instead of leaving a gap, and carries structured data that claims no more', () => {
+  const section = { id: 'use-cases', label: 'Use Cases' };
+  const undated = { id: 'x1', title: 'Undated story', summary: 'A summary.', detail: 'Detail.', source: 'x', url: 'https://x.com/a/status/1', author: 'someone' };
+  const html = entryPage(undated, section, 'X / Twitter');
+  assert.match(html, /Date unknown/);
+  const ld = JSON.parse(html.match(/<script type="application\/ld\+json">([^<]+)<\/script>/)[1]);
+  assert.equal(ld['@type'], 'Article');
+  assert.equal(ld.datePublished, undefined, 'no date in the data means no datePublished');
+  assert.equal(ld.author.name, 'someone');
+  assert.equal(ld.citation, 'https://x.com/a/status/1');
+  const dated = entryPage({ ...undated, id: 'x2', date: '2026-10-11' }, section, 'X / Twitter');
+  assert.match(dated, /October 11, 2026/);
+  assert.match(dated, /"datePublished":"2026-10-11"/);
+});
+
+test('the support page has no payment button until a real link is configured', async () => {
+  const { supportPage } = await import('./build-pages.mjs');
+  const bare = supportPage([{ label: '$1', note: 'one entry, checked', url: '' }]);
+  assert.doesNotMatch(bare, /class="tier"/, 'no tip button without a link');
+  assert.match(bare, /There is no sponsored placement/);
+  assert.match(bare, /Star the repository/);
+  const counted = supportPage([], null, { entries: 1256, shelves: 10, people: 466 });
+  assert.match(counted, /1,256/);
+  const linked = supportPage([{ label: '$5 one-time', url: 'https://example.com/coffee', note: 'pays for one entry checked' }], 'mailto:a@b.c?subject=x');
+  assert.match(linked, /href="https:\/\/example.com\/coffee"/);
+  assert.match(linked, /pays for one entry checked/);
+  assert.match(linked, /href="mailto:a@b.c\?subject=x"/);
+  assert.doesNotMatch(bare, /Sponsor slot/);
+});
+
+test('no page invites a tip until a tier has a real link', async () => {
+  const { setTipsLive, liveTiers } = await import('./build-pages.mjs');
+  const section = { id: 'use-cases', label: 'Use Cases' };
+  const item = { id: 'x3', title: 'T', summary: 'S', detail: 'D', source: 'x', url: 'https://x.com/a/status/3' };
+  assert.equal(liveTiers([{ label: '$1', url: '' }, { label: '$1', url: 'https://pay.example/1' }]).length, 1);
+  setTipsLive(false);
+  assert.doesNotMatch(entryPage(item, section, 'X'), /coffee|support-btn/);
+  setTipsLive(true);
+  const html = entryPage(item, section, 'X');
+  assert.match(html, /support-btn/);
+  assert.match(html, /Buy the curator a coffee/);
+  setTipsLive(false);
 });

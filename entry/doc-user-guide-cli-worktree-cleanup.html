@@ -23,6 +23,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Worktree cleanup","description":"hermes -w sessions create disposable worktrees under <repo>/.worktrees/ .","url":"https://hermes-agent-archive.vercel.app/entry/doc-user-guide-cli-worktree-cleanup","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/commands.png","datePublished":"2026-09-25","citation":"https://hermes-agent.nousresearch.com/docs/user-guide/cli#worktree-cleanup","keywords":"cli, docs"}</script>
 </head>
 <body>
 <div class="doc">
@@ -31,7 +32,7 @@
 <article>
 <h1>Worktree cleanup</h1>
 
-<p class="meta">From Official Docs</p>
+<p class="meta">From Official Docs · September 25, 2026</p>
 <p>hermes -w sessions create disposable worktrees under &lt;repo&gt;/.worktrees/ . A conservative pruner runs automatically at startup (it only removes clean, fully-merged scratch trees past an age threshold), but preserved trees and merged local branches still accumulate on busy machines. Reclaim them explicitly: Worktrees registered outside .worktrees/ (created by hand or by another tool) are reported read-only in list output and are never removed. The one exception is metadata: registrations whose directory no longer exists are dropped via git worktree prune (no files are touched). --older-than DAYS only ever narrows what gets reaped - a tree carrying real work is kept at any age regardless of the flag. Inside a session, /worktree prune [--dry-run] does the same (and never touches the tree the session is running in). Safety guarantees (all modes, any age): Uncommitted tracked changes are never deleted. Unique unpushed commits are never deleted - commits that were rebase/squash-merged upstream are detected via git cherry patch-equivalence and count as merged, which is what lets the dominant &quot;merged PR, tree preserved forever&quot; leak finally reclaim. Repositories without a remote are judged…</p>
 <p>From the official Hermes Agent documentation.</p>
 <pre><code>hermes worktree list              # audit: age, size, verdict, reason per tree
@@ -43,6 +44,7 @@ hermes worktree prune --trees-only     # leave local branches alone
 hermes worktree prune --branches-only  # leave worktrees alone</code></pre>
 
 <ul class="tags"><li>#cli</li><li>#docs</li></ul>
+
 <div class="actions">
 <a href="https://hermes-agent.nousresearch.com/docs/user-guide/cli#worktree-cleanup" rel="noopener">Read the original</a>
 <a href="/#commands?item=doc-user-guide-cli-worktree-cleanup">Open in the archive</a>
@@ -51,7 +53,7 @@ hermes worktree prune --branches-only  # leave worktrees alone</code></pre>
 <footer>
 <p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
 prompts and projects, each one linked to where it came from.</p>
-<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
 </footer>
 </div>
 </body>

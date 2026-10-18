@@ -23,6 +23,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"All of this is sidestepped somewhat by using good isolation primitives - I'm running a Hermes…","description":"This article smells AI generated, which is _very_ funny given the argument being made. Either way, while this is true in the absolute, this is the value…","url":"https://hermes-agent-archive.vercel.app/entry/hn-49477413","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/use-cases.png","datePublished":"2026-08-28","author":{"@type":"Person","name":"nameless912"},"citation":"https://news.ycombinator.com/item?id=49477413","keywords":"user-story, hn-comment"}</script>
 </head>
 <body>
 <div class="doc">
@@ -31,7 +32,7 @@
 <article>
 <h1>All of this is sidestepped somewhat by using good isolation primitives - I&#39;m running a Hermes…</h1>
 
-<p class="meta">By nameless912 · Hacker News</p>
+<p class="meta">By nameless912 · Hacker News · August 28, 2026</p>
 <p>This article smells AI generated, which is _very_ funny given the argument being made.</p>
 <p>Either way, while this is true in the absolute, this is the value of building good MCP servers: they should expose only exactly the surface you expect your agent to need, and adding functionality should be carefully considered. The best MCP servers I use day to day (Cloudflare sticks out) do a really good job of exposing only what an agent might actually want to do on my behalf, rather than just all and sundry. Unfortunately the Chrome Dev tools MCP is less discriminating and is only as secure as a browser sandbox with full JS access (not fatal but not as strong as a well scoped REST API).</p>
 <p>All of this is sidestepped somewhat by using good isolation primitives - I&#39;m running a Hermes agent as of recently on a DigitalOcean VM that only accepts connections from my devices over tailscale, and it has all its own credentials so I can revoke them easily should they be used maliciously. Giving an agent root on a box is not _necessarily_ a huge deal, you just have to make sure that box has nothing valuable on it.</p>
@@ -40,6 +41,7 @@
 
 
 <ul class="tags"><li>#user-story</li><li>#hn-comment</li></ul>
+
 <div class="actions">
 <a href="https://news.ycombinator.com/item?id=49477413" rel="noopener">Read the original</a>
 <a href="/#use-cases?item=hn-49477413">Open in the archive</a>
@@ -48,7 +50,7 @@
 <footer>
 <p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
 prompts and projects, each one linked to where it came from.</p>
-<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
 </footer>
 </div>
 </body>

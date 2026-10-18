@@ -23,6 +23,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Dependency preparation and preservation","description":"Python dependency installation has a separate consent/admission step.","url":"https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-dependency-preparation-and-preservation","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/skills.png","datePublished":"2026-10-05","citation":"https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#dependency-preparation-and-preservation","keywords":"plugins, docs"}</script>
 </head>
 <body>
 <div class="doc">
@@ -31,12 +32,13 @@
 <article>
 <h1>Dependency preparation and preservation</h1>
 
-<p class="meta">From Official Docs</p>
+<p class="meta">From Official Docs · October 5, 2026</p>
 <p>Python dependency installation has a separate consent/admission step. plugins install --enable does not bypass that step. A declined or non-interactive dependency install can leave the plugin installed but disabled. Node sidecar dependencies have a separate prompt and remain plugin-local. PM prepares Python dependencies with core and the enabled plugin set before publishing the new environment and configuration. A resolution failure preserves the previous selection. Restart Hermes when a new selected environment is not yet active in the running process. The enabled set is the union over the default home and every profile under profiles/ , read from each config.yaml ( plugins.enabled , plugins.disabled , memory.provider ). PM refuses to guess at a home it cannot read: a config.yaml that is not valid YAML, is not a mapping, or has a non-list plugins.enabled / plugins.disabled or non-string memory.provider fails dependency preparation for all homes ( could not parse plugin selection: &lt;path&gt; ), rather than silently dropping that profile&#39;s plugins from the next environment. Fix or remove the offending file; an empty config.yaml is fine. Ordinary Hermes application updates preserve user…</p>
 <p>From the official Hermes Agent documentation.</p>
 
 
 <ul class="tags"><li>#plugins</li><li>#docs</li></ul>
+
 <div class="actions">
 <a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#dependency-preparation-and-preservation" rel="noopener">Read the original</a>
 <a href="/#skills?item=doc-user-guide-features-plugins-dependency-preparation-and-preservation">Open in the archive</a>
@@ -45,7 +47,7 @@
 <footer>
 <p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
 prompts and projects, each one linked to where it came from.</p>
-<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
 </footer>
 </div>
 </body>

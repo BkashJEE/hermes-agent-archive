@@ -27,6 +27,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join } from 'node:path';
 import { githubRepo } from '../assets/js/archive.js';
 import { qualifiesRepository } from '../assets/js/github-policy.js';
+import { creditFor } from '../assets/js/credits.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://hermes-agent-archive.vercel.app';
@@ -52,7 +53,24 @@ const SAFE_ID = /^[A-Za-z0-9][A-Za-z0-9._-]*$/;
    that shelf's count rather than the whole archive's. Pages without a shelf use the archive card. */
 const social = sectionId => sectionId ? `${SITE}/assets/social/${sectionId}.png` : `${SITE}/assets/social-preview.png`;
 
-const page = ({ title, description, canonical, body, breadcrumb, image = social() }) => `<!doctype html>
+/** "October 11, 2026", or the honest label when the source carries no date. */
+export const dateLabel = d => d
+  ? new Date(`${String(d).slice(0, 10)}T12:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })
+  : 'Date unknown';
+
+/* JSON-LD is JSON inside a script element: a "</script" in any string would end the
+   element early, so the one sequence that matters is escaped and nothing else is. */
+const ldJson = data => JSON.stringify(data).replace(/<\//g, '<\\/');
+const WEBSITE = { '@type': 'WebSite', name: 'Hermes Agent Archive', url: `${SITE}/` };
+
+/** A tier is live when it has a real link; the tip surface across the site follows. */
+export const liveTiers = links => (Array.isArray(links) ? links : []).filter(l => l && typeof l.url === 'string' && /^https?:\/\//.test(l.url));
+/* Set once per build from data/support.json. Until a tier is live, no page shows a ☕
+   button or a "buy a coffee" line: a call to tip with nowhere to tip would be a lie. */
+let TIPS_LIVE = false;
+export const setTipsLive = v => { TIPS_LIVE = Boolean(v); };
+
+const page = ({ title, description, canonical, body, breadcrumb, image = social(), jsonld = null }) => `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -77,15 +95,16 @@ const page = ({ title, description, canonical, body, breadcrumb, image = social(
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/doc.css">
+${jsonld ? `<script type="application/ld+json">${ldJson(jsonld)}</script>` : ''}
 </head>
 <body>
 <div class="doc">
-<header><a href="/">Hermes Agent Archive</a>${breadcrumb}</header>
+<header><a href="/">Hermes Agent Archive</a>${breadcrumb}${TIPS_LIVE ? '<a class="support-btn" href="/support" aria-label="Support the archive">☕ Support</a>' : ''}</header>
 ${body}
 <footer>
 <p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
 prompts and projects, each one linked to where it came from.</p>
-<p>Curated by <a href="${OWNER_X}" rel="me">@BkashJosi</a> · <a href="${OWNER_GH}" rel="me">GitHub</a></p>
+<p>Curated by <a href="${OWNER_X}" rel="me">@BkashJosi</a> · <a href="${OWNER_GH}" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
 </footer>
 </div>
 </body>
@@ -117,23 +136,36 @@ export function entryPage(item, section, sourceLabel, lookup = new Map()) {
 <article>
 <h1>${esc(item.title)}</h1>
 ${echoesDetail ? '' : `<p class="lede">${esc(item.summary)}</p>`}
-${credit ? `<p class="meta">${credit}${sourceLabel && item.author ? ` · ${esc(sourceLabel)}` : ''}</p>` : ''}
+<p class="meta">${[credit, sourceLabel && item.author ? esc(sourceLabel) : '', esc(dateLabel(item.date))].filter(Boolean).join(' · ')}</p>
 ${item.detail ? paragraphs(item.detail) : ''}
 ${item.snippet ? `<pre><code>${esc(item.snippet)}</code></pre>` : ''}
 ${uses.length ? `<p class="meta">Mentioned in this story</p><ul class="entries uses">${uses.map(u => `<li><a href="/entry/${esc(u.id)}">${esc(u.title)}</a><p>${esc(u.shelf)}</p></li>`).join('')}</ul>` : ''}
 ${item.tags?.length ? `<ul class="tags">${item.tags.map(t => `<li>#${esc(t)}</li>`).join('')}</ul>` : ''}
+${TIPS_LIVE ? '<p class="meta coffee">Saved you time? <a href="/support">Buy the curator a coffee ☕</a></p>' : ''}
 <div class="actions">
 ${link ? `<a href="${esc(link)}" rel="noopener">Read the original</a>` : ''}
 <a href="/#${esc(section.id)}?item=${encodeURIComponent(item.id)}">Open in the archive</a>
 </div>
 </article>`;
 
+  /* Structured data says only what the entry says: a date only when the source carries
+     one, an author only when one is credited, the original link as the citation. */
+  const jsonld = {
+    '@context': 'https://schema.org', '@type': 'Article',
+    headline: item.title, description: trim(item.summary), url: `${SITE}/entry/${item.id}`,
+    inLanguage: 'en', isPartOf: WEBSITE, image: social(section.id),
+    ...(item.date ? { datePublished: String(item.date).slice(0, 10) } : {}),
+    ...(item.author ? { author: { '@type': 'Person', name: item.author } } : {}),
+    ...(link ? { citation: link } : {}),
+    ...(item.tags?.length ? { keywords: item.tags.join(', ') } : {})
+  };
   return page({
     title: item.title,
     description: trim(item.summary),
     canonical: `${SITE}/entry/${item.id}`,
     breadcrumb: ` / <a href="/shelf/${esc(section.id)}">${esc(section.label)}</a>`,
     image: social(section.id),
+    jsonld,
     body
   });
 }
@@ -148,12 +180,19 @@ ${items.map(i => `<li><a href="/entry/${esc(i.id)}">${esc(i.title)}</a><p>${esc(
 </ul>
 <div class="actions"><a href="/#${esc(section.id)}">Browse this shelf in the archive</a></div>`;
 
+  const jsonld = {
+    '@context': 'https://schema.org', '@type': 'CollectionPage',
+    name: section.title || section.label, url: `${SITE}/shelf/${section.id}`, isPartOf: WEBSITE,
+    mainEntity: { '@type': 'ItemList', numberOfItems: items.length,
+      itemListElement: items.slice(0, 100).map((i, n) => ({ '@type': 'ListItem', position: n + 1, name: i.title, url: `${SITE}/entry/${i.id}` })) }
+  };
   return page({
     title: section.label,
     description: trim(section.blurb || `${items.length} entries in the Hermes Agent Archive.`),
     canonical: `${SITE}/shelf/${section.id}`,
     breadcrumb: '',
     image: social(section.id),
+    jsonld,
     body
   });
 }
@@ -199,7 +238,67 @@ ${Object.entries(byShelf).map(([shelf, list]) => `<p class="meta">${esc(label(sh
 <ul class="entries">${list.slice(0, 10).map(i => `<li><a href="/entry/${esc(i.id)}">${esc(i.title)}</a><p>${esc(trim(i.summary, 160))}</p></li>`).join('\n')}${list.length > 10 ? `
 <li><a href="/shelf/${esc(shelf)}">+ ${list.length - 10} more on ${esc(label(shelf))} →</a></li>` : ''}</ul>`).join('\n')}
 </section>`; }).join('\n')}`;
-  return page({ title: 'What arrived recently', description: trim(`${total} entries added to the Hermes Agent Archive over the last ${days.length} days it grew, newest first.`), canonical: `${SITE}/whats-new`, breadcrumb: ' / What arrived recently', body });
+  return page({ title: 'What arrived recently', description: trim(`${total} entries added to the Hermes Agent Archive over the last ${days.length} days it grew, newest first.`), canonical: `${SITE}/whats-new`, breadcrumb: ' / What arrived recently', body,
+    jsonld: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'What arrived recently', url: `${SITE}/whats-new`, isPartOf: WEBSITE } });
+}
+
+/**
+ * /support — a tip page that reads like one. Free to browse, always; what a tip pays for,
+ * what it never buys, and the ways to help that cost nothing. Every figure on it is
+ * counted from the loaded archive at build time. A payment link renders only when the
+ * curator has configured a real one in data/support.json — a dead button would say the
+ * opposite of what the page says.
+ */
+export function supportPage(links = [], sponsor = null, stats = null) {
+  links = liveTiers(links);   // a tier without a real link is not a button
+  const tier = l => `<a class="tier" href="${esc(l.url)}" rel="noopener">
+    <span class="tier-amount">${esc(l.label)}</span>
+    ${l.note ? `<span class="tier-note">${esc(l.note)}</span>` : ''}
+    <span class="tier-cta">Tip →</span></a>`;
+  const n = v => Number(v || 0).toLocaleString('en-US');
+  const body = `
+<section class="support-hero">
+  <span class="support-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="5" rx="1"/><path d="M5 8v12h14V8 M9 12h6 M10 16h4"/></svg></span>
+  <p class="support-kicker">TIP JAR</p>
+  <h1>Keep the archive running.</h1>
+  <p class="lede">Free to browse, always. One person reads every source, checks every credit and keeps the daily harvest honest. If it saved you an evening, a tip keeps the lights on.</p>
+  ${stats ? `<ul class="support-stats" aria-label="What the archive holds today">
+    <li><b>${n(stats.entries)}</b><span>entries, each linked to its source</span></li>
+    <li><b>${n(stats.people)}</b><span>people credited by name</span></li>
+    <li><b>${n(stats.shelves)}</b><span>shelves, refreshed daily</span></li>
+  </ul>` : ''}
+</section>
+${links.length ? `<section class="support-tiers" aria-labelledby="tipTitle">
+  <h2 id="tipTitle">Leave a tip</h2>
+  <div class="tiers">${links.map(tier).join('')}</div>
+  <p class="meta">Payments open on the curator's own page. Nothing is collected here.</p>
+</section>` : ''}
+<section class="support-pays" aria-labelledby="paysTitle">
+  <h2 id="paysTitle">What a tip pays for</h2>
+  <ul class="support-list">
+    <li><b>The editorial API calls</b> that triage and rank every arrival, so the shelves stay ordered by usefulness rather than by date.</li>
+    <li><b>The evenings</b> spent reading sources, resolving quotes to the exact message and checking that every credit names the right person.</li>
+    <li><b>Keeping it free</b> — no paywall, no account, no tracking script, and the whole thing open source.</li>
+  </ul>
+</section>
+<section class="support-never" aria-labelledby="neverTitle">
+  <h2 id="neverTitle">What a tip never buys</h2>
+  <p>A place on a shelf. A position in the ranking. A number on a card. ${sponsor ? 'The one sponsor slot is always labelled <em>Sponsored</em> and sits outside every shelf.' : 'There is no sponsored placement.'}</p>
+</section>
+<section class="support-free" aria-labelledby="freeTitle">
+  <h2 id="freeTitle">Help without spending anything</h2>
+  <div class="ways">
+    <a class="way" href="/"><b>Share one entry</b><span>Every entry has its own page. Sending one useful page to a Hermes user grows this more than anything else.</span></a>
+    <a class="way" href="${OWNER_GH}/hermes-agent-archive" rel="noopener"><b>Star the repository</b><span>A star is how new readers find it, and how the curator knows it is read.</span></a>
+    <a class="way" href="${OWNER_GH}/hermes-agent-archive/issues/new?template=submit-entry.yml" rel="noopener"><b>Add to it</b><span>Suggest an entry or correct a credit. Both are reviewed before publishing, and both are credited.</span></a>
+  </div>
+</section>
+${sponsor ? `<section class="support-sponsor" aria-labelledby="sponsorTitle">
+  <h2 id="sponsorTitle">Sponsor slot</h2>
+  <p>One labelled slot, always marked <em>Sponsored</em>, never on a shelf and never in the ranking. <a href="${esc(sponsor)}">Ask about it</a>.</p>
+</section>` : ''}`;
+  return page({ title: 'Support the archive', description: 'Tip jar for the Hermes Agent Archive: free to browse, kept by one person. What a tip pays for, what it never buys, and the ways to help that cost nothing.', canonical: `${SITE}/support`, breadcrumb: ' / Support', body,
+    jsonld: { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Support the archive', url: `${SITE}/support`, isPartOf: WEBSITE } });
 }
 
 export function feedXml(days, sections, limit = 60) {
@@ -276,6 +375,14 @@ async function main() {
   const lookup = new Map();
   for (const { section, items } of shelves) for (const i of items) lookup.set(i.id, { id: i.id, title: i.title, shelf: section.label });
   const urls = [`${SITE}/`];
+  const support = JSON.parse(await readFile(join(ROOT, 'data', 'support.json'), 'utf8').catch(() => '{"links":[]}'));
+  setTipsLive(liveTiers(support.links).length);
+  /* The page's figures are the same counts the cards and the dashboard carry. */
+  const paged = shelves.flatMap(s => s.items);
+  const stats = { entries: paged.length, shelves: shelves.length,
+    people: new Set(paged.map(creditFor).filter(c => c.label !== 'Author').map(c => c.name)).size };
+  await writeFile(join(ROOT, 'support.html'), supportPage(Array.isArray(support.links) ? support.links : [], typeof support.sponsor === 'string' ? support.sponsor : null, stats));
+  urls.push(`${SITE}/support`);
   if (days.length) {
     await writeFile(join(ROOT, 'whats-new.html'), whatsNewPage(days.slice(0, 30), index.sections));
     await writeFile(join(ROOT, 'feed.xml'), feedXml(days, index.sections));

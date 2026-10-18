@@ -23,6 +23,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Dots inside key names","description":"hermes config set/get/unset use . as the nesting separator, but many real key names contain literal dots — model IDs (grok-4.6, glm-5.3-flash), Matrix…","url":"https://hermes-agent-archive.vercel.app/entry/cli-sec-dots-inside-key-names","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/settings.png","datePublished":"2026-09-24","citation":"https://hermes-agent.nousresearch.com/docs/reference/cli-commands#dots-inside-key-names","keywords":"cli, reference"}</script>
 </head>
 <body>
 <div class="doc">
@@ -31,13 +32,14 @@
 <article>
 <h1>Dots inside key names</h1>
 
-<p class="meta">From Official Docs</p>
+<p class="meta">From Official Docs · September 24, 2026</p>
 <p>hermes config set/get/unset use . as the nesting separator, but many real key names contain literal dots — model IDs (grok-4.6, glm-5.3-flash), Matrix room IDs (!room:example.org), versioned provider names. Two rules make these addressable:</p>
 <p>If an unescaped write would create a nested mapping that shadows an existing dotted sibling (e.g. creating grok-4 next to an existing grok-4.6), the command fails with an error instead of silently writing a phantom entry the runtime would never read.</p>
 <p>From the official Hermes Agent CLI reference.</p>
 
 
 <ul class="tags"><li>#cli</li><li>#reference</li></ul>
+
 <div class="actions">
 <a href="https://hermes-agent.nousresearch.com/docs/reference/cli-commands#dots-inside-key-names" rel="noopener">Read the original</a>
 <a href="/#settings?item=cli-sec-dots-inside-key-names">Open in the archive</a>
@@ -46,7 +48,7 @@
 <footer>
 <p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
 prompts and projects, each one linked to where it came from.</p>
-<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a></p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
 </footer>
 </div>
 </body>
