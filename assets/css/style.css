@@ -798,11 +798,13 @@ code{font-family:var(--mono);font-size:.92em}
 .archive-headline em{font-style:normal;color:var(--accent)}
 .archive-intro{margin:15px 0 20px;color:var(--ink-dim);font:400 14px/1.65 var(--sans);max-width:44ch}
 .archive-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-.archive-actions a{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:42px;font:600 11px/1.4 var(--sans);text-decoration:none;border-radius:var(--r-sm)}
-.archive-primary{padding:10px 15px;color:var(--accent-ink);background:var(--accent);border:1px solid var(--accent)}
-.archive-secondary{padding:10px 0;color:var(--ink)}
-.archive-primary:hover{box-shadow:0 0 0 3px var(--accent-soft)}
-.archive-secondary:hover{color:var(--accent)}
+/* Two pills: the primary is ink on background (white on dark, dark on light), the
+   secondary a quiet panel — the pair reads as one control, not a button and a link. */
+.archive-actions a{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;padding:0 22px;font:600 13px/1 var(--sans);text-decoration:none;border-radius:999px;transition:transform .15s,box-shadow .15s,border-color .15s}
+.archive-primary{color:var(--bg);background:var(--ink);border:1px solid var(--ink)}
+.archive-secondary{color:var(--ink);background:var(--panel-2);border:1px solid var(--line-2)}
+.archive-primary:hover{transform:translateY(-1px);box-shadow:0 6px 18px var(--shadow)}
+.archive-secondary:hover{border-color:var(--ink-dim);transform:translateY(-1px)}
 .archive-actions a:focus-visible{outline:2px solid var(--teal);outline-offset:4px}
 .archive-banner-figure{margin:0;padding:4px 20px 20px 0;min-width:0;position:relative}
 .archive-field{display:block;width:100%;max-height:290px;overflow:visible}
@@ -949,3 +951,35 @@ button.updated:hover{background:var(--panel2);color:var(--accent)}
 .wn-more{padding:4px 8px;font-size:11px;color:var(--ink-mute)}
 
 @media (max-width:640px){ .whats-new{width:100%;padding:18px 16px 40px} }
+
+/* ---------- prompt leaderboard ---------- */
+.board{margin:0 0 40px}
+.board-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin:0 0 14px}
+.board-tabs{display:inline-flex;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--panel-2)}
+.board-tabs button{height:30px;padding:0 14px;border:0;border-radius:999px;background:none;color:var(--ink-dim);font:600 12px/1 var(--sans);cursor:pointer}
+.board-tabs button span{margin-left:6px;font:700 10.5px/1 var(--mono);color:var(--ink-mute)}
+.board-tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.board-tabs button[aria-selected="true"] span{color:var(--bg);opacity:.75}
+.board-tabs button:disabled{opacity:.45;cursor:not-allowed}
+.board-note{margin:0;flex:1 1 320px;font-size:12px;line-height:1.5;color:var(--ink-mute)}
+.board-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.board-row{display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:16px 16px 14px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--panel)}
+.board-row:hover{border-color:var(--line-2)}
+.board-rank{font:700 15px/1 var(--mono);color:var(--accent);padding-top:3px}
+.board-main{min-width:0;display:grid;gap:10px}
+.board-head{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.board-title{padding:0;border:0;background:none;color:var(--ink);font:600 15px/1.35 var(--sans);text-align:left;cursor:pointer}
+.board-title:hover{color:var(--accent)}
+.board-chips{display:inline-flex;flex-wrap:wrap;gap:6px;align-items:center}
+.board-prompt{margin:0;padding:12px 14px;border:1px solid var(--line);border-radius:var(--r-md);background:var(--panel-2);font:12.5px/1.55 var(--mono);color:var(--ink);white-space:pre-wrap;overflow-wrap:anywhere;max-height:none}
+.board-prompt.is-long:not(.is-open){max-height:150px;overflow:hidden;-webkit-mask-image:linear-gradient(#000 60%,transparent);mask-image:linear-gradient(#000 60%,transparent)}
+.board-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.board-actions .ghost-btn.done{color:var(--teal);border-color:var(--teal)}
+.board-band{margin-left:auto;font:10.5px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mute)}
+.board-foot{display:grid;gap:8px;justify-items:start;margin-top:22px;padding:18px;border:1px dashed var(--line-2);border-radius:var(--r-lg)}
+.board-foot span{font-size:13px;color:var(--ink-dim)}
+.board-foot .archive-primary{margin-top:4px}
+@media (max-width:640px){
+  .board-row{grid-template-columns:28px minmax(0,1fr);padding:14px 12px}
+  .board-band{margin-left:0;width:100%}
+}

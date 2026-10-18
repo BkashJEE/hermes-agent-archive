@@ -30,7 +30,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=launch-11">
+<link rel="stylesheet" href="assets/css/style.css?v=launch-12">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to the archive</a>
@@ -114,8 +114,8 @@
         <p class="archive-headline" id="archiveIntro">Find your next<br><em>Hermes workflow.</em></p>
         <p class="archive-intro">Explore workflows, prompts, skills and projects.<br class="wide-only"> Follow the source. Make an idea your own.</p>
         <div class="archive-actions">
-          <a class="archive-primary" href="#use-cases">Browse use cases <span aria-hidden="true">→</span></a>
-          <a class="archive-secondary" href="https://github.com/BkashJEE/hermes-agent-archive/issues/new?template=submit-entry.yml" target="_blank" rel="noopener noreferrer">Add yours <span aria-hidden="true">↗</span></a>
+          <a class="archive-primary" href="#leaderboard">Explore the leaderboard</a>
+          <a class="archive-secondary" href="https://github.com/BkashJEE/hermes-agent-archive/issues/new?template=submit-entry.yml" target="_blank" rel="noopener noreferrer">Submit a prompt</a>
         </div>
       </div>
       <figure class="archive-banner-figure">
@@ -156,6 +156,7 @@
     <!-- Deliberately not id="dashboard": that is also the route hash, and a matching
          element id makes the browser anchor-jump past the hero on every visit. -->
     <section id="dashPanel" class="dash" hidden aria-label="Archive overview"></section>
+    <section id="boardPanel" class="board" hidden aria-label="Prompt leaderboard"></section>
     <ul id="grid" class="grid" aria-label="Archive items"></ul>
     <div class="load-more" id="loadMoreRow" hidden>
       <p id="shownCount" role="status"></p>
@@ -199,6 +200,6 @@
   <div id="drawerBody"></div>
 </aside>
 
-<script type="module" src="assets/js/app.js?v=whatsnew-1"></script>
+<script type="module" src="assets/js/app.js?v=board-1"></script>
 </body>
 </html>
