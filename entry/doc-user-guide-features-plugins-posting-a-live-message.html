@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark light">
+<script>/* Colour scheme before first paint: a stored choice wins, otherwise the system's. Same snippet on every page, so the archive looks the same from one page to the next. */(function(){try{var s=localStorage.getItem('hermes-scheme');if(s==='light'||s==='dark')document.documentElement.dataset.scheme=s;var t=localStorage.getItem('ha-theme');if(t==='broadsheet')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posting a live message · Hermes Agent Archive</title>
+<meta name="description" content="A plugin can post one message into the conversation it is working for and update that same message later, on any channel, with no per-platform code.">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-posting-a-live-message">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Posting a live message">
+<meta property="og:description" content="A plugin can post one message into the conversation it is working for and update that same message later, on any channel, with no per-platform code.">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-posting-a-live-message">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social/skills.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Posting a live message">
+<meta name="twitter:description" content="A plugin can post one message into the conversation it is working for and update that same message later, on any channel, with no per-platform code.">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social/skills.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Posting a live message","description":"A plugin can post one message into the conversation it is working for and update that same message later, on any channel, with no per-platform code.","url":"https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-posting-a-live-message","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/skills.png","datePublished":"2026-10-18","citation":"https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#posting-a-live-message","keywords":"plugins, docs"}</script>
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/skills">Skills</a></header>
+
+<article>
+<h1>Posting a live message</h1>
+
+<p class="meta">From Official Docs · October 18, 2026</p>
+<p>A plugin can post one message into the conversation it is working for and update that same message later, on any channel, with no per-platform code. Use it for live progress (a checklist while a long tool runs, a plan card that changes as the plan is revised): Signatures: ctx.post_message(text: str) -&gt; PluginMessage and PluginMessage.edit(text: str) -&gt; dict . From async code that already runs on the gateway&#39;s event loop (an async hook or slash-command handler) use await ctx.apost_message(text) and await handle.aedit(text) instead; the sync forms refuse there with error: &quot;on_event_loop&quot; rather than deadlocking the loop. Which conversation. The current conversation is the session bound to the calling code: a tool handler or hook running in that session&#39;s turn, its slash command, or a hook fired for it. The plugin never names a chat, so it cannot post anywhere else. A thread the plugin starts itself does not inherit that binding (start it with contextvars.copy_context().run(...) if it should), and a timer, a cron run or a process with no live gateway has no conversation at all. Never raises. Every call returns a result. handle.ok , handle.message_id and handle.error describe the last…</p>
+<p>From the official Hermes Agent documentation.</p>
+<pre><code>def run_migration(args, **kwargs):
+    status = ctx.post_message(&quot;Migrating: 0/3 tables&quot;)
+    for i, table in enumerate(TABLES, 1):
+        migrate(table)
+        status.edit(f&quot;Migrating: {i}/3 tables&quot;)
+    status.edit(&quot;Migration done ✓&quot;)
+    return tool_result({&quot;migrated&quot;: len(TABLES)})</code></pre>
+
+<ul class="tags"><li>#plugins</li><li>#docs</li></ul>
+
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#posting-a-live-message" rel="noopener">Read the original</a>
+<a href="/#skills?item=doc-user-guide-features-plugins-posting-a-live-message">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
+</footer>
+</div>
+</body>
+</html>

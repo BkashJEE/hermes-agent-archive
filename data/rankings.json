@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-10-15T20:48:12.930Z",
+  "classifiedAt": "2026-10-18T12:10:53.701Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -8673,6 +8673,30 @@
       "usefulness": 1.96,
       "popularity": "unknown",
       "confidence": 0.61
+    },
+    "plugin-official-xchat": {
+      "input": "b272b4da649164e62ef54528cbc32f11804977492419b74b45463f4ca1146135",
+      "usefulness": 1.73,
+      "popularity": "unknown",
+      "confidence": 0.53
+    },
+    "doc-user-guide-features-plugins-project-local-plugins-hermes-plugins": {
+      "input": "3db3232b82aa9e3c20dc4f816b13e2c7a0697758936a3edc61cafae86076b1ce",
+      "usefulness": 1.59,
+      "popularity": "unknown",
+      "confidence": 0.36
+    },
+    "doc-user-guide-features-plugins-posting-a-live-message": {
+      "input": "8867b487e41451f88c727a0b2687e432401ef9233819c1a922cb08f4c2dbff3b",
+      "usefulness": 3.6,
+      "popularity": "unknown",
+      "confidence": 0.68
+    },
+    "doc-user-guide-features-plugins-plugin-code-inside-the-gateway": {
+      "input": "07a2a57a59d7824b65f2850fd56097d104bcb9eca4460cffa46364801a581bed",
+      "usefulness": 2.98,
+      "popularity": "unknown",
+      "confidence": 0.42
     }
   }
 }

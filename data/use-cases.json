@@ -6178,7 +6178,11 @@
       "source": "hn",
       "url": "https://news.ycombinator.com/item?id=49742023",
       "author": "browningstreet",
-      "date": "2026-09-17"
+      "date": "2026-09-17",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-claude-code",
+        "skill-bundled-autonomous-ai-agents-opencode"
+      ]
     },
     {
       "id": "hn-49477413",
@@ -6206,7 +6210,10 @@
       "source": "hn",
       "url": "https://news.ycombinator.com/item?id=49367636",
       "author": "SamDc73",
-      "date": "2026-08-19"
+      "date": "2026-08-19",
+      "uses": [
+        "plugin-official-spotify"
+      ]
     },
     {
       "id": "hn-49308721",
@@ -6234,7 +6241,10 @@
       "source": "hn",
       "url": "https://news.ycombinator.com/item?id=49294464",
       "author": "Wpnx330",
-      "date": "2026-08-14"
+      "date": "2026-08-14",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-opencode"
+      ]
     },
     {
       "id": "hn-49282085",
@@ -6374,7 +6384,11 @@
       "source": "hn",
       "url": "https://news.ycombinator.com/item?id=48969451",
       "author": "planckscnst",
-      "date": "2026-07-19"
+      "date": "2026-07-19",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-codex",
+        "skill-bundled-autonomous-ai-agents-opencode"
+      ]
     },
     {
       "id": "hn-48930884",
@@ -6416,7 +6430,11 @@
       "source": "hn",
       "url": "https://news.ycombinator.com/item?id=48726398",
       "author": "roadside_picnic",
-      "date": "2026-06-29"
+      "date": "2026-06-29",
+      "uses": [
+        "cli-hermes-whatsapp",
+        "skill-optional-mlops-stable-diffusion"
+      ]
     },
     {
       "id": "hn-48664038",
@@ -6430,7 +6448,10 @@
       "source": "hn",
       "url": "https://news.ycombinator.com/item?id=48664038",
       "author": "nzach",
-      "date": "2026-06-24"
+      "date": "2026-06-24",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-computer-use"
+      ]
     },
     {
       "id": "hn-48650822",
@@ -6458,7 +6479,10 @@
       "source": "hn",
       "url": "https://news.ycombinator.com/item?id=48602964",
       "author": "dandinu",
-      "date": "2026-06-19"
+      "date": "2026-06-19",
+      "uses": [
+        "skill-optional-mlops-chroma"
+      ]
     },
     {
       "id": "hn-48590990",
@@ -6500,7 +6524,10 @@
       "source": "hn",
       "url": "https://news.ycombinator.com/item?id=48509609",
       "author": "Ancapistani",
-      "date": "2026-06-12"
+      "date": "2026-06-12",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-claude-code"
+      ]
     },
     {
       "id": "hn-48494430",
@@ -6528,7 +6555,11 @@
       "source": "hn",
       "url": "https://news.ycombinator.com/item?id=48417329",
       "author": "igorhvr",
-      "date": "2026-06-05"
+      "date": "2026-06-05",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-claude-code",
+        "skill-bundled-autonomous-ai-agents-codex"
+      ]
     },
     {
       "id": "hn-48332832",
@@ -6542,7 +6573,10 @@
       "source": "hn",
       "url": "https://news.ycombinator.com/item?id=48332832",
       "author": "theturtletalks",
-      "date": "2026-05-30"
+      "date": "2026-05-30",
+      "uses": [
+        "skill-optional-finance-stocks"
+      ]
     },
     {
       "id": "hn-48231142",
@@ -6626,7 +6660,10 @@
       "source": "hn",
       "url": "https://news.ycombinator.com/item?id=47862826",
       "author": "mark_l_watson",
-      "date": "2026-04-22"
+      "date": "2026-04-22",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-claude-code"
+      ]
     },
     {
       "id": "hn-47845312",
@@ -6696,7 +6733,10 @@
       "source": "hn",
       "url": "https://news.ycombinator.com/item?id=47504530",
       "author": "crimsoneer",
-      "date": "2026-03-24"
+      "date": "2026-03-24",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-claude-code"
+      ]
     },
     {
       "id": "hn-47304268",
@@ -6710,7 +6750,10 @@
       "source": "hn",
       "url": "https://news.ycombinator.com/item?id=47304268",
       "author": "sfffs",
-      "date": "2026-03-09"
+      "date": "2026-03-09",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-claude-code"
+      ]
     },
     {
       "id": "hn-48455781",
@@ -6766,7 +6809,10 @@
       "source": "hn",
       "url": "https://news.ycombinator.com/item?id=48592879",
       "author": "_zendar_",
-      "date": "2026-06-18"
+      "date": "2026-06-18",
+      "uses": [
+        "plugin-community-mnemosyne"
+      ]
     },
     {
       "id": "hn-48887244",
@@ -6794,7 +6840,10 @@
       "source": "hn",
       "url": "https://news.ycombinator.com/item?id=48904884",
       "author": "piotraleksander",
-      "date": "2026-07-14"
+      "date": "2026-07-14",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-claude-code"
+      ]
     },
     {
       "id": "hn-47740042",

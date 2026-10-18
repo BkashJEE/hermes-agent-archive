@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark light">
+<script>/* Colour scheme before first paint: a stored choice wins, otherwise the system's. Same snippet on every page, so the archive looks the same from one page to the next. */(function(){try{var s=localStorage.getItem('hermes-scheme');if(s==='light'||s==='dark')document.documentElement.dataset.scheme=s;var t=localStorage.getItem('ha-theme');if(t==='broadsheet')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plugin code inside the gateway · Hermes Agent Archive</title>
+<meta name="description" content="Hooks, tools and injected turns of every chat and every local session (CLI, TUI, Desktop) run in the one gateway process, not in the client you launched.">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-plugin-code-inside-the-gateway">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Plugin code inside the gateway">
+<meta property="og:description" content="Hooks, tools and injected turns of every chat and every local session (CLI, TUI, Desktop) run in the one gateway process, not in the client you launched.">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-plugin-code-inside-the-gateway">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social/skills.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Plugin code inside the gateway">
+<meta name="twitter:description" content="Hooks, tools and injected turns of every chat and every local session (CLI, TUI, Desktop) run in the one gateway process, not in the client you launched.">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social/skills.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Plugin code inside the gateway","description":"Hooks, tools and injected turns of every chat and every local session (CLI, TUI, Desktop) run in the one gateway process, not in the client you launched.","url":"https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-plugin-code-inside-the-gateway","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/skills.png","datePublished":"2026-10-18","citation":"https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#plugin-code-inside-the-gateway","keywords":"plugins, docs"}</script>
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/skills">Skills</a></header>
+
+<article>
+<h1>Plugin code inside the gateway</h1>
+
+<p class="meta">From Official Docs · October 18, 2026</p>
+<p>Hooks, tools and injected turns of every chat and every local session (CLI, TUI, Desktop) run in the one gateway process, not in the client you launched. Some process-level habits from the classic CLI do not carry over: os.getcwd() is the gateway&#39;s own directory, shared by every session; Hermes never changes it. Use ctx.session_cwd() for the working directory of the session the hook or tool runs for: the workspace a CLI/TUI/Desktop session was started in, or the profile&#39;s terminal cwd for a chat ( &quot;&quot; when there is none). Pass it as cwd= to subprocesses. It reads the session from the running turn, so it works in code that runs for a session: turn hooks, tool handlers and approval hooks. Ingress hooks such as pre_gateway_dispatch run before the message is admitted to any session; there it returns the profile&#39;s terminal cwd, or &quot;&quot; when none is configured. ctx.session_surface() names the calling session&#39;s client: &quot;cli&quot; , &quot;tui&quot; , &quot;desktop&quot; , &quot;acp&quot; , or the messaging platform ( &quot;telegram&quot; , …); &quot;&quot; outside a session. print() output goes to the gateway&#39;s gateway-stdio.log , not to your terminal. Use logging instead. input() gets end-of-file: the gateway has no terminal. Ask through a tool…</p>
+<p>From the official Hermes Agent documentation.</p>
+
+
+<ul class="tags"><li>#plugins</li><li>#docs</li></ul>
+
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#plugin-code-inside-the-gateway" rel="noopener">Read the original</a>
+<a href="/#skills?item=doc-user-guide-features-plugins-plugin-code-inside-the-gateway">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
+</footer>
+</div>
+</body>
+</html>
