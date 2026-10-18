@@ -41,6 +41,9 @@ const IMPORTERS = [
   { script: 'import-official-plugins.mjs', what: 'official plugins, and documented community plugins above the star floor' },
   /* Weekly-ish and official: the source most likely to have something on a quiet day. */
   { script: 'import-hermes-releases.mjs',  what: 'Hermes Agent releases and the opening of their notes' },
+  /* Public, credential-free, and where people say what they do with Hermes in their own
+     words. Jev decides what is a use and what is an opinion; without a key it shelves nothing. */
+  { script: 'import-hn-stories.mjs',       what: 'Hacker News comments that describe a real use of Hermes' },
   /* Manifest pages only, fragments refused at import and pruned ids never re-added. */
   { script: 'import-hermes-docs.mjs',      what: 'new sections on the reviewed documentation pages' },
   /* After everything has arrived: a new story names the entries it used, and a new skill
