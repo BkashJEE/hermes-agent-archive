@@ -983,3 +983,15 @@ button.updated:hover{background:var(--panel2);color:var(--accent)}
   .board-row{grid-template-columns:28px minmax(0,1fr);padding:14px 12px}
   .board-band{margin-left:0;width:100%}
 }
+.board-shelves{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
+.board-shelves .chip b{margin-left:4px;font-family:var(--mono);font-weight:700;color:var(--ink-mute)}
+.board-shelves .chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.board-shelves .chip.on b{color:var(--bg);opacity:.75}
+.chip-shelf{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border-color:var(--accent-line)}
+.board-summary{margin:0;font-size:13px;line-height:1.55;color:var(--ink-dim)}
+.board-more{display:flex;justify-content:center;margin-top:14px}
+.board-more b{margin-left:6px;font-family:var(--mono);font-weight:500;color:var(--ink-mute)}
+.board-move{display:inline-block;margin-left:8px;font:700 10.5px/1 var(--mono);letter-spacing:.06em;color:var(--ink-mute);vertical-align:middle}
+.board-move.is-up{color:var(--teal)}
+.board-move.is-down{color:var(--violet)}
+.board-move.is-new{color:var(--accent)}

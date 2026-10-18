@@ -30,6 +30,7 @@
     "scout": "node scripts/scout-candidates.mjs",
     "skills": "node --max-old-space-size=4096 scripts/import-official-skills.mjs",
     "added": "node scripts/build-added-dates.mjs",
+    "board": "node scripts/weekly-board.mjs",
     "plugins": "node scripts/import-official-plugins.mjs",
     "post": "node scripts/whats-new-post.mjs",
     "uses": "node scripts/link-story-uses.mjs",

@@ -20,8 +20,8 @@
       "label": "Leaderboard",
       "icon": "leaderboard",
       "kind": "leaderboard",
-      "title": "PROMPT LEADERBOARD",
-      "blurb": "The prompts people actually run with Hermes Agent, each quoted from its source. Ranked by Jev's usefulness judgment — an editorial order, not a vote count. This week is what arrived in the last seven days."
+      "title": "LEADERBOARD",
+      "blurb": "The most useful things in the archive, across every shelf, each quoted from its source. Scored once a week by Jev's usefulness judgment with public popularity breaking ties — an editorial order, not a vote count — and written down, so next week can show what moved."
     },
     {
       "id": "use-cases",

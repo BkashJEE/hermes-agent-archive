@@ -1,0 +1,363 @@
+{
+  "weeks": [
+    {
+      "week": "2026-W42",
+      "scoredAt": "2026-10-18T09:26:55.220Z",
+      "size": 50,
+      "of": 1313,
+      "entries": [
+        {
+          "rank": 1,
+          "id": "doc-user-guide-cli-worktree-cleanup",
+          "shelf": "commands",
+          "usefulness": 3.72,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 2,
+          "id": "doc-user-guide-cli-shell-mode",
+          "shelf": "commands",
+          "usefulness": 3.64,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 3,
+          "id": "doc-user-guide-features-skills-forcing-document-style-delivery-as-document",
+          "shelf": "skills",
+          "usefulness": 3.64,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 4,
+          "id": "cli-sec-hermes-z-prompt-scripted-one-shot",
+          "shelf": "commands",
+          "usefulness": 3.53,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 5,
+          "id": "doc-user-guide-cli-persistent-auto-load-via-config",
+          "shelf": "commands",
+          "usefulness": 3.52,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 6,
+          "id": "doc-user-guide-features-skills-bundled-skill-updates-hermes-skills-reset",
+          "shelf": "skills",
+          "usefulness": 3.51,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 7,
+          "id": "doc-user-guide-features-plugins-one-click-install-links-desktop",
+          "shelf": "skills",
+          "usefulness": 3.51,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 8,
+          "id": "kit-codegraph",
+          "shelf": "toolkit",
+          "usefulness": 2.9,
+          "popularity": "widespread"
+        },
+        {
+          "rank": 9,
+          "id": "review-integration-archify",
+          "shelf": "toolkit",
+          "usefulness": 2.59,
+          "popularity": "widespread"
+        },
+        {
+          "rank": 10,
+          "id": "doc-user-guide-features-plugins-calling-mcp-servers-from-plugins",
+          "shelf": "skills",
+          "usefulness": 3.46,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 11,
+          "id": "doc-user-guide-features-plugins-installing-from-a-private-repository",
+          "shelf": "skills",
+          "usefulness": 3.41,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 12,
+          "id": "doc-user-guide-features-skills-conditional-activation-fallback-skills",
+          "shelf": "skills",
+          "usefulness": 3.37,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 13,
+          "id": "doc-user-guide-features-plugins-plugin-packs",
+          "shelf": "skills",
+          "usefulness": 3.36,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 14,
+          "id": "cli-sec-format-stream-json-structured-jsonl-output",
+          "shelf": "settings",
+          "usefulness": 3.34,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 15,
+          "id": "doc-user-guide-features-skills-gating-agent-skill-writes-skills-write-approval",
+          "shelf": "skills",
+          "usefulness": 3.28,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 16,
+          "id": "doc-user-guide-features-skills-redirecting-skill-creation-skills-create-dir",
+          "shelf": "skills",
+          "usefulness": 3.28,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 17,
+          "id": "review-commands-create-a-script-only-watchdog-from-the-cli",
+          "shelf": "commands",
+          "usefulness": 3.25,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 18,
+          "id": "review-commands-schedule-the-documented-disk-space-alert",
+          "shelf": "commands",
+          "usefulness": 3.25,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 19,
+          "id": "doc-user-guide-features-plugins-plugins-are-opt-in-with-a-few-exceptions",
+          "shelf": "skills",
+          "usefulness": 3.22,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 20,
+          "id": "doc-user-guide-features-skills-when-bundles-beat-installing-each-skill-manually",
+          "shelf": "skills",
+          "usefulness": 3.22,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 21,
+          "id": "cli-hermes-doctor",
+          "shelf": "commands",
+          "usefulness": 3.17,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 22,
+          "id": "doc-user-guide-features-plugins-platform-actions",
+          "shelf": "skills",
+          "usefulness": 3.17,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 23,
+          "id": "cli-hermes-backup",
+          "shelf": "commands",
+          "usefulness": 3.16,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 24,
+          "id": "doc-user-guide-features-skills-update-lifecycle",
+          "shelf": "skills",
+          "usefulness": 3.16,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 25,
+          "id": "doc-user-guide-features-plugins-injecting-messages",
+          "shelf": "skills",
+          "usefulness": 3.15,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 26,
+          "id": "doc-user-guide-features-skills-learning-a-skill-from-sources-learn",
+          "shelf": "skills",
+          "usefulness": 3.15,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 27,
+          "id": "doc-user-guide-features-plugins-running-plugins-out-of-process-plugins-isolation",
+          "shelf": "skills",
+          "usefulness": 3.14,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 28,
+          "id": "doc-user-guide-features-skills-large-sources-become-knowledge-base-skills",
+          "shelf": "skills",
+          "usefulness": 3.13,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 29,
+          "id": "review-commands-send-or-pipe-a-result-through-hermes",
+          "shelf": "commands",
+          "usefulness": 3.13,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 30,
+          "id": "cli-hermes-usage",
+          "shelf": "commands",
+          "usefulness": 3.11,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 31,
+          "id": "cli-set-key-value-force",
+          "shelf": "settings",
+          "usefulness": 3.09,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 32,
+          "id": "doc-user-guide-features-plugins-approval-transports",
+          "shelf": "skills",
+          "usefulness": 3.07,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 33,
+          "id": "doc-user-guide-features-plugins-install-time-security-scanning",
+          "shelf": "skills",
+          "usefulness": 3.06,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 34,
+          "id": "doc-user-guide-features-skills-secure-setup-on-load",
+          "shelf": "skills",
+          "usefulness": 3.06,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 35,
+          "id": "skill-optional-web-development-publish-site",
+          "shelf": "skills",
+          "usefulness": 3.03,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 36,
+          "id": "cli-hermes-import-agent",
+          "shelf": "commands",
+          "usefulness": 3.02,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 37,
+          "id": "doc-user-guide-cli-quick-commands",
+          "shelf": "commands",
+          "usefulness": 3.02,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 38,
+          "id": "cli-hermes-debug",
+          "shelf": "commands",
+          "usefulness": 3.01,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 39,
+          "id": "doc-user-guide-features-plugins-minimal-working-example",
+          "shelf": "skills",
+          "usefulness": 3.01,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 40,
+          "id": "doc-user-guide-features-skills-advisory-skillevaluator-scan",
+          "shelf": "skills",
+          "usefulness": 3,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 41,
+          "id": "doc-user-guide-features-plugins-plugin-capabilities-and-consent",
+          "shelf": "skills",
+          "usefulness": 3,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 42,
+          "id": "cli-hermes-serve",
+          "shelf": "commands",
+          "usefulness": 2.98,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 43,
+          "id": "doc-user-guide-features-skills-stacking-multiple-skills-in-one-command",
+          "shelf": "skills",
+          "usefulness": 2.98,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 44,
+          "id": "skill-optional-web-development-cloudflare-temporary-deploy",
+          "shelf": "skills",
+          "usefulness": 2.97,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 45,
+          "id": "doc-user-guide-features-plugins-security-default-off-per-server-allowlist",
+          "shelf": "skills",
+          "usefulness": 2.96,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 46,
+          "id": "doc-user-guide-cli-context-compression",
+          "shelf": "commands",
+          "usefulness": 2.95,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 47,
+          "id": "cli-hermes-prompt-size",
+          "shelf": "commands",
+          "usefulness": 2.94,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 48,
+          "id": "cli-hermes-slack",
+          "shelf": "commands",
+          "usefulness": 2.94,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 49,
+          "id": "review-commands-send-a-resource-alert-from-a-watchdog",
+          "shelf": "commands",
+          "usefulness": 2.94,
+          "popularity": "unknown"
+        },
+        {
+          "rank": 50,
+          "id": "cli-hermes-codex-runtime",
+          "shelf": "commands",
+          "usefulness": 2.89,
+          "popularity": "unknown"
+        }
+      ]
+    }
+  ],
+  "note": "GENERATED by scripts/weekly-board.mjs — one scored board per ISO week, top 50 across every shelf, in the editorial order (Jev usefulness, popularity breaks ties). Never hand-edit; earlier weeks are never removed."
+}
