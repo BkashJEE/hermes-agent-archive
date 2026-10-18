@@ -157,3 +157,12 @@ test('no page invites a tip until a tier has a real link', async () => {
   assert.match(html, /Buy the curator a coffee/);
   setTipsLive(false);
 });
+
+test('every static page applies the stored colour scheme before first paint, like the app', async () => {
+  const html = entryPage({ id: 'x9', title: 'T', summary: 'S', source: 'x', url: 'https://x.com/a/status/9' }, { id: 'use-cases', label: 'Use Cases' }, 'X');
+  const app = await read('index.html');
+  const snippet = /<script>\/\* Colour scheme before first paint[\s\S]*?<\/script>/;
+  assert.match(html, snippet);
+  assert.equal(html.match(snippet)[0], app.match(snippet)[0], 'the app and the pages must agree');
+  assert.ok(html.indexOf('hermes-scheme') < html.indexOf('<link rel="stylesheet"'), 'runs before the stylesheet, not after');
+});
