@@ -28,17 +28,25 @@ export function scoreOrder(a, b) {
     || a.title.localeCompare(b.title);
 }
 
-/** The week's snapshot: the top `size` classified entries across every shelf. */
-export function snapshot(items, { week, scoredAt, size = 50 } = {}) {
+const entry = (it, i) => ({ rank: i + 1, id: it.id, shelf: it.shelf, usefulness: it.ranking.usefulness, popularity: it.ranking.popularity ?? 'unknown' });
+
+/** The week's snapshot: the top `size` classified entries across every shelf, and the
+    top `perShelf` of each shelf on its own — a shelf of stories should have a weekly
+    board even when the documentation shelves hold every overall top-fifty place. */
+export function snapshot(items, { week, scoredAt, size = 50, perShelf = 10 } = {}) {
   const ranked = items.filter(it => it.ranking && typeof it.ranking.usefulness === 'number').sort(scoreOrder);
+  const shelves = {};
+  for (const it of ranked) (shelves[it.shelf] ||= []).push(it);
   return {
-    week, scoredAt, size, of: ranked.length,
-    entries: ranked.slice(0, size).map((it, i) => ({ rank: i + 1, id: it.id, shelf: it.shelf, usefulness: it.ranking.usefulness, popularity: it.ranking.popularity ?? 'unknown' }))
+    week, scoredAt, size, perShelf, of: ranked.length,
+    entries: ranked.slice(0, size).map(entry),
+    shelves: Object.fromEntries(Object.entries(shelves).map(([shelf, list]) => [shelf, { of: list.length, entries: list.slice(0, perShelf).map(entry) }]))
   };
 }
 
-/** Movement of each entry in `current` against `previous`: a signed number, or 'new'. */
+/** Movement of each entry in `current` against `previous` (two lists of {id, rank}):
+    a signed number of places, or 'new'. */
 export function movement(current, previous) {
   const before = new Map((previous?.entries || []).map(e => [e.id, e.rank]));
-  return Object.fromEntries(current.entries.map(e => [e.id, before.has(e.id) ? before.get(e.id) - e.rank : 'new']));
+  return Object.fromEntries((current?.entries || []).map(e => [e.id, before.has(e.id) ? before.get(e.id) - e.rank : 'new']));
 }

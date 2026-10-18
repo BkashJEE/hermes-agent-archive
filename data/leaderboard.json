@@ -2,8 +2,9 @@
   "weeks": [
     {
       "week": "2026-W42",
-      "scoredAt": "2026-10-18T09:26:55.220Z",
+      "scoredAt": "2026-10-18T09:29:30.805Z",
       "size": 50,
+      "perShelf": 10,
       "of": 1313,
       "entries": [
         {
@@ -356,7 +357,738 @@
           "usefulness": 2.89,
           "popularity": "unknown"
         }
-      ]
+      ],
+      "shelves": {
+        "commands": {
+          "of": 280,
+          "entries": [
+            {
+              "rank": 1,
+              "id": "doc-user-guide-cli-worktree-cleanup",
+              "shelf": "commands",
+              "usefulness": 3.72,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 2,
+              "id": "doc-user-guide-cli-shell-mode",
+              "shelf": "commands",
+              "usefulness": 3.64,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 3,
+              "id": "cli-sec-hermes-z-prompt-scripted-one-shot",
+              "shelf": "commands",
+              "usefulness": 3.53,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 4,
+              "id": "doc-user-guide-cli-persistent-auto-load-via-config",
+              "shelf": "commands",
+              "usefulness": 3.52,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 5,
+              "id": "review-commands-create-a-script-only-watchdog-from-the-cli",
+              "shelf": "commands",
+              "usefulness": 3.25,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 6,
+              "id": "review-commands-schedule-the-documented-disk-space-alert",
+              "shelf": "commands",
+              "usefulness": 3.25,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 7,
+              "id": "cli-hermes-doctor",
+              "shelf": "commands",
+              "usefulness": 3.17,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 8,
+              "id": "cli-hermes-backup",
+              "shelf": "commands",
+              "usefulness": 3.16,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 9,
+              "id": "review-commands-send-or-pipe-a-result-through-hermes",
+              "shelf": "commands",
+              "usefulness": 3.13,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 10,
+              "id": "cli-hermes-usage",
+              "shelf": "commands",
+              "usefulness": 3.11,
+              "popularity": "unknown"
+            }
+          ]
+        },
+        "skills": {
+          "of": 314,
+          "entries": [
+            {
+              "rank": 1,
+              "id": "doc-user-guide-features-skills-forcing-document-style-delivery-as-document",
+              "shelf": "skills",
+              "usefulness": 3.64,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 2,
+              "id": "doc-user-guide-features-skills-bundled-skill-updates-hermes-skills-reset",
+              "shelf": "skills",
+              "usefulness": 3.51,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 3,
+              "id": "doc-user-guide-features-plugins-one-click-install-links-desktop",
+              "shelf": "skills",
+              "usefulness": 3.51,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 4,
+              "id": "doc-user-guide-features-plugins-calling-mcp-servers-from-plugins",
+              "shelf": "skills",
+              "usefulness": 3.46,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 5,
+              "id": "doc-user-guide-features-plugins-installing-from-a-private-repository",
+              "shelf": "skills",
+              "usefulness": 3.41,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 6,
+              "id": "doc-user-guide-features-skills-conditional-activation-fallback-skills",
+              "shelf": "skills",
+              "usefulness": 3.37,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 7,
+              "id": "doc-user-guide-features-plugins-plugin-packs",
+              "shelf": "skills",
+              "usefulness": 3.36,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 8,
+              "id": "doc-user-guide-features-skills-gating-agent-skill-writes-skills-write-approval",
+              "shelf": "skills",
+              "usefulness": 3.28,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 9,
+              "id": "doc-user-guide-features-skills-redirecting-skill-creation-skills-create-dir",
+              "shelf": "skills",
+              "usefulness": 3.28,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 10,
+              "id": "doc-user-guide-features-plugins-plugins-are-opt-in-with-a-few-exceptions",
+              "shelf": "skills",
+              "usefulness": 3.22,
+              "popularity": "unknown"
+            }
+          ]
+        },
+        "toolkit": {
+          "of": 15,
+          "entries": [
+            {
+              "rank": 1,
+              "id": "kit-codegraph",
+              "shelf": "toolkit",
+              "usefulness": 2.9,
+              "popularity": "widespread"
+            },
+            {
+              "rank": 2,
+              "id": "review-integration-archify",
+              "shelf": "toolkit",
+              "usefulness": 2.59,
+              "popularity": "widespread"
+            },
+            {
+              "rank": 3,
+              "id": "kit-caveman",
+              "shelf": "toolkit",
+              "usefulness": 2.31,
+              "popularity": "widespread"
+            },
+            {
+              "rank": 4,
+              "id": "kit-cc-switch",
+              "shelf": "toolkit",
+              "usefulness": 2.16,
+              "popularity": "widespread"
+            },
+            {
+              "rank": 5,
+              "id": "integration-msitarzewski-agency-agents",
+              "shelf": "toolkit",
+              "usefulness": 1.75,
+              "popularity": "widespread"
+            },
+            {
+              "rank": 6,
+              "id": "kit-open-design",
+              "shelf": "toolkit",
+              "usefulness": 1.7,
+              "popularity": "widespread"
+            },
+            {
+              "rank": 7,
+              "id": "integration-egonex-ai-understand-anything",
+              "shelf": "toolkit",
+              "usefulness": 1.58,
+              "popularity": "widespread"
+            },
+            {
+              "rank": 8,
+              "id": "integration-graphify-labs-graphify",
+              "shelf": "toolkit",
+              "usefulness": 1.57,
+              "popularity": "widespread"
+            },
+            {
+              "rank": 9,
+              "id": "integration-rtk-ai-rtk",
+              "shelf": "toolkit",
+              "usefulness": 1.52,
+              "popularity": "widespread"
+            },
+            {
+              "rank": 10,
+              "id": "integration-browser-use-browser-use",
+              "shelf": "toolkit",
+              "usefulness": 1.26,
+              "popularity": "widespread"
+            }
+          ]
+        },
+        "settings": {
+          "of": 114,
+          "entries": [
+            {
+              "rank": 1,
+              "id": "cli-sec-format-stream-json-structured-jsonl-output",
+              "shelf": "settings",
+              "usefulness": 3.34,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 2,
+              "id": "cli-set-key-value-force",
+              "shelf": "settings",
+              "usefulness": 3.09,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 3,
+              "id": "cli-sec-what-gets-migrated",
+              "shelf": "settings",
+              "usefulness": 2.76,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 4,
+              "id": "doc-getting-started-termux-install",
+              "shelf": "settings",
+              "usefulness": 2.3,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 5,
+              "id": "cli-get-key-json-raw",
+              "shelf": "settings",
+              "usefulness": 2.28,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 6,
+              "id": "cli-pack-export-enabled-only-name-name",
+              "shelf": "settings",
+              "usefulness": 2.23,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 7,
+              "id": "doc-getting-started-termux-files-and-updates",
+              "shelf": "settings",
+              "usefulness": 2.03,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 8,
+              "id": "cli-sec-dots-inside-key-names",
+              "shelf": "settings",
+              "usefulness": 2.01,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 9,
+              "id": "cli-xai",
+              "shelf": "settings",
+              "usefulness": 2.01,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 10,
+              "id": "cli-query-file-path",
+              "shelf": "settings",
+              "usefulness": 1.99,
+              "popularity": "unknown"
+            }
+          ]
+        },
+        "prompts": {
+          "of": 32,
+          "entries": [
+            {
+              "rank": 1,
+              "id": "review-prompts-schedule-a-server-health-summary",
+              "shelf": "prompts",
+              "usefulness": 2.88,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 2,
+              "id": "review-prompts-review-an-agent-inbox-without-following-unsolicited-instructions",
+              "shelf": "prompts",
+              "usefulness": 2.86,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 3,
+              "id": "prompt-sourced-briefing",
+              "shelf": "prompts",
+              "usefulness": 2.74,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 4,
+              "id": "prompt-auth-review",
+              "shelf": "prompts",
+              "usefulness": 2.7,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 5,
+              "id": "prompt-compare-search",
+              "shelf": "prompts",
+              "usefulness": 2.67,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 6,
+              "id": "prompt-manual-pr-review",
+              "shelf": "prompts",
+              "usefulness": 2.67,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 7,
+              "id": "prompt-scheduled-briefing",
+              "shelf": "prompts",
+              "usefulness": 2.66,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 8,
+              "id": "review-prompts-schedule-a-repository-standup-summary",
+              "shelf": "prompts",
+              "usefulness": 2.5,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 9,
+              "id": "prompt-remember-backend",
+              "shelf": "prompts",
+              "usefulness": 2.33,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 10,
+              "id": "prompt-triage-mcp-issues",
+              "shelf": "prompts",
+              "usefulness": 2.23,
+              "popularity": "unknown"
+            }
+          ]
+        },
+        "use-cases": {
+          "of": 463,
+          "entries": [
+            {
+              "rank": 1,
+              "id": "hn-48417329",
+              "shelf": "use-cases",
+              "usefulness": 2.87,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 2,
+              "id": "story-gave-the-agent-its-own-gmail-so-it-scouts-apartments-every-m",
+              "shelf": "use-cases",
+              "usefulness": 2.79,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 3,
+              "id": "hn-49742023",
+              "shelf": "use-cases",
+              "usefulness": 2.77,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 4,
+              "id": "story-local-gitea-fork-watchtower-auto-restarts-my-hermes-in-10-mi",
+              "shelf": "use-cases",
+              "usefulness": 2.65,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 5,
+              "id": "doc-guides-use-voice-mode-with-hermes-suggested-first-week-setup",
+              "shelf": "use-cases",
+              "usefulness": 2.63,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 6,
+              "id": "story-a-standing-md-plugin-so-my-agent-stops-guessing",
+              "shelf": "use-cases",
+              "usefulness": 2.59,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 7,
+              "id": "hn-48457429",
+              "shelf": "use-cases",
+              "usefulness": 2.56,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 8,
+              "id": "doc-guides-use-voice-mode-with-hermes-where-to-read-next",
+              "shelf": "use-cases",
+              "usefulness": 2.5,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 9,
+              "id": "hn-49234527",
+              "shelf": "use-cases",
+              "usefulness": 2.47,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 10,
+              "id": "hn-47785939",
+              "shelf": "use-cases",
+              "usefulness": 2.43,
+              "popularity": "unknown"
+            }
+          ]
+        },
+        "builds": {
+          "of": 36,
+          "entries": [
+            {
+              "rank": 1,
+              "id": "community-hermes-desktop-theme-pack",
+              "shelf": "builds",
+              "usefulness": 2.27,
+              "popularity": "limited"
+            },
+            {
+              "rank": 2,
+              "id": "community-hermes-command-center",
+              "shelf": "builds",
+              "usefulness": 1.96,
+              "popularity": "limited"
+            },
+            {
+              "rank": 3,
+              "id": "community-hermes-desktop-achievements",
+              "shelf": "builds",
+              "usefulness": 1.83,
+              "popularity": "limited"
+            },
+            {
+              "rank": 4,
+              "id": "community-report-p94rqcw",
+              "shelf": "builds",
+              "usefulness": 2.15,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 5,
+              "id": "community-report-p7rah3v",
+              "shelf": "builds",
+              "usefulness": 1.96,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 6,
+              "id": "community-report-p97kz89",
+              "shelf": "builds",
+              "usefulness": 1.7,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 7,
+              "id": "community-report-p955icz",
+              "shelf": "builds",
+              "usefulness": 1.66,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 8,
+              "id": "community-report-p95lclt",
+              "shelf": "builds",
+              "usefulness": 1.47,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 9,
+              "id": "community-report-p9i0xsf",
+              "shelf": "builds",
+              "usefulness": 1.47,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 10,
+              "id": "community-report-p7rl1qv",
+              "shelf": "builds",
+              "usefulness": 1.35,
+              "popularity": "unknown"
+            }
+          ]
+        },
+        "releases": {
+          "of": 41,
+          "entries": [
+            {
+              "rank": 1,
+              "id": "release-v2026-4-30",
+              "shelf": "releases",
+              "usefulness": 2.43,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 2,
+              "id": "release-v2026-3-30",
+              "shelf": "releases",
+              "usefulness": 2.13,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 3,
+              "id": "release-v0-21-7",
+              "shelf": "releases",
+              "usefulness": 2.11,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 4,
+              "id": "release-v2026-4-3",
+              "shelf": "releases",
+              "usefulness": 1.98,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 5,
+              "id": "release-v2026-9-14",
+              "shelf": "releases",
+              "usefulness": 1.86,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 6,
+              "id": "release-v2026-5-7",
+              "shelf": "releases",
+              "usefulness": 1.75,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 7,
+              "id": "release-v2026-4-16",
+              "shelf": "releases",
+              "usefulness": 1.69,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 8,
+              "id": "release-v2026-7-7-2",
+              "shelf": "releases",
+              "usefulness": 1.64,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 9,
+              "id": "release-v0-22-2",
+              "shelf": "releases",
+              "usefulness": 1.62,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 10,
+              "id": "release-v2026-4-8",
+              "shelf": "releases",
+              "usefulness": 1.43,
+              "popularity": "unknown"
+            }
+          ]
+        },
+        "tricks": {
+          "of": 7,
+          "entries": [
+            {
+              "rank": 1,
+              "id": "trick-subclass-the-api-gateway-for-chat-clients",
+              "shelf": "tricks",
+              "usefulness": 2.4,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 2,
+              "id": "trick-block-tools-until-you-say-go",
+              "shelf": "tricks",
+              "usefulness": 2.32,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 3,
+              "id": "trick-audit-each-memory-file-against-written-principles",
+              "shelf": "tricks",
+              "usefulness": 1.86,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 4,
+              "id": "trick-generate-a-read-only-memory-vault",
+              "shelf": "tricks",
+              "usefulness": 1.52,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 5,
+              "id": "trick-navigate-document-structure-before-retrieval",
+              "shelf": "tricks",
+              "usefulness": 1.49,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 6,
+              "id": "trick-bridge-a-serial-terminal-through-a-login-shell",
+              "shelf": "tricks",
+              "usefulness": 1.31,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 7,
+              "id": "trick-audit-the-skill-auditor",
+              "shelf": "tricks",
+              "usefulness": 1.09,
+              "popularity": "unknown"
+            }
+          ]
+        },
+        "my-work": {
+          "of": 11,
+          "entries": [
+            {
+              "rank": 1,
+              "id": "mine-hermes-bot-that-builds-bots",
+              "shelf": "my-work",
+              "usefulness": 1.32,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 2,
+              "id": "mine-jev-connect-skill",
+              "shelf": "my-work",
+              "usefulness": 1.07,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 3,
+              "id": "mine-jev-prove-done",
+              "shelf": "my-work",
+              "usefulness": 0.95,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 4,
+              "id": "mine-hermes-plugin-chooser",
+              "shelf": "my-work",
+              "usefulness": 0.71,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 5,
+              "id": "mine-jev-decision-layer",
+              "shelf": "my-work",
+              "usefulness": 0.62,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 6,
+              "id": "mine-jev-hermes-newsroom",
+              "shelf": "my-work",
+              "usefulness": 0.59,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 7,
+              "id": "mine-hermes-library-of-books",
+              "shelf": "my-work",
+              "usefulness": 0.51,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 8,
+              "id": "mine-hermes-mobile-codex-claude",
+              "shelf": "my-work",
+              "usefulness": 0.21,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 9,
+              "id": "mine-hermes-start-somewhere",
+              "shelf": "my-work",
+              "usefulness": 0.12,
+              "popularity": "unknown"
+            },
+            {
+              "rank": 10,
+              "id": "mine-jev-setup-walkthrough",
+              "shelf": "my-work",
+              "usefulness": 0.12,
+              "popularity": "unknown"
+            }
+          ]
+        }
+      }
     }
   ],
   "note": "GENERATED by scripts/weekly-board.mjs — one scored board per ISO week, top 50 across every shelf, in the editorial order (Jev usefulness, popularity breaks ties). Never hand-edit; earlier weeks are never removed."

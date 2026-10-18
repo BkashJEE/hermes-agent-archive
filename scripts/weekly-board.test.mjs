@@ -26,6 +26,16 @@ test('a snapshot is the top N classified entries with the week and the date it w
   assert.equal(snap.of, 60, 'the unclassified entry is not counted');
   assert.equal(snap.entries[0].id, 'e59');
   assert.equal(snap.entries[0].rank, 1);
+  assert.equal(snap.shelves.s.entries.length, 10, 'and each shelf keeps its own top ten');
+  assert.equal(snap.shelves.s.of, 60);
+});
+
+test('a shelf that never reaches the overall top fifty still has a weekly board of its own', () => {
+  const docs = Array.from({ length: 60 }, (_, i) => ({ id: `d${i}`, title: `D${i}`, shelf: 'commands', ranking: { usefulness: 3 + i / 100, popularity: 'unknown' } }));
+  const stories = Array.from({ length: 5 }, (_, i) => ({ id: `s${i}`, title: `S${i}`, shelf: 'use-cases', ranking: { usefulness: 1 + i / 10, popularity: 'unknown' } }));
+  const snap = snapshot([...docs, ...stories], { week: '2026-W42', scoredAt: 'x' });
+  assert.ok(snap.entries.every(e => e.shelf === 'commands'));
+  assert.deepEqual(snap.shelves['use-cases'].entries.map(e => e.id), ['s4', 's3', 's2', 's1', 's0']);
 });
 
 test('movement is the difference between two written-down ranks, or new', () => {

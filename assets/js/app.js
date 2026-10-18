@@ -639,8 +639,13 @@ function renderLeaderboard() {
   const weeks = state.board || [];
   const latest = weeks.at(-1), previous = weeks.at(-2);
   const byId = new Map(pool.map(it => [it.id, it]));
-  const moved = latest ? movement(latest, previous) : {};
-  const week = latest ? latest.entries.map(e => byId.get(e.id)).filter(Boolean).map(it => ({ ...it, move: moved[it.id] })) : [];
+  /* Filtered to one shelf, the week is that shelf's own written-down top ten, not the
+     overall fifty with the rest hidden — otherwise a shelf of stories could show an empty
+     week while the documentation shelves hold every overall place. */
+  const shelfId = state.boardShelf && state.boardShelf !== 'all' ? state.boardShelf : null;
+  const list = w => !w ? null : shelfId ? (w.shelves?.[shelfId] || null) : w;
+  const moved = latest ? movement(list(latest), list(previous)) : {};
+  const week = list(latest) ? list(latest).entries.map(e => byId.get(e.id)).filter(Boolean).map(it => ({ ...it, move: moved[it.id] })) : [];
   const all = rankPrompts(pool);
   const tab = state.boardTab === 'week' && week.length ? 'week' : 'all';
   const rows = tab === 'week' ? week : all;
@@ -680,7 +685,7 @@ function renderLeaderboard() {
         <button role="tab" aria-selected="${tab === 'all'}" data-board-tab="all">All time <span>${num(all.length)}</span></button>
       </div>
       <p class="board-note">${tab === 'week'
-        ? `Week ${esc(latest.week.slice(-2))}, scored ${esc(scoredOn)}: the top ${num(latest.entries.length)} of ${num(latest.of)} classified entries, written down so next week can show what moved.${previous ? '' : ' First board: movement appears from next week.'}`
+        ? `Week ${esc(latest.week.slice(-2))}, scored ${esc(scoredOn)}: the top ${num(list(latest).entries.length)} of ${num(list(latest).of)} classified entries${shelfId ? ' on this shelf' : ' across every shelf'}, written down so next week can show what moved.${previous ? '' : ' First board: movement appears from next week.'}`
         : state.boardTab === 'week' ? 'This week has not been scored yet; showing all time. The board is scored every Monday.' : 'Everything on the shelves, live.'}
         The order is Jev\'s usefulness judgment with public popularity breaking ties — editorial, not a vote. Dates never affect it.</p>
     </div>
