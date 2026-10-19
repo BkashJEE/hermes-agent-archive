@@ -782,6 +782,10 @@
   <url><loc>https://hermes-agent-archive.vercel.app/entry/plugin-official-accent-picker</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/plugin-official-langfuse</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/plugin-official-rea</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/plugin-official-xchat</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-project-local-plugins-hermes-plugins</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-posting-a-live-message</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-plugin-code-inside-the-gateway</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/shelf/prompts</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/prompt-parallel-research</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/prompt-auth-review</loc></url>
@@ -1211,6 +1215,7 @@
   <url><loc>https://hermes-agent-archive.vercel.app/entry/review-commands-pair-a-new-team-member-with-the-bot</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-cli-slash-commands</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-cli-multi-line-input</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-cli-layout-styles</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/shelf/tricks</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/trick-audit-the-skill-auditor</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/trick-generate-a-read-only-memory-vault</loc></url>
