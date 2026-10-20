@@ -4023,6 +4023,20 @@
       "source": "docs",
       "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#multi-line-input",
       "date": "2026-10-09"
+    },
+    {
+      "id": "doc-user-guide-cli-layout-styles",
+      "title": "Layout styles",
+      "summary": "display.cli_layout picks how the classic CLI draws.",
+      "detail": "display.cli_layout picks how the classic CLI draws. The default, modern , prints everything in the scrollback as plain rows that start with one glyph and never depend on the terminal width, so resizing the window can't garble earlier output: A 40-column bar opens each user message and answer (accent) and each reasoning block (dim); reasoning streams live as in classic and ends with a \u2234 Thought for 3s \u00b7 <title> line. \u276f your message, a finished tool call led by its emoji ( \ud83d\udcd6 Read , \ud83d\udcbb $ ; \u2717 in red when it failed, with its exit code), \u2502 an edit's diff under its row, \u2624 the answer, and \u2500 the turn's summary line. The composer's top rule carries the live activity (spinner, what's running, elapsed time, streamed tokens) on the left and the session title on the right; no spinner row is printed into the scrollback. The status line sits under the composer: the same fields as the classic status bar (model, context, cache hit, latency, tokens/s, background work, goal, duration, YOLO\u2026) plus the working directory (with git branch) on the left; the keys that do something right now on the right. The welcome banner is the same in both layouts. Set display.cli_layout: classic to keep the boxed reaso\u2026\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "\u276f add a multiply function and run the tests\n\u2234 Thought for 3s \u00b7 Planning the change\n\ud83d\udcd6 Read calc.py\n\ud83d\udd27 Patch  0.2s\n\u2502 calc.py\n\u2502 @@ -1,2 +1,6 @@\n\u2502 +def multiply(a, b):\n\u2502 +    return a * b\n\u2717 $ pytest -q  0.4s [exit 1]\n\u2624 Hermes\nAdded multiply; pytest isn't installed here, so I ran the tests directly: 2 passed.\n\u2500 15.0s \u00b7 edited 1 file +4 -0 \u00b7 read 2 files \u00b7 8:27 AM\n\u2500\u2500 \u2839 Running tests \u00b7 14s \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 Add multiply to calc.py \u2500\n\u276f type to redirect this turn \u00b7 Tab queues it for after\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n gpt-5-mini \u00b7 ctx [\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591] 4% \u00b7 ~/project (main)     enter interrupt \u00b7 tab queue \u00b7 ctrl+c stop",
+      "tags": [
+        "cli",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/cli#layout-styles",
+      "date": "2026-10-20"
     }
   ]
 }
