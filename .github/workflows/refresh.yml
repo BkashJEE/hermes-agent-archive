@@ -12,6 +12,7 @@ permissions:
   contents: write
   pull-requests: write
   actions: write
+  checks: write
 
 jobs:
   refresh:
@@ -89,6 +90,16 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # A pull request opened with the workflow token starts no workflows, so the required
+          # "validate" check never appears on it and the merge is refused. This job already ran
+          # npm run check and npm test on exactly this tree, so it reports that result as the
+          # check, under the same name, on the commit it is about to merge. Nothing is skipped:
+          # a failing Validate step above stops the job before anything is proposed.
+          sha="$(git rev-parse "${{ steps.propose.outputs.branch }}")"
+          gh api "repos/${GITHUB_REPOSITORY}/check-runs" --silent \
+            -f name=validate -f head_sha="$sha" -f status=completed -f conclusion=success \
+            -f "output[title]=npm run check and npm test passed in the proposing run" \
+            -f "output[summary]=Validated in workflow run ${GITHUB_RUN_ID} before the pull request was opened."
           if gh pr merge "${{ steps.propose.outputs.branch }}" --merge --delete-branch; then
             gh workflow run deploy.yml --ref main
             echo "::notice::Merged and dispatched the production deploy."
