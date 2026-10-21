@@ -810,6 +810,8 @@
   <url><loc>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-project-local-plugins-hermes-plugins</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-posting-a-live-message</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-plugin-code-inside-the-gateway</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/plugin-official-agent-importers</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/plugin-official-singularity</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/shelf/prompts</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/prompt-parallel-research</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/prompt-auth-review</loc></url>
@@ -1249,6 +1251,7 @@
   <url><loc>https://hermes-agent-archive.vercel.app/entry/trick-subclass-the-api-gateway-for-chat-clients</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/trick-audit-each-memory-file-against-written-principles</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/shelf/releases</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v0-22-3</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v0-22-2</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v0-22-0</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v0-22-1</loc></url>
