@@ -38,6 +38,9 @@ jobs:
         id: harvest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # The Hacker News importer asks Jev whether a comment describes a real use; without
+          # the key it shelves nothing and the run was reported as a source failure every day.
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
         run: |
           set +e
           npm run harvest --silent > "$RUNNER_TEMP/harvest.log" 2>&1
@@ -101,7 +104,10 @@ jobs:
             echo "The sources had nothing new; no proposal to make."
             exit 0
           fi
-          added="$(git diff --staged -U0 -- data/ | grep -cE '^\+.*"id":' || true)"
+          # Count arrivals on the shelves only. The weekly board and the rankings also carry
+          # "id" lines, and counting those once titled a five-entry harvest "152 new entries".
+          shelves="$(node -e 'for (const s of require("./data/index.json").sections) if (s.file) console.log("data/" + s.file)')"
+          added="$(git diff --staged -U0 -- $shelves | grep -cE '^\+.*"id":' || true)"
           title="Harvest — ${added} new $([ "$added" = "1" ] && echo entry || echo entries) from upstream sources"
           branch="automation/harvest-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
           git switch -c "$branch"
