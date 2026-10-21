@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-10-15T20:48:12.930Z",
+  "classifiedAt": "2026-10-21T10:10:55.172Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -8673,6 +8673,180 @@
       "usefulness": 1.96,
       "popularity": "unknown",
       "confidence": 0.61
+    },
+    "story-hermes-built-a-local-safety-system-with-panic-buttons-for-hi": {
+      "input": "8f38df63500e78c479b9642d55ae8a8e73657bb682f5ae4d60060dd41d83aa4b",
+      "usefulness": 1.95,
+      "popularity": "unknown",
+      "confidence": 0.65
+    },
+    "story-a-gtm-team-builds-verified-contact-lists-from-one-slack-mess": {
+      "input": "9f4f72dc9bc4c1f32f287a8ed79fa549de7e9f90bad0cb002694aafb40155835",
+      "usefulness": 1.34,
+      "popularity": "unknown",
+      "confidence": 0.58
+    },
+    "story-a-tech-policy-publication-runs-hermes-agents-for-editorial-s": {
+      "input": "c7a61fbf6699711d955508da54a3391807b0bba2d14bd00e57e847ba1625916d",
+      "usefulness": 0.95,
+      "popularity": "unknown",
+      "confidence": 0.77
+    },
+    "story-a-prospect-phoned-his-hermes-agent-about-the-proposal-and-it": {
+      "input": "f009b44791eb2eb236f2fdfb8b634e49ff82def81d4741cff529d6e61732ea48",
+      "usefulness": 1.11,
+      "popularity": "unknown",
+      "confidence": 0.68
+    },
+    "story-a-business-added-a-hermes-it-support-agent-that-now-solves-9": {
+      "input": "28fe74b60dc472708052e689eb0820cffa01708e695a332d114577d7187e8dfe",
+      "usefulness": 0.97,
+      "popularity": "unknown",
+      "confidence": 0.76
+    },
+    "story-a-solo-founder-split-his-startup-across-seven-hermes-assista": {
+      "input": "bfc12a13a59d9aafa523bd208c19b4041012e61e5f98c67ce9ece2767d21822c",
+      "usefulness": 1.81,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "story-team-agent-implements-customer-requests-and-posts-a-narrated": {
+      "input": "225ab89259c0be120d8d7c1ce7cb32dcda45a67d21fa3d732da6d39c005a9657",
+      "usefulness": 0.88,
+      "popularity": "unknown",
+      "confidence": 0.74
+    },
+    "story-in-the-shop-photos-plus-spoken-dimensions-become-a-parametri": {
+      "input": "958ca6c8064e8dbe8e1633389028b482a74aedf1fe9cd9c1f0e40f47daf87fb3",
+      "usefulness": 1.1,
+      "popularity": "unknown",
+      "confidence": 0.74
+    },
+    "story-a-hermes-project-manager-agent-orchestrates-his-fleet-of-cod": {
+      "input": "efee429b1fa5f81b72dbac4a400341be94e334d73021105205b66fe861c4c1cf",
+      "usefulness": 0.31,
+      "popularity": "unknown",
+      "confidence": 0.74
+    },
+    "story-built-his-own-football-manager-game-with-a-local-hermes-agen": {
+      "input": "84b8ae324be186a0f9308ae326e032b663311aad32f13ef10c2dce36548b8953",
+      "usefulness": 0.76,
+      "popularity": "unknown",
+      "confidence": 0.74
+    },
+    "story-hermes-kept-checking-a-sold-out-70mm-imax-run-and-found-him-": {
+      "input": "f569296e54adf3622fa11ee34f7b94013ac9ef4e349bda970348f17d8b444107",
+      "usefulness": 1.25,
+      "popularity": "unknown",
+      "confidence": 0.65
+    },
+    "story-solo-it-department-for-a-165-person-travel-company-moved-80-": {
+      "input": "e62138258990033b1ac8200df7d292e1894e79ca983d994197cc6928bbeeb0f9",
+      "usefulness": 1.1,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "story-a-drainlaying-business-runs-quotes-invoices-crm-and-stock-th": {
+      "input": "8660c115db30ea409ff8dcf4d8c98f774028999be3dc75a9703c052f641a2d63",
+      "usefulness": 1.65,
+      "popularity": "unknown",
+      "confidence": 0.61
+    },
+    "story-field-service-tech-runs-repair-plans-through-hermes-and-it-f": {
+      "input": "c9312804c69286f0799cdb3c418845e2820193e35c9654784f5f7482fa9c781f",
+      "usefulness": 2.15,
+      "popularity": "unknown",
+      "confidence": 0.73
+    },
+    "story-musician-s-hermes-band-manager-makes-setlist-pdfs-practice-p": {
+      "input": "5ea4f990f660def4fafb070a128a7337055332ddab8c61eff1b208f14f800f15",
+      "usefulness": 1.61,
+      "popularity": "unknown",
+      "confidence": 0.56
+    },
+    "story-hermes-tidied-a-family-recipe-box-in-mealie-and-fills-the-we": {
+      "input": "ac090d29d628ec52440eb0957aacccfc8ed81aa40af41284e10343117d2ba422",
+      "usefulness": 1.71,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "story-parent-keeps-school-tutor-and-home-plans-in-sync-for-a-child": {
+      "input": "090c8a6b66ce0f509949ead1eaa1356fe600cac5328e067ec03e9ec197b505b8",
+      "usefulness": 1.87,
+      "popularity": "unknown",
+      "confidence": 0.69
+    },
+    "story-in-15-days-he-wired-hermes-into-his-own-tasks-clients-and-in": {
+      "input": "a59032fcf70a54f9f842ae7cd0c306946fff25b82196678e686cafd180ee78ef",
+      "usefulness": 1.43,
+      "popularity": "unknown",
+      "confidence": 0.61
+    },
+    "story-an-energy-advisory-firm-runs-one-hermes-gateway-for-the-whol": {
+      "input": "6e5af4b5415ae708a1c9838ae78395b62506ea32c7e0c3f3ff3f0d7808b66f7e",
+      "usefulness": 1.8,
+      "popularity": "unknown",
+      "confidence": 0.68
+    },
+    "story-a-food-and-beverage-company-runs-ops-finance-and-approvals-o": {
+      "input": "7407c049d31ca73b33dde21c6970b6299c8fe8453da53af96774a095a24cabc9",
+      "usefulness": 1.18,
+      "popularity": "unknown",
+      "confidence": 0.77
+    },
+    "story-a-dad-built-his-12-year-old-her-own-hermes-profile-instead-o": {
+      "input": "0e25156fd7b52b3187c972a7ffe70fc6bc6267057e9166095230704dc9e44b97",
+      "usefulness": 0.89,
+      "popularity": "unknown",
+      "confidence": 0.82
+    },
+    "story-hermes-keeps-his-home-lab-netbox-inventory-current-with-a-ni": {
+      "input": "92c8054303a68c55274eecceb92173fb309cfc9d4677d8ebf2b9f74ac590a747",
+      "usefulness": 1.37,
+      "popularity": "unknown",
+      "confidence": 0.65
+    },
+    "story-hermes-books-his-gym-classes-the-minute-booking-opens-and-on": {
+      "input": "e38eed12bb37fb6f65f53fe4204da005427b6874ccb32bd2d76e3e4a6be638bb",
+      "usefulness": 2.55,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "story-a-family-budget-bot-on-whatsapp-tracks-card-charges-by-categ": {
+      "input": "81d00ce4d08128f8a6f6b5816921608d8e5c23f1868fc10d35b015ed3eb669d1",
+      "usefulness": 1.67,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "plugin-official-xchat": {
+      "input": "b272b4da649164e62ef54528cbc32f11804977492419b74b45463f4ca1146135",
+      "usefulness": 1.67,
+      "popularity": "unknown",
+      "confidence": 0.5
+    },
+    "doc-user-guide-features-plugins-project-local-plugins-hermes-plugins": {
+      "input": "3db3232b82aa9e3c20dc4f816b13e2c7a0697758936a3edc61cafae86076b1ce",
+      "usefulness": 1.5,
+      "popularity": "unknown",
+      "confidence": 0.36
+    },
+    "doc-user-guide-features-plugins-posting-a-live-message": {
+      "input": "8867b487e41451f88c727a0b2687e432401ef9233819c1a922cb08f4c2dbff3b",
+      "usefulness": 3.6,
+      "popularity": "unknown",
+      "confidence": 0.68
+    },
+    "doc-user-guide-features-plugins-plugin-code-inside-the-gateway": {
+      "input": "07a2a57a59d7824b65f2850fd56097d104bcb9eca4460cffa46364801a581bed",
+      "usefulness": 3.03,
+      "popularity": "unknown",
+      "confidence": 0.47
+    },
+    "doc-user-guide-cli-layout-styles": {
+      "input": "672242742ac75837cdb943cc4651cfc7c4216f6cb1f20c526872ae3e9d762766",
+      "usefulness": 1.96,
+      "popularity": "unknown",
+      "confidence": 0.24
     }
   }
 }
