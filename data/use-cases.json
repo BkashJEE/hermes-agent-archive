@@ -1604,7 +1604,8 @@
       "url": "https://github.com/NousResearch/hermes-agent/pull/17445",
       "author": "@scotttrinh",
       "uses": [
-        "skill-optional-mlops-modal"
+        "skill-optional-mlops-modal",
+        "plugin-official-singularity"
       ]
     },
     {

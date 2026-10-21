@@ -231,12 +231,36 @@
 <description>Hooks, tools and injected turns of every chat and every local session (CLI, TUI, Desktop) run in the one gateway process, not in the client you launched.</description>
 </item>
 <item>
+<title>Agent Importers</title>
+<link>https://hermes-agent-archive.vercel.app/entry/plugin-official-agent-importers</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/plugin-official-agent-importers</guid>
+<pubDate>Wed, 21 Oct 2026 12:00:00 GMT</pubDate>
+<category>Skills</category>
+<description>`hermes import-agent`: import a Claude Code (~/.claude), Codex CLI (~/.codex) or Cursor (~/.cursor) setup into Hermes in one command. Instructions, Cursor rules and memories become memory entries, Bash permission rules become command allow/deny lists, MCP servers land in config.yaml and skills are…</description>
+</item>
+<item>
+<title>Singularity</title>
+<link>https://hermes-agent-archive.vercel.app/entry/plugin-official-singularity</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/plugin-official-singularity</guid>
+<pubDate>Wed, 21 Oct 2026 12:00:00 GMT</pubDate>
+<category>Skills</category>
+<description>Singularity/Apptainer terminal backend: Hermes&#39;s terminal, file and code tools run inside a hardened, rootless container on this machine (--containall --no-home), with CPU/memory limits and an optional per-session persistent overlay (`hermes config set terminal.backend singularity`; image from…</description>
+</item>
+<item>
 <title>Layout styles</title>
 <link>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-cli-layout-styles</link>
 <guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/doc-user-guide-cli-layout-styles</guid>
 <pubDate>Wed, 21 Oct 2026 12:00:00 GMT</pubDate>
 <category>Commands</category>
 <description>display.cli_layout picks how the classic CLI draws.</description>
+</item>
+<item>
+<title>Hermes Agent v0.22.3</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v0-22-3</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v0-22-3</guid>
+<pubDate>Wed, 21 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>Patch release. This tag rolls up the ~620 PRs merged since v0.22.2 into a stable release for the CLI and installer, the Microsoft Store app, Docker and Hermes Cloud. Full curated notes for this window ship with v0.23.0.</description>
 </item>
 <item>
 <title>So, one of the first things that I have put my Hermes agent to work doing is populating my home…</title>
@@ -461,30 +485,6 @@
 <pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
 <category>Use Cases</category>
 <description>A lightweight REST + SSE bridge that exposes Hermes Agent to mobile apps and any HTTP client. Built for the Agentfy iOS app, but provider-agnostic — it&#39;s plain HTTP, no…</description>
-</item>
-<item>
-<title>I also use it at work (integrated at Slack) and at this point it answers most of both my emails…</title>
-<link>https://hermes-agent-archive.vercel.app/entry/hn-48417329</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-48417329</guid>
-<pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>I use PI ( https://pi.dev ) and ( https://hermes-agent.nousresearch.com/ ) as the main drivers together with deepseek-v4-pro as the main model (~10M/day tokens overall there).…</description>
-</item>
-<item>
-<title>I’m using Hermes Agent and this MCP to orchestrate 5 models (DS4 Flash, GPT 5.5, Opus 4.8, Grok…</title>
-<link>https://hermes-agent-archive.vercel.app/entry/hn-48332832</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-48332832</guid>
-<pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>I’m using Hermes Agent and this MCP to orchestrate 5 models (DS4 Flash, GPT 5.5, Opus 4.8, Grok Build, Gemini 3.5 Flash). Basically these 5 models are making mock trades every…</description>
-</item>
-<item>
-<title>It upgraded everything that needed to be upgraded, patched what needed to be patched, then…</title>
-<link>https://hermes-agent-archive.vercel.app/entry/hn-48231142</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-48231142</guid>
-<pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>Oh wow. I did the same thing a couple of weeks ago. The server hadn&#39;t been updated since ~2015, running a blog on Ghost from that time with node 0.10 installed. I was a bit…</description>
 </item>
 </channel>
 </rss>

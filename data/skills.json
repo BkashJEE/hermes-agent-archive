@@ -5865,6 +5865,40 @@
       "source": "docs",
       "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#plugin-code-inside-the-gateway",
       "date": "2026-10-21"
+    },
+    {
+      "id": "plugin-official-agent-importers",
+      "title": "Agent Importers",
+      "summary": "`hermes import-agent`: import a Claude Code (~/.claude), Codex CLI (~/.codex) or Cursor (~/.cursor) setup into Hermes in one command. Instructions, Cursor rules and memories become memory entries, Bash permission rules become command allow/deny lists, MCP servers land in config.yaml and skills are copied; always previews first, and `--sync` re-imports sources that changed. Formerly built into Hermes core; profiles with a registered sync source are migrated automatically. Disclosure — no Python dependencies, no network calls and no model calls: it reads those agents' local config trees (never their credential files; secret-looking MCP env vars and headers are stripped and listed) and writes only into the active profile (memories/MEMORY.md with a backup, config.yaml, skills/ and import-sync.json).",
+      "detail": "`hermes import-agent`: import a Claude Code (~/.claude), Codex CLI (~/.codex) or Cursor (~/.cursor) setup into Hermes in one command. Instructions, Cursor rules and memories become memory entries, Bash permission rules become command allow/deny lists, MCP servers land in config.yaml and skills are copied; always previews first, and `--sync` re-imports sources that changed. Formerly built into Hermes core; profiles with a registered sync source are migrated automatically. Disclosure — no Python dependencies, no network calls and no model calls: it reads those agents' local config trees (never their credential files; secret-looking MCP env vars and headers are stripped and listed) and writes only into the active profile (memories/MEMORY.md with a backup, config.yaml, skills/ and import-sync.json).\n\nRequires Hermes >=0.21.6. Version 1.0.0 at import.",
+      "snippet": "hermes plugins install agent-importers",
+      "tags": [
+        "skills",
+        "plugin",
+        "official-plugin",
+        "tools"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/plugins/agent-importers",
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "id": "plugin-official-singularity",
+      "title": "Singularity",
+      "summary": "Singularity/Apptainer terminal backend: Hermes's terminal, file and code tools run inside a hardened, rootless container on this machine (--containall --no-home), with CPU/memory limits and an optional per-session persistent overlay (`hermes config set terminal.backend singularity`; image from `terminal.singularity_image`). Formerly built into Hermes core; existing users are migrated automatically. Disclosure — no Python dependencies and no network calls of its own: it drives the `apptainer` (or `singularity`) CLI you install, which pulls the configured image (default `docker://nousresearch/hermes-sandbox:desktop`) and caches a SIF under your scratch directory. Your skills and registered credential files are bind-mounted read-only into the container, and because the container is a disposable sandbox Hermes skips its dangerous-command prompts there, as for its other container backends.",
+      "detail": "Singularity/Apptainer terminal backend: Hermes's terminal, file and code tools run inside a hardened, rootless container on this machine (--containall --no-home), with CPU/memory limits and an optional per-session persistent overlay (`hermes config set terminal.backend singularity`; image from `terminal.singularity_image`). Formerly built into Hermes core; existing users are migrated automatically. Disclosure — no Python dependencies and no network calls of its own: it drives the `apptainer` (or `singularity`) CLI you install, which pulls the configured image (default `docker://nousresearch/hermes-sandbox:desktop`) and caches a SIF under your scratch directory. Your skills and registered credential files are bind-mounted read-only into the container, and because the container is a disposable sandbox Hermes skips its dangerous-command prompts there, as for its other container backends.\n\nRequires Hermes >=0.21.6. Platforms: linux. Version 1.0.0 at import.",
+      "snippet": "hermes plugins install singularity",
+      "tags": [
+        "skills",
+        "plugin",
+        "official-plugin",
+        "tools"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/plugins/singularity",
+      "verifiedAt": "2026-10-21"
     }
   ]
 }
