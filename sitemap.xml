@@ -467,6 +467,30 @@
   <url><loc>https://hermes-agent-archive.vercel.app/entry/hn-48887244</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/hn-48904884</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/hn-47740042</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/story-hermes-built-a-local-safety-system-with-panic-buttons-for-hi</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/story-a-gtm-team-builds-verified-contact-lists-from-one-slack-mess</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/story-a-tech-policy-publication-runs-hermes-agents-for-editorial-s</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/story-a-prospect-phoned-his-hermes-agent-about-the-proposal-and-it</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/story-a-business-added-a-hermes-it-support-agent-that-now-solves-9</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/story-a-solo-founder-split-his-startup-across-seven-hermes-assista</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/story-team-agent-implements-customer-requests-and-posts-a-narrated</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/story-in-the-shop-photos-plus-spoken-dimensions-become-a-parametri</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/story-a-hermes-project-manager-agent-orchestrates-his-fleet-of-cod</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/story-built-his-own-football-manager-game-with-a-local-hermes-agen</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/story-hermes-kept-checking-a-sold-out-70mm-imax-run-and-found-him-</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/story-solo-it-department-for-a-165-person-travel-company-moved-80-</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/story-a-drainlaying-business-runs-quotes-invoices-crm-and-stock-th</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/story-field-service-tech-runs-repair-plans-through-hermes-and-it-f</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/story-musician-s-hermes-band-manager-makes-setlist-pdfs-practice-p</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/story-hermes-tidied-a-family-recipe-box-in-mealie-and-fills-the-we</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/story-parent-keeps-school-tutor-and-home-plans-in-sync-for-a-child</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/story-in-15-days-he-wired-hermes-into-his-own-tasks-clients-and-in</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/story-an-energy-advisory-firm-runs-one-hermes-gateway-for-the-whol</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/story-a-food-and-beverage-company-runs-ops-finance-and-approvals-o</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/story-a-dad-built-his-12-year-old-her-own-hermes-profile-instead-o</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/story-hermes-keeps-his-home-lab-netbox-inventory-current-with-a-ni</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/story-hermes-books-his-gym-classes-the-minute-booking-opens-and-on</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/story-a-family-budget-bot-on-whatsapp-tracks-card-charges-by-categ</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/shelf/skills</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/skill-superpowers</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/skill-ponytail</loc></url>
@@ -782,6 +806,10 @@
   <url><loc>https://hermes-agent-archive.vercel.app/entry/plugin-official-accent-picker</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/plugin-official-langfuse</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/plugin-official-rea</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/plugin-official-xchat</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-project-local-plugins-hermes-plugins</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-posting-a-live-message</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-plugin-code-inside-the-gateway</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/shelf/prompts</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/prompt-parallel-research</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/prompt-auth-review</loc></url>
@@ -1211,6 +1239,7 @@
   <url><loc>https://hermes-agent-archive.vercel.app/entry/review-commands-pair-a-new-team-member-with-the-bot</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-cli-slash-commands</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-cli-multi-line-input</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-cli-layout-styles</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/shelf/tricks</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/trick-audit-the-skill-auditor</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/trick-generate-a-read-only-memory-vault</loc></url>
