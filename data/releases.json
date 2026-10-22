@@ -15,6 +15,19 @@
       "date": "2026-10-21"
     },
     {
+      "id": "release-v0-22-4",
+      "title": "Hermes Agent v0.22.4",
+      "summary": "Patch release. Desktop stops showing suggestion pills above the composer, plus small plugin and dashboard fixes, for the CLI and installer, the Microsoft Store app, Docker and Hermes Cloud.",
+      "detail": "Patch release. Desktop stops showing suggestion pills above the composer, plus small plugin and dashboard fixes, for the CLI and installer, the Microsoft Store app, Docker and Hermes Cloud.\n\nFixes\n\n• Desktop no longer shows suggestion pills above the composer. The pills appeared for no clear reason, mostly nudging you to set up MCP servers. They and the helpers that only they used are gone. ([#142559](https://github.com/NousResearch/hermes-agent/pull/142559))\n• Plugins that install nothing skip the dependency consent step. A plugin that declares no dependencies, or whose `pyproject.toml` installs nothing, now enables without an empty consent prompt. ([#142569](https://github.com/NousResearch/hermes-agent/pull/142569))\n• Dashboard: WhatsApp can be safely re-paired after logging out. ([#142439](https://github.com/NousResearch/hermes-agent/pull/142439))\n• Desktop plugin review: the surface lint no longer flags prototype writes; reviewers check them by hand. ([#142586](https://github.com/NousResearch/hermes-agent/pull/142586))\n• Desktop: the approval-mode chip follows the active profile's mode. ([#142565](https://github.com/NousResearch/hermes-agent/pull/142565))\n• Release builds: the desktop bundle's pre-build check gets enough time to verify archived build inputs when storage is slow. ([#142623](https://github.com/NousResearch/hermes-agent/pull/142623))\n\n…\n\nFull release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.4",
+      "tags": [
+        "release"
+      ],
+      "source": "github",
+      "author": "Nous Research",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.4",
+      "date": "2026-10-21"
+    },
+    {
       "id": "release-v0-22-2",
       "title": "Hermes Agent v0.22.2",
       "summary": "v0.22.1 was built from the wrong commit. It shipped unreleased gateway work, and the Microsoft Store app could stick on \"Connecting.\" 0.22.2 is the release 0.22.1 was meant to be.",

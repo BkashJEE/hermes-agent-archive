@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark light">
+<script>/* Colour scheme before first paint: a stored choice wins, otherwise the system's. Same snippet on every page, so the archive looks the same from one page to the next. */(function(){try{var s=localStorage.getItem('hermes-scheme');if(s==='light'||s==='dark')document.documentElement.dataset.scheme=s;var t=localStorage.getItem('ha-theme');if(t==='broadsheet')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hermes Agent v0.22.4 · Hermes Agent Archive</title>
+<meta name="description" content="Patch release. Desktop stops showing suggestion pills above the composer, plus small plugin and dashboard fixes, for the CLI and installer, the Microsoft…">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/release-v0-22-4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hermes Agent v0.22.4">
+<meta property="og:description" content="Patch release. Desktop stops showing suggestion pills above the composer, plus small plugin and dashboard fixes, for the CLI and installer, the Microsoft…">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/release-v0-22-4">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social/releases.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hermes Agent v0.22.4">
+<meta name="twitter:description" content="Patch release. Desktop stops showing suggestion pills above the composer, plus small plugin and dashboard fixes, for the CLI and installer, the Microsoft…">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social/releases.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Hermes Agent v0.22.4","description":"Patch release. Desktop stops showing suggestion pills above the composer, plus small plugin and dashboard fixes, for the CLI and installer, the Microsoft…","url":"https://hermes-agent-archive.vercel.app/entry/release-v0-22-4","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/releases.png","datePublished":"2026-10-21","author":{"@type":"Person","name":"Nous Research"},"citation":"https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.4","keywords":"release"}</script>
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/releases">Releases</a></header>
+
+<article>
+<h1>Hermes Agent v0.22.4</h1>
+
+<p class="meta">By Nous Research · GitHub · October 21, 2026</p>
+<p>Patch release. Desktop stops showing suggestion pills above the composer, plus small plugin and dashboard fixes, for the CLI and installer, the Microsoft Store app, Docker and Hermes Cloud.</p>
+<p>Fixes</p>
+<p>• Desktop no longer shows suggestion pills above the composer. The pills appeared for no clear reason, mostly nudging you to set up MCP servers. They and the helpers that only they used are gone. ([#142559](https://github.com/NousResearch/hermes-agent/pull/142559))<br>• Plugins that install nothing skip the dependency consent step. A plugin that declares no dependencies, or whose `pyproject.toml` installs nothing, now enables without an empty consent prompt. ([#142569](https://github.com/NousResearch/hermes-agent/pull/142569))<br>• Dashboard: WhatsApp can be safely re-paired after logging out. ([#142439](https://github.com/NousResearch/hermes-agent/pull/142439))<br>• Desktop plugin review: the surface lint no longer flags prototype writes; reviewers check them by hand. ([#142586](https://github.com/NousResearch/hermes-agent/pull/142586))<br>• Desktop: the approval-mode chip follows the active profile&#39;s mode. ([#142565](https://github.com/NousResearch/hermes-agent/pull/142565))<br>• Release builds: the desktop bundle&#39;s pre-build check gets enough time to verify archived build inputs when storage is slow. ([#142623](https://github.com/NousResearch/hermes-agent/pull/142623))</p>
+<p>…</p>
+<p>Full release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.4</p>
+
+
+<ul class="tags"><li>#release</li></ul>
+
+<div class="actions">
+<a href="https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.4" rel="noopener">Read the original</a>
+<a href="/#releases?item=release-v0-22-4">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
+</footer>
+</div>
+</body>
+</html>

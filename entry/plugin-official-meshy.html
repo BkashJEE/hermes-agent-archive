@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark light">
+<script>/* Colour scheme before first paint: a stored choice wins, otherwise the system's. Same snippet on every page, so the archive looks the same from one page to the next. */(function(){try{var s=localStorage.getItem('hermes-scheme');if(s==='light'||s==='dark')document.documentElement.dataset.scheme=s;var t=localStorage.getItem('ha-theme');if(t==='broadsheet')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meshy · Hermes Agent Archive</title>
+<meta name="description" content="Meshy AI&#39;s own MCP server (pinned @meshy-ai/meshy-mcp-server@0.6.5) for text, image and multi-image to 3D, texturing, remeshing, rigging, animation…">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/plugin-official-meshy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Meshy">
+<meta property="og:description" content="Meshy AI&#39;s own MCP server (pinned @meshy-ai/meshy-mcp-server@0.6.5) for text, image and multi-image to 3D, texturing, remeshing, rigging, animation…">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/plugin-official-meshy">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social/skills.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Meshy">
+<meta name="twitter:description" content="Meshy AI&#39;s own MCP server (pinned @meshy-ai/meshy-mcp-server@0.6.5) for text, image and multi-image to 3D, texturing, remeshing, rigging, animation…">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social/skills.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Meshy","description":"Meshy AI's own MCP server (pinned @meshy-ai/meshy-mcp-server@0.6.5) for text, image and multi-image to 3D, texturing, remeshing, rigging, animation…","url":"https://hermes-agent-archive.vercel.app/entry/plugin-official-meshy","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/skills.png","author":{"@type":"Person","name":"Nous Research"},"citation":"https://hermes-agent.nousresearch.com/docs/plugins/meshy","keywords":"skills, plugin, official-plugin, tools"}</script>
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/skills">Skills</a></header>
+
+<article>
+<h1>Meshy</h1>
+
+<p class="meta">By Nous Research · Official Docs · Date unknown</p>
+<p>Meshy AI&#39;s own MCP server (pinned @meshy-ai/meshy-mcp-server@0.6.5) for text, image and multi-image to 3D, texturing, remeshing, rigging, animation, concept images and 3D-print prep, with a bundled meshy-3d workflow skill. In Hermes Desktop: inline 3D cards with a download and convert menu, a gallery of recent generations and saved models (with a &quot;Made from&quot; history), image sets, and a credit chip in the status bar. Every credit-spending call goes through Hermes&#39;s approval prompt with its estimated cost, and a 200-credit limit per chat makes it ask again. Needs MESHY_API_KEY and Node.js 18+. Disclosure — first start downloads the pinned server from npm through npx; it sends prompts and the images or models you or the agent name to Meshy&#39;s API (api.meshy.ai) under your key, gets only MESHY_API_KEY from your profile, and sends no analytics (its User-Agent names Hermes and its version). Downloads go to the plugin&#39;s data folder or the folder the agent names (never over an existing file); the Desktop backend fetches only from Meshy&#39;s asset hosts. The skill&#39;s helper scripts (model stats, preview render, optional Blender hand-off) run locally through the terminal tool.</p>
+<p>Requires Hermes &gt;=0.22.3. Platforms: windows, macos, linux. Environment: MESHY_API_KEY. Version 0.4.0 at import.</p>
+<pre><code>hermes plugins install meshy</code></pre>
+
+<ul class="tags"><li>#skills</li><li>#plugin</li><li>#official-plugin</li><li>#tools</li></ul>
+
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/plugins/meshy" rel="noopener">Read the original</a>
+<a href="/#skills?item=plugin-official-meshy">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
+</footer>
+</div>
+</body>
+</html>

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-10-22T12:03:18.367Z",
+  "classifiedAt": "2026-10-22T13:10:19.856Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -8865,6 +8865,36 @@
       "usefulness": 0.25,
       "popularity": "unknown",
       "confidence": 0.81
+    },
+    "hn-50186354": {
+      "input": "c318d5d385d742bc6ea13883d6905027c26cf1855a4825fc1b3b1809aebaaaea",
+      "usefulness": 2.03,
+      "popularity": "unknown",
+      "confidence": 0.6
+    },
+    "plugin-official-bubblewrap": {
+      "input": "a70ede51f178c70cfc979ff22e46d067a23811731f2cbe7f69b6f665abaa27fb",
+      "usefulness": 2.73,
+      "popularity": "unknown",
+      "confidence": 0.47
+    },
+    "plugin-official-mcp-serve": {
+      "input": "71e229876f5242906e357b39ecc3e7f712e280349d51e38c4ffb262cc074b8e2",
+      "usefulness": 2.23,
+      "popularity": "unknown",
+      "confidence": 0.43
+    },
+    "plugin-official-meshy": {
+      "input": "1e781df16fc3f7fc4091cce0326f243cbbb58bd30ababd9375651dcfae71557d",
+      "usefulness": 2.06,
+      "popularity": "unknown",
+      "confidence": 0.44
+    },
+    "release-v0-22-4": {
+      "input": "f4b3dcdb71cda0e516e6d95f1e0d344d91010e2d686f829fefd3760f90ddb56b",
+      "usefulness": 1.01,
+      "popularity": "unknown",
+      "confidence": 0.56
     }
   }
 }

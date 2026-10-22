@@ -7,6 +7,46 @@
 <description>Sourced Hermes Agent workflows, prompts, skills and projects, as they are added. Dates are arrival dates.</description>
 <language>en</language>
 <item>
+<title>We invited the agent &quot;Rosey&quot; to our family chat, a group chat with my wife and me (&quot;The Baddie…</title>
+<link>https://hermes-agent-archive.vercel.app/entry/hn-50186354</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-50186354</guid>
+<pubDate>Thu, 22 Oct 2026 12:00:00 GMT</pubDate>
+<category>Use Cases</category>
+<description>I wish it interfaced via iMessage. I don&#39;t want to train the family on yet another app. We run a Hermes agent on an old MacBook Air. We invited the agent &quot;Rosey&quot; to our…</description>
+</item>
+<item>
+<title>Bubblewrap</title>
+<link>https://hermes-agent-archive.vercel.app/entry/plugin-official-bubblewrap</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/plugin-official-bubblewrap</guid>
+<pubDate>Thu, 22 Oct 2026 12:00:00 GMT</pubDate>
+<category>Skills</category>
+<description>Bubblewrap terminal backend for Linux: every terminal and execute_code command runs in its own bwrap sandbox on this machine at the host&#39;s own paths, with a read-only root, a writable working directory (per profile: restricted, workspace or network), SSH keys, cloud credentials and the Hermes home…</description>
+</item>
+<item>
+<title>MCP Serve</title>
+<link>https://hermes-agent-archive.vercel.app/entry/plugin-official-mcp-serve</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/plugin-official-mcp-serve</guid>
+<pubDate>Thu, 22 Oct 2026 12:00:00 GMT</pubDate>
+<category>Skills</category>
+<description>Run Hermes as an MCP server: `hermes mcp-serve` lets any MCP client (Claude Code, Claude Desktop, Cursor, Codex) list and read your messaging conversations, poll live events, send messages and answer approvals over stdio. `--tools` (off by default) also exposes Hermes&#39; web, browser, vision, image…</description>
+</item>
+<item>
+<title>Meshy</title>
+<link>https://hermes-agent-archive.vercel.app/entry/plugin-official-meshy</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/plugin-official-meshy</guid>
+<pubDate>Thu, 22 Oct 2026 12:00:00 GMT</pubDate>
+<category>Skills</category>
+<description>Meshy AI&#39;s own MCP server (pinned @meshy-ai/meshy-mcp-server@0.6.5) for text, image and multi-image to 3D, texturing, remeshing, rigging, animation, concept images and 3D-print prep, with a bundled meshy-3d workflow skill. In Hermes Desktop: inline 3D cards with a download and convert menu, a…</description>
+</item>
+<item>
+<title>Hermes Agent v0.22.4</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v0-22-4</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v0-22-4</guid>
+<pubDate>Thu, 22 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>Patch release. Desktop stops showing suggestion pills above the composer, plus small plugin and dashboard fixes, for the CLI and installer, the Microsoft Store app, Docker and Hermes Cloud.</description>
+</item>
+<item>
 <title>Hermes built a local safety system with panic buttons for his 89-year-old grandfather</title>
 <link>https://hermes-agent-archive.vercel.app/entry/story-hermes-built-a-local-safety-system-with-panic-buttons-for-hi</link>
 <guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-hermes-built-a-local-safety-system-with-panic-buttons-for-hi</guid>
@@ -445,46 +485,6 @@
 <pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
 <category>Use Cases</category>
 <description>I have a home server that runs Qwen3.6-35B-A3B through llama.cpp with Open WebUI for the user facing interface. My teen isn&#39;t super interested in AI, but whenever they do feel…</description>
-</item>
-<item>
-<title>Built on Hermes Agent + Baileys + Chroma + nomic-embed-text-v2-moe + Claude Sonnet 4.6 via…</title>
-<link>https://hermes-agent-archive.vercel.app/entry/hn-48602964</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-48602964</guid>
-<pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>Author here. This is a personal weekend project that grew into a working WhatsApp bot. It replies as me to two allowlisted contacts (myself + one friend who knew about the…</description>
-</item>
-<item>
-<title>I have two Hermes Profiles running, one is a personal assistant that manages my backlog and…</title>
-<link>https://hermes-agent-archive.vercel.app/entry/hn-48590990</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-48590990</guid>
-<pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>I haven&#39;t done any in-depth synthetic benchmarks but I had my Hermes agent run some and I ran a couple directly on the LLM Gateway that showed similar results. Hermes reported…</description>
-</item>
-<item>
-<title>It is a combination of Hermes agent as the orchestrator and a custom extractor script (that…</title>
-<link>https://hermes-agent-archive.vercel.app/entry/hn-48581502</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-48581502</guid>
-<pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>It is a combination of Hermes agent as the orchestrator and a custom extractor script (that uses qwen or any other LLM) that runs every 2 mins (on Mac via launchd). I had the…</description>
-</item>
-<item>
-<title>At home I&#39;m managing a Hermes agent that can spin up a whole fleet of purpose-tuned agents for…</title>
-<link>https://hermes-agent-archive.vercel.app/entry/hn-48509609</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-48509609</guid>
-<pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>Your experiences must be much different from mine. Three years ago, AI was barely able to provide sort-of reliable command completion. Two years ago, it could extrapolate a…</description>
-</item>
-<item>
-<title>A lightweight REST + SSE bridge that exposes Hermes Agent to mobile apps and any HTTP client</title>
-<link>https://hermes-agent-archive.vercel.app/entry/hn-48494430</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-48494430</guid>
-<pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>A lightweight REST + SSE bridge that exposes Hermes Agent to mobile apps and any HTTP client. Built for the Agentfy iOS app, but provider-agnostic — it&#39;s plain HTTP, no…</description>
 </item>
 </channel>
 </rss>
