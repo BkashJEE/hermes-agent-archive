@@ -5899,6 +5899,57 @@
       "author": "Nous Research",
       "url": "https://hermes-agent.nousresearch.com/docs/plugins/singularity",
       "verifiedAt": "2026-10-21"
+    },
+    {
+      "id": "plugin-official-bubblewrap",
+      "title": "Bubblewrap",
+      "summary": "Bubblewrap terminal backend for Linux: every terminal and execute_code command runs in its own bwrap sandbox on this machine at the host's own paths, with a read-only root, a writable working directory (per profile: restricted, workspace or network), SSH keys, cloud credentials and the Hermes home hidden, private temp and process directories, agent and docker sockets masked, and per-command memory, CPU and process limits (`hermes config set terminal.backend bubblewrap`). Disclosure — no Python dependencies and no network calls of its own: it runs your commands through the `bwrap` and `prlimit` binaries you install (bubblewrap, util-linux), and under the default `network` profile those commands share the host network. It reads no credentials. File tools (read_file, write_file, patch, search_files) still run on the host and are not confined, and because the working directory is a real host directory Hermes keeps its dangerous-command prompts, as for the local backend.",
+      "detail": "Bubblewrap terminal backend for Linux: every terminal and execute_code command runs in its own bwrap sandbox on this machine at the host's own paths, with a read-only root, a writable working directory (per profile: restricted, workspace or network), SSH keys, cloud credentials and the Hermes home hidden, private temp and process directories, agent and docker sockets masked, and per-command memory, CPU and process limits (`hermes config set terminal.backend bubblewrap`). Disclosure — no Python dependencies and no network calls of its own: it runs your commands through the `bwrap` and `prlimit` binaries you install (bubblewrap, util-linux), and under the default `network` profile those commands share the host network. It reads no credentials. File tools (read_file, write_file, patch, search_files) still run on the host and are not confined, and because the working directory is a real host directory Hermes keeps its dangerous-command prompts, as for the local backend.\n\nRequires Hermes >=0.22.2. Platforms: linux. Version 1.0.0 at import.",
+      "snippet": "hermes plugins install bubblewrap",
+      "tags": [
+        "skills",
+        "plugin",
+        "official-plugin",
+        "tools"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/plugins/bubblewrap",
+      "verifiedAt": "2026-10-22"
+    },
+    {
+      "id": "plugin-official-mcp-serve",
+      "title": "MCP Serve",
+      "summary": "Run Hermes as an MCP server: `hermes mcp-serve` lets any MCP client (Claude Code, Claude Desktop, Cursor, Codex) list and read your messaging conversations, poll live events, send messages and answer approvals over stdio. `--tools` (off by default) also exposes Hermes' web, browser, vision, image generation, skills and TTS tools; terminal, file and kanban tools are never exposed. Formerly built into Hermes core as `hermes mcp serve` (MCP clients change their args to [\"mcp-serve\"]). Disclosure — the connecting MCP client reads the active profile's conversation history (state.db) and can send messages as your connected platform accounts; with `--tools` it also runs Hermes tools under your configured provider credentials, which can spend provider credits. The plugin itself makes no network or model calls beyond those tool calls and sends.",
+      "detail": "Run Hermes as an MCP server: `hermes mcp-serve` lets any MCP client (Claude Code, Claude Desktop, Cursor, Codex) list and read your messaging conversations, poll live events, send messages and answer approvals over stdio. `--tools` (off by default) also exposes Hermes' web, browser, vision, image generation, skills and TTS tools; terminal, file and kanban tools are never exposed. Formerly built into Hermes core as `hermes mcp serve` (MCP clients change their args to [\"mcp-serve\"]). Disclosure — the connecting MCP client reads the active profile's conversation history (state.db) and can send messages as your connected platform accounts; with `--tools` it also runs Hermes tools under your configured provider credentials, which can spend provider credits. The plugin itself makes no network or model calls beyond those tool calls and sends.\n\nRequires Hermes >=0.22.0. Version 1.0.0 at import.",
+      "snippet": "hermes plugins install mcp-serve",
+      "tags": [
+        "skills",
+        "plugin",
+        "official-plugin",
+        "tools"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/plugins/mcp-serve",
+      "verifiedAt": "2026-10-22"
+    },
+    {
+      "id": "plugin-official-meshy",
+      "title": "Meshy",
+      "summary": "Meshy AI's own MCP server (pinned @meshy-ai/meshy-mcp-server@0.6.5) for text, image and multi-image to 3D, texturing, remeshing, rigging, animation, concept images and 3D-print prep, with a bundled meshy-3d workflow skill. In Hermes Desktop: inline 3D cards with a download and convert menu, a gallery of recent generations and saved models (with a \"Made from\" history), image sets, and a credit chip in the status bar. Every credit-spending call goes through Hermes's approval prompt with its estimated cost, and a 200-credit limit per chat makes it ask again. Needs MESHY_API_KEY and Node.js 18+. Disclosure — first start downloads the pinned server from npm through npx; it sends prompts and the images or models you or the agent name to Meshy's API (api.meshy.ai) under your key, gets only MESHY_API_KEY from your profile, and sends no analytics (its User-Agent names Hermes and its version). Downloads go to the plugin's data folder or the folder the agent names (never over an existing file); the Desktop backend fetches only from Meshy's asset hosts. The skill's helper scripts (model stats, preview render, optional Blender hand-off) run locally through the terminal tool.",
+      "detail": "Meshy AI's own MCP server (pinned @meshy-ai/meshy-mcp-server@0.6.5) for text, image and multi-image to 3D, texturing, remeshing, rigging, animation, concept images and 3D-print prep, with a bundled meshy-3d workflow skill. In Hermes Desktop: inline 3D cards with a download and convert menu, a gallery of recent generations and saved models (with a \"Made from\" history), image sets, and a credit chip in the status bar. Every credit-spending call goes through Hermes's approval prompt with its estimated cost, and a 200-credit limit per chat makes it ask again. Needs MESHY_API_KEY and Node.js 18+. Disclosure — first start downloads the pinned server from npm through npx; it sends prompts and the images or models you or the agent name to Meshy's API (api.meshy.ai) under your key, gets only MESHY_API_KEY from your profile, and sends no analytics (its User-Agent names Hermes and its version). Downloads go to the plugin's data folder or the folder the agent names (never over an existing file); the Desktop backend fetches only from Meshy's asset hosts. The skill's helper scripts (model stats, preview render, optional Blender hand-off) run locally through the terminal tool.\n\nRequires Hermes >=0.22.3. Platforms: windows, macos, linux. Environment: MESHY_API_KEY. Version 0.4.0 at import.",
+      "snippet": "hermes plugins install meshy",
+      "tags": [
+        "skills",
+        "plugin",
+        "official-plugin",
+        "tools"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/plugins/meshy",
+      "verifiedAt": "2026-10-22"
     }
   ]
 }

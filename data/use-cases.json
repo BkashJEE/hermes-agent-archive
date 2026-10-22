@@ -1,6 +1,6 @@
 {
   "note": "Imported from https://hermes-agent.nousresearch.com/docs/user-stories by scripts/import-hermes-stories.mjs. Every entry is a real post quoted and attributed on that page; the headline, quote, author and link are as published. Entries are merged, never replaced — nothing already archived is removed by a re-import.",
-  "importedAt": "2026-10-21T10:15:03.073Z",
+  "importedAt": "2026-10-22T13:10:17.302Z",
   "items": [
     {
       "id": "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t",
@@ -2460,7 +2460,8 @@
       "author": "nazt (GitHub Gist)",
       "uses": [
         "cli-hermes-mcp",
-        "review-commands-start-hermes-as-an-mcp-server"
+        "review-commands-start-hermes-as-an-mcp-server",
+        "plugin-official-mcp-serve"
       ]
     },
     {
@@ -7224,6 +7225,23 @@
       "url": "https://github.com/setasoma/mycodo-hermes-skill",
       "author": "setasoma",
       "date": "2026-05-24"
+    },
+    {
+      "id": "hn-50186354",
+      "title": "We invited the agent \"Rosey\" to our family chat, a group chat with my wife and me (\"The Baddie…",
+      "summary": "I wish it interfaced via iMessage. I don't want to train the family on yet another app.\n\nWe run a Hermes agent on an old MacBook Air.\n\nWe invited the agent \"Rosey\" to our…",
+      "detail": "I wish it interfaced via iMessage. I don't want to train the family on yet another app.\n\nWe run a Hermes agent on an old MacBook Air.\n\nWe invited the agent \"Rosey\" to our family chat, a group chat with my wife and me (\"The Baddie Boardroom\"); she and I also make requests solo.\n\nShe's hilarious. She does our meal planning and grocery shopping at Walmart via BrowserMCP. She mocks our large purchases of weekly protein powder and my love for sardines.\n\nShe updates the kids' chore chart on our Skylight frame every morning. She adds/updates calendar events via icalbuddy cli. Reads balances from credit cards for budgeting.\n\nI've even invited Rosey in to chats with friends when we were debating something.\n\niMessage has been the perfect interface fit for us. We have iphones. The kids have ipads. They all know how to use iMessage.\n\n— aantix, 2026-10-21, in the Hacker News thread “Claude Duet”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=50186354",
+      "author": "aantix",
+      "date": "2026-10-21",
+      "uses": [
+        "skill-bundled-apple-imessage"
+      ]
     }
   ]
 }
