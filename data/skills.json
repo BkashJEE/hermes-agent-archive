@@ -5950,6 +5950,40 @@
       "author": "Nous Research",
       "url": "https://hermes-agent.nousresearch.com/docs/plugins/meshy",
       "verifiedAt": "2026-10-22"
+    },
+    {
+      "id": "plugin-official-advanced-delegation",
+      "title": "Advanced Delegation",
+      "summary": "Two extra delegation modes for `delegate_task`, next to the built-in default. Model routes (`delegation.backend: model_map`): the agent picks a named model route per subagent from a list you define (e.g. fast, deep, local). Profile routes (`delegation.backend: profile_routes`): the agent runs a subagent as one of your Hermes profiles, with that profile's own model, credentials, skills and SOUL.md. Only route names and their one-line descriptions reach the model. Adds `hermes delegation config` (pick the mode and edit its routes; `--show` prints the setup) and the `/delegation` slash command (save a mode for the next session, or `--now` to apply it to the current chat). Needs Hermes 0.22.5 or newer, the first release with pluggable delegation providers; Hermes 0.22.0 to 0.22.4 refuses to install it, and on a core older than 0.22.0 it installs, logs one warning and does nothing. Disclosure — no Python dependencies and no network or model calls of its own; subagents run through core's `delegate_task` on the routes you configured. Writes only `delegation.backend` and `delegation.backends.*` (model_map / profile_routes) in the active profile's config.yaml, through core's config writer. A model route's optional `api_key` is stored in config.yaml in plain text (`provider:` keeps keys in .env / auth.json). Listing a profile under profile routes lets this profile's subagents use that profile's credentials, SOUL.md and terminal policy.",
+      "detail": "Two extra delegation modes for `delegate_task`, next to the built-in default. Model routes (`delegation.backend: model_map`): the agent picks a named model route per subagent from a list you define (e.g. fast, deep, local). Profile routes (`delegation.backend: profile_routes`): the agent runs a subagent as one of your Hermes profiles, with that profile's own model, credentials, skills and SOUL.md. Only route names and their one-line descriptions reach the model. Adds `hermes delegation config` (pick the mode and edit its routes; `--show` prints the setup) and the `/delegation` slash command (save a mode for the next session, or `--now` to apply it to the current chat). Needs Hermes 0.22.5 or newer, the first release with pluggable delegation providers; Hermes 0.22.0 to 0.22.4 refuses to install it, and on a core older than 0.22.0 it installs, logs one warning and does nothing. Disclosure — no Python dependencies and no network or model calls of its own; subagents run through core's `delegate_task` on the routes you configured. Writes only `delegation.backend` and `delegation.backends.*` (model_map / profile_routes) in the active profile's config.yaml, through core's config writer. A model route's optional `api_key` is stored in config.yaml in plain text (`provider:` keeps keys in .env / auth.json). Listing a profile under profile routes lets this profile's subagents use that profile's credentials, SOUL.md and terminal policy.\n\nRequires Hermes >=0.22.5. Version 1.0.0 at import.",
+      "snippet": "hermes plugins install advanced-delegation",
+      "tags": [
+        "skills",
+        "plugin",
+        "official-plugin",
+        "tools"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/plugins/advanced-delegation",
+      "verifiedAt": "2026-10-23"
+    },
+    {
+      "id": "plugin-official-camofox",
+      "title": "Camofox",
+      "summary": "Camofox browser backend: browse with a self-hosted anti-detection Firefox (Camoufox, C++ fingerprint spoofing) through the camofox-browser REST server. Registers the browser_* tools (navigate, snapshot with clickable refs, click, type, scroll, back, press, get_images, vision, JavaScript console, plus cookie import when CAMOFOX_API_KEY is set) in the `camofox` toolset, with `hermes camofox setup|status`; existing CAMOFOX_* variables and browser.camofox settings carry over. Formerly built into Hermes core; existing users are migrated automatically. Disclosure: one Python dependency (requests). It talks only to the Camofox server at CAMOFOX_URL (e.g. http://localhost:9377, which you run yourself: Docker or `npm start`), sending CAMOFOX_API_KEY as a bearer token when set. Page text reaches only your model as tool output; browser_vision sends the screenshot to your configured auxiliary vision model. Snapshots mask values that look like secrets (API keys, tokens), but text typed into form fields, passwords included, shows up in snapshots. Oversized snapshots and screenshots are written under the Hermes home (cache/web, browser_screenshots). Cookie import reads Netscape cookies.txt files only from browser.camofox.cookies_dir (default ~/.camofox/cookies). Inert on Hermes cores that still bundle Camofox.",
+      "detail": "Camofox browser backend: browse with a self-hosted anti-detection Firefox (Camoufox, C++ fingerprint spoofing) through the camofox-browser REST server. Registers the browser_* tools (navigate, snapshot with clickable refs, click, type, scroll, back, press, get_images, vision, JavaScript console, plus cookie import when CAMOFOX_API_KEY is set) in the `camofox` toolset, with `hermes camofox setup|status`; existing CAMOFOX_* variables and browser.camofox settings carry over. Formerly built into Hermes core; existing users are migrated automatically. Disclosure: one Python dependency (requests). It talks only to the Camofox server at CAMOFOX_URL (e.g. http://localhost:9377, which you run yourself: Docker or `npm start`), sending CAMOFOX_API_KEY as a bearer token when set. Page text reaches only your model as tool output; browser_vision sends the screenshot to your configured auxiliary vision model. Snapshots mask values that look like secrets (API keys, tokens), but text typed into form fields, passwords included, shows up in snapshots. Oversized snapshots and screenshots are written under the Hermes home (cache/web, browser_screenshots). Cookie import reads Netscape cookies.txt files only from browser.camofox.cookies_dir (default ~/.camofox/cookies). Inert on Hermes cores that still bundle Camofox.\n\nTools: browser_navigate, browser_snapshot, browser_click, browser_type, browser_scroll, browser_back, browser_press, browser_get_images, browser_vision, browser_console, browser_import_cookies. Environment: CAMOFOX_URL. Version 1.0.0 at import.",
+      "snippet": "hermes plugins install camofox",
+      "tags": [
+        "skills",
+        "plugin",
+        "official-plugin",
+        "web"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/plugins/camofox",
+      "verifiedAt": "2026-10-23"
     }
   ]
 }
