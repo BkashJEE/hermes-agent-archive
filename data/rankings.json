@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-10-23T11:48:25.773Z",
+  "classifiedAt": "2026-10-23T12:50:35.831Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -8895,6 +8895,30 @@
       "usefulness": 1.01,
       "popularity": "unknown",
       "confidence": 0.56
+    },
+    "hn-50200353": {
+      "input": "ef5ce67ae81705361e0f0427514d8ac2e3d7be9b51b3a6e610871a23c6348d12",
+      "usefulness": 1.84,
+      "popularity": "unknown",
+      "confidence": 0.57
+    },
+    "plugin-official-advanced-delegation": {
+      "input": "f7a6054e632d818b4ccb43aa7202b25f9e56cccec17bfea4d150f3366829aea3",
+      "usefulness": 3.2,
+      "popularity": "unknown",
+      "confidence": 0.64
+    },
+    "plugin-official-camofox": {
+      "input": "6bf3367230f7bc139bd06cd00dd3afc2bfd8980149b4091e5cf1941abfda2848",
+      "usefulness": 2.62,
+      "popularity": "unknown",
+      "confidence": 0.52
+    },
+    "release-v0-22-5": {
+      "input": "96b11d0bb7b65b30dafd41bad82484d088f0d97db7b7f9827dbd0164c114c0e7",
+      "usefulness": 0.05,
+      "popularity": "unknown",
+      "confidence": 0.97
     }
   }
 }

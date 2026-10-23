@@ -7,6 +7,38 @@
 <description>Sourced Hermes Agent workflows, prompts, skills and projects, as they are added. Dates are arrival dates.</description>
 <language>en</language>
 <item>
+<title>So I set out to build ClusterMob, a community registry of Hermes profiles and profile packs</title>
+<link>https://hermes-agent-archive.vercel.app/entry/hn-50200353</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-50200353</guid>
+<pubDate>Fri, 23 Oct 2026 12:00:00 GMT</pubDate>
+<category>Use Cases</category>
+<description>I was reading the Hermes documentation page on profile distributions and, to my surprise, found that there is no official registry, no central mechanism for profile discovery.…</description>
+</item>
+<item>
+<title>Advanced Delegation</title>
+<link>https://hermes-agent-archive.vercel.app/entry/plugin-official-advanced-delegation</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/plugin-official-advanced-delegation</guid>
+<pubDate>Fri, 23 Oct 2026 12:00:00 GMT</pubDate>
+<category>Skills</category>
+<description>Two extra delegation modes for `delegate_task`, next to the built-in default. Model routes (`delegation.backend: model_map`): the agent picks a named model route per subagent from a list you define (e.g. fast, deep, local). Profile routes (`delegation.backend: profile_routes`): the agent runs a…</description>
+</item>
+<item>
+<title>Camofox</title>
+<link>https://hermes-agent-archive.vercel.app/entry/plugin-official-camofox</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/plugin-official-camofox</guid>
+<pubDate>Fri, 23 Oct 2026 12:00:00 GMT</pubDate>
+<category>Skills</category>
+<description>Camofox browser backend: browse with a self-hosted anti-detection Firefox (Camoufox, C++ fingerprint spoofing) through the camofox-browser REST server. Registers the browser_* tools (navigate, snapshot with clickable refs, click, type, scroll, back, press, get_images, vision, JavaScript console…</description>
+</item>
+<item>
+<title>Hermes Agent v0.22.5</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v0-22-5</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v0-22-5</guid>
+<pubDate>Fri, 23 Oct 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>Patch release. This tag rolls up the ~81 PRs merged since v0.22.4 into a stable release for the GitHub release (CLI and installers), the Microsoft Store app, Docker and Hermes Cloud. Full curated notes for this window…</description>
+</item>
+<item>
 <title>We invited the agent &quot;Rosey&quot; to our family chat, a group chat with my wife and me (&quot;The Baddie…</title>
 <link>https://hermes-agent-archive.vercel.app/entry/hn-50186354</link>
 <guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-50186354</guid>
@@ -453,38 +485,6 @@
 <pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
 <category>Use Cases</category>
 <description>nice, are you using webrtc aec3 or sth custom? to your question i did a thorough benchmarking (hence late reply) used 18gb m3 pro macpro full on-device with gemma 4 e2b is…</description>
-</item>
-<item>
-<title>I have built out something similar that let&#39;s me use my phone&#39;s hardware buttons to open an…</title>
-<link>https://hermes-agent-archive.vercel.app/entry/hn-48840097</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-48840097</guid>
-<pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>I have built out something similar that let&#39;s me use my phone&#39;s hardware buttons to open an input stream with the mic for my Hermes agent over my matrix gateway and then has it…</description>
-</item>
-<item>
-<title>I have an older laptop I run a hermes agent on backed by an API based open (non-local) model…</title>
-<link>https://hermes-agent-archive.vercel.app/entry/hn-48726398</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-48726398</guid>
-<pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>In general if you&#39;re setting up a local LLM you should assume it&#39;s going to be primarily working as a server and talking to various clients. I use my MBP, but that&#39;s because I…</description>
-</item>
-<item>
-<title>Recently I gave a Nix OS vm to my hermes agent and it has been a good experience</title>
-<link>https://hermes-agent-archive.vercel.app/entry/hn-48664038</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-48664038</guid>
-<pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>And yet having an agent able yo use a computer on your behalf is really useful. Recently I gave a Nix OS vm to my hermes agent and it has been a good experience. I don&#39;t…</description>
-</item>
-<item>
-<title>In fact it was an agent powered by the same model that setup the open webui server and took…</title>
-<link>https://hermes-agent-archive.vercel.app/entry/hn-48650822</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-48650822</guid>
-<pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>I have a home server that runs Qwen3.6-35B-A3B through llama.cpp with Open WebUI for the user facing interface. My teen isn&#39;t super interested in AI, but whenever they do feel…</description>
 </item>
 </channel>
 </rss>

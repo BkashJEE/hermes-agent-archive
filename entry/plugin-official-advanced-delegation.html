@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark light">
+<script>/* Colour scheme before first paint: a stored choice wins, otherwise the system's. Same snippet on every page, so the archive looks the same from one page to the next. */(function(){try{var s=localStorage.getItem('hermes-scheme');if(s==='light'||s==='dark')document.documentElement.dataset.scheme=s;var t=localStorage.getItem('ha-theme');if(t==='broadsheet')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Advanced Delegation · Hermes Agent Archive</title>
+<meta name="description" content="Two extra delegation modes for `delegate_task`, next to the built-in default. Model routes (`delegation.backend: model_map`): the agent picks a named…">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/plugin-official-advanced-delegation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Advanced Delegation">
+<meta property="og:description" content="Two extra delegation modes for `delegate_task`, next to the built-in default. Model routes (`delegation.backend: model_map`): the agent picks a named…">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/plugin-official-advanced-delegation">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social/skills.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Advanced Delegation">
+<meta name="twitter:description" content="Two extra delegation modes for `delegate_task`, next to the built-in default. Model routes (`delegation.backend: model_map`): the agent picks a named…">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social/skills.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Advanced Delegation","description":"Two extra delegation modes for `delegate_task`, next to the built-in default. Model routes (`delegation.backend: model_map`): the agent picks a named…","url":"https://hermes-agent-archive.vercel.app/entry/plugin-official-advanced-delegation","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/skills.png","author":{"@type":"Person","name":"Nous Research"},"citation":"https://hermes-agent.nousresearch.com/docs/plugins/advanced-delegation","keywords":"skills, plugin, official-plugin, tools"}</script>
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/skills">Skills</a></header>
+
+<article>
+<h1>Advanced Delegation</h1>
+
+<p class="meta">By Nous Research · Official Docs · Date unknown</p>
+<p>Two extra delegation modes for `delegate_task`, next to the built-in default. Model routes (`delegation.backend: model_map`): the agent picks a named model route per subagent from a list you define (e.g. fast, deep, local). Profile routes (`delegation.backend: profile_routes`): the agent runs a subagent as one of your Hermes profiles, with that profile&#39;s own model, credentials, skills and SOUL.md. Only route names and their one-line descriptions reach the model. Adds `hermes delegation config` (pick the mode and edit its routes; `--show` prints the setup) and the `/delegation` slash command (save a mode for the next session, or `--now` to apply it to the current chat). Needs Hermes 0.22.5 or newer, the first release with pluggable delegation providers; Hermes 0.22.0 to 0.22.4 refuses to install it, and on a core older than 0.22.0 it installs, logs one warning and does nothing. Disclosure — no Python dependencies and no network or model calls of its own; subagents run through core&#39;s `delegate_task` on the routes you configured. Writes only `delegation.backend` and `delegation.backends.*` (model_map / profile_routes) in the active profile&#39;s config.yaml, through core&#39;s config writer. A model route&#39;s optional `api_key` is stored in config.yaml in plain text (`provider:` keeps keys in .env / auth.json). Listing a profile under profile routes lets this profile&#39;s subagents use that profile&#39;s credentials, SOUL.md and terminal policy.</p>
+<p>Requires Hermes &gt;=0.22.5. Version 1.0.0 at import.</p>
+<pre><code>hermes plugins install advanced-delegation</code></pre>
+
+<ul class="tags"><li>#skills</li><li>#plugin</li><li>#official-plugin</li><li>#tools</li></ul>
+
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/plugins/advanced-delegation" rel="noopener">Read the original</a>
+<a href="/#skills?item=plugin-official-advanced-delegation">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
+</footer>
+</div>
+</body>
+</html>

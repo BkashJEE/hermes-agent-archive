@@ -1,6 +1,6 @@
 {
   "note": "Imported from https://hermes-agent.nousresearch.com/docs/user-stories by scripts/import-hermes-stories.mjs. Every entry is a real post quoted and attributed on that page; the headline, quote, author and link are as published. Entries are merged, never replaced — nothing already archived is removed by a re-import.",
-  "importedAt": "2026-10-22T13:10:17.302Z",
+  "importedAt": "2026-10-23T12:50:33.097Z",
   "items": [
     {
       "id": "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t",
@@ -7241,6 +7241,23 @@
       "date": "2026-10-21",
       "uses": [
         "skill-bundled-apple-imessage"
+      ]
+    },
+    {
+      "id": "hn-50200353",
+      "title": "So I set out to build ClusterMob, a community registry of Hermes profiles and profile packs",
+      "summary": "I was reading the Hermes documentation page on profile distributions and, to my surprise, found that there is no official registry, no central mechanism for profile discovery.…",
+      "detail": "I was reading the Hermes documentation page on profile distributions and, to my surprise, found that there is no official registry, no central mechanism for profile discovery.\n\nSo I set out to build ClusterMob, a community registry of Hermes profiles and profile packs.\n\nAfter you register, you can register profiles by providing the git repo URL. The git repo will then be examined to automatically extract relevant metadata. There is also a background worker that performs security scanning on the git repo (to check for malicious instructions, etc.).\n\nAny authenticated user can register any git repo on GitHub/Bitbucket/GitLab. There is a mechanism for the actual author of the git repo to claim authorship.\n\nNote that the git repo doesn't need to follow the official Hermes profile distribution format.\n\n— k_sze, 2026-10-22, in the Hacker News thread “ClusterMob – a community registry of Hermes Agent profiles”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=50200353",
+      "author": "k_sze",
+      "date": "2026-10-22",
+      "uses": [
+        "cli-hermes-profile"
       ]
     }
   ]
