@@ -5984,6 +5984,23 @@
       "author": "Nous Research",
       "url": "https://hermes-agent.nousresearch.com/docs/plugins/camofox",
       "verifiedAt": "2026-10-23"
+    },
+    {
+      "id": "plugin-official-elevenlabs-sound-effects",
+      "title": "Elevenlabs Sound Effects",
+      "summary": "ElevenLabs sound effects for Hermes: one tool, elevenlabs_sound_effect, that turns a text description (\"glass shattering on a tile floor\", \"90s hip-hop drum loop, 90 BPM\") into an audio file, 0.5 to 30 seconds, optionally a seamless loop, and sends it to you in chat. Bundles a sound-design skill with a local ffmpeg script (trim, loudness, mono, loop fixing, game variation packs) and, in Hermes Desktop, an inline sound card and a sound library tab. Model, audio format and endpoint are plugin settings. Disclosure: uses your ElevenLabs API key (ELEVENLABS_API_KEY, the same key as Hermes's ElevenLabs voice; a restricted key needs the Sound Effects permission); every call is a paid generation billed to your ElevenLabs account. Only the sound description and its parameters are sent, to api.elevenlabs.io (or the data-residency endpoint you set). Files are written to cache/generated/audio under the Hermes home and never overwritten. One Python dependency (httpx, already part of Hermes).",
+      "detail": "ElevenLabs sound effects for Hermes: one tool, elevenlabs_sound_effect, that turns a text description (\"glass shattering on a tile floor\", \"90s hip-hop drum loop, 90 BPM\") into an audio file, 0.5 to 30 seconds, optionally a seamless loop, and sends it to you in chat. Bundles a sound-design skill with a local ffmpeg script (trim, loudness, mono, loop fixing, game variation packs) and, in Hermes Desktop, an inline sound card and a sound library tab. Model, audio format and endpoint are plugin settings. Disclosure: uses your ElevenLabs API key (ELEVENLABS_API_KEY, the same key as Hermes's ElevenLabs voice; a restricted key needs the Sound Effects permission); every call is a paid generation billed to your ElevenLabs account. Only the sound description and its parameters are sent, to api.elevenlabs.io (or the data-residency endpoint you set). Files are written to cache/generated/audio under the Hermes home and never overwritten. One Python dependency (httpx, already part of Hermes).\n\nRequires Hermes >=0.22.0. Tools: elevenlabs_sound_effect. Environment: ELEVENLABS_API_KEY. Version 1.2.0 at import.",
+      "snippet": "hermes plugins install elevenlabs-sound-effects",
+      "tags": [
+        "skills",
+        "plugin",
+        "official-plugin",
+        "tools"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/plugins/elevenlabs-sound-effects",
+      "verifiedAt": "2026-10-26"
     }
   ]
 }

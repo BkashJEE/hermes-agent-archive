@@ -7,6 +7,14 @@
 <description>Sourced Hermes Agent workflows, prompts, skills and projects, as they are added. Dates are arrival dates.</description>
 <language>en</language>
 <item>
+<title>Elevenlabs Sound Effects</title>
+<link>https://hermes-agent-archive.vercel.app/entry/plugin-official-elevenlabs-sound-effects</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/plugin-official-elevenlabs-sound-effects</guid>
+<pubDate>Mon, 26 Oct 2026 12:00:00 GMT</pubDate>
+<category>Skills</category>
+<description>ElevenLabs sound effects for Hermes: one tool, elevenlabs_sound_effect, that turns a text description (&quot;glass shattering on a tile floor&quot;, &quot;90s hip-hop drum loop, 90 BPM&quot;) into an audio file, 0.5 to 30 seconds, optionally a seamless loop, and sends it to you in chat. Bundles a sound-design skill…</description>
+</item>
+<item>
 <title>So I set out to build ClusterMob, a community registry of Hermes profiles and profile packs</title>
 <link>https://hermes-agent-archive.vercel.app/entry/hn-50200353</link>
 <guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-50200353</guid>
@@ -477,14 +485,6 @@
 <pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
 <category>Use Cases</category>
 <description>It depends on what you mean by &quot;unsupervised&quot; - I&#39;ve been strictly working through the agent, through specs the entire time, but it&#39;s been very supervised, I just leave the…</description>
-</item>
-<item>
-<title>now, when I connect local hermes agent that uses deepseek v4 flash via their api, latency jumps…</title>
-<link>https://hermes-agent-archive.vercel.app/entry/hn-48930884</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-48930884</guid>
-<pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>nice, are you using webrtc aec3 or sth custom? to your question i did a thorough benchmarking (hence late reply) used 18gb m3 pro macpro full on-device with gemma 4 e2b is…</description>
 </item>
 </channel>
 </rss>

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-10-26T13:15:40.687Z",
+  "classifiedAt": "2026-10-26T14:31:55.696Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -8919,6 +8919,12 @@
       "usefulness": 0.05,
       "popularity": "unknown",
       "confidence": 0.97
+    },
+    "plugin-official-elevenlabs-sound-effects": {
+      "input": "60f24b5d69f802f61a63fda88fddf765066c8bb8c4a28fbe49d26ffdc5449622",
+      "usefulness": 2.73,
+      "popularity": "unknown",
+      "confidence": 0.57
     }
   }
 }
