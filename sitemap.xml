@@ -968,6 +968,7 @@
   <url><loc>https://hermes-agent-archive.vercel.app/entry/review-settings-recycle-mcp-processes-that-retain-too-much-memory</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/review-settings-limit-mcp-resources-and-prompt-utilities</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/review-settings-pass-caller-identity-to-an-mcp-server</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/fix-context-window-below-minimum-64000</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/shelf/commands</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/cli-hermes-chat</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/cli-hermes-model</loc></url>

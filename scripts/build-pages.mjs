@@ -70,14 +70,14 @@ export const liveTiers = links => (Array.isArray(links) ? links : []).filter(l =
 let TIPS_LIVE = false;
 export const setTipsLive = v => { TIPS_LIVE = Boolean(v); };
 
-const page = ({ title, description, canonical, body, breadcrumb, image = social(), jsonld = null }) => `<!doctype html>
+const page = ({ title, titleTag = null, description, canonical, body, breadcrumb, image = social(), jsonld = null }) => `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="color-scheme" content="dark light">
 <script>/* Colour scheme before first paint: a stored choice wins, otherwise the system's. Same snippet on every page, so the archive looks the same from one page to the next. */(function(){try{var s=localStorage.getItem('hermes-scheme');if(s==='light'||s==='dark')document.documentElement.dataset.scheme=s;var t=localStorage.getItem('ha-theme');if(t==='broadsheet')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${esc(title)} · Hermes Agent Archive</title>
+<title>${esc(titleTag || `${title} · Hermes Agent Archive`)}</title>
 <meta name="description" content="${esc(description)}">
 <link rel="canonical" href="${esc(canonical)}">
 <meta property="og:type" content="article">
@@ -161,8 +161,11 @@ ${link ? `<a href="${esc(link)}" rel="noopener">Read the original</a>` : ''}
     ...(link ? { citation: link } : {}),
     ...(item.tags?.length ? { keywords: item.tags.join(', ') } : {})
   };
+  /* An optional `titleTag` is the whole <title>, for an entry whose heading is too long to
+     rank as one; without it the title is the heading plus the site name, as everywhere else. */
   return page({
     title: item.title,
+    titleTag: typeof item.titleTag === 'string' && item.titleTag.trim() ? item.titleTag.trim() : null,
     description: trim(item.summary),
     canonical: `${SITE}/entry/${item.id}`,
     breadcrumb: ` / <a href="/shelf/${esc(section.id)}">${esc(section.label)}</a>`,
