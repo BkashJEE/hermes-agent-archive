@@ -6001,6 +6001,43 @@
       "author": "Nous Research",
       "url": "https://hermes-agent.nousresearch.com/docs/plugins/elevenlabs-sound-effects",
       "verifiedAt": "2026-10-26"
+    },
+    {
+      "id": "skill-bundled-productivity-microsoft-office",
+      "title": "Microsoft Office",
+      "summary": "Create, read, and edit Word, PowerPoint, and Excel files.",
+      "detail": "Create, read, edit, and template Word (`.docx`), PowerPoint (`.pptx`), and\nExcel (`.xlsx`, `.csv`) files offline with small Python CLIs built on\npython-docx, python-pptx, and openpyxl. Office itself is never needed. It does\nnot open legacy binary formats (`.doc`, `.ppt`, `.xls`) and does not render\npages without LibreOffice.\n\nPlatforms: linux, macos, windows.",
+      "snippet": "hermes skills install NousResearch/hermes-agent/skills/productivity/microsoft-office",
+      "tags": [
+        "skills",
+        "built-in",
+        "productivity",
+        "office",
+        "word",
+        "docx",
+        "powerpoint"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/productivity/productivity-microsoft-office",
+      "verifiedAt": "2026-10-29"
+    },
+    {
+      "id": "plugin-official-elevenlabs-music",
+      "title": "Elevenlabs Music",
+      "summary": "ElevenLabs Music for Hermes: describe a song or paste your lyrics and Hermes writes, generates and sends the track, 3 seconds to 10 minutes, vocals or instrumental. It can redo one section, extend or loop a song, split it into stems (vocals, drums, bass, guitar, piano, other) and score a video. Long songs finish in the background and arrive in the chat. Bundles a music skill (prompting, composition plans, edit recipes) and, in Hermes Desktop, an inline music card with synced lyrics, format downloads and a music library tab. Model, audio format and endpoint are plugin settings. Disclosure: uses your ElevenLabs API key (ELEVENLABS_API_KEY, the same key as Hermes's ElevenLabs voice; needs a paid ElevenLabs plan, and a restricted key needs the Music permission); compose, plan, upload, stems and video calls are paid generations billed to your ElevenLabs account by length (drafting a plan and listing finetunes are free). Only the prompt or plan, its parameters and any file you name are sent, to api.elevenlabs.io (or the data-residency endpoint you set); with store_for_editing on, ElevenLabs keeps generated songs so they can be edited later. Files are written to cache/generated/audio under the Hermes home and never overwritten. One Python dependency (httpx, already part of Hermes).",
+      "detail": "ElevenLabs Music for Hermes: describe a song or paste your lyrics and Hermes writes, generates and sends the track, 3 seconds to 10 minutes, vocals or instrumental. It can redo one section, extend or loop a song, split it into stems (vocals, drums, bass, guitar, piano, other) and score a video. Long songs finish in the background and arrive in the chat. Bundles a music skill (prompting, composition plans, edit recipes) and, in Hermes Desktop, an inline music card with synced lyrics, format downloads and a music library tab. Model, audio format and endpoint are plugin settings. Disclosure: uses your ElevenLabs API key (ELEVENLABS_API_KEY, the same key as Hermes's ElevenLabs voice; needs a paid ElevenLabs plan, and a restricted key needs the Music permission); compose, plan, upload, stems and video calls are paid generations billed to your ElevenLabs account by length (drafting a plan and listing finetunes are free). Only the prompt or plan, its parameters and any file you name are sent, to api.elevenlabs.io (or the data-residency endpoint you set); with store_for_editing on, ElevenLabs keeps generated songs so they can be edited later. Files are written to cache/generated/audio under the Hermes home and never overwritten. One Python dependency (httpx, already part of Hermes).\n\nRequires Hermes >=0.22.0. Tools: elevenlabs_music_compose, elevenlabs_music_compose_plan, elevenlabs_music_draft_plan, elevenlabs_music_upload, elevenlabs_music_stems, elevenlabs_music_from_video, elevenlabs_music_finetunes, elevenlabs_music_job. Environment: ELEVENLABS_API_KEY. Version 1.0.0 at import.",
+      "snippet": "hermes plugins install elevenlabs-music",
+      "tags": [
+        "skills",
+        "plugin",
+        "official-plugin",
+        "tools"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/plugins/elevenlabs-music",
+      "verifiedAt": "2026-10-29"
     }
   ]
 }

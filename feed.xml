@@ -7,6 +7,22 @@
 <description>Sourced Hermes Agent workflows, prompts, skills and projects, as they are added. Dates are arrival dates.</description>
 <language>en</language>
 <item>
+<title>Microsoft Office</title>
+<link>https://hermes-agent-archive.vercel.app/entry/skill-bundled-productivity-microsoft-office</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/skill-bundled-productivity-microsoft-office</guid>
+<pubDate>Thu, 29 Oct 2026 12:00:00 GMT</pubDate>
+<category>Skills</category>
+<description>Create, read, and edit Word, PowerPoint, and Excel files.</description>
+</item>
+<item>
+<title>Elevenlabs Music</title>
+<link>https://hermes-agent-archive.vercel.app/entry/plugin-official-elevenlabs-music</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/plugin-official-elevenlabs-music</guid>
+<pubDate>Thu, 29 Oct 2026 12:00:00 GMT</pubDate>
+<category>Skills</category>
+<description>ElevenLabs Music for Hermes: describe a song or paste your lyrics and Hermes writes, generates and sends the track, 3 seconds to 10 minutes, vocals or instrumental. It can redo one section, extend or loop a song, split it into stems (vocals, drums, bass, guitar, piano, other) and score a video…</description>
+</item>
+<item>
 <title>Elevenlabs Sound Effects</title>
 <link>https://hermes-agent-archive.vercel.app/entry/plugin-official-elevenlabs-sound-effects</link>
 <guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/plugin-official-elevenlabs-sound-effects</guid>
@@ -469,22 +485,6 @@
 <pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
 <category>Use Cases</category>
 <description>I purchased my Spark back in March before the RAM price increase. My use case is local self-sovereign AI in Healthcare (https://hcvc.net), so I haven&#39;t done any gaming. Its…</description>
-</item>
-<item>
-<title>I just built my own voice assistant with my Pebble Time 2 watch and it uses a VPS hosted TTS…</title>
-<link>https://hermes-agent-archive.vercel.app/entry/hn-49064389</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-49064389</guid>
-<pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>I just built my own voice assistant with my Pebble Time 2 watch and it uses a VPS hosted TTS (Piper) and Hermes agent. I learned about all of these projects on HN at one point…</description>
-</item>
-<item>
-<title>&quot;Make this work on Hermes agent and message me when you&#39;re done&quot; and an hour later or so, I can…</title>
-<link>https://hermes-agent-archive.vercel.app/entry/hn-48969451</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-48969451</guid>
-<pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>It depends on what you mean by &quot;unsupervised&quot; - I&#39;ve been strictly working through the agent, through specs the entire time, but it&#39;s been very supervised, I just leave the…</description>
 </item>
 </channel>
 </rss>

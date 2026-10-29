@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-10-29T13:15:39.229Z",
+  "classifiedAt": "2026-10-29T14:37:58.346Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -8925,6 +8925,18 @@
       "usefulness": 2.73,
       "popularity": "unknown",
       "confidence": 0.57
+    },
+    "skill-bundled-productivity-microsoft-office": {
+      "input": "d183d67479994ab37f8df5dc444b701078b134b6ed7761ee872cc688f225f60e",
+      "usefulness": 1.9,
+      "popularity": "unknown",
+      "confidence": 0.53
+    },
+    "plugin-official-elevenlabs-music": {
+      "input": "36d091a7286e7b38efa2ddeb2d3264eecd63e70470302a16948fd1401fbefaf5",
+      "usefulness": 2.36,
+      "popularity": "unknown",
+      "confidence": 0.36
     }
   }
 }

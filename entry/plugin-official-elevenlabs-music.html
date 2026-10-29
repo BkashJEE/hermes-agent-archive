@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark light">
+<script>/* Colour scheme before first paint: a stored choice wins, otherwise the system's. Same snippet on every page, so the archive looks the same from one page to the next. */(function(){try{var s=localStorage.getItem('hermes-scheme');if(s==='light'||s==='dark')document.documentElement.dataset.scheme=s;var t=localStorage.getItem('ha-theme');if(t==='broadsheet')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elevenlabs Music · Hermes Agent Archive</title>
+<meta name="description" content="ElevenLabs Music for Hermes: describe a song or paste your lyrics and Hermes writes, generates and sends the track, 3 seconds to 10 minutes, vocals or…">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/plugin-official-elevenlabs-music">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Elevenlabs Music">
+<meta property="og:description" content="ElevenLabs Music for Hermes: describe a song or paste your lyrics and Hermes writes, generates and sends the track, 3 seconds to 10 minutes, vocals or…">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/plugin-official-elevenlabs-music">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social/skills.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Elevenlabs Music">
+<meta name="twitter:description" content="ElevenLabs Music for Hermes: describe a song or paste your lyrics and Hermes writes, generates and sends the track, 3 seconds to 10 minutes, vocals or…">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social/skills.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Elevenlabs Music","description":"ElevenLabs Music for Hermes: describe a song or paste your lyrics and Hermes writes, generates and sends the track, 3 seconds to 10 minutes, vocals or…","url":"https://hermes-agent-archive.vercel.app/entry/plugin-official-elevenlabs-music","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/skills.png","author":{"@type":"Person","name":"Nous Research"},"citation":"https://hermes-agent.nousresearch.com/docs/plugins/elevenlabs-music","keywords":"skills, plugin, official-plugin, tools"}</script>
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/skills">Skills</a></header>
+
+<article>
+<h1>Elevenlabs Music</h1>
+
+<p class="meta">By Nous Research · Official Docs · Date unknown</p>
+<p>ElevenLabs Music for Hermes: describe a song or paste your lyrics and Hermes writes, generates and sends the track, 3 seconds to 10 minutes, vocals or instrumental. It can redo one section, extend or loop a song, split it into stems (vocals, drums, bass, guitar, piano, other) and score a video. Long songs finish in the background and arrive in the chat. Bundles a music skill (prompting, composition plans, edit recipes) and, in Hermes Desktop, an inline music card with synced lyrics, format downloads and a music library tab. Model, audio format and endpoint are plugin settings. Disclosure: uses your ElevenLabs API key (ELEVENLABS_API_KEY, the same key as Hermes&#39;s ElevenLabs voice; needs a paid ElevenLabs plan, and a restricted key needs the Music permission); compose, plan, upload, stems and video calls are paid generations billed to your ElevenLabs account by length (drafting a plan and listing finetunes are free). Only the prompt or plan, its parameters and any file you name are sent, to api.elevenlabs.io (or the data-residency endpoint you set); with store_for_editing on, ElevenLabs keeps generated songs so they can be edited later. Files are written to cache/generated/audio under the Hermes home and never overwritten. One Python dependency (httpx, already part of Hermes).</p>
+<p>Requires Hermes &gt;=0.22.0. Tools: elevenlabs_music_compose, elevenlabs_music_compose_plan, elevenlabs_music_draft_plan, elevenlabs_music_upload, elevenlabs_music_stems, elevenlabs_music_from_video, elevenlabs_music_finetunes, elevenlabs_music_job. Environment: ELEVENLABS_API_KEY. Version 1.0.0 at import.</p>
+<pre><code>hermes plugins install elevenlabs-music</code></pre>
+
+<ul class="tags"><li>#skills</li><li>#plugin</li><li>#official-plugin</li><li>#tools</li></ul>
+
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/plugins/elevenlabs-music" rel="noopener">Read the original</a>
+<a href="/#skills?item=plugin-official-elevenlabs-music">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
+</footer>
+</div>
+</body>
+</html>
