@@ -5,18 +5,18 @@
 <meta name="color-scheme" content="dark light">
 <script>/* Colour scheme before first paint: a stored choice wins, otherwise the system's. Same snippet on every page, so the archive looks the same from one page to the next. */(function(){try{var s=localStorage.getItem('hermes-scheme');if(s==='light'||s==='dark')document.documentElement.dataset.scheme=s;var t=localStorage.getItem('ha-theme');if(t==='broadsheet')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Elevenlabs Sound Effects · Hermes Agent Archive</title>
+<title>ElevenLabs Sound Effects · Hermes Agent Archive</title>
 <meta name="description" content="ElevenLabs sound effects for Hermes: one tool, elevenlabs_sound_effect, that turns a text description (&quot;glass shattering on a tile floor&quot;, &quot;90s hip-hop…">
 <link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/plugin-official-elevenlabs-sound-effects">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Elevenlabs Sound Effects">
+<meta property="og:title" content="ElevenLabs Sound Effects">
 <meta property="og:description" content="ElevenLabs sound effects for Hermes: one tool, elevenlabs_sound_effect, that turns a text description (&quot;glass shattering on a tile floor&quot;, &quot;90s hip-hop…">
 <meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/plugin-official-elevenlabs-sound-effects">
 <meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social/skills.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Elevenlabs Sound Effects">
+<meta name="twitter:title" content="ElevenLabs Sound Effects">
 <meta name="twitter:description" content="ElevenLabs sound effects for Hermes: one tool, elevenlabs_sound_effect, that turns a text description (&quot;glass shattering on a tile floor&quot;, &quot;90s hip-hop…">
 <meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social/skills.png">
 <link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
@@ -25,14 +25,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/doc.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Elevenlabs Sound Effects","description":"ElevenLabs sound effects for Hermes: one tool, elevenlabs_sound_effect, that turns a text description (\"glass shattering on a tile floor\", \"90s hip-hop…","url":"https://hermes-agent-archive.vercel.app/entry/plugin-official-elevenlabs-sound-effects","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/skills.png","author":{"@type":"Person","name":"Nous Research"},"citation":"https://hermes-agent.nousresearch.com/docs/plugins/elevenlabs-sound-effects","keywords":"skills, plugin, official-plugin, tools"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"ElevenLabs Sound Effects","description":"ElevenLabs sound effects for Hermes: one tool, elevenlabs_sound_effect, that turns a text description (\"glass shattering on a tile floor\", \"90s hip-hop…","url":"https://hermes-agent-archive.vercel.app/entry/plugin-official-elevenlabs-sound-effects","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/skills.png","author":{"@type":"Person","name":"Nous Research"},"citation":"https://hermes-agent.nousresearch.com/docs/plugins/elevenlabs-sound-effects","keywords":"skills, plugin, official-plugin, tools"}</script>
 </head>
 <body>
 <div class="doc">
 <header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/skills">Skills</a></header>
 
 <article>
-<h1>Elevenlabs Sound Effects</h1>
+<h1>ElevenLabs Sound Effects</h1>
 
 <p class="meta">By Nous Research · Official Docs · Date unknown</p>
 <p>ElevenLabs sound effects for Hermes: one tool, elevenlabs_sound_effect, that turns a text description (&quot;glass shattering on a tile floor&quot;, &quot;90s hip-hop drum loop, 90 BPM&quot;) into an audio file, 0.5 to 30 seconds, optionally a seamless loop, and sends it to you in chat. Bundles a sound-design skill with a local ffmpeg script (trim, loudness, mono, loop fixing, game variation packs) and, in Hermes Desktop, an inline sound card and a sound library tab. Model, audio format and endpoint are plugin settings. Disclosure: uses your ElevenLabs API key (ELEVENLABS_API_KEY, the same key as Hermes&#39;s ElevenLabs voice; a restricted key needs the Sound Effects permission); every call is a paid generation billed to your ElevenLabs account. Only the sound description and its parameters are sent, to api.elevenlabs.io (or the data-residency endpoint you set). Files are written to cache/generated/audio under the Hermes home and never overwritten. One Python dependency (httpx, already part of Hermes).</p>
