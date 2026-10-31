@@ -12,10 +12,10 @@
 <guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/skill-bundled-productivity-microsoft-office</guid>
 <pubDate>Thu, 29 Oct 2026 12:00:00 GMT</pubDate>
 <category>Skills</category>
-<description>Create, read, and edit Word, PowerPoint, and Excel files.</description>
+<description>Create, read, and edit Word, PowerPoint, and Excel files. Not in a Hermes release yet: it is on the main branch only.</description>
 </item>
 <item>
-<title>Elevenlabs Music</title>
+<title>ElevenLabs Music</title>
 <link>https://hermes-agent-archive.vercel.app/entry/plugin-official-elevenlabs-music</link>
 <guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/plugin-official-elevenlabs-music</guid>
 <pubDate>Thu, 29 Oct 2026 12:00:00 GMT</pubDate>
@@ -23,7 +23,7 @@
 <description>ElevenLabs Music for Hermes: describe a song or paste your lyrics and Hermes writes, generates and sends the track, 3 seconds to 10 minutes, vocals or instrumental. It can redo one section, extend or loop a song, split it into stems (vocals, drums, bass, guitar, piano, other) and score a video…</description>
 </item>
 <item>
-<title>Elevenlabs Sound Effects</title>
+<title>ElevenLabs Sound Effects</title>
 <link>https://hermes-agent-archive.vercel.app/entry/plugin-official-elevenlabs-sound-effects</link>
 <guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/plugin-official-elevenlabs-sound-effects</guid>
 <pubDate>Mon, 26 Oct 2026 12:00:00 GMT</pubDate>
