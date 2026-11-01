@@ -1,6 +1,6 @@
 {
   "note": "Imported from https://hermes-agent.nousresearch.com/docs/user-stories by scripts/import-hermes-stories.mjs. Every entry is a real post quoted and attributed on that page; the headline, quote, author and link are as published. Entries are merged, never replaced — nothing already archived is removed by a re-import.",
-  "importedAt": "2026-10-23T12:50:33.097Z",
+  "importedAt": "2026-11-01T14:28:22.230Z",
   "items": [
     {
       "id": "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t",
@@ -7258,6 +7258,23 @@
       "date": "2026-10-22",
       "uses": [
         "cli-hermes-profile"
+      ]
+    },
+    {
+      "id": "hn-50320580",
+      "title": "I've been compiling a list of cybersecurity RSS feeds to build a small automation (with…",
+      "summary": "I've been compiling a list of cybersecurity RSS feeds to build a small automation (with oversight from Hermes agent) to ping me (ntfy.sh or just Telegram) when a CVE requires…",
+      "detail": "I've been compiling a list of cybersecurity RSS feeds to build a small automation (with oversight from Hermes agent) to ping me (ntfy.sh or just Telegram) when a CVE requires my intervention (matching them to a list of services I run for clients and myself.)\n\nMy list (of feeds) is still small, but this CVE did not show up, do any of you have any tips for RSS feeds to use for this purpose?\n\n— teekert, 2026-10-31, in the Hacker News thread “TCP Use-After-Free: CVE-2026-98432 / CVSS 9.8”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=50320580",
+      "author": "teekert",
+      "date": "2026-10-31",
+      "uses": [
+        "review-skills-rss-feeds"
       ]
     }
   ]

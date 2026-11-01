@@ -7,6 +7,14 @@
 <description>Sourced Hermes Agent workflows, prompts, skills and projects, as they are added. Dates are arrival dates.</description>
 <language>en</language>
 <item>
+<title>I&#39;ve been compiling a list of cybersecurity RSS feeds to build a small automation (with…</title>
+<link>https://hermes-agent-archive.vercel.app/entry/hn-50320580</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-50320580</guid>
+<pubDate>Sun, 01 Nov 2026 12:00:00 GMT</pubDate>
+<category>Use Cases</category>
+<description>I&#39;ve been compiling a list of cybersecurity RSS feeds to build a small automation (with oversight from Hermes agent) to ping me (ntfy.sh or just Telegram) when a CVE requires…</description>
+</item>
+<item>
 <title>Microsoft Office</title>
 <link>https://hermes-agent-archive.vercel.app/entry/skill-bundled-productivity-microsoft-office</link>
 <guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/skill-bundled-productivity-microsoft-office</guid>
@@ -477,14 +485,6 @@
 <pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
 <category>Use Cases</category>
 <description>So, I recently started using the Hermes agent and hooked it up with Step 3.5 Flash. It’s a cheap and fast model, so I thought it would be enough for my workflow. However, I…</description>
-</item>
-<item>
-<title>Its been a great driver for Hermes Agent, serving local MoE and dense models up to 122B</title>
-<link>https://hermes-agent-archive.vercel.app/entry/hn-49097260</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-49097260</guid>
-<pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>I purchased my Spark back in March before the RAM price increase. My use case is local self-sovereign AI in Healthcare (https://hcvc.net), so I haven&#39;t done any gaming. Its…</description>
 </item>
 </channel>
 </rss>
