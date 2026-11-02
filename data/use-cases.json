@@ -1,6 +1,6 @@
 {
   "note": "Imported from https://hermes-agent.nousresearch.com/docs/user-stories by scripts/import-hermes-stories.mjs. Every entry is a real post quoted and attributed on that page; the headline, quote, author and link are as published. Entries are merged, never replaced — nothing already archived is removed by a re-import.",
-  "importedAt": "2026-11-01T14:28:22.230Z",
+  "importedAt": "2026-11-02T17:24:15.702Z",
   "items": [
     {
       "id": "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t",
@@ -7276,6 +7276,20 @@
       "uses": [
         "review-skills-rss-feeds"
       ]
+    },
+    {
+      "id": "hn-50327878",
+      "title": "In exactly one prompt to my Hermes agent, it developed and deployed a HackerTube Android TV app…",
+      "summary": "In exactly one prompt to my Hermes agent, it developed and deployed a HackerTube Android TV app to my NVIDIA Shields. Incredible time to be alive.\n\nedit: a pet peeve of mine is…",
+      "detail": "In exactly one prompt to my Hermes agent, it developed and deployed a HackerTube Android TV app to my NVIDIA Shields. Incredible time to be alive.\n\nedit: a pet peeve of mine is when people overstate agency capability like it’s some out of the box magic, and I’m guilty of of it here. So I should disclose that I’ve previously setup Hermes with ADB access and accessibility for remote control, and various skills for my home lan. It also had some memories or skills from sessions on managing these shield devices. other than that tho, it figured the rest out.\n\n— aus_, 2026-11-01, in the Hacker News thread “HackerTube: YouTube built from videos recommended by HN”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=50327878",
+      "author": "aus_",
+      "date": "2026-11-01"
     }
   ]
 }
