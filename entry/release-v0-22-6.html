@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark light">
+<script>/* Colour scheme before first paint: a stored choice wins, otherwise the system's. Same snippet on every page, so the archive looks the same from one page to the next. */(function(){try{var s=localStorage.getItem('hermes-scheme');if(s==='light'||s==='dark')document.documentElement.dataset.scheme=s;var t=localStorage.getItem('ha-theme');if(t==='broadsheet')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hermes Agent v0.22.6 · Hermes Agent Archive</title>
+<meta name="description" content="Patch release. This tag rolls up the ~776 PRs merged since v0.22.5 into a stable release for the GitHub release (CLI and installers), the Microsoft Store…">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/release-v0-22-6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hermes Agent v0.22.6">
+<meta property="og:description" content="Patch release. This tag rolls up the ~776 PRs merged since v0.22.5 into a stable release for the GitHub release (CLI and installers), the Microsoft Store…">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/release-v0-22-6">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social/releases.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hermes Agent v0.22.6">
+<meta name="twitter:description" content="Patch release. This tag rolls up the ~776 PRs merged since v0.22.5 into a stable release for the GitHub release (CLI and installers), the Microsoft Store…">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social/releases.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Hermes Agent v0.22.6","description":"Patch release. This tag rolls up the ~776 PRs merged since v0.22.5 into a stable release for the GitHub release (CLI and installers), the Microsoft Store…","url":"https://hermes-agent-archive.vercel.app/entry/release-v0-22-6","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/releases.png","datePublished":"2026-11-02","author":{"@type":"Person","name":"Nous Research"},"citation":"https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.6","keywords":"release"}</script>
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/releases">Releases</a></header>
+
+<article>
+<h1>Hermes Agent v0.22.6</h1>
+
+<p class="meta">By Nous Research · GitHub · November 2, 2026</p>
+<p>Patch release. This tag rolls up the ~776 PRs merged since v0.22.5 into a stable release for the GitHub release (CLI and installers), the Microsoft Store app, Docker and Hermes Cloud. Full curated notes for this window ship with v0.23.0.</p>
+<p>About this release</p>
+<p>Measured at commit `f0d94882e89`, the window since v0.22.5 contains 3,448 non-merge commits across 4,316 changed files (+248,579 / −94,077), 776 merged PRs and 385 closed issues.</p>
+<p>Also in the window, undocumented here on purpose: the Webapp served from the gateway&#39;s own listener (`hermes webapp`, a Desktop Web Access pane to open it on your network or your own URL behind Nous sign-in, and Desktop plugins loading in a browser tab), `/model reset` to clear a session&#39;s model pin without losing history, per-skill locks against autonomous writes (lockable from the Desktop Capabilities pane), opt-in prepared compaction (`compression.prepare_ahead`), `hermes cron cancel` plus a per-job missed-run policy and a Stop button in the Desktop cron editor, `/delegation` choices saved for the next session, `hermes migrate` and setup moving Grok Bot and OpenBot users over, opt-in OS-keychain storage for the vault key, the catalog&#39;s `requires_hermes` enforced at plugin install and update, agent-picked ElevenLabs voices in `text_to_speech`, a `pre_llm_call` hook that can block a turn before inference, Desktop group chat rename, disband, mentions and attachment paste, every profile shown as a Desktop sidebar section, Telegram video notes, Slack emoji reactions in thread context, and resumable downloads in the package manager.</p>
+<p>…</p>
+<p>Full release notes: https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.6</p>
+
+
+<ul class="tags"><li>#release</li></ul>
+
+<div class="actions">
+<a href="https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.6" rel="noopener">Read the original</a>
+<a href="/#releases?item=release-v0-22-6">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
+</footer>
+</div>
+</body>
+</html>
