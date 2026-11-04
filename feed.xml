@@ -7,6 +7,14 @@
 <description>Sourced Hermes Agent workflows, prompts, skills and projects, as they are added. Dates are arrival dates.</description>
 <language>en</language>
 <item>
+<title>Hermes Agent v0.22.7</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v0-22-7</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v0-22-7</guid>
+<pubDate>Wed, 04 Nov 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>Patch release. This tag rolls up the ~174 PRs merged since v0.22.6 into a stable release for the GitHub release (CLI and installers), the Microsoft Store app, Docker and Hermes Cloud. Full curated notes for this…</description>
+</item>
+<item>
 <title>In exactly one prompt to my Hermes agent, it developed and deployed a HackerTube Android TV app…</title>
 <link>https://hermes-agent-archive.vercel.app/entry/hn-50327878</link>
 <guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-50327878</guid>
@@ -477,14 +485,6 @@
 <pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
 <category>Use Cases</category>
 <description>To put actual numbers on it, since using AI to start solving all kinds of bottlenecks/inefficiencies in our small business, we&#39;ve seen monthly net profit go up by around $4,000…</description>
-</item>
-<item>
-<title>So i created an mcp, that is fetching the newest hackernews articles - stores them in memory -…</title>
-<link>https://hermes-agent-archive.vercel.app/entry/hn-49214369</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-49214369</guid>
-<pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>I was playing with channels in golang and then i saw the hackernews api. So i created an mcp, that is fetching the newest hackernews articles - stores them in memory - halves…</description>
 </item>
 </channel>
 </rss>
