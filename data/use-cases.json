@@ -1,6 +1,6 @@
 {
   "note": "Imported from https://hermes-agent.nousresearch.com/docs/user-stories by scripts/import-hermes-stories.mjs. Every entry is a real post quoted and attributed on that page; the headline, quote, author and link are as published. Entries are merged, never replaced — nothing already archived is removed by a re-import.",
-  "importedAt": "2026-11-02T17:24:15.702Z",
+  "importedAt": "2026-11-05T15:45:50.936Z",
   "items": [
     {
       "id": "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t",
@@ -7290,6 +7290,75 @@
       "url": "https://news.ycombinator.com/item?id=50327878",
       "author": "aus_",
       "date": "2026-11-01"
+    },
+    {
+      "id": "hn-50377697",
+      "title": "i use hermes-agent as my personal assistant and it talks to my claude code and codex if it…",
+      "summary": "i use hermes-agent as my personal assistant and it talks to my claude code and codex if it needs to do projects and other stuff. openrouter is my default for the hermes-agent…",
+      "detail": "i use hermes-agent as my personal assistant and it talks to my claude code and codex if it needs to do projects and other stuff. openrouter is my default for the hermes-agent and sometimes i connect to lm-studio if openrouter gets errors or maybe try out some local models\n\n— gonxman, 2026-11-05, in the Hacker News thread “Ask HN: What's your current AI agentic setup?”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=50377697",
+      "author": "gonxman",
+      "date": "2026-11-05",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-claude-code",
+        "skill-bundled-autonomous-ai-agents-codex"
+      ]
+    },
+    {
+      "id": "hn-50377455",
+      "title": "4) Agent orchestration: only custom tooling now, heavy user of Mastra for custom agentic…",
+      "summary": "1) Subscriptions: Claude Ultra for coding and analysis (Opus 5.5 mostly, sometimes Fable for more complex questions) + ChatGPT Business (premium seat) for more allround tasks,…",
+      "detail": "1) Subscriptions: Claude Ultra for coding and analysis (Opus 5.5 mostly, sometimes Fable for more complex questions) + ChatGPT Business (premium seat) for more allround tasks, although I now mix in Codex (Astra) too for reviewing work or if I hit a usage limit.\n\nAlso I have a Cursor Pro plan but I notice I'm not using that enough actually. Only for backup and for file-level changes.\n\n2) Others: I have a DGX Spark running Qwen 3.8 27b (for confidential/sensitive work, narrow coding and narrow agentic work), but it's often running ComfyUI instead, with models like moss-image/minimax h3 for image/video asset generation.\n\nI also use various APIs incl. OpenRouter, but only for production, user-facing agents.\n\n3) Harness: Claude, sometimes Codex\n\nI tried OpenCode, did not like it the CLI nor the results, as compared to Claude. I want to but haven't really tried Pi yet.\n\n4) Agent orchestration: only custom tooling now, heavy user of Mastra for custom agentic workflows incl. production agents. Fantastic open source framework (not affiliated).\n\n5) Agent platforms: Tried OpenClaw earlier this year, when it was such a hype. Did not like it. Every update something broke, and I spent more time fixing things than I got value out of it. Switched to Hermes Agent running on a Mac Mini (I know...), and I'm still using that for various Hermes agents for all kinds of agentic tasks on the go, and so is my wife.\n\n#1 use case is capturing videos, podcasts, and posts online that I like, or meeting recordings, transcribing them with whisper, organizing them on my NAS, ... It will also distill skills from useful info I indicate, which are then pushed to my skills collection git repo.\n\n#2 use case is website maintenance (pushing new blog posts etc..) for a family member.\n\n#3 delegating work to Claude for coding on the go. I prefer to do this via my Hermes agent rather than the Claude app, as it has the full local context & tooling (e.g. iOS simulator, screen recording the end result and sending it to me when done).\n\n— vekker, 2026-11-05, in the Hacker News thread “Ask HN: What's your current AI agentic setup?”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=50377455",
+      "author": "vekker",
+      "date": "2026-11-05",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-codex",
+        "skill-bundled-autonomous-ai-agents-opencode",
+        "skill-optional-creative-comfyui",
+        "skill-optional-mlops-whisper"
+      ]
+    },
+    {
+      "id": "hn-50375546",
+      "title": "Harness: Primarily Hermes Agent across desktop, terminal, and phone (via Telegram)",
+      "summary": "Inference: combination of Opus 5.5 (best model in the market) and local models (DeepSeek 4.1f 1017 and GLM 5.3f) running on 3x DGX Spark.\n\nHarness: Primarily Hermes Agent…",
+      "detail": "Inference: combination of Opus 5.5 (best model in the market) and local models (DeepSeek 4.1f 1017 and GLM 5.3f) running on 3x DGX Spark.\n\nHarness: Primarily Hermes Agent across desktop, terminal, and phone (via Telegram). I have also tried OMP but find it a bit clunky to use. Hermes tui + tmux are my favourite tools and Hermes works well with local models.\n\nOrchestration: I haven’t seriously worked with it yet, but starting to use herdr with Hermes. That is as much “software factory” I get.\n\n— hestefisk, 2026-11-05, in the Hacker News thread “Ask HN: What's your current AI agentic setup?”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=50375546",
+      "author": "hestefisk",
+      "date": "2026-11-05"
+    },
+    {
+      "id": "hn-50373974",
+      "title": "3 - I use a lot of Opencode + Deepseek, strategize some of that work with Claude Opus, and some…",
+      "summary": "1 - Opencode Go $40, Claude $20, $0-100 on Deepseek API\n\n2 - No\n\n3 - I use a lot of Opencode + Deepseek, strategize some of that work with Claude Opus, and some gtm, research,…",
+      "detail": "1 - Opencode Go $40, Claude $20, $0-100 on Deepseek API\n\n2 - No\n\n3 - I use a lot of Opencode + Deepseek, strategize some of that work with Claude Opus, and some gtm, research, and project stuff in Hermes with its coding agent. When I guide by hand I use Orca Dev, which is lovely.\n\n4 - Claude drops GitHub issues that Opencode picks up on a schedule. It’s simple and resilient enough for me. Hermes has a lot of scheduled tasks to move things forward.. it has gtm and research and dev loops (the latter builds autonomously for future projects vis a vis my attention, I’ve used quite a bit of it).\n\n5 - Hermes Agent, which has become a core tech for me. I’ve tried to use Openclaw but it has not been something I can keep running. It spirals and crashes after a week in ways I’ve never experienced from Hermes, doing the same things. I have little interest in those generalist agents, maybe after a year.\n\n— browningstreet, 2026-11-05, in the Hacker News thread “Ask HN: What's your current AI agentic setup?”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=50373974",
+      "author": "browningstreet",
+      "date": "2026-11-05",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-opencode"
+      ]
     }
   ]
 }

@@ -7,6 +7,46 @@
 <description>Sourced Hermes Agent workflows, prompts, skills and projects, as they are added. Dates are arrival dates.</description>
 <language>en</language>
 <item>
+<title>i use hermes-agent as my personal assistant and it talks to my claude code and codex if it…</title>
+<link>https://hermes-agent-archive.vercel.app/entry/hn-50377697</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-50377697</guid>
+<pubDate>Thu, 05 Nov 2026 12:00:00 GMT</pubDate>
+<category>Use Cases</category>
+<description>i use hermes-agent as my personal assistant and it talks to my claude code and codex if it needs to do projects and other stuff. openrouter is my default for the hermes-agent…</description>
+</item>
+<item>
+<title>4) Agent orchestration: only custom tooling now, heavy user of Mastra for custom agentic…</title>
+<link>https://hermes-agent-archive.vercel.app/entry/hn-50377455</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-50377455</guid>
+<pubDate>Thu, 05 Nov 2026 12:00:00 GMT</pubDate>
+<category>Use Cases</category>
+<description>1) Subscriptions: Claude Ultra for coding and analysis (Opus 5.5 mostly, sometimes Fable for more complex questions) + ChatGPT Business (premium seat) for more allround tasks,…</description>
+</item>
+<item>
+<title>Harness: Primarily Hermes Agent across desktop, terminal, and phone (via Telegram)</title>
+<link>https://hermes-agent-archive.vercel.app/entry/hn-50375546</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-50375546</guid>
+<pubDate>Thu, 05 Nov 2026 12:00:00 GMT</pubDate>
+<category>Use Cases</category>
+<description>Inference: combination of Opus 5.5 (best model in the market) and local models (DeepSeek 4.1f 1017 and GLM 5.3f) running on 3x DGX Spark. Harness: Primarily Hermes Agent…</description>
+</item>
+<item>
+<title>3 - I use a lot of Opencode + Deepseek, strategize some of that work with Claude Opus, and some…</title>
+<link>https://hermes-agent-archive.vercel.app/entry/hn-50373974</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-50373974</guid>
+<pubDate>Thu, 05 Nov 2026 12:00:00 GMT</pubDate>
+<category>Use Cases</category>
+<description>1 - Opencode Go $40, Claude $20, $0-100 on Deepseek API 2 - No 3 - I use a lot of Opencode + Deepseek, strategize some of that work with Claude Opus, and some gtm, research,…</description>
+</item>
+<item>
+<title>Inline Images</title>
+<link>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-cli-inline-images</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/doc-user-guide-cli-inline-images</guid>
+<pubDate>Thu, 05 Nov 2026 12:00:00 GMT</pubDate>
+<category>Commands</category>
+<description>Images show up right in the transcript: the ones you attach ( /paste , /image , drag-and-drop) under your message, and the local image a successful tool call produced or looked at ( visio…</description>
+</item>
+<item>
 <title>Hermes Agent v0.22.7</title>
 <link>https://hermes-agent-archive.vercel.app/entry/release-v0-22-7</link>
 <guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v0-22-7</guid>
@@ -445,46 +485,6 @@
 <pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
 <category>Use Cases</category>
 <description>I didn&#39;t end up needing to go full scrcpy because my use case just runs Android in an emulator (Waydroid) for my Hermes agent to run apps. If I need vision or (x,y) coordinate…</description>
-</item>
-<item>
-<title>Tron, my Hermes agent, uses agent storming to orchestrate openCode agents and hermes subagents…</title>
-<link>https://hermes-agent-archive.vercel.app/entry/hn-49294464</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-49294464</guid>
-<pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>$0. but I use at least $8,000 worth of monthly tokens. I used to have: $200 Claude-max $10 github copilot $20 chatgpt $20 Cursor --- then, I spent roughly $5000 in tokens…</description>
-</item>
-<item>
-<title>I gave it a reverse SSH tunnel to a remote-debugging Chrome profile on my local Mac and now it…</title>
-<link>https://hermes-agent-archive.vercel.app/entry/hn-49282085</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-49282085</guid>
-<pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>Interesting. A residential IP was enough for me to get my Hermes agent grocery shopping successfully on a website with quite aggressive bot protection. I run Hermes on a VPS,…</description>
-</item>
-<item>
-<title>I am getting to know Hermes agent and in the last couple of days I used it for searching the…</title>
-<link>https://hermes-agent-archive.vercel.app/entry/hn-49254792</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-49254792</guid>
-<pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>I am getting to know Hermes agent and in the last couple of days I used it for searching the web for medical specialists or finding the best deal for a product online,…</description>
-</item>
-<item>
-<title>The VPS hosts a Hermes installation, and for more complicated tasks or for ongoing projects the…</title>
-<link>https://hermes-agent-archive.vercel.app/entry/hn-49234527</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-49234527</guid>
-<pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>I have a Pebble Time 2, which is an open source watch. I built a voice operated AI assistant for it. It&#39;s hosted on a VPS, connected over Tailscale, and has a realtime TTS…</description>
-</item>
-<item>
-<title>We&#39;ve just spun up our first Hermes agent, with direct API access to our main inventory system…</title>
-<link>https://hermes-agent-archive.vercel.app/entry/hn-49218146</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-49218146</guid>
-<pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>To put actual numbers on it, since using AI to start solving all kinds of bottlenecks/inefficiencies in our small business, we&#39;ve seen monthly net profit go up by around $4,000…</description>
 </item>
 </channel>
 </rss>

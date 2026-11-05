@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-11-05T14:46:25.471Z",
+  "classifiedAt": "2026-11-05T15:45:53.623Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -8961,6 +8961,36 @@
       "usefulness": 0.33,
       "popularity": "unknown",
       "confidence": 0.74
+    },
+    "hn-50377697": {
+      "input": "4d2e541022546508f8dd3c601d0bc097d3672b163a04ba08cfaed202254b4f00",
+      "usefulness": 0.92,
+      "popularity": "unknown",
+      "confidence": 0.79
+    },
+    "hn-50377455": {
+      "input": "f3d747526c7fe2078f11a00eaa8793a78b80c8f1c62e6a4e7b8a146829b0dd84",
+      "usefulness": 2.1,
+      "popularity": "unknown",
+      "confidence": 0.62
+    },
+    "hn-50375546": {
+      "input": "ee4a490bf684ee9247833e42bfb68d40439c0066ad4ad0477cb24fee670089e4",
+      "usefulness": 1.15,
+      "popularity": "unknown",
+      "confidence": 0.72
+    },
+    "hn-50373974": {
+      "input": "8f595e4e7fb2676dd45877cdb25a1426221fd87f03e837eeddb674d42681fe73",
+      "usefulness": 1.41,
+      "popularity": "unknown",
+      "confidence": 0.51
+    },
+    "doc-user-guide-cli-inline-images": {
+      "input": "7c7dcbde38d8a3cf6cd1c4c2d9383eb422a959b049bb3403a38de52cacdc1928",
+      "usefulness": 2.48,
+      "popularity": "unknown",
+      "confidence": 0.33
     }
   }
 }

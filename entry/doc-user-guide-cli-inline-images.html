@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark light">
+<script>/* Colour scheme before first paint: a stored choice wins, otherwise the system's. Same snippet on every page, so the archive looks the same from one page to the next. */(function(){try{var s=localStorage.getItem('hermes-scheme');if(s==='light'||s==='dark')document.documentElement.dataset.scheme=s;var t=localStorage.getItem('ha-theme');if(t==='broadsheet')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inline Images · Hermes Agent Archive</title>
+<meta name="description" content="Images show up right in the transcript: the ones you attach ( /paste , /image , drag-and-drop) under your message, and the local image a successful tool…">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-cli-inline-images">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Inline Images">
+<meta property="og:description" content="Images show up right in the transcript: the ones you attach ( /paste , /image , drag-and-drop) under your message, and the local image a successful tool…">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-cli-inline-images">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social/commands.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Inline Images">
+<meta name="twitter:description" content="Images show up right in the transcript: the ones you attach ( /paste , /image , drag-and-drop) under your message, and the local image a successful tool…">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social/commands.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Inline Images","description":"Images show up right in the transcript: the ones you attach ( /paste , /image , drag-and-drop) under your message, and the local image a successful tool…","url":"https://hermes-agent-archive.vercel.app/entry/doc-user-guide-cli-inline-images","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/commands.png","datePublished":"2026-11-05","citation":"https://hermes-agent.nousresearch.com/docs/user-guide/cli#inline-images","keywords":"cli, docs"}</script>
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/commands">Commands</a></header>
+
+<article>
+<h1>Inline Images</h1>
+
+<p class="meta">From Official Docs · November 5, 2026</p>
+<p>Images show up right in the transcript: the ones you attach ( /paste , /image , drag-and-drop) under your message, and the local image a successful tool call produced or looked at ( vision_analyze , image_generate , a browser or computer-use screenshot) under that tool&#39;s line. read_file cannot read images, so it shows none. The same setting drives the TUI . auto draws full-resolution images in kitty and Ghostty (kitty graphics protocol, Unicode placeholders) and, in the classic CLI, in iTerm2, WezTerm and Konsole (iTerm2 inline-image protocol drawn over reserved rows). In the VS Code terminal the classic CLI asks the terminal at startup whether images are on ( terminal.integrated.enableImages ; the reply takes about 10 ms) and draws full-resolution images when they are, with an occasional tip to turn them on when they are not. Everything else, including tmux, GNU screen, SSH sessions into VS Code, and the TUI outside kitty/Ghostty, gets truecolor half-blocks. kitty forces the kitty protocol, for example in the classic CLI inside a tmux with set -g allow-passthrough on . iterm forces the iTerm2 protocol in the classic CLI (the TUI falls back to auto here). unicode always uses half-b…</p>
+<p>From the official Hermes Agent documentation.</p>
+<pre><code># ~/.hermes/config.yaml
+display:
+  inline_images: auto   # auto | kitty | iterm | unicode | off</code></pre>
+
+<ul class="tags"><li>#cli</li><li>#docs</li></ul>
+
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/user-guide/cli#inline-images" rel="noopener">Read the original</a>
+<a href="/#commands?item=doc-user-guide-cli-inline-images">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
+</footer>
+</div>
+</body>
+</html>
