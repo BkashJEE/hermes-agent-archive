@@ -495,6 +495,10 @@
   <url><loc>https://hermes-agent-archive.vercel.app/entry/hn-50200353</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/hn-50320580</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/hn-50327878</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/hn-50377697</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/hn-50377455</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/hn-50375546</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/hn-50373974</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/shelf/skills</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/skill-superpowers</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/skill-ponytail</loc></url>
@@ -1254,6 +1258,7 @@
   <url><loc>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-cli-slash-commands</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-cli-multi-line-input</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-cli-layout-styles</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-cli-inline-images</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/shelf/tricks</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/trick-audit-the-skill-auditor</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/trick-generate-a-read-only-memory-vault</loc></url>
