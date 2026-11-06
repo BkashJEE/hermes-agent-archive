@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-11-06T14:24:06.433Z",
+  "classifiedAt": "2026-11-06T15:20:45.977Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -8991,6 +8991,18 @@
       "usefulness": 2.48,
       "popularity": "unknown",
       "confidence": 0.33
+    },
+    "plugin-official-hermes-security": {
+      "input": "2d2055a82a155ace06ff6b860c9ab397f5addf8d0e0bc327c5708e48b0408e08",
+      "usefulness": 3.37,
+      "popularity": "unknown",
+      "confidence": 0.63
+    },
+    "release-v0-23-0": {
+      "input": "5682ed4657eb509da44249dd0601209ac93e3c936b9eea8b131c24e58b52c100",
+      "usefulness": 0.75,
+      "popularity": "unknown",
+      "confidence": 0.55
     }
   }
 }
