@@ -37,7 +37,8 @@ const DOCS = 'https://hermes-agent.nousresearch.com/docs/plugins/';
 
 const titleCase = name => name.split(/[-_]/)
   .map(w => ({ nvidia: 'NVIDIA', snyk: 'Snyk', sdk: 'SDK', directsdk: 'Direct SDK', mcp: 'MCP', ai: 'AI',
-               homeassistant: 'Home Assistant', touchdesigner: 'TouchDesigner', mem0: 'Mem0', omh: 'OMH' })[w.toLowerCase()]
+               homeassistant: 'Home Assistant', touchdesigner: 'TouchDesigner', mem0: 'Mem0', omh: 'OMH',
+               elevenlabs: 'ElevenLabs' })[w.toLowerCase()]
          ?? (/[A-Z]/.test(w) ? w : w.charAt(0).toUpperCase() + w.slice(1))).join(' ');
 
 const sameLink = url => String(url || '').split('#')[0].replace(/\/$/, '').toLowerCase();
