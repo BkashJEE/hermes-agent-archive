@@ -828,6 +828,7 @@
   <url><loc>https://hermes-agent-archive.vercel.app/entry/plugin-official-elevenlabs-sound-effects</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/skill-bundled-productivity-microsoft-office</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/plugin-official-elevenlabs-music</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/plugin-official-hermes-security</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/shelf/prompts</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/prompt-parallel-research</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/prompt-auth-review</loc></url>
@@ -1268,6 +1269,7 @@
   <url><loc>https://hermes-agent-archive.vercel.app/entry/trick-subclass-the-api-gateway-for-chat-clients</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/trick-audit-each-memory-file-against-written-principles</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/shelf/releases</loc></url>
+  <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v0-23-0</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v0-22-7</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v0-22-6</loc></url>
   <url><loc>https://hermes-agent-archive.vercel.app/entry/release-v0-22-5</loc></url>

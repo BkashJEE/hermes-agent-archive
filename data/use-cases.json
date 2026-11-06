@@ -3121,7 +3121,8 @@
       "url": "https://gist.github.com/michaeloboyle/10461598db36066e4c366413d5416f83",
       "author": "michaeloboyle (GitHub Gist)",
       "uses": [
-        "skill-bundled-apple-imessage"
+        "skill-bundled-apple-imessage",
+        "plugin-official-hermes-security"
       ]
     },
     {
@@ -3964,7 +3965,10 @@
       ],
       "source": "discord",
       "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/plugins-skills-and-skins/1488447168280006745-Hermes-Security-Rule-Skill.txt",
-      "author": "@harrison07525"
+      "author": "@harrison07525",
+      "uses": [
+        "plugin-official-hermes-security"
+      ]
     },
     {
       "id": "story-8h-day-on-opus-email-pipeline-with-dbos-postgres-s3",
@@ -4771,7 +4775,10 @@
       ],
       "source": "docs",
       "url": "https://hermes-agent.nousresearch.com/docs/getting-started/learning-path#i-want-a-telegramdiscord-bot",
-      "date": "2026-09-25"
+      "date": "2026-09-25",
+      "uses": [
+        "plugin-official-hermes-security"
+      ]
     },
     {
       "id": "doc-getting-started-learning-path-i-want-to-automate-tasks",
@@ -4858,7 +4865,10 @@
       ],
       "source": "docs",
       "url": "https://hermes-agent.nousresearch.com/docs/getting-started/learning-path#what-to-read-next",
-      "date": "2026-09-25"
+      "date": "2026-09-25",
+      "uses": [
+        "plugin-official-hermes-security"
+      ]
     },
     {
       "id": "doc-user-guide-features-overview-media-web",
@@ -5373,7 +5383,10 @@
       "source": "docs",
       "author": "Nous Research",
       "url": "https://hermes-agent.nousresearch.com/docs/guides/automation-blueprints#security-audit-pipeline",
-      "verifiedAt": "2026-09-28"
+      "verifiedAt": "2026-09-28",
+      "uses": [
+        "plugin-official-hermes-security"
+      ]
     },
     {
       "id": "review-use-cases-content-pipeline-with-hermes",
@@ -6330,7 +6343,10 @@
       "source": "hn",
       "url": "https://news.ycombinator.com/item?id=49189025",
       "author": "arush15june",
-      "date": "2026-08-05"
+      "date": "2026-08-05",
+      "uses": [
+        "plugin-official-hermes-security"
+      ]
     },
     {
       "id": "hn-49159530",
@@ -6707,7 +6723,10 @@
       "source": "hn",
       "url": "https://news.ycombinator.com/item?id=47786818",
       "author": "mark_l_watson",
-      "date": "2026-04-15"
+      "date": "2026-04-15",
+      "uses": [
+        "plugin-official-hermes-security"
+      ]
     },
     {
       "id": "hn-47785939",
@@ -6737,7 +6756,8 @@
       "author": "crimsoneer",
       "date": "2026-03-24",
       "uses": [
-        "skill-bundled-autonomous-ai-agents-claude-code"
+        "skill-bundled-autonomous-ai-agents-claude-code",
+        "plugin-official-hermes-security"
       ]
     },
     {
@@ -6813,7 +6833,8 @@
       "author": "_zendar_",
       "date": "2026-06-18",
       "uses": [
-        "plugin-community-mnemosyne"
+        "plugin-community-mnemosyne",
+        "plugin-official-hermes-security"
       ]
     },
     {
@@ -6873,7 +6894,10 @@
       "source": "x",
       "url": "https://x.com/AlexanderMann/status/2107189008442728730",
       "author": "@AlexanderMann",
-      "date": "2026-10-05"
+      "date": "2026-10-05",
+      "uses": [
+        "plugin-official-hermes-security"
+      ]
     },
     {
       "id": "story-a-gtm-team-builds-verified-contact-lists-from-one-slack-mess",
@@ -7257,7 +7281,8 @@
       "author": "k_sze",
       "date": "2026-10-22",
       "uses": [
-        "cli-hermes-profile"
+        "cli-hermes-profile",
+        "plugin-official-hermes-security"
       ]
     },
     {
