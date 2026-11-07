@@ -7,6 +7,22 @@
 <description>Sourced Hermes Agent workflows, prompts, skills and projects, as they are added. Dates are arrival dates.</description>
 <language>en</language>
 <item>
+<title>I use this to follow-up, check status and work on projects while away from the house</title>
+<link>https://hermes-agent-archive.vercel.app/entry/hn-50378776</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-50378776</guid>
+<pubDate>Sat, 07 Nov 2026 12:00:00 GMT</pubDate>
+<category>Use Cases</category>
+<description>1) $20 Codex Plan 2) Qwen3.8 Flash via Basalt (Local) + OpenRouter for DeepSeek V4.1 Flash 3) I primarily use Pi with many custom extensions. Occasionally I will use Codex.…</description>
+</item>
+<item>
+<title>I use a carefully curated selection of agents for my professional work</title>
+<link>https://hermes-agent-archive.vercel.app/entry/hn-50368106</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-50368106</guid>
+<pubDate>Sat, 07 Nov 2026 12:00:00 GMT</pubDate>
+<category>Use Cases</category>
+<description>1. Personally? Claude monthly and I also keep money in the API service and slowly chip away at it with various apps and toys (I created a Fantasy Premier League app that does…</description>
+</item>
+<item>
 <title>Security</title>
 <link>https://hermes-agent-archive.vercel.app/entry/plugin-official-hermes-security</link>
 <guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/plugin-official-hermes-security</guid>
@@ -469,22 +485,6 @@
 <pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
 <category>Use Cases</category>
 <description>I&#39;ve been looking for a new cooker. I have a Hermes agent running on VM that does this. I told it to keep an eye on prices. It created a cron job that triggers the scrapes and…</description>
-</item>
-<item>
-<title>Occasionally I weigh in with an opinion or pick a recommendation</title>
-<link>https://hermes-agent-archive.vercel.app/entry/hn-49742023</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-49742023</guid>
-<pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>VPS is production. Linux dev box is my local big box. Macbook just lets me move about and do iOS development. Orca lets me run agents either on linux box or locally on the…</description>
-</item>
-<item>
-<title>All of this is sidestepped somewhat by using good isolation primitives - I&#39;m running a Hermes…</title>
-<link>https://hermes-agent-archive.vercel.app/entry/hn-49477413</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-49477413</guid>
-<pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>This article smells AI generated, which is _very_ funny given the argument being made. Either way, while this is true in the absolute, this is the value of building good MCP…</description>
 </item>
 </channel>
 </rss>

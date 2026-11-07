@@ -1,6 +1,6 @@
 {
   "note": "Imported from https://hermes-agent.nousresearch.com/docs/user-stories by scripts/import-hermes-stories.mjs. Every entry is a real post quoted and attributed on that page; the headline, quote, author and link are as published. Entries are merged, never replaced — nothing already archived is removed by a re-import.",
-  "importedAt": "2026-11-05T15:45:50.936Z",
+  "importedAt": "2026-11-07T14:18:51.625Z",
   "items": [
     {
       "id": "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t",
@@ -7383,6 +7383,40 @@
       "date": "2026-11-05",
       "uses": [
         "skill-bundled-autonomous-ai-agents-opencode"
+      ]
+    },
+    {
+      "id": "hn-50378776",
+      "title": "I use this to follow-up, check status and work on projects while away from the house",
+      "summary": "1) $20 Codex Plan\n\n2) Qwen3.8 Flash via Basalt (Local) + OpenRouter for DeepSeek V4.1 Flash\n\n3) I primarily use Pi with many custom extensions. Occasionally I will use Codex.…",
+      "detail": "1) $20 Codex Plan\n\n2) Qwen3.8 Flash via Basalt (Local) + OpenRouter for DeepSeek V4.1 Flash\n\n3) I primarily use Pi with many custom extensions. Occasionally I will use Codex.\n\n4) I use Pi Subagents and Herdr. With QFN being the worker, and Sol 6.1 xHigh for planning/review.\n\n5) Hermes Agent via Telegram. I use this to follow-up, check status and work on projects while away from the house.\n\n— Xonzo, 2026-11-05, in the Hacker News thread “Ask HN: What's your current AI agentic setup?”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=50378776",
+      "author": "Xonzo",
+      "date": "2026-11-05",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-codex"
+      ]
+    },
+    {
+      "id": "hn-50368106",
+      "title": "I use a carefully curated selection of agents for my professional work",
+      "summary": "1. Personally? Claude monthly and I also keep money in the API service and slowly chip away at it with various apps and toys (I created a Fantasy Premier League app that does…",
+      "detail": "1. Personally? Claude monthly and I also keep money in the API service and slowly chip away at it with various apps and toys (I created a Fantasy Premier League app that does research and sentiment analysis as part of its runs and that costs money... but not much) . Professionally I use an unlimited Claude via AWS Bedrock.\n\n2. I use both qwen 3.6 35b-a3b and qwen 3.8 27b on my Macbook Pro (M5 Pro, 48GB, 18/20). I use those with ollama and hermes (and Obsidian, to an extent)\n\n3. Hermes Agent, Claude CLI and Claude in VS Code\n\n4. No\n\n5. Hermes Agent\n\nI use a carefully curated selection of agents for my professional work. Agents to handle adversarial code review, planning, questioning, dev work, etc. I also have custom instructions for various repos that need them (where I can define things like repo norms that are not immediately obvious, data models where needed, etc.\n\n— gaoshan, 2026-11-04, in the Hacker News thread “Ask HN: What's your current AI agentic setup?”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=50368106",
+      "author": "gaoshan",
+      "date": "2026-11-04",
+      "uses": [
+        "skill-bundled-other-obsidian"
       ]
     }
   ]
