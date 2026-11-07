@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark light">
+<script>/* Colour scheme before first paint: a stored choice wins, otherwise the system's. Same snippet on every page, so the archive looks the same from one page to the next. */(function(){try{var s=localStorage.getItem('hermes-scheme');if(s==='light'||s==='dark')document.documentElement.dataset.scheme=s;var t=localStorage.getItem('ha-theme');if(t==='broadsheet')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fix &quot;below the minimum 64,000&quot; in Hermes Agent · Archive</title>
+<meta name="description" content="Hermes Agent refuses models under 64K context. Why Ollama, llama.cpp and vLLM trip it, the exact server and config.yaml fixes, and what you can&#39;t override.">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/fix-context-window-below-minimum-64000">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&quot;Context window below the minimum 64,000&quot; in Hermes Agent: what it means and how to fix it (Ollama, llama.cpp, vLLM, LM Studio)">
+<meta property="og:description" content="Hermes Agent refuses models under 64K context. Why Ollama, llama.cpp and vLLM trip it, the exact server and config.yaml fixes, and what you can&#39;t override.">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/fix-context-window-below-minimum-64000">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social/settings.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="&quot;Context window below the minimum 64,000&quot; in Hermes Agent: what it means and how to fix it (Ollama, llama.cpp, vLLM, LM Studio)">
+<meta name="twitter:description" content="Hermes Agent refuses models under 64K context. Why Ollama, llama.cpp and vLLM trip it, the exact server and config.yaml fixes, and what you can&#39;t override.">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social/settings.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"\"Context window below the minimum 64,000\" in Hermes Agent: what it means and how to fix it (Ollama, llama.cpp, vLLM, LM Studio)","description":"Hermes Agent refuses models under 64K context. Why Ollama, llama.cpp and vLLM trip it, the exact server and config.yaml fixes, and what you can't override.","url":"https://hermes-agent-archive.vercel.app/entry/fix-context-window-below-minimum-64000","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/settings.png","datePublished":"2026-10-27","citation":"https://hermes-agent.nousresearch.com/docs/integrations/providers","keywords":"troubleshooting, context-window, ollama, llama-cpp, vllm, lm-studio, config"}</script>
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/settings">Settings</a></header>
+
+<article>
+<h1>&quot;Context window below the minimum 64,000&quot; in Hermes Agent: what it means and how to fix it (Ollama, llama.cpp, vLLM, LM Studio)</h1>
+<p class="lede">Hermes Agent refuses models under 64K context. Why Ollama, llama.cpp and vLLM trip it, the exact server and config.yaml fixes, and what you can&#39;t override.</p>
+<p class="meta">Archive write-up verified against NousResearch/hermes-agent main @ e5ea5fd (2026-10-27), citing the Hermes docs, GitHub issues and Reddit/X posts credited in the text · October 27, 2026</p>
+<p>Short answer: Hermes Agent refuses to start a session on any model whose context window is under 64,000 tokens, because its system prompt, tool schemas and multi-step tool results don&#39;t fit reliably in less. With a local model the cause is almost always the server, not the model: Ollama loads models with 4K or 32K context on most machines unless you raise it. Raise the server&#39;s context to at least 64000, tell Hermes the same number, and check with ollama ps. If the model itself was only trained for less than 64K, no setting gets you past the floor, and the maintainers have said that&#39;s on purpose (teknium1 on issue 8430).</p>
+<p>The error looks like one of these. The wording comes from the agent start-up code and the conversation compression code.</p>
+<p>Model qwen2.5:7b has a context window of 32,768 tokens, which is below the minimum 64,000 required by Hermes Agent.<br>Your local server is serving a 32,768-token window. Start it with at least 64K context ...<br>Auxiliary compression model qwen3-8b has a context window of 28,400 tokens, which is below the minimum 64,000 required by Hermes Agent.</p>
+<p>Credit: this page answers the question asked by u/Britbong1492 on r/hermesagent (&quot;What are the risks to just over-riding the settings?&quot;), evlswtmn in issue 53347, fwends in issue 24140, ziyu211 in issue 22930 and @JoeKarlsson1 on X. The Ollama tip that started a lot of this came from u/oytaub on r/hermesagent.</p>
+<p>First, find out which of three cases you&#39;re in</p>
+<p>Local server: the error says &quot;Your local server is serving a N-token window&quot;. Your local server (Ollama, llama.cpp, vLLM) is running the model with a small context. The model can probably do more. See Fix A.</p>
+<p>Hosted provider: the error says &quot;Model X has a context window of N&quot;. Hermes detected the wrong window, or the provider really caps that model below 64K. See Fix B.</p>
+<p>Compression model: the error says &quot;Auxiliary compression model X ...&quot;. Your main model is fine; the smaller model you set for compression is under 64K. See Fix C.</p>
+<p>Hermes picks the wording based on whether the endpoint is local (127.0.0.1, LAN, Docker service names) or hosted.</p>
+<p>Fix A: raise the server&#39;s context</p>
+<p>Ollama</p>
+<p>Ollama&#39;s default context depends on VRAM: 4,096 tokens under 24 GB, 32,768 at 24 to 48 GB, 256,000 at 48 GB and up. You can&#39;t change it through the OpenAI-compatible chat completions API; it has to be set on the server or in a Modelfile. Pick one of three options (the commands are in the snippet below): set OLLAMA_CONTEXT_LENGTH when you start the server, add it to the systemd service if Ollama runs as one, or bake num_ctx into a Modelfile for one model. All three commands are from the Hermes providers doc. If you use the Modelfile option, point Hermes at the new model name, as the Ollama guide says. On the Ollama desktop app you can also use the context-length slider in settings.</p>
+<p>Then tell Hermes the window the server really serves, in ~/.hermes/config.yaml (the model block is in the snippet below). For any local endpoint you can instead set model.ollama_num_ctx to the served window (at least 64K); despite the name it&#39;s honoured on every local server, not only Ollama.</p>
+<p>Check it worked with ollama ps: the CONTEXT column should show 64000 or more. Then start hermes and look for the startup line &quot;Context limit: ... tokens&quot;, or run /usage in a session. Edits to model.context_length on a running gateway apply on the next message, no restart needed.</p>
+<p>Why both steps: Ollama&#39;s /api/show reports the model&#39;s maximum, not the num_ctx you configured, so Hermes can&#39;t always see your server setting on its own.</p>
+<p>llama.cpp</p>
+<p>Start the server with -c 64000 or more. Watch out for parallel slots: with -c 64000 -np 4 each slot gets only 16K, which is below the floor for each session. Check the served value with: curl http://localhost:8080/props | jq &#39;.default_generation_settings.n_ctx&#39;</p>
+<p>vLLM</p>
+<p>Use --max-model-len 64k or larger. Lowercase k means 1000 and uppercase K means 1024.</p>
+<p>LM Studio</p>
+<p>LM Studio is the one exception: if provider is lmstudio and you set a positive model.context_length yourself, Hermes allows it below 64K. Expect earlier compression if you do.</p>
+<p>Fix B: Hermes detected the wrong window</p>
+<p>If you&#39;re on a hosted model whose real window is well above 64K but Hermes says 32,768, it&#39;s a detection problem. Pin the real value in config.yaml: set model.context_length to the model&#39;s actual window (for example 262144; it must be at least 64000).</p>
+<p>model.context_length is a pin that wins over provider metadata and shows as (pinned) in the banner, /model and /usage. This is exactly what fixed kimi-k2.6 being misread as 32K (issues 23949 and 24119). Hermes caches detected windows in ~/.hermes/context_length_cache.yaml; one write-up (NikLabs) recommends deleting it after a change so the value is re-detected.</p>
+<p>One known gap: context_length set on a fallback_providers entry or a providers.&lt;name&gt; entry was reported as ignored by the 64K check, so a local fallback model can still fail (issue 92732). That issue&#39;s workaround is to use a fallback model whose native window is above 64K.</p>
+<p>Fix C: the compression model is too small</p>
+<p>The model in auxiliary.compression.model has to meet the same 64K floor, because it must be able to summarise a full main-model window. Either point it at a bigger model, or, if the detected value is wrong, set auxiliary.compression.context_length to the real one. Compression settings are covered in the Hermes configuration guide.</p>
+<p>What you can&#39;t do</p>
+<p>Lie about the number. Setting context_length: 64000 on a model that really serves 32K gets you past startup, but not past reality. Reddit users who tried it report faster auto-compaction and trouble with large multi-tool turns (u/Jonathan_Rivera, u/Matasus). When the server truncates silently, Hermes may see finish_reason=&quot;length&quot; errors and garbled retries (issue 43900, PR 76332).</p>
+<p>Turn the floor off. The maintainers closed the request to make it overridable as won&#39;t-fix: &quot;the 64K minimum context window is an intentional invariant, not a user-overridable floor&quot; (teknium1, Jun 30, 2026, issue 8430). A feature request to warn instead of fail (issue 53347) and a PR adding allow_short_context (PR 32770) were both still open and unmerged on Oct 27, 2026, so treat them as proposals, not settings.</p>
+<p>Stretch a model past its training. A model that reports a native window under 64K (one report: qwen3:32b at 40,960 in Ollama&#39;s metadata) can&#39;t be made compliant from config (issue 92732). Choose a model that natively supports 64K or more.</p>
+<p>If 64K won&#39;t fit on your hardware</p>
+<p>Use a smaller model at 64K instead of a bigger one at 32K. One user reports gemma4:12b at 65,536 context fitting 100% on GPU in 9.2 GB (issue 46833).</p>
+<p>Keep the local model for routine work and set a cloud fallback for hard tasks (Ollama guide, step 8).</p>
+<p>Trim the fixed prompt: hermes prompt-size shows what the system prompt and tool schemas cost; disable unused toolsets with hermes tools (Ollama guide, troubleshooting).</p>
+<p>On the Hermes desktop app, Settings, then Providers, then Local Models manages a local llama.cpp server including context sizing (Ollama guide and Local Models doc).</p>
+<p>FAQ</p>
+<p>Why does Hermes need 64K at all? The system prompt, tool schemas, memory, skills and multi-turn tool results don&#39;t fit reliably under 64K, so Hermes rejects those models up front rather than failing mid-session (teknium1 on issue 8430). The system prompt and tool schemas alone can use 4K to 8K tokens.</p>
+<p>My model ran fine in ollama run. Why does Hermes reject it? A short chat in ollama run never comes close to the window. Hermes checks the window up front, and Ollama&#39;s default on most machines is 4K or 32K.</p>
+<p>Is it exactly 64,000 or 65,536? The check is 64,000 (MINIMUM_CONTEXT_LENGTH in agent/model_metadata.py). Either value passes.</p>
+<p>I set the context and it broke my Telegram bot or cron jobs. The same check runs for the gateway and agent-type cron jobs, so a model under 64K fails there too (issues 24140 and 100437). Since issue 100437, a local Ollama server whose num_ctx or model.ollama_num_ctx is 64K or more is accepted even when the model metadata says less.</p>
+<p>Do the docs disagree on Ollama&#39;s default? A little. The Ollama guide says 2048 tokens; the providers doc and Ollama&#39;s own docs give the VRAM-based 4K, 32K and 256K table. Either way, it&#39;s under 64K on most machines, and ollama ps tells you the real number.</p>
+<p>Verified against NousResearch/hermes-agent main at commit e5ea5fd on 2026-10-27. Sources (issue and PR numbers above are on github.com/NousResearch/hermes-agent):<br>Hermes providers doc: https://hermes-agent.nousresearch.com/docs/integrations/providers<br>Hermes Ollama guide: https://hermes-agent.nousresearch.com/docs/guides/local-ollama-setup<br>Hermes FAQ: https://hermes-agent.nousresearch.com/docs/reference/faq<br>Hermes troubleshooting guide: https://hermes-agent.nousresearch.com/docs/guides/troubleshooting-agent-quality<br>Hermes configuration guide: https://hermes-agent.nousresearch.com/docs/user-guide/configuration<br>Hermes Local Models doc: https://hermes-agent.nousresearch.com/docs/user-guide/local-models<br>Ollama context length docs: https://docs.ollama.com/context-length<br>Minimum context code: https://github.com/NousResearch/hermes-agent/blob/e5ea5fd/agent/model_metadata.py#L274<br>Start-up check code: https://github.com/NousResearch/hermes-agent/blob/e5ea5fd/agent/agent_init.py#L1956-L1995<br>Compression check code: https://github.com/NousResearch/hermes-agent/blob/e5ea5fd/agent/conversation_compression.py#L2058-L2068<br>Ollama context option code: https://github.com/NousResearch/hermes-agent/blob/e5ea5fd/agent/agent_init_ollama.py<br>Maintainer decision, issue 8430: https://github.com/NousResearch/hermes-agent/issues/8430<br>Reddit thread on the 64K minimum: https://www.reddit.com/r/hermesagent/comments/1tey7tu/64k_min_tokens_to_run/<br>Reddit Ollama tip: https://www.reddit.com/r/hermesagent/comments/1t4kya0/tips_if_you_use_local_ollama_don_t_forget_to_set/<br>JoeKarlsson1 on X: https://x.com/JoeKarlsson1/status/2112911884047323446<br>NikLabs write-up: https://niklabs.org/projects/local-ai-stack/</p>
+<pre><code># --- Ollama: pick one -------------------------------------------
+# Option 1: server-wide (recommended in the Hermes docs)
+OLLAMA_CONTEXT_LENGTH=64000 ollama serve
+
+# Option 2: Ollama installed as a systemd service
+sudo systemctl edit ollama.service
+#   add:  Environment=&quot;OLLAMA_CONTEXT_LENGTH=64000&quot;
+sudo systemctl daemon-reload &amp;&amp; sudo systemctl restart ollama
+
+# Option 3: bake it into one model
+echo -e &quot;FROM qwen2.5-coder:32b\nPARAMETER num_ctx 64000&quot; &gt; Modelfile
+ollama create qwen2.5-coder-64k -f Modelfile
+
+# --- ~/.hermes/config.yaml: tell Hermes the window the server serves
+model:
+  default: qwen2.5-coder:32b
+  provider: custom
+  base_url: http://localhost:11434/v1
+  context_length: 64000
+
+# --- check it worked
+ollama ps      # the CONTEXT column should show 64000 (or more)</code></pre>
+<p class="meta">Mentioned in this story</p><ul class="entries uses"><li><a href="/entry/doc-user-guide-cli-context-compression">Context Compression</a><p>Commands</p></li><li><a href="/entry/story-qwen3-6-35b-a3b-at-64k-context-on-an-rtx-3060-12gb-53-tok-s">Qwen3.6-35B-A3B at 64K context on an RTX 3060 12GB, ~53 tok/s</a><p>Use Cases</p></li><li><a href="/entry/story-multi-agent-hermes-on-ollama-because-it-s-cheaper">Multi-agent Hermes on Ollama because it&#39;s cheaper</a><p>Use Cases</p></li><li><a href="/entry/skill-optional-mlops-llama-cpp">Llama Cpp</a><p>Skills</p></li><li><a href="/entry/skill-optional-mlops-serving-llms-vllm">Serving Llms Vllm</a><p>Skills</p></li><li><a href="/entry/cli-hermes-fallback">hermes fallback</a><p>Commands</p></li><li><a href="/entry/review-settings-keep-large-tool-results-from-crowding-context">Keep large tool results from crowding context</a><p>Settings</p></li></ul>
+<ul class="tags"><li>#troubleshooting</li><li>#context-window</li><li>#ollama</li><li>#llama-cpp</li><li>#vllm</li><li>#lm-studio</li><li>#config</li></ul>
+
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/integrations/providers" rel="noopener">Read the original</a>
+<a href="/#settings?item=fix-context-window-below-minimum-64000">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
+</footer>
+</div>
+</body>
+</html>
