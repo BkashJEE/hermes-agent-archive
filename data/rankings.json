@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-11-08T13:36:39.161Z",
+  "classifiedAt": "2026-11-09T16:34:37.710Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -1985,10 +1985,10 @@
       "confidence": 0.55
     },
     "gh-hermes-agent": {
-      "input": "a1a98dc25fde5dca9ddae430a608f63f1a9f6df3ac8b11ba9c6ba1a174e178c9",
-      "usefulness": 0.02,
+      "input": "c9eff987b415b537f8d4e667928075b2f1b019c4546f0600b8ff2deabc594078",
+      "usefulness": 0.03,
       "popularity": "widespread",
-      "confidence": 0.87
+      "confidence": 0.9
     },
     "jev-hermes-newsroom-with-jev-omarchy": {
       "input": "f33df236fb350388c648db1635e94c18475cdccd8e67074b11857c9d7ed37604",
@@ -4193,16 +4193,16 @@
       "confidence": 0.95
     },
     "kit-cc-switch": {
-      "input": "0c895de8853ce907b5f6e1a5eed94a9fad8a767523c955e42c5228759dd0106a",
-      "usefulness": 2.07,
+      "input": "dc6aac8bcbb485a543d8927a939ab94bef402b23cc4af8f96f6c4eb865ec78fe",
+      "usefulness": 2.12,
       "popularity": "widespread",
-      "confidence": 0.52
+      "confidence": 0.53
     },
     "kit-codegraph": {
-      "input": "b17145ce4ba1d9af26394138f178f63a494bce6d6901fe2e11a64186fbfd5593",
+      "input": "03e8f9e1b6f2aaf8bb493544169b978f62229b884f8a37f06d48d01ed564848f",
       "usefulness": 2.65,
       "popularity": "widespread",
-      "confidence": 0.6
+      "confidence": 0.46
     },
     "kit-gbrain": {
       "input": "0b0eb6d783a7a4f50b6bc6224a85facf138bcd015874e712a84b2a4cb0c1a9d5",
@@ -4421,44 +4421,44 @@
       "confidence": 0.63
     },
     "skill-superpowers": {
-      "input": "1681e3178e74773649d8d74faebc94571b763a21c206f48560c1ef0ba9bbbd9e",
-      "usefulness": 1.66,
+      "input": "e7efba01811fcb0aec96aa4373339801bb573774e2ab50d98f8ac82e9b4aa98d",
+      "usefulness": 1.56,
       "popularity": "widespread",
-      "confidence": 0.38
+      "confidence": 0.47
     },
     "skill-ponytail": {
-      "input": "8c339cfc0677584f7e56473ae9b83eef5583072d01d3cf8164edbd30bfa2202d",
-      "usefulness": 1.89,
+      "input": "29e1580ea9371e2f5eb167b65eb48228c569f36ed220087c98ac2ed0e31819c7",
+      "usefulness": 1.83,
       "popularity": "widespread",
-      "confidence": 0.56
+      "confidence": 0.53
     },
     "skill-impeccable": {
-      "input": "c4c6f060a19a360a829d663beb5a3b5fc2240eda5136376a8ebdd8144d4e2333",
-      "usefulness": 2.06,
+      "input": "0877ef6618bf6832beb186be2c28bc2f7b24a3b88464bf1cb2a796cf132000c2",
+      "usefulness": 2.08,
       "popularity": "widespread",
       "confidence": 0.55
     },
     "skill-cli-anything": {
-      "input": "14e320fa305dbda34361d192aab2c4f391a5bbcf0c398967cd87f95c322f91c2",
-      "usefulness": 1.75,
+      "input": "e94e620c5ed2a93e8f3d913e528429fb33f37365aafbbebbc876e9c5d4652086",
+      "usefulness": 1.68,
       "popularity": "widespread",
-      "confidence": 0.36
+      "confidence": 0.39
     },
     "kit-caveman": {
-      "input": "58dde411b6efd7a7ad8d599449f95a25f8f74144de4ac69af4d21d231958ae7e",
-      "usefulness": 2.05,
+      "input": "a0f9101ebe4509eabe7659d5949f7801c4ea194b75231b197abae478827a2f40",
+      "usefulness": 2.04,
       "popularity": "widespread",
-      "confidence": 0.55
+      "confidence": 0.57
     },
     "kit-open-design": {
-      "input": "fc6f9e59797dccd98d8020f614ec3000147488cd2befc9f5b9f8a4acdf8ae70d",
-      "usefulness": 1.71,
+      "input": "fb4a05ef5021ad8abb9ff5113b21552fd79f6146faf20bed29f4ca0712d96efb",
+      "usefulness": 1.69,
       "popularity": "widespread",
-      "confidence": 0.36
+      "confidence": 0.34
     },
     "kit-unsloth": {
-      "input": "70c3223c4230d417100f8828546c1091608466043cb47c2f58b38b68094eb760",
-      "usefulness": 1.18,
+      "input": "429eef7d1db8b0da47b8e864661fe9e169005101427c0b66d3e2d27de269b44a",
+      "usefulness": 1.19,
       "popularity": "widespread",
       "confidence": 0.68
     },
@@ -5495,10 +5495,10 @@
       "confidence": 0.72
     },
     "community-hermes-desktop-theme-pack": {
-      "input": "ce9183e6a905b8aa2f2985fe84d563627f2521d1edeff5188cf05a714a9b560c",
-      "usefulness": 2.3,
+      "input": "6010e693179300c9be8179373e1d8bdba0b90e8bebd1d73a725e99c56c336024",
+      "usefulness": 2.35,
       "popularity": "limited",
-      "confidence": 0.57
+      "confidence": 0.53
     },
     "community-hermes-command-center": {
       "input": "a0407cabb558ae4c1430d654351812903a979862159607cf4927f64ed348ba17",
@@ -6113,58 +6113,58 @@
       "confidence": 0.56
     },
     "integration-rtk-ai-rtk": {
-      "input": "3d3e9fc9b31a14edb919256cf0a9f2c3809c0ccd4f059bec7a83552da466a45c",
-      "usefulness": 1.49,
+      "input": "fa096b9972962c94d5fa382f5c302e74d898052969480367d84162263627cc5f",
+      "usefulness": 1.53,
       "popularity": "widespread",
-      "confidence": 0.54
+      "confidence": 0.53
     },
     "integration-egonex-ai-understand-anything": {
-      "input": "8a574a8a6c06719f557669e56bbcd04e98dad2f5899e671d40b2161bafeb38b3",
+      "input": "8b1f014bdc05534671bae78b5637d32c370d83bb79133b8d300cdbf5f7678a30",
       "usefulness": 1.29,
       "popularity": "widespread",
-      "confidence": 0.65
+      "confidence": 0.64
     },
     "integration-browser-use-browser-use": {
-      "input": "8e17687766fcc25ec053c727537650b9184c30a5bc9678a8a1d0cf947b27ed6d",
-      "usefulness": 1.48,
+      "input": "af361ba9afd808106e126cd07dd6557c25439e25252ed6bb61d964c67b78f27a",
+      "usefulness": 1.44,
       "popularity": "widespread",
-      "confidence": 0.56
+      "confidence": 0.58
     },
     "integration-affaan-m-ecc": {
-      "input": "a19a25dc73facc42165bc68587a0c0f06f96ac1e6b3d42ceb644bf5007582db8",
-      "usefulness": 1.25,
+      "input": "120855ba0d0b4cd23a7544459d4fe52e2b9900cefeb3e608c2201c63d94db25f",
+      "usefulness": 1.31,
       "popularity": "widespread",
-      "confidence": 0.72
+      "confidence": 0.69
     },
     "integration-msitarzewski-agency-agents": {
-      "input": "bea762712d3545942f24c48ad1ce98f042d2fceb92a0e478d345695ebebca20c",
-      "usefulness": 1.63,
+      "input": "f9ba5448f42c4bb2b11de78836ee620622a52136b6ee5c7e35abf18864765ca5",
+      "usefulness": 1.6,
       "popularity": "widespread",
-      "confidence": 0.45
+      "confidence": 0.48
     },
     "integration-graphify-labs-graphify": {
-      "input": "deaa080c6bf6796ea19e4e94fb87ff6bbc3be484540ebea9fa57ce0a291ad94e",
-      "usefulness": 1.47,
+      "input": "8c886d8ad324bbef1ae683632e3075b3aee1d0ee265cdf493241ca9b0ee2aac6",
+      "usefulness": 1.46,
       "popularity": "widespread",
-      "confidence": 0.56
+      "confidence": 0.57
     },
     "integration-alishahryar1-free-claude-code": {
-      "input": "5f986b59b730331cf8faae73aab5e36192f6d7e944b60e2d4bcb28886c587305",
-      "usefulness": 1.14,
+      "input": "42552173b5201dc8faedfac7b574255a9fa822be71fd843db557bea4b330a731",
+      "usefulness": 1.15,
       "popularity": "widespread",
-      "confidence": 0.7
+      "confidence": 0.71
     },
     "integration-garrytan-gstack": {
-      "input": "86a38e60d42425c057f98f09167be06b89a2c54e281e8d526f28c73d0e834050",
-      "usefulness": 0.59,
+      "input": "3423b238cf034d2ca7db1b11a166cfe1cdddd51bbc8d73e4089c8392a9a468e1",
+      "usefulness": 0.56,
       "popularity": "widespread",
-      "confidence": 0.6
+      "confidence": 0.57
     },
     "integration-multica-ai-multica": {
-      "input": "22e36fba9447784fcde6e1ee70e76436fdbe3a1f5be700e0f405a3b2aca47dc0",
-      "usefulness": 1.33,
+      "input": "1d3a1d4efa71e775995f4d3701653e135fd009ddc71b3fcbb50eaabd56f6136a",
+      "usefulness": 1.38,
       "popularity": "widespread",
-      "confidence": 0.68
+      "confidence": 0.61
     },
     "community-report-pbqsovk": {
       "input": "ae6707374c9162b40d93094d77ed6452f8e3e990cb8cb4227521b7c88edce31b",
@@ -6287,10 +6287,10 @@
       "confidence": 0.6
     },
     "review-integration-archify": {
-      "input": "0d76fa67db31dc388576aab1fc0b95f78e42805a7aa775ebb0dc258b8bbbc102",
-      "usefulness": 2.44,
+      "input": "e4849a7538656556ba69f05b80d3ae33cc57067462400ed8eef4179b28b05135",
+      "usefulness": 2.46,
       "popularity": "widespread",
-      "confidence": 0.52
+      "confidence": 0.53
     },
     "jev-hermes-skill-loading-halved-with-two-jev-calls-34350927": {
       "input": "32a52bbc4da597bc3b13d6bf02ed4892c0912e19958284b1d60e521c7db06c17",
@@ -7913,100 +7913,100 @@
       "confidence": 0.17
     },
     "skill-pack-anthropic-academy-guide": {
-      "input": "db99391a18a910b17d32327eaec5cecdbd40daeb5d5101724d0ff3f08890b3ac",
-      "usefulness": 1.38,
+      "input": "c430a7326c17a6853eb417ca3fcb8c42806a3bdf126d0ad17cc08e2fb73d1f47",
+      "usefulness": 1.47,
+      "popularity": "widespread",
+      "confidence": 0.45
+    },
+    "skill-pack-anthropic-algorithmic-art": {
+      "input": "f9f9bd08fb2fd14b8695a6b537b6a24b30a29d24dbfeaf8099077b8e6a6a87b9",
+      "usefulness": 1.32,
+      "popularity": "widespread",
+      "confidence": 0.6
+    },
+    "skill-pack-anthropic-brand-guidelines": {
+      "input": "dd8ed9ecf995a29baf84dffb5806e3e6c863011536daa76baf3bf617c859d708",
+      "usefulness": 0.96,
+      "popularity": "widespread",
+      "confidence": 0.68
+    },
+    "skill-pack-anthropic-canvas-design": {
+      "input": "c800e72f0c12f58900f19954e67d63893eb5e3eda416930d874c4ec7940049c9",
+      "usefulness": 0.67,
+      "popularity": "widespread",
+      "confidence": 0.6
+    },
+    "skill-pack-anthropic-claude-api": {
+      "input": "469dfef7e1ec584deb541ee25fe305e43c9ca6931674ff96c4fb1e385d02ff15",
+      "usefulness": 0.77,
+      "popularity": "widespread",
+      "confidence": 0.35
+    },
+    "skill-pack-anthropic-discernment-nudge": {
+      "input": "4e2ce7e523fcca667a65cc5f2e9e9f9f03616b9468a40b9740da2db952402ec1",
+      "usefulness": 0.41,
+      "popularity": "widespread",
+      "confidence": 0.67
+    },
+    "skill-pack-anthropic-doc-coauthoring": {
+      "input": "c3f2efde9a54bb461b1abe6d4112229ceefa68f1d153fa67c9cec4e89a36276b",
+      "usefulness": 1.04,
+      "popularity": "widespread",
+      "confidence": 0.6
+    },
+    "skill-pack-anthropic-frontend-design": {
+      "input": "8de1b1c9d682f1430e60d934f66b794659e847a659248e0b10ec36a2883e23d9",
+      "usefulness": 0.6,
       "popularity": "widespread",
       "confidence": 0.49
     },
-    "skill-pack-anthropic-algorithmic-art": {
-      "input": "694328f61374e9956540960248299430939d80b95e21f6673e6bfc48ada583be",
-      "usefulness": 1.28,
-      "popularity": "widespread",
-      "confidence": 0.63
-    },
-    "skill-pack-anthropic-brand-guidelines": {
-      "input": "243760fed500f8924643592e416b9115d9bc6d10f04e4913521aac22202ee9a3",
-      "usefulness": 1.01,
-      "popularity": "widespread",
-      "confidence": 0.66
-    },
-    "skill-pack-anthropic-canvas-design": {
-      "input": "4e227c12eb511a401b38a3aff808a507926858c6a253139d56035fdffc55a61e",
-      "usefulness": 0.66,
-      "popularity": "widespread",
-      "confidence": 0.58
-    },
-    "skill-pack-anthropic-claude-api": {
-      "input": "ebf59a5738bf96f355f1e1e32e28f36716d7ed02c27b4d84de1715e2735760c3",
-      "usefulness": 0.86,
-      "popularity": "widespread",
-      "confidence": 0.28
-    },
-    "skill-pack-anthropic-discernment-nudge": {
-      "input": "a85c59e5020cbced03632d2aed331366d40bc0153b63be047b22cc81d2e20598",
-      "usefulness": 0.31,
-      "popularity": "widespread",
-      "confidence": 0.76
-    },
-    "skill-pack-anthropic-doc-coauthoring": {
-      "input": "71d44c5128db483f781a38b5232ac22827820a43fa66bd41debde598b4585ad8",
-      "usefulness": 1.1,
-      "popularity": "widespread",
-      "confidence": 0.58
-    },
-    "skill-pack-anthropic-frontend-design": {
-      "input": "3a12a8ac97ebfb2df16e36a7a7860588f5e2c7dbeb15ef7a5a9817a78d222e81",
-      "usefulness": 0.65,
-      "popularity": "widespread",
-      "confidence": 0.55
-    },
     "skill-pack-anthropic-internal-comms": {
-      "input": "a66c10afe556a2489faa77b4523c40178af6324ee19f9d4b125903498b8d1a62",
-      "usefulness": 1.1,
+      "input": "91b4836402ec970e1a16142ae369a1968d539e65e9cee4d3e3716fc6c5dadd59",
+      "usefulness": 1.05,
       "popularity": "widespread",
-      "confidence": 0.61
+      "confidence": 0.6
     },
     "skill-pack-anthropic-mcp-builder": {
-      "input": "91ac5de4b5782c923e33d7bff03d82fa23e719b08d68bd5184889c46236aaa14",
-      "usefulness": 1.17,
+      "input": "8bf2fefc3265d417c9f55bea70b8088958196630f076234580e04aeef4748e42",
+      "usefulness": 1.23,
       "popularity": "widespread",
-      "confidence": 0.57
+      "confidence": 0.53
     },
     "skill-pack-anthropic-pptx": {
-      "input": "95864eb919b888a0399eac6b18fdb4b08f9571af7c1592733bb786258857abe4",
+      "input": "c414e76eaa73c708fafb370de7ad7e6ede30fb832a583cae5e711801883e338f",
       "usefulness": 0.82,
       "popularity": "widespread",
       "confidence": 0.54
     },
     "skill-pack-anthropic-skill-creator": {
-      "input": "b764b326a80f9b6b6740ce344e0e2f415376fb75cd2a16ecba8606521791e66a",
-      "usefulness": 0.77,
+      "input": "ea4e4c1438dc85f2977d99e068d82eb77489ce365d635ee17b95b4881540eb0a",
+      "usefulness": 0.79,
       "popularity": "widespread",
-      "confidence": 0.56
+      "confidence": 0.55
     },
     "skill-pack-anthropic-slack-gif-creator": {
-      "input": "5c191ac539a00d57ed84175e0c5575fd3c7618be1cf433ce2920ec185342a03b",
-      "usefulness": 1.17,
+      "input": "eb8c86afeff5070b6ef9b3e5d4931a8223f153f288fd6981ba4f05aa5c8ea238",
+      "usefulness": 1.13,
       "popularity": "widespread",
       "confidence": 0.61
     },
     "skill-pack-anthropic-theme-factory": {
-      "input": "59f4614d532460e2ad8a536a652b10f2a008911868f2312fbaa87734f23cdf2b",
-      "usefulness": 1.24,
+      "input": "f619ae019015c799e2fd7ca71af35900885147566dca19ad5f78174b45a732a3",
+      "usefulness": 1.18,
       "popularity": "widespread",
-      "confidence": 0.65
+      "confidence": 0.67
     },
     "skill-pack-anthropic-web-artifacts-builder": {
-      "input": "54e5caaf18f18cb5b19dfee5c611e7b1f225d90e6bdc37f3443ff2d6826f13e5",
-      "usefulness": 1.07,
+      "input": "d3177b707e4955126ca4b63af407a4e503be07cebebe12d0cf981dd1ad6c430e",
+      "usefulness": 1.13,
       "popularity": "widespread",
-      "confidence": 0.6
+      "confidence": 0.62
     },
     "skill-pack-anthropic-webapp-testing": {
-      "input": "8b1ba78a4735ff44559eda0a4d983533858c3febb737ca86ec2599778b7be93e",
-      "usefulness": 1.32,
+      "input": "f86a88771955bf91d41c4546d7e0519799d4da37d7ce27d8a85ef3cf1166e013",
+      "usefulness": 1.31,
       "popularity": "widespread",
-      "confidence": 0.59
+      "confidence": 0.6
     },
     "doc-user-guide-cli-slash-commands": {
       "input": "f8bfec0094ca2eef09d40725f52cd4bb279c4954aee59a40b61847d7bd026c17",
@@ -8081,8 +8081,8 @@
       "confidence": 0.47
     },
     "plugin-community-mem0": {
-      "input": "7a996b2eb6f39e1da31cca8c821d560d9e4569cf09cd8b3a7a87a97584bfec10",
-      "usefulness": 1.66,
+      "input": "437723b44dcb6d377565d26fc496d29a3a82fe70b3d7dee15e6a2f59745df625",
+      "usefulness": 1.63,
       "popularity": "widespread",
       "confidence": 0.46
     },
