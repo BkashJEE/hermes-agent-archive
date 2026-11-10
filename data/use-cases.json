@@ -1,6 +1,6 @@
 {
   "note": "Imported from https://hermes-agent.nousresearch.com/docs/user-stories by scripts/import-hermes-stories.mjs. Every entry is a real post quoted and attributed on that page; the headline, quote, author and link are as published. Entries are merged, never replaced — nothing already archived is removed by a re-import.",
-  "importedAt": "2026-11-07T14:18:51.625Z",
+  "importedAt": "2026-11-10T15:45:28.334Z",
   "items": [
     {
       "id": "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t",
@@ -7418,6 +7418,20 @@
       "uses": [
         "skill-bundled-other-obsidian"
       ]
+    },
+    {
+      "id": "hn-50437009",
+      "title": "I’m in a job search right now, and am using a Hermes agent to manage it",
+      "summary": "Yep.\n\nI’m in a job search right now, and am using a Hermes agent to manage it. I’ve had it go through my email archive and that of a couple of friends, and email every…",
+      "detail": "> Anything where an LLM asks you a question without disclosing that it's an LLM is an abomination.\n\nYep.\n\nI’m in a job search right now, and am using a Hermes agent to manage it. I’ve had it go through my email archive and that of a couple of friends, and email every recruiter I can find. It’s been very successful - I have >40 initial interviews set up over the next two weeks.\n\nThe key reason I’ve had success, IMO, is that the very first line of the email identifies that it is an agent, its purpose, and goal. It closes with a description of the overall automated process I’ve built.\n\nI did an informal survey of about a dozen randomly-selected respondents, and they all seemed to be of the opinion that if anything, it saved them time. They asked for the information they needed, got it within a couple of minutes, and my agent either scheduled a meeting or politely declined if the jobs they had didn’t meet my hard requirements.\n\nAI can be extremely helpful, even in dealing with other humans en masse. Not disclosing it feels dishonest at best and fraudulent at worst.\n\n— Ancapistani, 2026-11-10, in the Hacker News thread “I saw your HN comment”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=50437009",
+      "author": "Ancapistani",
+      "date": "2026-11-10"
     }
   ]
 }

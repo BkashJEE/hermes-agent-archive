@@ -7,6 +7,22 @@
 <description>Sourced Hermes Agent workflows, prompts, skills and projects, as they are added. Dates are arrival dates.</description>
 <language>en</language>
 <item>
+<title>I’m in a job search right now, and am using a Hermes agent to manage it</title>
+<link>https://hermes-agent-archive.vercel.app/entry/hn-50437009</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-50437009</guid>
+<pubDate>Tue, 10 Nov 2026 12:00:00 GMT</pubDate>
+<category>Use Cases</category>
+<description>Yep. I’m in a job search right now, and am using a Hermes agent to manage it. I’ve had it go through my email archive and that of a couple of friends, and email every…</description>
+</item>
+<item>
+<title>Hermes Agent v0.23.1</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v0-23-1</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v0-23-1</guid>
+<pubDate>Tue, 10 Nov 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>Patch release. This tag rolls up the ~618 PRs merged since v0.23.0 into a stable release for the GitHub release (CLI and installers), the Microsoft Store app, Docker and Hermes Cloud. Full curated notes for this…</description>
+</item>
+<item>
 <title>I use this to follow-up, check status and work on projects while away from the house</title>
 <link>https://hermes-agent-archive.vercel.app/entry/hn-50378776</link>
 <guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-50378776</guid>
@@ -469,22 +485,6 @@
 <pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
 <category>Use Cases</category>
 <description>So, one of the first things that I have put my Hermes agent to work doing is populating my home lab inventory and documentation in Netbox. Documentation and inventory are two…</description>
-</item>
-<item>
-<title>On top of that I also run Hermes Agent and have set up there one agent to be responsible for…</title>
-<link>https://hermes-agent-archive.vercel.app/entry/hn-49810576</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-49810576</guid>
-<pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>One is pi.dev on the console, but because the KB is a git repository I have it on each computer. On top of that I also run Hermes Agent and have set up there one agent to be…</description>
-</item>
-<item>
-<title>I told it to keep an eye on prices</title>
-<link>https://hermes-agent-archive.vercel.app/entry/hn-49787187</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-49787187</guid>
-<pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>I&#39;ve been looking for a new cooker. I have a Hermes agent running on VM that does this. I told it to keep an eye on prices. It created a cron job that triggers the scrapes and…</description>
 </item>
 </channel>
 </rss>
