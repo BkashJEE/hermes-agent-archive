@@ -7,6 +7,14 @@
 <description>Sourced Hermes Agent workflows, prompts, skills and projects, as they are added. Dates are arrival dates.</description>
 <language>en</language>
 <item>
+<title>* - In some cases I use the harness specific method to connect e.g</title>
+<link>https://hermes-agent-archive.vercel.app/entry/hn-50477087</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-50477087</guid>
+<pubDate>Fri, 13 Nov 2026 12:00:00 GMT</pubDate>
+<category>Use Cases</category>
+<description>I&#39;ve resorted to running the full harness apps in a macos VM with full permissions and connect from host over SSH*. Code is mounted as a shared directory. It&#39;s been working…</description>
+</item>
+<item>
 <title>I’m in a job search right now, and am using a Hermes agent to manage it</title>
 <link>https://hermes-agent-archive.vercel.app/entry/hn-50437009</link>
 <guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-50437009</guid>
@@ -477,14 +485,6 @@
 <pubDate>Wed, 21 Oct 2026 12:00:00 GMT</pubDate>
 <category>Releases</category>
 <description>Patch release. This tag rolls up the ~620 PRs merged since v0.22.2 into a stable release for the CLI and installer, the Microsoft Store app, Docker and Hermes Cloud. Full curated notes for this window ship with v0.23.0.</description>
-</item>
-<item>
-<title>So, one of the first things that I have put my Hermes agent to work doing is populating my home…</title>
-<link>https://hermes-agent-archive.vercel.app/entry/hn-50070852</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-50070852</guid>
-<pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>So, one of the first things that I have put my Hermes agent to work doing is populating my home lab inventory and documentation in Netbox. Documentation and inventory are two…</description>
 </item>
 </channel>
 </rss>

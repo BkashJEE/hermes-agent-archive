@@ -1,6 +1,6 @@
 {
   "note": "Imported from https://hermes-agent.nousresearch.com/docs/user-stories by scripts/import-hermes-stories.mjs. Every entry is a real post quoted and attributed on that page; the headline, quote, author and link are as published. Entries are merged, never replaced — nothing already archived is removed by a re-import.",
-  "importedAt": "2026-11-10T15:45:28.334Z",
+  "importedAt": "2026-11-13T15:39:43.819Z",
   "items": [
     {
       "id": "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t",
@@ -7432,6 +7432,23 @@
       "url": "https://news.ycombinator.com/item?id=50437009",
       "author": "Ancapistani",
       "date": "2026-11-10"
+    },
+    {
+      "id": "hn-50477087",
+      "title": "* - In some cases I use the harness specific method to connect e.g",
+      "summary": "I've resorted to running the full harness apps in a macos VM with full permissions and connect from host over SSH*. Code is mounted as a shared directory. It's been working…",
+      "detail": "I've resorted to running the full harness apps in a macos VM with full permissions and connect from host over SSH*. Code is mounted as a shared directory. It's been working well so far. I plan to write a blog and publish code on how to setup the VM with the tools if folks are interested.\n\n* - In some cases I use the harness specific method to connect e.g. Hermes agent and OpenCode GUI app on host\n\n— singhkays, 2026-11-13, in the Hacker News thread “Google Antigravity Swarm (/Swarm)”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=50477087",
+      "author": "singhkays",
+      "date": "2026-11-13",
+      "uses": [
+        "skill-bundled-autonomous-ai-agents-opencode"
+      ]
     }
   ]
 }
