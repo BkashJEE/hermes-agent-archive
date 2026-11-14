@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark light">
+<script>/* Colour scheme before first paint: a stored choice wins, otherwise the system's. Same snippet on every page, so the archive looks the same from one page to the next. */(function(){try{var s=localStorage.getItem('hermes-scheme');if(s==='light'||s==='dark')document.documentElement.dataset.scheme=s;var t=localStorage.getItem('ha-theme');if(t==='broadsheet')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A plugin with its own chat client · Hermes Agent Archive</title>
+<meta name="description" content="A plugin can add a command ( hermes &lt;name&gt; , through ctx.register_cli_command ) that starts its own chat frontend.">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-a-plugin-with-its-own-chat-client">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A plugin with its own chat client">
+<meta property="og:description" content="A plugin can add a command ( hermes &lt;name&gt; , through ctx.register_cli_command ) that starts its own chat frontend.">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-a-plugin-with-its-own-chat-client">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social/skills.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A plugin with its own chat client">
+<meta name="twitter:description" content="A plugin can add a command ( hermes &lt;name&gt; , through ctx.register_cli_command ) that starts its own chat frontend.">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social/skills.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"A plugin with its own chat client","description":"A plugin can add a command ( hermes <name> , through ctx.register_cli_command ) that starts its own chat frontend.","url":"https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-a-plugin-with-its-own-chat-client","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/skills.png","datePublished":"2026-11-14","citation":"https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#a-plugin-with-its-own-chat-client","keywords":"plugins, docs"}</script>
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/skills">Skills</a></header>
+
+<article>
+<h1>A plugin with its own chat client</h1>
+
+<p class="meta">From Official Docs · November 14, 2026</p>
+<p>A plugin can add a command ( hermes &lt;name&gt; , through ctx.register_cli_command ) that starts its own chat frontend. The frontend attaches to the profile&#39;s shared gateway with hermes gateway attach --json (see Programmatic integration ). The command exists only when the plugin runs inside the Hermes process ( plugins.isolation: in_process , the default). With plugins.isolation: host , Hermes skips ctx.register_cli_command , and hermes &lt;name&gt; is not a command. Three imports do what the Hermes terminal client&#39;s launcher does around its own client: hermes_cli.gateway_chat.shell_client_env() returns the allowlisted variables of the shell that ran your command, as a dict. Call it in the launcher, before you change the environment, and send the dict as client_env on session.create . The session&#39;s commands then run with the user&#39;s PATH , virtual environment and toolchain variables. Names that look like credentials are left out, and the gateway filters the dict again by its own rules. hermes_cli.chat_launch.hermes_command(args) returns the argv that runs this Hermes install with args . It needs no PYTHONPATH ; the child serves the profile named by the inherited HERMES_HOME . Give it to your…</p>
+<p>From the official Hermes Agent documentation.</p>
+<pre><code>import json
+import os
+import subprocess
+import tempfile
+
+def _arguments(parser):
+    # The exit summary prints `hermes my-client --resume &lt;id&gt;` and `hermes my-client -c &quot;&lt;title&gt;&quot;`.
+    parser.add_argument(&quot;--resume&quot;, &quot;-r&quot;, metavar=&quot;ID&quot;)
+    parser.add_argument(&quot;--continue&quot;, &quot;-c&quot;, dest=&quot;title&quot;, metavar=&quot;TITLE&quot;)
+
+def _session_to_resume(args):
+    wanted = args.resume or args.title
+    if not wanted:
+        return None  # a new chat: a new profile has no session store to open yet
+    from hermes_constants import get_hermes_home
+    from hermes_state import SessionDB
+
+    db = SessionDB(db_path=get_hermes_home() / &quot;state.db&quot;, read_only=True)
+    try:
+        # The summary prints a short id: resolve_session_id takes a unique prefix.
+        found = db.resolve_session_id(args.resume) if args.resume else db.resolve_session_by_title(args.title)
+    finally:
+        db.close()
+    if not found:
+        raise SystemExit(f&quot;hermes my-client: no session matches {wanted!r}&quot;)
+    return found
+
+def _run_chat(args):
+    from hermes_cli.chat_launch import hermes_command, print_exit_summary
+    from hermes_cli.gateway_chat import shell_client_env
+
+    env = dict(os.environ)
+    env[&quot;MY_CLIENT_ENV&quot;] = json.dumps(shell_client_env())
+    env[&quot;MY_ATTACH_COMMAND&quot;] = json.dumps(hermes_command([&quot;gateway&quot;, &quot;attach&quot;, &quot;--json&quot;, &quot;--start&quot;]))
+    env[&quot;MY_RESUME&quot;] = _session_to_resume(args) or &quot;&quot;  # the frontend sends it with session.resume
+    # One file for this launch: the frontend writes {&quot;session_id&quot;: ...} there for the session it shows.
+    fd, session_file = tempfile.mkstemp(prefix=&quot;my-client-&quot;, suffix=&quot;.json&quot;)
+    os.close(fd)
+    env[&quot;MY_SESSION_FILE&quot;] = session_file
+    try:
+        subprocess.run([&quot;my-client&quot;], env=env)
+        with open(session_file, encoding=&quot;utf-8&quot;) as f:
+            shown = f.read()
+    finally:
+        os.unlink(session_file)
+    if shown:  # empty when the client left before it opened a session
+        print_exit_summary(json.loads(shown)[&quot;session_id&quot;], command=&quot;hermes my-client&quot;)
+
+def register(ctx):
+    ctx.register_cli_command(&quot;my-client&quot;, &quot;Chat in my client&quot;, _arguments, _run_chat)</code></pre>
+
+<ul class="tags"><li>#plugins</li><li>#docs</li></ul>
+
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#a-plugin-with-its-own-chat-client" rel="noopener">Read the original</a>
+<a href="/#skills?item=doc-user-guide-features-plugins-a-plugin-with-its-own-chat-client">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
+</footer>
+</div>
+</body>
+</html>

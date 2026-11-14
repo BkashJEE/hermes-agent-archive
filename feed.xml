@@ -7,6 +7,22 @@
 <description>Sourced Hermes Agent workflows, prompts, skills and projects, as they are added. Dates are arrival dates.</description>
 <language>en</language>
 <item>
+<title>A plugin with its own chat client</title>
+<link>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-a-plugin-with-its-own-chat-client</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-a-plugin-with-its-own-chat-client</guid>
+<pubDate>Sat, 14 Nov 2026 12:00:00 GMT</pubDate>
+<category>Skills</category>
+<description>A plugin can add a command ( hermes &lt;name&gt; , through ctx.register_cli_command ) that starts its own chat frontend.</description>
+</item>
+<item>
+<title>-w: run the session in a fresh worktree</title>
+<link>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-w-run-the-session-in-a-fresh-worktree</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-w-run-the-session-in-a-fresh-worktree</guid>
+<pubDate>Sat, 14 Nov 2026 12:00:00 GMT</pubDate>
+<category>Skills</category>
+<description>The same launcher can offer -w the way hermes --tui -w does.</description>
+</item>
+<item>
 <title>* - In some cases I use the harness specific method to connect e.g</title>
 <link>https://hermes-agent-archive.vercel.app/entry/hn-50477087</link>
 <guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-50477087</guid>
@@ -469,22 +485,6 @@
 <pubDate>Wed, 21 Oct 2026 12:00:00 GMT</pubDate>
 <category>Skills</category>
 <description>Singularity/Apptainer terminal backend: Hermes&#39;s terminal, file and code tools run inside a hardened, rootless container on this machine (--containall --no-home), with CPU/memory limits and an optional per-session persistent overlay (`hermes config set terminal.backend singularity`; image from…</description>
-</item>
-<item>
-<title>Layout styles</title>
-<link>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-cli-layout-styles</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/doc-user-guide-cli-layout-styles</guid>
-<pubDate>Wed, 21 Oct 2026 12:00:00 GMT</pubDate>
-<category>Commands</category>
-<description>display.cli_layout picks how the classic CLI draws.</description>
-</item>
-<item>
-<title>Hermes Agent v0.22.3</title>
-<link>https://hermes-agent-archive.vercel.app/entry/release-v0-22-3</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v0-22-3</guid>
-<pubDate>Wed, 21 Oct 2026 12:00:00 GMT</pubDate>
-<category>Releases</category>
-<description>Patch release. This tag rolls up the ~620 PRs merged since v0.22.2 into a stable release for the CLI and installer, the Microsoft Store app, Docker and Hermes Cloud. Full curated notes for this window ship with v0.23.0.</description>
 </item>
 </channel>
 </rss>
