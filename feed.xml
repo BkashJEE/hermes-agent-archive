@@ -7,6 +7,14 @@
 <description>Sourced Hermes Agent workflows, prompts, skills and projects, as they are added. Dates are arrival dates.</description>
 <language>en</language>
 <item>
+<title>Show HN: Comemo – composite memory provider for Hermes Agent</title>
+<link>https://hermes-agent-archive.vercel.app/entry/hn-50518538</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-50518538</guid>
+<pubDate>Mon, 16 Nov 2026 12:00:00 GMT</pubDate>
+<category>Use Cases</category>
+<description>There are many memory providers that can be used externally with Hermes Agent. However, like many other AI agents, Hermes only provides one slot for an external memory…</description>
+</item>
+<item>
 <title>A plugin with its own chat client</title>
 <link>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-a-plugin-with-its-own-chat-client</link>
 <guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-a-plugin-with-its-own-chat-client</guid>
@@ -477,14 +485,6 @@
 <pubDate>Wed, 21 Oct 2026 12:00:00 GMT</pubDate>
 <category>Skills</category>
 <description>`hermes import-agent`: import a Claude Code (~/.claude), Codex CLI (~/.codex) or Cursor (~/.cursor) setup into Hermes in one command. Instructions, Cursor rules and memories become memory entries, Bash permission rules become command allow/deny lists, MCP servers land in config.yaml and skills are…</description>
-</item>
-<item>
-<title>Singularity</title>
-<link>https://hermes-agent-archive.vercel.app/entry/plugin-official-singularity</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/plugin-official-singularity</guid>
-<pubDate>Wed, 21 Oct 2026 12:00:00 GMT</pubDate>
-<category>Skills</category>
-<description>Singularity/Apptainer terminal backend: Hermes&#39;s terminal, file and code tools run inside a hardened, rootless container on this machine (--containall --no-home), with CPU/memory limits and an optional per-session persistent overlay (`hermes config set terminal.backend singularity`; image from…</description>
 </item>
 </channel>
 </rss>

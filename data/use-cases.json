@@ -1,6 +1,6 @@
 {
   "note": "Imported from https://hermes-agent.nousresearch.com/docs/user-stories by scripts/import-hermes-stories.mjs. Every entry is a real post quoted and attributed on that page; the headline, quote, author and link are as published. Entries are merged, never replaced — nothing already archived is removed by a re-import.",
-  "importedAt": "2026-11-13T15:39:43.819Z",
+  "importedAt": "2026-11-16T17:23:35.793Z",
   "items": [
     {
       "id": "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t",
@@ -7448,6 +7448,23 @@
       "date": "2026-11-13",
       "uses": [
         "skill-bundled-autonomous-ai-agents-opencode"
+      ]
+    },
+    {
+      "id": "hn-50518538",
+      "title": "Show HN: Comemo – composite memory provider for Hermes Agent",
+      "summary": "There are many memory providers that can be used externally with Hermes Agent. However, like many other AI agents, Hermes only provides one slot for an external memory…",
+      "detail": "There are many memory providers that can be used externally with Hermes Agent. However, like many other AI agents, Hermes only provides one slot for an external memory provider.\n\nComemo takes that slot and acts as a composite provider. How? It fans out memory writes to multiple backends such as Mem0, Honcho, and Supermemory. On retrieval, it queries the enabled providers, merges their results, and removes duplicates before returning them to Hermes.\n\nI intend to add support for more memory providers and eventually extend Comemo to other open-source AI agents with similar limitations.\n\n— Andassyn, 2026-11-16, posted to Hacker News.",
+      "tags": [
+        "user-story",
+        "hn-story"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=50518538",
+      "author": "Andassyn",
+      "date": "2026-11-16",
+      "uses": [
+        "skill-optional-autonomous-ai-agents-honcho"
       ]
     }
   ]
