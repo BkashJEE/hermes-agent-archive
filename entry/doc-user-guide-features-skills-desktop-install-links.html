@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark light">
+<script>/* Colour scheme before first paint: a stored choice wins, otherwise the system's. Same snippet on every page, so the archive looks the same from one page to the next. */(function(){try{var s=localStorage.getItem('hermes-scheme');if(s==='light'||s==='dark')document.documentElement.dataset.scheme=s;var t=localStorage.getItem('ha-theme');if(t==='broadsheet')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Desktop install links · Hermes Agent Archive</title>
+<meta name="description" content="Skill cards on the Hermes Marketplace have an Install in Hermes button that opens one of these links.">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-desktop-install-links">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Desktop install links">
+<meta property="og:description" content="Skill cards on the Hermes Marketplace have an Install in Hermes button that opens one of these links.">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-desktop-install-links">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social/skills.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Desktop install links">
+<meta name="twitter:description" content="Skill cards on the Hermes Marketplace have an Install in Hermes button that opens one of these links.">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social/skills.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Desktop install links","description":"Skill cards on the Hermes Marketplace have an Install in Hermes button that opens one of these links.","url":"https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-desktop-install-links","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/skills.png","datePublished":"2026-11-17","citation":"https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#install-from-the-website","keywords":"skills, docs"}</script>
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/skills">Skills</a></header>
+
+<article>
+<h1>Desktop install links</h1>
+
+<p class="meta">From Official Docs · November 17, 2026</p>
+<p>Skill cards on the Hermes Marketplace have an Install in Hermes button that opens one of these links. Hermes Desktop accepts install links with a URL-encoded, source-qualified skill target: official/... for optional skills, clawhub/... for ClawHub, and an explicit repository path for bundled skills rather than an ambiguous bare name. Use the same target with hermes skills install &lt;identifier&gt; : Desktop shows Install &quot;skill-name&quot;? with separate Source and Install to rows. Cancel makes no changes. After confirmation the dialog shows Installing… , then Installed and a completion notification; errors stay in the dialog so you can retry. Installation goes through the normal Skills Hub pipeline (security scan, action log, installed-list refresh). If you switch profile or connection while the confirmation is open, reopen the link for the new destination; a link cannot bypass scanning or pick a different profile. Open conversations are told about the new skill on their next message. The skill/install route needs an updated Desktop build. If the app is missing or does not recognize the link, run hermes skills install &lt;identifier&gt; with the same source-qualified target.</p>
+<p>From the official Hermes Agent documentation.</p>
+<pre><code>hermes://skill/install?identifier=official%2Fsecurity%2F1password</code></pre>
+
+<ul class="tags"><li>#skills</li><li>#docs</li></ul>
+
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#install-from-the-website" rel="noopener">Read the original</a>
+<a href="/#skills?item=doc-user-guide-features-skills-desktop-install-links">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
+</footer>
+</div>
+</body>
+</html>
