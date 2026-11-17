@@ -7,6 +7,22 @@
 <description>Sourced Hermes Agent workflows, prompts, skills and projects, as they are added. Dates are arrival dates.</description>
 <language>en</language>
 <item>
+<title>Desktop install links</title>
+<link>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-desktop-install-links</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-desktop-install-links</guid>
+<pubDate>Tue, 17 Nov 2026 12:00:00 GMT</pubDate>
+<category>Skills</category>
+<description>Skill cards on the Hermes Marketplace have an Install in Hermes button that opens one of these links.</description>
+</item>
+<item>
+<title>Hermes Agent v0.23.2</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v0-23-2</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v0-23-2</guid>
+<pubDate>Tue, 17 Nov 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>Patch release. This tag rolls up the ~1,989 PRs merged since v0.23.1 into a stable release for the GitHub release (CLI and installers), the Microsoft Store app, Docker and Hermes Cloud. Full curated notes for this…</description>
+</item>
+<item>
 <title>Show HN: Comemo – composite memory provider for Hermes Agent</title>
 <link>https://hermes-agent-archive.vercel.app/entry/hn-50518538</link>
 <guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-50518538</guid>
@@ -469,22 +485,6 @@
 <pubDate>Wed, 21 Oct 2026 12:00:00 GMT</pubDate>
 <category>Skills</category>
 <description>A plugin can post one message into the conversation it is working for and update that same message later, on any channel, with no per-platform code.</description>
-</item>
-<item>
-<title>Plugin code inside the gateway</title>
-<link>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-plugin-code-inside-the-gateway</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-plugin-code-inside-the-gateway</guid>
-<pubDate>Wed, 21 Oct 2026 12:00:00 GMT</pubDate>
-<category>Skills</category>
-<description>Hooks, tools and injected turns of every chat and every local session (CLI, TUI, Desktop) run in the one gateway process, not in the client you launched.</description>
-</item>
-<item>
-<title>Agent Importers</title>
-<link>https://hermes-agent-archive.vercel.app/entry/plugin-official-agent-importers</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/plugin-official-agent-importers</guid>
-<pubDate>Wed, 21 Oct 2026 12:00:00 GMT</pubDate>
-<category>Skills</category>
-<description>`hermes import-agent`: import a Claude Code (~/.claude), Codex CLI (~/.codex) or Cursor (~/.cursor) setup into Hermes in one command. Instructions, Cursor rules and memories become memory entries, Bash permission rules become command allow/deny lists, MCP servers land in config.yaml and skills are…</description>
 </item>
 </channel>
 </rss>
