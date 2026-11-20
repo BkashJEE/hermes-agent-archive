@@ -7,6 +7,14 @@
 <description>Sourced Hermes Agent workflows, prompts, skills and projects, as they are added. Dates are arrival dates.</description>
 <language>en</language>
 <item>
+<title>Hermes Agent v0.23.3</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v0-23-3</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v0-23-3</guid>
+<pubDate>Fri, 20 Nov 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>Patch release. This tag rolls up the ~370 PRs merged since v0.23.2 into a stable release for the GitHub release (CLI and installers), the Microsoft Store app, Docker and Hermes Cloud. Full curated notes for this…</description>
+</item>
+<item>
 <title>Desktop install links</title>
 <link>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-desktop-install-links</link>
 <guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-skills-desktop-install-links</guid>
@@ -477,14 +485,6 @@
 <pubDate>Wed, 21 Oct 2026 12:00:00 GMT</pubDate>
 <category>Skills</category>
 <description>The gateway does not load project-local plugins.</description>
-</item>
-<item>
-<title>Posting a live message</title>
-<link>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-posting-a-live-message</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-posting-a-live-message</guid>
-<pubDate>Wed, 21 Oct 2026 12:00:00 GMT</pubDate>
-<category>Skills</category>
-<description>A plugin can post one message into the conversation it is working for and update that same message later, on any channel, with no per-platform code.</description>
 </item>
 </channel>
 </rss>
