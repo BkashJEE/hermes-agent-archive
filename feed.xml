@@ -7,6 +7,14 @@
 <description>Sourced Hermes Agent workflows, prompts, skills and projects, as they are added. Dates are arrival dates.</description>
 <language>en</language>
 <item>
+<title>I&#39;m using this as well for an echo dot I bought on eBay for $15 + Hermes integration in Home…</title>
+<link>https://hermes-agent-archive.vercel.app/entry/hn-50579092</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-50579092</guid>
+<pubDate>Sat, 21 Nov 2026 12:00:00 GMT</pubDate>
+<category>Use Cases</category>
+<description>I&#39;m using this as well for an echo dot I bought on eBay for $15 + Hermes integration in Home Assistant to give instructions to my Hermes agent. Works very well, the first time…</description>
+</item>
+<item>
 <title>Hermes Agent v0.23.3</title>
 <link>https://hermes-agent-archive.vercel.app/entry/release-v0-23-3</link>
 <guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v0-23-3</guid>
@@ -477,14 +485,6 @@
 <pubDate>Wed, 21 Oct 2026 12:00:00 GMT</pubDate>
 <category>Skills</category>
 <description>X Chat gateway platform: talk to Hermes in X&#39;s end-to-end encrypted DMs. Hermes runs as the X account you connect: chat with it in your own self-chat (&quot;message yourself&quot;), or give it a separate account and DM that. Messages are decrypted and encrypted locally with X&#39;s official Chat XDK, so X only…</description>
-</item>
-<item>
-<title>Project-local plugins (./.hermes/plugins/)</title>
-<link>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-project-local-plugins-hermes-plugins</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-project-local-plugins-hermes-plugins</guid>
-<pubDate>Wed, 21 Oct 2026 12:00:00 GMT</pubDate>
-<category>Skills</category>
-<description>The gateway does not load project-local plugins.</description>
 </item>
 </channel>
 </rss>
