@@ -1,6 +1,6 @@
 {
   "note": "Imported from https://hermes-agent.nousresearch.com/docs/user-stories by scripts/import-hermes-stories.mjs. Every entry is a real post quoted and attributed on that page; the headline, quote, author and link are as published. Entries are merged, never replaced — nothing already archived is removed by a re-import.",
-  "importedAt": "2026-11-16T17:23:35.793Z",
+  "importedAt": "2026-11-21T15:34:29.236Z",
   "items": [
     {
       "id": "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t",
@@ -7465,6 +7465,23 @@
       "date": "2026-11-16",
       "uses": [
         "skill-optional-autonomous-ai-agents-honcho"
+      ]
+    },
+    {
+      "id": "hn-50579092",
+      "title": "I'm using this as well for an echo dot I bought on eBay for $15 + Hermes integration in Home…",
+      "summary": "I'm using this as well for an echo dot I bought on eBay for $15 + Hermes integration in Home Assistant to give instructions to my Hermes agent. Works very well, the first time…",
+      "detail": "I'm using this as well for an echo dot I bought on eBay for $15 + Hermes integration in Home Assistant to give instructions to my Hermes agent. Works very well, the first time in my life where i'm getting to enjoy a voice assistant without the nagging worry of all my conversations being sent off to Google/Amazon/Apple\n\n— KetoManx64, 2026-11-20, in the Hacker News thread “Rebuilding my local voice assistant pipeline”.",
+      "tags": [
+        "user-story",
+        "hn-comment"
+      ],
+      "source": "hn",
+      "url": "https://news.ycombinator.com/item?id=50579092",
+      "author": "KetoManx64",
+      "date": "2026-11-20",
+      "uses": [
+        "plugin-official-homeassistant"
       ]
     }
   ]

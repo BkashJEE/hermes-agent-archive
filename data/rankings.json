@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-11-21T14:46:23.845Z",
+  "classifiedAt": "2026-11-21T15:34:31.790Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -9069,6 +9069,12 @@
       "usefulness": 0.62,
       "popularity": "unknown",
       "confidence": 0.48
+    },
+    "hn-50579092": {
+      "input": "6f12b28a8adbdab6df7c7ee96cff68ed321014382057ed78546abd6f4cbc676c",
+      "usefulness": 1.41,
+      "popularity": "unknown",
+      "confidence": 0.59
     }
   }
 }
