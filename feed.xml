@@ -7,6 +7,14 @@
 <description>Sourced Hermes Agent workflows, prompts, skills and projects, as they are added. Dates are arrival dates.</description>
 <language>en</language>
 <item>
+<title>Hermes Agent v0.23.4</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v0-23-4</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v0-23-4</guid>
+<pubDate>Tue, 24 Nov 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>Patch release. This tag rolls up the ~229 PRs merged since v0.23.3 into a stable release for the GitHub release (CLI and installers), the Microsoft Store app, Docker and Hermes Cloud. Full curated notes for this…</description>
+</item>
+<item>
 <title>I&#39;m using this as well for an echo dot I bought on eBay for $15 + Hermes integration in Home…</title>
 <link>https://hermes-agent-archive.vercel.app/entry/hn-50579092</link>
 <guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/hn-50579092</guid>
@@ -477,14 +485,6 @@
 <pubDate>Wed, 21 Oct 2026 12:00:00 GMT</pubDate>
 <category>Use Cases</category>
 <description>It reads my credit card SMSs, tracks every category against the budget, and answers questions in Hebrew or English. … The budget bot got its own Hermes profile, its own gateway…</description>
-</item>
-<item>
-<title>Xchat</title>
-<link>https://hermes-agent-archive.vercel.app/entry/plugin-official-xchat</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/plugin-official-xchat</guid>
-<pubDate>Wed, 21 Oct 2026 12:00:00 GMT</pubDate>
-<category>Skills</category>
-<description>X Chat gateway platform: talk to Hermes in X&#39;s end-to-end encrypted DMs. Hermes runs as the X account you connect: chat with it in your own self-chat (&quot;message yourself&quot;), or give it a separate account and DM that. Messages are decrypted and encrypted locally with X&#39;s official Chat XDK, so X only…</description>
 </item>
 </channel>
 </rss>
