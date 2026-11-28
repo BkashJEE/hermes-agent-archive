@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark light">
+<script>/* Colour scheme before first paint: a stored choice wins, otherwise the system's. Same snippet on every page, so the archive looks the same from one page to the next. */(function(){try{var s=localStorage.getItem('hermes-scheme');if(s==='light'||s==='dark')document.documentElement.dataset.scheme=s;var t=localStorage.getItem('ha-theme');if(t==='broadsheet')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posting a card · Hermes Agent Archive</title>
+<meta name="description" content="Experimental ctx.post_card is experimental, like ctx.fork_session : the card shape and the result codes may change in a later release.">
+<link rel="canonical" href="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-posting-a-card">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Posting a card">
+<meta property="og:description" content="Experimental ctx.post_card is experimental, like ctx.fork_session : the card shape and the result codes may change in a later release.">
+<meta property="og:url" content="https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-posting-a-card">
+<meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social/skills.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Posting a card">
+<meta name="twitter:description" content="Experimental ctx.post_card is experimental, like ctx.fork_session : the card shape and the result codes may change in a later release.">
+<meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social/skills.png">
+<link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/doc.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Posting a card","description":"Experimental ctx.post_card is experimental, like ctx.fork_session : the card shape and the result codes may change in a later release.","url":"https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-posting-a-card","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Hermes Agent Archive","url":"https://hermes-agent-archive.vercel.app/"},"image":"https://hermes-agent-archive.vercel.app/assets/social/skills.png","datePublished":"2026-11-28","citation":"https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#posting-a-card","keywords":"plugins, docs"}</script>
+</head>
+<body>
+<div class="doc">
+<header><a href="/">Hermes Agent Archive</a> / <a href="/shelf/skills">Skills</a></header>
+
+<article>
+<h1>Posting a card</h1>
+
+<p class="meta">From Official Docs · November 28, 2026</p>
+<p>Experimental ctx.post_card is experimental, like ctx.fork_session : the card shape and the result codes may change in a later release. Keep the call inside one small function of your plugin that returns plain data. Treat a definite refusal as &quot;no card&quot;, but never fall back on an uncertain result as described below. Under plugins.isolation: host a third-party plugin&#39;s ctx.post_card and ctx.apost_card exist but raise PluginHostUnsupported (a RuntimeError ), as post_message and fork_session do: the card is admitted on the gateway&#39;s event loop into a session the Hermes process owns. A plugin can put a card into a conversation from anywhere, including a timer or its own background thread, without starting a model turn. The card is saved in the session&#39;s history, so it is still there after a reload. A card is display-only: people see it, and the model is told only that the plugin posted a card with a core-derived opaque reference (one line, [&lt;plugin id&gt; posted a card &lt;opaque id&gt;] ). The reference is stable for that plugin and card id and saved in the row&#39;s content beside its display metadata, so clients can match them. The plugin-chosen id stays in display metadata for rendering and dedu…</p>
+<p>From the official Hermes Agent documentation.</p>
+<pre><code>result = ctx.post_card(
+    {
+        &quot;id&quot;: &quot;sugg_8f2c1a&quot;,
+        &quot;text&quot;: &quot;Hermes thinks deploy-checklist could help your team.&quot;,
+        &quot;directive&quot;: {&quot;name&quot;: &quot;wisdom-share&quot;, &quot;attrs&quot;: {&quot;id&quot;: &quot;sugg_8f2c1a&quot;}},
+    },
+    session_key=session_key,
+)</code></pre>
+
+<ul class="tags"><li>#plugins</li><li>#docs</li></ul>
+
+<div class="actions">
+<a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#posting-a-card" rel="noopener">Read the original</a>
+<a href="/#skills?item=doc-user-guide-features-plugins-posting-a-card">Open in the archive</a>
+</div>
+</article>
+<footer>
+<p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,
+prompts and projects, each one linked to where it came from.</p>
+<p>Curated by <a href="https://x.com/BkashJosi" rel="me">@BkashJosi</a> · <a href="https://github.com/BkashJEE" rel="me">GitHub</a> · <a href="/support">Support the archive</a></p>
+</footer>
+</div>
+</body>
+</html>

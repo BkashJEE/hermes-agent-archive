@@ -7,6 +7,54 @@
 <description>Sourced Hermes Agent workflows, prompts, skills and projects, as they are added. Dates are arrival dates.</description>
 <language>en</language>
 <item>
+<title>Google Meet</title>
+<link>https://hermes-agent-archive.vercel.app/entry/plugin-official-google-meet</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/plugin-official-google-meet</guid>
+<pubDate>Sat, 28 Nov 2026 12:00:00 GMT</pubDate>
+<category>Skills</category>
+<description>Google Meet for Hermes: the agent joins a meet.google.com call you give it (meet_join), scrapes live captions into a transcript (meet_status, meet_transcript), can speak in the call in realtime mode (meet_say), leaves (meet_leave), and can run a transcribe-only bot on another machine through a…</description>
+</item>
+<item>
+<title>Qqbot</title>
+<link>https://hermes-agent-archive.vercel.app/entry/plugin-official-qqbot</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/plugin-official-qqbot</guid>
+<pubDate>Sat, 28 Nov 2026 12:00:00 GMT</pubDate>
+<category>Skills</category>
+<description>QQ Bot messaging platform on Tencent&#39;s official QQ Bot API v2, where messages and media travel between Tencent&#39;s QQ Bot servers (bots.qq.com, api.sgroup.qq.com and the bot WebSocket) and your Hermes gateway using your own QQ Bot App ID and App Secret: DMs, group and guild chats over QQ&#39;s bot…</description>
+</item>
+<item>
+<title>Teams Pipeline</title>
+<link>https://hermes-agent-archive.vercel.app/entry/plugin-official-teams-pipeline</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/plugin-official-teams-pipeline</guid>
+<pubDate>Sat, 28 Nov 2026 12:00:00 GMT</pubDate>
+<category>Skills</category>
+<description>Microsoft Teams meeting pipeline: turns Microsoft Graph change notifications from the msgraph_webhook gateway platform into durable jobs that fetch the meeting transcript (or the recording, transcribed), summarize it with your auxiliary model and deliver the summary to Teams, plus `hermes…</description>
+</item>
+<item>
+<title>Weixin</title>
+<link>https://hermes-agent-archive.vercel.app/entry/plugin-official-weixin</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/plugin-official-weixin</guid>
+<pubDate>Sat, 28 Nov 2026 12:00:00 GMT</pubDate>
+<category>Skills</category>
+<description>Weixin (personal WeChat) messaging platform over Tencent&#39;s iLink Bot API: QR login in `hermes gateway setup`, DMs with pairing or allowlists, native images, video, voice and documents through the encrypted CDN, and cron home-channel delivery (deliver=weixin). Installed by default on every home; it…</description>
+</item>
+<item>
+<title>Posting a card</title>
+<link>https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-posting-a-card</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/doc-user-guide-features-plugins-posting-a-card</guid>
+<pubDate>Sat, 28 Nov 2026 12:00:00 GMT</pubDate>
+<category>Skills</category>
+<description>Experimental ctx.post_card is experimental, like ctx.fork_session : the card shape and the result codes may change in a later release.</description>
+</item>
+<item>
+<title>Hermes Agent v0.23.5</title>
+<link>https://hermes-agent-archive.vercel.app/entry/release-v0-23-5</link>
+<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v0-23-5</guid>
+<pubDate>Sat, 28 Nov 2026 12:00:00 GMT</pubDate>
+<category>Releases</category>
+<description>Patch release. This tag rolls up the ~338 PRs merged since v0.23.4 into a stable release for the GitHub release (CLI and installers), the Microsoft Store app, Docker and Hermes Cloud. Full curated notes for this…</description>
+</item>
+<item>
 <title>Hermes Agent v0.23.4</title>
 <link>https://hermes-agent-archive.vercel.app/entry/release-v0-23-4</link>
 <guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/release-v0-23-4</guid>
@@ -437,54 +485,6 @@
 <pubDate>Wed, 21 Oct 2026 12:00:00 GMT</pubDate>
 <category>Use Cases</category>
 <description>15 days ago, I installed @NousResearch&#39;s Hermes Agent. … What started as a chat interface has gradually become an operating layer across my work, research, personal organisation…</description>
-</item>
-<item>
-<title>An energy advisory firm runs one Hermes gateway for the whole team, scoped by role</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-an-energy-advisory-firm-runs-one-hermes-gateway-for-the-whol</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-an-energy-advisory-firm-runs-one-hermes-gateway-for-the-whol</guid>
-<pubDate>Wed, 21 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>We run option 2 (&quot;one gateway serving several people&quot;) in production for our energy advisory firm, but with a strict role-based capability layer on top: … One Hermes gateway run…</description>
-</item>
-<item>
-<title>A food and beverage company runs ops, finance and approvals on three Hermes profiles</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-a-food-and-beverage-company-runs-ops-finance-and-approvals-o</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-a-food-and-beverage-company-runs-ops-finance-and-approvals-o</guid>
-<pubDate>Wed, 21 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>1 box, 1 gateway, 3 profiles. All split by role: ops, finance, and an approvals-only (for executive and large approvals). … A food and beverage industry and hermes keeps our com…</description>
-</item>
-<item>
-<title>A dad built his 12-year-old her own Hermes profile instead of handing over his agent</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-a-dad-built-his-12-year-old-her-own-hermes-profile-instead-o</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-a-dad-built-his-12-year-old-her-own-hermes-profile-instead-o</guid>
-<pubDate>Wed, 21 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>I wanted my 12-year-old daughter to use AI for learning, creative projects, and the endless questions that come with being 12. I didn’t want to hand her the same general-purpose…</description>
-</item>
-<item>
-<title>Hermes keeps his home lab NetBox inventory current with a nightly network discovery scan</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-hermes-keeps-his-home-lab-netbox-inventory-current-with-a-ni</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-hermes-keeps-his-home-lab-netbox-inventory-current-with-a-ni</guid>
-<pubDate>Wed, 21 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>I have been interested in targeting Netbox for my new iteration of home lab IPAM and documentation and wanted to get the Hermes agent doing most of this for me. … This led to me…</description>
-</item>
-<item>
-<title>Hermes books his gym classes the minute booking opens and only shows menu dishes he rates</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-hermes-books-his-gym-classes-the-minute-booking-opens-and-on</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-hermes-books-his-gym-classes-the-minute-booking-opens-and-on</guid>
-<pubDate>Wed, 21 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>The model gets that list and sends me a numbered message on Telegram, with time and instructor, asking which ones I want. I reply &quot;1 and 4&quot;. The agent stores the choice and crea…</description>
-</item>
-<item>
-<title>A family budget bot on WhatsApp tracks card charges by category and answers in Hebrew</title>
-<link>https://hermes-agent-archive.vercel.app/entry/story-a-family-budget-bot-on-whatsapp-tracks-card-charges-by-categ</link>
-<guid isPermaLink="true">https://hermes-agent-archive.vercel.app/entry/story-a-family-budget-bot-on-whatsapp-tracks-card-charges-by-categ</guid>
-<pubDate>Wed, 21 Oct 2026 12:00:00 GMT</pubDate>
-<category>Use Cases</category>
-<description>It reads my credit card SMSs, tracks every category against the budget, and answers questions in Hebrew or English. … The budget bot got its own Hermes profile, its own gateway…</description>
 </item>
 </channel>
 </rss>
