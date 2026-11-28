@@ -1,7 +1,7 @@
 {
   "version": 1,
   "model": "jev-latest",
-  "classifiedAt": "2026-11-27T16:47:49.054Z",
+  "classifiedAt": "2026-11-28T16:21:34.750Z",
   "policy": "usefulness band, then public popularity, then usefulness score; alphabetical ties; never date",
   "results": {
     "story-solo-building-a-job-site-app-where-the-agent-files-its-own-t": {
@@ -9081,6 +9081,42 @@
       "usefulness": 0.55,
       "popularity": "unknown",
       "confidence": 0.54
+    },
+    "plugin-official-google-meet": {
+      "input": "e5f7e3f48c1fa27291e612a8462174a5cbe05077f19b50b446cdd37108b6281b",
+      "usefulness": 2.99,
+      "popularity": "unknown",
+      "confidence": 0.59
+    },
+    "plugin-official-qqbot": {
+      "input": "2234c49e654701774b918867759dd8b25f99bd248486e2220abae2fce744a9b0",
+      "usefulness": 1.62,
+      "popularity": "unknown",
+      "confidence": 0.42
+    },
+    "plugin-official-teams-pipeline": {
+      "input": "9285f7ffd463098112749e9456c06ab136f804aa2ef0350f76c55feb64fddb4a",
+      "usefulness": 2.56,
+      "popularity": "unknown",
+      "confidence": 0.55
+    },
+    "plugin-official-weixin": {
+      "input": "53b2d5e9cf22e760466ab2542fd678c49c1cefcc1f9163cac4d7d56bd9c1d934",
+      "usefulness": 1.85,
+      "popularity": "unknown",
+      "confidence": 0.48
+    },
+    "doc-user-guide-features-plugins-posting-a-card": {
+      "input": "2db2d9751c7e356feed5f13f6708848cb9a3a718ece04fd0615236a8be902358",
+      "usefulness": 2.36,
+      "popularity": "unknown",
+      "confidence": 0.44
+    },
+    "release-v0-23-5": {
+      "input": "26010fe831b2a17258d3bd0b443745f63e77fc294df3d285ddd8bad0deaf1ce8",
+      "usefulness": 0.5,
+      "popularity": "unknown",
+      "confidence": 0.57
     }
   }
 }

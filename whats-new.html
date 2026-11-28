@@ -6,18 +6,18 @@
 <script>/* Colour scheme before first paint: a stored choice wins, otherwise the system's. Same snippet on every page, so the archive looks the same from one page to the next. */(function(){try{var s=localStorage.getItem('hermes-scheme');if(s==='light'||s==='dark')document.documentElement.dataset.scheme=s;var t=localStorage.getItem('ha-theme');if(t==='broadsheet')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>What arrived recently · Hermes Agent Archive</title>
-<meta name="description" content="1052 entries added to the Hermes Agent Archive over the last 30 days it grew, newest first.">
+<meta name="description" content="735 entries added to the Hermes Agent Archive over the last 30 days it grew, newest first.">
 <link rel="canonical" href="https://hermes-agent-archive.vercel.app/whats-new">
 <meta property="og:type" content="article">
 <meta property="og:title" content="What arrived recently">
-<meta property="og:description" content="1052 entries added to the Hermes Agent Archive over the last 30 days it grew, newest first.">
+<meta property="og:description" content="735 entries added to the Hermes Agent Archive over the last 30 days it grew, newest first.">
 <meta property="og:url" content="https://hermes-agent-archive.vercel.app/whats-new">
 <meta property="og:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="What arrived recently">
-<meta name="twitter:description" content="1052 entries added to the Hermes Agent Archive over the last 30 days it grew, newest first.">
+<meta name="twitter:description" content="735 entries added to the Hermes Agent Archive over the last 30 days it grew, newest first.">
 <meta name="twitter:image" content="https://hermes-agent-archive.vercel.app/assets/social-preview.png">
 <link rel="icon" type="image/svg+xml" href="/assets/mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,8 +32,19 @@
 <header><a href="/">Hermes Agent Archive</a> / What arrived recently</header>
 
 <h1>What arrived recently</h1>
-<p class="lede">1052 entries across the last 30 days the archive grew. Dates are when each entry arrived here, not when its source was published.</p>
+<p class="lede">735 entries across the last 30 days the archive grew. Dates are when each entry arrived here, not when its source was published.</p>
 <p class="meta"><a href="/feed.xml">Subscribe by RSS</a> · <a href="/">Browse the archive</a></p>
+<section>
+<h2>November 28, 2026 <span class="meta">+6</span></h2>
+<p class="meta">SKILLS · 5</p>
+<ul class="entries"><li><a href="/entry/plugin-official-google-meet">Google Meet</a><p>Google Meet for Hermes: the agent joins a meet.google.com call you give it (meet_join), scrapes live captions into a transcript (meet_status, meet_transcript)…</p></li>
+<li><a href="/entry/plugin-official-qqbot">Qqbot</a><p>QQ Bot messaging platform on Tencent&#39;s official QQ Bot API v2, where messages and media travel between Tencent&#39;s QQ Bot servers (bots.qq.com, api.sgroup.qq.com…</p></li>
+<li><a href="/entry/plugin-official-teams-pipeline">Teams Pipeline</a><p>Microsoft Teams meeting pipeline: turns Microsoft Graph change notifications from the msgraph_webhook gateway platform into durable jobs that fetch the meeting…</p></li>
+<li><a href="/entry/plugin-official-weixin">Weixin</a><p>Weixin (personal WeChat) messaging platform over Tencent&#39;s iLink Bot API: QR login in `hermes gateway setup`, DMs with pairing or allowlists, native images…</p></li>
+<li><a href="/entry/doc-user-guide-features-plugins-posting-a-card">Posting a card</a><p>Experimental ctx.post_card is experimental, like ctx.fork_session : the card shape and the result codes may change in a later release.</p></li></ul>
+<p class="meta">RELEASES · 1</p>
+<ul class="entries"><li><a href="/entry/release-v0-23-5">Hermes Agent v0.23.5</a><p>Patch release. This tag rolls up the ~338 PRs merged since v0.23.4 into a stable release for the GitHub release (CLI and installers), the Microsoft Store app…</p></li></ul>
+</section>
 <section>
 <h2>November 24, 2026 <span class="meta">+1</span></h2>
 <p class="meta">RELEASES · 1</p>
@@ -454,48 +465,6 @@
 <li><a href="/entry/mine-hermes-library-of-books">A library of Hermes guides, skills and plugins</a><p>Stuck? Pick a book. A shelf that holds the Hermes guide, skills you can install straight from the page, and plugins you can activate with a click. It grew into…</p></li>
 <li><a href="/entry/mine-jev-decision-layer">Jev as the decision layer in an agent harness</a><p>TypeSafe’s founder sketched a leaner harness: rebuild context per task, route the cheap judgments to a fast typed model, keep the expensive model for real…</p></li>
 <li><a href="/shelf/my-work">+ 1 more on My Work →</a></li></ul>
-</section>
-<section>
-<h2>September 24, 2026 <span class="meta">+323</span></h2>
-<p class="meta">PROMPTS · 12</p>
-<ul class="entries"><li><a href="/entry/prompt-parallel-research">Research three topics in parallel</a><p>Run independent research tasks and combine their findings into a briefing.</p></li>
-<li><a href="/entry/prompt-auth-review">Review and repair an authentication module</a><p>Inspect authentication code for security problems, fix findings and run tests.</p></li>
-<li><a href="/entry/prompt-compare-search">Compare three full-text search approaches</a><p>Evaluate search options by setup effort, capabilities, resources and maintenance.</p></li>
-<li><a href="/entry/prompt-scheduled-briefing">Schedule an AI news briefing for Telegram</a><p>Ask Hermes to schedule a morning briefing and deliver source links to Telegram.</p></li>
-<li><a href="/entry/prompt-sourced-briefing">Write a concise briefing with source URLs</a><p>Turn recent articles into three short news summaries with links.</p></li>
-<li><a href="/entry/prompt-manual-pr-review">Review a pull request with exact code references</a><p>Review a PR diff for bugs, security and code quality with precise line references.</p></li>
-<li><a href="/entry/prompt-remember-backend">Remember backend review conventions</a><p>Teach Hermes persistent conventions for a Python and FastAPI backend.</p></li>
-<li><a href="/entry/prompt-local-git-summary">Summarize the current Git working state</a><p>Get a concise account of local Git changes using the connected project tools.</p></li>
-<li><a href="/entry/prompt-triage-mcp-issues">Group MCP issues and draft a bug report</a><p>Cluster related GitHub issues and draft a report for the most common problem.</p></li>
-<li><a href="/entry/prompt-onboarding-summary">Read and summarize an MCP onboarding guide</a><p>Discover documentation resources and summarize the onboarding guide.</p></li>
-<li><a href="/shelf/prompts">+ 2 more on Prompts →</a></li></ul>
-<p class="meta">SETTINGS · 89</p>
-<ul class="entries"><li><a href="/entry/cli-ignore-user-config">--ignore-user-config</a><p>Ignore ~/.hermes/config.yaml and fall back to built-in defaults. Credentials in .env are still loaded.</p></li>
-<li><a href="/entry/cli-provider-provider">--provider &lt;provider&gt;</a><p>Force a provider: auto, openrouter, nous, openai-codex (aliases chatgpt, chatgpt-codex), copilot-acp, copilot, anthropic, gemini, huggingface, novita (aliases…</p></li>
-<li><a href="/entry/cli-safe-mode">--safe-mode</a><p>Troubleshooting mode: disable ALL customizations — user config, rules/memory injection, plugins, shell hooks, and MCP servers (implies --ignore-user-config and…</p></li>
-<li><a href="/entry/cli-max-turns-n">--max-turns &lt;N&gt;</a><p>Maximum tool-calling iterations per conversation turn (default: 500, or agent.max_turns in config).</p></li>
-<li><a href="/entry/cli-enroll">enroll</a><p>Experimental: enroll this gateway with a relay connector and save relay credentials for connector-backed platforms. See Hermes Relay.</p></li>
-<li><a href="/entry/cli-agent">agent</a><p>Agent behavior settings.</p></li>
-<li><a href="/entry/cli-quick">--quick</a><p>On returning-user runs: only prompt for items that are missing or unset. Skip items you already have configured.</p></li>
-<li><a href="/entry/cli-reset">--reset</a><p>Reset configuration to defaults before setup.</p></li>
-<li><a href="/entry/cli-reconfigure">--reconfigure</a><p>Backwards-compat alias — bare hermes setup on an existing install now does this by default.</p></li>
-<li><a href="/entry/cli-portal">--portal</a><p>One-shot Nous Portal setup: log in via OAuth, set Nous as the inference provider, and opt into the Tool Gateway. Skips the rest of the wizard.</p></li>
-<li><a href="/shelf/settings">+ 79 more on Settings →</a></li></ul>
-<p class="meta">COMMANDS · 220</p>
-<ul class="entries"><li><a href="/entry/cli-hermes-chat">hermes chat</a><p>Interactive or one-shot chat with the agent.</p></li>
-<li><a href="/entry/cli-hermes-model">hermes model</a><p>Interactively choose the default provider and model.</p></li>
-<li><a href="/entry/cli-hermes-moa">hermes moa</a><p>Configure named Mixture of Agents presets selectable from the model picker.</p></li>
-<li><a href="/entry/cli-hermes-fallback">hermes fallback</a><p>Manage fallback providers tried when the primary model errors.</p></li>
-<li><a href="/entry/cli-hermes-gateway">hermes gateway</a><p>Run or manage the messaging gateway service.</p></li>
-<li><a href="/entry/cli-hermes-proxy">hermes proxy</a><p>Local OpenAI-compatible proxy that attaches OAuth provider credentials. See Subscription Proxy.</p></li>
-<li><a href="/entry/cli-hermes-egress">hermes egress</a><p>Outbound credential-injection firewall for remote terminal sandboxes (iron-proxy). Disabled by default. See Egress proxy.</p></li>
-<li><a href="/entry/cli-hermes-lsp">hermes lsp</a><p>Manage Language Server Protocol integration (semantic diagnostics for write_file/patch).</p></li>
-<li><a href="/entry/cli-hermes-setup">hermes setup</a><p>Interactive setup wizard for all or part of the configuration.</p></li>
-<li><a href="/entry/cli-hermes-whatsapp">hermes whatsapp</a><p>Configure and pair the WhatsApp bridge.</p></li>
-<li><a href="/shelf/commands">+ 210 more on Commands →</a></li></ul>
-<p class="meta">WORKS WITH · 2</p>
-<ul class="entries"><li><a href="/entry/kit-cc-switch">farion1231/cc-switch</a><p>One desktop app to manage every harness you run — and it names Hermes Agent in its own headline.</p></li>
-<li><a href="/entry/kit-codegraph">colbymchenry/codegraph</a><p>A code index with an installer that configures the Hermes MCP connection.</p></li></ul>
 </section>
 <footer>
 <p>Part of the <a href="/">Hermes Agent Archive</a> — sourced Hermes Agent workflows,

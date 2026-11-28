@@ -3708,7 +3708,8 @@
       "author": "Julian Goldie (Substack)",
       "date": "2026-04-30",
       "uses": [
-        "plugin-official-spotify"
+        "plugin-official-spotify",
+        "plugin-official-google-meet"
       ]
     },
     {

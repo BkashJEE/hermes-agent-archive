@@ -6097,6 +6097,88 @@
       "source": "docs",
       "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#install-from-the-website",
       "date": "2026-11-17"
+    },
+    {
+      "id": "plugin-official-google-meet",
+      "title": "Google Meet",
+      "summary": "Google Meet for Hermes: the agent joins a meet.google.com call you give it (meet_join), scrapes live captions into a transcript (meet_status, meet_transcript), can speak in the call in realtime mode (meet_say), leaves (meet_leave), and can run a transcribe-only bot on another machine through a remote node; `hermes meet setup|install|auth|join|node`. Explicit by design: it only joins URLs passed in, with no calendar scanning or auto-dial. Known limitation: a bot joined with meet_join leaves when that agent turn ends (hermes-official-plugins#518). Formerly built into Hermes core; existing users are migrated automatically. Disclosure: Python dependencies playwright and websockets; `hermes meet install` downloads Chromium through Hermes and, with --realtime, asks before running apt-get or brew for audio tools. The bot opens the Meet URL in headless Chromium, so Google Meet receives the guest name and the bot's camera and microphone (Chromium's fake devices in transcribe mode); `hermes meet join` (not the meet_join tool) signs in with a Google session you save via `hermes meet auth`, stored in your profile. Captions are scraped from the page into transcript.txt in the profile's meetings folder (on the remote node in remote mode, whose WebSocket returns requested transcript lines) and reach your model provider only as tool output. Realtime mode sends the session instructions, voice and each meet_say text to the OpenAI Realtime API (wss://api.openai.com) with HERMES_MEET_REALTIME_KEY or OPENAI_API_KEY and plays the returned speech into the call; meeting audio is never sent to OpenAI. A remote node is reached over a plain WebSocket (no TLS built in) with a shared token you approve.",
+      "detail": "Google Meet for Hermes: the agent joins a meet.google.com call you give it (meet_join), scrapes live captions into a transcript (meet_status, meet_transcript), can speak in the call in realtime mode (meet_say), leaves (meet_leave), and can run a transcribe-only bot on another machine through a remote node; `hermes meet setup|install|auth|join|node`. Explicit by design: it only joins URLs passed in, with no calendar scanning or auto-dial. Known limitation: a bot joined with meet_join leaves when that agent turn ends (hermes-official-plugins#518). Formerly built into Hermes core; existing users are migrated automatically. Disclosure: Python dependencies playwright and websockets; `hermes meet install` downloads Chromium through Hermes and, with --realtime, asks before running apt-get or brew for audio tools. The bot opens the Meet URL in headless Chromium, so Google Meet receives the guest name and the bot's camera and microphone (Chromium's fake devices in transcribe mode); `hermes meet join` (not the meet_join tool) signs in with a Google session you save via `hermes meet auth`, stored in your profile. Captions are scraped from the page into transcript.txt in the profile's meetings folder (on the remote node in remote mode, whose WebSocket returns requested transcript lines) and reach your model provider only as tool output. Realtime mode sends the session instructions, voice and each meet_say text to the OpenAI Realtime API (wss://api.openai.com) with HERMES_MEET_REALTIME_KEY or OPENAI_API_KEY and plays the returned speech into the call; meeting audio is never sent to OpenAI. A remote node is reached over a plain WebSocket (no TLS built in) with a shared token you approve.\n\nRequires Hermes >=0.21.7. Platforms: linux, macos. Tools: meet_join, meet_leave, meet_status, meet_transcript, meet_say. Version 0.3.0 at import.",
+      "snippet": "hermes plugins install google-meet",
+      "tags": [
+        "skills",
+        "plugin",
+        "official-plugin",
+        "general"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/plugins/google-meet",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "id": "plugin-official-qqbot",
+      "title": "Qqbot",
+      "summary": "QQ Bot messaging platform on Tencent's official QQ Bot API v2, where messages and media travel between Tencent's QQ Bot servers (bots.qq.com, api.sgroup.qq.com and the bot WebSocket) and your Hermes gateway using your own QQ Bot App ID and App Secret: DMs, group and guild chats over QQ's bot WebSocket, native media, voice transcription, scan-to-configure setup and cron home-channel delivery. Installed by default on every home; it stays idle until you set a QQ App ID and secret. Formerly built into Hermes core; existing users are migrated automatically. Disclosure — the plugin downloads attachment URLs from received messages, uploads voice audio to your configured speech-to-text provider (Zhipu GLM-ASR by default) when QQ has no transcript, contacts q.qq.com only during scan-to-configure setup, and its requests carry a User-Agent with the adapter, Python, OS and Hermes versions.",
+      "detail": "QQ Bot messaging platform on Tencent's official QQ Bot API v2, where messages and media travel between Tencent's QQ Bot servers (bots.qq.com, api.sgroup.qq.com and the bot WebSocket) and your Hermes gateway using your own QQ Bot App ID and App Secret: DMs, group and guild chats over QQ's bot WebSocket, native media, voice transcription, scan-to-configure setup and cron home-channel delivery. Installed by default on every home; it stays idle until you set a QQ App ID and secret. Formerly built into Hermes core; existing users are migrated automatically. Disclosure — the plugin downloads attachment URLs from received messages, uploads voice audio to your configured speech-to-text provider (Zhipu GLM-ASR by default) when QQ has no transcript, contacts q.qq.com only during scan-to-configure setup, and its requests carry a User-Agent with the adapter, Python, OS and Hermes versions.\n\nRequires Hermes >=0.23.4. Environment: QQ_APP_ID, QQ_CLIENT_SECRET. Version 2.0.0 at import.",
+      "snippet": "hermes plugins install qqbot",
+      "tags": [
+        "skills",
+        "plugin",
+        "official-plugin",
+        "platform"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/plugins/qqbot",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "id": "plugin-official-teams-pipeline",
+      "title": "Teams Pipeline",
+      "summary": "Microsoft Teams meeting pipeline: turns Microsoft Graph change notifications from the msgraph_webhook gateway platform into durable jobs that fetch the meeting transcript (or the recording, transcribed), summarize it with your auxiliary model and deliver the summary to Teams, plus `hermes teams-pipeline` to list, inspect and re-run jobs, check Graph setup and maintain subscriptions. Notion and Linear writers exist but are not wired yet, and a re-run re-summarizes without delivering. Tested with stand-ins only, not against a real Microsoft 365 tenant. Formerly built into Hermes core; existing users are migrated automatically. Disclosure: one Python dependency (httpx). It calls Microsoft Graph (login.microsoftonline.com, graph.microsoft.com) with the app-only credentials in MSGRAPH_TENANT_ID / MSGRAPH_CLIENT_ID / MSGRAPH_CLIENT_SECRET, reading the meeting artifacts your app registration is granted. Transcripts go to your configured auxiliary model (and a recording to your transcription provider) to be summarized; summaries go only to the Teams destination you configure. Job state, including the Graph subscription clientState, is kept in teams_pipeline_store.json in your profile.",
+      "detail": "Microsoft Teams meeting pipeline: turns Microsoft Graph change notifications from the msgraph_webhook gateway platform into durable jobs that fetch the meeting transcript (or the recording, transcribed), summarize it with your auxiliary model and deliver the summary to Teams, plus `hermes teams-pipeline` to list, inspect and re-run jobs, check Graph setup and maintain subscriptions. Notion and Linear writers exist but are not wired yet, and a re-run re-summarizes without delivering. Tested with stand-ins only, not against a real Microsoft 365 tenant. Formerly built into Hermes core; existing users are migrated automatically. Disclosure: one Python dependency (httpx). It calls Microsoft Graph (login.microsoftonline.com, graph.microsoft.com) with the app-only credentials in MSGRAPH_TENANT_ID / MSGRAPH_CLIENT_ID / MSGRAPH_CLIENT_SECRET, reading the meeting artifacts your app registration is granted. Transcripts go to your configured auxiliary model (and a recording to your transcription provider) to be summarized; summaries go only to the Teams destination you configure. Job state, including the Graph subscription clientState, is kept in teams_pipeline_store.json in your profile.\n\nRequires Hermes >=0.21.7. Environment: MSGRAPH_TENANT_ID, MSGRAPH_CLIENT_ID, MSGRAPH_CLIENT_SECRET. Version 0.2.0 at import.",
+      "snippet": "hermes plugins install teams-pipeline",
+      "tags": [
+        "skills",
+        "plugin",
+        "official-plugin",
+        "general"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/plugins/teams-pipeline",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "id": "plugin-official-weixin",
+      "title": "Weixin",
+      "summary": "Weixin (personal WeChat) messaging platform over Tencent's iLink Bot API: QR login in `hermes gateway setup`, DMs with pairing or allowlists, native images, video, voice and documents through the encrypted CDN, and cron home-channel delivery (deliver=weixin). Installed by default on every home; it stays idle until you log in. Formerly built into Hermes core; existing users are migrated automatically. Disclosure — messages and media travel between Tencent's iLink servers (ilinkai.weixin.qq.com, novac2c.cdn.weixin.qq.com) and your Hermes gateway using the bot token from your own QR login, which is saved in your profile's .env and weixin/accounts/. The plugin also downloads image URLs that appear in replies so it can send them as native media.",
+      "detail": "Weixin (personal WeChat) messaging platform over Tencent's iLink Bot API: QR login in `hermes gateway setup`, DMs with pairing or allowlists, native images, video, voice and documents through the encrypted CDN, and cron home-channel delivery (deliver=weixin). Installed by default on every home; it stays idle until you log in. Formerly built into Hermes core; existing users are migrated automatically. Disclosure — messages and media travel between Tencent's iLink servers (ilinkai.weixin.qq.com, novac2c.cdn.weixin.qq.com) and your Hermes gateway using the bot token from your own QR login, which is saved in your profile's .env and weixin/accounts/. The plugin also downloads image URLs that appear in replies so it can send them as native media.\n\nRequires Hermes >=0.22.3. Environment: WEIXIN_ACCOUNT_ID, WEIXIN_TOKEN. Version 2.0.0 at import.",
+      "snippet": "hermes plugins install weixin",
+      "tags": [
+        "skills",
+        "plugin",
+        "official-plugin",
+        "platform"
+      ],
+      "source": "docs",
+      "author": "Nous Research",
+      "url": "https://hermes-agent.nousresearch.com/docs/plugins/weixin",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "id": "doc-user-guide-features-plugins-posting-a-card",
+      "title": "Posting a card",
+      "summary": "Experimental ctx.post_card is experimental, like ctx.fork_session : the card shape and the result codes may change in a later release.",
+      "detail": "Experimental ctx.post_card is experimental, like ctx.fork_session : the card shape and the result codes may change in a later release. Keep the call inside one small function of your plugin that returns plain data. Treat a definite refusal as \"no card\", but never fall back on an uncertain result as described below. Under plugins.isolation: host a third-party plugin's ctx.post_card and ctx.apost_card exist but raise PluginHostUnsupported (a RuntimeError ), as post_message and fork_session do: the card is admitted on the gateway's event loop into a session the Hermes process owns. A plugin can put a card into a conversation from anywhere, including a timer or its own background thread, without starting a model turn. The card is saved in the session's history, so it is still there after a reload. A card is display-only: people see it, and the model is told only that the plugin posted a card with a core-derived opaque reference (one line, [<plugin id> posted a card <opaque id>] ). The reference is stable for that plugin and card id and saved in the row's content beside its display metadata, so clients can match them. The plugin-chosen id stays in display metadata for rendering and dedu…\n\nFrom the official Hermes Agent documentation.",
+      "snippet": "result = ctx.post_card(\n    {\n        \"id\": \"sugg_8f2c1a\",\n        \"text\": \"Hermes thinks deploy-checklist could help your team.\",\n        \"directive\": {\"name\": \"wisdom-share\", \"attrs\": {\"id\": \"sugg_8f2c1a\"}},\n    },\n    session_key=session_key,\n)",
+      "tags": [
+        "plugins",
+        "docs"
+      ],
+      "source": "docs",
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins#posting-a-card",
+      "date": "2026-11-28"
     }
   ]
 }
